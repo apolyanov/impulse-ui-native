@@ -12,7 +12,7 @@
     "./package.json": "./package.json"
   },
   "peerDependencies": {
-    "react": "~18.3.1",
-    "react-native": "0.76.3"
+    "react": "19.1.0",
+    "react-native": "0.80.1"
   }
 }
