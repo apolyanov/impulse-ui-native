@@ -1,0 +1,10 @@
+{
+  "name": "@impulse-ui-native/playground-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@impulse-ui-native/playground"
+    ]
+  }
+}
