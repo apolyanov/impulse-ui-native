@@ -65,6 +65,8 @@
   },
   "workspaces": [
     "apps/*",
-    "libs/hooks"
+    "libs/hooks",
+    "libs/theme",
+    "libs/echo"
   ]
 }

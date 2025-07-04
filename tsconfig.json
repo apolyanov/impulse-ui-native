@@ -8,6 +8,12 @@
     },
     {
       "path": "./libs/hooks"
+    },
+    {
+      "path": "./libs/theme"
+    },
+    {
+      "path": "./libs/echo"
     }
   ]
 }
