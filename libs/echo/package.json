@@ -11,8 +11,5 @@
     },
     "./package.json": "./package.json"
   },
-  "peerDependencies": {
-    "react": "19.1.0",
-    "react-native": "0.80.1"
-  }
+  "peerDependencies": {}
 }
