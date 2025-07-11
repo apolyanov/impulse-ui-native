@@ -10,11 +10,54 @@ import { DeepPartial } from '@impulse-ui-native/types';
 import { merge } from '@impulse-ui-native/utils';
 import { DarkTheme, LightTheme } from '../theme';
 
+import {
+  useFonts,
+  Montserrat_100Thin,
+  Montserrat_100Thin_Italic,
+  Montserrat_200ExtraLight,
+  Montserrat_200ExtraLight_Italic,
+  Montserrat_300Light,
+  Montserrat_300Light_Italic,
+  Montserrat_400Regular,
+  Montserrat_400Regular_Italic,
+  Montserrat_500Medium,
+  Montserrat_500Medium_Italic,
+  Montserrat_600SemiBold,
+  Montserrat_600SemiBold_Italic,
+  Montserrat_700Bold,
+  Montserrat_700Bold_Italic,
+  Montserrat_800ExtraBold,
+  Montserrat_800ExtraBold_Italic,
+  Montserrat_900Black,
+  Montserrat_900Black_Italic,
+} from '@expo-google-fonts/montserrat';
+
 const ThemeContext = createContext<ThemeContextData | undefined>(undefined);
 
 export const ThemeProvider = memo(function ThemeProvider(
   props: PropsWithChildren<DeepPartial<ThemeContextData>>,
 ) {
+  const [loaded] = useFonts({
+    Montserrat_100Thin,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black,
+    Montserrat_900Black_Italic,
+  });
+
   const context = useMemo<ThemeContextData>(() => {
     const base: ThemeContextData = {
       light: { theme: LightTheme },
@@ -30,6 +73,10 @@ export const ThemeProvider = memo(function ThemeProvider(
     return merge(base, override);
   }, [props.dark, props.light]);
 
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <ThemeContext.Provider value={context}>
       {props.children}
@@ -41,7 +88,7 @@ export function useThemeContext() {
   const context = useContext(ThemeContext);
 
   if (!context) {
-    throw new Error('useThemeContext must be used withing a ThemeProvider');
+    throw new Error('useThemeContext must be used within a ThemeProvider');
   }
 
   return context;

@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 import { SafeAreaView, StyleSheet, ScrollView, StatusBar } from 'react-native';
+import { Typography } from '@impulse-ui-native/toolkit';
 
 export const App = () => {
   const scrollViewRef = useRef<null | ScrollView>(null);
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar />
       <SafeAreaView
         style={{
           flex: 1,
@@ -18,7 +19,9 @@ export const App = () => {
           }}
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
-        ></ScrollView>
+        >
+          <Typography.Master>Test</Typography.Master>
+        </ScrollView>
       </SafeAreaView>
     </>
   );

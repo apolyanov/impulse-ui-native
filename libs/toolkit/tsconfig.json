@@ -4,7 +4,7 @@
   "include": [],
   "references": [
     {
-      "path": "../types"
+      "path": "../typography"
     },
     {
       "path": "./tsconfig.lib.json"

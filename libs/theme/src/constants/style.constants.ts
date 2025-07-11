@@ -1,4 +1,5 @@
 export const StylePropsSet = new Set([
+  // Spacing
   'margin',
   'marginTop',
   'marginBottom',
@@ -13,6 +14,8 @@ export const StylePropsSet = new Set([
   'paddingRight',
   'paddingHorizontal',
   'paddingVertical',
+
+  // Appearance
   'color',
   'backgroundColor',
   'opacity',
@@ -25,4 +28,20 @@ export const StylePropsSet = new Set([
   'shadowRadius',
   'shadowOffset',
   'elevation',
+
+  // Typography (TextStyle)
+  'fontSize',
+  'fontFamily',
+  'fontWeight',
+  'fontStyle',
+  'letterSpacing',
+  'lineHeight',
+  'textAlign',
+  'textDecorationLine',
+  'textDecorationStyle',
+  'textDecorationColor',
+  'textTransform',
+  'includeFontPadding',
+  'textAlignVertical',
+  'writingDirection',
 ]);

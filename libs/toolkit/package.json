@@ -1,5 +1,5 @@
 {
-  "name": "@impulse-ui-native/hooks",
+  "name": "@impulse-ui-native/toolkit",
   "version": "0.0.1",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",

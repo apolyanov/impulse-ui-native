@@ -26,10 +26,7 @@
   "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
   "references": [
     {
-      "path": "../utils/tsconfig.lib.json"
-    },
-    {
-      "path": "../types/tsconfig.lib.json"
+      "path": "../typography/tsconfig.lib.json"
     }
   ]
 }

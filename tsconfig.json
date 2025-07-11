@@ -23,6 +23,9 @@
     },
     {
       "path": "./libs/utils"
+    },
+    {
+      "path": "./libs/toolkit"
     }
   ]
 }
