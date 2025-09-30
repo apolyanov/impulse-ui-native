@@ -1,10 +1,8 @@
-import { AppTheme } from '../theme';
+import { AppTheme } from "../theme";
 
-export interface ExtendedTheme {
+export interface ThemeContextData {
+  loaded: boolean;
   theme: AppTheme;
 }
 
-export interface ThemeContextData {
-  light: ExtendedTheme;
-  dark: ExtendedTheme;
-}
+export type ColorScheme = "light" | "dark";

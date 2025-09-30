@@ -2,7 +2,7 @@ import {
   TypographyPresetKey,
   TypographyProps,
   useStyleProps,
-  useTheme,
+  useThemeContext,
 } from "@impulse-ui-native/theme";
 import { memo, useMemo } from "react";
 import { StyleSheet, Text, TextProps } from "react-native";
@@ -12,17 +12,21 @@ export function createPreset(
   key: TypographyPresetKey
 ) {
   const Component = (props: TextProps) => {
-    const theme = useTheme();
+    const context = useThemeContext();
     const extractedStyleProps = useStyleProps(props);
 
     const style = useMemo(() => {
       return StyleSheet.flatten([
         config,
-        theme.components?.typography?.[key],
+        context.theme.components?.typography?.[key],
         extractedStyleProps,
         props.style,
       ]);
-    }, [theme.components?.typography, extractedStyleProps, props.style]);
+    }, [
+      context.theme.components?.typography,
+      extractedStyleProps,
+      props.style,
+    ]);
 
     return <Text {...props} style={style} />;
   };

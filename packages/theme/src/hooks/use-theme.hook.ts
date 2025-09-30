@@ -1,8 +1,9 @@
-import { useColorScheme } from 'react-native';
-import { AppTheme, DarkTheme, LightTheme } from '../theme';
+import { useMemo } from "react";
+import { useThemeContext } from "../providers";
+import { AppTheme } from "../theme";
 
 export function useTheme(): AppTheme {
-  const scheme = useColorScheme();
+  const context = useThemeContext();
 
-  return scheme === 'dark' ? DarkTheme : LightTheme;
+  return useMemo(() => context.theme, [context.theme]);
 }

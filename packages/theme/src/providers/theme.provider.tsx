@@ -1,5 +1,4 @@
-import { merge } from "@impulse-ui-native/core";
-import { DeepPartial } from "@impulse-ui-native/core";
+import { DeepPartial, merge } from "@impulse-ui-native/core";
 import {
   createContext,
   memo,
@@ -7,8 +6,8 @@ import {
   useContext,
   useMemo,
 } from "react";
-import { DarkTheme, LightTheme } from "../theme";
-import { ThemeContextData } from "../types";
+import { AppTheme, DarkTheme, LightTheme } from "../theme";
+import { ColorScheme, ThemeContextData } from "../types";
 
 import {
   Montserrat_100Thin,
@@ -31,13 +30,22 @@ import {
   Montserrat_900Black_Italic,
   useFonts,
 } from "@expo-google-fonts/montserrat";
-import { View } from "react-native";
 
 const ThemeContext = createContext<ThemeContextData | undefined>(undefined);
 
+interface ThemeProviderProps {
+  scheme: ColorScheme;
+  theme: {
+    light: AppTheme;
+    dark: AppTheme;
+  };
+}
+
 export const ThemeProvider = memo(function ThemeProvider(
-  props: PropsWithChildren<DeepPartial<ThemeContextData>>
+  props: PropsWithChildren<DeepPartial<ThemeProviderProps>>
 ) {
+  const scheme = props.scheme ?? "light";
+
   const [loaded] = useFonts({
     Montserrat_100Thin,
     Montserrat_100Thin_Italic,
@@ -60,19 +68,13 @@ export const ThemeProvider = memo(function ThemeProvider(
   });
 
   const context = useMemo<ThemeContextData>(() => {
-    const base: ThemeContextData = {
-      light: { theme: LightTheme },
-      dark: { theme: DarkTheme },
+    const baseTheme = scheme === "light" ? LightTheme : DarkTheme;
+
+    return {
+      loaded,
+      theme: merge(baseTheme, props.theme?.[scheme]),
     };
-
-    let override: DeepPartial<ThemeContextData> | undefined = undefined;
-
-    if (props.light || props.dark) {
-      override = { dark: props.dark, light: props.light };
-    }
-
-    return merge(base, override);
-  }, [props.dark, props.light]);
+  }, [props.theme?.light, props.theme?.dark]);
 
   return (
     <ThemeContext.Provider value={context}>
