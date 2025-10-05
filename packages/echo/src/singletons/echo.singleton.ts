@@ -1,14 +1,14 @@
-import { EchoEventNames, EchoListenerEntry, EchoEvents } from "../types";
+import { EchoEventNames, EchoEvents, EchoListenerEntry } from "../types";
 
 class Echo {
-  private subsbribers: Map<EchoEventNames, EchoListenerEntry[]>;
+  private subscribers: Map<EchoEventNames, EchoListenerEntry[]>;
 
   constructor() {
-    this.subsbribers = new Map();
+    this.subscribers = new Map();
   }
 
   emit<Event extends EchoEventNames>(event: Event, data: EchoEvents[Event]) {
-    this.subsbribers.get(event)?.forEach((subscriber) => {
+    this.subscribers.get(event)?.forEach((subscriber) => {
       subscriber.callback(data);
     });
   }
@@ -19,12 +19,12 @@ class Echo {
   ) {
     const subscriberId = this.generateId();
 
-    if (this.subsbribers.has(event)) {
-      const listeners = this.subsbribers.get(event);
+    if (this.subscribers.has(event)) {
+      const listeners = this.subscribers.get(event);
 
       listeners?.push({ id: subscriberId, callback });
     } else {
-      this.subsbribers.set(event, [{ id: subscriberId, callback }]);
+      this.subscribers.set(event, [{ id: subscriberId, callback }]);
     }
 
     return () => {
@@ -33,10 +33,10 @@ class Echo {
   }
 
   private unsubscribe<Event extends EchoEventNames>(event: Event, id: string) {
-    if (this.subsbribers.has(event)) {
-      this.subsbribers.set(
+    if (this.subscribers.has(event)) {
+      this.subscribers.set(
         event,
-        this.subsbribers.get(event)?.filter((entry) => entry.id !== id) ?? []
+        this.subscribers.get(event)?.filter((entry) => entry.id !== id) ?? []
       );
     }
   }

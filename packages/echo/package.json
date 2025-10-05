@@ -25,7 +25,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@impulse-ui-native/core": "workspace:*"
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/layer-manager-types": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

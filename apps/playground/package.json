@@ -40,7 +40,9 @@
     "@impulse-ui-native/view": "workspace:*",
     "@impulse-ui-native/typography": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
-    "@impulse-ui-native/flyout": "workspace:*"
+    "@impulse-ui-native/flyout": "workspace:*",
+    "@impulse-ui-native/layer-manager": "workspace:*",
+    "@impulse-ui-native/layer-manager-types": "workspace:*"
   },
   "private": true
 }

@@ -1,15 +1,48 @@
-import { Flyout } from "@impulse-ui-native/flyout";
+import { registerFlyout } from "@impulse-ui-native/layer-manager";
+import { FlyoutOpenProps } from "@impulse-ui-native/layer-manager-types";
 import { Typography } from "@impulse-ui-native/typography";
 import { View } from "@impulse-ui-native/view";
-import { useState } from "react";
-import { Pressable } from "react-native";
+import { Fragment, memo, useState } from "react";
+import { Pressable, Text } from "react-native";
+
+const TestComponent = memo((props: FlyoutOpenProps) => {
+  return (
+    <Fragment>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+      <Text>TEST VIEW</Text>
+    </Fragment>
+  );
+});
+
+const test = registerFlyout({
+  id: "test",
+  Content: TestComponent,
+  title(props) {
+    return props.title;
+  },
+});
 
 export default function Index() {
   const [open, setOpen] = useState<boolean>(false);
   const [openBottom, setOpenBottom] = useState<boolean>(false);
 
   const openFlyout = () => {
-    setOpen(true);
+    test.open({
+      title: "TEST",
+      placement: "top",
+    });
   };
 
   const openFlyoutBottom = () => {
@@ -33,415 +66,6 @@ export default function Index() {
       <Pressable onPress={openFlyoutBottom}>
         <Typography.BodyLarge>OPEN BOTTOM</Typography.BodyLarge>
       </Pressable>
-      {open && (
-        <Flyout
-          id="test"
-          placement="top"
-          onCloseFinished={() => setOpen(false)}
-          layer={1}
-          isTop
-        >
-          <View style={{ padding: 16, backgroundColor: "white" }}>
-            <Typography.Title1>Flyout Header</Typography.Title1>
-          </View>
-
-          <View style={{ height: 1 }} />
-
-          <View style={{ padding: 16 }}>
-            <Typography.BodyLarge>
-              This is a description inside the flyout. You can put any content
-              here.
-            </Typography.BodyLarge>
-          </View>
-
-          <View style={{ height: 1 }} />
-
-          <View style={{ padding: 16 }}>
-            <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-            <View style={{ marginTop: 8, gap: 12 }}>
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 1</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 2</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 3</Typography.Body>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ padding: 16 }}>
-            <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-            <View style={{ marginTop: 8, gap: 12 }}>
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 1</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 2</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 3</Typography.Body>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ padding: 16 }}>
-            <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-            <View style={{ marginTop: 8, gap: 12 }}>
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 1</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 2</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 3</Typography.Body>
-              </View>
-            </View>
-          </View>
-          <View style={{ height: 1 }} />
-
-          <View style={{ padding: 16 }}>
-            <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-            <View style={{ marginTop: 8, gap: 12 }}>
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 1</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 2</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 3</Typography.Body>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ padding: 16 }}>
-            <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-            <View style={{ marginTop: 8, gap: 12 }}>
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 1</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 2</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 3</Typography.Body>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ padding: 16 }}>
-            <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-            <View style={{ marginTop: 8, gap: 12 }}>
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 1</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 2</Typography.Body>
-              </View>
-
-              <View
-                style={{
-                  padding: 12,
-                  borderRadius: 8,
-                }}
-              >
-                <Typography.Body>Item 3</Typography.Body>
-              </View>
-            </View>
-          </View>
-        </Flyout>
-      )}
-      <Flyout
-        id="test"
-        open={openBottom}
-        placement="bottom"
-        onCloseFinished={() => setOpenBottom(false)}
-        layer={2}
-        isTop
-      >
-        <View style={{ padding: 16, backgroundColor: "white" }}>
-          <Typography.Title1>Flyout Header</Typography.Title1>
-        </View>
-
-        <View style={{ height: 1 }} />
-
-        <View style={{ padding: 16 }}>
-          <Typography.BodyLarge>
-            This is a description inside the flyout. You can put any content
-            here.
-          </Typography.BodyLarge>
-        </View>
-
-        <View style={{ height: 1 }} />
-
-        <View style={{ padding: 16 }}>
-          <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-          <View style={{ marginTop: 8, gap: 12 }}>
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 1</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 2</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 3</Typography.Body>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ padding: 16 }}>
-          <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-          <View style={{ marginTop: 8, gap: 12 }}>
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 1</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 2</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 3</Typography.Body>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ padding: 16 }}>
-          <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-          <View style={{ marginTop: 8, gap: 12 }}>
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 1</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 2</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 3</Typography.Body>
-            </View>
-          </View>
-        </View>
-        <View style={{ padding: 16 }}>
-          <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-          <View style={{ marginTop: 8, gap: 12 }}>
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 1</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 2</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 3</Typography.Body>
-            </View>
-          </View>
-        </View>
-        <View style={{ padding: 16 }}>
-          <Typography.Subtitle1>Section Title</Typography.Subtitle1>
-
-          <View style={{ marginTop: 8, gap: 12 }}>
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 1</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 2</Typography.Body>
-            </View>
-
-            <View
-              style={{
-                padding: 12,
-                borderRadius: 8,
-              }}
-            >
-              <Typography.Body>Item 3</Typography.Body>
-            </View>
-          </View>
-        </View>
-      </Flyout>
     </View>
   );
 }

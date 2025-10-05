@@ -33,6 +33,12 @@ importers:
       '@impulse-ui-native/flyout':
         specifier: workspace:*
         version: link:../../packages/flyout
+      '@impulse-ui-native/layer-manager':
+        specifier: workspace:*
+        version: link:../../packages/layer-manager
+      '@impulse-ui-native/layer-manager-types':
+        specifier: workspace:*
+        version: link:../../packages/layer-manager-types
       '@impulse-ui-native/theme':
         specifier: workspace:*
         version: link:../../packages/theme
@@ -141,6 +147,9 @@ importers:
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core
+      '@impulse-ui-native/layer-manager-types':
+        specifier: workspace:*
+        version: link:../layer-manager-types
       expo:
         specifier: '>=51 || >=52'
         version: 54.0.3(@babel/core@7.28.4)(@expo/metro-runtime@6.1.1)(expo-router@6.0.2)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
@@ -161,6 +170,99 @@ importers:
         version: 4.1.0(@babel/core@7.28.4)(react-native-worklets@0.6.0(@babel/core@7.28.4)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0))(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
 
   packages/flyout:
+    dependencies:
+      '@impulse-ui-native/core':
+        specifier: workspace:*
+        version: link:../core
+      '@impulse-ui-native/layer-manager-types':
+        specifier: 'workspace: *'
+        version: link:../layer-manager-types
+      '@impulse-ui-native/safe-area-view':
+        specifier: workspace:*
+        version: link:../safe-area-view
+      '@impulse-ui-native/theme':
+        specifier: workspace:*
+        version: link:../theme
+      '@impulse-ui-native/typography':
+        specifier: workspace:*
+        version: link:../typography
+      '@impulse-ui-native/view':
+        specifier: workspace:*
+        version: link:../view
+      expo:
+        specifier: '>=51 || >=52'
+        version: 54.0.3(@babel/core@7.28.4)(@expo/metro-runtime@6.1.1)(expo-router@6.0.2)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      expo-modules-core:
+        specifier: '>=1.0.0'
+        version: 3.0.15(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react:
+        specifier: '>=18'
+        version: 19.1.0
+      react-native:
+        specifier: '>=0.74'
+        version: 0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0)
+      react-native-gesture-handler:
+        specifier: '>=2'
+        version: 2.28.0(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-reanimated:
+        specifier: '>=3'
+        version: 4.1.0(@babel/core@7.28.4)(react-native-worklets@0.5.1(@babel/core@7.28.4)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0))(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-safe-area-context:
+        specifier: 5.6.1
+        version: 5.6.1(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-worklets:
+        specifier: '>=0.5.1'
+        version: 0.5.1(@babel/core@7.28.4)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+
+  packages/layer-manager:
+    dependencies:
+      '@impulse-ui-native/core':
+        specifier: workspace:*
+        version: link:../core
+      '@impulse-ui-native/echo':
+        specifier: workspace:*
+        version: link:../echo
+      '@impulse-ui-native/flyout':
+        specifier: workspace:*
+        version: link:../flyout
+      '@impulse-ui-native/layer-manager-types':
+        specifier: 'workspace: *'
+        version: link:../layer-manager-types
+      '@impulse-ui-native/safe-area-view':
+        specifier: workspace:*
+        version: link:../safe-area-view
+      '@impulse-ui-native/theme':
+        specifier: workspace:*
+        version: link:../theme
+      '@impulse-ui-native/view':
+        specifier: workspace:*
+        version: link:../view
+      expo:
+        specifier: '>=51 || >=52'
+        version: 54.0.3(@babel/core@7.28.4)(@expo/metro-runtime@6.1.1)(expo-router@6.0.2)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      expo-modules-core:
+        specifier: '>=1.0.0'
+        version: 3.0.15(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react:
+        specifier: '>=18'
+        version: 19.1.0
+      react-native:
+        specifier: '>=0.74'
+        version: 0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0)
+      react-native-gesture-handler:
+        specifier: '>=2'
+        version: 2.28.0(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-reanimated:
+        specifier: '>=3'
+        version: 4.1.0(@babel/core@7.28.4)(react-native-worklets@0.5.1(@babel/core@7.28.4)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0))(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-safe-area-context:
+        specifier: 5.6.1
+        version: 5.6.1(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+      react-native-worklets:
+        specifier: '>=0.5.1'
+        version: 0.5.1(@babel/core@7.28.4)(react-native@0.81.4(@babel/core@7.28.4)(@types/react@19.1.12)(react@19.1.0))(react@19.1.0)
+
+  packages/layer-manager-types:
     dependencies:
       '@impulse-ui-native/core':
         specifier: workspace:*

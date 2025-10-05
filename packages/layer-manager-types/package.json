@@ -1,5 +1,5 @@
 {
-  "name": "@impulse-ui-native/flyout",
+  "name": "@impulse-ui-native/layer-manager-types",
   "version": "0.1.0",
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
@@ -27,10 +27,8 @@
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/view": "workspace:*",
-    "@impulse-ui-native/typography": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
-    "@impulse-ui-native/safe-area-view": "workspace:*",
-    "@impulse-ui-native/layer-manager-types": "workspace: *"
+    "@impulse-ui-native/safe-area-view": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -42,7 +40,5 @@
     "react-native-gesture-handler": ">=2",
     "react-native-reanimated": ">=3"
   },
-  "publishConfig": {
-    "access": "public"
-  }
+  "private": "true"
 }

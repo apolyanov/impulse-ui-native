@@ -1,8 +1,6 @@
-export interface FlyoutProps {
-  id: string;
+import { LayerComponentBaseProps } from "@impulse-ui-native/layer-manager-types";
+
+export interface FlyoutProps extends LayerComponentBaseProps {
   open?: boolean;
-  layer: number;
-  isTop?: boolean;
   placement?: "top" | "bottom";
-  onCloseFinished?: () => void;
 }

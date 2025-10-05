@@ -1,6 +1,7 @@
 import { useEventCallback } from "@impulse-ui-native/core";
 import { SafeAreaView } from "@impulse-ui-native/safe-area-view";
 import { AppTheme, useColors, useTheme } from "@impulse-ui-native/theme";
+import { View } from "@impulse-ui-native/view";
 import {
   Fragment,
   memo,
@@ -36,6 +37,7 @@ import { Edge } from "react-native-safe-area-context";
 import { scheduleOnRN } from "react-native-worklets";
 import { FlyoutProps } from "../types";
 import { FlyoutHandle } from "./flyout-handle";
+import { FlyoutTitle } from "./flyout-title";
 
 const EnterAnimationConfig = {
   damping: 50,
@@ -66,9 +68,10 @@ export const Flyout = memo(function Flyout({
 
   const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
   const [bounceEnabled, setBounceEnabled] = useState(placement !== "bottom");
+  const [viewportHeight, setViewportHeight] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
 
   const didOpen = useRef(false);
-
   const canDismiss = useSharedValue(placement === "bottom");
   const scrollY = useSharedValue(0);
   const maxScrollY = useSharedValue(0);
@@ -78,10 +81,14 @@ export const Flyout = memo(function Flyout({
   );
   const opacity = useSharedValue(0);
 
+  const isScrollable = useMemo(
+    () => contentHeight > viewportHeight,
+    [contentHeight, viewportHeight]
+  );
+
   const onScroll = useAnimatedScrollHandler({
     onScroll(event) {
       scrollY.value = event.contentOffset.y;
-
       maxScrollY.value = Math.max(
         0,
         event.contentSize.height - event.layoutMeasurement.height
@@ -109,18 +116,27 @@ export const Flyout = memo(function Flyout({
     }
   });
 
+  const onLayoutScrollview = useEventCallback((event: LayoutChangeEvent) => {
+    setViewportHeight(event.nativeEvent.layout.height);
+  });
+
+  const onContentSizeChange = useEventCallback(
+    (_contentWidth: number, contentHeight: number) => {
+      setContentHeight(contentHeight);
+    }
+  );
+
   const animateOut = useEventCallback(() => {
     if (measuredHeight) {
       const target = placement === "top" ? -measuredHeight : measuredHeight;
 
       translateY.value = withTiming(target, ExitAnimationConfig, (finished) => {
         if (finished && props.onCloseFinished) {
-          scheduleOnRN(props.onCloseFinished);
+          scheduleOnRN(props.onCloseFinished, props.id);
         }
       });
 
       opacity.value = withTiming(0, ExitAnimationConfig);
-
       didOpen.current = false;
     }
   });
@@ -129,7 +145,7 @@ export const Flyout = memo(function Flyout({
     (event: GestureStateChangeEvent<PanGestureHandlerEventPayload>) => {
       if (!measuredHeight) return;
 
-      let shouldClose: boolean = false;
+      let shouldClose = false;
 
       if (placement === "bottom") {
         shouldClose =
@@ -141,7 +157,7 @@ export const Flyout = memo(function Flyout({
           event.translationY < -measuredHeight * 0.5 || event.velocityY < -1500;
       }
 
-      if (shouldClose && canDismiss.value) {
+      if (shouldClose && (canDismiss.value || !isScrollable)) {
         animateOut();
       } else {
         translateY.value = withSpring(0, EnterAnimationConfig);
@@ -184,7 +200,7 @@ export const Flyout = memo(function Flyout({
       return;
     }
 
-    if (canDismiss.value) {
+    if (canDismiss.value || !isScrollable) {
       translateY.value = event.translationY;
     }
   };
@@ -235,13 +251,10 @@ export const Flyout = memo(function Flyout({
   );
 
   useEffect(() => {
-    if (measuredHeight === null || didOpen.current || !props.open) {
-      return;
-    }
+    if (measuredHeight === null || didOpen.current || !props.open) return;
 
     translateY.value = withSpring(0, EnterAnimationConfig);
     opacity.value = withSpring(0.4, EnterAnimationConfig);
-
     didOpen.current = true;
   }, [measuredHeight, props.open]);
 
@@ -250,30 +263,41 @@ export const Flyout = memo(function Flyout({
       <Animated.View style={[StyleSheet.absoluteFill, overlayStyle]}>
         <Pressable onPress={animateOut} style={StyleSheet.absoluteFillObject} />
       </Animated.View>
-
       <GestureDetector gesture={gesture}>
         <Animated.View style={[styles.container, animatedStyle]}>
-          <SafeAreaView edges={edges} onLayout={onLayout}>
+          <SafeAreaView
+            edges={edges}
+            style={styles.safeAreaView}
+            onLayout={onLayout}
+          >
             {placement === "bottom" ? (
               <GestureDetector gesture={handleGesture}>
-                <FlyoutHandle />
+                <FlyoutHandle placement={placement} />
               </GestureDetector>
             ) : null}
+
             <Animated.ScrollView
+              onLayout={onLayoutScrollview}
+              onContentSizeChange={onContentSizeChange}
               onScroll={onScroll}
               scrollEventThrottle={16}
-              scrollEnabled
-              bounces={bounceEnabled}
-              stickyHeaderIndices={StickyHeaderIndices}
+              scrollEnabled={isScrollable}
+              bounces={isScrollable && bounceEnabled}
+              style={styles.scrollview}
+              stickyHeaderIndices={
+                props.title ? StickyHeaderIndices : undefined
+              }
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
               {...AndroidOverScroll}
             >
-              {children}
+              {props.title && <FlyoutTitle title={props.title} />}
+              <View padding={theme.spacing.sm}>{children}</View>
             </Animated.ScrollView>
+
             {placement === "top" ? (
               <GestureDetector gesture={handleGesture}>
-                <FlyoutHandle />
+                <FlyoutHandle placement={placement} />
               </GestureDetector>
             ) : null}
           </SafeAreaView>
@@ -290,13 +314,18 @@ const themedStyles = function (theme: AppTheme, placement: "top" | "bottom") {
       [placement]: 0,
       left: 0,
       right: 0,
-      height: "100%",
-      maxHeight: MaxHeight,
       backgroundColor: theme.colors.background.secondary,
       borderTopLeftRadius: placement === "bottom" ? theme.radii.xl : 0,
       borderTopRightRadius: placement === "bottom" ? theme.radii.xl : 0,
       borderBottomLeftRadius: placement === "top" ? theme.radii.xl : 0,
       borderBottomRightRadius: placement === "top" ? theme.radii.xl : 0,
     },
+    scrollview: {
+      borderTopLeftRadius: placement === "bottom" ? theme.radii.xl : 0,
+      borderTopRightRadius: placement === "bottom" ? theme.radii.xl : 0,
+      borderBottomLeftRadius: placement === "top" ? theme.radii.xl : 0,
+      borderBottomRightRadius: placement === "top" ? theme.radii.xl : 0,
+    },
+    safeAreaView: { maxHeight: MaxHeight },
   });
 };

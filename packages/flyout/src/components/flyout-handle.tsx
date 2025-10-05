@@ -4,10 +4,21 @@ import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
-export const FlyoutHandle = memo(function FlyoutHandle() {
+const FlyoutHandleHeight = 32;
+
+interface FlyoutHandleProps {
+  placement: "top" | "bottom";
+}
+
+export const FlyoutHandle = memo(function FlyoutHandle(
+  props: FlyoutHandleProps
+) {
   const theme = useTheme();
 
-  const styles = useMemo(() => themedStyles(theme), [theme]);
+  const styles = useMemo(
+    () => themedStyles(theme, props.placement),
+    [theme, props.placement]
+  );
 
   return (
     <Animated.View style={styles.flyoutHandleContainer}>
@@ -16,7 +27,7 @@ export const FlyoutHandle = memo(function FlyoutHandle() {
   );
 });
 
-const themedStyles = function (theme: AppTheme) {
+const themedStyles = function (theme: AppTheme, placement: "top" | "bottom") {
   return StyleSheet.create({
     flyoutHandle: {
       alignSelf: "center",
@@ -26,9 +37,13 @@ const themedStyles = function (theme: AppTheme) {
       borderRadius: theme.radii.round,
     },
     flyoutHandleContainer: {
+      position: "absolute",
+      top: placement === "bottom" ? -FlyoutHandleHeight : undefined,
+      bottom: placement === "top" ? -FlyoutHandleHeight : undefined,
+      width: "100%",
       justifyContent: "center",
       alignItems: "center",
-      height: 32,
+      height: FlyoutHandleHeight,
     },
   });
 };
