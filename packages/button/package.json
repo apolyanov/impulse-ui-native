@@ -1,5 +1,5 @@
 {
-  "name": "@impulse-ui-native/layer-manager-types",
+  "name": "@impulse-ui-native/button",
   "version": "0.1.0",
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
@@ -24,6 +24,11 @@
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/typography": "workspace:*"
+  },
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.74",
@@ -34,5 +39,7 @@
     "react-native-gesture-handler": ">=2",
     "react-native-reanimated": ">=3"
   },
-  "private": "true"
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -1,3 +1,4 @@
+import { Button } from "@impulse-ui-native/button";
 import { registerFlyout } from "@impulse-ui-native/layer-manager";
 import { FlyoutOpenProps } from "@impulse-ui-native/layer-manager-types";
 import { Typography } from "@impulse-ui-native/typography";
@@ -66,6 +67,7 @@ export default function Index() {
       <Pressable onPress={openFlyoutBottom}>
         <Typography.BodyLarge>OPEN BOTTOM</Typography.BodyLarge>
       </Pressable>
+      <Button size="large">TEST</Button>
     </View>
   );
 }
