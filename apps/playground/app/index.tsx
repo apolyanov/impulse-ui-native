@@ -1,10 +1,13 @@
-import { Button } from "@impulse-ui-native/button";
+import { faHouse, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Button, IconButton } from "@impulse-ui-native/button";
+import { Input } from "@impulse-ui-native/input";
 import { registerFlyout } from "@impulse-ui-native/layer-manager";
 import { FlyoutOpenProps } from "@impulse-ui-native/layer-manager-types";
+import { Tag } from "@impulse-ui-native/tag";
 import { Typography } from "@impulse-ui-native/typography";
 import { View } from "@impulse-ui-native/view";
-import { Fragment, memo, useState } from "react";
-import { Pressable, Text } from "react-native";
+import { Fragment, memo } from "react";
+import { Text } from "react-native";
 
 const TestComponent = memo((props: FlyoutOpenProps) => {
   return (
@@ -36,18 +39,20 @@ const test = registerFlyout({
 });
 
 export default function Index() {
-  const [open, setOpen] = useState<boolean>(false);
-  const [openBottom, setOpenBottom] = useState<boolean>(false);
-
-  const openFlyout = () => {
+  const openFlyout = (placement: "top" | "bottom") => {
     test.open({
       title: "TEST",
-      placement: "top",
+      placement,
     });
-  };
 
-  const openFlyoutBottom = () => {
-    setOpenBottom(true);
+    setTimeout(
+      () =>
+        test.open({
+          title: "TEST",
+          placement: placement === "top" ? "bottom" : "top",
+        }),
+      2000
+    );
   };
 
   return (
@@ -56,18 +61,30 @@ export default function Index() {
       backgroundColor="white"
       justifyContent="center"
       alignItems="center"
+      gap={8}
     >
+      <Input
+        prefixIcon={faSearch}
+        label="Your username goes here"
+        error="There was an error!"
+      />
       <Typography.DisplayLarge>
         Edit app/index.tsx to edit this screen.
       </Typography.DisplayLarge>
       <Typography.Body>Edit app/index.tsx to edit this screen.</Typography.Body>
-      <Pressable onPress={openFlyout}>
-        <Typography.BodyLarge>OPEN</Typography.BodyLarge>
-      </Pressable>
-      <Pressable onPress={openFlyoutBottom}>
-        <Typography.BodyLarge>OPEN BOTTOM</Typography.BodyLarge>
-      </Pressable>
-      <Button size="large">TEST</Button>
+      <Button onPress={() => openFlyout("top")}>TEST</Button>
+      <IconButton onPress={() => openFlyout("bottom")} icon={faHouse} />
+
+      <Tag
+        onPress={() => {
+          console.log("press");
+        }}
+        variant="filled"
+        label="Active"
+        onClose={() => {
+          console.log("close");
+        }}
+      />
     </View>
   );
 }
