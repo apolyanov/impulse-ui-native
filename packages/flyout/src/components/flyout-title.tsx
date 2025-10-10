@@ -1,11 +1,11 @@
 import { AppTheme, useTheme } from "@impulse-ui-native/theme";
 import { Typography } from "@impulse-ui-native/typography";
 import { View } from "@impulse-ui-native/view";
-import { memo, useMemo } from "react";
+import { memo, ReactNode, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 interface FlyoutTitleProps {
-  title?: string;
+  title?: ReactNode | string;
   placement?: "top" | "bottom";
 }
 
@@ -17,15 +17,19 @@ export const FlyoutTitle = memo(function FlyoutTitle(props: FlyoutTitleProps) {
     [theme, props.placement]
   );
 
+  const title = useMemo(() => {
+    if (typeof props.title === "string") {
+      return <Typography.Title3>{props.title}</Typography.Title3>;
+    }
+
+    return props.title;
+  }, [props.title]);
+
   if (!props.title) {
     return null;
   }
 
-  return (
-    <View style={styles.container}>
-      <Typography.Title3>{props.title}</Typography.Title3>
-    </View>
-  );
+  return <View style={styles.container}>{title}</View>;
 });
 
 const themedStyles = function (theme: AppTheme, placement?: "top" | "bottom") {

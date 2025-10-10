@@ -1,11 +1,11 @@
 import { useEventCallback } from "@impulse-ui-native/core";
+import { Icon, IconStyle } from "@impulse-ui-native/icon";
 import {
   AppTheme,
   ComponentSize,
   useTheme,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
-import { Typography } from "@impulse-ui-native/typography";
 import { memo, PropsWithChildren, useMemo } from "react";
 import {
   Pressable,
@@ -14,16 +14,17 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { ButtonProps, ButtonVariant } from "../types";
+import { ButtonVariant, IconButtonProps } from "../types";
 
-export const Button = memo(function Button({
+export const IconButton = memo(function IconButton({
   size = "medium",
   variant = "contained",
   disabled,
   children,
   style,
+  icon,
   ...props
-}: PropsWithChildren<ButtonProps>) {
+}: PropsWithChildren<IconButtonProps>) {
   const theme = useTheme();
 
   const styles = useThemedStyles(themedStyles, { size, variant, disabled });
@@ -46,14 +47,6 @@ export const Button = memo(function Button({
     [variant]
   );
 
-  const content = useMemo(() => {
-    return typeof children === "string" ? (
-      <Typography.Master style={styles.text}>{children}</Typography.Master>
-    ) : (
-      children
-    );
-  }, [children]);
-
   return (
     <Pressable
       style={pressableStyles}
@@ -61,7 +54,12 @@ export const Button = memo(function Button({
       android_ripple={androidRipple}
       {...props}
     >
-      {content}
+      <Icon
+        color={styles.icon.color}
+        style={styles.icon}
+        size={size}
+        icon={icon}
+      />
     </Pressable>
   );
 });
@@ -79,9 +77,9 @@ const themedStyles = (
   }
 ) => {
   const padding: ViewStyle = {
-    small: { paddingVertical: 6, paddingHorizontal: 12 },
-    medium: { paddingVertical: 8, paddingHorizontal: 16 },
-    large: { paddingVertical: 10, paddingHorizontal: 20 },
+    small: { padding: 6 },
+    medium: { padding: 8 },
+    large: { padding: 10 },
   }[size];
 
   const fontSize: TextStyle = {
@@ -91,9 +89,9 @@ const themedStyles = (
   }[size];
 
   const height: ViewStyle = {
-    small: { height: 32 },
-    medium: { height: 40 },
-    large: { height: 48 },
+    small: { height: 32, width: 32 },
+    medium: { height: 40, width: 40 },
+    large: { height: 48, width: 48 },
   }[size];
 
   const baseButton: ViewStyle = {
@@ -106,11 +104,11 @@ const themedStyles = (
   const primary = theme.colors.primary;
   const neutral = theme.colors.neutral;
 
-  const variants: Record<ButtonVariant, { view: ViewStyle; text: TextStyle }> =
+  const variants: Record<ButtonVariant, { view: ViewStyle; icon: IconStyle }> =
     {
       contained: {
         view: { backgroundColor: disabled ? neutral[5] : primary },
-        text: { color: theme.colors.white },
+        icon: { color: theme.colors.white },
       },
       outlined: {
         view: {
@@ -118,7 +116,7 @@ const themedStyles = (
           borderColor: disabled ? neutral[6] : primary,
           backgroundColor: "transparent",
         },
-        text: { color: disabled ? neutral[6] : primary },
+        icon: { color: disabled ? neutral[6] : primary },
       },
       text: {
         view: {
@@ -126,7 +124,7 @@ const themedStyles = (
           borderColor: "transparent",
           backgroundColor: "transparent",
         },
-        text: { color: disabled ? neutral[6] : primary },
+        icon: { color: disabled ? neutral[6] : primary },
       },
     };
 
@@ -140,11 +138,9 @@ const themedStyles = (
       ...height,
       ...variantStyles.view,
     },
-    text: {
-      ...variantStyles.text,
-    },
     pressed: {
       opacity: 0.7,
     },
+    icon: variantStyles.icon,
   });
 };

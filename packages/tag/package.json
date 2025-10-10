@@ -1,5 +1,5 @@
 {
-  "name": "@impulse-ui-native/button",
+  "name": "@impulse-ui-native/tag",
   "version": "0.1.0",
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
@@ -27,8 +27,10 @@
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
-    "@impulse-ui-native/typography": "workspace:*",
-    "@impulse-ui-native/icon": "workspace:*"
+    "@impulse-ui-native/icon": "workspace:*",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0"
   },
   "peerDependencies": {
     "react": ">=18",
