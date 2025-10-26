@@ -1,5 +1,17 @@
 # @impulse-ui-native/layer-manager-types
 
+## 1.0.2
+
+### Patch Changes
+
+- Publishing layer manager types
+
+## 1.0.1
+
+### Patch Changes
+
+- Removing unpublishede package from dependencies
+
 ## 1.0.0
 
 ### Major Changes

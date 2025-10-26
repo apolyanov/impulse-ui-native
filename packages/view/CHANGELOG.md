@@ -1,5 +1,21 @@
 # @impulse-ui-native/view
 
+## 1.0.2
+
+### Patch Changes
+
+- Publishing layer manager types
+- Updated dependencies
+  - @impulse-ui-native/theme@1.0.2
+
+## 1.0.1
+
+### Patch Changes
+
+- Removing unpublishede package from dependencies
+- Updated dependencies
+  - @impulse-ui-native/theme@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

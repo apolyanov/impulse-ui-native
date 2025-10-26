@@ -15,3 +15,6 @@ export * from "@impulse-ui-native/tag";
 
 // Utilities
 export * from "@impulse-ui-native/echo";
+
+// Types
+export * from "@impulse-ui-native/layer-manager-types";

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/icon",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -25,11 +25,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.1.0",
-    "@fortawesome/free-brands-svg-icons": "^7.1.0",
-    "@fortawesome/free-regular-svg-icons": "^7.1.0",
-    "@fortawesome/free-solid-svg-icons": "^7.1.0",
-    "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "react-native-svg": "^15.14.0"
