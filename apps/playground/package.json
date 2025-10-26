@@ -50,5 +50,8 @@
     "@impulse-ui-native/layer-manager": "workspace:*",
     "@impulse-ui-native/layer-manager-types": "workspace:*"
   },
-  "private": true
+  "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  }
 }
