@@ -1,4 +1,4 @@
-import { Icon, IconStyle } from "@impulse-ui-native/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import {
   AppTheme,
   ComponentSize,
@@ -148,11 +148,6 @@ const themedStyles = (
     },
   };
 
-  const iconStyle: IconStyle = {
-    color: theme.colors.text.secondary,
-    marginHorizontal: 4,
-  };
-
   return StyleSheet.create({
     container: {
       width: "100%",
@@ -170,7 +165,9 @@ const themedStyles = (
       ...baseInput,
       ...fontSize,
     },
-    icon: iconStyle,
+    icon: {
+      marginHorizontal: 4, // ✅ only layout, no color
+    },
     error: {
       marginTop: 4,
       color: theme.colors.error,

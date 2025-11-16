@@ -6,8 +6,8 @@ import {
   useContext,
   useMemo,
 } from "react";
-import { AppTheme, DarkTheme, LightTheme } from "../theme";
-import { ColorScheme, ThemeContextData } from "../types";
+import { DarkTheme, LightTheme } from "../theme";
+import { AppTheme, ColorScheme, ThemeContextData } from "../types";
 
 import {
   Montserrat_100Thin,

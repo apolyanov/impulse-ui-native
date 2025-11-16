@@ -1,5 +1,45 @@
 # @impulse-ui-native/tag
 
+## 1.0.6
+
+### Patch Changes
+
+- Exposed new props for Typography, Button and Theme interfaces
+- Updated dependencies
+  - @impulse-ui-native/theme@1.0.6
+  - @impulse-ui-native/core@1.0.6
+  - @impulse-ui-native/icon@1.0.6
+
+## 1.0.5
+
+### Patch Changes
+
+- Adding Typography and View pacakges to the toolkit
+- Updated dependencies
+  - @impulse-ui-native/theme@1.0.5
+  - @impulse-ui-native/core@1.0.5
+  - @impulse-ui-native/icon@1.0.5
+
+## 1.0.4
+
+### Patch Changes
+
+- Fixing icon component
+- Updated dependencies
+  - @impulse-ui-native/theme@1.0.4
+  - @impulse-ui-native/core@1.0.4
+  - @impulse-ui-native/icon@1.0.4
+
+## 1.0.3
+
+### Patch Changes
+
+- Updating icon component
+- Updated dependencies
+  - @impulse-ui-native/core@1.0.3
+  - @impulse-ui-native/icon@1.0.3
+  - @impulse-ui-native/theme@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

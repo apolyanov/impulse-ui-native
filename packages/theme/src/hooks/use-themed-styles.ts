@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { StyleSheet } from "react-native";
-import { AppTheme } from "../theme";
+import { AppTheme } from "../types";
 import { useTheme } from "./use-theme.hook";
 
 type ThemedStyles<T extends StyleSheet.NamedStyles<T>> = T;

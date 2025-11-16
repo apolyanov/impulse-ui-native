@@ -31,21 +31,6 @@ export type FontSizes = Record<FontSizesKeys, number>;
 export type LineHeightKeys = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 export type LineHeights = Record<LineHeightKeys, string>;
 
-export type FontWeightKey =
-  | "thin"
-  | "extraLight"
-  | "light"
-  | "regular"
-  | "medium"
-  | "semiBold"
-  | "bold"
-  | "extraBold"
-  | "black";
-export type FontWeights = Record<
-  FontWeightKey,
-  "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
->;
-
 export type LetterSpacingKey =
   | "tightest"
   | "tighter"
@@ -101,25 +86,3 @@ export type NeutralColorKey =
   | "13";
 
 export type NeutralColors = Record<NeutralColorKey, string>;
-
-export type FontFamilyKey =
-  | "thin"
-  | "thinItalic"
-  | "extraLight"
-  | "extraLightItalic"
-  | "light"
-  | "lightItalic"
-  | "regular"
-  | "italic"
-  | "medium"
-  | "mediumItalic"
-  | "semiBold"
-  | "semiBoldItalic"
-  | "bold"
-  | "boldItalic"
-  | "extraBold"
-  | "extraBoldItalic"
-  | "black"
-  | "blackItalic";
-
-export type FontFamilyMap = Record<FontFamilyKey, string>;

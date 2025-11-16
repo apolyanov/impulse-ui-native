@@ -1,4 +1,3 @@
-import { faHouse, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Button, IconButton } from "@impulse-ui-native/button";
 import { Input } from "@impulse-ui-native/input";
 import { registerFlyout } from "@impulse-ui-native/layer-manager";
@@ -8,6 +7,7 @@ import { Typography } from "@impulse-ui-native/typography";
 import { View } from "@impulse-ui-native/view";
 import { Fragment, memo } from "react";
 import { Text } from "react-native";
+import { CloseIcon } from "../close.icon";
 
 const TestComponent = memo((props: FlyoutOpenProps) => {
   return (
@@ -63,17 +63,16 @@ export default function Index() {
       alignItems="center"
       gap={8}
     >
-      <Input
-        prefixIcon={faSearch}
-        label="Your username goes here"
-        error="There was an error!"
-      />
+      <Input label="Your username goes here" error="There was an error!" />
       <Typography.DisplayLarge>
         Edit app/index.tsx to edit this screen.
       </Typography.DisplayLarge>
       <Typography.Body>Edit app/index.tsx to edit this screen.</Typography.Body>
       <Button onPress={() => openFlyout("top")}>TEST</Button>
-      <IconButton onPress={() => openFlyout("bottom")} icon={faHouse} />
+      <IconButton onPress={() => openFlyout("bottom")} icon={CloseIcon} />
+      <View style={{ backgroundColor: "red" }}>
+        <CloseIcon color="black"></CloseIcon>
+      </View>
 
       <Tag
         onPress={() => {

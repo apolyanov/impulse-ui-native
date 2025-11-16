@@ -68,4 +68,13 @@ export const StylePropsSet = new Set<keyof StyleProps>([
   "right",
   "bottom",
   "left",
+
+  // Dimensions (ViewStyle)
+  "width",
+  "height",
+  "minWidth",
+  "maxWidth",
+  "minHeight",
+  "maxHeight",
+  "aspectRatio",
 ]);

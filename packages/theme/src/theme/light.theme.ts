@@ -1,17 +1,6 @@
-import { DeepPartial } from "@impulse-ui-native/core";
-import {
-  BorderSizes,
-  FontFamilyMap,
-  FontSizes,
-  NeutralColors,
-  Radii,
-  Space,
-  TypographyPresetKey,
-  TypographyProps,
-} from "../types";
+import { AppTheme } from "../types";
 import {
   BorderSizeTokens,
-  FontFamilyTokens,
   FontSizeTokens,
   NeutralColorTokens,
   RadiiTokens,
@@ -41,44 +30,5 @@ export const LightTheme: AppTheme = {
   spacing: SpaceTokens,
   radii: RadiiTokens,
   borderSize: BorderSizeTokens,
-  fontFamily: FontFamilyTokens,
   fontSize: FontSizeTokens,
 };
-
-export interface ThemeColors {
-  primary: string;
-  secondary: string;
-  neutral: NeutralColors;
-
-  white: string;
-  black: string;
-
-  error: string;
-  warning: string;
-  success: string;
-  info: string;
-
-  text: {
-    primary: string;
-    secondary: string;
-  };
-
-  background: {
-    primary: string;
-    secondary: string;
-  };
-}
-
-export interface ComponentsThemes {
-  typography: Record<TypographyPresetKey, TypographyProps>;
-}
-
-export interface AppTheme {
-  colors: ThemeColors;
-  spacing: Space;
-  radii: Radii;
-  borderSize: BorderSizes;
-  fontFamily: FontFamilyMap;
-  fontSize: FontSizes;
-  components?: DeepPartial<ComponentsThemes>;
-}

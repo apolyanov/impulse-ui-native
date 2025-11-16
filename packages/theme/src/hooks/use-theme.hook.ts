@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useThemeContext } from "../providers";
-import { AppTheme } from "../theme";
+import { AppTheme } from "../types";
 
 export function useTheme(): AppTheme {
   const context = useThemeContext();

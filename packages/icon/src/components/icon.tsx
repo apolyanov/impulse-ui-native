@@ -19,5 +19,7 @@ export const Icon = memo(function Icon({
       [size]
     ) ?? 16;
 
-  return <Icon width={iconSize} height={iconSize} {...props} />;
+  return (
+    <Icon {...props} width={iconSize} height={iconSize} fill={props.color} />
+  );
 });

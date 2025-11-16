@@ -1,6 +1,7 @@
 import {
   BorderProps,
   ColorProps,
+  DimensionProps,
   FlexProps,
   ShadowProps,
   SpacingProps,
@@ -12,4 +13,5 @@ export type ViewProps = NativeViewProps &
   ColorProps &
   ShadowProps &
   BorderProps &
-  FlexProps;
+  FlexProps &
+  DimensionProps;

@@ -1,5 +1,5 @@
 import { useEventCallback } from "@impulse-ui-native/core";
-import { Icon, IconStyle } from "@impulse-ui-native/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import {
   AppTheme,
   ComponentSize,
@@ -11,7 +11,6 @@ import {
   Pressable,
   PressableStateCallbackType,
   StyleSheet,
-  TextStyle,
   ViewStyle,
 } from "react-native";
 import { ButtonVariant, IconButtonProps } from "../types";
@@ -20,13 +19,11 @@ export const IconButton = memo(function IconButton({
   size = "medium",
   variant = "contained",
   disabled,
-  children,
   style,
   icon,
   ...props
 }: PropsWithChildren<IconButtonProps>) {
   const theme = useTheme();
-
   const styles = useThemedStyles(themedStyles, { size, variant, disabled });
 
   const pressableStyles = useEventCallback(
@@ -44,8 +41,23 @@ export const IconButton = memo(function IconButton({
           ? theme.colors.neutral[8]
           : theme.colors.neutral[3],
     }),
-    [variant]
+    [variant, theme.colors.neutral]
   );
+
+  const iconColor = useMemo(() => {
+    const primary = theme.colors.primary;
+    const neutral = theme.colors.neutral;
+    const white = theme.colors.white;
+
+    switch (variant) {
+      case "contained":
+        return disabled ? neutral[5] : white;
+      case "outlined":
+      case "text":
+      default:
+        return disabled ? neutral[6] : primary;
+    }
+  }, [variant, disabled, theme]);
 
   return (
     <Pressable
@@ -54,12 +66,7 @@ export const IconButton = memo(function IconButton({
       android_ripple={androidRipple}
       {...props}
     >
-      <Icon
-        color={styles.icon.color}
-        style={styles.icon}
-        size={size}
-        icon={icon}
-      />
+      <Icon size={size} icon={icon} color={iconColor} />
     </Pressable>
   );
 });
@@ -82,12 +89,6 @@ const themedStyles = (
     large: { padding: 10 },
   }[size];
 
-  const fontSize: TextStyle = {
-    small: { fontSize: 14 },
-    medium: { fontSize: 16 },
-    large: { fontSize: 16 },
-  }[size];
-
   const height: ViewStyle = {
     small: { height: 32, width: 32 },
     medium: { height: 40, width: 40 },
@@ -104,29 +105,21 @@ const themedStyles = (
   const primary = theme.colors.primary;
   const neutral = theme.colors.neutral;
 
-  const variants: Record<ButtonVariant, { view: ViewStyle; icon: IconStyle }> =
-    {
-      contained: {
-        view: { backgroundColor: disabled ? neutral[5] : primary },
-        icon: { color: theme.colors.white },
-      },
-      outlined: {
-        view: {
-          borderWidth: theme.borderSize.sm,
-          borderColor: disabled ? neutral[6] : primary,
-          backgroundColor: "transparent",
-        },
-        icon: { color: disabled ? neutral[6] : primary },
-      },
-      text: {
-        view: {
-          borderWidth: theme.borderSize.sm,
-          borderColor: "transparent",
-          backgroundColor: "transparent",
-        },
-        icon: { color: disabled ? neutral[6] : primary },
-      },
-    };
+  const variants: Record<ButtonVariant, ViewStyle> = {
+    contained: {
+      backgroundColor: disabled ? neutral[5] : primary,
+    },
+    outlined: {
+      borderWidth: theme.borderSize.sm,
+      borderColor: disabled ? neutral[6] : primary,
+      backgroundColor: "transparent",
+    },
+    text: {
+      borderWidth: theme.borderSize.sm,
+      borderColor: "transparent",
+      backgroundColor: "transparent",
+    },
+  };
 
   const variantStyles = variants[variant];
 
@@ -134,13 +127,11 @@ const themedStyles = (
     button: {
       ...baseButton,
       ...padding,
-      ...fontSize,
       ...height,
-      ...variantStyles.view,
+      ...variantStyles,
     },
     pressed: {
       opacity: 0.7,
     },
-    icon: variantStyles.icon,
   });
 };

@@ -2,6 +2,7 @@ import { useEventCallback } from "@impulse-ui-native/core";
 import {
   AppTheme,
   ComponentSize,
+  useStyleProps,
   useTheme,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -27,13 +28,16 @@ export const Button = memo(function Button({
   const theme = useTheme();
 
   const styles = useThemedStyles(themedStyles, { size, variant, disabled });
+  const extractedStyleProps = useStyleProps(props);
 
   const pressableStyles = useEventCallback(
-    (state: PressableStateCallbackType) => [
-      styles.button,
-      style,
-      state.pressed ? styles.pressed : undefined,
-    ]
+    (state: PressableStateCallbackType) =>
+      StyleSheet.flatten([
+        styles.button,
+        extractedStyleProps,
+        style,
+        state.pressed ? styles.pressed : undefined,
+      ])
   );
 
   const androidRipple = useMemo(
