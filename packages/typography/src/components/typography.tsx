@@ -1,11 +1,11 @@
 import { createPreset } from "../hocs";
 
 export const Typography = {
-  Master: createPreset({ fontFamily: "Montserrat_400Regular" }, "Master"),
+  Master: createPreset({ fontWeight: 400 }, "Master"),
 
   DisplayLarge: createPreset(
     {
-      fontFamily: "Montserrat_700Bold",
+      fontWeight: 700,
       fontSize: 56,
       lineHeight: 64,
     },
@@ -14,7 +14,7 @@ export const Typography = {
 
   DisplayMedium: createPreset(
     {
-      fontFamily: "Montserrat_700Bold",
+      fontWeight: 700,
       fontSize: 48,
       lineHeight: 56,
     },
@@ -23,7 +23,7 @@ export const Typography = {
 
   DisplaySmall: createPreset(
     {
-      fontFamily: "Montserrat_600SemiBold",
+      fontWeight: 600,
       fontSize: 36,
       lineHeight: 44,
     },
@@ -32,7 +32,7 @@ export const Typography = {
 
   Title1: createPreset(
     {
-      fontFamily: "Montserrat_700Bold",
+      fontWeight: 700,
       fontSize: 32,
       lineHeight: 40,
     },
@@ -41,7 +41,7 @@ export const Typography = {
 
   Title2: createPreset(
     {
-      fontFamily: "Montserrat_700Bold",
+      fontWeight: 700,
       fontSize: 28,
       lineHeight: 36,
     },
@@ -50,7 +50,7 @@ export const Typography = {
 
   Title3: createPreset(
     {
-      fontFamily: "Montserrat_600SemiBold",
+      fontWeight: 600,
       fontSize: 24,
       lineHeight: 32,
     },
@@ -59,7 +59,7 @@ export const Typography = {
 
   Title4: createPreset(
     {
-      fontFamily: "Montserrat_600SemiBold",
+      fontWeight: 600,
       fontSize: 20,
       lineHeight: 28,
     },
@@ -68,7 +68,7 @@ export const Typography = {
 
   Title5: createPreset(
     {
-      fontFamily: "Montserrat_600SemiBold",
+      fontWeight: 600,
       fontSize: 18,
       lineHeight: 26,
     },
@@ -77,7 +77,7 @@ export const Typography = {
 
   Title6: createPreset(
     {
-      fontFamily: "Montserrat_600SemiBold",
+      fontWeight: 600,
       fontSize: 16,
       lineHeight: 24,
     },
@@ -86,7 +86,7 @@ export const Typography = {
 
   Subtitle1: createPreset(
     {
-      fontFamily: "Montserrat_500Medium",
+      fontWeight: 500,
       fontSize: 18,
       lineHeight: 28,
     },
@@ -95,7 +95,7 @@ export const Typography = {
 
   Subtitle2: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 16,
       lineHeight: 24,
     },
@@ -104,7 +104,7 @@ export const Typography = {
 
   BodyLarge: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 18,
       lineHeight: 28,
     },
@@ -113,7 +113,7 @@ export const Typography = {
 
   Body: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 16,
       lineHeight: 24,
     },
@@ -122,7 +122,7 @@ export const Typography = {
 
   BodySmall: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 14,
       lineHeight: 20,
     },
@@ -131,7 +131,7 @@ export const Typography = {
 
   Caption: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 12,
       lineHeight: 16,
     },
@@ -140,7 +140,7 @@ export const Typography = {
 
   Label: createPreset(
     {
-      fontFamily: "Montserrat_500Medium",
+      fontWeight: 500,
       fontSize: 14,
       lineHeight: 20,
     },
@@ -149,7 +149,7 @@ export const Typography = {
 
   Overline: createPreset(
     {
-      fontFamily: "Montserrat_600SemiBold",
+      fontWeight: 600,
       fontSize: 12,
       lineHeight: 16,
       textTransform: "uppercase",
@@ -160,7 +160,7 @@ export const Typography = {
 
   Helper: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 14,
       lineHeight: 20,
     },
@@ -178,7 +178,7 @@ export const Typography = {
 
   Quote: createPreset(
     {
-      fontFamily: "Montserrat_400Regular",
+      fontWeight: 400,
       fontSize: 18,
       lineHeight: 28,
       fontStyle: "italic",
@@ -188,7 +188,7 @@ export const Typography = {
 
   Eyebrow: createPreset(
     {
-      fontFamily: "Montserrat_500Medium",
+      fontWeight: 500,
       fontSize: 12,
       lineHeight: 16,
       textTransform: "uppercase",

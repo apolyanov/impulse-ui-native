@@ -1,31 +1,25 @@
+import { useStyleProps } from "@impulse-ui-native/theme";
+import { View, ViewProps } from "@impulse-ui-native/view";
 import React, { memo, useMemo } from "react";
-import {
-  StyleProp,
-  StyleSheet,
-  View,
-  ViewProps,
-  ViewStyle,
-} from "react-native";
+import { StyleProp, StyleSheet, ViewStyle } from "react-native";
 import { Edge, useSafeAreaInsets } from "react-native-safe-area-context";
 
 type SafeAreaViewProps = {
   style?: StyleProp<ViewStyle>;
   edges?: Edge[];
-  ignoreTabs?: boolean;
 } & ViewProps;
 
-export const SafeAreaView = memo(function SafeAreaView({
-  children,
-  style,
-  edges,
-  ignoreTabs,
-  ...rest
-}: SafeAreaViewProps) {
+export const SafeAreaView = memo(function SafeAreaView(
+  props: SafeAreaViewProps
+) {
+  const { children, style, edges, ...rest } = props;
+
   const insets = useSafeAreaInsets();
   const defaultEdges = edges === undefined;
+  const extractedStyleProps = useStyleProps(rest);
 
   const styles = useMemo<StyleProp<ViewStyle>>(() => {
-    return StyleSheet.compose(
+    return StyleSheet.flatten([
       {
         paddingTop:
           defaultEdges || edges?.includes("top") ? insets.top : undefined,
@@ -37,12 +31,12 @@ export const SafeAreaView = memo(function SafeAreaView({
           defaultEdges || edges?.includes("right") ? insets.right : undefined,
         flex: 1,
       },
-      style
-    );
+      extractedStyleProps,
+      style,
+    ]);
   }, [
     defaultEdges,
     edges,
-    ignoreTabs,
     insets.bottom,
     insets.left,
     insets.right,

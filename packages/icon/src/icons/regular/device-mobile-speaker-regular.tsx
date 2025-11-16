@@ -1,0 +1,13 @@
+import { memo } from "react";
+import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
+
+export const DeviceMobileSpeakerRegular = memo(
+  function DeviceMobileSpeakerRegular(props: SvgProps) {
+    return (
+      <Svg viewBox="0 0 256 256" fill={props.color}>
+        <Path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16Zm8,200a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h96a8,8,0,0,1,8,8ZM168,56a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,56Z" />
+      </Svg>
+    );
+  },
+);

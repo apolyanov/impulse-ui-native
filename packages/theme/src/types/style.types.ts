@@ -1,5 +1,6 @@
 import { BorderProps } from "./border.types";
 import { ColorProps } from "./color.types";
+import { DimensionProps } from "./dimension.types";
 import { FlexProps } from "./flex.types";
 import { ShadowProps } from "./shadow.types";
 import { SpacingProps } from "./spacing.types";
@@ -11,7 +12,8 @@ export type StyleProps = Partial<
     ShadowProps &
     BorderProps &
     TypographyProps &
-    FlexProps
+    FlexProps &
+    DimensionProps
 >;
 
 export type StylePropKey = keyof StyleProps;

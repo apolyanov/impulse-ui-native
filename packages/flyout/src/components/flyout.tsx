@@ -35,7 +35,9 @@ import Animated, {
 } from "react-native-reanimated";
 import { Edge } from "react-native-safe-area-context";
 import { scheduleOnRN } from "react-native-worklets";
+
 import { FlyoutProps } from "../types";
+
 import { FlyoutHandle } from "./flyout-handle";
 import { FlyoutTitle } from "./flyout-title";
 

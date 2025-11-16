@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+lib/
+.next/
+out/
+coverage/
+public/
+.turbo/
+*.log

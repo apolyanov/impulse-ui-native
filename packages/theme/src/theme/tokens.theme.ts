@@ -1,12 +1,4 @@
-import {
-  BorderSizes,
-  FontFamilyMap,
-  FontSizes,
-  FontWeights,
-  NeutralColors,
-  Radii,
-  Space,
-} from "../types";
+import { BorderSizes, FontSizes, NeutralColors, Radii, Space } from "../types";
 
 export const SpaceTokens: Space = {
   none: 0,
@@ -69,37 +61,4 @@ export const NeutralColorTokens: NeutralColors = {
   "11": "#16191d",
   "12": "#0d0f12",
   "13": "#000000",
-};
-
-export const FontWeightTokens: FontWeights = {
-  thin: "100",
-  extraLight: "200",
-  light: "300",
-  regular: "400",
-  medium: "500",
-  semiBold: "600",
-  bold: "700",
-  extraBold: "800",
-  black: "900",
-};
-
-export const FontFamilyTokens: FontFamilyMap = {
-  thin: "Montserrat-Thin",
-  thinItalic: "Montserrat-ThinItalic",
-  extraLight: "Montserrat-ExtraLight",
-  extraLightItalic: "Montserrat-ExtraLightItalic",
-  light: "Montserrat-Light",
-  lightItalic: "Montserrat-LightItalic",
-  regular: "Montserrat-Regular",
-  italic: "Montserrat-Italic",
-  medium: "Montserrat-Medium",
-  mediumItalic: "Montserrat-MediumItalic",
-  semiBold: "Montserrat-SemiBold",
-  semiBoldItalic: "Montserrat-SemiBoldItalic",
-  bold: "Montserrat-Bold",
-  boldItalic: "Montserrat-BoldItalic",
-  extraBold: "Montserrat-ExtraBold",
-  extraBoldItalic: "Montserrat-ExtraBoldItalic",
-  black: "Montserrat-Black",
-  blackItalic: "Montserrat-BlackItalic",
 };

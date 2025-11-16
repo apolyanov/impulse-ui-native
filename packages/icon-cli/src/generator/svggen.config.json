@@ -1,0 +1,21 @@
+{
+  "runtime": "react-native",
+  "outputDir": "./src/icons",
+  "attributeReplacements": {
+    "fill": "{props.color}",
+    "stroke": "{props.color}"
+  },
+  "disallowedAttributes": [
+    "xmlns",
+    "version",
+    "id",
+    "class",
+    "xml:space",
+    "data-name",
+    "focusable",
+    "role",
+    "aria-hidden"
+  ],
+  "camelCaseAttributes": true,
+  "fileNameCase": "pascal"
+}

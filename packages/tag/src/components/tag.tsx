@@ -1,4 +1,3 @@
-import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { Icon, IconStyle } from "@impulse-ui-native/icon";
 import {
   AppTheme,
@@ -16,7 +15,10 @@ import {
   View,
   ViewStyle,
 } from "react-native";
+
 import { TagProps } from "../types";
+
+import { CloseIcon } from "./close.icon";
 
 export const Tag = memo(function Tag({
   label,
@@ -77,7 +79,7 @@ export const Tag = memo(function Tag({
       {showClose ? (
         <Pressable onPress={onClose} hitSlop={6}>
           <Icon
-            icon={faClose}
+            icon={CloseIcon}
             size="small"
             color={textColor}
             style={styles.icon}

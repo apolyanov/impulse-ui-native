@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { EchoInstance } from "../singletons/echo.singleton";
 import { EchoEventNames, EchoEvents } from "../types";
 

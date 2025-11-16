@@ -1,0 +1,13 @@
+import { memo } from "react";
+import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
+
+export const FunnelSimpleThin = memo(function FunnelSimpleThin(
+  props: SvgProps,
+) {
+  return (
+    <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Path d="M196,136a4,4,0,0,1-4,4H64a4,4,0,0,1,0-8H192A4,4,0,0,1,196,136Zm36-52H24a4,4,0,0,0,0,8H232a4,4,0,0,0,0-8Zm-80,96H104a4,4,0,0,0,0,8h48a4,4,0,0,0,0-8Z" />
+    </Svg>
+  );
+});

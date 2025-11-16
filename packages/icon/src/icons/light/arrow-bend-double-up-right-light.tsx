@@ -1,0 +1,13 @@
+import { memo } from "react";
+import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
+
+export const ArrowBendDoubleUpRightLight = memo(
+  function ArrowBendDoubleUpRightLight(props: SvgProps) {
+    return (
+      <Svg viewBox="0 0 256 256" fill={props.color}>
+        <Path d="M228.24,108.24l-48,48a6,6,0,0,1-8.48-8.48L215.51,104,171.76,60.24a6,6,0,0,1,8.48-8.48l48,48A6,6,0,0,1,228.24,108.24Zm-48-8.48-48-48a6,6,0,1,0-8.48,8.48L161.51,98H128A102.12,102.12,0,0,0,26,200a6,6,0,0,0,12,0,90.1,90.1,0,0,1,90-90h33.51l-37.75,37.76a6,6,0,1,0,8.48,8.48l48-48A6,6,0,0,0,180.24,99.76Z" />
+      </Svg>
+    );
+  },
+);

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/safe-area-view",
-  "version": "1.0.2",
+  "version": "1.0.9",
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -22,10 +22,12 @@
   ],
   "scripts": {
     "build": "tsup --config tsup.config.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "pnpm exec eslint . --fix"
   },
   "dependencies": {
-    "@impulse-ui-native/theme": "workspace:*"
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/view": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

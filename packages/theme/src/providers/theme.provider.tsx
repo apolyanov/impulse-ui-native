@@ -6,9 +6,6 @@ import {
   useContext,
   useMemo,
 } from "react";
-import { AppTheme, DarkTheme, LightTheme } from "../theme";
-import { ColorScheme, ThemeContextData } from "../types";
-
 import {
   Montserrat_100Thin,
   Montserrat_100Thin_Italic,
@@ -31,18 +28,29 @@ import {
   useFonts,
 } from "@expo-google-fonts/montserrat";
 
+import { DarkTheme, LightTheme } from "../theme";
+import {
+  AppTheme,
+  ColorScheme,
+  ComponentsThemes,
+  CustomComponentsTheme,
+  ThemeContextData,
+} from "../types";
+
+
 const ThemeContext = createContext<ThemeContextData | undefined>(undefined);
 
 interface ThemeProviderProps {
-  scheme: ColorScheme;
-  theme: {
+  scheme?: ColorScheme;
+  theme?: DeepPartial<{
     light: AppTheme;
     dark: AppTheme;
-  };
+  }>;
+  components?: CustomComponentsTheme;
 }
 
 export const ThemeProvider = memo(function ThemeProvider(
-  props: PropsWithChildren<DeepPartial<ThemeProviderProps>>
+  props: PropsWithChildren<ThemeProviderProps>
 ) {
   const scheme = props.scheme ?? "light";
 
@@ -69,12 +77,23 @@ export const ThemeProvider = memo(function ThemeProvider(
 
   const context = useMemo<ThemeContextData>(() => {
     const baseTheme = scheme === "light" ? LightTheme : DarkTheme;
+    const customBaseTheme = props.theme?.[scheme];
+    const theme = merge(baseTheme, customBaseTheme);
+
+    let componentsTheme: DeepPartial<ComponentsThemes> | undefined;
+
+    if (typeof props.components === "function") {
+      componentsTheme = props.components(theme);
+    } else {
+      componentsTheme = props.components;
+    }
 
     return {
       loaded,
-      theme: merge(baseTheme, props.theme?.[scheme]),
+      theme,
+      components: componentsTheme,
     };
-  }, [props.theme?.light, props.theme?.dark]);
+  }, [props.theme?.light, props.theme?.dark, props.components]);
 
   return (
     <ThemeContext.Provider value={context}>

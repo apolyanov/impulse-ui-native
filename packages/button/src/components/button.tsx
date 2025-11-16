@@ -2,7 +2,8 @@ import { useEventCallback } from "@impulse-ui-native/core";
 import {
   AppTheme,
   ComponentSize,
-  useTheme,
+  useColors,
+  useStyleProps,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 import { Typography } from "@impulse-ui-native/typography";
@@ -14,6 +15,7 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
+
 import { ButtonProps, ButtonVariant } from "../types";
 
 export const Button = memo(function Button({
@@ -24,26 +26,26 @@ export const Button = memo(function Button({
   style,
   ...props
 }: PropsWithChildren<ButtonProps>) {
-  const theme = useTheme();
+  const colors = useColors();
 
   const styles = useThemedStyles(themedStyles, { size, variant, disabled });
+  const extractedStyleProps = useStyleProps(props);
 
   const pressableStyles = useEventCallback(
-    (state: PressableStateCallbackType) => [
-      styles.button,
-      style,
-      state.pressed ? styles.pressed : undefined,
-    ]
+    (state: PressableStateCallbackType) =>
+      StyleSheet.flatten([
+        styles.button,
+        extractedStyleProps,
+        style,
+        state.pressed ? styles.pressed : undefined,
+      ])
   );
 
   const androidRipple = useMemo(
     () => ({
-      color:
-        variant === "contained"
-          ? theme.colors.neutral[8]
-          : theme.colors.neutral[3],
+      color: variant === "contained" ? colors.neutral[8] : colors.neutral[3],
     }),
-    [variant]
+    [variant, colors]
   );
 
   const content = useMemo(() => {

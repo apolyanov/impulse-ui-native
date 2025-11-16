@@ -1,6 +1,7 @@
 import { useStyleProps } from "@impulse-ui-native/theme";
 import { memo, useMemo } from "react";
 import { View as NativeView, StyleSheet } from "react-native";
+
 import { ViewProps } from "../types";
 
 export const View = memo(function View(props: ViewProps) {

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
+
 import { useThemeContext } from "../providers";
-import { ThemeColors } from "../theme/light.theme";
+import { ThemeColors } from "../types";
 
 export function useColors(): ThemeColors {
   const context = useThemeContext();

@@ -1,4 +1,5 @@
 import { ComponentType, PropsWithChildren } from "react";
+
 import { BaseRegistrationProps } from "./base.types";
 
 export interface LayerComponentBaseProps {

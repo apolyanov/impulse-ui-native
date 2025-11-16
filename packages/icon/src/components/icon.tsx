@@ -1,4 +1,5 @@
 import { memo, useMemo } from "react";
+
 import { IconProps } from "../types";
 
 export const Icon = memo(function Icon({
@@ -15,9 +16,11 @@ export const Icon = memo(function Icon({
           small: 14,
           medium: 16,
           large: 16,
-        }[size]),
-      [size]
+        })[size],
+      [size],
     ) ?? 16;
 
-  return <Icon width={iconSize} height={iconSize} {...props} />;
+  return (
+    <Icon {...props} width={iconSize} height={iconSize} fill={props.color} />
+  );
 });

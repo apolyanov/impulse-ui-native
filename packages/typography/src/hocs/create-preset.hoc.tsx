@@ -1,31 +1,45 @@
 import {
   TypographyPresetKey,
   TypographyProps,
+  useComponentsTheme,
   useStyleProps,
-  useThemeContext,
+  useTheme,
 } from "@impulse-ui-native/theme";
 import { memo, useMemo } from "react";
-import { StyleSheet, Text, TextProps } from "react-native";
+import { StyleSheet, Text } from "react-native";
+
+import { TextProps } from "../types";
 
 export function createPreset(
   config: TypographyProps,
   key: TypographyPresetKey
 ) {
   const Component = (props: TextProps) => {
-    const context = useThemeContext();
+    const theme = useTheme();
+    const componentsTheme = useComponentsTheme();
     const extractedStyleProps = useStyleProps(props);
 
     const style = useMemo(() => {
+      const fontWeights = theme.fontWeights[props.fontStyle ?? "normal"];
+      const fontFamily =
+        fontWeights[props.fontWeight ?? config.fontWeight ?? 400];
+
       return StyleSheet.flatten([
         config,
-        context.theme.components?.typography?.[key],
+        componentsTheme?.typography?.[key],
         extractedStyleProps,
+        {
+          fontFamily,
+        },
         props.style,
       ]);
     }, [
-      context.theme.components?.typography,
+      componentsTheme?.typography,
+      theme.fontWeights,
       extractedStyleProps,
       props.style,
+      props.fontStyle,
+      props.fontWeight,
     ]);
 
     return <Text {...props} style={style} />;
