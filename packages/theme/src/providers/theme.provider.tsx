@@ -1,11 +1,3 @@
-import { DeepPartial, merge } from "@impulse-ui-native/core";
-import {
-  createContext,
-  memo,
-  PropsWithChildren,
-  useContext,
-  useMemo,
-} from "react";
 import {
   Montserrat_100Thin,
   Montserrat_100Thin_Italic,
@@ -27,6 +19,14 @@ import {
   Montserrat_900Black_Italic,
   useFonts,
 } from "@expo-google-fonts/montserrat";
+import { DeepPartial, merge } from "@impulse-ui-native/core";
+import {
+  createContext,
+  memo,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+} from "react";
 
 import { DarkTheme, LightTheme } from "../theme";
 import {

@@ -40,6 +40,7 @@ export const Input = memo(function Input({
   const labelColor = useMemo(() => {
     if (disabled) return theme.colors.neutral[7];
     if (error) return theme.colors.error;
+
     return theme.colors.text.secondary;
   }, [disabled, error, theme.colors]);
 
@@ -58,6 +59,7 @@ export const Input = memo(function Input({
   const iconColor = useMemo(() => {
     if (disabled) return theme.colors.neutral[7];
     if (error) return theme.colors.error;
+
     return theme.colors.text.secondary;
   }, [disabled, error, theme.colors]);
 

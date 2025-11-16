@@ -42,6 +42,7 @@ export const Tag = memo(function Tag({
 
   const textColor = useMemo(() => {
     if (variant === "filled") return theme.colors.white;
+
     return disabled ? theme.colors.neutral[7] : theme.colors[color];
   }, [variant, disabled, theme.colors, color]);
 

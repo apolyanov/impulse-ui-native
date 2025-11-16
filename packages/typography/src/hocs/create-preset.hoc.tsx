@@ -46,5 +46,6 @@ export function createPreset(
   };
 
   Component.displayName = `Typography.${key}`;
+
   return memo(Component);
 }
