@@ -1,5 +1,11 @@
 # @impulse-ui-native/layer-manager-types
 
+## 1.0.10
+
+### Patch Changes
+
+- Icons introduced
+
 ## 1.0.9
 
 ### Patch Changes

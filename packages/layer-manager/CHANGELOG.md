@@ -1,5 +1,19 @@
 # @impulse-ui-native/layer-manager
 
+## 1.0.10
+
+### Patch Changes
+
+- Icons introduced
+- Updated dependencies
+  - @impulse-ui-native/core@1.0.10
+  - @impulse-ui-native/echo@1.0.10
+  - @impulse-ui-native/flyout@1.0.10
+  - @impulse-ui-native/layer-manager-types@1.0.10
+  - @impulse-ui-native/safe-area-view@1.0.10
+  - @impulse-ui-native/theme@1.0.10
+  - @impulse-ui-native/view@1.0.10
+
 ## 1.0.9
 
 ### Patch Changes

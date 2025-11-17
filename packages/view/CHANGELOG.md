@@ -1,5 +1,13 @@
 # @impulse-ui-native/view
 
+## 1.0.10
+
+### Patch Changes
+
+- Icons introduced
+- Updated dependencies
+  - @impulse-ui-native/theme@1.0.10
+
 ## 1.0.9
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @impulse-ui-native/input
 
+## 1.0.10
+
+### Patch Changes
+
+- Icons introduced
+- Updated dependencies
+  - @impulse-ui-native/core@1.0.10
+  - @impulse-ui-native/icon@1.0.10
+  - @impulse-ui-native/theme@1.0.10
+  - @impulse-ui-native/typography@1.0.10
+
 ## 1.0.9
 
 ### Patch Changes
