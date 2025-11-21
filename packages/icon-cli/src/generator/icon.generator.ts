@@ -70,14 +70,14 @@ for (const folder of folders) {
 
     if (iconComponent) {
       fs.writeFileSync(
-        path.join(rootDir, output, folder, file.replace(".svg", ".tsx")),
+        path.join(rootDir, output, folder, file.replace(".svg", ".icon.tsx")),
         iconComponent
       );
     }
 
     iconNames.add(uniqueIconName);
-    indexFile += `export { ${name} } from "./${file.replace(".svg", "")}"\n`;
-    console.log(`✅ Created ${name}`);
+    indexFile += `export { ${name}Icon } from "./${file.replace(".svg", "")}.icon"\n`;
+    console.log(`✅ Created ${name}Icon`);
   }
 
   fs.writeFileSync(path.join(rootDir, output, folder, "index.ts"), indexFile);
@@ -86,10 +86,10 @@ for (const folder of folders) {
 Array.from(iconNames).forEach((iconName) => {
   const fileName = pascalToKebab(iconName);
 
-  iconWrappersIndex += `export { ${iconName} } from "./${fileName}"\n`;
+  iconWrappersIndex += `export { ${iconName}Icon } from "./${fileName}.icon"\n`;
 
   fs.writeFileSync(
-    path.join(rootDir, output, wrappers, pascalToKebab(iconName) + ".tsx"),
+    path.join(rootDir, output, wrappers, pascalToKebab(iconName) + ".icon.tsx"),
     IconWrapperTemplate(iconName)
   );
 });

@@ -5,7 +5,7 @@ export const IconTemplate = (props: TemplateProps) => {
   return template`
     ${props.imports + "\n\n"}
     
-    export const ${props.componentName} = memo(function ${props.componentName}(props: SvgProps) {
+    export const ${props.componentName}Icon = memo(function ${props.componentName}(props: SvgProps) {
         return ${props.jsx}
     })
     `;

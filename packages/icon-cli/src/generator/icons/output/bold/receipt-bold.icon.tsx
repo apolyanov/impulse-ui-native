@@ -1,0 +1,11 @@
+import { memo } from 'react'
+    import Svg, { Path } from 'react-native-svg'
+    import type { SvgProps } from 'react-native-svg'
+    export const ReceiptBoldIcon = memo(function ReceiptBold(props: SvgProps) {
+        return (
+    <Svg viewBox="0 0 256 256"
+fill={props.color}
+ ><Path d="M68,100A12,12,0,0,1,80,88h96a12,12,0,0,1,0,24H80A12,12,0,0,1,68,100Zm12,52h96a12,12,0,0,0,0-24H80a12,12,0,0,0,0,24ZM236,56V208a12,12,0,0,1-17.37,10.73L192,205.42l-26.63,13.31a12,12,0,0,1-10.74,0L128,205.42l-26.63,13.31a12,12,0,0,1-10.74,0L64,205.42,37.37,218.73A12,12,0,0,1,20,208V56A20,20,0,0,1,40,36H216A20,20,0,0,1,236,56Zm-24,4H44V188.58l14.63-7.31a12,12,0,0,1,10.74,0L96,194.58l26.63-13.31a12,12,0,0,1,10.74,0L160,194.58l26.63-13.31a12,12,0,0,1,10.74,0L212,188.58Z"
+ /></Svg>
+  )
+    })

@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@impulse-ui-native/button";
+import { Button } from "@impulse-ui-native/button";
 import { Input } from "@impulse-ui-native/input";
 import { registerFlyout } from "@impulse-ui-native/layer-manager";
 import { FlyoutOpenProps } from "@impulse-ui-native/layer-manager-types";
@@ -7,7 +7,6 @@ import { Typography } from "@impulse-ui-native/typography";
 import { View } from "@impulse-ui-native/view";
 import { Fragment, memo } from "react";
 import { Text } from "react-native";
-import { CloseIcon } from "../close.icon";
 
 const TestComponent = memo((props: FlyoutOpenProps) => {
   return (
@@ -69,9 +68,9 @@ export default function Index() {
       </Typography.DisplayLarge>
       <Typography.Body>Edit app/index.tsx to edit this screen.</Typography.Body>
       <Button onPress={() => openFlyout("top")}>TEST</Button>
-      <IconButton onPress={() => openFlyout("bottom")} icon={CloseIcon} />
+      {/* <IconButton onPress={() => openFlyout("bottom")} icon={XCircle} /> */}
       <View style={{ backgroundColor: "red" }}>
-        <CloseIcon color="black"></CloseIcon>
+        {/* <XCircle color="black"></XCircle> */}
       </View>
 
       <Tag

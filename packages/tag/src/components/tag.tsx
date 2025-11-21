@@ -1,4 +1,4 @@
-import { Icon, IconStyle } from "@impulse-ui-native/icon";
+import { Icon, IconStyle, XCircle } from "@impulse-ui-native/icon";
 import {
   AppTheme,
   ComponentSize,
@@ -17,8 +17,6 @@ import {
 } from "react-native";
 
 import { TagProps } from "../types";
-
-import { CloseIcon } from "./close.icon";
 
 export const Tag = memo(function Tag({
   label,
@@ -80,7 +78,7 @@ export const Tag = memo(function Tag({
       {showClose ? (
         <Pressable onPress={onClose} hitSlop={6}>
           <Icon
-            icon={CloseIcon}
+            icon={XCircle}
             size="small"
             color={textColor}
             style={styles.icon}

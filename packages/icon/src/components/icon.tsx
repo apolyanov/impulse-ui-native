@@ -17,7 +17,7 @@ export const Icon = memo(function Icon({
           medium: 16,
           large: 16,
         })[size],
-      [size],
+      [size]
     ) ?? 16;
 
   return (

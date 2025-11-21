@@ -1,0 +1,13 @@
+import { memo } from "react";
+import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
+
+export const GitCommitLightIcon = memo(function GitCommitLight(
+  props: SvgProps
+) {
+  return (
+    <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Path d="M248,122H181.66a54,54,0,0,0-107.32,0H8a6,6,0,0,0,0,12H74.34a54,54,0,0,0,107.32,0H248a6,6,0,0,0,0-12ZM128,170a42,42,0,1,1,42-42A42,42,0,0,1,128,170Z" />
+    </Svg>
+  );
+});

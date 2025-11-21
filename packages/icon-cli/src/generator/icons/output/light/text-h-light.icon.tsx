@@ -1,0 +1,11 @@
+import { memo } from 'react'
+    import Svg, { Path } from 'react-native-svg'
+    import type { SvgProps } from 'react-native-svg'
+    export const TextHLightIcon = memo(function TextHLight(props: SvgProps) {
+        return (
+    <Svg viewBox="0 0 256 256"
+fill={props.color}
+ ><Path d="M206,56V200a6,6,0,0,1-12,0V134H62v66a6,6,0,0,1-12,0V56a6,6,0,0,1,12,0v66H194V56a6,6,0,0,1,12,0Z"
+ /></Svg>
+  )
+    })

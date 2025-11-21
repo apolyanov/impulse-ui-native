@@ -4,23 +4,23 @@ export function IconWrapperTemplate(name: string) {
   return template`
         import { ComponentType, memo, useMemo } from "react";
         import { SvgProps } from "react-native-svg";
-        import { ${name}Bold } from "../bold";
-        import { ${name}Duotone } from "../duotone";
-        import { ${name}Fill } from "../fill";
-        import { ${name}Light } from "../light";
-        import { ${name}Regular } from "../regular";
-        import { ${name}Thin } from "../thin";
+        import { ${name}BoldIcon } from "../bold";
+        import { ${name}DuotoneIcon } from "../duotone";
+        import { ${name}FillIcon } from "../fill";
+        import { ${name}LightIcon } from "../light";
+        import { ${name}RegularIcon } from "../regular";
+        import { ${name}ThinIcon } from "../thin";
         import { IconVariant, IconWrapperProps } from "../../types";
 
-        export const ${name} = memo(function ${name}(props: IconWrapperProps) {
+        export const ${name}Icon = memo(function ${name}(props: IconWrapperProps) {
         const Icon = useMemo(() => {
             const icons: Record<IconVariant, ComponentType<SvgProps>> = {
-            bold: ${name}Bold,
-            duotone: ${name}Duotone,
-            fill: ${name}Fill,
-            light: ${name}Light,
-            regular: ${name}Regular,
-            thin: ${name}Thin,
+            bold: ${name}BoldIcon,
+            duotone: ${name}DuotoneIcon,
+            fill: ${name}FillIcon,
+            light: ${name}LightIcon,
+            regular: ${name}RegularIcon,
+            thin: ${name}ThinIcon,
             };
 
             return icons[props.variant ?? "regular"];
