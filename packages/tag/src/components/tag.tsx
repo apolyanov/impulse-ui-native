@@ -1,4 +1,4 @@
-import { Icon, IconStyle, XCircle } from "@impulse-ui-native/icon";
+import { Icon, IconStyle, XCircleIcon } from "@impulse-ui-native/icon";
 import {
   AppTheme,
   ComponentSize,
@@ -78,7 +78,7 @@ export const Tag = memo(function Tag({
       {showClose ? (
         <Pressable onPress={onClose} hitSlop={6}>
           <Icon
-            icon={XCircle}
+            icon={XCircleIcon}
             size="small"
             color={textColor}
             style={styles.icon}
