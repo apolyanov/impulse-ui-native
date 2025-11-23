@@ -6,7 +6,7 @@ export const MoneyWavyDuotoneIcon = memo(function MoneyWavyDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M16,69.21v120c91.64-44.77,132.36,42.35,224-2.42v-120C148.36,111.56,107.64,24.44,16,69.21ZM128,152a24,24,0,1,1,24-24A24,24,0,0,1,128,152Z"
         opacity={0.2}

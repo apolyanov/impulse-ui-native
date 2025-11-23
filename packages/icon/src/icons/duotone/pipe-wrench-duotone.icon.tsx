@@ -6,7 +6,7 @@ export const PipeWrenchDuotoneIcon = memo(function PipeWrenchDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M173.66,145.66,85,235a17,17,0,0,1-24-24l64.69-65.37a8,8,0,0,0,0-11.32L77,85a17,17,0,0,1,0-24h0a17,17,0,0,1,24,0l72.69,73.37A8,8,0,0,1,173.66,145.66Z"
         opacity={0.2}

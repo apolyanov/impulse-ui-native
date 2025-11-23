@@ -6,7 +6,7 @@ export const HandsClappingDuotoneIcon = memo(function HandsClappingDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M199,187.76h0A71.67,71.67,0,0,0,190.34,140l-20.2-35a18,18,0,0,0-31.55,17.26L114.71,81A18,18,0,1,0,83.54,99L77.81,89,65.1,67A18,18,0,1,1,96.28,49L102,59a18,18,0,1,1,31.17-18l24.23,42a18,18,0,0,1,31.2-18l21.11,36.57A72,72,0,0,1,199,187.76Z"
         opacity={0.2}

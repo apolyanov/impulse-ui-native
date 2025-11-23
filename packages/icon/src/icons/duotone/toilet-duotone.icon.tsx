@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const ToiletDuotoneIcon = memo(function ToiletDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M167.92,222.87A8,8,0,0,1,160,232H96a8,8,0,0,1-7.92-9.13l4.34-30.36h0a88.21,88.21,0,0,0,71.14,0h0ZM184,32H72a8,8,0,0,0-8,8v72H192V40A8,8,0,0,0,184,32Z"
         opacity={0.2}

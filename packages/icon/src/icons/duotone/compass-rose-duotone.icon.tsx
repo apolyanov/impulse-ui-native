@@ -6,7 +6,7 @@ export const CompassRoseDuotoneIcon = memo(function CompassRoseDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M248,128l-96,24-24,96-24-96L8,128l96-24L128,8l24,96Z"
         opacity={0.2}

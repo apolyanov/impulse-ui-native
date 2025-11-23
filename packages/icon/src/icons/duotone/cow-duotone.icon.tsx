@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const CowDuotoneIcon = memo(function CowDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,192h0a32,32,0,0,1-32,32H80a32,32,0,0,1-32-32h0a32,32,0,0,1,32-32h96A32,32,0,0,1,208,192ZM64,104A32,32,0,0,1,96,72H63.22a48,48,0,0,0-47.07,38.53A8,8,0,0,0,24,120H64Zm175.85,6.53A48,48,0,0,0,192.78,72H160a32,32,0,0,1,32,32v16h40A8,8,0,0,0,239.85,110.53Z"
         opacity={0.2}

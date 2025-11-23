@@ -3,11 +3,11 @@ import { memo } from 'react'
     import type { SvgProps } from 'react-native-svg'
     export const ArticleNyTimesDuotoneIcon = memo(function ArticleNyTimesDuotone(props: SvgProps) {
         return (
-    <Svg viewBox="0 0 256 256"
+    <Svg {...props} viewBox="0 0 256 256"
 fill={props.color}
- ><Path d="M232,104v96H80V168h48V104Z"
+ ><Path  d="M232,104v96H80V168h48V104Z"
 opacity={0.2}
- /><Path d="M128,96H232a8,8,0,0,1,0,16H128a8,8,0,0,1,0-16Zm104,32H128a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm0,32H80a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm0,32H80a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16ZM96,144a8,8,0,0,0,0-16H88V64h32v8a8,8,0,0,0,16,0V56a8,8,0,0,0-8-8H32a8,8,0,0,0-8,8V72a8,8,0,0,0,16,0V64H72v64H64a8,8,0,0,0,0,16Z"
+ /><Path  d="M128,96H232a8,8,0,0,1,0,16H128a8,8,0,0,1,0-16Zm104,32H128a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm0,32H80a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16Zm0,32H80a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16ZM96,144a8,8,0,0,0,0-16H88V64h32v8a8,8,0,0,0,16,0V56a8,8,0,0,0-8-8H32a8,8,0,0,0-8,8V72a8,8,0,0,0,16,0V64H72v64H64a8,8,0,0,0,0,16Z"
  /></Svg>
   )
     })

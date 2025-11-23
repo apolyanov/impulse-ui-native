@@ -6,7 +6,7 @@ export const BookOpenTextDuotoneIcon = memo(function BookOpenTextDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,56V200H160a32,32,0,0,0-32,32V88a32,32,0,0,1,32-32Z"
         opacity={0.2}

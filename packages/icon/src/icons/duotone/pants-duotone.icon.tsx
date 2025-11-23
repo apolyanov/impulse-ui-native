@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const PantsDuotoneIcon = memo(function PantsDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M202.05,104c-.68,0-1.36,0-2.05,0a40,40,0,0,1-40-40H96a40,40,0,0,1-40,40c-.69,0-1.37,0-2,0L62.06,39A8,8,0,0,1,70,32H186a8,8,0,0,1,7.94,7Z"
         opacity={0.2}

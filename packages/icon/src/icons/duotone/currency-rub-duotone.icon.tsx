@@ -6,7 +6,7 @@ export const CurrencyRubDuotoneIcon = memo(function CurrencyRubDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,92a52,52,0,0,1-52,52H88V40h60A52,52,0,0,1,200,92Z"
         opacity={0.2}

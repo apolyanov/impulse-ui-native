@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const UsbDuotoneIcon = memo(function UsbDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M160,64a24,24,0,1,1-24-24A24,24,0,0,1,160,64Zm40,32v64l48-32Zm-48,72H120a8,8,0,0,0-8,8v32a8,8,0,0,0,8,8h32a8,8,0,0,0,8-8V176A8,8,0,0,0,152,168Z"
         opacity={0.2}

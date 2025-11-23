@@ -6,7 +6,7 @@ export const StarAndCrescentDuotoneIcon = memo(function StarAndCrescentDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M152,206.4a88,88,0,1,1,0-156.8,88,88,0,0,0,0,156.8Zm65.06-91.75L214.39,80l-21.8,26.4L160,98.33,177.46,128,160,157.67l32.59-8.07,21.8,26.4,2.67-34.65L248,128Z"
         opacity={0.2}

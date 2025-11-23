@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const GitlabLogoSimpleDuotoneIcon = memo(
   function GitlabLogoSimpleDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M203.52,171.52l-73.26,51.76a3.91,3.91,0,0,1-4.52,0L52.48,171.52a49,49,0,0,1-18.87-52.4L53.5,43A3.93,3.93,0,0,1,61,42.62L80.65,96h94.7L195,42.62a3.93,3.93,0,0,1,7.53.38l19.89,76.12A49,49,0,0,1,203.52,171.52Z"
           opacity={0.2}

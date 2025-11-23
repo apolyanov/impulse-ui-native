@@ -6,7 +6,7 @@ export const FlyingSaucerDuotoneIcon = memo(function FlyingSaucerDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,112c0,26.51-50.14,48-112,48S16,138.51,16,112c0-19,25.86-35.49,63.35-43.25h0A57.07,57.07,0,0,0,72,96.83V99.9a15.94,15.94,0,0,0,12.34,15.52A195.87,195.87,0,0,0,128,120a195.71,195.71,0,0,0,43.64-4.58A16,16,0,0,0,184,99.9V96a55.7,55.7,0,0,0-7-27.18h0C214.29,76.61,240,93,240,112Z"
         opacity={0.2}

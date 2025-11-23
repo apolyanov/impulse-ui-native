@@ -6,7 +6,7 @@ export const DropboxLogoDuotoneIcon = memo(function DropboxLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,84,76,120,24,84,76,48Zm104,0L180,48,128,84l52,36ZM24,156l52,36,52-36L76,120Zm104,0,52,36,52-36-52-36Z"
         opacity={0.2}

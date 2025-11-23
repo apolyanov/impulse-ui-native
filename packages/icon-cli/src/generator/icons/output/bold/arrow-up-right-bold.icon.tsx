@@ -3,9 +3,9 @@ import { memo } from 'react'
     import type { SvgProps } from 'react-native-svg'
     export const ArrowUpRightBoldIcon = memo(function ArrowUpRightBold(props: SvgProps) {
         return (
-    <Svg viewBox="0 0 256 256"
+    <Svg {...props} viewBox="0 0 256 256"
 fill={props.color}
- ><Path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"
+ ><Path  d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"
  /></Svg>
   )
     })

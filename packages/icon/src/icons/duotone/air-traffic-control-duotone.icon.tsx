@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const AirTrafficControlDuotoneIcon = memo(
   function AirTrafficControlDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M223.51,82.73l-26.18,72a8,8,0,0,1-7.52,5.27H66.19a8,8,0,0,1-7.52-5.27l-26.18-72A8,8,0,0,1,40,72H216A8,8,0,0,1,223.51,82.73Z"
           opacity={0.2}

@@ -6,7 +6,7 @@ export const NuclearPlantDuotoneIcon = memo(function NuclearPlantDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M178.33,216H37.67C51.16,189.65,70,144.55,71.86,95.64a8,8,0,0,1,8-7.64h56.3a8,8,0,0,1,8,7.64C146,144.55,164.84,189.65,178.33,216Z"
         opacity={0.2}

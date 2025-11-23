@@ -6,7 +6,7 @@ export const BugBeetleDuotoneIcon = memo(function BugBeetleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,112v48a72,72,0,0,1-72,72h0a72,72,0,0,1-72-72V112Z"
         opacity={0.2}

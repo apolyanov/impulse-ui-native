@@ -6,7 +6,7 @@ export const LineSegmentsDuotoneIcon = memo(function LineSegmentsDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M57,183A24,24,0,1,1,23,183,24,24,0,0,1,57,183ZM79,79A24,24,0,1,0,113,79,24,24,0,0,0,79,79Zm64,64A24,24,0,1,0,177,143,24,24,0,0,0,143,143ZM233,39A24,24,0,1,0,233,73,24,24,0,0,0,233,39Z"
         opacity={0.2}

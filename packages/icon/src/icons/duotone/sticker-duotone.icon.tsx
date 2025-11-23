@@ -6,7 +6,7 @@ export const StickerDuotoneIcon = memo(function StickerDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,136c-8,24-56,72-80,80V184a48,48,0,0,1,48-48Z"
         opacity={0.2}

@@ -3,11 +3,11 @@ import { memo } from 'react'
     import type { SvgProps } from 'react-native-svg'
     export const FolderDuotoneIcon = memo(function FolderDuotone(props: SvgProps) {
         return (
-    <Svg viewBox="0 0 256 256"
+    <Svg {...props} viewBox="0 0 256 256"
 fill={props.color}
- ><Path d="M128,80H32V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34Z"
+ ><Path  d="M128,80H32V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34Z"
 opacity={0.2}
- /><Path d="M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM92.69,56l16,16H40V56ZM216,200H40V88H216Z"
+ /><Path  d="M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM92.69,56l16,16H40V56ZM216,200H40V88H216Z"
  /></Svg>
   )
     })

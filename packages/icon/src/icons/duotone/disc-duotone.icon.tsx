@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const DiscDuotoneIcon = memo(function DiscDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,128a96,96,0,1,1-28.12-67.88l-45.25,45.25h0A32,32,0,1,0,160,128Z"
         opacity={0.2}

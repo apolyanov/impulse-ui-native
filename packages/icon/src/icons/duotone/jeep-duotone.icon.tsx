@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const JeepDuotoneIcon = memo(function JeepDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,96H32L42.65,46.32A8,8,0,0,1,50.47,40H205.53a8,8,0,0,1,7.82,6.32Z"
         opacity={0.2}

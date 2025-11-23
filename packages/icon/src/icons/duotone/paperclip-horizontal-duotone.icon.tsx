@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const PaperclipHorizontalDuotoneIcon = memo(
   function PaperclipHorizontalDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M240,128a48,48,0,0,1-48,48H48a32,32,0,0,1,0-64H80V80H192A48,48,0,0,1,240,128Z"
           opacity={0.2}

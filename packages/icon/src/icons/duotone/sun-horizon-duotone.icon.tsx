@@ -6,7 +6,7 @@ export const SunHorizonDuotoneIcon = memo(function SunHorizonDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M192,144a64.33,64.33,0,0,1-2,16H66a64,64,0,1,1,126-16Z"
         opacity={0.2}

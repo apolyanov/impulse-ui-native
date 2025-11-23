@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const CaretCircleDoubleUpDuotoneIcon = memo(
   function CaretCircleDoubleUpDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M195.88,195.88a96,96,0,1,1,0-135.76A96,96,0,0,1,195.88,195.88Z"
           opacity={0.2}

@@ -6,7 +6,7 @@ export const GitlabLogoDuotoneIcon = memo(function GitlabLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M220.23,110.84,128,176,35.77,110.84,53.5,43A3.93,3.93,0,0,1,61,42.62L80.65,96h94.7L195,42.62a3.93,3.93,0,0,1,7.53.38Z"
         opacity={0.2}

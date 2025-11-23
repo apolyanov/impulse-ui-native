@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const KnifeDuotoneIcon = memo(function KnifeDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M226.2,65.8,174,118,146,90l52.2-52.2a19.8,19.8,0,0,1,28,0h0A19.8,19.8,0,0,1,226.2,65.8Z"
         opacity={0.2}

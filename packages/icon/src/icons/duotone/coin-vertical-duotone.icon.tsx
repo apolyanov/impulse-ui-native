@@ -6,7 +6,7 @@ export const CoinVerticalDuotoneIcon = memo(function CoinVerticalDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M160,128c0,53-25.07,96-56,96s-56-43-56-96,25.07-96,56-96S160,75,160,128Z"
         opacity={0.2}

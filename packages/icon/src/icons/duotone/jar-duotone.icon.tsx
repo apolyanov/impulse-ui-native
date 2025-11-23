@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const JarDuotoneIcon = memo(function JarDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,88V200a32,32,0,0,1-32,32H80a32,32,0,0,1-32-32V88A32,32,0,0,1,80,56h96A32,32,0,0,1,208,88Z"
         opacity={0.2}

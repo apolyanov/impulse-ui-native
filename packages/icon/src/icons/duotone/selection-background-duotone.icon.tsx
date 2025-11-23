@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const SelectionBackgroundDuotoneIcon = memo(
   function SelectionBackgroundDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,48V160a8,8,0,0,1-8,8H168V96a8,8,0,0,0-8-8H88V48a8,8,0,0,1,8-8H208A8,8,0,0,1,216,48Z"
           opacity={0.2}

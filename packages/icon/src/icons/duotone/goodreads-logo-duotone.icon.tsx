@@ -6,7 +6,7 @@ export const GoodreadsLogoDuotoneIcon = memo(function GoodreadsLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M184,88v24a56,56,0,0,1-112,0V88a56,56,0,0,1,112,0Z"
         opacity={0.2}

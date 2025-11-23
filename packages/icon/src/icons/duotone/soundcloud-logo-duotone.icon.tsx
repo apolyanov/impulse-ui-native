@@ -6,7 +6,7 @@ export const SoundcloudLogoDuotoneIcon = memo(function SoundcloudLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M248,152a40,40,0,0,1-40,40H144V48a72,72,0,0,1,71.64,64.73A40,40,0,0,1,248,152Z"
         opacity={0.2}

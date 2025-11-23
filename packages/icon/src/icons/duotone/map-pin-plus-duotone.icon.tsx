@@ -6,7 +6,7 @@ export const MapPinPlusDuotoneIcon = memo(function MapPinPlusDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z"
         opacity={0.2}

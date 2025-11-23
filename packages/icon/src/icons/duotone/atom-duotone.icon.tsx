@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const AtomDuotoneIcon = memo(function AtomDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M210.26,210.26c-17.23,17.23-68-5.63-113.46-51.06S28.51,63,45.74,45.74s68,5.63,113.46,51.06S227.49,193,210.26,210.26Z"
         opacity={0.2}

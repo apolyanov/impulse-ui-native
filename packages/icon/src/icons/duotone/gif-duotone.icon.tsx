@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const GifDuotoneIcon = memo(function GifDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,56V200a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Z"
         opacity={0.2}

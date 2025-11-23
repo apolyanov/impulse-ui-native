@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const ChatCenteredDotsDuotoneIcon = memo(
   function ChatCenteredDotsDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M224,56V184a8,8,0,0,1-8,8H150.93l-16,28a8,8,0,0,1-13.9,0l-16-28H40a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8H216A8,8,0,0,1,224,56Z"
           opacity={0.2}

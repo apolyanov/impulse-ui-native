@@ -6,7 +6,7 @@ export const GooglePlayLogoDuotoneIcon = memo(function GooglePlayLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M160,128,58.32,230A7.7,7.7,0,0,1,56,224.45V31.55A7.7,7.7,0,0,1,58.32,26Z"
         opacity={0.2}

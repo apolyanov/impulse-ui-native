@@ -6,7 +6,7 @@ export const OpenAiLogoDuotoneIcon = memo(function OpenAiLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M96,174.19l56-32.33v36.95L107.5,204.5a48,48,0,0,1-66.4-64.08h0A48,48,0,0,0,51.5,148.5ZM204.5,107.5,160,81.81l-32,18.48,56,32.33V184a48,48,0,0,1-1.81,13h0A48,48,0,0,0,204.5,107.5ZM104,77.19,148.5,51.5a47.77,47.77,0,0,1,12.19-5v0A48,48,0,0,0,72,72v51.38l32,18.48Z"
         opacity={0.2}

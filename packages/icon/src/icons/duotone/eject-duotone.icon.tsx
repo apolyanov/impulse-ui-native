@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const EjectDuotoneIcon = memo(function EjectDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,168v24a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V168a8,8,0,0,1,8-8H208A8,8,0,0,1,216,168ZM48.23,128H207.77c7.16,0,10.89-8.27,6-13.37l-73.74-77.5a16.76,16.76,0,0,0-24.14,0l-73.74,77.5C37.34,119.73,41.07,128,48.23,128Z"
         opacity={0.2}

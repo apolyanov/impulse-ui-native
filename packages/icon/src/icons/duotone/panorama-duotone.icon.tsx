@@ -6,7 +6,7 @@ export const PanoramaDuotoneIcon = memo(function PanoramaDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,64V192a8,8,0,0,1-3.47,6.6l-68.25-68.25a8,8,0,0,0-11.31,0L131.31,156,81.66,106.34a8,8,0,0,0-11.32,0L16,160.69V64a8,8,0,0,1,10.05-7.74C43.35,60.89,81.44,72,128,72S212.65,60.89,230,56.27A8,8,0,0,1,240,64Z"
         opacity={0.2}

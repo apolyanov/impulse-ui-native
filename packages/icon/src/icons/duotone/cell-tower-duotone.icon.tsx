@@ -6,7 +6,7 @@ export const CellTowerDuotoneIcon = memo(function CellTowerDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,88a72,72,0,0,1-39.8,64.4L128,88,95.8,152.4A72,72,0,1,1,200,88Z"
         opacity={0.2}

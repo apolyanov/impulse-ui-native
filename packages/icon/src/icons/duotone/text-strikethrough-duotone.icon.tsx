@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const TextStrikethroughDuotoneIcon = memo(
   function TextStrikethroughDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M176,72l-55.31,51.05c-24-6.7-45.58-14.26-45.58-35,0-22.09,22-40,52.89-40C151.2,48,168.37,57.64,176,72Zm-55.31,51.05L72,168c0,22.09,25.07,40,56,40s56-17.91,56-40C184,138.43,150.52,131.4,120.69,123.05Z"
           opacity={0.2}

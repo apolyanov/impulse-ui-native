@@ -6,7 +6,7 @@ export const CashRegisterDuotoneIcon = memo(function CashRegisterDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,160H24L46.49,70.06A8,8,0,0,1,54.25,64h147.5a8,8,0,0,1,7.76,6.06Z"
         opacity={0.2}

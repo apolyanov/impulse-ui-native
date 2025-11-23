@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const SpiralDuotoneIcon = memo(function SpiralDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,144H208a80,80,0,0,1-80,80,88,88,0,0,1-88-88,96,96,0,0,1,96-96A104,104,0,0,1,240,144Z"
         opacity={0.2}

@@ -6,7 +6,7 @@ export const NotepadDuotoneIcon = memo(function NotepadDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,40V200a24,24,0,0,1-24,24H72a24,24,0,0,1-24-24V40Z"
         opacity={0.2}

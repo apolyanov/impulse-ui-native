@@ -6,7 +6,7 @@ export const LegoSmileyDuotoneIcon = memo(function LegoSmileyDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,80v96a24,24,0,0,1-24,24H72a24,24,0,0,1-24-24V80A24,24,0,0,1,72,56H184A24,24,0,0,1,208,80Z"
         opacity={0.2}

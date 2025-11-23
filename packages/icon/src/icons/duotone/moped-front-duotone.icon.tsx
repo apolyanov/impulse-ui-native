@@ -6,7 +6,7 @@ export const MopedFrontDuotoneIcon = memo(function MopedFrontDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M152,168v48a24,24,0,0,1-48,0V168a24,24,0,0,1,48,0ZM128,80A32,32,0,1,0,96,48,32,32,0,0,0,128,80Z"
         opacity={0.2}

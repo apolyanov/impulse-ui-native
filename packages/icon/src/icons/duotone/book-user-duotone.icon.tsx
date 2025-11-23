@@ -6,7 +6,7 @@ export const BookUserDuotoneIcon = memo(function BookUserDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,80V200H160a32,32,0,0,0-32,32,32,32,0,0,0-32-32H24V80H96a32,32,0,0,1,32,32,32,32,0,0,1,32-32Z"
         opacity={0.2}

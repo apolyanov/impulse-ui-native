@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const MoonDuotoneIcon = memo(function MoonDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M227.89,147.89A96,96,0,1,1,108.11,28.11,96.09,96.09,0,0,0,227.89,147.89Z"
         opacity={0.2}

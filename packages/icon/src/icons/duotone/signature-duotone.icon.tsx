@@ -1,12 +1,12 @@
 import { memo } from "react";
-import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
 
 export const SignatureDuotoneIcon = memo(function SignatureDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M67.41,142.56C35.71,129.52,45.41,32.07,78,32,111.82,32.05,92,90.26,67.41,142.56Z"
         opacity={0.2}

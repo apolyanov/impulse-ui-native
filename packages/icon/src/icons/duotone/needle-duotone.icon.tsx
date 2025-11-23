@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const NeedleDuotoneIcon = memo(function NeedleDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M206.63,94.63l-24,24C128,128,40,216,40,216s88-88,97.37-142.63l24-24a32,32,0,0,1,45.26,45.26Z"
         opacity={0.2}

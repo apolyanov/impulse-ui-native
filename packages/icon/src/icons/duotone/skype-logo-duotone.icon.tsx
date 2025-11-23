@@ -6,7 +6,7 @@ export const SkypeLogoDuotoneIcon = memo(function SkypeLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,176a48,48,0,0,1-77.31,38A88.07,88.07,0,0,1,42,109.31,48,48,0,0,1,109.31,42,88.07,88.07,0,0,1,214,146.69,47.77,47.77,0,0,1,224,176Z"
         opacity={0.2}

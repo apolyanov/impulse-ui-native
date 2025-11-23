@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const BreadDuotoneIcon = memo(function BreadDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,111v89a8,8,0,0,1-8,8H144a8,8,0,0,0,8-8V111a32,32,0,0,0-8-63h56a32,32,0,0,1,8,63Z"
         opacity={0.2}

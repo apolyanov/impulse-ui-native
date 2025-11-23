@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const RabbitDuotoneIcon = memo(function RabbitDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,188a44,44,0,0,1-80,25.3,44,44,0,1,1-63.71-59.48,64,64,0,0,1,127.42,0A43.9,43.9,0,0,1,208,188Z"
         opacity={0.2}

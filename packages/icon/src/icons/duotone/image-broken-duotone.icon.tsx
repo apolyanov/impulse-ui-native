@@ -6,7 +6,7 @@ export const ImageBrokenDuotoneIcon = memo(function ImageBrokenDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,56V88l-48,16-16,40-23.35,9.34-39-39a8,8,0,0,0-11.32,0L32,168.69V56a8,8,0,0,1,8-8H216A8,8,0,0,1,224,56Z"
         opacity={0.2}

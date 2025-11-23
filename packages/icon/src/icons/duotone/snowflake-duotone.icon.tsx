@@ -6,7 +6,7 @@ export const SnowflakeDuotoneIcon = memo(function SnowflakeDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M220,128a92,92,0,1,1-92-92A92.1,92.1,0,0,1,220,128Z"
         opacity={0.2}

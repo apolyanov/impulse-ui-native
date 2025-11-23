@@ -6,7 +6,7 @@ export const ChampagneDuotoneIcon = memo(function ChampagneDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M120,176c-44.7,0-43.7-57.87-35.8-104h71.6C163.7,118.13,164.7,176,120,176Z"
         opacity={0.2}

@@ -6,7 +6,7 @@ export const HandPeaceDuotoneIcon = memo(function HandPeaceDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M187.43,123.37h0A47.9,47.9,0,0,1,200,155.76v3.34c0,39.7-31.75,72.6-71.45,72.9A72,72,0,0,1,56,160v-7.28h0a19.52,19.52,0,0,1,.41-4,20,20,0,0,1,23.46-15.62L72,131.6a20,20,0,0,1,8-39.19l20.81,4,.57.14v0L88.69,49.18a20,20,0,1,1,38.63-10.35l17.85,66.61,5.37,1.07,18.14-67.68a20,20,0,0,1,38.63,10.35Z"
         opacity={0.2}

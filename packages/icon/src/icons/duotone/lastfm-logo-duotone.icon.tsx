@@ -6,7 +6,7 @@ export const LastfmLogoDuotoneIcon = memo(function LastfmLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,160a32,32,0,0,1-32,32H64a48,48,0,0,1-48-48V120A48,48,0,0,1,64,72H208a24,24,0,0,1,24,24Z"
         opacity={0.2}

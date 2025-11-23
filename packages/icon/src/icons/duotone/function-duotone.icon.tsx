@@ -6,7 +6,7 @@ export const FunctionDuotoneIcon = memo(function FunctionDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,40V200a16,16,0,0,1-16,16H56V56A16,16,0,0,1,72,40Z"
         opacity={0.2}

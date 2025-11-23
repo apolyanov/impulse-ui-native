@@ -6,7 +6,7 @@ export const RacquetDuotoneIcon = memo(function RacquetDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M213,133c-31,31.05-76.36,36.08-101.2,11.24S92,74.07,123,43s76.36-36.08,101.2-11.24S244,101.93,213,133Z"
         opacity={0.2}

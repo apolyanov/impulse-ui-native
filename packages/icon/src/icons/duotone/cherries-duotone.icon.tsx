@@ -6,7 +6,7 @@ export const CherriesDuotoneIcon = memo(function CherriesDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,144a64,64,0,0,1-99.78,53.07l0-.07a64,64,0,1,1-16.39-90A64,64,0,0,1,240,144Z"
         opacity={0.2}

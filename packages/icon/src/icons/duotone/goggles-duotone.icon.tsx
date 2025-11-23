@@ -6,7 +6,7 @@ export const GogglesDuotoneIcon = memo(function GogglesDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,152c0,17.67-30.33,32-48,32a32,32,0,0,1,0-64C201.67,120,232,134.33,232,152ZM72,120c-17.67,0-48,14.33-48,32s30.33,32,48,32a32,32,0,0,0,0-64Z"
         opacity={0.2}

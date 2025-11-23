@@ -6,7 +6,7 @@ export const BezierCurveDuotoneIcon = memo(function BezierCurveDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M152,80a24,24,0,1,1-24-24A24,24,0,0,1,152,80ZM40,152a24,24,0,1,0,24,24A24,24,0,0,0,40,152Zm176,0a24,24,0,1,0,24,24A24,24,0,0,0,216,152Z"
         opacity={0.2}

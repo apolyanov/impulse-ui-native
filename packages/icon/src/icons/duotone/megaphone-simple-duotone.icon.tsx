@@ -6,7 +6,7 @@ export const MegaphoneSimpleDuotoneIcon = memo(function MegaphoneSimpleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M144,69.09V170.91L50.24,199.67A8,8,0,0,1,40,192V48a8,8,0,0,1,10.24-7.67Z"
         opacity={0.2}

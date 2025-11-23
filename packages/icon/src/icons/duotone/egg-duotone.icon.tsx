@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const EggDuotoneIcon = memo(function EggDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,152a80,80,0,0,1-160,0C48,88,96,24,128,24S208,88,208,152Z"
         opacity={0.2}

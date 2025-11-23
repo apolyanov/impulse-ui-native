@@ -6,7 +6,7 @@ export const PaypalLogoDuotoneIcon = memo(function PaypalLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M191.91,82.7a49,49,0,0,1-1.37,8.94h0A48,48,0,0,1,144,128H108a8,8,0,0,0-7.76,6.06l12-48A8,8,0,0,1,120,80h56A48.25,48.25,0,0,1,191.91,82.7Z"
         opacity={0.2}

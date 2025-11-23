@@ -6,7 +6,7 @@ export const PinwheelDuotoneIcon = memo(function PinwheelDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M124.88,109.74,27.15,145.33a52,52,0,1,1,97.73-35.59Zm88-15.07-97.73,35.59a52,52,0,1,0,97.73-35.59Z"
         opacity={0.2}

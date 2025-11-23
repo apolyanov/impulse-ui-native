@@ -6,7 +6,7 @@ export const ShuffleAngularDuotoneIcon = memo(function ShuffleAngularDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M88,72l40,56L88,184H32V72Zm80,0-40,56,40,56h64V72Z"
         opacity={0.2}

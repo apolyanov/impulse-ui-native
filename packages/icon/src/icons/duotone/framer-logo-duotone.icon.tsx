@@ -6,7 +6,7 @@ export const FramerLogoDuotoneIcon = memo(function FramerLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,104H128L56,40H200ZM56,168l72,72V168h72l-72-64H56Z"
         opacity={0.2}

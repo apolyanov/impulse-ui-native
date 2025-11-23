@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const PaintBrushHouseholdDuotoneIcon = memo(
   function PaintBrushHouseholdDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M225,65l-69,59,16.69,16.69a16,16,0,0,1,0,22.62L152,184,72,104,92.69,83.31a16,16,0,0,1,22.62,0L132,100l59-69A24,24,0,0,1,225,65Z"
           opacity={0.2}

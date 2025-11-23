@@ -6,7 +6,7 @@ export const PentagramDuotoneIcon = memo(function PentagramDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M228.69,102.47l-54.21,39,20.77,64a8,8,0,0,1-12.31,8.95L128,174.91,73.06,214.44a8,8,0,0,1-12.31-8.95l20.77-64-54.21-39A8,8,0,0,1,32,88H98.87l21.52-66.32a7.94,7.94,0,0,1,15.22,0L157.13,88H224A8,8,0,0,1,228.69,102.47Z"
         opacity={0.2}

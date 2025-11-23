@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const FireExtinguisherDuotoneIcon = memo(
   function FireExtinguisherDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M176,168v64a8,8,0,0,1-8,8H104a8,8,0,0,1-8-8V168Z"
           opacity={0.2}

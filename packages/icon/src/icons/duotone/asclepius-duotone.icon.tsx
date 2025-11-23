@@ -6,7 +6,7 @@ export const AsclepiusDuotoneIcon = memo(function AsclepiusDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M88,48v8A32,32,0,0,1,56,88H32V80A32,32,0,0,1,64,48Z"
         opacity={0.2}

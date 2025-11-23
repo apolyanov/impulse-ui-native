@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const WifiXDuotoneIcon = memo(function WifiXDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224.39,104.34,134.15,213.12a8,8,0,0,1-12.3,0L17.8,87.69a7.79,7.79,0,0,1,1.31-11.21A179.58,179.58,0,0,1,128,40a181.82,181.82,0,0,1,33.06,3,7.94,7.94,0,0,1,4.17,2.21L224,104Z"
         opacity={0.2}

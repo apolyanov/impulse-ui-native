@@ -6,7 +6,7 @@ export const ClockUserDuotoneIcon = memo(function ClockUserDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,128a95.6,95.6,0,0,1-9.09,40.82A24,24,0,1,0,191.5,200l0,0a33.15,33.15,0,0,0-29,17.6A96,96,0,1,1,224,128Z"
         opacity={0.2}

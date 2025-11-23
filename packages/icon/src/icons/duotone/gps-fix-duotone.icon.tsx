@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const GpsFixDuotoneIcon = memo(function GpsFixDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,48a80,80,0,1,0,80,80A80,80,0,0,0,128,48Zm0,112a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"
         opacity={0.2}

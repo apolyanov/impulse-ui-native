@@ -6,7 +6,7 @@ export const OfficeChairDuotoneIcon = memo(function OfficeChairDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M176,136H80a8,8,0,0,1-7.92-9.13l13.72-96A8,8,0,0,1,93.72,24h68.56a8,8,0,0,1,7.92,6.87l13.72,96A8,8,0,0,1,176,136Z"
         opacity={0.2}

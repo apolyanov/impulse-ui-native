@@ -6,7 +6,7 @@ export const StarOfDavidDuotoneIcon = memo(function StarOfDavidDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M192,128l32,56H160l-32,56L96,184H32l32-56L32,72H96l32-56,32,56h64Z"
         opacity={0.2}

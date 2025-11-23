@@ -6,7 +6,7 @@ export const ScribbleLoopDuotoneIcon = memo(function ScribbleLoopDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M108.6,208c-64,0-64-96,32-96a134.44,134.44,0,0,1,44.73,7.83h0C187,162.36,159.88,208,108.6,208Z"
         opacity={0.2}

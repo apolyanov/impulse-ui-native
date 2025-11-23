@@ -6,7 +6,7 @@ export const PrescriptionDuotoneIcon = memo(function PrescriptionDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168,84a44,44,0,0,1-44,44H72V40h52A44,44,0,0,1,168,84Z"
         opacity={0.2}

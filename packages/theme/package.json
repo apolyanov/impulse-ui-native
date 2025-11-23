@@ -26,13 +26,14 @@
     "lint": "pnpm exec eslint . --fix"
   },
   "dependencies": {
-    "@expo-google-fonts/montserrat": "^0.4.1",
     "@impulse-ui-native/core": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.74",
     "expo": ">=51 || >=52",
+    "expo-font": ">=12.0.5",
+    "@expo-google-fonts/montserrat": "^0.4.1",
     "expo-modules-core": ">=1.0.0",
     "react-native-gesture-handler": ">=2",
     "react-native-reanimated": ">=3"

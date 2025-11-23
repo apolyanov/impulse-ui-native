@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const GhostDuotoneIcon = memo(function GhostDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,120v96l-29.33-24-29.34,24L128,192,98.67,216,69.33,192,40,216V120a88,88,0,0,1,176,0Z"
         opacity={0.2}

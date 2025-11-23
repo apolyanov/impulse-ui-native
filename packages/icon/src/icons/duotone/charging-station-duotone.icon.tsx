@@ -6,7 +6,7 @@ export const ChargingStationDuotoneIcon = memo(function ChargingStationDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168,56V216H56V56A16,16,0,0,1,72,40h80A16,16,0,0,1,168,56Z"
         opacity={0.2}

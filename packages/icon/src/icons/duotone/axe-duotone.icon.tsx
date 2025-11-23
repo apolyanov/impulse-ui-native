@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const AxeDuotoneIcon = memo(function AxeDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M245.65,108.46l-81.19,81.19A8,8,0,0,1,150.87,185c-7.09-53.14-42.41-87.8-59.45-99.76A8,8,0,0,1,90.33,73L129,34.33a8,8,0,0,1,12.2,1.09c12,17,46.62,52.36,99.76,59.45A8,8,0,0,1,245.65,108.46Z"
         opacity={0.2}

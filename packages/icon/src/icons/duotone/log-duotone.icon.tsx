@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const LogDuotoneIcon = memo(function LogDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,136c0,35.35-17.91,64-40,64s-40-28.65-40-64,17.91-64,40-64S240,100.65,240,136Z"
         opacity={0.2}

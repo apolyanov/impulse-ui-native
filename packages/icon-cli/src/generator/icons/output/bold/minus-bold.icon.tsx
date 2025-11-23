@@ -3,9 +3,9 @@ import { memo } from 'react'
     import type { SvgProps } from 'react-native-svg'
     export const MinusBoldIcon = memo(function MinusBold(props: SvgProps) {
         return (
-    <Svg viewBox="0 0 256 256"
+    <Svg {...props} viewBox="0 0 256 256"
 fill={props.color}
- ><Path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"
+ ><Path  d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"
  /></Svg>
   )
     })

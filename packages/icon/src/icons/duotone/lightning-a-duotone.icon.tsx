@@ -6,7 +6,7 @@ export const LightningADuotoneIcon = memo(function LightningADuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M72.8,216,88,152,32,126.86,127.2,24,112,88l56,25.14Z"
         opacity={0.2}

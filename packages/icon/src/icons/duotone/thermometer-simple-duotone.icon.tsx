@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const ThermometerSimpleDuotoneIcon = memo(
   function ThermometerSimpleDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M160,138V48a32,32,0,0,0-64,0v90a56,56,0,1,0,64,0Zm-32,70a24,24,0,1,1,24-24A24,24,0,0,1,128,208Z"
           opacity={0.2}

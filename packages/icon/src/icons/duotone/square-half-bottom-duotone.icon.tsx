@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const SquareHalfBottomDuotoneIcon = memo(
   function SquareHalfBottomDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M208,128v72a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V128Z"
           opacity={0.2}

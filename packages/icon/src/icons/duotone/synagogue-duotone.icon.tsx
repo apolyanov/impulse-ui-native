@@ -6,7 +6,7 @@ export const SynagogueDuotoneIcon = memo(function SynagogueDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,80v32H184V80a16,16,0,0,1,16-16h0A16,16,0,0,1,216,80ZM72,80A16,16,0,0,0,56,64h0A16,16,0,0,0,40,80v32H72Zm0,56v80h40V176a16,16,0,0,1,16-16h0a16,16,0,0,1,16,16v40h40V136l-56-32Z"
         opacity={0.2}

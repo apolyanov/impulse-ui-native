@@ -6,7 +6,7 @@ export const FileImageDuotoneIcon = memo(function FileImageDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M104,152l48,72H24l36-56,16.36,25.45ZM152,32V88h56Z"
         opacity={0.2}

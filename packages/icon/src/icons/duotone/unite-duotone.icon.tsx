@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const UniteDuotoneIcon = memo(function UniteDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,160a72,72,0,0,1-143.6,7.6,72,72,0,1,1,79.2-79.2A72,72,0,0,1,232,160Z"
         opacity={0.2}

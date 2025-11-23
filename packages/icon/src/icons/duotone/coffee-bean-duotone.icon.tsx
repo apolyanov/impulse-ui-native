@@ -6,7 +6,7 @@ export const CoffeeBeanDuotoneIcon = memo(function CoffeeBeanDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M183.79,183.79c-43.14,43.14-103.09,53.14-133.9,22.32S29.07,115.35,72.21,72.21,175.3,19.07,206.11,49.89,226.93,140.65,183.79,183.79Z"
         opacity={0.2}

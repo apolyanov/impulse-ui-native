@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const NumberSquareFiveDuotoneIcon = memo(
   function NumberSquareFiveDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,48V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H208A8,8,0,0,1,216,48Z"
           opacity={0.2}

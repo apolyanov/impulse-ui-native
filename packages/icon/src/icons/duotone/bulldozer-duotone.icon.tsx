@@ -6,7 +6,7 @@ export const BulldozerDuotoneIcon = memo(function BulldozerDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M192,176h0a32,32,0,0,1-32,32H40A32,32,0,0,1,8,176H8a32,32,0,0,1,32-32H160A32,32,0,0,1,192,176Z"
         opacity={0.2}

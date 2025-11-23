@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const BellSimpleRingingDuotoneIcon = memo(
   function BellSimpleRingingDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M208,192H48a8,8,0,0,1-6.88-12C47.71,168.6,56,147.81,56,112a72,72,0,0,1,144,0c0,35.82,8.3,56.6,14.9,68A8,8,0,0,1,208,192Z"
           opacity={0.2}

@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const EyedropperSampleDuotoneIcon = memo(
   function EyedropperSampleDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M52.3,160h89l-38.62,38.63a32,32,0,0,1-32.06,8h0l-20,8.74a8,8,0,0,1-8.86-1.67,5.74,5.74,0,0,1-1.2-6.36l9.19-21.06h0A32.07,32.07,0,0,1,52.3,160ZM207.23,47.51c-11.07-10.49-28.65-9.83-39.44,1l-25,25.1-4.89-4.88a16,16,0,0,0-22.63,0l-9,9a8,8,0,0,0,0,11.31L167,149.66a8,8,0,0,0,11.31,0l9-9a16,16,0,0,0,0-22.63l-4.88-4.89L207.8,87.66A28,28,0,0,0,207.23,47.51Z"
           opacity={0.2}

@@ -6,7 +6,7 @@ export const ShieldChevronDuotoneIcon = memo(function ShieldChevronDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M202,171.78C177.13,218.6,128,232,128,232s-49.13-13.4-74-60.22L128,120Z"
         opacity={0.2}

@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const RewindDuotoneIcon = memo(function RewindDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,71.85v112.3a7.91,7.91,0,0,1-12.18,6.59l-88.19-56.15a7.8,7.8,0,0,1,0-13.18l88.19-56.15A7.91,7.91,0,0,1,224,71.85ZM107.82,65.26,19.63,121.41a7.8,7.8,0,0,0,0,13.18l88.19,56.15A7.91,7.91,0,0,0,120,184.15V71.85A7.91,7.91,0,0,0,107.82,65.26Z"
         opacity={0.2}

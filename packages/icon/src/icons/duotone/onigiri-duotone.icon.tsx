@@ -6,7 +6,7 @@ export const OnigiriDuotoneIcon = memo(function OnigiriDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168,168v56H88V168a8,8,0,0,1,8-8h64A8,8,0,0,1,168,168Z"
         opacity={0.2}

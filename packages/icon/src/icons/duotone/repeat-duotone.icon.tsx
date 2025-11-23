@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const RepeatDuotoneIcon = memo(function RepeatDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,64v64a64,64,0,0,1-64,64H32V128A64,64,0,0,1,96,64Z"
         opacity={0.2}

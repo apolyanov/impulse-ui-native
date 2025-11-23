@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const ScalesDuotoneIcon = memo(function ScalesDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M56,88l32,80c0,17.67-20,24-32,24s-32-6.33-32-24ZM200,56l-32,80c0,17.67,20,24,32,24s32-6.33,32-24Z"
         opacity={0.2}

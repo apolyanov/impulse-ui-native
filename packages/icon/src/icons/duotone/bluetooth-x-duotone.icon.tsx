@@ -6,7 +6,7 @@ export const BluetoothXDuotoneIcon = memo(function BluetoothXDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M176,176l-64,48V128ZM167.47,73.6,112,32v96l55.47-41.6A8,8,0,0,0,167.47,73.6Z"
         opacity={0.2}

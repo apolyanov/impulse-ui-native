@@ -6,7 +6,7 @@ export const LampPendantDuotoneIcon = memo(function LampPendantDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,176H24A104,104,0,0,1,88,80V72a8,8,0,0,1,8-8h64a8,8,0,0,1,8,8v8A104,104,0,0,1,232,176Z"
         opacity={0.2}

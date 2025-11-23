@@ -6,7 +6,7 @@ export const MedalMilitaryDuotoneIcon = memo(function MedalMilitaryDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168,192a40,40,0,1,1-40-40A40,40,0,0,1,168,192ZM207,48H168v85.82l42.72-19.42a9,9,0,0,0,5.28-8.2V57A9,9,0,0,0,207,48ZM88,48H49a9,9,0,0,0-9,9v49.2a9,9,0,0,0,5.28,8.2L88,133.82Z"
         opacity={0.2}

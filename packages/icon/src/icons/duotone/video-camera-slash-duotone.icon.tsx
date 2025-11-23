@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const VideoCameraSlashDuotoneIcon = memo(
   function VideoCameraSlashDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M200,72V184a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V72a8,8,0,0,1,8-8H192A8,8,0,0,1,200,72Z"
           opacity={0.2}

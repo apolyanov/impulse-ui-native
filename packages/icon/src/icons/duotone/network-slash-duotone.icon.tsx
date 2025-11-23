@@ -6,7 +6,7 @@ export const NetworkSlashDuotoneIcon = memo(function NetworkSlashDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M88,176v32a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V176a8,8,0,0,1,8-8H80A8,8,0,0,1,88,176ZM144,32H112a8,8,0,0,0-8,8V72a8,8,0,0,0,8,8h32a8,8,0,0,0,8-8V40A8,8,0,0,0,144,32Z"
         opacity={0.2}

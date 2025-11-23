@@ -6,7 +6,7 @@ export const StarHalfDuotoneIcon = memo(function StarHalfDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,24V189.09L73.28,222.74a8.4,8.4,0,0,1-12.52-9.17l14.88-62.79-48.7-42A8.46,8.46,0,0,1,31.73,94L95.64,88.8l24.62-59.6A8.26,8.26,0,0,1,128,24Z"
         opacity={0.2}

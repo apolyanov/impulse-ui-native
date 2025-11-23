@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const TextTDuotoneIcon = memo(function TextTDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,56V184a16,16,0,0,1-16,16H72a16,16,0,0,1-16-16V56Z"
         opacity={0.2}

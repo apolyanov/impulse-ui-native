@@ -69,7 +69,7 @@ export const Input = memo(function Input({
 
       <View style={inputContainerStyle}>
         {prefixIcon ? (
-          <Icon icon={prefixIcon} color={iconColor} style={styles.icon} />
+          <Icon size={props.size} icon={prefixIcon} color={iconColor} style={styles.icon} />
         ) : null}
 
         <TextInput
@@ -80,7 +80,7 @@ export const Input = memo(function Input({
         />
 
         {suffixIcon ? (
-          <Icon icon={suffixIcon} color={iconColor} style={styles.icon} />
+          <Icon size={props.size} icon={suffixIcon} color={iconColor} style={styles.icon} />
         ) : null}
       </View>
 
@@ -119,6 +119,7 @@ const themedStyles = (
 
   const baseInput: ViewStyle = {
     flex: 1,
+    width: "100%",
     paddingVertical: 0,
     paddingHorizontal: 0,
   };
@@ -169,7 +170,7 @@ const themedStyles = (
       ...fontSize,
     },
     icon: {
-      marginHorizontal: 4, // ✅ only layout, no color
+      marginHorizontal: 4,
     },
     error: {
       marginTop: 4,

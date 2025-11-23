@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const MosqueDuotoneIcon = memo(function MosqueDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,128H48c0-64,80-72,80-104C128,56,208,64,208,128Z"
         opacity={0.2}

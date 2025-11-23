@@ -6,7 +6,7 @@ export const SlackLogoDuotoneIcon = memo(function SlackLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,152h0a24,24,0,0,1-24,24H152a24,24,0,0,1,24,24h0a24,24,0,0,1-24,24h0a24,24,0,0,1-24-24V176h24a24,24,0,0,1-24-24V128h72A24,24,0,0,1,224,152ZM104,80h24V56a24,24,0,0,0-24-24h0A24,24,0,0,0,80,56h0a24,24,0,0,0,24,24H56a24,24,0,0,0-24,24h0a24,24,0,0,0,24,24h72V104A24,24,0,0,0,104,80Z"
         opacity={0.2}

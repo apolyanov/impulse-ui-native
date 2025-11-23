@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const MouseMiddleClickDuotoneIcon = memo(
   function MouseMiddleClickDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M144,88v48a8,8,0,0,1-8,8H120a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16A8,8,0,0,1,144,88Z"
           opacity={0.2}

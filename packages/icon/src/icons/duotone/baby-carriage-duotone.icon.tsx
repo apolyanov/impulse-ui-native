@@ -6,7 +6,7 @@ export const BabyCarriageDuotoneIcon = memo(function BabyCarriageDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,112H144V48a8,8,0,0,1,8-8h8A72,72,0,0,1,232,112Z"
         opacity={0.2}

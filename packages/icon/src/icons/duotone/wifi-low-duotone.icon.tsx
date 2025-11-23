@@ -6,7 +6,7 @@ export const WifiLowDuotoneIcon = memo(function WifiLowDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M171.68,167.88l-37.53,45.24a8,8,0,0,1-12.3,0L84.32,167.88a68,68,0,0,1,87.36,0Z"
         opacity={0.2}

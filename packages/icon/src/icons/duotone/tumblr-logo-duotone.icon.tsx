@@ -6,7 +6,7 @@ export const TumblrLogoDuotoneIcon = memo(function TumblrLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M144,112v56a16,16,0,0,0,16,16h32v48H152a56,56,0,0,1-56-56V112H64V72h0a48,48,0,0,0,48-48h32V72h48v40Z"
         opacity={0.2}

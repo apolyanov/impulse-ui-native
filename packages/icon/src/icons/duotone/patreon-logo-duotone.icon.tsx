@@ -6,7 +6,7 @@ export const PatreonLogoDuotoneIcon = memo(function PatreonLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,93.16c0,49-48.17,49-72.25,65.34C121.88,178.76,119.64,232,87.52,232s-61.74-125-16-171.51C119.64,11.49,224,27.82,224,93.16Z"
         opacity={0.2}

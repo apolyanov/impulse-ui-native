@@ -6,7 +6,7 @@ export const CrownSimpleDuotoneIcon = memo(function CrownSimpleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M231.87,89.42l-22.7,104a8,8,0,0,1-7.88,6.61H54.71a8,8,0,0,1-7.88-6.61l-22.7-104A8,8,0,0,1,38,82.76L80,128l40.74-91.35a8,8,0,0,1,14.52,0L176,128l42-45.24A8,8,0,0,1,231.87,89.42Z"
         opacity={0.2}

@@ -6,7 +6,7 @@ export const HighHeelDuotoneIcon = memo(function HighHeelDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M248,187.31V192a8,8,0,0,1-8,8H150.72a8,8,0,0,1-7.42-4.92C125.51,151.28,82.38,120,32,120c0-31,12.59-58.78,32-80L176,152l53.21,12A23.92,23.92,0,0,1,248,187.31Z"
         opacity={0.2}

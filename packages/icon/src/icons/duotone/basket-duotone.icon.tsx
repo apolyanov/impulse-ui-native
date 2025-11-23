@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const BasketDuotoneIcon = memo(function BasketDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,88,216.93,201.06A8,8,0,0,1,209,208H47a8,8,0,0,1-7.93-6.94L24,88Z"
         opacity={0.2}

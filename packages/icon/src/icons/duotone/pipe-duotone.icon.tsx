@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const PipeDuotoneIcon = memo(function PipeDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168,48v64H144a32,32,0,0,0-32,32v24H48V144a96,96,0,0,1,96-96Z"
         opacity={0.2}

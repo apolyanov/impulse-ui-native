@@ -6,7 +6,7 @@ export const CylinderDuotoneIcon = memo(function CylinderDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M192,60c0,19.88-28.65,36-64,36S64,79.88,64,60s28.65-36,64-36S192,40.12,192,60Z"
         opacity={0.2}

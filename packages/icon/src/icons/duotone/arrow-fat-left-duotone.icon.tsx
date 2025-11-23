@@ -6,7 +6,7 @@ export const ArrowFatLeftDuotoneIcon = memo(function ArrowFatLeftDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,88v80a8,8,0,0,1-8,8H120v48L24,128l96-96V80h88A8,8,0,0,1,216,88Z"
         opacity={0.2}

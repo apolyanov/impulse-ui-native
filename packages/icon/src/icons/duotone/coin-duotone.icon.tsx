@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const CoinDuotoneIcon = memo(function CoinDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,104c0,24-40,48-104,48S24,128,24,104,64,56,128,56,232,80,232,104Z"
         opacity={0.2}

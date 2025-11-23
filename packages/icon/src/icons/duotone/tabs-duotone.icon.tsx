@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const TabsDuotoneIcon = memo(function TabsDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M152,168H8L30.29,93.7A8,8,0,0,1,38,88h84.1a8,8,0,0,1,7.66,5.7Z"
         opacity={0.2}

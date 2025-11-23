@@ -6,7 +6,7 @@ export const TextAlignCenterDuotoneIcon = memo(function TextAlignCenterDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,64V168a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V64Z"
         opacity={0.2}

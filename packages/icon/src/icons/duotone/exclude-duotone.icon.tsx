@@ -6,7 +6,7 @@ export const ExcludeDuotoneIcon = memo(function ExcludeDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M88,160a73.37,73.37,0,0,0,.4,7.6,72,72,0,1,1,79.2-79.2A73.37,73.37,0,0,0,160,88,72,72,0,0,0,88,160Zm79.6-71.6A73.37,73.37,0,0,1,168,96a72,72,0,0,1-72,72,73.37,73.37,0,0,1-7.6-.4,72,72,0,1,0,79.2-79.2Z"
         opacity={0.2}

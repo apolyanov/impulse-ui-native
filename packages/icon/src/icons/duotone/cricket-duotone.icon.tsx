@@ -1,12 +1,12 @@
 import { memo } from "react";
-import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
 
 export const CricketDuotoneIcon = memo(function CricketDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168,104v64l-37.66,37.66a8,8,0,0,1-11.31,0L66.34,153a8,8,0,0,1,0-11.31L104,104ZM80,60A20,20,0,1,0,60,80,20,20,0,0,0,80,60Z"
         opacity={0.2}

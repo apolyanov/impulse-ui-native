@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const ArrowsCounterClockwiseDuotoneIcon = memo(
   function ArrowsCounterClockwiseDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,128a88,88,0,1,1-88-88A88,88,0,0,1,216,128Z"
           opacity={0.2}

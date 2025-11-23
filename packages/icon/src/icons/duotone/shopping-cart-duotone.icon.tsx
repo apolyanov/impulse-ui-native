@@ -6,7 +6,7 @@ export const ShoppingCartDuotoneIcon = memo(function ShoppingCartDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,64l-12.16,66.86A16,16,0,0,1,196.1,144H70.55L56,64Z"
         opacity={0.2}

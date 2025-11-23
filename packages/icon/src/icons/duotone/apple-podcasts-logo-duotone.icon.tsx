@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const ApplePodcastsLogoDuotoneIcon = memo(
   function ApplePodcastsLogoDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M104,120a24,24,0,1,1,24,24A24,24,0,0,1,104,120Zm39.75,24h-31.5a16.06,16.06,0,0,0-15.76,19.88l12.19,48A16.2,16.2,0,0,0,124.44,224h7.12a16.2,16.2,0,0,0,15.76-12.12l12.19-48A16.06,16.06,0,0,0,143.75,144Z"
           opacity={0.2}

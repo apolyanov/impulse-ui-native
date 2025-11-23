@@ -6,7 +6,7 @@ export const SpeakerSimpleXDuotoneIcon = memo(function SpeakerSimpleXDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M160,32V224L88,168H40a8,8,0,0,1-8-8V96a8,8,0,0,1,8-8H88Z"
         opacity={0.2}

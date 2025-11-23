@@ -6,7 +6,7 @@ export const ThreadsLogoDuotoneIcon = memo(function ThreadsLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,128c0,48-16,96-80,96s-80-48-80-96,16-96,80-96S208,80,208,128Z"
         opacity={0.2}

@@ -6,7 +6,7 @@ export const ListStarDuotoneIcon = memo(function ListStarDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M205.6,159.41,213.67,192,184,174.54,154.33,192l8.07-32.59L136,137.61l34.65-2.67L184,104l13.35,30.94L232,137.61Z"
         opacity={0.2}

@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const LinkSimpleHorizontalBreakDuotoneIcon = memo(
   function LinkSimpleHorizontalBreakDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M240,128h0a48,48,0,0,1-48,48H64a48,48,0,0,1-48-48h0A48,48,0,0,1,64,80H192A48,48,0,0,1,240,128Z"
           opacity={0.2}

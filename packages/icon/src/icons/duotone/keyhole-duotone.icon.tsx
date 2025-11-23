@@ -6,7 +6,7 @@ export const KeyholeDuotoneIcon = memo(function KeyholeDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M144,139.72,160,176H96l16-36.28a32,32,0,1,1,32,0Z"
         opacity={0.2}

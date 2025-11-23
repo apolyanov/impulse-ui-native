@@ -6,7 +6,7 @@ export const BracketsRoundDuotoneIcon = memo(function BracketsRoundDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,128c0,64-40,88-40,88H72s-40-24-40-88S72,40,72,40H184S224,64,224,128Z"
         opacity={0.2}

@@ -6,7 +6,7 @@ export const ChefHatDuotoneIcon = memo(function ChefHatDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,112a48,48,0,0,1-48,48H72A48,48,0,1,1,82.35,65.12h0a48,48,0,0,1,91.28,0h0A48,48,0,0,1,232,112Z"
         opacity={0.2}

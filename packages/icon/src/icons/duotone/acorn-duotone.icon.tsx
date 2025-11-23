@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const AcornDuotoneIcon = memo(function AcornDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,112v16c0,53-88,88-88,112,0-24-88-59-88-112V112Z"
         opacity={0.2}

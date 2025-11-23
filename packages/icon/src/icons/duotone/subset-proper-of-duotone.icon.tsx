@@ -6,7 +6,7 @@ export const SubsetProperOfDuotoneIcon = memo(function SubsetProperOfDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,48V208H128a80,80,0,0,1-80-80h0a80,80,0,0,1,80-80Z"
         opacity={0.2}

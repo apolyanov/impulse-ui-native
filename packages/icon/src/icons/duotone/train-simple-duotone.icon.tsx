@@ -6,7 +6,7 @@ export const TrainSimpleDuotoneIcon = memo(function TrainSimpleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,56v72H48V56A24,24,0,0,1,72,32H184A24,24,0,0,1,208,56Z"
         opacity={0.2}

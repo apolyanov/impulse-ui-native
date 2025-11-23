@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const UploadDuotoneIcon = memo(function UploadDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z"
         opacity={0.2}

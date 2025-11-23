@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const FarmDuotoneIcon = memo(function FarmDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M223.85,216H24V120a257,257,0,0,1,56.2,6.21l-.2-.07V80l64-48,64,48v41.11a254.67,254.67,0,0,0-40,7V96H120v42.61l0,0,0,0A256.79,256.79,0,0,1,223.85,216Z"
         opacity={0.2}

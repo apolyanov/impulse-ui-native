@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const AlignCenterVerticalSimpleDuotoneIcon = memo(
   function AlignCenterVerticalSimpleDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M168,48V208a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h64A8,8,0,0,1,168,48Z"
           opacity={0.2}

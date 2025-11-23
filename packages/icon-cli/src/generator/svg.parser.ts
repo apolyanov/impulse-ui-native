@@ -54,7 +54,7 @@ function walkSvg(node: Element, foundElements: Set<string>) {
   };
 
   if (node.childNodes) {
-    Array.from(node.childNodes).forEach((child) => {
+    Array.from(node.childNodes).forEach(child => {
       const childSvgElement = walkSvg(child as Element, foundElements);
 
       if (childSvgElement) {
@@ -73,7 +73,7 @@ function parseNodeAttributes(rawAttributes: NamedNodeMap) {
     return parsedAttributes;
   }
 
-  const attributes = Array.from(rawAttributes).filter((attr) => {
+  const attributes = Array.from(rawAttributes).filter(attr => {
     if (typeof config.disallowedAttributes === "undefined") {
       return true;
     }
@@ -142,8 +142,8 @@ function getAttributeKey(attr: Attr) {
 
 function getNeededImports(foundElements: Set<string>) {
   const svgElementsImports = Array.from(foundElements)
-    .filter((element) => element !== "svg")
-    .map((element) => SvgToRNSvg[element])
+    .filter(element => element !== "svg")
+    .map(element => SvgToRNSvg[element])
     .join(", ");
 
   const imports = `
@@ -166,7 +166,7 @@ function buildJsxTag(svgObject: SvgObject) {
 
   const attributes = buildJsxTagAttributes(svgObject.attributes);
   const hasChildren = svgObject.children.length > 0;
-  const openingTag = `<${SvgToRNSvg[svgObject.nodeName]} ${attributes} ${hasChildren ? ">" : ""}`;
+  const openingTag = `<${SvgToRNSvg[svgObject.nodeName]} ${svgObject.nodeName === "svg" ? "{...props}" : ""} ${attributes} ${hasChildren ? ">" : ""}`;
   const closingTag = hasChildren
     ? `</${SvgToRNSvg[svgObject.nodeName]}>`
     : "/>";
@@ -174,7 +174,7 @@ function buildJsxTag(svgObject: SvgObject) {
   tag += `${openingTag}`;
 
   if (hasChildren) {
-    svgObject.children.forEach((child) => {
+    svgObject.children.forEach(child => {
       const childTag = buildJsxTag(child);
 
       if (childTag.length > 0) {
@@ -213,8 +213,8 @@ export const template = (strings: TemplateStringsArray, ...values: any[]) => {
 
   result = result
     .split("\n")
-    .map((line) => line.trimEnd())
-    .filter((line) => line.trim().length > 0)
+    .map(line => line.trimEnd())
+    .filter(line => line.trim().length > 0)
     .join("\n");
 
   return result.trim() + "\n";

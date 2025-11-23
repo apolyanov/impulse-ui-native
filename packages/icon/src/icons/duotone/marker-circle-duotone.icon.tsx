@@ -6,7 +6,7 @@ export const MarkerCircleDuotoneIcon = memo(function MarkerCircleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M176,211.16Zm-96,0ZM224,128A96,96,0,1,0,80,211.16V176a8,8,0,0,1,8-8h8V144a8,8,0,0,1,8-8h4.16l12-57.63c1.77-8.49,13.89-8.49,15.66,0l12,57.63H152a8,8,0,0,1,8,8v24h8a8,8,0,0,1,8,8v35.16A96,96,0,0,0,224,128Z"
         opacity={0.2}

@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const TramDuotoneIcon = memo(function TramDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,80v48H48V80A24,24,0,0,1,72,56H184A24,24,0,0,1,208,80Z"
         opacity={0.2}

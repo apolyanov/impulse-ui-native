@@ -6,7 +6,7 @@ export const EjectSimpleDuotoneIcon = memo(function EjectSimpleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M215.92,152H40.08a8.1,8.1,0,0,1-6.26-13.2L115.48,38a16.1,16.1,0,0,1,25,0L222.18,138.8A8.1,8.1,0,0,1,215.92,152Z"
         opacity={0.2}

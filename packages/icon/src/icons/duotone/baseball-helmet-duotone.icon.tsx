@@ -6,7 +6,7 @@ export const BaseballHelmetDuotoneIcon = memo(function BaseballHelmetDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M88,176a20,20,0,1,1,20-20A20,20,0,0,1,88,176Zm64-48v24a64,64,0,0,1-64,64h40a64,64,0,0,0,64-64V128Z"
         opacity={0.2}

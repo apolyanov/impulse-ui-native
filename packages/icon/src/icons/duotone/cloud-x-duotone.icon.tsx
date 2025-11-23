@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const CloudXDuotoneIcon = memo(function CloudXDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,127.62a80,80,0,0,1-80,80H72A56,56,0,1,1,85.92,97.36l0,.1A80,80,0,0,1,240,127.62Z"
         opacity={0.2}

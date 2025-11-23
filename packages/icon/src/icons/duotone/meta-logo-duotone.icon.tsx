@@ -6,7 +6,7 @@ export const MetaLogoDuotoneIcon = memo(function MetaLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128.49,114.6l-18.71,32.75C93.88,175.86,77.52,200,58.56,200-3.16,200,27.7,56,74,56,94.25,56,111.56,83.58,128.49,114.6ZM182,56c-12.62,0-24.1,10.7-35,26.27L128.49,114.6c21.76,39.86,42.91,85.4,68.95,85.4C259.16,200,228.3,56,182,56Z"
         opacity={0.2}

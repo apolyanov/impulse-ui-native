@@ -6,7 +6,7 @@ export const BehanceLogoDuotoneIcon = memo(function BehanceLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,152H160a40,40,0,0,1,80,0ZM94,124H90a30,30,0,0,0,0-60H32V192H94a34,34,0,0,0,0-68Z"
         opacity={0.2}

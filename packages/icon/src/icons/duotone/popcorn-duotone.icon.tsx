@@ -6,7 +6,7 @@ export const PopcornDuotoneIcon = memo(function PopcornDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M88,96l16,120H70.34a8,8,0,0,1-7.79-6.17L32,80Zm80,0L152,216h33.66a8,8,0,0,0,7.79-6.17L224,80Z"
         opacity={0.2}

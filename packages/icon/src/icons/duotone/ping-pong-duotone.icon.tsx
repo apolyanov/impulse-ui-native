@@ -6,7 +6,7 @@ export const PingPongDuotoneIcon = memo(function PingPongDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M206.6,81.4,81.4,206.6A93.92,93.92,0,0,1,32,122.69c.69-49.55,41.13-90,90.68-90.68A93.92,93.92,0,0,1,206.6,81.4Z"
         opacity={0.2}

@@ -6,7 +6,7 @@ export const CowboyHatDuotoneIcon = memo(function CowboyHatDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M190.53,160.18C158.13,192,128,192,128,192s-30.13,0-62.53-31.82L70.06,136H185.94Z"
         opacity={0.2}

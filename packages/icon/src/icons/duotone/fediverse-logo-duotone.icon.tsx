@@ -6,7 +6,7 @@ export const FediverseLogoDuotoneIcon = memo(function FediverseLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M148,64a20,20,0,1,1,20-20A20,20,0,0,1,148,64Zm64,40a20,20,0,1,0,20,20A20,20,0,0,0,212,104Zm-56,88a20,20,0,1,0,20,20A20,20,0,0,0,156,192ZM56,164a20,20,0,1,0,20,20A20,20,0,0,0,56,164Zm-4-60A20,20,0,1,0,32,84,20,20,0,0,0,52,104Z"
         opacity={0.2}

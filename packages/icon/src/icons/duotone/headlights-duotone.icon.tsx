@@ -6,7 +6,7 @@ export const HeadlightsDuotoneIcon = memo(function HeadlightsDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M136,64V192a8,8,0,0,1-8,8H88a72,72,0,0,1-72-72.55C16.3,87.75,49.2,56,88.9,56H128A8,8,0,0,1,136,64Z"
         opacity={0.2}

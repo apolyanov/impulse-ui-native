@@ -6,7 +6,7 @@ export const FlipVerticalDuotoneIcon = memo(function FlipVerticalDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M219.11,159.37l-160,64A8,8,0,0,1,48,216V152a8,8,0,0,1,8-8H216C224.71,144,227.14,156,219.11,159.37Z"
         opacity={0.2}

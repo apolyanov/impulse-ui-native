@@ -6,7 +6,7 @@ export const SmileyMeltingDuotoneIcon = memo(function SmileyMeltingDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,128a95.63,95.63,0,0,1-24.44,64H56.44A95.67,95.67,0,0,1,32,126.06C33,74.58,75.15,32.73,126.63,32A96,96,0,0,1,224,128Z"
         opacity={0.2}

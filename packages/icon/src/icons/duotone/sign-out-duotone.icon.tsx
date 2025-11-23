@@ -6,7 +6,7 @@ export const SignOutDuotoneIcon = memo(function SignOutDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,56V200a16,16,0,0,1-16,16H48V40H208A16,16,0,0,1,224,56Z"
         opacity={0.2}

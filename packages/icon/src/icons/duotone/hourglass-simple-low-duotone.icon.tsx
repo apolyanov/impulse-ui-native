@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const HourglassSimpleLowDuotoneIcon = memo(
   function HourglassSimpleLowDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M200,216H56a8,8,0,0,1-5.66-13.66L77.87,176H178.13l27.51,26.34A8,8,0,0,1,200,216Z"
           opacity={0.2}

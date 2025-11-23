@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const PepperDuotoneIcon = memo(function PepperDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M214.83,92.58,192,104,160,88l-32,16L105.17,92.58a56,56,0,0,1,109.66,0Z"
         opacity={0.2}

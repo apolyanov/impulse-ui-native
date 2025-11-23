@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const HockeyDuotoneIcon = memo(function HockeyDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,160v48H171.7a8,8,0,0,1-6.1-2.82l-38-44.7L90.4,205.12A8,8,0,0,1,84.25,208H56V160H200Z"
         opacity={0.2}

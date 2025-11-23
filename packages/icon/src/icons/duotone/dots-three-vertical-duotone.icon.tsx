@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const DotsThreeVerticalDuotoneIcon = memo(
   function DotsThreeVerticalDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M176,32V224a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16V32A16,16,0,0,1,96,16h64A16,16,0,0,1,176,32Z"
           opacity={0.2}

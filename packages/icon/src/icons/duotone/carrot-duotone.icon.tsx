@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const CarrotDuotoneIcon = memo(function CarrotDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M183.6,151.6C144,192,43.81,223,43.81,223A8,8,0,0,1,33,212.19S64,112,104.4,72.4a56,56,0,0,1,79.2,79.2Z"
         opacity={0.2}

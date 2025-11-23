@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const HighlighterCircleDuotoneIcon = memo(
   function HighlighterCircleDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M195.88,195.88A95.7,95.7,0,0,1,168,215.29V152a8,8,0,0,0-8-8h-8V72L104,96v48H96a8,8,0,0,0-8,8v63.29a96,96,0,1,1,107.88-19.41Z"
           opacity={0.2}

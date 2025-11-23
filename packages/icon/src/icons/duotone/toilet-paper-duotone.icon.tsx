@@ -6,7 +6,7 @@ export const ToiletPaperDuotoneIcon = memo(function ToiletPaperDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M104,120c0,44.18-17.91,80-40,80s-40-35.82-40-80S41.91,40,64,40,104,75.82,104,120Z"
         opacity={0.2}

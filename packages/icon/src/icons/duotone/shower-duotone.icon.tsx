@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const ShowerDuotoneIcon = memo(function ShowerDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M184,72,161.91,201.31a8,8,0,0,1-13.54,4.34l-98-98a8,8,0,0,1,4.34-13.54Z"
         opacity={0.2}

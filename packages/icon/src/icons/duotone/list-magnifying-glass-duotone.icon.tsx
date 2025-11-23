@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const ListMagnifyingGlassDuotoneIcon = memo(
   function ListMagnifyingGlassDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,144a32,32,0,1,1-32-32A32,32,0,0,1,216,144Z"
           opacity={0.2}

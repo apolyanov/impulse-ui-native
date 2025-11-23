@@ -6,7 +6,7 @@ export const SnapchatLogoDuotoneIcon = memo(function SnapchatLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,183.9c-9.25,8.69-31.45,4.61-42.66,10.78-11,6.07-17.07,25.56-29.57,28.76-12.08,3.09-26.72-7.56-39.77-7.56s-27.69,10.65-39.77,7.56c-12.5-3.2-18.53-22.69-29.57-28.76C47.45,188.51,25.25,192.59,16,183.9c0,0,56-20,56-103.93a56,56,0,0,1,112,0C184,163.86,240,183.9,240,183.9Z"
         opacity={0.2}

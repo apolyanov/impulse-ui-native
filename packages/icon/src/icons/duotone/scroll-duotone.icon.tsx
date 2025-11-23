@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const ScrollDuotoneIcon = memo(function ScrollDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,176H104s8,6,8,16a24,24,0,0,1-48,0V64A24,24,0,0,0,40,40H176a24,24,0,0,1,24,24Z"
         opacity={0.2}

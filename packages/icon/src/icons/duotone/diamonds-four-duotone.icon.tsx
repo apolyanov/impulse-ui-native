@@ -6,7 +6,7 @@ export const DiamondsFourDuotoneIcon = memo(function DiamondsFourDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,104,88,64l40-40,40,40ZM88,192l40,40,40-40-40-40ZM192,88l-40,40,40,40,40-40ZM64,88,24,128l40,40,40-40Z"
         opacity={0.2}

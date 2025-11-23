@@ -6,7 +6,7 @@ export const CalendarStarDuotoneIcon = memo(function CalendarStarDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M149.6,143.41,157.67,176,128,158.54,98.33,176l8.07-32.59L80,121.61l34.65-2.67L128,88l13.35,30.94L176,121.61Z"
         opacity={0.2}

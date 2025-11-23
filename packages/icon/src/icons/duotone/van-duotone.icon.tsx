@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const VanDuotoneIcon = memo(function VanDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M248,112v64a8,8,0,0,1-8,8H216a24,24,0,0,0-48,0H104a24,24,0,0,0-48,0H32a8,8,0,0,1-8-8V112Z"
         opacity={0.2}

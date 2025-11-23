@@ -6,7 +6,7 @@ export const SeatbeltDuotoneIcon = memo(function SeatbeltDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M92,68a36,36,0,1,1,36,36A36,36,0,0,1,92,68Zm36,52a72,72,0,0,0-72,72v32H200V192A72,72,0,0,0,128,120Z"
         opacity={0.2}

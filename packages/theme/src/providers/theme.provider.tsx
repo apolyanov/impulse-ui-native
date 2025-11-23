@@ -52,7 +52,7 @@ interface ThemeProviderProps {
 export const ThemeProvider = memo(function ThemeProvider(
   props: PropsWithChildren<ThemeProviderProps>
 ) {
-  const scheme = props.scheme ?? "light";
+  const scheme = props?.scheme ?? "light";
 
   const [loaded] = useFonts({
     Montserrat_100Thin,

@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const FolderSimpleUserDuotoneIcon = memo(
   function FolderSimpleUserDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,176a24,24,0,1,1-24-24A24,24,0,0,1,216,176Z"
           opacity={0.2}

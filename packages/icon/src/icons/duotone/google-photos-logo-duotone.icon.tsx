@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const GooglePhotosLogoDuotoneIcon = memo(
   function GooglePhotosLogoDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M192,88a63.69,63.69,0,0,1-14,40H128V24A64,64,0,0,1,192,88ZM64,168a64,64,0,0,0,64,64V128H78A63.69,63.69,0,0,0,64,168Z"
           opacity={0.2}

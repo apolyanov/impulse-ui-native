@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const LeafDuotoneIcon = memo(function LeafDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M63.81,192.19c-47.89-79.81,16-159.62,151.64-151.64C223.43,176.23,143.62,240.08,63.81,192.19Z"
         opacity={0.2}

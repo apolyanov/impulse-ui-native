@@ -6,7 +6,7 @@ export const HeartHalfDuotoneIcon = memo(function HeartHalfDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,80V224S24,168,24,102A54,54,0,0,1,78,48C100.59,48,119.94,60.31,128,80Z"
         opacity={0.2}

@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const BootDuotoneIcon = memo(function BootDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M32,168c9.22-32.06,12-88.65,0-120H144a8,8,0,0,1,8,8v64h40a48,48,0,0,1,48,48Z"
         opacity={0.2}

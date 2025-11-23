@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const PushPinSimpleSlashDuotoneIcon = memo(
   function PushPinSimpleSlashDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M190.46,176H56L78.83,46.61A8,8,0,0,1,86.71,40H176l22.34,126.61A8,8,0,0,1,190.46,176Z"
           opacity={0.2}

@@ -6,7 +6,7 @@ export const TextSuperscriptDuotoneIcon = memo(function TextSuperscriptDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M240,64V184a16,16,0,0,1-16,16H40V64A16,16,0,0,1,56,48H224A16,16,0,0,1,240,64Z"
         opacity={0.2}

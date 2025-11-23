@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const SelectionInverseDuotoneIcon = memo(
   function SelectionInverseDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,48V208a8,8,0,0,1-2.34,5.66L42.34,42.34A8,8,0,0,1,48,40H208A8,8,0,0,1,216,48Z"
           opacity={0.2}

@@ -6,7 +6,7 @@ export const BriefcaseMetalDuotoneIcon = memo(function BriefcaseMetalDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,72v32H32V72a8,8,0,0,1,8-8H216A8,8,0,0,1,224,72ZM32,200a8,8,0,0,0,8,8H216a8,8,0,0,0,8-8V168H32Z"
         opacity={0.2}

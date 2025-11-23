@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const CookieDuotoneIcon = memo(function CookieDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,128a96,96,0,1,1-96-96,48,48,0,0,0,48,48A48,48,0,0,0,224,128Z"
         opacity={0.2}

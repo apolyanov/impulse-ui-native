@@ -6,7 +6,7 @@ export const LinuxLogoDuotoneIcon = memo(function LinuxLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,208H168c-8-14.35-22.91-24-40-24s-32,9.65-40,24H32S64,168,64,88a64,64,0,0,1,128,0C192,168,224,208,224,208Z"
         opacity={0.2}

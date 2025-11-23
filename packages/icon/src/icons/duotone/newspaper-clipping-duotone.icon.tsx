@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const NewspaperClippingDuotoneIcon = memo(
   function NewspaperClippingDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M216,48H40a8,8,0,0,0-8,8V216l32-16,32,16,32-16,32,16,32-16,32,16V56A8,8,0,0,0,216,48ZM112,160H64V96h48Z"
           opacity={0.2}

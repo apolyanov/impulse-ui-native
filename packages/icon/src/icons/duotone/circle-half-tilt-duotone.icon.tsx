@@ -6,7 +6,7 @@ export const CircleHalfTiltDuotoneIcon = memo(function CircleHalfTiltDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M195.88,195.88a96,96,0,0,1-135.76,0L195.88,60.12A96,96,0,0,1,195.88,195.88Z"
         opacity={0.2}

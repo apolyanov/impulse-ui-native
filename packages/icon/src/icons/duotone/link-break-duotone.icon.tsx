@@ -6,7 +6,7 @@ export const LinkBreakDuotoneIcon = memo(function LinkBreakDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M204.28,108.28l-96,96a40,40,0,0,1-56.56-56.56l96-96a40,40,0,0,1,56.56,56.56Z"
         opacity={0.2}

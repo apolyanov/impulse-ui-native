@@ -6,7 +6,7 @@ export const BookmarksDuotoneIcon = memo(function BookmarksDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,40V192l-32-22.85V72a8,8,0,0,0-8-8H88V40a8,8,0,0,1,8-8h96A8,8,0,0,1,200,40Z"
         opacity={0.2}

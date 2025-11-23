@@ -6,7 +6,7 @@ export const BeachBallDuotoneIcon = memo(function BeachBallDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M161.23,93.36a191.07,191.07,0,0,0-82-48.09,96.4,96.4,0,0,1,68.68-11.2A191.91,191.91,0,0,1,161.23,93.36Zm60.7,14.7a192.2,192.2,0,0,0-59.29-13.29,191,191,0,0,1,48.09,82,96.37,96.37,0,0,0,11.2-68.67ZM32.27,135.19a96,96,0,0,0,88.54,88.54,191.56,191.56,0,0,0,40.5-129A191.61,191.61,0,0,0,32.27,135.19Z"
         opacity={0.2}

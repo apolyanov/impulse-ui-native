@@ -6,7 +6,7 @@ export const SubtractDuotoneIcon = memo(function SubtractDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,160a72,72,0,0,1-143.6,7.6h0a73.37,73.37,0,0,0,7.6.4,72,72,0,0,0,72-72,73.37,73.37,0,0,0-.4-7.6h0A72,72,0,0,1,232,160Z"
         opacity={0.2}

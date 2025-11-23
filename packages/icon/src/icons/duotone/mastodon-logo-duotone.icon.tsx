@@ -6,7 +6,7 @@ export const MastodonLogoDuotoneIcon = memo(function MastodonLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,72v72a32,32,0,0,1-32,32H40V72A32,32,0,0,1,72,40H184A32,32,0,0,1,216,72Z"
         opacity={0.2}

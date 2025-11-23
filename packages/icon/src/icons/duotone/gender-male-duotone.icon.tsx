@@ -6,7 +6,7 @@ export const GenderMaleDuotoneIcon = memo(function GenderMaleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M154.91,202.91a72,72,0,1,1,0-101.82A72,72,0,0,1,154.91,202.91Z"
         opacity={0.2}

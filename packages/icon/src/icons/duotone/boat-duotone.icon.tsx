@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const BoatDuotoneIcon = memo(function BoatDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M224,125.77V152c0,56-96,80-96,80s-96-24-96-80V125.77a8,8,0,0,1,5.47-7.59L128,88l90.53,30.18A8,8,0,0,1,224,125.77Z"
         opacity={0.2}

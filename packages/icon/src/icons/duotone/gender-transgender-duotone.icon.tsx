@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const GenderTransgenderDuotoneIcon = memo(
   function GenderTransgenderDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M141.25,205.25a64,64,0,1,1,0-90.5A64,64,0,0,1,141.25,205.25Z"
           opacity={0.2}

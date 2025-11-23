@@ -6,7 +6,7 @@ export const BoxingGloveDuotoneIcon = memo(function BoxingGloveDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,72v46.88a7.85,7.85,0,0,1-.31,2.2L200,176v40a8,8,0,0,1-8,8H80a8,8,0,0,1-8-8V176L33.75,138.19a8,8,0,0,1-1.75-5V104A24,24,0,0,1,56,80H72V72a48,48,0,0,1,48-48h48A48,48,0,0,1,216,72Z"
         opacity={0.2}

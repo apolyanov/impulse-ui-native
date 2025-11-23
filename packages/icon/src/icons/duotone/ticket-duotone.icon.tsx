@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const TicketDuotoneIcon = memo(function TicketDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M200,128a32,32,0,0,0,32,32v32a8,8,0,0,1-8,8H96V56H224a8,8,0,0,1,8,8V96A32,32,0,0,0,200,128Z"
         opacity={0.2}

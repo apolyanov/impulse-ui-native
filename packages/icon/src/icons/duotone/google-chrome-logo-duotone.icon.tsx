@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const GoogleChromeLogoDuotoneIcon = memo(
   function GoogleChromeLogoDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M168,128a40,40,0,1,1-40-40A40,40,0,0,1,168,128Z"
           opacity={0.2}

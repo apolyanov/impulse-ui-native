@@ -5,7 +5,7 @@ import type { SvgProps } from "react-native-svg";
 export const CurrencyDollarSimpleDuotoneIcon = memo(
   function CurrencyDollarSimpleDuotone(props: SvgProps) {
     return (
-      <Svg viewBox="0 0 256 256" fill={props.color}>
+      <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
         <Path
           d="M192,168a40,40,0,0,1-40,40H128V128h24A40,40,0,0,1,192,168ZM112,48a40,40,0,0,0,0,80h16V48Z"
           opacity={0.2}

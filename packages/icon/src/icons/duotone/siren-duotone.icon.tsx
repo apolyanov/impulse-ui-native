@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const SirenDuotoneIcon = memo(function SirenDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,129v39H48V128a80,80,0,0,1,80.61-80C172.72,48.33,208,84.89,208,129Z"
         opacity={0.2}

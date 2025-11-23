@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const CloverDuotoneIcon = memo(function CloverDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,120s-90-96,0-96S128,120,128,120Zm-96,0c0,90,96,0,96,0S32,30,32,120Zm96,96c90,0,0-96,0-96S38,216,128,216Zm0-96s96,90,96,0S128,120,128,120Z"
         opacity={0.2}

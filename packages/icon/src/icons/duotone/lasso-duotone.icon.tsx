@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const LassoDuotoneIcon = memo(function LassoDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M232,112c0,35.35-46.56,64-104,64S24,147.35,24,112,70.56,48,128,48,232,76.65,232,112Z"
         opacity={0.2}

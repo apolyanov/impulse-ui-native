@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const KanbanDuotoneIcon = memo(function KanbanDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,56v64H160V56ZM40,208a8,8,0,0,0,8,8H88a8,8,0,0,0,8-8V120H40Z"
         opacity={0.2}

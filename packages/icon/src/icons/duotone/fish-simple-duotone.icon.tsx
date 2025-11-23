@@ -6,7 +6,7 @@ export const FishSimpleDuotoneIcon = memo(function FishSimpleDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M202.43,151.85c-21.26,28.17-62.09,48.24-138.35,40C55.89,115.64,76,74.82,104.15,53.57A104,104,0,0,0,202.43,151.85Z"
         opacity={0.2}

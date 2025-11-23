@@ -6,7 +6,7 @@ export const FaceMaskDuotoneIcon = memo(function FaceMaskDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M216,77.09V136c0,56-88,72-88,72s-88-16-88-72V77.09a8,8,0,0,1,5.27-7.52l80-29.09a8,8,0,0,1,5.46,0l80,29.09A8,8,0,0,1,216,77.09Z"
         opacity={0.2}

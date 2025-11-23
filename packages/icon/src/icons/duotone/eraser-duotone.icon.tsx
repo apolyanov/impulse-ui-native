@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const EraserDuotoneIcon = memo(function EraserDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M160,168l-48,48H66.75L36.69,185.94a16,16,0,0,1,0-22.63L96,104Z"
         opacity={0.2}

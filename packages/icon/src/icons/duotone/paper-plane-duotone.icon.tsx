@@ -6,7 +6,7 @@ export const PaperPlaneDuotoneIcon = memo(function PaperPlaneDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M221.28,215.51,128,184,34.72,215.51a8,8,0,0,1-9.67-11.44l95.85-168a8,8,0,0,1,14,0l96.09,168A8,8,0,0,1,221.28,215.51Z"
         opacity={0.2}

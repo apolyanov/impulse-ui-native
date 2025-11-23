@@ -4,7 +4,7 @@ import type { SvgProps } from "react-native-svg";
 
 export const MagnetDuotoneIcon = memo(function MagnetDuotone(props: SvgProps) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M168.36,200.36l-30,29.35a8,8,0,0,1-11.26-.05L98.46,201a8,8,0,0,1,.08-11.4l30-29Zm-142-82.76a8,8,0,0,0,0,11.28L55,157.54a8,8,0,0,0,11.38-.06l29.18-29.92L55.77,87.77Z"
         opacity={0.2}

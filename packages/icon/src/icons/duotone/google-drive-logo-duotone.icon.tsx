@@ -6,7 +6,7 @@ export const GoogleDriveLogoDuotoneIcon = memo(function GoogleDriveLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M24,152H88L55.12,206.8A7.91,7.91,0,0,1,52.38,204L25.05,156.15A8,8,0,0,1,24,152Zm144,0,32.88,54.8a7.91,7.91,0,0,0,2.74-2.83l27.32-47.82A8,8,0,0,0,232,152ZM100.43,32a8.06,8.06,0,0,0-3.84,1L128,85.33,159.41,33a8.07,8.07,0,0,0-3.85-1Z"
         opacity={0.2}

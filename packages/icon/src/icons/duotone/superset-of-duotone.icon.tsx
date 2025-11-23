@@ -6,7 +6,7 @@ export const SupersetOfDuotoneIcon = memo(function SupersetOfDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M208,104a56,56,0,0,1-56,56H56V48h96A56,56,0,0,1,208,104Z"
         opacity={0.2}

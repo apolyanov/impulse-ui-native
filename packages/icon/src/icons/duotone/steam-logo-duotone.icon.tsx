@@ -6,7 +6,7 @@ export const SteamLogoDuotoneIcon = memo(function SteamLogoDuotone(
   props: SvgProps
 ) {
   return (
-    <Svg viewBox="0 0 256 256" fill={props.color}>
+    <Svg {...props} viewBox="0 0 256 256" fill={props.color}>
       <Path
         d="M128,32a96,96,0,1,0,96,96A96,96,0,0,0,128,32Zm45.81,97.61-61.09,49.82a20,20,0,0,1-28.15-28.15l49.82-61.09a28,28,0,1,1,39.42,39.42Z"
         opacity={0.2}
