@@ -6,6 +6,7 @@ export * from "@impulse-ui-native/theme";
 export * from "@impulse-ui-native/layer-manager";
 export * from "@impulse-ui-native/safe-area-view";
 export * from "@impulse-ui-native/view";
+export * from "@impulse-ui-native/keyboard-avoiding-view";
 
 // Components
 export * from "@impulse-ui-native/button";
@@ -17,6 +18,7 @@ export * from "@impulse-ui-native/typography";
 
 // Utilities
 export * from "@impulse-ui-native/echo";
+export * from "@impulse-ui-native/endpoint";
 
 // Types
 export * from "@impulse-ui-native/layer-manager-types";

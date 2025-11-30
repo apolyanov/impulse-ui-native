@@ -302,6 +302,36 @@ importers:
         specifier: '>=3'
         version: 4.1.5(@babel/core@7.28.5)(react-native-worklets@0.5.1(@babel/core@7.28.5)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0))(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
 
+  packages/endpoint:
+    dependencies:
+      '@tanstack/react-query':
+        specifier: ^5.90.11
+        version: 5.90.11(react@19.2.0)
+      expo:
+        specifier: '>=51 || >=52'
+        version: 54.0.25(@babel/core@7.28.5)(@expo/metro-runtime@6.1.2)(expo-router@6.0.15)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      expo-modules-core:
+        specifier: '>=1.0.0'
+        version: 3.0.26(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      react:
+        specifier: '>=18'
+        version: 19.2.0
+      react-native:
+        specifier: '>=0.74'
+        version: 0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0)
+      react-native-gesture-handler:
+        specifier: '>=2'
+        version: 2.28.0(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      react-native-reanimated:
+        specifier: '>=3'
+        version: 4.1.5(@babel/core@7.28.5)(react-native-worklets@0.5.1(@babel/core@7.28.5)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0))(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      react-native-safe-area-context:
+        specifier: 5.6.1
+        version: 5.6.1(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      react-native-worklets:
+        specifier: '>=0.5.1'
+        version: 0.5.1(@babel/core@7.28.5)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+
   packages/flyout:
     dependencies:
       '@impulse-ui-native/core':
@@ -429,6 +459,9 @@ importers:
 
   packages/input:
     dependencies:
+      '@impulse-ui-native/button':
+        specifier: workspace:*
+        version: link:../button
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core
@@ -465,6 +498,30 @@ importers:
       react-native-worklets:
         specifier: '>=0.5.1'
         version: 0.5.1(@babel/core@7.28.5)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+
+  packages/keyboard-avoiding-view:
+    dependencies:
+      '@impulse-ui-native/theme':
+        specifier: workspace:*
+        version: link:../theme
+      expo:
+        specifier: '>=51 || >=52'
+        version: 54.0.25(@babel/core@7.28.5)(@expo/metro-runtime@6.1.2)(expo-router@6.0.15)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      expo-modules-core:
+        specifier: '>=1.0.0'
+        version: 3.0.26(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      react:
+        specifier: '>=18'
+        version: 19.2.0
+      react-native:
+        specifier: '>=0.74'
+        version: 0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0)
+      react-native-gesture-handler:
+        specifier: '>=2'
+        version: 2.28.0(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
+      react-native-reanimated:
+        specifier: '>=3'
+        version: 4.1.5(@babel/core@7.28.5)(react-native-worklets@0.5.1(@babel/core@7.28.5)(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0))(react-native@0.81.4(@babel/core@7.28.5)(@types/react@19.2.6)(react@19.2.0))(react@19.2.0)
 
   packages/layer-manager:
     dependencies:
@@ -648,6 +705,9 @@ importers:
       '@impulse-ui-native/echo':
         specifier: workspace:*
         version: link:../echo
+      '@impulse-ui-native/endpoint':
+        specifier: workspace:*
+        version: link:../endpoint
       '@impulse-ui-native/flyout':
         specifier: workspace:*
         version: link:../flyout
@@ -657,6 +717,9 @@ importers:
       '@impulse-ui-native/input':
         specifier: workspace:*
         version: link:../input
+      '@impulse-ui-native/keyboard-avoiding-view':
+        specifier: workspace:*
+        version: link:../keyboard-avoiding-view
       '@impulse-ui-native/layer-manager':
         specifier: workspace:*
         version: link:../layer-manager
@@ -2398,6 +2461,14 @@ packages:
 
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
+
+  '@tanstack/query-core@5.90.11':
+    resolution: {integrity: sha512-f9z/nXhCgWDF4lHqgIE30jxLe4sYv15QodfdPDKYAk7nAEjNcndy4dHz3ezhdUaR23BpWa4I2EH4/DZ0//Uf8A==}
+
+  '@tanstack/react-query@5.90.11':
+    resolution: {integrity: sha512-3uyzz01D1fkTLXuxF3JfoJoHQMU2fxsfJwE+6N5hHy0dVNoZOvwKP8Z2k7k1KDeD54N20apcJnG75TBAStIrBA==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -8238,6 +8309,13 @@ snapshots:
   '@sinonjs/fake-timers@10.3.0':
     dependencies:
       '@sinonjs/commons': 3.0.1
+
+  '@tanstack/query-core@5.90.11': {}
+
+  '@tanstack/react-query@5.90.11(react@19.2.0)':
+    dependencies:
+      '@tanstack/query-core': 5.90.11
+      react: 19.2.0
 
   '@tybys/wasm-util@0.10.1':
     dependencies:

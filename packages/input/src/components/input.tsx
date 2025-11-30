@@ -1,4 +1,4 @@
-import { Icon } from "@impulse-ui-native/icon";
+import { EyeIcon, EyeSlashIcon, Icon } from "@impulse-ui-native/icon";
 import {
   AppTheme,
   ComponentSize,
@@ -6,7 +6,8 @@ import {
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 import { Typography } from "@impulse-ui-native/typography";
-import { memo, useMemo } from "react";
+import { Pressable } from "@impulse-ui-native/button";
+import { memo, useMemo, useState } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -16,6 +17,7 @@ import {
 } from "react-native";
 
 import { InputProps, InputVariant } from "../types";
+import { useEventCallback } from "@impulse-ui-native/core";
 
 export const Input = memo(function Input({
   size = "medium",
@@ -24,10 +26,12 @@ export const Input = memo(function Input({
   error,
   disabled,
   style,
-  prefixIcon,
+  prefixIcon: PrefixIcon,
   suffixIcon,
   ...props
 }: InputProps) {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const theme = useTheme();
 
   const styles = useThemedStyles(themedStyles, {
@@ -35,6 +39,10 @@ export const Input = memo(function Input({
     variant,
     disabled,
     error,
+  });
+
+  const togglePasswordVisibility = useEventCallback(() => {
+    setShowPassword(prevState => !prevState);
   });
 
   const labelColor = useMemo(() => {
@@ -54,6 +62,22 @@ export const Input = memo(function Input({
     [styles.inputContainer, style]
   );
 
+  const SuffixIcon = useMemo(() => {
+    if (props.secureTextEntry) {
+      return showPassword ? EyeIcon : EyeSlashIcon;
+    }
+
+    return suffixIcon;
+  }, [props.secureTextEntry, suffixIcon, showPassword]);
+
+  const onSuffixIconPress = useMemo(() => {
+    if (props.secureTextEntry) {
+      return togglePasswordVisibility;
+    }
+
+    return props.onSuffixIconPress;
+  }, [props.secureTextEntry]);
+
   const inputStyle = useMemo(() => [styles.input], [styles.input]);
 
   const iconColor = useMemo(() => {
@@ -68,8 +92,10 @@ export const Input = memo(function Input({
       {label && <Typography.Label style={labelStyle}>{label}</Typography.Label>}
 
       <View style={inputContainerStyle}>
-        {prefixIcon ? (
-          <Icon size={props.size} icon={prefixIcon} color={iconColor} style={styles.icon} />
+        {PrefixIcon ? (
+          <Pressable hitSlop={16} onPress={props.onPrefixIconPress}>
+            <Icon icon={PrefixIcon} color={iconColor} style={styles.icon} />
+          </Pressable>
         ) : null}
 
         <TextInput
@@ -77,10 +103,13 @@ export const Input = memo(function Input({
           placeholderTextColor={theme.colors.neutral[7]}
           editable={!disabled}
           {...props}
+          secureTextEntry={props.secureTextEntry && !showPassword}
         />
 
-        {suffixIcon ? (
-          <Icon size={props.size} icon={suffixIcon} color={iconColor} style={styles.icon} />
+        {SuffixIcon ? (
+          <Pressable hitSlop={16} onPress={onSuffixIconPress}>
+            <Icon icon={SuffixIcon} color={iconColor} style={styles.icon} />
+          </Pressable>
         ) : null}
       </View>
 
@@ -119,9 +148,9 @@ const themedStyles = (
 
   const baseInput: ViewStyle = {
     flex: 1,
-    width: "100%",
     paddingVertical: 0,
     paddingHorizontal: 0,
+    height: "100%",
   };
 
   const baseContainer: ViewStyle = {
@@ -166,6 +195,7 @@ const themedStyles = (
       ...variants[variant],
     },
     input: {
+      marginLeft: 4,
       ...baseInput,
       ...fontSize,
     },

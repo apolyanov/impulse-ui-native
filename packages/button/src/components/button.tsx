@@ -105,6 +105,11 @@ const themedStyles = (
     opacity: disabled ? 0.7 : 1,
   };
 
+  const baseText: TextStyle = {
+    width: "100%",
+    textAlign: "center",
+  };
+
   const primary = theme.colors.primary;
   const neutral = theme.colors.neutral;
 
@@ -143,6 +148,7 @@ const themedStyles = (
       ...variantStyles.view,
     },
     text: {
+      ...baseText,
       ...variantStyles.text,
     },
     pressed: {

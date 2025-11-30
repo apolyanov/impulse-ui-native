@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/button": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/typography": "workspace:*",
     "@impulse-ui-native/icon": "workspace:*"
