@@ -5,18 +5,17 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "react-native": "src/index.ts",
+  "react-native": "dist/index.esm.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "react-native": "./src/index.ts",
+      "react-native": "./dist/index.esm.js",
       "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js"
     }
   },
   "files": [
     "dist",
-    "src",
     "README.md",
     "LICENSE"
   ],
@@ -38,7 +37,6 @@
     "expo": ">=51 || >=52",
     "react-native-worklets": ">=0.5.1",
     "expo-modules-core": ">=1.0.0",
-    "react-native-safe-area-context": "5.6.1",
     "react-native-gesture-handler": ">=2",
     "react-native-reanimated": ">=3"
   },
