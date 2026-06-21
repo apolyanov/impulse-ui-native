@@ -30,7 +30,6 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "impulse-ui-native",
-    "finansu-furendu-native",
     "@impulse-ui-native/eslint-config",
     "@impulse-ui-native/github",
     "@impulse-ui-native/prettier-config",
