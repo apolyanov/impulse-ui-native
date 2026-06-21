@@ -6,7 +6,7 @@
     "changeset": "changeset",
     "dev": "turbo run dev",
     "version-packages": "changeset version",
-    "publish-packages": "changeset publish",
+    "publish-packages": "node scripts/changeset-publish.mjs",
     "release": "pnpm run build && pnpm run publish-packages",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

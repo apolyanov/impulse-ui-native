@@ -53,6 +53,9 @@ pnpm release
 ```
 
 `pnpm release` builds the monorepo and then runs `changeset publish`.
+The publish command uses `scripts/changeset-publish.mjs` to strip pnpm-only
+environment config before npm runs, which avoids noisy npm warnings about
+settings such as `catalog`, `catalogs`, and `node-linker`.
 
 Before publishing, make sure npm auth is valid:
 
