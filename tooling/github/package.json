@@ -1,3 +1,5 @@
 {
-  "name": "@impulse-ui-native/github"
+  "name": "@impulse-ui-native/github",
+  "version": "1.0.0",
+  "private": true
 }

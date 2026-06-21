@@ -54,6 +54,24 @@ pnpm release
 
 `pnpm release` builds the monorepo and then runs `changeset publish`.
 
+Before publishing, make sure npm auth is valid:
+
+```bash
+npm whoami
+```
+
+If that fails, log in again:
+
+```bash
+npm login
+```
+
+To check package packing without publishing, run a package dry run:
+
+```bash
+pnpm --filter @impulse-ui-native/core publish --dry-run --no-git-checks
+```
+
 ## Common Examples
 
 Dependency metadata fix:
