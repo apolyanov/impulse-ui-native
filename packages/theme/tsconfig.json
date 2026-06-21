@@ -1,0 +1,8 @@
+{
+  "extends": "@impulse-ui-native/tsconfig/base.json",
+  "include": [
+    ".",
+    "../primitives/src/constants/control-container.constants.ts"
+  ],
+  "exclude": ["node_modules"]
+}

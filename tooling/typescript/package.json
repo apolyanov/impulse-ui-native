@@ -1,0 +1,7 @@
+{
+  "name": "@impulse-ui-native/tsconfig",
+  "private": true,
+  "files": [
+    "*.json"
+  ]
+}

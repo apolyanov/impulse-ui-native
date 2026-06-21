@@ -1,0 +1,50 @@
+{
+  "name": "@impulse-ui-native/icon",
+  "version": "1.0.10",
+  "source": "src/index.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.mts",
+  "react-native": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "react-native": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup --config tsup.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "pnpm exec eslint . --fix",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "@impulse-ui-native/eslint-config": "workspace:*",
+    "@impulse-ui-native/prettier-config": "workspace:*",
+    "@impulse-ui-native/tsconfig": "workspace:*",
+    "@types/react": "catalog:react19",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "react": "catalog:react19",
+    "react-native": "catalog:",
+    "react-native-svg": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-svg": ">=13.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": "@impulse-ui-native/prettier-config"
+}

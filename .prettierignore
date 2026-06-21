@@ -1,0 +1,10 @@
+node_modules
+.pnpm
+.turbo
+dist
+build
+coverage
+.expo
+.expo-shared
+android
+ios

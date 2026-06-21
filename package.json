@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "impulse-ui-native",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -9,12 +9,17 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "prettier": "^3.7.4",
-    "turbo": "^2.6.1",
-    "typescript": "5.9.2"
+    "@impulse-ui-native/prettier-config": "workspace:*",
+    "@types/node": "catalog:",
+    "prettier": "catalog:",
+    "tsup": "^8.5.0",
+    "turbo": "^2.9.7",
+    "typescript": "catalog:"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.33.2",
   "engines": {
-    "node": ">=18"
-  }
+    "node": "^22.21.0",
+    "pnpm": "^10.19.0"
+  },
+  "prettier": "@impulse-ui-native/prettier-config"
 }

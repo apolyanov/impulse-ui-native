@@ -1,0 +1,3 @@
+[submodule "apps/finansu-furendu-native"]
+	path = apps/finansu-furendu-native
+	url = git@github.com:apolyanov/finansu-furendu-native.git

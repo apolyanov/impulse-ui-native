@@ -1,0 +1,21 @@
+{
+  "name": "@impulse-ui-native/prettier-config",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "prettier": "catalog:"
+  },
+  "devDependencies": {
+    "@impulse-ui-native/tsconfig": "workspace:*",
+    "typescript": "catalog:"
+  },
+  "prettier": "@impulse-ui-native/prettier-config"
+}
