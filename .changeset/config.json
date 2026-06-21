@@ -1,0 +1,43 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [
+    [
+      "@impulse-ui-native/core",
+      "@impulse-ui-native/data-state",
+      "@impulse-ui-native/datetime",
+      "@impulse-ui-native/echo",
+      "@impulse-ui-native/endpoint",
+      "@impulse-ui-native/flyout",
+      "@impulse-ui-native/icon",
+      "@impulse-ui-native/input",
+      "@impulse-ui-native/layers",
+      "@impulse-ui-native/portal",
+      "@impulse-ui-native/primitives",
+      "@impulse-ui-native/select",
+      "@impulse-ui-native/skeleton",
+      "@impulse-ui-native/stepper",
+      "@impulse-ui-native/storybook",
+      "@impulse-ui-native/theme",
+      "@impulse-ui-native/toolkit",
+      "@impulse-ui-native/types"
+    ]
+  ],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": [
+    "impulse-ui-native",
+    "finansu-furendu-native",
+    "@impulse-ui-native/eslint-config",
+    "@impulse-ui-native/github",
+    "@impulse-ui-native/prettier-config",
+    "@impulse-ui-native/tsconfig"
+  ],
+  "privatePackages": {
+    "version": false,
+    "tag": false
+  }
+}

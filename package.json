@@ -3,12 +3,17 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "changeset": "changeset",
     "dev": "turbo run dev",
+    "version-packages": "changeset version",
+    "publish-packages": "changeset publish",
+    "release": "pnpm run build && pnpm run publish-packages",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@impulse-ui-native/prettier-config": "workspace:*",
     "@types/node": "catalog:",
     "prettier": "catalog:",
