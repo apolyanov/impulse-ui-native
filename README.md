@@ -30,6 +30,11 @@ Individual packages such as `@impulse-ui-native/select`, `@impulse-ui-native/the
 
 Component documentation lives in Storybook. Stories provide interactive examples, controls, component states, and generated API documentation.
 
+There are two ways to explore the components:
+
+- **Web Storybook** runs in a browser and is intended for public component documentation, interactive controls, and API reference material.
+- **Native Storybook** runs inside the Expo application and renders the components in their native environment. A distributable version is planned for the Apple App Store and Google Play. Until those releases are available, you can run it locally by cloning this repository and following the commands below.
+
 Run the browser-based React Native Web Storybook:
 
 ```sh
@@ -41,6 +46,8 @@ Run Storybook in the Expo application:
 ```sh
 pnpm --filter impulse-ui-native storybook
 ```
+
+After Expo starts, open the project in an iOS simulator, Android emulator, or a compatible development build on a physical device. The native Storybook is intended to complement—not replace—the browser documentation because it provides the most accurate representation of platform-specific behavior, gestures, portals, and Flyouts.
 
 Platform-specific commands are also available:
 
