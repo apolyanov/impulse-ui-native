@@ -1,0 +1,28 @@
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile.site
+    image: impulse-ui-native-site:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
+    expose:
+      - "3000"
+    networks:
+      - traefik
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: "${TRAEFIK_NETWORK:-proxy}"
+      traefik.http.routers.impulse-ui-site.rule: "Host(`${SITE_HOST:?Set SITE_HOST in .env}`)"
+      traefik.http.routers.impulse-ui-site.entrypoints: "${TRAEFIK_ENTRYPOINT:-websecure}"
+      traefik.http.routers.impulse-ui-site.tls: "true"
+      traefik.http.routers.impulse-ui-site.tls.certresolver: "${TRAEFIK_CERT_RESOLVER:-letsencrypt}"
+      traefik.http.services.impulse-ui-site.loadbalancer.server.port: "3000"
+
+networks:
+  traefik:
+    external: true
+    name: "${TRAEFIK_NETWORK:-proxy}"

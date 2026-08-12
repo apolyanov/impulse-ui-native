@@ -64,6 +64,55 @@ pnpm --filter impulse-ui-native build-storybook
 
 The project website contains the public introduction, component previews, design-token overview, and links into the source. Written guides can be added to its `/docs` section as the documentation grows.
 
+## Deploy the website
+
+The site ships with a production Docker image and a Compose service designed to run behind an existing Traefik instance. Traefik terminates HTTPS and obtains the certificate; the site container is only reachable on the shared Docker network and does not publish a host port.
+
+The host needs Docker, Docker Compose, and a running Traefik instance with:
+
+- the Docker provider enabled;
+- a `websecure` HTTPS entrypoint, or another named entrypoint;
+- an ACME certificate resolver, such as `letsencrypt`;
+- an external Docker network shared with routed services.
+
+On the host, clone the repository and create the deployment environment file:
+
+```sh
+git clone https://github.com/apolyanov/impulse-ui-native.git
+cd impulse-ui-native
+cp .env.example .env
+```
+
+Set `SITE_HOST` in `.env` to the public hostname whose DNS record points to the Traefik host. If needed, also change the network, entrypoint, and certificate-resolver names to match your Traefik configuration.
+
+Start or update the site:
+
+```sh
+docker compose -f compose.site.yml up -d --build
+```
+
+Inspect its status and logs:
+
+```sh
+docker compose -f compose.site.yml ps
+docker compose -f compose.site.yml logs -f site
+```
+
+For subsequent deployments, pull and rebuild:
+
+```sh
+git pull --ff-only
+docker compose -f compose.site.yml up -d --build
+```
+
+The container uses Next.js standalone output, listens internally on port `3000`, runs as an unprivileged user, and restarts unless explicitly stopped. The Traefik labels configure the host rule, HTTPS router, certificate resolver, shared network, and backend port.
+
+Before deploying, verify the production build locally:
+
+```sh
+pnpm --filter @impulse-ui-native/site build
+```
+
 ## Repository structure
 
 ```text

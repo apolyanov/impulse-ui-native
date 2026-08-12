@@ -1,0 +1,36 @@
+FROM node:22-alpine AS base
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable
+
+FROM base AS builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN pnpm install --frozen-lockfile
+RUN pnpm --filter @impulse-ui-native/site build
+
+FROM node:22-alpine AS runner
+
+ENV NODE_ENV="production"
+ENV HOSTNAME="0.0.0.0"
+ENV PORT="3000"
+
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs
+
+COPY --from=builder --chown=nextjs:nodejs /app/apps/site/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/site/.next/static ./apps/site/.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/apps/site/public ./apps/site/public
+
+USER nextjs
+
+EXPOSE 3000
+
+CMD ["node", "apps/site/server.js"]
