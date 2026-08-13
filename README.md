@@ -66,14 +66,9 @@ The project website contains the public introduction, component previews, design
 
 ## Deploy the website
 
-The site ships with a production Docker image and a Compose service designed to run behind an existing Traefik instance. Traefik terminates HTTPS and obtains the certificate; the site container is only reachable on the shared Docker network and does not publish a host port.
+The site ships as a self-contained Docker Compose stack containing both the Next.js application and Traefik. Traefik publishes ports `80` and `443`, redirects HTTP to HTTPS, discovers the site through Docker labels, and obtains and renews its Let's Encrypt certificate. The site itself does not publish a host port.
 
-The host needs Docker, Docker Compose, and a running Traefik instance with:
-
-- the Docker provider enabled;
-- a `websecure` HTTPS entrypoint, or another named entrypoint;
-- an ACME certificate resolver, such as `letsencrypt`;
-- an external Docker network shared with routed services.
+The host only needs Docker and Docker Compose. Ports `80` and `443` must be available, and the public hostname must have an `A` and/or `AAAA` DNS record pointing to the host.
 
 On the host, clone the repository and create the deployment environment file:
 
@@ -83,7 +78,7 @@ cd impulse-ui-native
 cp .env.example .env
 ```
 
-Set `SITE_HOST` in `.env` to the public hostname whose DNS record points to the Traefik host. If needed, also change the network, entrypoint, and certificate-resolver names to match your Traefik configuration.
+Set `SITE_HOST` to the public hostname and `TRAEFIK_ACME_EMAIL` to the email address used for Let's Encrypt notices. The default Docker network name can usually remain unchanged.
 
 Start or update the site:
 
@@ -95,7 +90,7 @@ Inspect its status and logs:
 
 ```sh
 docker compose -f compose.site.yml ps
-docker compose -f compose.site.yml logs -f site
+docker compose -f compose.site.yml logs -f traefik site
 ```
 
 For subsequent deployments, pull and rebuild:
@@ -105,7 +100,7 @@ git pull --ff-only
 docker compose -f compose.site.yml up -d --build
 ```
 
-The container uses Next.js standalone output, listens internally on port `3000`, runs as an unprivileged user, and restarts unless explicitly stopped. The Traefik labels configure the host rule, HTTPS router, certificate resolver, shared network, and backend port.
+The application container uses Next.js standalone output, listens internally on port `3000`, runs as an unprivileged user, and restarts unless explicitly stopped. Traefik stores certificates in the persistent `traefik-certificates` Docker volume.
 
 Before deploying, verify the production build locally:
 

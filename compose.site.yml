@@ -1,10 +1,39 @@
 services:
+  traefik:
+    container_name: traefik
+    image: traefik:v3.6
+    restart: unless-stopped
+    command:
+      - "--api.dashboard=false"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=${TRAEFIK_NETWORK:-proxy}"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.email=${TRAEFIK_ACME_EMAIL:?Set TRAEFIK_ACME_EMAIL in .env}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "traefik-certificates:/letsencrypt"
+    networks:
+      - traefik
+
   site:
+    container_name: site
     build:
       context: .
       dockerfile: Dockerfile.site
     image: impulse-ui-native-site:latest
     restart: unless-stopped
+    depends_on:
+      - traefik
     environment:
       NODE_ENV: production
       HOSTNAME: 0.0.0.0
@@ -17,12 +46,14 @@ services:
       traefik.enable: "true"
       traefik.docker.network: "${TRAEFIK_NETWORK:-proxy}"
       traefik.http.routers.impulse-ui-site.rule: "Host(`${SITE_HOST:?Set SITE_HOST in .env}`)"
-      traefik.http.routers.impulse-ui-site.entrypoints: "${TRAEFIK_ENTRYPOINT:-websecure}"
+      traefik.http.routers.impulse-ui-site.entrypoints: "websecure"
       traefik.http.routers.impulse-ui-site.tls: "true"
-      traefik.http.routers.impulse-ui-site.tls.certresolver: "${TRAEFIK_CERT_RESOLVER:-letsencrypt}"
+      traefik.http.routers.impulse-ui-site.tls.certresolver: "letsencrypt"
       traefik.http.services.impulse-ui-site.loadbalancer.server.port: "3000"
 
 networks:
   traefik:
-    external: true
     name: "${TRAEFIK_NETWORK:-proxy}"
+
+volumes:
+  traefik-certificates:
