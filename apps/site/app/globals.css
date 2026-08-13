@@ -17,17 +17,12 @@
 }
 
 html {
-  min-height: 100%;
   scroll-behavior: smooth;
-  overscroll-behavior-y: none;
 }
 
 body {
   margin: 0;
-  min-height: 100%;
-  min-height: 100dvh;
-  width: 100%;
-  overscroll-behavior-y: none;
+  overflow-x: clip;
   background: var(--background);
   color: var(--foreground);
 }

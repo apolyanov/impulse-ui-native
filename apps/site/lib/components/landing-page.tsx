@@ -702,7 +702,7 @@ export function DocsAndFooter() {
           ))}
         </SectionContainer>
         <div className="border-t border-border-subtle">
-          <SectionContainer className="flex flex-wrap items-center justify-between gap-xs pb-[max(16px,env(safe-area-inset-bottom))] pt-sm text-caption text-text-disabled">
+          <SectionContainer className="flex flex-wrap items-center justify-between gap-xs py-sm text-caption text-text-disabled">
             <span>
               © {new Date().getFullYear()} ImpulseUI Native ·{" "}
               <a
@@ -726,7 +726,7 @@ export function LandingPage() {
   return (
     <>
       <Navigation />
-      <main className="overflow-x-hidden">
+      <main>
         <HeroSection />
         <OpenSourceStrip />
         <ComponentsSection />

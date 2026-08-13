@@ -71,7 +71,7 @@ export function Navigation() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border-subtle bg-surface-secondary pt-[env(safe-area-inset-top)] sm:bg-surface-secondary/90 sm:backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-border-subtle bg-surface-secondary/90 backdrop-blur-md">
       <SectionContainer className="flex h-xl items-center justify-between gap-xs">
         <a
           aria-label="ImpulseUI Native home"
