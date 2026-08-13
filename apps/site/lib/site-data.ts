@@ -1,9 +1,11 @@
+import toolkitPackage from "../../../packages/toolkit/package.json";
+
 export const project = {
   name: "ImpulseUI Native",
   shortName: "ImpulseUI",
-  version: "2.0.0",
+  version: toolkitPackage.version,
   license: "MIT",
-  packageName: "@impulse-ui-native/toolkit",
+  packageName: toolkitPackage.name,
   repository: "https://github.com/apolyanov/impulse-ui-native",
 } as const;
 

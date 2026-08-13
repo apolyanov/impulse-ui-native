@@ -9,6 +9,56 @@ import type { NativeSize, NativeVariant } from "./native-web";
 import { SectionContainer } from "./marketing-primitives";
 import { SegmentedControl, WebButton, WebIconButton } from "./native-web";
 
+export function PackageVersion({
+  prefix = "",
+  suffix = "",
+}: {
+  prefix?: string;
+  suffix?: string;
+}) {
+  const [version, setVersion] = useState(project.version);
+
+  useEffect(() => {
+    let active = true;
+
+    const loadVersion = async () => {
+      try {
+        const response = await fetch("/api/package-version", {
+          cache: "no-store",
+        });
+        const result = (await response.json()) as { version?: unknown };
+
+        if (active && typeof result.version === "string") {
+          setVersion(result.version);
+        }
+      } catch {
+        // Keep the repository version as a resilient fallback.
+      }
+    };
+
+    void loadVersion();
+    const interval = window.setInterval(
+      () => {
+        void loadVersion();
+      },
+      60 * 60 * 1000,
+    );
+
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+    };
+  }, []);
+
+  return (
+    <>
+      {prefix}
+      {version}
+      {suffix}
+    </>
+  );
+}
+
 export function Navigation() {
   const [open, setOpen] = useState(false);
 
@@ -144,10 +194,10 @@ export function InstallBox() {
       </div>
       <div className="mt-xs grid grid-cols-3 border-t border-border-subtle">
         {[
-          ["Version", project.version],
-          ["License", project.license],
-          ["Package", "Toolkit"],
-        ].map(([label, value]) => (
+          { label: "Version", value: <PackageVersion /> },
+          { label: "License", value: project.license },
+          { label: "Package", value: "Toolkit" },
+        ].map(({ label, value }) => (
           <div
             className="border-r border-border-subtle p-xs text-center last:border-0"
             key={label}

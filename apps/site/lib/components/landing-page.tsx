@@ -3,7 +3,12 @@ import { GithubLogoIcon, ImpulseUINativeLogoIcon } from "@/lib/icons";
 import { SystemIcon } from "@/lib/icons/system-icon";
 import { primitiveTokenGroups, project, semanticTokens } from "@/lib/site-data";
 
-import { ButtonPlayground, InstallBox, Navigation } from "./interactive";
+import {
+  ButtonPlayground,
+  InstallBox,
+  Navigation,
+  PackageVersion,
+} from "./interactive";
 import {
   ComponentCard,
   Eyebrow,
@@ -503,7 +508,7 @@ export function DeveloperExperienceSection() {
                 <code className="text-xsm font-bold">{"<Button />"}</code>
               </div>
               <span className="text-[10px] text-text-disabled">
-                Actual v2.0.0 API
+                <PackageVersion prefix="Actual v" suffix=" API" />
               </span>
             </div>
             <div className="grid grid-cols-[0.8fr_1.8fr_0.7fr] border-b border-border-subtle bg-surface-primary px-sm py-xs text-[10px] font-semiBold uppercase text-text-disabled">
@@ -698,7 +703,9 @@ export function DocsAndFooter() {
               © {new Date().getFullYear()} ImpulseUI Native · {project.license}{" "}
               License
             </span>
-            <code>v{project.version} · main</code>
+            <code>
+              <PackageVersion prefix="v" suffix=" · main" />
+            </code>
           </SectionContainer>
         </div>
       </footer>
