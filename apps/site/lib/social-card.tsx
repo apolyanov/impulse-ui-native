@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+import { ImpulseUINativeLogoIcon } from "./icons";
 import { seo } from "./seo";
 
 export const socialImageSize = {
@@ -58,16 +59,13 @@ export function createSocialCard() {
               alignItems: "center",
               background: "#f55d6b",
               borderRadius: "20px",
-              color: "#ffffff",
               display: "flex",
-              fontSize: "42px",
-              fontWeight: 800,
               height: "84px",
               justifyContent: "center",
               width: "84px",
             }}
           >
-            I
+            <ImpulseUINativeLogoIcon fill="#ffffff" height={58} width={58} />
           </div>
           <div style={{ display: "flex", fontSize: "34px", fontWeight: 800 }}>
             ImpulseUI&nbsp;<span style={{ color: "#f55d6b" }}>Native</span>
