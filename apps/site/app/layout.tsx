@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
+import { seo, siteUrl } from "@/lib/seo";
 
 import "./globals.css";
 
@@ -9,9 +10,65 @@ const montserratSans = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "ImpulseUI Native — Open-source React Native UI system",
-  description:
-    "Token-driven React Native components for consistent, expressive, and scalable cross-platform interfaces.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: seo.title,
+    template: `%s | ${seo.shortTitle}`,
+  },
+  description: seo.description,
+  applicationName: seo.shortTitle,
+  authors: [{ name: "ImpulseUI Native", url: seo.repository }],
+  creator: "ImpulseUI Native",
+  publisher: "ImpulseUI Native",
+  category: "technology",
+  keywords: [...seo.keywords],
+  referrer: "origin-when-cross-origin",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: seo.locale,
+    url: "/",
+    siteName: seo.shortTitle,
+    title: seo.title,
+    description: seo.socialDescription,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${seo.shortTitle} — open-source React Native UI system`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: seo.socialDescription,
+    images: ["/twitter-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    other: {
+      ...(process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : {}),
+    },
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -30,7 +87,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f55d6b",
+  colorScheme: "light",
+  themeColor: seo.themeColor,
 };
 
 export default function RootLayout({

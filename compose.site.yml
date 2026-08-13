@@ -30,6 +30,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.site
+      args:
+        SITE_URL: "https://${SITE_HOST:?Set SITE_HOST in .env}"
+        GOOGLE_SITE_VERIFICATION: "${GOOGLE_SITE_VERIFICATION:-}"
+        BING_SITE_VERIFICATION: "${BING_SITE_VERIFICATION:-}"
     image: impulse-ui-native-site:latest
     restart: unless-stopped
     depends_on:
@@ -38,6 +42,7 @@ services:
       NODE_ENV: production
       HOSTNAME: 0.0.0.0
       PORT: 3000
+      SITE_URL: "https://${SITE_HOST:?Set SITE_HOST in .env}"
     expose:
       - "3000"
     networks:

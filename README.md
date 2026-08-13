@@ -80,6 +80,15 @@ cp .env.example .env
 
 Set `SITE_HOST` to the public hostname and `TRAEFIK_ACME_EMAIL` to the email address used for Let's Encrypt notices. The default Docker network name can usually remain unchanged.
 
+The Compose build derives the canonical website URL from `SITE_HOST`. This URL is used by canonical metadata, Open Graph tags, structured data, `robots.txt`, `sitemap.xml`, and the LLM discovery files.
+
+Optional search-engine ownership tokens can be added to `.env` after registering the site:
+
+```dotenv
+GOOGLE_SITE_VERIFICATION=
+BING_SITE_VERIFICATION=
+```
+
 Start or update the site:
 
 ```sh
@@ -101,6 +110,26 @@ docker compose -f compose.site.yml up -d --build
 ```
 
 The application container uses Next.js standalone output, listens internally on port `3000`, runs as an unprivileged user, and restarts unless explicitly stopped. Traefik stores certificates in the persistent `traefik-certificates` Docker volume.
+
+### Search and social discovery
+
+The deployed site provides:
+
+- canonical, Open Graph, and Twitter Card metadata;
+- a generated 1200×630 social sharing image;
+- `WebSite`, `Organization`, and `SoftwareSourceCode` JSON-LD;
+- `/robots.txt` and `/sitemap.xml`;
+- `/site.webmanifest` and platform icons;
+- `/llms.txt` and `/llms-full.txt` for AI-readable project context;
+- optional Google Search Console and Bing Webmaster Tools verification tags.
+
+After the first production deployment:
+
+1. Add the domain to Google Search Console and Bing Webmaster Tools.
+2. Add the verification tokens to `.env` and rebuild the stack.
+3. Submit `https://<your-domain>/sitemap.xml` to both services.
+4. Test the production URL with Facebook Sharing Debugger, LinkedIn Post Inspector, and a Twitter/X Card preview tool.
+5. Confirm that `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/llms-full.txt`, `/opengraph-image`, and `/twitter-image` return successfully.
 
 Before deploying, verify the production build locally:
 

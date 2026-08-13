@@ -5,7 +5,8 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "env": ["SITE_URL", "GOOGLE_SITE_VERIFICATION", "BING_SITE_VERIFICATION"]
     },
     "lint": {
       "dependsOn": ["^lint"]

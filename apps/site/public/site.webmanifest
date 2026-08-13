@@ -1,8 +1,12 @@
 {
   "name": "ImpulseUI Native",
   "short_name": "ImpulseUI",
-  "description": "Token-driven React Native components for consistent cross-platform interfaces.",
+  "description": "A token-driven, composable React Native UI system for iOS, Android, and the web.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["developer tools", "design", "productivity"],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
