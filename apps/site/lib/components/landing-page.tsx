@@ -45,7 +45,7 @@ export function HeroSection() {
       <div className="dot-grid absolute inset-0 opacity-60" />
       <div className="hero-glow absolute left-1/2 top-xl size-[min(72vw,760px)] -translate-x-1/2 rounded-round" />
       <SectionContainer className="relative grid gap-xl py-xl lg:grid-cols-2 lg:items-center lg:py-xxl">
-        <div>
+        <div className="min-w-0">
           <h1 className="text-display-small font-extraBold tracking-[-0.04em] md:text-colossal md:leading-colossal">
             Open-source UI for{" "}
             <span className="text-primary">native momentum.</span>

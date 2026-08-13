@@ -72,14 +72,14 @@ export function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border-subtle bg-surface-secondary/90 backdrop-blur-md">
-      <SectionContainer className="flex h-xl items-center justify-between">
+      <SectionContainer className="flex h-xl items-center justify-between gap-xs">
         <a
           aria-label="ImpulseUI Native home"
-          className="flex items-center gap-xs"
+          className="flex min-w-0 items-center gap-xs"
           href="#"
         >
-          <ImpulseUINativeLogoIcon className="size-md text-primary" />
-          <span className="text-title-6 font-bold">
+          <ImpulseUINativeLogoIcon className="size-md shrink-0 text-primary" />
+          <span className="truncate text-xsm font-bold sm:text-title-6">
             ImpulseUI <span className="text-primary">Native</span>
           </span>
         </a>
@@ -161,11 +161,11 @@ export function InstallBox() {
   };
 
   return (
-    <div className="mt-md overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated shadow-sm">
-      <div className="flex items-center gap-xxs p-xs">
+    <div className="mt-md w-full max-w-full overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated shadow-sm">
+      <div className="grid grid-cols-4 items-center gap-xxs p-xs sm:flex">
         {(Object.keys(packageCommands) as PackageManager[]).map((item) => (
           <WebButton
-            className="font-mono"
+            className="min-w-0 px-xxs font-mono sm:px-mxs"
             key={item}
             onClick={() => setManager(item)}
             size="small"
@@ -178,18 +178,18 @@ export function InstallBox() {
           Quick start
         </span>
       </div>
-      <div className="mx-xs flex items-center gap-xs rounded-md bg-surface-inverse px-sm py-mxs text-caption text-surface-inverse-contrast">
+      <div className="mx-xs flex min-w-0 items-center gap-xs rounded-md bg-surface-inverse px-xs py-mxs text-caption text-surface-inverse-contrast sm:px-sm">
         <span className="font-mono text-primary">$</span>
         <code className="min-w-0 flex-1 truncate">
           {packageCommands[manager]}
         </code>
         <button
           aria-label="Copy install command"
-          className="flex items-center gap-xxs rounded-sm px-xs py-xxs font-semiBold hover:bg-white/10"
+          className="flex shrink-0 items-center gap-xxs rounded-sm p-xxs font-semiBold hover:bg-white/10 sm:px-xs"
           onClick={copy}
         >
           <SystemIcon className="size-sm" name={copied ? "check" : "copy"} />
-          {copied ? "Copied" : "Copy"}
+          <span className="hidden sm:inline">{copied ? "Copied" : "Copy"}</span>
         </button>
       </div>
       <div className="mt-xs grid grid-cols-3 border-t border-border-subtle">

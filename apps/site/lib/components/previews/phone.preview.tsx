@@ -5,7 +5,7 @@ import { WebButton, WebInput, WebTag } from "../native-web";
 
 export const PhonePreview = memo(function PhonePreview() {
   return (
-    <div className="relative w-[314px] rounded-[40px] border border-neutral-11 bg-neutral-11 p-[11px] shadow-xl">
+    <div className="relative w-full max-w-[314px] rounded-[40px] border border-neutral-11 bg-neutral-11 p-[11px] shadow-xl">
       <div className="relative h-[580px] overflow-hidden rounded-[30px] bg-surface-primary px-sm py-mxs text-text-primary">
         <div className="flex items-center justify-between text-[11px] font-semiBold">
           <span>9:41</span>

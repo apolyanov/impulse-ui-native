@@ -9,7 +9,7 @@ export function SectionContainer({
   return (
     <div
       className={classNames(
-        "mx-auto w-full max-w-7xl px-sm md:px-md",
+        "mx-auto min-w-0 w-full max-w-7xl pl-[max(16px,env(safe-area-inset-left))] pr-[max(16px,env(safe-area-inset-right))] md:px-md",
         className,
       )}
       {...props}
