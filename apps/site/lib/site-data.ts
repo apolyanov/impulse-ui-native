@@ -7,6 +7,8 @@ export const project = {
   license: "MIT",
   packageName: toolkitPackage.name,
   repository: "https://github.com/apolyanov/impulse-ui-native",
+  licenseUrl:
+    "https://github.com/apolyanov/impulse-ui-native/blob/main/LICENSE",
 } as const;
 
 export const navigationLinks = [

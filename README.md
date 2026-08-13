@@ -212,4 +212,4 @@ Keep component behavior, examples, and theme values aligned with the package sou
 
 ## License
 
-ImpulseUI Native is released under the MIT license.
+ImpulseUI Native is released under the [MIT license](./LICENSE).

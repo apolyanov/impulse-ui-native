@@ -161,7 +161,7 @@ export function InstallBox() {
   };
 
   return (
-    <div className="mt-md w-full max-w-full overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated shadow-sm">
+    <div className="mt-md w-full max-w-full overflow-hidden rounded-md border border-border-subtle bg-surface-elevated shadow-sm">
       <div className="grid grid-cols-4 items-center gap-xxs p-xs sm:flex">
         {(Object.keys(packageCommands) as PackageManager[]).map((item) => (
           <WebButton
@@ -225,7 +225,7 @@ export function ButtonPlayground() {
   const [state, setState] = useState<(typeof states)[number]>("default");
 
   return (
-    <div className="mt-lg overflow-hidden rounded-xl border border-border-subtle bg-surface-elevated">
+    <div className="mt-lg overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated">
       <div className="flex flex-wrap items-center justify-between gap-xs border-b border-border-subtle p-sm">
         <div>
           <p className="text-overline uppercase text-text-disabled">

@@ -130,9 +130,9 @@ export function OpenSourceStrip() {
     <section className="border-y border-border-subtle bg-surface-elevated">
       <SectionContainer className="grid grid-cols-2 gap-msm py-md md:grid-cols-5">
         {features.map((feature) => (
-          <div key={feature.title}>
+          <div className="text-center md:text-left" key={feature.title}>
             <SystemIcon
-              className="mb-xs size-lg text-primary"
+              className="mx-auto mb-xs size-lg text-primary md:mx-0"
               name={feature.icon}
             />
             <h2 className="text-xsm font-bold">{feature.title}</h2>
@@ -204,7 +204,7 @@ export function TokensSection() {
         <div className="mt-lg grid gap-sm md:grid-cols-2 lg:grid-cols-4">
           {primitiveTokenGroups.map((group) => (
             <article
-              className="rounded-lg border border-border-subtle bg-surface-primary p-sm"
+              className="rounded-md border border-border-subtle bg-surface-primary p-sm"
               key={group.title}
             >
               <h3 className="text-title-6">{group.title}</h3>
@@ -236,7 +236,7 @@ export function TokensSection() {
           ))}
         </div>
         <div className="mt-sm grid gap-sm lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="overflow-hidden rounded-lg bg-surface-inverse text-surface-inverse-contrast">
+          <div className="overflow-hidden rounded-md bg-surface-inverse text-surface-inverse-contrast">
             <div className="flex items-center justify-between border-b border-white/10 px-sm py-mxs">
               <div className="flex gap-xxs">
                 <span className="size-xs rounded-round bg-white/20" />
@@ -260,7 +260,7 @@ export const RadiiTokens = {
 }`}</code>
             </pre>
           </div>
-          <div className="rounded-lg border border-border-subtle bg-surface-primary p-sm">
+          <div className="rounded-md border border-border-subtle bg-surface-primary p-sm">
             <Eyebrow>Why tokens matter</Eyebrow>
             <ul className="mt-sm space-y-mxs">
               {[
@@ -295,17 +295,17 @@ export function ThemingSection() {
           title="Adapt the system without faking it."
         />
         <div className="mt-lg grid gap-sm lg:grid-cols-2">
-          <div className="rounded-xl border border-border-subtle bg-surface-elevated p-xs md:p-sm">
+          <div className="rounded-lg border border-border-subtle bg-surface-elevated p-xs md:p-sm">
             <div className="mb-sm flex items-center justify-between">
               <Eyebrow>Theme preview</Eyebrow>
               <WebTag variant="outlined">LightTheme</WebTag>
             </div>
-            <div className="flex justify-center rounded-lg bg-surface-primary p-sm">
+            <div className="flex justify-center rounded-md bg-surface-primary p-sm">
               <PhonePreview />
             </div>
           </div>
           <div className="flex flex-col gap-sm">
-            <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated">
+            <div className="overflow-hidden rounded-md border border-border-subtle bg-surface-elevated">
               <div className="flex items-center justify-between border-b border-border-subtle px-sm py-mxs">
                 <Eyebrow>Semantic tokens</Eyebrow>
                 <code className="text-[10px] text-text-disabled">
@@ -330,7 +330,7 @@ export function ThemingSection() {
                 </div>
               ))}
             </div>
-            <div className="rounded-lg border border-border-subtle bg-surface-elevated p-sm">
+            <div className="rounded-md border border-border-subtle bg-surface-elevated p-sm">
               <Eyebrow>How it composes</Eyebrow>
               <ol className="mt-sm space-y-mxs">
                 {[
@@ -398,7 +398,7 @@ export function ArchitectureSection() {
         <div className="mt-lg grid gap-sm lg:grid-cols-5">
           {architectureLayers.map(([title, copy, items], index) => (
             <article
-              className="relative rounded-lg border border-border-subtle bg-surface-primary p-sm"
+              className="relative rounded-md border border-border-subtle bg-surface-primary p-sm"
               key={title}
             >
               <p className="text-overline uppercase text-primary">
@@ -486,7 +486,7 @@ export function DeveloperExperienceSection() {
           <div className="space-y-sm">
             {cards.map(([icon, title, copy]) => (
               <article
-                className="flex gap-sm rounded-lg border border-border-subtle bg-surface-elevated p-sm"
+                className="flex gap-sm rounded-md border border-border-subtle bg-surface-elevated p-sm"
                 key={title}
               >
                 <span className="flex size-component-medium shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
@@ -501,7 +501,7 @@ export function DeveloperExperienceSection() {
               </article>
             ))}
           </div>
-          <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated">
+          <div className="overflow-hidden rounded-md border border-border-subtle bg-surface-elevated">
             <div className="flex items-center justify-between border-b border-border-subtle px-sm py-mxs">
               <div className="flex items-center gap-xs">
                 <SystemIcon className="size-sm text-primary" name="box" />
@@ -589,7 +589,7 @@ export function ContributeSection() {
         <div className="grid gap-xs sm:grid-cols-2">
           {cards.map(([icon, title, copy]) => (
             <a
-              className="group rounded-lg border border-border-subtle bg-surface-primary p-sm transition-colors hover:border-primary"
+              className="group rounded-md border border-border-subtle bg-surface-primary p-sm transition-colors hover:border-primary"
               href={project.repository}
               key={title}
             >
@@ -687,7 +687,11 @@ export function DocsAndFooter() {
                   <li key={item}>
                     <a
                       className="text-body-small transition-colors hover:text-primary"
-                      href={project.repository}
+                      href={
+                        item === "License"
+                          ? project.licenseUrl
+                          : project.repository
+                      }
                     >
                       {item}
                     </a>
@@ -700,8 +704,13 @@ export function DocsAndFooter() {
         <div className="border-t border-border-subtle">
           <SectionContainer className="flex flex-wrap items-center justify-between gap-xs py-sm text-caption text-text-disabled">
             <span>
-              © {new Date().getFullYear()} ImpulseUI Native · {project.license}{" "}
-              License
+              © {new Date().getFullYear()} ImpulseUI Native ·{" "}
+              <a
+                className="transition-colors hover:text-primary"
+                href={project.licenseUrl}
+              >
+                {project.license} License
+              </a>
             </span>
             <code>
               <PackageVersion prefix="v" suffix=" · main" />

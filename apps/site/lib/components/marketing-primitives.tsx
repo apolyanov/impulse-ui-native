@@ -53,7 +53,7 @@ export function ComponentCard({
   children: ReactNode;
 }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated transition-colors hover:border-primary hover:shadow-lg">
+    <article className="group flex h-full flex-col overflow-hidden rounded-md border border-border-subtle bg-surface-elevated transition-colors hover:border-primary hover:shadow-lg">
       <div className="flex min-h-48 flex-1 items-center justify-center border-b border-border-subtle bg-surface-primary p-msm">
         {children}
       </div>
