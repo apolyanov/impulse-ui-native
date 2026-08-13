@@ -24,6 +24,8 @@
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
     "d3-array": "catalog:",
     "d3-interpolate": "catalog:",
     "d3-scale": "catalog:",

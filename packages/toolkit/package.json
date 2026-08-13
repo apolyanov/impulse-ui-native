@@ -24,6 +24,7 @@
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@impulse-ui-native/charts": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/echo": "workspace:*",
     "@impulse-ui-native/endpoint": "workspace:*",

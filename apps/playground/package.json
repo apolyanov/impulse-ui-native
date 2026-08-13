@@ -1,0 +1,45 @@
+{
+  "name": "playground",
+  "main": "expo-router/entry",
+  "version": "1.0.0",
+  "dependencies": {
+    "@expo/ui": "catalog:",
+    "expo": "catalog:",
+    "expo-constants": "catalog:",
+    "expo-device": "catalog:",
+    "expo-font": "catalog:",
+    "expo-glass-effect": "catalog:",
+    "@impulse-ui-native/toolkit": "workspace:*",
+    "expo-image": "catalog:",
+    "expo-linking": "catalog:",
+    "expo-router": "catalog:",
+    "expo-splash-screen": "catalog:",
+    "expo-status-bar": "catalog:",
+    "expo-symbols": "catalog:",
+    "expo-system-ui": "catalog:",
+    "expo-web-browser": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-native": "catalog:",
+    "react-native-gesture-handler": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-safe-area-context": "catalog:",
+    "react-native-screens": "catalog:",
+    "react-native-web": "catalog:",
+    "react-native-worklets": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "eslint-config-expo": "catalog:",
+    "typescript": "catalog:"
+  },
+  "scripts": {
+    "start": "expo start",
+    "reset-project": "node ./scripts/reset-project.js",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "expo lint"
+  },
+  "private": true
+}
