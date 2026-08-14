@@ -426,7 +426,7 @@ export function ArchitectureSection() {
             </article>
           ))}
         </div>
-        <div className="mt-msm grid grid-cols-2 gap-sm md:grid-cols-5">
+        <div className="mt-msm flex flex-wrap justify-center gap-sm">
           {[
             "button",
             "tag",
@@ -435,7 +435,7 @@ export function ArchitectureSection() {
             "skeleton",
           ].map((token) => (
             <code
-              className="rounded-md border border-border-subtle bg-surface-primary px-xs py-xs text-center text-caption font-semiBold"
+              className="whitespace-nowrap rounded-md border border-border-subtle bg-surface-primary px-xs py-xs text-center text-caption font-semiBold"
               key={token}
             >
               components.{token}
