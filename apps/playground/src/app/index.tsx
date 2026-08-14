@@ -1,12 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
-import { Test } from "@impulse-ui-native/toolkit";
+import { EmptyIcon } from "@impulse-ui-native/icon";
+import { Typography, View } from "@impulse-ui-native/primitives";
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
-      <Test />
+      <Text>Playground baseline is running.</Text>
+      <Text>Import one @impulse-ui-native package to test it.</Text>
+      <View backgroundColor="red">
+        <Typography.Body>TEST</Typography.Body>
+      </View>
+      <EmptyIcon />
     </View>
   );
 }
