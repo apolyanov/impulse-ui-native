@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PepperBoldIcon } from "../bold";
-import { PepperDuotoneIcon } from "../duotone";
-import { PepperFillIcon } from "../fill";
-import { PepperLightIcon } from "../light";
-import { PepperRegularIcon } from "../regular";
-import { PepperThinIcon } from "../thin";
+import { PepperBoldIcon } from "../bold/pepper-bold.icon";
+import { PepperDuotoneIcon } from "../duotone/pepper-duotone.icon";
+import { PepperFillIcon } from "../fill/pepper-fill.icon";
+import { PepperLightIcon } from "../light/pepper-light.icon";
+import { PepperRegularIcon } from "../regular/pepper-regular.icon";
+import { PepperThinIcon } from "../thin/pepper-thin.icon";
 
 export const PepperIcon = memo(function Pepper(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PhoneOutgoingBoldIcon } from "../bold";
-import { PhoneOutgoingDuotoneIcon } from "../duotone";
-import { PhoneOutgoingFillIcon } from "../fill";
-import { PhoneOutgoingLightIcon } from "../light";
-import { PhoneOutgoingRegularIcon } from "../regular";
-import { PhoneOutgoingThinIcon } from "../thin";
+import { PhoneOutgoingBoldIcon } from "../bold/phone-outgoing-bold.icon";
+import { PhoneOutgoingDuotoneIcon } from "../duotone/phone-outgoing-duotone.icon";
+import { PhoneOutgoingFillIcon } from "../fill/phone-outgoing-fill.icon";
+import { PhoneOutgoingLightIcon } from "../light/phone-outgoing-light.icon";
+import { PhoneOutgoingRegularIcon } from "../regular/phone-outgoing-regular.icon";
+import { PhoneOutgoingThinIcon } from "../thin/phone-outgoing-thin.icon";
 
 export const PhoneOutgoingIcon = memo(function PhoneOutgoing(
   props: IconWrapperProps,

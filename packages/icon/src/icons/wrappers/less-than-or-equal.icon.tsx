@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LessThanOrEqualBoldIcon } from "../bold";
-import { LessThanOrEqualDuotoneIcon } from "../duotone";
-import { LessThanOrEqualFillIcon } from "../fill";
-import { LessThanOrEqualLightIcon } from "../light";
-import { LessThanOrEqualRegularIcon } from "../regular";
-import { LessThanOrEqualThinIcon } from "../thin";
+import { LessThanOrEqualBoldIcon } from "../bold/less-than-or-equal-bold.icon";
+import { LessThanOrEqualDuotoneIcon } from "../duotone/less-than-or-equal-duotone.icon";
+import { LessThanOrEqualFillIcon } from "../fill/less-than-or-equal-fill.icon";
+import { LessThanOrEqualLightIcon } from "../light/less-than-or-equal-light.icon";
+import { LessThanOrEqualRegularIcon } from "../regular/less-than-or-equal-regular.icon";
+import { LessThanOrEqualThinIcon } from "../thin/less-than-or-equal-thin.icon";
 
 export const LessThanOrEqualIcon = memo(function LessThanOrEqual(
   props: IconWrapperProps,

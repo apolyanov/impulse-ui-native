@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HeadlightsBoldIcon } from "../bold";
-import { HeadlightsDuotoneIcon } from "../duotone";
-import { HeadlightsFillIcon } from "../fill";
-import { HeadlightsLightIcon } from "../light";
-import { HeadlightsRegularIcon } from "../regular";
-import { HeadlightsThinIcon } from "../thin";
+import { HeadlightsBoldIcon } from "../bold/headlights-bold.icon";
+import { HeadlightsDuotoneIcon } from "../duotone/headlights-duotone.icon";
+import { HeadlightsFillIcon } from "../fill/headlights-fill.icon";
+import { HeadlightsLightIcon } from "../light/headlights-light.icon";
+import { HeadlightsRegularIcon } from "../regular/headlights-regular.icon";
+import { HeadlightsThinIcon } from "../thin/headlights-thin.icon";
 
 export const HeadlightsIcon = memo(function Headlights(
   props: IconWrapperProps,

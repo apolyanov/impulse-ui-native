@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SignInBoldIcon } from "../bold";
-import { SignInDuotoneIcon } from "../duotone";
-import { SignInFillIcon } from "../fill";
-import { SignInLightIcon } from "../light";
-import { SignInRegularIcon } from "../regular";
-import { SignInThinIcon } from "../thin";
+import { SignInBoldIcon } from "../bold/sign-in-bold.icon";
+import { SignInDuotoneIcon } from "../duotone/sign-in-duotone.icon";
+import { SignInFillIcon } from "../fill/sign-in-fill.icon";
+import { SignInLightIcon } from "../light/sign-in-light.icon";
+import { SignInRegularIcon } from "../regular/sign-in-regular.icon";
+import { SignInThinIcon } from "../thin/sign-in-thin.icon";
 
 export const SignInIcon = memo(function SignIn(props: IconWrapperProps) {
   const Icon = useMemo(() => {

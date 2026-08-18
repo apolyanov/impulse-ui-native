@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { QueueBoldIcon } from "../bold";
-import { QueueDuotoneIcon } from "../duotone";
-import { QueueFillIcon } from "../fill";
-import { QueueLightIcon } from "../light";
-import { QueueRegularIcon } from "../regular";
-import { QueueThinIcon } from "../thin";
+import { QueueBoldIcon } from "../bold/queue-bold.icon";
+import { QueueDuotoneIcon } from "../duotone/queue-duotone.icon";
+import { QueueFillIcon } from "../fill/queue-fill.icon";
+import { QueueLightIcon } from "../light/queue-light.icon";
+import { QueueRegularIcon } from "../regular/queue-regular.icon";
+import { QueueThinIcon } from "../thin/queue-thin.icon";
 
 export const QueueIcon = memo(function Queue(props: IconWrapperProps) {
   const Icon = useMemo(() => {

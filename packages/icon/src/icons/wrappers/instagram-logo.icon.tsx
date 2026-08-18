@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { InstagramLogoBoldIcon } from "../bold";
-import { InstagramLogoDuotoneIcon } from "../duotone";
-import { InstagramLogoFillIcon } from "../fill";
-import { InstagramLogoLightIcon } from "../light";
-import { InstagramLogoRegularIcon } from "../regular";
-import { InstagramLogoThinIcon } from "../thin";
+import { InstagramLogoBoldIcon } from "../bold/instagram-logo-bold.icon";
+import { InstagramLogoDuotoneIcon } from "../duotone/instagram-logo-duotone.icon";
+import { InstagramLogoFillIcon } from "../fill/instagram-logo-fill.icon";
+import { InstagramLogoLightIcon } from "../light/instagram-logo-light.icon";
+import { InstagramLogoRegularIcon } from "../regular/instagram-logo-regular.icon";
+import { InstagramLogoThinIcon } from "../thin/instagram-logo-thin.icon";
 
 export const InstagramLogoIcon = memo(function InstagramLogo(
   props: IconWrapperProps,

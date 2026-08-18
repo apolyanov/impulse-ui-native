@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AndroidLogoBoldIcon } from "../bold";
-import { AndroidLogoDuotoneIcon } from "../duotone";
-import { AndroidLogoFillIcon } from "../fill";
-import { AndroidLogoLightIcon } from "../light";
-import { AndroidLogoRegularIcon } from "../regular";
-import { AndroidLogoThinIcon } from "../thin";
+import { AndroidLogoBoldIcon } from "../bold/android-logo-bold.icon";
+import { AndroidLogoDuotoneIcon } from "../duotone/android-logo-duotone.icon";
+import { AndroidLogoFillIcon } from "../fill/android-logo-fill.icon";
+import { AndroidLogoLightIcon } from "../light/android-logo-light.icon";
+import { AndroidLogoRegularIcon } from "../regular/android-logo-regular.icon";
+import { AndroidLogoThinIcon } from "../thin/android-logo-thin.icon";
 
 export const AndroidLogoIcon = memo(function AndroidLogo(
   props: IconWrapperProps,

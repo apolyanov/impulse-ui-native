@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { IntersectSquareBoldIcon } from "../bold";
-import { IntersectSquareDuotoneIcon } from "../duotone";
-import { IntersectSquareFillIcon } from "../fill";
-import { IntersectSquareLightIcon } from "../light";
-import { IntersectSquareRegularIcon } from "../regular";
-import { IntersectSquareThinIcon } from "../thin";
+import { IntersectSquareBoldIcon } from "../bold/intersect-square-bold.icon";
+import { IntersectSquareDuotoneIcon } from "../duotone/intersect-square-duotone.icon";
+import { IntersectSquareFillIcon } from "../fill/intersect-square-fill.icon";
+import { IntersectSquareLightIcon } from "../light/intersect-square-light.icon";
+import { IntersectSquareRegularIcon } from "../regular/intersect-square-regular.icon";
+import { IntersectSquareThinIcon } from "../thin/intersect-square-thin.icon";
 
 export const IntersectSquareIcon = memo(function IntersectSquare(
   props: IconWrapperProps,

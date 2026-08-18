@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GoodreadsLogoBoldIcon } from "../bold";
-import { GoodreadsLogoDuotoneIcon } from "../duotone";
-import { GoodreadsLogoFillIcon } from "../fill";
-import { GoodreadsLogoLightIcon } from "../light";
-import { GoodreadsLogoRegularIcon } from "../regular";
-import { GoodreadsLogoThinIcon } from "../thin";
+import { GoodreadsLogoBoldIcon } from "../bold/goodreads-logo-bold.icon";
+import { GoodreadsLogoDuotoneIcon } from "../duotone/goodreads-logo-duotone.icon";
+import { GoodreadsLogoFillIcon } from "../fill/goodreads-logo-fill.icon";
+import { GoodreadsLogoLightIcon } from "../light/goodreads-logo-light.icon";
+import { GoodreadsLogoRegularIcon } from "../regular/goodreads-logo-regular.icon";
+import { GoodreadsLogoThinIcon } from "../thin/goodreads-logo-thin.icon";
 
 export const GoodreadsLogoIcon = memo(function GoodreadsLogo(
   props: IconWrapperProps,

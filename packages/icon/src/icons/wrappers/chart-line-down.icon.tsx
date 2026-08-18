@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChartLineDownBoldIcon } from "../bold";
-import { ChartLineDownDuotoneIcon } from "../duotone";
-import { ChartLineDownFillIcon } from "../fill";
-import { ChartLineDownLightIcon } from "../light";
-import { ChartLineDownRegularIcon } from "../regular";
-import { ChartLineDownThinIcon } from "../thin";
+import { ChartLineDownBoldIcon } from "../bold/chart-line-down-bold.icon";
+import { ChartLineDownDuotoneIcon } from "../duotone/chart-line-down-duotone.icon";
+import { ChartLineDownFillIcon } from "../fill/chart-line-down-fill.icon";
+import { ChartLineDownLightIcon } from "../light/chart-line-down-light.icon";
+import { ChartLineDownRegularIcon } from "../regular/chart-line-down-regular.icon";
+import { ChartLineDownThinIcon } from "../thin/chart-line-down-thin.icon";
 
 export const ChartLineDownIcon = memo(function ChartLineDown(
   props: IconWrapperProps,

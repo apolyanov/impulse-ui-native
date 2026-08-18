@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MedalBoldIcon } from "../bold";
-import { MedalDuotoneIcon } from "../duotone";
-import { MedalFillIcon } from "../fill";
-import { MedalLightIcon } from "../light";
-import { MedalRegularIcon } from "../regular";
-import { MedalThinIcon } from "../thin";
+import { MedalBoldIcon } from "../bold/medal-bold.icon";
+import { MedalDuotoneIcon } from "../duotone/medal-duotone.icon";
+import { MedalFillIcon } from "../fill/medal-fill.icon";
+import { MedalLightIcon } from "../light/medal-light.icon";
+import { MedalRegularIcon } from "../regular/medal-regular.icon";
+import { MedalThinIcon } from "../thin/medal-thin.icon";
 
 export const MedalIcon = memo(function Medal(props: IconWrapperProps) {
   const Icon = useMemo(() => {

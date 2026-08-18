@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AirplaneTiltBoldIcon } from "../bold";
-import { AirplaneTiltDuotoneIcon } from "../duotone";
-import { AirplaneTiltFillIcon } from "../fill";
-import { AirplaneTiltLightIcon } from "../light";
-import { AirplaneTiltRegularIcon } from "../regular";
-import { AirplaneTiltThinIcon } from "../thin";
+import { AirplaneTiltBoldIcon } from "../bold/airplane-tilt-bold.icon";
+import { AirplaneTiltDuotoneIcon } from "../duotone/airplane-tilt-duotone.icon";
+import { AirplaneTiltFillIcon } from "../fill/airplane-tilt-fill.icon";
+import { AirplaneTiltLightIcon } from "../light/airplane-tilt-light.icon";
+import { AirplaneTiltRegularIcon } from "../regular/airplane-tilt-regular.icon";
+import { AirplaneTiltThinIcon } from "../thin/airplane-tilt-thin.icon";
 
 export const AirplaneTiltIcon = memo(function AirplaneTilt(
   props: IconWrapperProps,

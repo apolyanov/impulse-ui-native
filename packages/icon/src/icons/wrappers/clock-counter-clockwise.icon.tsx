@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ClockCounterClockwiseBoldIcon } from "../bold";
-import { ClockCounterClockwiseDuotoneIcon } from "../duotone";
-import { ClockCounterClockwiseFillIcon } from "../fill";
-import { ClockCounterClockwiseLightIcon } from "../light";
-import { ClockCounterClockwiseRegularIcon } from "../regular";
-import { ClockCounterClockwiseThinIcon } from "../thin";
+import { ClockCounterClockwiseBoldIcon } from "../bold/clock-counter-clockwise-bold.icon";
+import { ClockCounterClockwiseDuotoneIcon } from "../duotone/clock-counter-clockwise-duotone.icon";
+import { ClockCounterClockwiseFillIcon } from "../fill/clock-counter-clockwise-fill.icon";
+import { ClockCounterClockwiseLightIcon } from "../light/clock-counter-clockwise-light.icon";
+import { ClockCounterClockwiseRegularIcon } from "../regular/clock-counter-clockwise-regular.icon";
+import { ClockCounterClockwiseThinIcon } from "../thin/clock-counter-clockwise-thin.icon";
 
 export const ClockCounterClockwiseIcon = memo(function ClockCounterClockwise(
   props: IconWrapperProps,

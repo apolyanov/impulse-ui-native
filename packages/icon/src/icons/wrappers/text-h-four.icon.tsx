@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TextHFourBoldIcon } from "../bold";
-import { TextHFourDuotoneIcon } from "../duotone";
-import { TextHFourFillIcon } from "../fill";
-import { TextHFourLightIcon } from "../light";
-import { TextHFourRegularIcon } from "../regular";
-import { TextHFourThinIcon } from "../thin";
+import { TextHFourBoldIcon } from "../bold/text-h-four-bold.icon";
+import { TextHFourDuotoneIcon } from "../duotone/text-h-four-duotone.icon";
+import { TextHFourFillIcon } from "../fill/text-h-four-fill.icon";
+import { TextHFourLightIcon } from "../light/text-h-four-light.icon";
+import { TextHFourRegularIcon } from "../regular/text-h-four-regular.icon";
+import { TextHFourThinIcon } from "../thin/text-h-four-thin.icon";
 
 export const TextHFourIcon = memo(function TextHFour(props: IconWrapperProps) {
   const Icon = useMemo(() => {

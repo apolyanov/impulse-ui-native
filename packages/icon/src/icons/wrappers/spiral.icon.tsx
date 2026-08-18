@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SpiralBoldIcon } from "../bold";
-import { SpiralDuotoneIcon } from "../duotone";
-import { SpiralFillIcon } from "../fill";
-import { SpiralLightIcon } from "../light";
-import { SpiralRegularIcon } from "../regular";
-import { SpiralThinIcon } from "../thin";
+import { SpiralBoldIcon } from "../bold/spiral-bold.icon";
+import { SpiralDuotoneIcon } from "../duotone/spiral-duotone.icon";
+import { SpiralFillIcon } from "../fill/spiral-fill.icon";
+import { SpiralLightIcon } from "../light/spiral-light.icon";
+import { SpiralRegularIcon } from "../regular/spiral-regular.icon";
+import { SpiralThinIcon } from "../thin/spiral-thin.icon";
 
 export const SpiralIcon = memo(function Spiral(props: IconWrapperProps) {
   const Icon = useMemo(() => {

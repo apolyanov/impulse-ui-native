@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TractorBoldIcon } from "../bold";
-import { TractorDuotoneIcon } from "../duotone";
-import { TractorFillIcon } from "../fill";
-import { TractorLightIcon } from "../light";
-import { TractorRegularIcon } from "../regular";
-import { TractorThinIcon } from "../thin";
+import { TractorBoldIcon } from "../bold/tractor-bold.icon";
+import { TractorDuotoneIcon } from "../duotone/tractor-duotone.icon";
+import { TractorFillIcon } from "../fill/tractor-fill.icon";
+import { TractorLightIcon } from "../light/tractor-light.icon";
+import { TractorRegularIcon } from "../regular/tractor-regular.icon";
+import { TractorThinIcon } from "../thin/tractor-thin.icon";
 
 export const TractorIcon = memo(function Tractor(props: IconWrapperProps) {
   const Icon = useMemo(() => {

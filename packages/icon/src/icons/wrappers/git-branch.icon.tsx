@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GitBranchBoldIcon } from "../bold";
-import { GitBranchDuotoneIcon } from "../duotone";
-import { GitBranchFillIcon } from "../fill";
-import { GitBranchLightIcon } from "../light";
-import { GitBranchRegularIcon } from "../regular";
-import { GitBranchThinIcon } from "../thin";
+import { GitBranchBoldIcon } from "../bold/git-branch-bold.icon";
+import { GitBranchDuotoneIcon } from "../duotone/git-branch-duotone.icon";
+import { GitBranchFillIcon } from "../fill/git-branch-fill.icon";
+import { GitBranchLightIcon } from "../light/git-branch-light.icon";
+import { GitBranchRegularIcon } from "../regular/git-branch-regular.icon";
+import { GitBranchThinIcon } from "../thin/git-branch-thin.icon";
 
 export const GitBranchIcon = memo(function GitBranch(props: IconWrapperProps) {
   const Icon = useMemo(() => {

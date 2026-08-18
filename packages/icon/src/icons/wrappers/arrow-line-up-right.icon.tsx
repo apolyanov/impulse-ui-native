@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowLineUpRightBoldIcon } from "../bold";
-import { ArrowLineUpRightDuotoneIcon } from "../duotone";
-import { ArrowLineUpRightFillIcon } from "../fill";
-import { ArrowLineUpRightLightIcon } from "../light";
-import { ArrowLineUpRightRegularIcon } from "../regular";
-import { ArrowLineUpRightThinIcon } from "../thin";
+import { ArrowLineUpRightBoldIcon } from "../bold/arrow-line-up-right-bold.icon";
+import { ArrowLineUpRightDuotoneIcon } from "../duotone/arrow-line-up-right-duotone.icon";
+import { ArrowLineUpRightFillIcon } from "../fill/arrow-line-up-right-fill.icon";
+import { ArrowLineUpRightLightIcon } from "../light/arrow-line-up-right-light.icon";
+import { ArrowLineUpRightRegularIcon } from "../regular/arrow-line-up-right-regular.icon";
+import { ArrowLineUpRightThinIcon } from "../thin/arrow-line-up-right-thin.icon";
 
 export const ArrowLineUpRightIcon = memo(function ArrowLineUpRight(
   props: IconWrapperProps,

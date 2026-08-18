@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ParkBoldIcon } from "../bold";
-import { ParkDuotoneIcon } from "../duotone";
-import { ParkFillIcon } from "../fill";
-import { ParkLightIcon } from "../light";
-import { ParkRegularIcon } from "../regular";
-import { ParkThinIcon } from "../thin";
+import { ParkBoldIcon } from "../bold/park-bold.icon";
+import { ParkDuotoneIcon } from "../duotone/park-duotone.icon";
+import { ParkFillIcon } from "../fill/park-fill.icon";
+import { ParkLightIcon } from "../light/park-light.icon";
+import { ParkRegularIcon } from "../regular/park-regular.icon";
+import { ParkThinIcon } from "../thin/park-thin.icon";
 
 export const ParkIcon = memo(function Park(props: IconWrapperProps) {
   const Icon = useMemo(() => {

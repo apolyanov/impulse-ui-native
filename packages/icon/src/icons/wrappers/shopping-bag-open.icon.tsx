@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShoppingBagOpenBoldIcon } from "../bold";
-import { ShoppingBagOpenDuotoneIcon } from "../duotone";
-import { ShoppingBagOpenFillIcon } from "../fill";
-import { ShoppingBagOpenLightIcon } from "../light";
-import { ShoppingBagOpenRegularIcon } from "../regular";
-import { ShoppingBagOpenThinIcon } from "../thin";
+import { ShoppingBagOpenBoldIcon } from "../bold/shopping-bag-open-bold.icon";
+import { ShoppingBagOpenDuotoneIcon } from "../duotone/shopping-bag-open-duotone.icon";
+import { ShoppingBagOpenFillIcon } from "../fill/shopping-bag-open-fill.icon";
+import { ShoppingBagOpenLightIcon } from "../light/shopping-bag-open-light.icon";
+import { ShoppingBagOpenRegularIcon } from "../regular/shopping-bag-open-regular.icon";
+import { ShoppingBagOpenThinIcon } from "../thin/shopping-bag-open-thin.icon";
 
 export const ShoppingBagOpenIcon = memo(function ShoppingBagOpen(
   props: IconWrapperProps,

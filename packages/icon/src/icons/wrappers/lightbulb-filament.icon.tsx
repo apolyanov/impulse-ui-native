@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LightbulbFilamentBoldIcon } from "../bold";
-import { LightbulbFilamentDuotoneIcon } from "../duotone";
-import { LightbulbFilamentFillIcon } from "../fill";
-import { LightbulbFilamentLightIcon } from "../light";
-import { LightbulbFilamentRegularIcon } from "../regular";
-import { LightbulbFilamentThinIcon } from "../thin";
+import { LightbulbFilamentBoldIcon } from "../bold/lightbulb-filament-bold.icon";
+import { LightbulbFilamentDuotoneIcon } from "../duotone/lightbulb-filament-duotone.icon";
+import { LightbulbFilamentFillIcon } from "../fill/lightbulb-filament-fill.icon";
+import { LightbulbFilamentLightIcon } from "../light/lightbulb-filament-light.icon";
+import { LightbulbFilamentRegularIcon } from "../regular/lightbulb-filament-regular.icon";
+import { LightbulbFilamentThinIcon } from "../thin/lightbulb-filament-thin.icon";
 
 export const LightbulbFilamentIcon = memo(function LightbulbFilament(
   props: IconWrapperProps,

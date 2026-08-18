@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SoundcloudLogoBoldIcon } from "../bold";
-import { SoundcloudLogoDuotoneIcon } from "../duotone";
-import { SoundcloudLogoFillIcon } from "../fill";
-import { SoundcloudLogoLightIcon } from "../light";
-import { SoundcloudLogoRegularIcon } from "../regular";
-import { SoundcloudLogoThinIcon } from "../thin";
+import { SoundcloudLogoBoldIcon } from "../bold/soundcloud-logo-bold.icon";
+import { SoundcloudLogoDuotoneIcon } from "../duotone/soundcloud-logo-duotone.icon";
+import { SoundcloudLogoFillIcon } from "../fill/soundcloud-logo-fill.icon";
+import { SoundcloudLogoLightIcon } from "../light/soundcloud-logo-light.icon";
+import { SoundcloudLogoRegularIcon } from "../regular/soundcloud-logo-regular.icon";
+import { SoundcloudLogoThinIcon } from "../thin/soundcloud-logo-thin.icon";
 
 export const SoundcloudLogoIcon = memo(function SoundcloudLogo(
   props: IconWrapperProps,

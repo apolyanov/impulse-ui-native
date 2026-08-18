@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MapTrifoldBoldIcon } from "../bold";
-import { MapTrifoldDuotoneIcon } from "../duotone";
-import { MapTrifoldFillIcon } from "../fill";
-import { MapTrifoldLightIcon } from "../light";
-import { MapTrifoldRegularIcon } from "../regular";
-import { MapTrifoldThinIcon } from "../thin";
+import { MapTrifoldBoldIcon } from "../bold/map-trifold-bold.icon";
+import { MapTrifoldDuotoneIcon } from "../duotone/map-trifold-duotone.icon";
+import { MapTrifoldFillIcon } from "../fill/map-trifold-fill.icon";
+import { MapTrifoldLightIcon } from "../light/map-trifold-light.icon";
+import { MapTrifoldRegularIcon } from "../regular/map-trifold-regular.icon";
+import { MapTrifoldThinIcon } from "../thin/map-trifold-thin.icon";
 
 export const MapTrifoldIcon = memo(function MapTrifold(
   props: IconWrapperProps,

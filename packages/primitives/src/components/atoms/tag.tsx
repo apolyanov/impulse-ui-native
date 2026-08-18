@@ -1,7 +1,8 @@
 import { memo, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 
-import { Icon, XCircleIcon } from "@impulse-ui-native/icon";
+import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { XCircleIcon } from "@impulse-ui-native/icon/icons/x-circle";
 import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
 
 import { TagProps, TagThemeProps } from "../../types";

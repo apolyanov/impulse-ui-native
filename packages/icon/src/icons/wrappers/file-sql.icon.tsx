@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FileSqlBoldIcon } from "../bold";
-import { FileSqlDuotoneIcon } from "../duotone";
-import { FileSqlFillIcon } from "../fill";
-import { FileSqlLightIcon } from "../light";
-import { FileSqlRegularIcon } from "../regular";
-import { FileSqlThinIcon } from "../thin";
+import { FileSqlBoldIcon } from "../bold/file-sql-bold.icon";
+import { FileSqlDuotoneIcon } from "../duotone/file-sql-duotone.icon";
+import { FileSqlFillIcon } from "../fill/file-sql-fill.icon";
+import { FileSqlLightIcon } from "../light/file-sql-light.icon";
+import { FileSqlRegularIcon } from "../regular/file-sql-regular.icon";
+import { FileSqlThinIcon } from "../thin/file-sql-thin.icon";
 
 export const FileSqlIcon = memo(function FileSql(props: IconWrapperProps) {
   const Icon = useMemo(() => {

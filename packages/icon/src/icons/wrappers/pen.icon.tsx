@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PenBoldIcon } from "../bold";
-import { PenDuotoneIcon } from "../duotone";
-import { PenFillIcon } from "../fill";
-import { PenLightIcon } from "../light";
-import { PenRegularIcon } from "../regular";
-import { PenThinIcon } from "../thin";
+import { PenBoldIcon } from "../bold/pen-bold.icon";
+import { PenDuotoneIcon } from "../duotone/pen-duotone.icon";
+import { PenFillIcon } from "../fill/pen-fill.icon";
+import { PenLightIcon } from "../light/pen-light.icon";
+import { PenRegularIcon } from "../regular/pen-regular.icon";
+import { PenThinIcon } from "../thin/pen-thin.icon";
 
 export const PenIcon = memo(function Pen(props: IconWrapperProps) {
   const Icon = useMemo(() => {

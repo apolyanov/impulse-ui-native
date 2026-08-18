@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SelectionInverseBoldIcon } from "../bold";
-import { SelectionInverseDuotoneIcon } from "../duotone";
-import { SelectionInverseFillIcon } from "../fill";
-import { SelectionInverseLightIcon } from "../light";
-import { SelectionInverseRegularIcon } from "../regular";
-import { SelectionInverseThinIcon } from "../thin";
+import { SelectionInverseBoldIcon } from "../bold/selection-inverse-bold.icon";
+import { SelectionInverseDuotoneIcon } from "../duotone/selection-inverse-duotone.icon";
+import { SelectionInverseFillIcon } from "../fill/selection-inverse-fill.icon";
+import { SelectionInverseLightIcon } from "../light/selection-inverse-light.icon";
+import { SelectionInverseRegularIcon } from "../regular/selection-inverse-regular.icon";
+import { SelectionInverseThinIcon } from "../thin/selection-inverse-thin.icon";
 
 export const SelectionInverseIcon = memo(function SelectionInverse(
   props: IconWrapperProps,

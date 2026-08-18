@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GraduationCapBoldIcon } from "../bold";
-import { GraduationCapDuotoneIcon } from "../duotone";
-import { GraduationCapFillIcon } from "../fill";
-import { GraduationCapLightIcon } from "../light";
-import { GraduationCapRegularIcon } from "../regular";
-import { GraduationCapThinIcon } from "../thin";
+import { GraduationCapBoldIcon } from "../bold/graduation-cap-bold.icon";
+import { GraduationCapDuotoneIcon } from "../duotone/graduation-cap-duotone.icon";
+import { GraduationCapFillIcon } from "../fill/graduation-cap-fill.icon";
+import { GraduationCapLightIcon } from "../light/graduation-cap-light.icon";
+import { GraduationCapRegularIcon } from "../regular/graduation-cap-regular.icon";
+import { GraduationCapThinIcon } from "../thin/graduation-cap-thin.icon";
 
 export const GraduationCapIcon = memo(function GraduationCap(
   props: IconWrapperProps,

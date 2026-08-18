@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AngularLogoBoldIcon } from "../bold";
-import { AngularLogoDuotoneIcon } from "../duotone";
-import { AngularLogoFillIcon } from "../fill";
-import { AngularLogoLightIcon } from "../light";
-import { AngularLogoRegularIcon } from "../regular";
-import { AngularLogoThinIcon } from "../thin";
+import { AngularLogoBoldIcon } from "../bold/angular-logo-bold.icon";
+import { AngularLogoDuotoneIcon } from "../duotone/angular-logo-duotone.icon";
+import { AngularLogoFillIcon } from "../fill/angular-logo-fill.icon";
+import { AngularLogoLightIcon } from "../light/angular-logo-light.icon";
+import { AngularLogoRegularIcon } from "../regular/angular-logo-regular.icon";
+import { AngularLogoThinIcon } from "../thin/angular-logo-thin.icon";
 
 export const AngularLogoIcon = memo(function AngularLogo(
   props: IconWrapperProps,

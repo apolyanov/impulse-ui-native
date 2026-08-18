@@ -1,7 +1,8 @@
 import { memo, useMemo, useState } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
-import { EyeIcon, EyeSlashIcon } from "@impulse-ui-native/icon";
+import { EyeIcon } from "@impulse-ui-native/icon/icons/eye";
+import { EyeSlashIcon } from "@impulse-ui-native/icon/icons/eye-slash";
 import { Control } from "@impulse-ui-native/primitives";
 
 import { InputProps } from "../types";

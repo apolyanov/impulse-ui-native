@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { OnigiriBoldIcon } from "../bold";
-import { OnigiriDuotoneIcon } from "../duotone";
-import { OnigiriFillIcon } from "../fill";
-import { OnigiriLightIcon } from "../light";
-import { OnigiriRegularIcon } from "../regular";
-import { OnigiriThinIcon } from "../thin";
+import { OnigiriBoldIcon } from "../bold/onigiri-bold.icon";
+import { OnigiriDuotoneIcon } from "../duotone/onigiri-duotone.icon";
+import { OnigiriFillIcon } from "../fill/onigiri-fill.icon";
+import { OnigiriLightIcon } from "../light/onigiri-light.icon";
+import { OnigiriRegularIcon } from "../regular/onigiri-regular.icon";
+import { OnigiriThinIcon } from "../thin/onigiri-thin.icon";
 
 export const OnigiriIcon = memo(function Onigiri(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChampagneBoldIcon } from "../bold";
-import { ChampagneDuotoneIcon } from "../duotone";
-import { ChampagneFillIcon } from "../fill";
-import { ChampagneLightIcon } from "../light";
-import { ChampagneRegularIcon } from "../regular";
-import { ChampagneThinIcon } from "../thin";
+import { ChampagneBoldIcon } from "../bold/champagne-bold.icon";
+import { ChampagneDuotoneIcon } from "../duotone/champagne-duotone.icon";
+import { ChampagneFillIcon } from "../fill/champagne-fill.icon";
+import { ChampagneLightIcon } from "../light/champagne-light.icon";
+import { ChampagneRegularIcon } from "../regular/champagne-regular.icon";
+import { ChampagneThinIcon } from "../thin/champagne-thin.icon";
 
 export const ChampagneIcon = memo(function Champagne(props: IconWrapperProps) {
   const Icon = useMemo(() => {

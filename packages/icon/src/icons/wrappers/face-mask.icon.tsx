@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FaceMaskBoldIcon } from "../bold";
-import { FaceMaskDuotoneIcon } from "../duotone";
-import { FaceMaskFillIcon } from "../fill";
-import { FaceMaskLightIcon } from "../light";
-import { FaceMaskRegularIcon } from "../regular";
-import { FaceMaskThinIcon } from "../thin";
+import { FaceMaskBoldIcon } from "../bold/face-mask-bold.icon";
+import { FaceMaskDuotoneIcon } from "../duotone/face-mask-duotone.icon";
+import { FaceMaskFillIcon } from "../fill/face-mask-fill.icon";
+import { FaceMaskLightIcon } from "../light/face-mask-light.icon";
+import { FaceMaskRegularIcon } from "../regular/face-mask-regular.icon";
+import { FaceMaskThinIcon } from "../thin/face-mask-thin.icon";
 
 export const FaceMaskIcon = memo(function FaceMask(props: IconWrapperProps) {
   const Icon = useMemo(() => {

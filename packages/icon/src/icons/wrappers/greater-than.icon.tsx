@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GreaterThanBoldIcon } from "../bold";
-import { GreaterThanDuotoneIcon } from "../duotone";
-import { GreaterThanFillIcon } from "../fill";
-import { GreaterThanLightIcon } from "../light";
-import { GreaterThanRegularIcon } from "../regular";
-import { GreaterThanThinIcon } from "../thin";
+import { GreaterThanBoldIcon } from "../bold/greater-than-bold.icon";
+import { GreaterThanDuotoneIcon } from "../duotone/greater-than-duotone.icon";
+import { GreaterThanFillIcon } from "../fill/greater-than-fill.icon";
+import { GreaterThanLightIcon } from "../light/greater-than-light.icon";
+import { GreaterThanRegularIcon } from "../regular/greater-than-regular.icon";
+import { GreaterThanThinIcon } from "../thin/greater-than-thin.icon";
 
 export const GreaterThanIcon = memo(function GreaterThan(
   props: IconWrapperProps,

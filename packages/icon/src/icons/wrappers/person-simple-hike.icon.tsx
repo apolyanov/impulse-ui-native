@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PersonSimpleHikeBoldIcon } from "../bold";
-import { PersonSimpleHikeDuotoneIcon } from "../duotone";
-import { PersonSimpleHikeFillIcon } from "../fill";
-import { PersonSimpleHikeLightIcon } from "../light";
-import { PersonSimpleHikeRegularIcon } from "../regular";
-import { PersonSimpleHikeThinIcon } from "../thin";
+import { PersonSimpleHikeBoldIcon } from "../bold/person-simple-hike-bold.icon";
+import { PersonSimpleHikeDuotoneIcon } from "../duotone/person-simple-hike-duotone.icon";
+import { PersonSimpleHikeFillIcon } from "../fill/person-simple-hike-fill.icon";
+import { PersonSimpleHikeLightIcon } from "../light/person-simple-hike-light.icon";
+import { PersonSimpleHikeRegularIcon } from "../regular/person-simple-hike-regular.icon";
+import { PersonSimpleHikeThinIcon } from "../thin/person-simple-hike-thin.icon";
 
 export const PersonSimpleHikeIcon = memo(function PersonSimpleHike(
   props: IconWrapperProps,

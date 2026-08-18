@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MaskSadBoldIcon } from "../bold";
-import { MaskSadDuotoneIcon } from "../duotone";
-import { MaskSadFillIcon } from "../fill";
-import { MaskSadLightIcon } from "../light";
-import { MaskSadRegularIcon } from "../regular";
-import { MaskSadThinIcon } from "../thin";
+import { MaskSadBoldIcon } from "../bold/mask-sad-bold.icon";
+import { MaskSadDuotoneIcon } from "../duotone/mask-sad-duotone.icon";
+import { MaskSadFillIcon } from "../fill/mask-sad-fill.icon";
+import { MaskSadLightIcon } from "../light/mask-sad-light.icon";
+import { MaskSadRegularIcon } from "../regular/mask-sad-regular.icon";
+import { MaskSadThinIcon } from "../thin/mask-sad-thin.icon";
 
 export const MaskSadIcon = memo(function MaskSad(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NotionLogoBoldIcon } from "../bold";
-import { NotionLogoDuotoneIcon } from "../duotone";
-import { NotionLogoFillIcon } from "../fill";
-import { NotionLogoLightIcon } from "../light";
-import { NotionLogoRegularIcon } from "../regular";
-import { NotionLogoThinIcon } from "../thin";
+import { NotionLogoBoldIcon } from "../bold/notion-logo-bold.icon";
+import { NotionLogoDuotoneIcon } from "../duotone/notion-logo-duotone.icon";
+import { NotionLogoFillIcon } from "../fill/notion-logo-fill.icon";
+import { NotionLogoLightIcon } from "../light/notion-logo-light.icon";
+import { NotionLogoRegularIcon } from "../regular/notion-logo-regular.icon";
+import { NotionLogoThinIcon } from "../thin/notion-logo-thin.icon";
 
 export const NotionLogoIcon = memo(function NotionLogo(
   props: IconWrapperProps,

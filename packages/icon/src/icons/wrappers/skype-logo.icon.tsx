@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SkypeLogoBoldIcon } from "../bold";
-import { SkypeLogoDuotoneIcon } from "../duotone";
-import { SkypeLogoFillIcon } from "../fill";
-import { SkypeLogoLightIcon } from "../light";
-import { SkypeLogoRegularIcon } from "../regular";
-import { SkypeLogoThinIcon } from "../thin";
+import { SkypeLogoBoldIcon } from "../bold/skype-logo-bold.icon";
+import { SkypeLogoDuotoneIcon } from "../duotone/skype-logo-duotone.icon";
+import { SkypeLogoFillIcon } from "../fill/skype-logo-fill.icon";
+import { SkypeLogoLightIcon } from "../light/skype-logo-light.icon";
+import { SkypeLogoRegularIcon } from "../regular/skype-logo-regular.icon";
+import { SkypeLogoThinIcon } from "../thin/skype-logo-thin.icon";
 
 export const SkypeLogoIcon = memo(function SkypeLogo(props: IconWrapperProps) {
   const Icon = useMemo(() => {

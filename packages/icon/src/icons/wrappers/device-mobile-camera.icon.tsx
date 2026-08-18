@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DeviceMobileCameraBoldIcon } from "../bold";
-import { DeviceMobileCameraDuotoneIcon } from "../duotone";
-import { DeviceMobileCameraFillIcon } from "../fill";
-import { DeviceMobileCameraLightIcon } from "../light";
-import { DeviceMobileCameraRegularIcon } from "../regular";
-import { DeviceMobileCameraThinIcon } from "../thin";
+import { DeviceMobileCameraBoldIcon } from "../bold/device-mobile-camera-bold.icon";
+import { DeviceMobileCameraDuotoneIcon } from "../duotone/device-mobile-camera-duotone.icon";
+import { DeviceMobileCameraFillIcon } from "../fill/device-mobile-camera-fill.icon";
+import { DeviceMobileCameraLightIcon } from "../light/device-mobile-camera-light.icon";
+import { DeviceMobileCameraRegularIcon } from "../regular/device-mobile-camera-regular.icon";
+import { DeviceMobileCameraThinIcon } from "../thin/device-mobile-camera-thin.icon";
 
 export const DeviceMobileCameraIcon = memo(function DeviceMobileCamera(
   props: IconWrapperProps,

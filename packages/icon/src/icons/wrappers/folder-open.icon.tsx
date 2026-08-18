@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FolderOpenBoldIcon } from "../bold";
-import { FolderOpenDuotoneIcon } from "../duotone";
-import { FolderOpenFillIcon } from "../fill";
-import { FolderOpenLightIcon } from "../light";
-import { FolderOpenRegularIcon } from "../regular";
-import { FolderOpenThinIcon } from "../thin";
+import { FolderOpenBoldIcon } from "../bold/folder-open-bold.icon";
+import { FolderOpenDuotoneIcon } from "../duotone/folder-open-duotone.icon";
+import { FolderOpenFillIcon } from "../fill/folder-open-fill.icon";
+import { FolderOpenLightIcon } from "../light/folder-open-light.icon";
+import { FolderOpenRegularIcon } from "../regular/folder-open-regular.icon";
+import { FolderOpenThinIcon } from "../thin/folder-open-thin.icon";
 
 export const FolderOpenIcon = memo(function FolderOpen(
   props: IconWrapperProps,

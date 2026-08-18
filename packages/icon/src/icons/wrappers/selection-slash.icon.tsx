@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SelectionSlashBoldIcon } from "../bold";
-import { SelectionSlashDuotoneIcon } from "../duotone";
-import { SelectionSlashFillIcon } from "../fill";
-import { SelectionSlashLightIcon } from "../light";
-import { SelectionSlashRegularIcon } from "../regular";
-import { SelectionSlashThinIcon } from "../thin";
+import { SelectionSlashBoldIcon } from "../bold/selection-slash-bold.icon";
+import { SelectionSlashDuotoneIcon } from "../duotone/selection-slash-duotone.icon";
+import { SelectionSlashFillIcon } from "../fill/selection-slash-fill.icon";
+import { SelectionSlashLightIcon } from "../light/selection-slash-light.icon";
+import { SelectionSlashRegularIcon } from "../regular/selection-slash-regular.icon";
+import { SelectionSlashThinIcon } from "../thin/selection-slash-thin.icon";
 
 export const SelectionSlashIcon = memo(function SelectionSlash(
   props: IconWrapperProps,

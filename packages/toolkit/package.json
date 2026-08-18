@@ -29,7 +29,6 @@
     "@impulse-ui-native/echo": "workspace:*",
     "@impulse-ui-native/endpoint": "workspace:*",
     "@impulse-ui-native/flyout": "workspace:*",
-    "@impulse-ui-native/icon": "workspace:*",
     "@impulse-ui-native/stepper": "workspace:*",
     "@impulse-ui-native/input": "workspace:*",
     "@impulse-ui-native/layers": "workspace:*",

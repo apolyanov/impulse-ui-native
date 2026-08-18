@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SidebarSimpleBoldIcon } from "../bold";
-import { SidebarSimpleDuotoneIcon } from "../duotone";
-import { SidebarSimpleFillIcon } from "../fill";
-import { SidebarSimpleLightIcon } from "../light";
-import { SidebarSimpleRegularIcon } from "../regular";
-import { SidebarSimpleThinIcon } from "../thin";
+import { SidebarSimpleBoldIcon } from "../bold/sidebar-simple-bold.icon";
+import { SidebarSimpleDuotoneIcon } from "../duotone/sidebar-simple-duotone.icon";
+import { SidebarSimpleFillIcon } from "../fill/sidebar-simple-fill.icon";
+import { SidebarSimpleLightIcon } from "../light/sidebar-simple-light.icon";
+import { SidebarSimpleRegularIcon } from "../regular/sidebar-simple-regular.icon";
+import { SidebarSimpleThinIcon } from "../thin/sidebar-simple-thin.icon";
 
 export const SidebarSimpleIcon = memo(function SidebarSimple(
   props: IconWrapperProps,

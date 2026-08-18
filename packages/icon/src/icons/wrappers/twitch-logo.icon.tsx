@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TwitchLogoBoldIcon } from "../bold";
-import { TwitchLogoDuotoneIcon } from "../duotone";
-import { TwitchLogoFillIcon } from "../fill";
-import { TwitchLogoLightIcon } from "../light";
-import { TwitchLogoRegularIcon } from "../regular";
-import { TwitchLogoThinIcon } from "../thin";
+import { TwitchLogoBoldIcon } from "../bold/twitch-logo-bold.icon";
+import { TwitchLogoDuotoneIcon } from "../duotone/twitch-logo-duotone.icon";
+import { TwitchLogoFillIcon } from "../fill/twitch-logo-fill.icon";
+import { TwitchLogoLightIcon } from "../light/twitch-logo-light.icon";
+import { TwitchLogoRegularIcon } from "../regular/twitch-logo-regular.icon";
+import { TwitchLogoThinIcon } from "../thin/twitch-logo-thin.icon";
 
 export const TwitchLogoIcon = memo(function TwitchLogo(
   props: IconWrapperProps,

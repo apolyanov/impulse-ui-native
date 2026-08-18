@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowsHorizontalBoldIcon } from "../bold";
-import { ArrowsHorizontalDuotoneIcon } from "../duotone";
-import { ArrowsHorizontalFillIcon } from "../fill";
-import { ArrowsHorizontalLightIcon } from "../light";
-import { ArrowsHorizontalRegularIcon } from "../regular";
-import { ArrowsHorizontalThinIcon } from "../thin";
+import { ArrowsHorizontalBoldIcon } from "../bold/arrows-horizontal-bold.icon";
+import { ArrowsHorizontalDuotoneIcon } from "../duotone/arrows-horizontal-duotone.icon";
+import { ArrowsHorizontalFillIcon } from "../fill/arrows-horizontal-fill.icon";
+import { ArrowsHorizontalLightIcon } from "../light/arrows-horizontal-light.icon";
+import { ArrowsHorizontalRegularIcon } from "../regular/arrows-horizontal-regular.icon";
+import { ArrowsHorizontalThinIcon } from "../thin/arrows-horizontal-thin.icon";
 
 export const ArrowsHorizontalIcon = memo(function ArrowsHorizontal(
   props: IconWrapperProps,

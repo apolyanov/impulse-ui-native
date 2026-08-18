@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FlowerBoldIcon } from "../bold";
-import { FlowerDuotoneIcon } from "../duotone";
-import { FlowerFillIcon } from "../fill";
-import { FlowerLightIcon } from "../light";
-import { FlowerRegularIcon } from "../regular";
-import { FlowerThinIcon } from "../thin";
+import { FlowerBoldIcon } from "../bold/flower-bold.icon";
+import { FlowerDuotoneIcon } from "../duotone/flower-duotone.icon";
+import { FlowerFillIcon } from "../fill/flower-fill.icon";
+import { FlowerLightIcon } from "../light/flower-light.icon";
+import { FlowerRegularIcon } from "../regular/flower-regular.icon";
+import { FlowerThinIcon } from "../thin/flower-thin.icon";
 
 export const FlowerIcon = memo(function Flower(props: IconWrapperProps) {
   const Icon = useMemo(() => {

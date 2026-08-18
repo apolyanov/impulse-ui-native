@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShovelBoldIcon } from "../bold";
-import { ShovelDuotoneIcon } from "../duotone";
-import { ShovelFillIcon } from "../fill";
-import { ShovelLightIcon } from "../light";
-import { ShovelRegularIcon } from "../regular";
-import { ShovelThinIcon } from "../thin";
+import { ShovelBoldIcon } from "../bold/shovel-bold.icon";
+import { ShovelDuotoneIcon } from "../duotone/shovel-duotone.icon";
+import { ShovelFillIcon } from "../fill/shovel-fill.icon";
+import { ShovelLightIcon } from "../light/shovel-light.icon";
+import { ShovelRegularIcon } from "../regular/shovel-regular.icon";
+import { ShovelThinIcon } from "../thin/shovel-thin.icon";
 
 export const ShovelIcon = memo(function Shovel(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { VideoBoldIcon } from "../bold";
-import { VideoDuotoneIcon } from "../duotone";
-import { VideoFillIcon } from "../fill";
-import { VideoLightIcon } from "../light";
-import { VideoRegularIcon } from "../regular";
-import { VideoThinIcon } from "../thin";
+import { VideoBoldIcon } from "../bold/video-bold.icon";
+import { VideoDuotoneIcon } from "../duotone/video-duotone.icon";
+import { VideoFillIcon } from "../fill/video-fill.icon";
+import { VideoLightIcon } from "../light/video-light.icon";
+import { VideoRegularIcon } from "../regular/video-regular.icon";
+import { VideoThinIcon } from "../thin/video-thin.icon";
 
 export const VideoIcon = memo(function Video(props: IconWrapperProps) {
   const Icon = useMemo(() => {

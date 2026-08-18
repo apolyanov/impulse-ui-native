@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BoxingGloveBoldIcon } from "../bold";
-import { BoxingGloveDuotoneIcon } from "../duotone";
-import { BoxingGloveFillIcon } from "../fill";
-import { BoxingGloveLightIcon } from "../light";
-import { BoxingGloveRegularIcon } from "../regular";
-import { BoxingGloveThinIcon } from "../thin";
+import { BoxingGloveBoldIcon } from "../bold/boxing-glove-bold.icon";
+import { BoxingGloveDuotoneIcon } from "../duotone/boxing-glove-duotone.icon";
+import { BoxingGloveFillIcon } from "../fill/boxing-glove-fill.icon";
+import { BoxingGloveLightIcon } from "../light/boxing-glove-light.icon";
+import { BoxingGloveRegularIcon } from "../regular/boxing-glove-regular.icon";
+import { BoxingGloveThinIcon } from "../thin/boxing-glove-thin.icon";
 
 export const BoxingGloveIcon = memo(function BoxingGlove(
   props: IconWrapperProps,

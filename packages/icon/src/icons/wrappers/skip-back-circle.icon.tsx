@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SkipBackCircleBoldIcon } from "../bold";
-import { SkipBackCircleDuotoneIcon } from "../duotone";
-import { SkipBackCircleFillIcon } from "../fill";
-import { SkipBackCircleLightIcon } from "../light";
-import { SkipBackCircleRegularIcon } from "../regular";
-import { SkipBackCircleThinIcon } from "../thin";
+import { SkipBackCircleBoldIcon } from "../bold/skip-back-circle-bold.icon";
+import { SkipBackCircleDuotoneIcon } from "../duotone/skip-back-circle-duotone.icon";
+import { SkipBackCircleFillIcon } from "../fill/skip-back-circle-fill.icon";
+import { SkipBackCircleLightIcon } from "../light/skip-back-circle-light.icon";
+import { SkipBackCircleRegularIcon } from "../regular/skip-back-circle-regular.icon";
+import { SkipBackCircleThinIcon } from "../thin/skip-back-circle-thin.icon";
 
 export const SkipBackCircleIcon = memo(function SkipBackCircle(
   props: IconWrapperProps,

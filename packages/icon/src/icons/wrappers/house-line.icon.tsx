@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HouseLineBoldIcon } from "../bold";
-import { HouseLineDuotoneIcon } from "../duotone";
-import { HouseLineFillIcon } from "../fill";
-import { HouseLineLightIcon } from "../light";
-import { HouseLineRegularIcon } from "../regular";
-import { HouseLineThinIcon } from "../thin";
+import { HouseLineBoldIcon } from "../bold/house-line-bold.icon";
+import { HouseLineDuotoneIcon } from "../duotone/house-line-duotone.icon";
+import { HouseLineFillIcon } from "../fill/house-line-fill.icon";
+import { HouseLineLightIcon } from "../light/house-line-light.icon";
+import { HouseLineRegularIcon } from "../regular/house-line-regular.icon";
+import { HouseLineThinIcon } from "../thin/house-line-thin.icon";
 
 export const HouseLineIcon = memo(function HouseLine(props: IconWrapperProps) {
   const Icon = useMemo(() => {

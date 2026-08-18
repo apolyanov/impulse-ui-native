@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FlagBannerBoldIcon } from "../bold";
-import { FlagBannerDuotoneIcon } from "../duotone";
-import { FlagBannerFillIcon } from "../fill";
-import { FlagBannerLightIcon } from "../light";
-import { FlagBannerRegularIcon } from "../regular";
-import { FlagBannerThinIcon } from "../thin";
+import { FlagBannerBoldIcon } from "../bold/flag-banner-bold.icon";
+import { FlagBannerDuotoneIcon } from "../duotone/flag-banner-duotone.icon";
+import { FlagBannerFillIcon } from "../fill/flag-banner-fill.icon";
+import { FlagBannerLightIcon } from "../light/flag-banner-light.icon";
+import { FlagBannerRegularIcon } from "../regular/flag-banner-regular.icon";
+import { FlagBannerThinIcon } from "../thin/flag-banner-thin.icon";
 
 export const FlagBannerIcon = memo(function FlagBanner(
   props: IconWrapperProps,

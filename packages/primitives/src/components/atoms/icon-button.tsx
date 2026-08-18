@@ -1,7 +1,7 @@
 import { memo, PropsWithChildren, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import { Icon } from "@impulse-ui-native/icon";
+import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
 
 import { IconButtonProps, IconButtonThemeProps } from "../../types";

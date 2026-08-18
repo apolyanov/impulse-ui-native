@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { SparkleIcon } from "@impulse-ui-native/icon/icons/sparkle";
+import { IconButton } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
   ComponentVariantOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
-import { IconButton, SparkleIcon } from "@impulse-ui-native/toolkit";
 
 import { IconButtonDocumentation } from "./icon-button.documentation";
 import {

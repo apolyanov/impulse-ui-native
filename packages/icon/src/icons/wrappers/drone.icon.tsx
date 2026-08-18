@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DroneBoldIcon } from "../bold";
-import { DroneDuotoneIcon } from "../duotone";
-import { DroneFillIcon } from "../fill";
-import { DroneLightIcon } from "../light";
-import { DroneRegularIcon } from "../regular";
-import { DroneThinIcon } from "../thin";
+import { DroneBoldIcon } from "../bold/drone-bold.icon";
+import { DroneDuotoneIcon } from "../duotone/drone-duotone.icon";
+import { DroneFillIcon } from "../fill/drone-fill.icon";
+import { DroneLightIcon } from "../light/drone-light.icon";
+import { DroneRegularIcon } from "../regular/drone-regular.icon";
+import { DroneThinIcon } from "../thin/drone-thin.icon";
 
 export const DroneIcon = memo(function Drone(props: IconWrapperProps) {
   const Icon = useMemo(() => {

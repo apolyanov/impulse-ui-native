@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PulseBoldIcon } from "../bold";
-import { PulseDuotoneIcon } from "../duotone";
-import { PulseFillIcon } from "../fill";
-import { PulseLightIcon } from "../light";
-import { PulseRegularIcon } from "../regular";
-import { PulseThinIcon } from "../thin";
+import { PulseBoldIcon } from "../bold/pulse-bold.icon";
+import { PulseDuotoneIcon } from "../duotone/pulse-duotone.icon";
+import { PulseFillIcon } from "../fill/pulse-fill.icon";
+import { PulseLightIcon } from "../light/pulse-light.icon";
+import { PulseRegularIcon } from "../regular/pulse-regular.icon";
+import { PulseThinIcon } from "../thin/pulse-thin.icon";
 
 export const PulseIcon = memo(function Pulse(props: IconWrapperProps) {
   const Icon = useMemo(() => {

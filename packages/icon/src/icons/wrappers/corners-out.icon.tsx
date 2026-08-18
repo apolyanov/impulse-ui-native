@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CornersOutBoldIcon } from "../bold";
-import { CornersOutDuotoneIcon } from "../duotone";
-import { CornersOutFillIcon } from "../fill";
-import { CornersOutLightIcon } from "../light";
-import { CornersOutRegularIcon } from "../regular";
-import { CornersOutThinIcon } from "../thin";
+import { CornersOutBoldIcon } from "../bold/corners-out-bold.icon";
+import { CornersOutDuotoneIcon } from "../duotone/corners-out-duotone.icon";
+import { CornersOutFillIcon } from "../fill/corners-out-fill.icon";
+import { CornersOutLightIcon } from "../light/corners-out-light.icon";
+import { CornersOutRegularIcon } from "../regular/corners-out-regular.icon";
+import { CornersOutThinIcon } from "../thin/corners-out-thin.icon";
 
 export const CornersOutIcon = memo(function CornersOut(
   props: IconWrapperProps,

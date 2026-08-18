@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SlideshowBoldIcon } from "../bold";
-import { SlideshowDuotoneIcon } from "../duotone";
-import { SlideshowFillIcon } from "../fill";
-import { SlideshowLightIcon } from "../light";
-import { SlideshowRegularIcon } from "../regular";
-import { SlideshowThinIcon } from "../thin";
+import { SlideshowBoldIcon } from "../bold/slideshow-bold.icon";
+import { SlideshowDuotoneIcon } from "../duotone/slideshow-duotone.icon";
+import { SlideshowFillIcon } from "../fill/slideshow-fill.icon";
+import { SlideshowLightIcon } from "../light/slideshow-light.icon";
+import { SlideshowRegularIcon } from "../regular/slideshow-regular.icon";
+import { SlideshowThinIcon } from "../thin/slideshow-thin.icon";
 
 export const SlideshowIcon = memo(function Slideshow(props: IconWrapperProps) {
   const Icon = useMemo(() => {

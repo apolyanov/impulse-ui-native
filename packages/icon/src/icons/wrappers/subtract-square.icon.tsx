@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SubtractSquareBoldIcon } from "../bold";
-import { SubtractSquareDuotoneIcon } from "../duotone";
-import { SubtractSquareFillIcon } from "../fill";
-import { SubtractSquareLightIcon } from "../light";
-import { SubtractSquareRegularIcon } from "../regular";
-import { SubtractSquareThinIcon } from "../thin";
+import { SubtractSquareBoldIcon } from "../bold/subtract-square-bold.icon";
+import { SubtractSquareDuotoneIcon } from "../duotone/subtract-square-duotone.icon";
+import { SubtractSquareFillIcon } from "../fill/subtract-square-fill.icon";
+import { SubtractSquareLightIcon } from "../light/subtract-square-light.icon";
+import { SubtractSquareRegularIcon } from "../regular/subtract-square-regular.icon";
+import { SubtractSquareThinIcon } from "../thin/subtract-square-thin.icon";
 
 export const SubtractSquareIcon = memo(function SubtractSquare(
   props: IconWrapperProps,

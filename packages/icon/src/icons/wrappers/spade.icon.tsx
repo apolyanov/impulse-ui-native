@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SpadeBoldIcon } from "../bold";
-import { SpadeDuotoneIcon } from "../duotone";
-import { SpadeFillIcon } from "../fill";
-import { SpadeLightIcon } from "../light";
-import { SpadeRegularIcon } from "../regular";
-import { SpadeThinIcon } from "../thin";
+import { SpadeBoldIcon } from "../bold/spade-bold.icon";
+import { SpadeDuotoneIcon } from "../duotone/spade-duotone.icon";
+import { SpadeFillIcon } from "../fill/spade-fill.icon";
+import { SpadeLightIcon } from "../light/spade-light.icon";
+import { SpadeRegularIcon } from "../regular/spade-regular.icon";
+import { SpadeThinIcon } from "../thin/spade-thin.icon";
 
 export const SpadeIcon = memo(function Spade(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AddressBookBoldIcon } from "../bold";
-import { AddressBookDuotoneIcon } from "../duotone";
-import { AddressBookFillIcon } from "../fill";
-import { AddressBookLightIcon } from "../light";
-import { AddressBookRegularIcon } from "../regular";
-import { AddressBookThinIcon } from "../thin";
+import { AddressBookBoldIcon } from "../bold/address-book-bold.icon";
+import { AddressBookDuotoneIcon } from "../duotone/address-book-duotone.icon";
+import { AddressBookFillIcon } from "../fill/address-book-fill.icon";
+import { AddressBookLightIcon } from "../light/address-book-light.icon";
+import { AddressBookRegularIcon } from "../regular/address-book-regular.icon";
+import { AddressBookThinIcon } from "../thin/address-book-thin.icon";
 
 export const AddressBookIcon = memo(function AddressBook(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DeviceTabletCameraBoldIcon } from "../bold";
-import { DeviceTabletCameraDuotoneIcon } from "../duotone";
-import { DeviceTabletCameraFillIcon } from "../fill";
-import { DeviceTabletCameraLightIcon } from "../light";
-import { DeviceTabletCameraRegularIcon } from "../regular";
-import { DeviceTabletCameraThinIcon } from "../thin";
+import { DeviceTabletCameraBoldIcon } from "../bold/device-tablet-camera-bold.icon";
+import { DeviceTabletCameraDuotoneIcon } from "../duotone/device-tablet-camera-duotone.icon";
+import { DeviceTabletCameraFillIcon } from "../fill/device-tablet-camera-fill.icon";
+import { DeviceTabletCameraLightIcon } from "../light/device-tablet-camera-light.icon";
+import { DeviceTabletCameraRegularIcon } from "../regular/device-tablet-camera-regular.icon";
+import { DeviceTabletCameraThinIcon } from "../thin/device-tablet-camera-thin.icon";
 
 export const DeviceTabletCameraIcon = memo(function DeviceTabletCamera(
   props: IconWrapperProps,

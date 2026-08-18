@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AmbulanceBoldIcon } from "../bold";
-import { AmbulanceDuotoneIcon } from "../duotone";
-import { AmbulanceFillIcon } from "../fill";
-import { AmbulanceLightIcon } from "../light";
-import { AmbulanceRegularIcon } from "../regular";
-import { AmbulanceThinIcon } from "../thin";
+import { AmbulanceBoldIcon } from "../bold/ambulance-bold.icon";
+import { AmbulanceDuotoneIcon } from "../duotone/ambulance-duotone.icon";
+import { AmbulanceFillIcon } from "../fill/ambulance-fill.icon";
+import { AmbulanceLightIcon } from "../light/ambulance-light.icon";
+import { AmbulanceRegularIcon } from "../regular/ambulance-regular.icon";
+import { AmbulanceThinIcon } from "../thin/ambulance-thin.icon";
 
 export const AmbulanceIcon = memo(function Ambulance(props: IconWrapperProps) {
   const Icon = useMemo(() => {

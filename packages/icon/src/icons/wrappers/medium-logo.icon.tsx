@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MediumLogoBoldIcon } from "../bold";
-import { MediumLogoDuotoneIcon } from "../duotone";
-import { MediumLogoFillIcon } from "../fill";
-import { MediumLogoLightIcon } from "../light";
-import { MediumLogoRegularIcon } from "../regular";
-import { MediumLogoThinIcon } from "../thin";
+import { MediumLogoBoldIcon } from "../bold/medium-logo-bold.icon";
+import { MediumLogoDuotoneIcon } from "../duotone/medium-logo-duotone.icon";
+import { MediumLogoFillIcon } from "../fill/medium-logo-fill.icon";
+import { MediumLogoLightIcon } from "../light/medium-logo-light.icon";
+import { MediumLogoRegularIcon } from "../regular/medium-logo-regular.icon";
+import { MediumLogoThinIcon } from "../thin/medium-logo-thin.icon";
 
 export const MediumLogoIcon = memo(function MediumLogo(
   props: IconWrapperProps,

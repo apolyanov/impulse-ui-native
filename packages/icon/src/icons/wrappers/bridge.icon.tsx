@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BridgeBoldIcon } from "../bold";
-import { BridgeDuotoneIcon } from "../duotone";
-import { BridgeFillIcon } from "../fill";
-import { BridgeLightIcon } from "../light";
-import { BridgeRegularIcon } from "../regular";
-import { BridgeThinIcon } from "../thin";
+import { BridgeBoldIcon } from "../bold/bridge-bold.icon";
+import { BridgeDuotoneIcon } from "../duotone/bridge-duotone.icon";
+import { BridgeFillIcon } from "../fill/bridge-fill.icon";
+import { BridgeLightIcon } from "../light/bridge-light.icon";
+import { BridgeRegularIcon } from "../regular/bridge-regular.icon";
+import { BridgeThinIcon } from "../thin/bridge-thin.icon";
 
 export const BridgeIcon = memo(function Bridge(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LinkSimpleHorizontalBreakBoldIcon } from "../bold";
-import { LinkSimpleHorizontalBreakDuotoneIcon } from "../duotone";
-import { LinkSimpleHorizontalBreakFillIcon } from "../fill";
-import { LinkSimpleHorizontalBreakLightIcon } from "../light";
-import { LinkSimpleHorizontalBreakRegularIcon } from "../regular";
-import { LinkSimpleHorizontalBreakThinIcon } from "../thin";
+import { LinkSimpleHorizontalBreakBoldIcon } from "../bold/link-simple-horizontal-break-bold.icon";
+import { LinkSimpleHorizontalBreakDuotoneIcon } from "../duotone/link-simple-horizontal-break-duotone.icon";
+import { LinkSimpleHorizontalBreakFillIcon } from "../fill/link-simple-horizontal-break-fill.icon";
+import { LinkSimpleHorizontalBreakLightIcon } from "../light/link-simple-horizontal-break-light.icon";
+import { LinkSimpleHorizontalBreakRegularIcon } from "../regular/link-simple-horizontal-break-regular.icon";
+import { LinkSimpleHorizontalBreakThinIcon } from "../thin/link-simple-horizontal-break-thin.icon";
 
 export const LinkSimpleHorizontalBreakIcon = memo(
   function LinkSimpleHorizontalBreak(props: IconWrapperProps) {

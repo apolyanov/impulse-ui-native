@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EjectBoldIcon } from "../bold";
-import { EjectDuotoneIcon } from "../duotone";
-import { EjectFillIcon } from "../fill";
-import { EjectLightIcon } from "../light";
-import { EjectRegularIcon } from "../regular";
-import { EjectThinIcon } from "../thin";
+import { EjectBoldIcon } from "../bold/eject-bold.icon";
+import { EjectDuotoneIcon } from "../duotone/eject-duotone.icon";
+import { EjectFillIcon } from "../fill/eject-fill.icon";
+import { EjectLightIcon } from "../light/eject-light.icon";
+import { EjectRegularIcon } from "../regular/eject-regular.icon";
+import { EjectThinIcon } from "../thin/eject-thin.icon";
 
 export const EjectIcon = memo(function Eject(props: IconWrapperProps) {
   const Icon = useMemo(() => {

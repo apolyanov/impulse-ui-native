@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ToiletPaperBoldIcon } from "../bold";
-import { ToiletPaperDuotoneIcon } from "../duotone";
-import { ToiletPaperFillIcon } from "../fill";
-import { ToiletPaperLightIcon } from "../light";
-import { ToiletPaperRegularIcon } from "../regular";
-import { ToiletPaperThinIcon } from "../thin";
+import { ToiletPaperBoldIcon } from "../bold/toilet-paper-bold.icon";
+import { ToiletPaperDuotoneIcon } from "../duotone/toilet-paper-duotone.icon";
+import { ToiletPaperFillIcon } from "../fill/toilet-paper-fill.icon";
+import { ToiletPaperLightIcon } from "../light/toilet-paper-light.icon";
+import { ToiletPaperRegularIcon } from "../regular/toilet-paper-regular.icon";
+import { ToiletPaperThinIcon } from "../thin/toilet-paper-thin.icon";
 
 export const ToiletPaperIcon = memo(function ToiletPaper(
   props: IconWrapperProps,

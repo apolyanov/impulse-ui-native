@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrashSimpleBoldIcon } from "../bold";
-import { TrashSimpleDuotoneIcon } from "../duotone";
-import { TrashSimpleFillIcon } from "../fill";
-import { TrashSimpleLightIcon } from "../light";
-import { TrashSimpleRegularIcon } from "../regular";
-import { TrashSimpleThinIcon } from "../thin";
+import { TrashSimpleBoldIcon } from "../bold/trash-simple-bold.icon";
+import { TrashSimpleDuotoneIcon } from "../duotone/trash-simple-duotone.icon";
+import { TrashSimpleFillIcon } from "../fill/trash-simple-fill.icon";
+import { TrashSimpleLightIcon } from "../light/trash-simple-light.icon";
+import { TrashSimpleRegularIcon } from "../regular/trash-simple-regular.icon";
+import { TrashSimpleThinIcon } from "../thin/trash-simple-thin.icon";
 
 export const TrashSimpleIcon = memo(function TrashSimple(
   props: IconWrapperProps,

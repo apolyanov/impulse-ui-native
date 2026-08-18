@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FalloutShelterBoldIcon } from "../bold";
-import { FalloutShelterDuotoneIcon } from "../duotone";
-import { FalloutShelterFillIcon } from "../fill";
-import { FalloutShelterLightIcon } from "../light";
-import { FalloutShelterRegularIcon } from "../regular";
-import { FalloutShelterThinIcon } from "../thin";
+import { FalloutShelterBoldIcon } from "../bold/fallout-shelter-bold.icon";
+import { FalloutShelterDuotoneIcon } from "../duotone/fallout-shelter-duotone.icon";
+import { FalloutShelterFillIcon } from "../fill/fallout-shelter-fill.icon";
+import { FalloutShelterLightIcon } from "../light/fallout-shelter-light.icon";
+import { FalloutShelterRegularIcon } from "../regular/fallout-shelter-regular.icon";
+import { FalloutShelterThinIcon } from "../thin/fallout-shelter-thin.icon";
 
 export const FalloutShelterIcon = memo(function FalloutShelter(
   props: IconWrapperProps,

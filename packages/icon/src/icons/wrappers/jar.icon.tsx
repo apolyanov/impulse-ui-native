@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { JarBoldIcon } from "../bold";
-import { JarDuotoneIcon } from "../duotone";
-import { JarFillIcon } from "../fill";
-import { JarLightIcon } from "../light";
-import { JarRegularIcon } from "../regular";
-import { JarThinIcon } from "../thin";
+import { JarBoldIcon } from "../bold/jar-bold.icon";
+import { JarDuotoneIcon } from "../duotone/jar-duotone.icon";
+import { JarFillIcon } from "../fill/jar-fill.icon";
+import { JarLightIcon } from "../light/jar-light.icon";
+import { JarRegularIcon } from "../regular/jar-regular.icon";
+import { JarThinIcon } from "../thin/jar-thin.icon";
 
 export const JarIcon = memo(function Jar(props: IconWrapperProps) {
   const Icon = useMemo(() => {

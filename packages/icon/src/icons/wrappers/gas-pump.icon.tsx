@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GasPumpBoldIcon } from "../bold";
-import { GasPumpDuotoneIcon } from "../duotone";
-import { GasPumpFillIcon } from "../fill";
-import { GasPumpLightIcon } from "../light";
-import { GasPumpRegularIcon } from "../regular";
-import { GasPumpThinIcon } from "../thin";
+import { GasPumpBoldIcon } from "../bold/gas-pump-bold.icon";
+import { GasPumpDuotoneIcon } from "../duotone/gas-pump-duotone.icon";
+import { GasPumpFillIcon } from "../fill/gas-pump-fill.icon";
+import { GasPumpLightIcon } from "../light/gas-pump-light.icon";
+import { GasPumpRegularIcon } from "../regular/gas-pump-regular.icon";
+import { GasPumpThinIcon } from "../thin/gas-pump-thin.icon";
 
 export const GasPumpIcon = memo(function GasPump(props: IconWrapperProps) {
   const Icon = useMemo(() => {

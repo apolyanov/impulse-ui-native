@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NumberCircleEightBoldIcon } from "../bold";
-import { NumberCircleEightDuotoneIcon } from "../duotone";
-import { NumberCircleEightFillIcon } from "../fill";
-import { NumberCircleEightLightIcon } from "../light";
-import { NumberCircleEightRegularIcon } from "../regular";
-import { NumberCircleEightThinIcon } from "../thin";
+import { NumberCircleEightBoldIcon } from "../bold/number-circle-eight-bold.icon";
+import { NumberCircleEightDuotoneIcon } from "../duotone/number-circle-eight-duotone.icon";
+import { NumberCircleEightFillIcon } from "../fill/number-circle-eight-fill.icon";
+import { NumberCircleEightLightIcon } from "../light/number-circle-eight-light.icon";
+import { NumberCircleEightRegularIcon } from "../regular/number-circle-eight-regular.icon";
+import { NumberCircleEightThinIcon } from "../thin/number-circle-eight-thin.icon";
 
 export const NumberCircleEightIcon = memo(function NumberCircleEight(
   props: IconWrapperProps,

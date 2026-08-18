@@ -1,7 +1,8 @@
 import type { ComponentProps } from "react";
 import { memo } from "react";
 
-import { IconButton, SparkleIcon } from "@impulse-ui-native/toolkit";
+import { SparkleIcon } from "@impulse-ui-native/icon/icons/sparkle";
+import { IconButton } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,

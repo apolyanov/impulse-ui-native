@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WheelchairBoldIcon } from "../bold";
-import { WheelchairDuotoneIcon } from "../duotone";
-import { WheelchairFillIcon } from "../fill";
-import { WheelchairLightIcon } from "../light";
-import { WheelchairRegularIcon } from "../regular";
-import { WheelchairThinIcon } from "../thin";
+import { WheelchairBoldIcon } from "../bold/wheelchair-bold.icon";
+import { WheelchairDuotoneIcon } from "../duotone/wheelchair-duotone.icon";
+import { WheelchairFillIcon } from "../fill/wheelchair-fill.icon";
+import { WheelchairLightIcon } from "../light/wheelchair-light.icon";
+import { WheelchairRegularIcon } from "../regular/wheelchair-regular.icon";
+import { WheelchairThinIcon } from "../thin/wheelchair-thin.icon";
 
 export const WheelchairIcon = memo(function Wheelchair(
   props: IconWrapperProps,

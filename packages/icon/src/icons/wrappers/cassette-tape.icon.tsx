@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CassetteTapeBoldIcon } from "../bold";
-import { CassetteTapeDuotoneIcon } from "../duotone";
-import { CassetteTapeFillIcon } from "../fill";
-import { CassetteTapeLightIcon } from "../light";
-import { CassetteTapeRegularIcon } from "../regular";
-import { CassetteTapeThinIcon } from "../thin";
+import { CassetteTapeBoldIcon } from "../bold/cassette-tape-bold.icon";
+import { CassetteTapeDuotoneIcon } from "../duotone/cassette-tape-duotone.icon";
+import { CassetteTapeFillIcon } from "../fill/cassette-tape-fill.icon";
+import { CassetteTapeLightIcon } from "../light/cassette-tape-light.icon";
+import { CassetteTapeRegularIcon } from "../regular/cassette-tape-regular.icon";
+import { CassetteTapeThinIcon } from "../thin/cassette-tape-thin.icon";
 
 export const CassetteTapeIcon = memo(function CassetteTape(
   props: IconWrapperProps,

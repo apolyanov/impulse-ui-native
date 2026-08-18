@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SneakerBoldIcon } from "../bold";
-import { SneakerDuotoneIcon } from "../duotone";
-import { SneakerFillIcon } from "../fill";
-import { SneakerLightIcon } from "../light";
-import { SneakerRegularIcon } from "../regular";
-import { SneakerThinIcon } from "../thin";
+import { SneakerBoldIcon } from "../bold/sneaker-bold.icon";
+import { SneakerDuotoneIcon } from "../duotone/sneaker-duotone.icon";
+import { SneakerFillIcon } from "../fill/sneaker-fill.icon";
+import { SneakerLightIcon } from "../light/sneaker-light.icon";
+import { SneakerRegularIcon } from "../regular/sneaker-regular.icon";
+import { SneakerThinIcon } from "../thin/sneaker-thin.icon";
 
 export const SneakerIcon = memo(function Sneaker(props: IconWrapperProps) {
   const Icon = useMemo(() => {

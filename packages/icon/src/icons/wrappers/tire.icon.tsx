@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TireBoldIcon } from "../bold";
-import { TireDuotoneIcon } from "../duotone";
-import { TireFillIcon } from "../fill";
-import { TireLightIcon } from "../light";
-import { TireRegularIcon } from "../regular";
-import { TireThinIcon } from "../thin";
+import { TireBoldIcon } from "../bold/tire-bold.icon";
+import { TireDuotoneIcon } from "../duotone/tire-duotone.icon";
+import { TireFillIcon } from "../fill/tire-fill.icon";
+import { TireLightIcon } from "../light/tire-light.icon";
+import { TireRegularIcon } from "../regular/tire-regular.icon";
+import { TireThinIcon } from "../thin/tire-thin.icon";
 
 export const TireIcon = memo(function Tire(props: IconWrapperProps) {
   const Icon = useMemo(() => {

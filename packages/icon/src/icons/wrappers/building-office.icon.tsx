@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BuildingOfficeBoldIcon } from "../bold";
-import { BuildingOfficeDuotoneIcon } from "../duotone";
-import { BuildingOfficeFillIcon } from "../fill";
-import { BuildingOfficeLightIcon } from "../light";
-import { BuildingOfficeRegularIcon } from "../regular";
-import { BuildingOfficeThinIcon } from "../thin";
+import { BuildingOfficeBoldIcon } from "../bold/building-office-bold.icon";
+import { BuildingOfficeDuotoneIcon } from "../duotone/building-office-duotone.icon";
+import { BuildingOfficeFillIcon } from "../fill/building-office-fill.icon";
+import { BuildingOfficeLightIcon } from "../light/building-office-light.icon";
+import { BuildingOfficeRegularIcon } from "../regular/building-office-regular.icon";
+import { BuildingOfficeThinIcon } from "../thin/building-office-thin.icon";
 
 export const BuildingOfficeIcon = memo(function BuildingOffice(
   props: IconWrapperProps,

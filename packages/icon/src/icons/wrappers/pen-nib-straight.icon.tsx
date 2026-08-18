@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PenNibStraightBoldIcon } from "../bold";
-import { PenNibStraightDuotoneIcon } from "../duotone";
-import { PenNibStraightFillIcon } from "../fill";
-import { PenNibStraightLightIcon } from "../light";
-import { PenNibStraightRegularIcon } from "../regular";
-import { PenNibStraightThinIcon } from "../thin";
+import { PenNibStraightBoldIcon } from "../bold/pen-nib-straight-bold.icon";
+import { PenNibStraightDuotoneIcon } from "../duotone/pen-nib-straight-duotone.icon";
+import { PenNibStraightFillIcon } from "../fill/pen-nib-straight-fill.icon";
+import { PenNibStraightLightIcon } from "../light/pen-nib-straight-light.icon";
+import { PenNibStraightRegularIcon } from "../regular/pen-nib-straight-regular.icon";
+import { PenNibStraightThinIcon } from "../thin/pen-nib-straight-thin.icon";
 
 export const PenNibStraightIcon = memo(function PenNibStraight(
   props: IconWrapperProps,

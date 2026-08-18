@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GavelBoldIcon } from "../bold";
-import { GavelDuotoneIcon } from "../duotone";
-import { GavelFillIcon } from "../fill";
-import { GavelLightIcon } from "../light";
-import { GavelRegularIcon } from "../regular";
-import { GavelThinIcon } from "../thin";
+import { GavelBoldIcon } from "../bold/gavel-bold.icon";
+import { GavelDuotoneIcon } from "../duotone/gavel-duotone.icon";
+import { GavelFillIcon } from "../fill/gavel-fill.icon";
+import { GavelLightIcon } from "../light/gavel-light.icon";
+import { GavelRegularIcon } from "../regular/gavel-regular.icon";
+import { GavelThinIcon } from "../thin/gavel-thin.icon";
 
 export const GavelIcon = memo(function Gavel(props: IconWrapperProps) {
   const Icon = useMemo(() => {

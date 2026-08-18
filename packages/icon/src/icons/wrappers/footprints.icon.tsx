@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FootprintsBoldIcon } from "../bold";
-import { FootprintsDuotoneIcon } from "../duotone";
-import { FootprintsFillIcon } from "../fill";
-import { FootprintsLightIcon } from "../light";
-import { FootprintsRegularIcon } from "../regular";
-import { FootprintsThinIcon } from "../thin";
+import { FootprintsBoldIcon } from "../bold/footprints-bold.icon";
+import { FootprintsDuotoneIcon } from "../duotone/footprints-duotone.icon";
+import { FootprintsFillIcon } from "../fill/footprints-fill.icon";
+import { FootprintsLightIcon } from "../light/footprints-light.icon";
+import { FootprintsRegularIcon } from "../regular/footprints-regular.icon";
+import { FootprintsThinIcon } from "../thin/footprints-thin.icon";
 
 export const FootprintsIcon = memo(function Footprints(
   props: IconWrapperProps,

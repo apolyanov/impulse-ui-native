@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TriangleBoldIcon } from "../bold";
-import { TriangleDuotoneIcon } from "../duotone";
-import { TriangleFillIcon } from "../fill";
-import { TriangleLightIcon } from "../light";
-import { TriangleRegularIcon } from "../regular";
-import { TriangleThinIcon } from "../thin";
+import { TriangleBoldIcon } from "../bold/triangle-bold.icon";
+import { TriangleDuotoneIcon } from "../duotone/triangle-duotone.icon";
+import { TriangleFillIcon } from "../fill/triangle-fill.icon";
+import { TriangleLightIcon } from "../light/triangle-light.icon";
+import { TriangleRegularIcon } from "../regular/triangle-regular.icon";
+import { TriangleThinIcon } from "../thin/triangle-thin.icon";
 
 export const TriangleIcon = memo(function Triangle(props: IconWrapperProps) {
   const Icon = useMemo(() => {

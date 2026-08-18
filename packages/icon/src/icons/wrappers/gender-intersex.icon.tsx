@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GenderIntersexBoldIcon } from "../bold";
-import { GenderIntersexDuotoneIcon } from "../duotone";
-import { GenderIntersexFillIcon } from "../fill";
-import { GenderIntersexLightIcon } from "../light";
-import { GenderIntersexRegularIcon } from "../regular";
-import { GenderIntersexThinIcon } from "../thin";
+import { GenderIntersexBoldIcon } from "../bold/gender-intersex-bold.icon";
+import { GenderIntersexDuotoneIcon } from "../duotone/gender-intersex-duotone.icon";
+import { GenderIntersexFillIcon } from "../fill/gender-intersex-fill.icon";
+import { GenderIntersexLightIcon } from "../light/gender-intersex-light.icon";
+import { GenderIntersexRegularIcon } from "../regular/gender-intersex-regular.icon";
+import { GenderIntersexThinIcon } from "../thin/gender-intersex-thin.icon";
 
 export const GenderIntersexIcon = memo(function GenderIntersex(
   props: IconWrapperProps,

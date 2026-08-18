@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ProjectorScreenBoldIcon } from "../bold";
-import { ProjectorScreenDuotoneIcon } from "../duotone";
-import { ProjectorScreenFillIcon } from "../fill";
-import { ProjectorScreenLightIcon } from "../light";
-import { ProjectorScreenRegularIcon } from "../regular";
-import { ProjectorScreenThinIcon } from "../thin";
+import { ProjectorScreenBoldIcon } from "../bold/projector-screen-bold.icon";
+import { ProjectorScreenDuotoneIcon } from "../duotone/projector-screen-duotone.icon";
+import { ProjectorScreenFillIcon } from "../fill/projector-screen-fill.icon";
+import { ProjectorScreenLightIcon } from "../light/projector-screen-light.icon";
+import { ProjectorScreenRegularIcon } from "../regular/projector-screen-regular.icon";
+import { ProjectorScreenThinIcon } from "../thin/projector-screen-thin.icon";
 
 export const ProjectorScreenIcon = memo(function ProjectorScreen(
   props: IconWrapperProps,

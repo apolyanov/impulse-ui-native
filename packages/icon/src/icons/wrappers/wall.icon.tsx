@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WallBoldIcon } from "../bold";
-import { WallDuotoneIcon } from "../duotone";
-import { WallFillIcon } from "../fill";
-import { WallLightIcon } from "../light";
-import { WallRegularIcon } from "../regular";
-import { WallThinIcon } from "../thin";
+import { WallBoldIcon } from "../bold/wall-bold.icon";
+import { WallDuotoneIcon } from "../duotone/wall-duotone.icon";
+import { WallFillIcon } from "../fill/wall-fill.icon";
+import { WallLightIcon } from "../light/wall-light.icon";
+import { WallRegularIcon } from "../regular/wall-regular.icon";
+import { WallThinIcon } from "../thin/wall-thin.icon";
 
 export const WallIcon = memo(function Wall(props: IconWrapperProps) {
   const Icon = useMemo(() => {

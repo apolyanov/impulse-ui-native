@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LeafBoldIcon } from "../bold";
-import { LeafDuotoneIcon } from "../duotone";
-import { LeafFillIcon } from "../fill";
-import { LeafLightIcon } from "../light";
-import { LeafRegularIcon } from "../regular";
-import { LeafThinIcon } from "../thin";
+import { LeafBoldIcon } from "../bold/leaf-bold.icon";
+import { LeafDuotoneIcon } from "../duotone/leaf-duotone.icon";
+import { LeafFillIcon } from "../fill/leaf-fill.icon";
+import { LeafLightIcon } from "../light/leaf-light.icon";
+import { LeafRegularIcon } from "../regular/leaf-regular.icon";
+import { LeafThinIcon } from "../thin/leaf-thin.icon";
 
 export const LeafIcon = memo(function Leaf(props: IconWrapperProps) {
   const Icon = useMemo(() => {

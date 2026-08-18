@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EyedropperSampleBoldIcon } from "../bold";
-import { EyedropperSampleDuotoneIcon } from "../duotone";
-import { EyedropperSampleFillIcon } from "../fill";
-import { EyedropperSampleLightIcon } from "../light";
-import { EyedropperSampleRegularIcon } from "../regular";
-import { EyedropperSampleThinIcon } from "../thin";
+import { EyedropperSampleBoldIcon } from "../bold/eyedropper-sample-bold.icon";
+import { EyedropperSampleDuotoneIcon } from "../duotone/eyedropper-sample-duotone.icon";
+import { EyedropperSampleFillIcon } from "../fill/eyedropper-sample-fill.icon";
+import { EyedropperSampleLightIcon } from "../light/eyedropper-sample-light.icon";
+import { EyedropperSampleRegularIcon } from "../regular/eyedropper-sample-regular.icon";
+import { EyedropperSampleThinIcon } from "../thin/eyedropper-sample-thin.icon";
 
 export const EyedropperSampleIcon = memo(function EyedropperSample(
   props: IconWrapperProps,

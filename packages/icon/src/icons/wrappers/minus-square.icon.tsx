@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MinusSquareBoldIcon } from "../bold";
-import { MinusSquareDuotoneIcon } from "../duotone";
-import { MinusSquareFillIcon } from "../fill";
-import { MinusSquareLightIcon } from "../light";
-import { MinusSquareRegularIcon } from "../regular";
-import { MinusSquareThinIcon } from "../thin";
+import { MinusSquareBoldIcon } from "../bold/minus-square-bold.icon";
+import { MinusSquareDuotoneIcon } from "../duotone/minus-square-duotone.icon";
+import { MinusSquareFillIcon } from "../fill/minus-square-fill.icon";
+import { MinusSquareLightIcon } from "../light/minus-square-light.icon";
+import { MinusSquareRegularIcon } from "../regular/minus-square-regular.icon";
+import { MinusSquareThinIcon } from "../thin/minus-square-thin.icon";
 
 export const MinusSquareIcon = memo(function MinusSquare(
   props: IconWrapperProps,

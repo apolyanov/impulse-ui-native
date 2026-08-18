@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ToothBoldIcon } from "../bold";
-import { ToothDuotoneIcon } from "../duotone";
-import { ToothFillIcon } from "../fill";
-import { ToothLightIcon } from "../light";
-import { ToothRegularIcon } from "../regular";
-import { ToothThinIcon } from "../thin";
+import { ToothBoldIcon } from "../bold/tooth-bold.icon";
+import { ToothDuotoneIcon } from "../duotone/tooth-duotone.icon";
+import { ToothFillIcon } from "../fill/tooth-fill.icon";
+import { ToothLightIcon } from "../light/tooth-light.icon";
+import { ToothRegularIcon } from "../regular/tooth-regular.icon";
+import { ToothThinIcon } from "../thin/tooth-thin.icon";
 
 export const ToothIcon = memo(function Tooth(props: IconWrapperProps) {
   const Icon = useMemo(() => {

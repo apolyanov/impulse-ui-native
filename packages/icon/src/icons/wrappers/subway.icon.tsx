@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SubwayBoldIcon } from "../bold";
-import { SubwayDuotoneIcon } from "../duotone";
-import { SubwayFillIcon } from "../fill";
-import { SubwayLightIcon } from "../light";
-import { SubwayRegularIcon } from "../regular";
-import { SubwayThinIcon } from "../thin";
+import { SubwayBoldIcon } from "../bold/subway-bold.icon";
+import { SubwayDuotoneIcon } from "../duotone/subway-duotone.icon";
+import { SubwayFillIcon } from "../fill/subway-fill.icon";
+import { SubwayLightIcon } from "../light/subway-light.icon";
+import { SubwayRegularIcon } from "../regular/subway-regular.icon";
+import { SubwayThinIcon } from "../thin/subway-thin.icon";
 
 export const SubwayIcon = memo(function Subway(props: IconWrapperProps) {
   const Icon = useMemo(() => {

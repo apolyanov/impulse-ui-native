@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AnchorBoldIcon } from "../bold";
-import { AnchorDuotoneIcon } from "../duotone";
-import { AnchorFillIcon } from "../fill";
-import { AnchorLightIcon } from "../light";
-import { AnchorRegularIcon } from "../regular";
-import { AnchorThinIcon } from "../thin";
+import { AnchorBoldIcon } from "../bold/anchor-bold.icon";
+import { AnchorDuotoneIcon } from "../duotone/anchor-duotone.icon";
+import { AnchorFillIcon } from "../fill/anchor-fill.icon";
+import { AnchorLightIcon } from "../light/anchor-light.icon";
+import { AnchorRegularIcon } from "../regular/anchor-regular.icon";
+import { AnchorThinIcon } from "../thin/anchor-thin.icon";
 
 export const AnchorIcon = memo(function Anchor(props: IconWrapperProps) {
   const Icon = useMemo(() => {

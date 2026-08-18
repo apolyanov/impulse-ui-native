@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NumberSixBoldIcon } from "../bold";
-import { NumberSixDuotoneIcon } from "../duotone";
-import { NumberSixFillIcon } from "../fill";
-import { NumberSixLightIcon } from "../light";
-import { NumberSixRegularIcon } from "../regular";
-import { NumberSixThinIcon } from "../thin";
+import { NumberSixBoldIcon } from "../bold/number-six-bold.icon";
+import { NumberSixDuotoneIcon } from "../duotone/number-six-duotone.icon";
+import { NumberSixFillIcon } from "../fill/number-six-fill.icon";
+import { NumberSixLightIcon } from "../light/number-six-light.icon";
+import { NumberSixRegularIcon } from "../regular/number-six-regular.icon";
+import { NumberSixThinIcon } from "../thin/number-six-thin.icon";
 
 export const NumberSixIcon = memo(function NumberSix(props: IconWrapperProps) {
   const Icon = useMemo(() => {

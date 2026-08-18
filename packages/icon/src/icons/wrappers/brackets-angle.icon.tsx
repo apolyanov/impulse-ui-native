@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BracketsAngleBoldIcon } from "../bold";
-import { BracketsAngleDuotoneIcon } from "../duotone";
-import { BracketsAngleFillIcon } from "../fill";
-import { BracketsAngleLightIcon } from "../light";
-import { BracketsAngleRegularIcon } from "../regular";
-import { BracketsAngleThinIcon } from "../thin";
+import { BracketsAngleBoldIcon } from "../bold/brackets-angle-bold.icon";
+import { BracketsAngleDuotoneIcon } from "../duotone/brackets-angle-duotone.icon";
+import { BracketsAngleFillIcon } from "../fill/brackets-angle-fill.icon";
+import { BracketsAngleLightIcon } from "../light/brackets-angle-light.icon";
+import { BracketsAngleRegularIcon } from "../regular/brackets-angle-regular.icon";
+import { BracketsAngleThinIcon } from "../thin/brackets-angle-thin.icon";
 
 export const BracketsAngleIcon = memo(function BracketsAngle(
   props: IconWrapperProps,

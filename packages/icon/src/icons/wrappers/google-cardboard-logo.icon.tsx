@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GoogleCardboardLogoBoldIcon } from "../bold";
-import { GoogleCardboardLogoDuotoneIcon } from "../duotone";
-import { GoogleCardboardLogoFillIcon } from "../fill";
-import { GoogleCardboardLogoLightIcon } from "../light";
-import { GoogleCardboardLogoRegularIcon } from "../regular";
-import { GoogleCardboardLogoThinIcon } from "../thin";
+import { GoogleCardboardLogoBoldIcon } from "../bold/google-cardboard-logo-bold.icon";
+import { GoogleCardboardLogoDuotoneIcon } from "../duotone/google-cardboard-logo-duotone.icon";
+import { GoogleCardboardLogoFillIcon } from "../fill/google-cardboard-logo-fill.icon";
+import { GoogleCardboardLogoLightIcon } from "../light/google-cardboard-logo-light.icon";
+import { GoogleCardboardLogoRegularIcon } from "../regular/google-cardboard-logo-regular.icon";
+import { GoogleCardboardLogoThinIcon } from "../thin/google-cardboard-logo-thin.icon";
 
 export const GoogleCardboardLogoIcon = memo(function GoogleCardboardLogo(
   props: IconWrapperProps,

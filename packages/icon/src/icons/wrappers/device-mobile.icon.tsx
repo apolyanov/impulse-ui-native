@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DeviceMobileBoldIcon } from "../bold";
-import { DeviceMobileDuotoneIcon } from "../duotone";
-import { DeviceMobileFillIcon } from "../fill";
-import { DeviceMobileLightIcon } from "../light";
-import { DeviceMobileRegularIcon } from "../regular";
-import { DeviceMobileThinIcon } from "../thin";
+import { DeviceMobileBoldIcon } from "../bold/device-mobile-bold.icon";
+import { DeviceMobileDuotoneIcon } from "../duotone/device-mobile-duotone.icon";
+import { DeviceMobileFillIcon } from "../fill/device-mobile-fill.icon";
+import { DeviceMobileLightIcon } from "../light/device-mobile-light.icon";
+import { DeviceMobileRegularIcon } from "../regular/device-mobile-regular.icon";
+import { DeviceMobileThinIcon } from "../thin/device-mobile-thin.icon";
 
 export const DeviceMobileIcon = memo(function DeviceMobile(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CurrencyJpyBoldIcon } from "../bold";
-import { CurrencyJpyDuotoneIcon } from "../duotone";
-import { CurrencyJpyFillIcon } from "../fill";
-import { CurrencyJpyLightIcon } from "../light";
-import { CurrencyJpyRegularIcon } from "../regular";
-import { CurrencyJpyThinIcon } from "../thin";
+import { CurrencyJpyBoldIcon } from "../bold/currency-jpy-bold.icon";
+import { CurrencyJpyDuotoneIcon } from "../duotone/currency-jpy-duotone.icon";
+import { CurrencyJpyFillIcon } from "../fill/currency-jpy-fill.icon";
+import { CurrencyJpyLightIcon } from "../light/currency-jpy-light.icon";
+import { CurrencyJpyRegularIcon } from "../regular/currency-jpy-regular.icon";
+import { CurrencyJpyThinIcon } from "../thin/currency-jpy-thin.icon";
 
 export const CurrencyJpyIcon = memo(function CurrencyJpy(
   props: IconWrapperProps,

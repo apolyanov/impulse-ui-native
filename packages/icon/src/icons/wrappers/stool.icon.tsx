@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StoolBoldIcon } from "../bold";
-import { StoolDuotoneIcon } from "../duotone";
-import { StoolFillIcon } from "../fill";
-import { StoolLightIcon } from "../light";
-import { StoolRegularIcon } from "../regular";
-import { StoolThinIcon } from "../thin";
+import { StoolBoldIcon } from "../bold/stool-bold.icon";
+import { StoolDuotoneIcon } from "../duotone/stool-duotone.icon";
+import { StoolFillIcon } from "../fill/stool-fill.icon";
+import { StoolLightIcon } from "../light/stool-light.icon";
+import { StoolRegularIcon } from "../regular/stool-regular.icon";
+import { StoolThinIcon } from "../thin/stool-thin.icon";
 
 export const StoolIcon = memo(function Stool(props: IconWrapperProps) {
   const Icon = useMemo(() => {

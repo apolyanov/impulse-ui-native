@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CursorBoldIcon } from "../bold";
-import { CursorDuotoneIcon } from "../duotone";
-import { CursorFillIcon } from "../fill";
-import { CursorLightIcon } from "../light";
-import { CursorRegularIcon } from "../regular";
-import { CursorThinIcon } from "../thin";
+import { CursorBoldIcon } from "../bold/cursor-bold.icon";
+import { CursorDuotoneIcon } from "../duotone/cursor-duotone.icon";
+import { CursorFillIcon } from "../fill/cursor-fill.icon";
+import { CursorLightIcon } from "../light/cursor-light.icon";
+import { CursorRegularIcon } from "../regular/cursor-regular.icon";
+import { CursorThinIcon } from "../thin/cursor-thin.icon";
 
 export const CursorIcon = memo(function Cursor(props: IconWrapperProps) {
   const Icon = useMemo(() => {

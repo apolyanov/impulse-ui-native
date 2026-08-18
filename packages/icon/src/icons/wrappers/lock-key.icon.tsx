@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LockKeyBoldIcon } from "../bold";
-import { LockKeyDuotoneIcon } from "../duotone";
-import { LockKeyFillIcon } from "../fill";
-import { LockKeyLightIcon } from "../light";
-import { LockKeyRegularIcon } from "../regular";
-import { LockKeyThinIcon } from "../thin";
+import { LockKeyBoldIcon } from "../bold/lock-key-bold.icon";
+import { LockKeyDuotoneIcon } from "../duotone/lock-key-duotone.icon";
+import { LockKeyFillIcon } from "../fill/lock-key-fill.icon";
+import { LockKeyLightIcon } from "../light/lock-key-light.icon";
+import { LockKeyRegularIcon } from "../regular/lock-key-regular.icon";
+import { LockKeyThinIcon } from "../thin/lock-key-thin.icon";
 
 export const LockKeyIcon = memo(function LockKey(props: IconWrapperProps) {
   const Icon = useMemo(() => {

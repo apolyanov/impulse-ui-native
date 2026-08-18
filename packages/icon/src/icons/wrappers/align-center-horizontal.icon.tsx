@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AlignCenterHorizontalBoldIcon } from "../bold";
-import { AlignCenterHorizontalDuotoneIcon } from "../duotone";
-import { AlignCenterHorizontalFillIcon } from "../fill";
-import { AlignCenterHorizontalLightIcon } from "../light";
-import { AlignCenterHorizontalRegularIcon } from "../regular";
-import { AlignCenterHorizontalThinIcon } from "../thin";
+import { AlignCenterHorizontalBoldIcon } from "../bold/align-center-horizontal-bold.icon";
+import { AlignCenterHorizontalDuotoneIcon } from "../duotone/align-center-horizontal-duotone.icon";
+import { AlignCenterHorizontalFillIcon } from "../fill/align-center-horizontal-fill.icon";
+import { AlignCenterHorizontalLightIcon } from "../light/align-center-horizontal-light.icon";
+import { AlignCenterHorizontalRegularIcon } from "../regular/align-center-horizontal-regular.icon";
+import { AlignCenterHorizontalThinIcon } from "../thin/align-center-horizontal-thin.icon";
 
 export const AlignCenterHorizontalIcon = memo(function AlignCenterHorizontal(
   props: IconWrapperProps,

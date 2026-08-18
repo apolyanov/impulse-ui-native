@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AlarmBoldIcon } from "../bold";
-import { AlarmDuotoneIcon } from "../duotone";
-import { AlarmFillIcon } from "../fill";
-import { AlarmLightIcon } from "../light";
-import { AlarmRegularIcon } from "../regular";
-import { AlarmThinIcon } from "../thin";
+import { AlarmBoldIcon } from "../bold/alarm-bold.icon";
+import { AlarmDuotoneIcon } from "../duotone/alarm-duotone.icon";
+import { AlarmFillIcon } from "../fill/alarm-fill.icon";
+import { AlarmLightIcon } from "../light/alarm-light.icon";
+import { AlarmRegularIcon } from "../regular/alarm-regular.icon";
+import { AlarmThinIcon } from "../thin/alarm-thin.icon";
 
 export const AlarmIcon = memo(function Alarm(props: IconWrapperProps) {
   const Icon = useMemo(() => {

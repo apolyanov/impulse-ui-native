@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FolderSimpleMinusBoldIcon } from "../bold";
-import { FolderSimpleMinusDuotoneIcon } from "../duotone";
-import { FolderSimpleMinusFillIcon } from "../fill";
-import { FolderSimpleMinusLightIcon } from "../light";
-import { FolderSimpleMinusRegularIcon } from "../regular";
-import { FolderSimpleMinusThinIcon } from "../thin";
+import { FolderSimpleMinusBoldIcon } from "../bold/folder-simple-minus-bold.icon";
+import { FolderSimpleMinusDuotoneIcon } from "../duotone/folder-simple-minus-duotone.icon";
+import { FolderSimpleMinusFillIcon } from "../fill/folder-simple-minus-fill.icon";
+import { FolderSimpleMinusLightIcon } from "../light/folder-simple-minus-light.icon";
+import { FolderSimpleMinusRegularIcon } from "../regular/folder-simple-minus-regular.icon";
+import { FolderSimpleMinusThinIcon } from "../thin/folder-simple-minus-thin.icon";
 
 export const FolderSimpleMinusIcon = memo(function FolderSimpleMinus(
   props: IconWrapperProps,

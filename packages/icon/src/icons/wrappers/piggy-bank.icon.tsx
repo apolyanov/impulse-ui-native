@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PiggyBankBoldIcon } from "../bold";
-import { PiggyBankDuotoneIcon } from "../duotone";
-import { PiggyBankFillIcon } from "../fill";
-import { PiggyBankLightIcon } from "../light";
-import { PiggyBankRegularIcon } from "../regular";
-import { PiggyBankThinIcon } from "../thin";
+import { PiggyBankBoldIcon } from "../bold/piggy-bank-bold.icon";
+import { PiggyBankDuotoneIcon } from "../duotone/piggy-bank-duotone.icon";
+import { PiggyBankFillIcon } from "../fill/piggy-bank-fill.icon";
+import { PiggyBankLightIcon } from "../light/piggy-bank-light.icon";
+import { PiggyBankRegularIcon } from "../regular/piggy-bank-regular.icon";
+import { PiggyBankThinIcon } from "../thin/piggy-bank-thin.icon";
 
 export const PiggyBankIcon = memo(function PiggyBank(props: IconWrapperProps) {
   const Icon = useMemo(() => {

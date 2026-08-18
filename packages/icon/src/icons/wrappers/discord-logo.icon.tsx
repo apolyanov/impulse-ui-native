@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DiscordLogoBoldIcon } from "../bold";
-import { DiscordLogoDuotoneIcon } from "../duotone";
-import { DiscordLogoFillIcon } from "../fill";
-import { DiscordLogoLightIcon } from "../light";
-import { DiscordLogoRegularIcon } from "../regular";
-import { DiscordLogoThinIcon } from "../thin";
+import { DiscordLogoBoldIcon } from "../bold/discord-logo-bold.icon";
+import { DiscordLogoDuotoneIcon } from "../duotone/discord-logo-duotone.icon";
+import { DiscordLogoFillIcon } from "../fill/discord-logo-fill.icon";
+import { DiscordLogoLightIcon } from "../light/discord-logo-light.icon";
+import { DiscordLogoRegularIcon } from "../regular/discord-logo-regular.icon";
+import { DiscordLogoThinIcon } from "../thin/discord-logo-thin.icon";
 
 export const DiscordLogoIcon = memo(function DiscordLogo(
   props: IconWrapperProps,

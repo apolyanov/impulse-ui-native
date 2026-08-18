@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GearFineBoldIcon } from "../bold";
-import { GearFineDuotoneIcon } from "../duotone";
-import { GearFineFillIcon } from "../fill";
-import { GearFineLightIcon } from "../light";
-import { GearFineRegularIcon } from "../regular";
-import { GearFineThinIcon } from "../thin";
+import { GearFineBoldIcon } from "../bold/gear-fine-bold.icon";
+import { GearFineDuotoneIcon } from "../duotone/gear-fine-duotone.icon";
+import { GearFineFillIcon } from "../fill/gear-fine-fill.icon";
+import { GearFineLightIcon } from "../light/gear-fine-light.icon";
+import { GearFineRegularIcon } from "../regular/gear-fine-regular.icon";
+import { GearFineThinIcon } from "../thin/gear-fine-thin.icon";
 
 export const GearFineIcon = memo(function GearFine(props: IconWrapperProps) {
   const Icon = useMemo(() => {

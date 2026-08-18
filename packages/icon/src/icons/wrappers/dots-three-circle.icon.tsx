@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DotsThreeCircleBoldIcon } from "../bold";
-import { DotsThreeCircleDuotoneIcon } from "../duotone";
-import { DotsThreeCircleFillIcon } from "../fill";
-import { DotsThreeCircleLightIcon } from "../light";
-import { DotsThreeCircleRegularIcon } from "../regular";
-import { DotsThreeCircleThinIcon } from "../thin";
+import { DotsThreeCircleBoldIcon } from "../bold/dots-three-circle-bold.icon";
+import { DotsThreeCircleDuotoneIcon } from "../duotone/dots-three-circle-duotone.icon";
+import { DotsThreeCircleFillIcon } from "../fill/dots-three-circle-fill.icon";
+import { DotsThreeCircleLightIcon } from "../light/dots-three-circle-light.icon";
+import { DotsThreeCircleRegularIcon } from "../regular/dots-three-circle-regular.icon";
+import { DotsThreeCircleThinIcon } from "../thin/dots-three-circle-thin.icon";
 
 export const DotsThreeCircleIcon = memo(function DotsThreeCircle(
   props: IconWrapperProps,

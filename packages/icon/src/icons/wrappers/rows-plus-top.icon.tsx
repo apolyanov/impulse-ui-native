@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RowsPlusTopBoldIcon } from "../bold";
-import { RowsPlusTopDuotoneIcon } from "../duotone";
-import { RowsPlusTopFillIcon } from "../fill";
-import { RowsPlusTopLightIcon } from "../light";
-import { RowsPlusTopRegularIcon } from "../regular";
-import { RowsPlusTopThinIcon } from "../thin";
+import { RowsPlusTopBoldIcon } from "../bold/rows-plus-top-bold.icon";
+import { RowsPlusTopDuotoneIcon } from "../duotone/rows-plus-top-duotone.icon";
+import { RowsPlusTopFillIcon } from "../fill/rows-plus-top-fill.icon";
+import { RowsPlusTopLightIcon } from "../light/rows-plus-top-light.icon";
+import { RowsPlusTopRegularIcon } from "../regular/rows-plus-top-regular.icon";
+import { RowsPlusTopThinIcon } from "../thin/rows-plus-top-thin.icon";
 
 export const RowsPlusTopIcon = memo(function RowsPlusTop(
   props: IconWrapperProps,

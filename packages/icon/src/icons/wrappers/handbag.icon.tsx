@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandbagBoldIcon } from "../bold";
-import { HandbagDuotoneIcon } from "../duotone";
-import { HandbagFillIcon } from "../fill";
-import { HandbagLightIcon } from "../light";
-import { HandbagRegularIcon } from "../regular";
-import { HandbagThinIcon } from "../thin";
+import { HandbagBoldIcon } from "../bold/handbag-bold.icon";
+import { HandbagDuotoneIcon } from "../duotone/handbag-duotone.icon";
+import { HandbagFillIcon } from "../fill/handbag-fill.icon";
+import { HandbagLightIcon } from "../light/handbag-light.icon";
+import { HandbagRegularIcon } from "../regular/handbag-regular.icon";
+import { HandbagThinIcon } from "../thin/handbag-thin.icon";
 
 export const HandbagIcon = memo(function Handbag(props: IconWrapperProps) {
   const Icon = useMemo(() => {

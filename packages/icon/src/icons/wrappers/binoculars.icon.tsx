@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BinocularsBoldIcon } from "../bold";
-import { BinocularsDuotoneIcon } from "../duotone";
-import { BinocularsFillIcon } from "../fill";
-import { BinocularsLightIcon } from "../light";
-import { BinocularsRegularIcon } from "../regular";
-import { BinocularsThinIcon } from "../thin";
+import { BinocularsBoldIcon } from "../bold/binoculars-bold.icon";
+import { BinocularsDuotoneIcon } from "../duotone/binoculars-duotone.icon";
+import { BinocularsFillIcon } from "../fill/binoculars-fill.icon";
+import { BinocularsLightIcon } from "../light/binoculars-light.icon";
+import { BinocularsRegularIcon } from "../regular/binoculars-regular.icon";
+import { BinocularsThinIcon } from "../thin/binoculars-thin.icon";
 
 export const BinocularsIcon = memo(function Binoculars(
   props: IconWrapperProps,

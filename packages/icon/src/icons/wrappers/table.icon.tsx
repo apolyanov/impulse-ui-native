@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TableBoldIcon } from "../bold";
-import { TableDuotoneIcon } from "../duotone";
-import { TableFillIcon } from "../fill";
-import { TableLightIcon } from "../light";
-import { TableRegularIcon } from "../regular";
-import { TableThinIcon } from "../thin";
+import { TableBoldIcon } from "../bold/table-bold.icon";
+import { TableDuotoneIcon } from "../duotone/table-duotone.icon";
+import { TableFillIcon } from "../fill/table-fill.icon";
+import { TableLightIcon } from "../light/table-light.icon";
+import { TableRegularIcon } from "../regular/table-regular.icon";
+import { TableThinIcon } from "../thin/table-thin.icon";
 
 export const TableIcon = memo(function Table(props: IconWrapperProps) {
   const Icon = useMemo(() => {

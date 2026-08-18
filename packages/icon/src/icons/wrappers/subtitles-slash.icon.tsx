@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SubtitlesSlashBoldIcon } from "../bold";
-import { SubtitlesSlashDuotoneIcon } from "../duotone";
-import { SubtitlesSlashFillIcon } from "../fill";
-import { SubtitlesSlashLightIcon } from "../light";
-import { SubtitlesSlashRegularIcon } from "../regular";
-import { SubtitlesSlashThinIcon } from "../thin";
+import { SubtitlesSlashBoldIcon } from "../bold/subtitles-slash-bold.icon";
+import { SubtitlesSlashDuotoneIcon } from "../duotone/subtitles-slash-duotone.icon";
+import { SubtitlesSlashFillIcon } from "../fill/subtitles-slash-fill.icon";
+import { SubtitlesSlashLightIcon } from "../light/subtitles-slash-light.icon";
+import { SubtitlesSlashRegularIcon } from "../regular/subtitles-slash-regular.icon";
+import { SubtitlesSlashThinIcon } from "../thin/subtitles-slash-thin.icon";
 
 export const SubtitlesSlashIcon = memo(function SubtitlesSlash(
   props: IconWrapperProps,

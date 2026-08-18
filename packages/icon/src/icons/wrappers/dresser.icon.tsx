@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DresserBoldIcon } from "../bold";
-import { DresserDuotoneIcon } from "../duotone";
-import { DresserFillIcon } from "../fill";
-import { DresserLightIcon } from "../light";
-import { DresserRegularIcon } from "../regular";
-import { DresserThinIcon } from "../thin";
+import { DresserBoldIcon } from "../bold/dresser-bold.icon";
+import { DresserDuotoneIcon } from "../duotone/dresser-duotone.icon";
+import { DresserFillIcon } from "../fill/dresser-fill.icon";
+import { DresserLightIcon } from "../light/dresser-light.icon";
+import { DresserRegularIcon } from "../regular/dresser-regular.icon";
+import { DresserThinIcon } from "../thin/dresser-thin.icon";
 
 export const DresserIcon = memo(function Dresser(props: IconWrapperProps) {
   const Icon = useMemo(() => {

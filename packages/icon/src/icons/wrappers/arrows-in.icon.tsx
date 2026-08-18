@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowsInBoldIcon } from "../bold";
-import { ArrowsInDuotoneIcon } from "../duotone";
-import { ArrowsInFillIcon } from "../fill";
-import { ArrowsInLightIcon } from "../light";
-import { ArrowsInRegularIcon } from "../regular";
-import { ArrowsInThinIcon } from "../thin";
+import { ArrowsInBoldIcon } from "../bold/arrows-in-bold.icon";
+import { ArrowsInDuotoneIcon } from "../duotone/arrows-in-duotone.icon";
+import { ArrowsInFillIcon } from "../fill/arrows-in-fill.icon";
+import { ArrowsInLightIcon } from "../light/arrows-in-light.icon";
+import { ArrowsInRegularIcon } from "../regular/arrows-in-regular.icon";
+import { ArrowsInThinIcon } from "../thin/arrows-in-thin.icon";
 
 export const ArrowsInIcon = memo(function ArrowsIn(props: IconWrapperProps) {
   const Icon = useMemo(() => {

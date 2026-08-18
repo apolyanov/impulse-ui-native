@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BedBoldIcon } from "../bold";
-import { BedDuotoneIcon } from "../duotone";
-import { BedFillIcon } from "../fill";
-import { BedLightIcon } from "../light";
-import { BedRegularIcon } from "../regular";
-import { BedThinIcon } from "../thin";
+import { BedBoldIcon } from "../bold/bed-bold.icon";
+import { BedDuotoneIcon } from "../duotone/bed-duotone.icon";
+import { BedFillIcon } from "../fill/bed-fill.icon";
+import { BedLightIcon } from "../light/bed-light.icon";
+import { BedRegularIcon } from "../regular/bed-regular.icon";
+import { BedThinIcon } from "../thin/bed-thin.icon";
 
 export const BedIcon = memo(function Bed(props: IconWrapperProps) {
   const Icon = useMemo(() => {

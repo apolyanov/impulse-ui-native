@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TreeBoldIcon } from "../bold";
-import { TreeDuotoneIcon } from "../duotone";
-import { TreeFillIcon } from "../fill";
-import { TreeLightIcon } from "../light";
-import { TreeRegularIcon } from "../regular";
-import { TreeThinIcon } from "../thin";
+import { TreeBoldIcon } from "../bold/tree-bold.icon";
+import { TreeDuotoneIcon } from "../duotone/tree-duotone.icon";
+import { TreeFillIcon } from "../fill/tree-fill.icon";
+import { TreeLightIcon } from "../light/tree-light.icon";
+import { TreeRegularIcon } from "../regular/tree-regular.icon";
+import { TreeThinIcon } from "../thin/tree-thin.icon";
 
 export const TreeIcon = memo(function Tree(props: IconWrapperProps) {
   const Icon = useMemo(() => {

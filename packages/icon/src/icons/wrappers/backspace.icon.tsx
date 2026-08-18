@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BackspaceBoldIcon } from "../bold";
-import { BackspaceDuotoneIcon } from "../duotone";
-import { BackspaceFillIcon } from "../fill";
-import { BackspaceLightIcon } from "../light";
-import { BackspaceRegularIcon } from "../regular";
-import { BackspaceThinIcon } from "../thin";
+import { BackspaceBoldIcon } from "../bold/backspace-bold.icon";
+import { BackspaceDuotoneIcon } from "../duotone/backspace-duotone.icon";
+import { BackspaceFillIcon } from "../fill/backspace-fill.icon";
+import { BackspaceLightIcon } from "../light/backspace-light.icon";
+import { BackspaceRegularIcon } from "../regular/backspace-regular.icon";
+import { BackspaceThinIcon } from "../thin/backspace-thin.icon";
 
 export const BackspaceIcon = memo(function Backspace(props: IconWrapperProps) {
   const Icon = useMemo(() => {

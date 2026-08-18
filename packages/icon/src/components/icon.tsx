@@ -1,6 +1,6 @@
 import { memo, useMemo } from "react";
 
-import { IconProps } from "../types";
+import type { IconProps } from "../types";
 
 export const Icon = memo(function Icon({
   size = "medium",

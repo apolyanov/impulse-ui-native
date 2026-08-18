@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PlayCircleBoldIcon } from "../bold";
-import { PlayCircleDuotoneIcon } from "../duotone";
-import { PlayCircleFillIcon } from "../fill";
-import { PlayCircleLightIcon } from "../light";
-import { PlayCircleRegularIcon } from "../regular";
-import { PlayCircleThinIcon } from "../thin";
+import { PlayCircleBoldIcon } from "../bold/play-circle-bold.icon";
+import { PlayCircleDuotoneIcon } from "../duotone/play-circle-duotone.icon";
+import { PlayCircleFillIcon } from "../fill/play-circle-fill.icon";
+import { PlayCircleLightIcon } from "../light/play-circle-light.icon";
+import { PlayCircleRegularIcon } from "../regular/play-circle-regular.icon";
+import { PlayCircleThinIcon } from "../thin/play-circle-thin.icon";
 
 export const PlayCircleIcon = memo(function PlayCircle(
   props: IconWrapperProps,

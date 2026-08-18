@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MicroscopeBoldIcon } from "../bold";
-import { MicroscopeDuotoneIcon } from "../duotone";
-import { MicroscopeFillIcon } from "../fill";
-import { MicroscopeLightIcon } from "../light";
-import { MicroscopeRegularIcon } from "../regular";
-import { MicroscopeThinIcon } from "../thin";
+import { MicroscopeBoldIcon } from "../bold/microscope-bold.icon";
+import { MicroscopeDuotoneIcon } from "../duotone/microscope-duotone.icon";
+import { MicroscopeFillIcon } from "../fill/microscope-fill.icon";
+import { MicroscopeLightIcon } from "../light/microscope-light.icon";
+import { MicroscopeRegularIcon } from "../regular/microscope-regular.icon";
+import { MicroscopeThinIcon } from "../thin/microscope-thin.icon";
 
 export const MicroscopeIcon = memo(function Microscope(
   props: IconWrapperProps,

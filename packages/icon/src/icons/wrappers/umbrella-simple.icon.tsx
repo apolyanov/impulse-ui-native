@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { UmbrellaSimpleBoldIcon } from "../bold";
-import { UmbrellaSimpleDuotoneIcon } from "../duotone";
-import { UmbrellaSimpleFillIcon } from "../fill";
-import { UmbrellaSimpleLightIcon } from "../light";
-import { UmbrellaSimpleRegularIcon } from "../regular";
-import { UmbrellaSimpleThinIcon } from "../thin";
+import { UmbrellaSimpleBoldIcon } from "../bold/umbrella-simple-bold.icon";
+import { UmbrellaSimpleDuotoneIcon } from "../duotone/umbrella-simple-duotone.icon";
+import { UmbrellaSimpleFillIcon } from "../fill/umbrella-simple-fill.icon";
+import { UmbrellaSimpleLightIcon } from "../light/umbrella-simple-light.icon";
+import { UmbrellaSimpleRegularIcon } from "../regular/umbrella-simple-regular.icon";
+import { UmbrellaSimpleThinIcon } from "../thin/umbrella-simple-thin.icon";
 
 export const UmbrellaSimpleIcon = memo(function UmbrellaSimple(
   props: IconWrapperProps,

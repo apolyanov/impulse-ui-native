@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ScribbleBoldIcon } from "../bold";
-import { ScribbleDuotoneIcon } from "../duotone";
-import { ScribbleFillIcon } from "../fill";
-import { ScribbleLightIcon } from "../light";
-import { ScribbleRegularIcon } from "../regular";
-import { ScribbleThinIcon } from "../thin";
+import { ScribbleBoldIcon } from "../bold/scribble-bold.icon";
+import { ScribbleDuotoneIcon } from "../duotone/scribble-duotone.icon";
+import { ScribbleFillIcon } from "../fill/scribble-fill.icon";
+import { ScribbleLightIcon } from "../light/scribble-light.icon";
+import { ScribbleRegularIcon } from "../regular/scribble-regular.icon";
+import { ScribbleThinIcon } from "../thin/scribble-thin.icon";
 
 export const ScribbleIcon = memo(function Scribble(props: IconWrapperProps) {
   const Icon = useMemo(() => {

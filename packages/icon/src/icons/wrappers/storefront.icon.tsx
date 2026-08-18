@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StorefrontBoldIcon } from "../bold";
-import { StorefrontDuotoneIcon } from "../duotone";
-import { StorefrontFillIcon } from "../fill";
-import { StorefrontLightIcon } from "../light";
-import { StorefrontRegularIcon } from "../regular";
-import { StorefrontThinIcon } from "../thin";
+import { StorefrontBoldIcon } from "../bold/storefront-bold.icon";
+import { StorefrontDuotoneIcon } from "../duotone/storefront-duotone.icon";
+import { StorefrontFillIcon } from "../fill/storefront-fill.icon";
+import { StorefrontLightIcon } from "../light/storefront-light.icon";
+import { StorefrontRegularIcon } from "../regular/storefront-regular.icon";
+import { StorefrontThinIcon } from "../thin/storefront-thin.icon";
 
 export const StorefrontIcon = memo(function Storefront(
   props: IconWrapperProps,

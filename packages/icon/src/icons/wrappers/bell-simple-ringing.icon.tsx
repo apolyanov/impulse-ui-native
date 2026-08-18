@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BellSimpleRingingBoldIcon } from "../bold";
-import { BellSimpleRingingDuotoneIcon } from "../duotone";
-import { BellSimpleRingingFillIcon } from "../fill";
-import { BellSimpleRingingLightIcon } from "../light";
-import { BellSimpleRingingRegularIcon } from "../regular";
-import { BellSimpleRingingThinIcon } from "../thin";
+import { BellSimpleRingingBoldIcon } from "../bold/bell-simple-ringing-bold.icon";
+import { BellSimpleRingingDuotoneIcon } from "../duotone/bell-simple-ringing-duotone.icon";
+import { BellSimpleRingingFillIcon } from "../fill/bell-simple-ringing-fill.icon";
+import { BellSimpleRingingLightIcon } from "../light/bell-simple-ringing-light.icon";
+import { BellSimpleRingingRegularIcon } from "../regular/bell-simple-ringing-regular.icon";
+import { BellSimpleRingingThinIcon } from "../thin/bell-simple-ringing-thin.icon";
 
 export const BellSimpleRingingIcon = memo(function BellSimpleRinging(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BluetoothBoldIcon } from "../bold";
-import { BluetoothDuotoneIcon } from "../duotone";
-import { BluetoothFillIcon } from "../fill";
-import { BluetoothLightIcon } from "../light";
-import { BluetoothRegularIcon } from "../regular";
-import { BluetoothThinIcon } from "../thin";
+import { BluetoothBoldIcon } from "../bold/bluetooth-bold.icon";
+import { BluetoothDuotoneIcon } from "../duotone/bluetooth-duotone.icon";
+import { BluetoothFillIcon } from "../fill/bluetooth-fill.icon";
+import { BluetoothLightIcon } from "../light/bluetooth-light.icon";
+import { BluetoothRegularIcon } from "../regular/bluetooth-regular.icon";
+import { BluetoothThinIcon } from "../thin/bluetooth-thin.icon";
 
 export const BluetoothIcon = memo(function Bluetooth(props: IconWrapperProps) {
   const Icon = useMemo(() => {

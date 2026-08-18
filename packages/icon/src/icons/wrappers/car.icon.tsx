@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CarBoldIcon } from "../bold";
-import { CarDuotoneIcon } from "../duotone";
-import { CarFillIcon } from "../fill";
-import { CarLightIcon } from "../light";
-import { CarRegularIcon } from "../regular";
-import { CarThinIcon } from "../thin";
+import { CarBoldIcon } from "../bold/car-bold.icon";
+import { CarDuotoneIcon } from "../duotone/car-duotone.icon";
+import { CarFillIcon } from "../fill/car-fill.icon";
+import { CarLightIcon } from "../light/car-light.icon";
+import { CarRegularIcon } from "../regular/car-regular.icon";
+import { CarThinIcon } from "../thin/car-thin.icon";
 
 export const CarIcon = memo(function Car(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PlugBoldIcon } from "../bold";
-import { PlugDuotoneIcon } from "../duotone";
-import { PlugFillIcon } from "../fill";
-import { PlugLightIcon } from "../light";
-import { PlugRegularIcon } from "../regular";
-import { PlugThinIcon } from "../thin";
+import { PlugBoldIcon } from "../bold/plug-bold.icon";
+import { PlugDuotoneIcon } from "../duotone/plug-duotone.icon";
+import { PlugFillIcon } from "../fill/plug-fill.icon";
+import { PlugLightIcon } from "../light/plug-light.icon";
+import { PlugRegularIcon } from "../regular/plug-regular.icon";
+import { PlugThinIcon } from "../thin/plug-thin.icon";
 
 export const PlugIcon = memo(function Plug(props: IconWrapperProps) {
   const Icon = useMemo(() => {

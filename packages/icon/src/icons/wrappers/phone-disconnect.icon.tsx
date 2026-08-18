@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PhoneDisconnectBoldIcon } from "../bold";
-import { PhoneDisconnectDuotoneIcon } from "../duotone";
-import { PhoneDisconnectFillIcon } from "../fill";
-import { PhoneDisconnectLightIcon } from "../light";
-import { PhoneDisconnectRegularIcon } from "../regular";
-import { PhoneDisconnectThinIcon } from "../thin";
+import { PhoneDisconnectBoldIcon } from "../bold/phone-disconnect-bold.icon";
+import { PhoneDisconnectDuotoneIcon } from "../duotone/phone-disconnect-duotone.icon";
+import { PhoneDisconnectFillIcon } from "../fill/phone-disconnect-fill.icon";
+import { PhoneDisconnectLightIcon } from "../light/phone-disconnect-light.icon";
+import { PhoneDisconnectRegularIcon } from "../regular/phone-disconnect-regular.icon";
+import { PhoneDisconnectThinIcon } from "../thin/phone-disconnect-thin.icon";
 
 export const PhoneDisconnectIcon = memo(function PhoneDisconnect(
   props: IconWrapperProps,

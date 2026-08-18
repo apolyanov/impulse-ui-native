@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TextTBoldIcon } from "../bold";
-import { TextTDuotoneIcon } from "../duotone";
-import { TextTFillIcon } from "../fill";
-import { TextTLightIcon } from "../light";
-import { TextTRegularIcon } from "../regular";
-import { TextTThinIcon } from "../thin";
+import { TextTBoldIcon } from "../bold/text-t-bold.icon";
+import { TextTDuotoneIcon } from "../duotone/text-t-duotone.icon";
+import { TextTFillIcon } from "../fill/text-t-fill.icon";
+import { TextTLightIcon } from "../light/text-t-light.icon";
+import { TextTRegularIcon } from "../regular/text-t-regular.icon";
+import { TextTThinIcon } from "../thin/text-t-thin.icon";
 
 export const TextTIcon = memo(function TextT(props: IconWrapperProps) {
   const Icon = useMemo(() => {

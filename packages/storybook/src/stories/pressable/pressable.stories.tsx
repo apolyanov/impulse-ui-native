@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Pressable } from "@impulse-ui-native/primitives";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
-import { Pressable } from "@impulse-ui-native/toolkit";
 
 import { PressableDocumentation } from "./pressable.documentation";
 import {

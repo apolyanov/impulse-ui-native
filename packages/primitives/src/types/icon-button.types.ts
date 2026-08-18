@@ -1,4 +1,4 @@
-import { IconProps } from "@impulse-ui-native/icon";
+import type { IconProps } from "@impulse-ui-native/icon/types";
 import { ComponentSize, ComponentVariant } from "@impulse-ui-native/theme";
 
 import { ButtonProps } from "./button.types";

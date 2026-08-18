@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PinterestLogoBoldIcon } from "../bold";
-import { PinterestLogoDuotoneIcon } from "../duotone";
-import { PinterestLogoFillIcon } from "../fill";
-import { PinterestLogoLightIcon } from "../light";
-import { PinterestLogoRegularIcon } from "../regular";
-import { PinterestLogoThinIcon } from "../thin";
+import { PinterestLogoBoldIcon } from "../bold/pinterest-logo-bold.icon";
+import { PinterestLogoDuotoneIcon } from "../duotone/pinterest-logo-duotone.icon";
+import { PinterestLogoFillIcon } from "../fill/pinterest-logo-fill.icon";
+import { PinterestLogoLightIcon } from "../light/pinterest-logo-light.icon";
+import { PinterestLogoRegularIcon } from "../regular/pinterest-logo-regular.icon";
+import { PinterestLogoThinIcon } from "../thin/pinterest-logo-thin.icon";
 
 export const PinterestLogoIcon = memo(function PinterestLogo(
   props: IconWrapperProps,

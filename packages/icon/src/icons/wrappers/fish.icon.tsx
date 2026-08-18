@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FishBoldIcon } from "../bold";
-import { FishDuotoneIcon } from "../duotone";
-import { FishFillIcon } from "../fill";
-import { FishLightIcon } from "../light";
-import { FishRegularIcon } from "../regular";
-import { FishThinIcon } from "../thin";
+import { FishBoldIcon } from "../bold/fish-bold.icon";
+import { FishDuotoneIcon } from "../duotone/fish-duotone.icon";
+import { FishFillIcon } from "../fill/fish-fill.icon";
+import { FishLightIcon } from "../light/fish-light.icon";
+import { FishRegularIcon } from "../regular/fish-regular.icon";
+import { FishThinIcon } from "../thin/fish-thin.icon";
 
 export const FishIcon = memo(function Fish(props: IconWrapperProps) {
   const Icon = useMemo(() => {

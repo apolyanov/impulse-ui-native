@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SelectionAllBoldIcon } from "../bold";
-import { SelectionAllDuotoneIcon } from "../duotone";
-import { SelectionAllFillIcon } from "../fill";
-import { SelectionAllLightIcon } from "../light";
-import { SelectionAllRegularIcon } from "../regular";
-import { SelectionAllThinIcon } from "../thin";
+import { SelectionAllBoldIcon } from "../bold/selection-all-bold.icon";
+import { SelectionAllDuotoneIcon } from "../duotone/selection-all-duotone.icon";
+import { SelectionAllFillIcon } from "../fill/selection-all-fill.icon";
+import { SelectionAllLightIcon } from "../light/selection-all-light.icon";
+import { SelectionAllRegularIcon } from "../regular/selection-all-regular.icon";
+import { SelectionAllThinIcon } from "../thin/selection-all-thin.icon";
 
 export const SelectionAllIcon = memo(function SelectionAll(
   props: IconWrapperProps,

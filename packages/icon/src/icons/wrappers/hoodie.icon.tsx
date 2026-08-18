@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HoodieBoldIcon } from "../bold";
-import { HoodieDuotoneIcon } from "../duotone";
-import { HoodieFillIcon } from "../fill";
-import { HoodieLightIcon } from "../light";
-import { HoodieRegularIcon } from "../regular";
-import { HoodieThinIcon } from "../thin";
+import { HoodieBoldIcon } from "../bold/hoodie-bold.icon";
+import { HoodieDuotoneIcon } from "../duotone/hoodie-duotone.icon";
+import { HoodieFillIcon } from "../fill/hoodie-fill.icon";
+import { HoodieLightIcon } from "../light/hoodie-light.icon";
+import { HoodieRegularIcon } from "../regular/hoodie-regular.icon";
+import { HoodieThinIcon } from "../thin/hoodie-thin.icon";
 
 export const HoodieIcon = memo(function Hoodie(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GraphBoldIcon } from "../bold";
-import { GraphDuotoneIcon } from "../duotone";
-import { GraphFillIcon } from "../fill";
-import { GraphLightIcon } from "../light";
-import { GraphRegularIcon } from "../regular";
-import { GraphThinIcon } from "../thin";
+import { GraphBoldIcon } from "../bold/graph-bold.icon";
+import { GraphDuotoneIcon } from "../duotone/graph-duotone.icon";
+import { GraphFillIcon } from "../fill/graph-fill.icon";
+import { GraphLightIcon } from "../light/graph-light.icon";
+import { GraphRegularIcon } from "../regular/graph-regular.icon";
+import { GraphThinIcon } from "../thin/graph-thin.icon";
 
 export const GraphIcon = memo(function Graph(props: IconWrapperProps) {
   const Icon = useMemo(() => {

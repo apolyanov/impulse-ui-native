@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CloudArrowUpBoldIcon } from "../bold";
-import { CloudArrowUpDuotoneIcon } from "../duotone";
-import { CloudArrowUpFillIcon } from "../fill";
-import { CloudArrowUpLightIcon } from "../light";
-import { CloudArrowUpRegularIcon } from "../regular";
-import { CloudArrowUpThinIcon } from "../thin";
+import { CloudArrowUpBoldIcon } from "../bold/cloud-arrow-up-bold.icon";
+import { CloudArrowUpDuotoneIcon } from "../duotone/cloud-arrow-up-duotone.icon";
+import { CloudArrowUpFillIcon } from "../fill/cloud-arrow-up-fill.icon";
+import { CloudArrowUpLightIcon } from "../light/cloud-arrow-up-light.icon";
+import { CloudArrowUpRegularIcon } from "../regular/cloud-arrow-up-regular.icon";
+import { CloudArrowUpThinIcon } from "../thin/cloud-arrow-up-thin.icon";
 
 export const CloudArrowUpIcon = memo(function CloudArrowUp(
   props: IconWrapperProps,

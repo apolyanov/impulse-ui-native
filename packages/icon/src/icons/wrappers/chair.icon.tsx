@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChairBoldIcon } from "../bold";
-import { ChairDuotoneIcon } from "../duotone";
-import { ChairFillIcon } from "../fill";
-import { ChairLightIcon } from "../light";
-import { ChairRegularIcon } from "../regular";
-import { ChairThinIcon } from "../thin";
+import { ChairBoldIcon } from "../bold/chair-bold.icon";
+import { ChairDuotoneIcon } from "../duotone/chair-duotone.icon";
+import { ChairFillIcon } from "../fill/chair-fill.icon";
+import { ChairLightIcon } from "../light/chair-light.icon";
+import { ChairRegularIcon } from "../regular/chair-regular.icon";
+import { ChairThinIcon } from "../thin/chair-thin.icon";
 
 export const ChairIcon = memo(function Chair(props: IconWrapperProps) {
   const Icon = useMemo(() => {

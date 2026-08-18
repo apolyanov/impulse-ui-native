@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PresentationChartBoldIcon } from "../bold";
-import { PresentationChartDuotoneIcon } from "../duotone";
-import { PresentationChartFillIcon } from "../fill";
-import { PresentationChartLightIcon } from "../light";
-import { PresentationChartRegularIcon } from "../regular";
-import { PresentationChartThinIcon } from "../thin";
+import { PresentationChartBoldIcon } from "../bold/presentation-chart-bold.icon";
+import { PresentationChartDuotoneIcon } from "../duotone/presentation-chart-duotone.icon";
+import { PresentationChartFillIcon } from "../fill/presentation-chart-fill.icon";
+import { PresentationChartLightIcon } from "../light/presentation-chart-light.icon";
+import { PresentationChartRegularIcon } from "../regular/presentation-chart-regular.icon";
+import { PresentationChartThinIcon } from "../thin/presentation-chart-thin.icon";
 
 export const PresentationChartIcon = memo(function PresentationChart(
   props: IconWrapperProps,

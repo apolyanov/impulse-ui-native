@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WifiMediumBoldIcon } from "../bold";
-import { WifiMediumDuotoneIcon } from "../duotone";
-import { WifiMediumFillIcon } from "../fill";
-import { WifiMediumLightIcon } from "../light";
-import { WifiMediumRegularIcon } from "../regular";
-import { WifiMediumThinIcon } from "../thin";
+import { WifiMediumBoldIcon } from "../bold/wifi-medium-bold.icon";
+import { WifiMediumDuotoneIcon } from "../duotone/wifi-medium-duotone.icon";
+import { WifiMediumFillIcon } from "../fill/wifi-medium-fill.icon";
+import { WifiMediumLightIcon } from "../light/wifi-medium-light.icon";
+import { WifiMediumRegularIcon } from "../regular/wifi-medium-regular.icon";
+import { WifiMediumThinIcon } from "../thin/wifi-medium-thin.icon";
 
 export const WifiMediumIcon = memo(function WifiMedium(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HashBoldIcon } from "../bold";
-import { HashDuotoneIcon } from "../duotone";
-import { HashFillIcon } from "../fill";
-import { HashLightIcon } from "../light";
-import { HashRegularIcon } from "../regular";
-import { HashThinIcon } from "../thin";
+import { HashBoldIcon } from "../bold/hash-bold.icon";
+import { HashDuotoneIcon } from "../duotone/hash-duotone.icon";
+import { HashFillIcon } from "../fill/hash-fill.icon";
+import { HashLightIcon } from "../light/hash-light.icon";
+import { HashRegularIcon } from "../regular/hash-regular.icon";
+import { HashThinIcon } from "../thin/hash-thin.icon";
 
 export const HashIcon = memo(function Hash(props: IconWrapperProps) {
   const Icon = useMemo(() => {

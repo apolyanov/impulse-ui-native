@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DotsThreeBoldIcon } from "../bold";
-import { DotsThreeDuotoneIcon } from "../duotone";
-import { DotsThreeFillIcon } from "../fill";
-import { DotsThreeLightIcon } from "../light";
-import { DotsThreeRegularIcon } from "../regular";
-import { DotsThreeThinIcon } from "../thin";
+import { DotsThreeBoldIcon } from "../bold/dots-three-bold.icon";
+import { DotsThreeDuotoneIcon } from "../duotone/dots-three-duotone.icon";
+import { DotsThreeFillIcon } from "../fill/dots-three-fill.icon";
+import { DotsThreeLightIcon } from "../light/dots-three-light.icon";
+import { DotsThreeRegularIcon } from "../regular/dots-three-regular.icon";
+import { DotsThreeThinIcon } from "../thin/dots-three-thin.icon";
 
 export const DotsThreeIcon = memo(function DotsThree(props: IconWrapperProps) {
   const Icon = useMemo(() => {

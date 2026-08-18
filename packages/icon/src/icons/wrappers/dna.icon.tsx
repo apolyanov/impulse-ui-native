@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DnaBoldIcon } from "../bold";
-import { DnaDuotoneIcon } from "../duotone";
-import { DnaFillIcon } from "../fill";
-import { DnaLightIcon } from "../light";
-import { DnaRegularIcon } from "../regular";
-import { DnaThinIcon } from "../thin";
+import { DnaBoldIcon } from "../bold/dna-bold.icon";
+import { DnaDuotoneIcon } from "../duotone/dna-duotone.icon";
+import { DnaFillIcon } from "../fill/dna-fill.icon";
+import { DnaLightIcon } from "../light/dna-light.icon";
+import { DnaRegularIcon } from "../regular/dna-regular.icon";
+import { DnaThinIcon } from "../thin/dna-thin.icon";
 
 export const DnaIcon = memo(function Dna(props: IconWrapperProps) {
   const Icon = useMemo(() => {

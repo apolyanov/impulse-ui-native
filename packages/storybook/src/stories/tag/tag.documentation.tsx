@@ -1,4 +1,4 @@
-import { View } from "@impulse-ui-native/toolkit";
+import { View } from "@impulse-ui-native/primitives";
 
 import { StoryDocumentationPage } from "../../components/story-documentation-page";
 import { TagExample, TagExampleDefinitions } from "./tag.examples";

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { IdentificationBadgeBoldIcon } from "../bold";
-import { IdentificationBadgeDuotoneIcon } from "../duotone";
-import { IdentificationBadgeFillIcon } from "../fill";
-import { IdentificationBadgeLightIcon } from "../light";
-import { IdentificationBadgeRegularIcon } from "../regular";
-import { IdentificationBadgeThinIcon } from "../thin";
+import { IdentificationBadgeBoldIcon } from "../bold/identification-badge-bold.icon";
+import { IdentificationBadgeDuotoneIcon } from "../duotone/identification-badge-duotone.icon";
+import { IdentificationBadgeFillIcon } from "../fill/identification-badge-fill.icon";
+import { IdentificationBadgeLightIcon } from "../light/identification-badge-light.icon";
+import { IdentificationBadgeRegularIcon } from "../regular/identification-badge-regular.icon";
+import { IdentificationBadgeThinIcon } from "../thin/identification-badge-thin.icon";
 
 export const IdentificationBadgeIcon = memo(function IdentificationBadge(
   props: IconWrapperProps,

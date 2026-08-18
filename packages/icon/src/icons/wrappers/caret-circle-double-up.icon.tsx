@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CaretCircleDoubleUpBoldIcon } from "../bold";
-import { CaretCircleDoubleUpDuotoneIcon } from "../duotone";
-import { CaretCircleDoubleUpFillIcon } from "../fill";
-import { CaretCircleDoubleUpLightIcon } from "../light";
-import { CaretCircleDoubleUpRegularIcon } from "../regular";
-import { CaretCircleDoubleUpThinIcon } from "../thin";
+import { CaretCircleDoubleUpBoldIcon } from "../bold/caret-circle-double-up-bold.icon";
+import { CaretCircleDoubleUpDuotoneIcon } from "../duotone/caret-circle-double-up-duotone.icon";
+import { CaretCircleDoubleUpFillIcon } from "../fill/caret-circle-double-up-fill.icon";
+import { CaretCircleDoubleUpLightIcon } from "../light/caret-circle-double-up-light.icon";
+import { CaretCircleDoubleUpRegularIcon } from "../regular/caret-circle-double-up-regular.icon";
+import { CaretCircleDoubleUpThinIcon } from "../thin/caret-circle-double-up-thin.icon";
 
 export const CaretCircleDoubleUpIcon = memo(function CaretCircleDoubleUp(
   props: IconWrapperProps,

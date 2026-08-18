@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { UniteBoldIcon } from "../bold";
-import { UniteDuotoneIcon } from "../duotone";
-import { UniteFillIcon } from "../fill";
-import { UniteLightIcon } from "../light";
-import { UniteRegularIcon } from "../regular";
-import { UniteThinIcon } from "../thin";
+import { UniteBoldIcon } from "../bold/unite-bold.icon";
+import { UniteDuotoneIcon } from "../duotone/unite-duotone.icon";
+import { UniteFillIcon } from "../fill/unite-fill.icon";
+import { UniteLightIcon } from "../light/unite-light.icon";
+import { UniteRegularIcon } from "../regular/unite-regular.icon";
+import { UniteThinIcon } from "../thin/unite-thin.icon";
 
 export const UniteIcon = memo(function Unite(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NotepadBoldIcon } from "../bold";
-import { NotepadDuotoneIcon } from "../duotone";
-import { NotepadFillIcon } from "../fill";
-import { NotepadLightIcon } from "../light";
-import { NotepadRegularIcon } from "../regular";
-import { NotepadThinIcon } from "../thin";
+import { NotepadBoldIcon } from "../bold/notepad-bold.icon";
+import { NotepadDuotoneIcon } from "../duotone/notepad-duotone.icon";
+import { NotepadFillIcon } from "../fill/notepad-fill.icon";
+import { NotepadLightIcon } from "../light/notepad-light.icon";
+import { NotepadRegularIcon } from "../regular/notepad-regular.icon";
+import { NotepadThinIcon } from "../thin/notepad-thin.icon";
 
 export const NotepadIcon = memo(function Notepad(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NotchesBoldIcon } from "../bold";
-import { NotchesDuotoneIcon } from "../duotone";
-import { NotchesFillIcon } from "../fill";
-import { NotchesLightIcon } from "../light";
-import { NotchesRegularIcon } from "../regular";
-import { NotchesThinIcon } from "../thin";
+import { NotchesBoldIcon } from "../bold/notches-bold.icon";
+import { NotchesDuotoneIcon } from "../duotone/notches-duotone.icon";
+import { NotchesFillIcon } from "../fill/notches-fill.icon";
+import { NotchesLightIcon } from "../light/notches-light.icon";
+import { NotchesRegularIcon } from "../regular/notches-regular.icon";
+import { NotchesThinIcon } from "../thin/notches-thin.icon";
 
 export const NotchesIcon = memo(function Notches(props: IconWrapperProps) {
   const Icon = useMemo(() => {

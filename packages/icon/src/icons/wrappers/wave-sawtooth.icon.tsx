@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WaveSawtoothBoldIcon } from "../bold";
-import { WaveSawtoothDuotoneIcon } from "../duotone";
-import { WaveSawtoothFillIcon } from "../fill";
-import { WaveSawtoothLightIcon } from "../light";
-import { WaveSawtoothRegularIcon } from "../regular";
-import { WaveSawtoothThinIcon } from "../thin";
+import { WaveSawtoothBoldIcon } from "../bold/wave-sawtooth-bold.icon";
+import { WaveSawtoothDuotoneIcon } from "../duotone/wave-sawtooth-duotone.icon";
+import { WaveSawtoothFillIcon } from "../fill/wave-sawtooth-fill.icon";
+import { WaveSawtoothLightIcon } from "../light/wave-sawtooth-light.icon";
+import { WaveSawtoothRegularIcon } from "../regular/wave-sawtooth-regular.icon";
+import { WaveSawtoothThinIcon } from "../thin/wave-sawtooth-thin.icon";
 
 export const WaveSawtoothIcon = memo(function WaveSawtooth(
   props: IconWrapperProps,

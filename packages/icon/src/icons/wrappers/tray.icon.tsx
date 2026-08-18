@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrayBoldIcon } from "../bold";
-import { TrayDuotoneIcon } from "../duotone";
-import { TrayFillIcon } from "../fill";
-import { TrayLightIcon } from "../light";
-import { TrayRegularIcon } from "../regular";
-import { TrayThinIcon } from "../thin";
+import { TrayBoldIcon } from "../bold/tray-bold.icon";
+import { TrayDuotoneIcon } from "../duotone/tray-duotone.icon";
+import { TrayFillIcon } from "../fill/tray-fill.icon";
+import { TrayLightIcon } from "../light/tray-light.icon";
+import { TrayRegularIcon } from "../regular/tray-regular.icon";
+import { TrayThinIcon } from "../thin/tray-thin.icon";
 
 export const TrayIcon = memo(function Tray(props: IconWrapperProps) {
   const Icon = useMemo(() => {

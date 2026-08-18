@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PlugsConnectedBoldIcon } from "../bold";
-import { PlugsConnectedDuotoneIcon } from "../duotone";
-import { PlugsConnectedFillIcon } from "../fill";
-import { PlugsConnectedLightIcon } from "../light";
-import { PlugsConnectedRegularIcon } from "../regular";
-import { PlugsConnectedThinIcon } from "../thin";
+import { PlugsConnectedBoldIcon } from "../bold/plugs-connected-bold.icon";
+import { PlugsConnectedDuotoneIcon } from "../duotone/plugs-connected-duotone.icon";
+import { PlugsConnectedFillIcon } from "../fill/plugs-connected-fill.icon";
+import { PlugsConnectedLightIcon } from "../light/plugs-connected-light.icon";
+import { PlugsConnectedRegularIcon } from "../regular/plugs-connected-regular.icon";
+import { PlugsConnectedThinIcon } from "../thin/plugs-connected-thin.icon";
 
 export const PlugsConnectedIcon = memo(function PlugsConnected(
   props: IconWrapperProps,

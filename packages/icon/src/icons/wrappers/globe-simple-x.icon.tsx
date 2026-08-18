@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GlobeSimpleXBoldIcon } from "../bold";
-import { GlobeSimpleXDuotoneIcon } from "../duotone";
-import { GlobeSimpleXFillIcon } from "../fill";
-import { GlobeSimpleXLightIcon } from "../light";
-import { GlobeSimpleXRegularIcon } from "../regular";
-import { GlobeSimpleXThinIcon } from "../thin";
+import { GlobeSimpleXBoldIcon } from "../bold/globe-simple-x-bold.icon";
+import { GlobeSimpleXDuotoneIcon } from "../duotone/globe-simple-x-duotone.icon";
+import { GlobeSimpleXFillIcon } from "../fill/globe-simple-x-fill.icon";
+import { GlobeSimpleXLightIcon } from "../light/globe-simple-x-light.icon";
+import { GlobeSimpleXRegularIcon } from "../regular/globe-simple-x-regular.icon";
+import { GlobeSimpleXThinIcon } from "../thin/globe-simple-x-thin.icon";
 
 export const GlobeSimpleXIcon = memo(function GlobeSimpleX(
   props: IconWrapperProps,

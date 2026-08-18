@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CameraPlusBoldIcon } from "../bold";
-import { CameraPlusDuotoneIcon } from "../duotone";
-import { CameraPlusFillIcon } from "../fill";
-import { CameraPlusLightIcon } from "../light";
-import { CameraPlusRegularIcon } from "../regular";
-import { CameraPlusThinIcon } from "../thin";
+import { CameraPlusBoldIcon } from "../bold/camera-plus-bold.icon";
+import { CameraPlusDuotoneIcon } from "../duotone/camera-plus-duotone.icon";
+import { CameraPlusFillIcon } from "../fill/camera-plus-fill.icon";
+import { CameraPlusLightIcon } from "../light/camera-plus-light.icon";
+import { CameraPlusRegularIcon } from "../regular/camera-plus-regular.icon";
+import { CameraPlusThinIcon } from "../thin/camera-plus-thin.icon";
 
 export const CameraPlusIcon = memo(function CameraPlus(
   props: IconWrapperProps,

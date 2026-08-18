@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandArrowUpBoldIcon } from "../bold";
-import { HandArrowUpDuotoneIcon } from "../duotone";
-import { HandArrowUpFillIcon } from "../fill";
-import { HandArrowUpLightIcon } from "../light";
-import { HandArrowUpRegularIcon } from "../regular";
-import { HandArrowUpThinIcon } from "../thin";
+import { HandArrowUpBoldIcon } from "../bold/hand-arrow-up-bold.icon";
+import { HandArrowUpDuotoneIcon } from "../duotone/hand-arrow-up-duotone.icon";
+import { HandArrowUpFillIcon } from "../fill/hand-arrow-up-fill.icon";
+import { HandArrowUpLightIcon } from "../light/hand-arrow-up-light.icon";
+import { HandArrowUpRegularIcon } from "../regular/hand-arrow-up-regular.icon";
+import { HandArrowUpThinIcon } from "../thin/hand-arrow-up-thin.icon";
 
 export const HandArrowUpIcon = memo(function HandArrowUp(
   props: IconWrapperProps,

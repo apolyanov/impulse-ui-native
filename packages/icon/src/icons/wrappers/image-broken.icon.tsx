@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ImageBrokenBoldIcon } from "../bold";
-import { ImageBrokenDuotoneIcon } from "../duotone";
-import { ImageBrokenFillIcon } from "../fill";
-import { ImageBrokenLightIcon } from "../light";
-import { ImageBrokenRegularIcon } from "../regular";
-import { ImageBrokenThinIcon } from "../thin";
+import { ImageBrokenBoldIcon } from "../bold/image-broken-bold.icon";
+import { ImageBrokenDuotoneIcon } from "../duotone/image-broken-duotone.icon";
+import { ImageBrokenFillIcon } from "../fill/image-broken-fill.icon";
+import { ImageBrokenLightIcon } from "../light/image-broken-light.icon";
+import { ImageBrokenRegularIcon } from "../regular/image-broken-regular.icon";
+import { ImageBrokenThinIcon } from "../thin/image-broken-thin.icon";
 
 export const ImageBrokenIcon = memo(function ImageBroken(
   props: IconWrapperProps,

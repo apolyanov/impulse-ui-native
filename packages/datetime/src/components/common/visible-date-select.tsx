@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from "react";
 
-import { CalendarDotsIcon } from "@impulse-ui-native/icon";
+import { CalendarDotsIcon } from "@impulse-ui-native/icon/icons/calendar-dots";
 import { View } from "@impulse-ui-native/primitives";
 import { Select, SelectOption } from "@impulse-ui-native/select";
 import { useComponentsTokens } from "@impulse-ui-native/theme";

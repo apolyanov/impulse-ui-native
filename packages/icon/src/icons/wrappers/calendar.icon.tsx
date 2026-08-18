@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CalendarBoldIcon } from "../bold";
-import { CalendarDuotoneIcon } from "../duotone";
-import { CalendarFillIcon } from "../fill";
-import { CalendarLightIcon } from "../light";
-import { CalendarRegularIcon } from "../regular";
-import { CalendarThinIcon } from "../thin";
+import { CalendarBoldIcon } from "../bold/calendar-bold.icon";
+import { CalendarDuotoneIcon } from "../duotone/calendar-duotone.icon";
+import { CalendarFillIcon } from "../fill/calendar-fill.icon";
+import { CalendarLightIcon } from "../light/calendar-light.icon";
+import { CalendarRegularIcon } from "../regular/calendar-regular.icon";
+import { CalendarThinIcon } from "../thin/calendar-thin.icon";
 
 export const CalendarIcon = memo(function Calendar(props: IconWrapperProps) {
   const Icon = useMemo(() => {

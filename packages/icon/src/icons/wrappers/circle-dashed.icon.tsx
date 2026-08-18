@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CircleDashedBoldIcon } from "../bold";
-import { CircleDashedDuotoneIcon } from "../duotone";
-import { CircleDashedFillIcon } from "../fill";
-import { CircleDashedLightIcon } from "../light";
-import { CircleDashedRegularIcon } from "../regular";
-import { CircleDashedThinIcon } from "../thin";
+import { CircleDashedBoldIcon } from "../bold/circle-dashed-bold.icon";
+import { CircleDashedDuotoneIcon } from "../duotone/circle-dashed-duotone.icon";
+import { CircleDashedFillIcon } from "../fill/circle-dashed-fill.icon";
+import { CircleDashedLightIcon } from "../light/circle-dashed-light.icon";
+import { CircleDashedRegularIcon } from "../regular/circle-dashed-regular.icon";
+import { CircleDashedThinIcon } from "../thin/circle-dashed-thin.icon";
 
 export const CircleDashedIcon = memo(function CircleDashed(
   props: IconWrapperProps,

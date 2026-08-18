@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CodeBlockBoldIcon } from "../bold";
-import { CodeBlockDuotoneIcon } from "../duotone";
-import { CodeBlockFillIcon } from "../fill";
-import { CodeBlockLightIcon } from "../light";
-import { CodeBlockRegularIcon } from "../regular";
-import { CodeBlockThinIcon } from "../thin";
+import { CodeBlockBoldIcon } from "../bold/code-block-bold.icon";
+import { CodeBlockDuotoneIcon } from "../duotone/code-block-duotone.icon";
+import { CodeBlockFillIcon } from "../fill/code-block-fill.icon";
+import { CodeBlockLightIcon } from "../light/code-block-light.icon";
+import { CodeBlockRegularIcon } from "../regular/code-block-regular.icon";
+import { CodeBlockThinIcon } from "../thin/code-block-thin.icon";
 
 export const CodeBlockIcon = memo(function CodeBlock(props: IconWrapperProps) {
   const Icon = useMemo(() => {

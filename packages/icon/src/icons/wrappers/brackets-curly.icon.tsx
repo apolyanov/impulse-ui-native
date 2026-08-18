@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BracketsCurlyBoldIcon } from "../bold";
-import { BracketsCurlyDuotoneIcon } from "../duotone";
-import { BracketsCurlyFillIcon } from "../fill";
-import { BracketsCurlyLightIcon } from "../light";
-import { BracketsCurlyRegularIcon } from "../regular";
-import { BracketsCurlyThinIcon } from "../thin";
+import { BracketsCurlyBoldIcon } from "../bold/brackets-curly-bold.icon";
+import { BracketsCurlyDuotoneIcon } from "../duotone/brackets-curly-duotone.icon";
+import { BracketsCurlyFillIcon } from "../fill/brackets-curly-fill.icon";
+import { BracketsCurlyLightIcon } from "../light/brackets-curly-light.icon";
+import { BracketsCurlyRegularIcon } from "../regular/brackets-curly-regular.icon";
+import { BracketsCurlyThinIcon } from "../thin/brackets-curly-thin.icon";
 
 export const BracketsCurlyIcon = memo(function BracketsCurly(
   props: IconWrapperProps,

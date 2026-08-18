@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CherriesBoldIcon } from "../bold";
-import { CherriesDuotoneIcon } from "../duotone";
-import { CherriesFillIcon } from "../fill";
-import { CherriesLightIcon } from "../light";
-import { CherriesRegularIcon } from "../regular";
-import { CherriesThinIcon } from "../thin";
+import { CherriesBoldIcon } from "../bold/cherries-bold.icon";
+import { CherriesDuotoneIcon } from "../duotone/cherries-duotone.icon";
+import { CherriesFillIcon } from "../fill/cherries-fill.icon";
+import { CherriesLightIcon } from "../light/cherries-light.icon";
+import { CherriesRegularIcon } from "../regular/cherries-regular.icon";
+import { CherriesThinIcon } from "../thin/cherries-thin.icon";
 
 export const CherriesIcon = memo(function Cherries(props: IconWrapperProps) {
   const Icon = useMemo(() => {

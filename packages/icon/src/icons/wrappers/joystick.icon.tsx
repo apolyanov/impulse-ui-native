@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { JoystickBoldIcon } from "../bold";
-import { JoystickDuotoneIcon } from "../duotone";
-import { JoystickFillIcon } from "../fill";
-import { JoystickLightIcon } from "../light";
-import { JoystickRegularIcon } from "../regular";
-import { JoystickThinIcon } from "../thin";
+import { JoystickBoldIcon } from "../bold/joystick-bold.icon";
+import { JoystickDuotoneIcon } from "../duotone/joystick-duotone.icon";
+import { JoystickFillIcon } from "../fill/joystick-fill.icon";
+import { JoystickLightIcon } from "../light/joystick-light.icon";
+import { JoystickRegularIcon } from "../regular/joystick-regular.icon";
+import { JoystickThinIcon } from "../thin/joystick-thin.icon";
 
 export const JoystickIcon = memo(function Joystick(props: IconWrapperProps) {
   const Icon = useMemo(() => {

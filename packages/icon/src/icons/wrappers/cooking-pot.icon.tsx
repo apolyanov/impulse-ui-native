@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CookingPotBoldIcon } from "../bold";
-import { CookingPotDuotoneIcon } from "../duotone";
-import { CookingPotFillIcon } from "../fill";
-import { CookingPotLightIcon } from "../light";
-import { CookingPotRegularIcon } from "../regular";
-import { CookingPotThinIcon } from "../thin";
+import { CookingPotBoldIcon } from "../bold/cooking-pot-bold.icon";
+import { CookingPotDuotoneIcon } from "../duotone/cooking-pot-duotone.icon";
+import { CookingPotFillIcon } from "../fill/cooking-pot-fill.icon";
+import { CookingPotLightIcon } from "../light/cooking-pot-light.icon";
+import { CookingPotRegularIcon } from "../regular/cooking-pot-regular.icon";
+import { CookingPotThinIcon } from "../thin/cooking-pot-thin.icon";
 
 export const CookingPotIcon = memo(function CookingPot(
   props: IconWrapperProps,

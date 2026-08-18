@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TextHFiveBoldIcon } from "../bold";
-import { TextHFiveDuotoneIcon } from "../duotone";
-import { TextHFiveFillIcon } from "../fill";
-import { TextHFiveLightIcon } from "../light";
-import { TextHFiveRegularIcon } from "../regular";
-import { TextHFiveThinIcon } from "../thin";
+import { TextHFiveBoldIcon } from "../bold/text-h-five-bold.icon";
+import { TextHFiveDuotoneIcon } from "../duotone/text-h-five-duotone.icon";
+import { TextHFiveFillIcon } from "../fill/text-h-five-fill.icon";
+import { TextHFiveLightIcon } from "../light/text-h-five-light.icon";
+import { TextHFiveRegularIcon } from "../regular/text-h-five-regular.icon";
+import { TextHFiveThinIcon } from "../thin/text-h-five-thin.icon";
 
 export const TextHFiveIcon = memo(function TextHFive(props: IconWrapperProps) {
   const Icon = useMemo(() => {

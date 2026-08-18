@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { UserFocusBoldIcon } from "../bold";
-import { UserFocusDuotoneIcon } from "../duotone";
-import { UserFocusFillIcon } from "../fill";
-import { UserFocusLightIcon } from "../light";
-import { UserFocusRegularIcon } from "../regular";
-import { UserFocusThinIcon } from "../thin";
+import { UserFocusBoldIcon } from "../bold/user-focus-bold.icon";
+import { UserFocusDuotoneIcon } from "../duotone/user-focus-duotone.icon";
+import { UserFocusFillIcon } from "../fill/user-focus-fill.icon";
+import { UserFocusLightIcon } from "../light/user-focus-light.icon";
+import { UserFocusRegularIcon } from "../regular/user-focus-regular.icon";
+import { UserFocusThinIcon } from "../thin/user-focus-thin.icon";
 
 export const UserFocusIcon = memo(function UserFocus(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArmchairBoldIcon } from "../bold";
-import { ArmchairDuotoneIcon } from "../duotone";
-import { ArmchairFillIcon } from "../fill";
-import { ArmchairLightIcon } from "../light";
-import { ArmchairRegularIcon } from "../regular";
-import { ArmchairThinIcon } from "../thin";
+import { ArmchairBoldIcon } from "../bold/armchair-bold.icon";
+import { ArmchairDuotoneIcon } from "../duotone/armchair-duotone.icon";
+import { ArmchairFillIcon } from "../fill/armchair-fill.icon";
+import { ArmchairLightIcon } from "../light/armchair-light.icon";
+import { ArmchairRegularIcon } from "../regular/armchair-regular.icon";
+import { ArmchairThinIcon } from "../thin/armchair-thin.icon";
 
 export const ArmchairIcon = memo(function Armchair(props: IconWrapperProps) {
   const Icon = useMemo(() => {

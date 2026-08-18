@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PlantBoldIcon } from "../bold";
-import { PlantDuotoneIcon } from "../duotone";
-import { PlantFillIcon } from "../fill";
-import { PlantLightIcon } from "../light";
-import { PlantRegularIcon } from "../regular";
-import { PlantThinIcon } from "../thin";
+import { PlantBoldIcon } from "../bold/plant-bold.icon";
+import { PlantDuotoneIcon } from "../duotone/plant-duotone.icon";
+import { PlantFillIcon } from "../fill/plant-fill.icon";
+import { PlantLightIcon } from "../light/plant-light.icon";
+import { PlantRegularIcon } from "../regular/plant-regular.icon";
+import { PlantThinIcon } from "../thin/plant-thin.icon";
 
 export const PlantIcon = memo(function Plant(props: IconWrapperProps) {
   const Icon = useMemo(() => {

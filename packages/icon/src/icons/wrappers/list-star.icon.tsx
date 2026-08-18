@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ListStarBoldIcon } from "../bold";
-import { ListStarDuotoneIcon } from "../duotone";
-import { ListStarFillIcon } from "../fill";
-import { ListStarLightIcon } from "../light";
-import { ListStarRegularIcon } from "../regular";
-import { ListStarThinIcon } from "../thin";
+import { ListStarBoldIcon } from "../bold/list-star-bold.icon";
+import { ListStarDuotoneIcon } from "../duotone/list-star-duotone.icon";
+import { ListStarFillIcon } from "../fill/list-star-fill.icon";
+import { ListStarLightIcon } from "../light/list-star-light.icon";
+import { ListStarRegularIcon } from "../regular/list-star-regular.icon";
+import { ListStarThinIcon } from "../thin/list-star-thin.icon";
 
 export const ListStarIcon = memo(function ListStar(props: IconWrapperProps) {
   const Icon = useMemo(() => {

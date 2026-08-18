@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AppWindowBoldIcon } from "../bold";
-import { AppWindowDuotoneIcon } from "../duotone";
-import { AppWindowFillIcon } from "../fill";
-import { AppWindowLightIcon } from "../light";
-import { AppWindowRegularIcon } from "../regular";
-import { AppWindowThinIcon } from "../thin";
+import { AppWindowBoldIcon } from "../bold/app-window-bold.icon";
+import { AppWindowDuotoneIcon } from "../duotone/app-window-duotone.icon";
+import { AppWindowFillIcon } from "../fill/app-window-fill.icon";
+import { AppWindowLightIcon } from "../light/app-window-light.icon";
+import { AppWindowRegularIcon } from "../regular/app-window-regular.icon";
+import { AppWindowThinIcon } from "../thin/app-window-thin.icon";
 
 export const AppWindowIcon = memo(function AppWindow(props: IconWrapperProps) {
   const Icon = useMemo(() => {

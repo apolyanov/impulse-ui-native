@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChefHatBoldIcon } from "../bold";
-import { ChefHatDuotoneIcon } from "../duotone";
-import { ChefHatFillIcon } from "../fill";
-import { ChefHatLightIcon } from "../light";
-import { ChefHatRegularIcon } from "../regular";
-import { ChefHatThinIcon } from "../thin";
+import { ChefHatBoldIcon } from "../bold/chef-hat-bold.icon";
+import { ChefHatDuotoneIcon } from "../duotone/chef-hat-duotone.icon";
+import { ChefHatFillIcon } from "../fill/chef-hat-fill.icon";
+import { ChefHatLightIcon } from "../light/chef-hat-light.icon";
+import { ChefHatRegularIcon } from "../regular/chef-hat-regular.icon";
+import { ChefHatThinIcon } from "../thin/chef-hat-thin.icon";
 
 export const ChefHatIcon = memo(function ChefHat(props: IconWrapperProps) {
   const Icon = useMemo(() => {

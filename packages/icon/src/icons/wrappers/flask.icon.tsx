@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FlaskBoldIcon } from "../bold";
-import { FlaskDuotoneIcon } from "../duotone";
-import { FlaskFillIcon } from "../fill";
-import { FlaskLightIcon } from "../light";
-import { FlaskRegularIcon } from "../regular";
-import { FlaskThinIcon } from "../thin";
+import { FlaskBoldIcon } from "../bold/flask-bold.icon";
+import { FlaskDuotoneIcon } from "../duotone/flask-duotone.icon";
+import { FlaskFillIcon } from "../fill/flask-fill.icon";
+import { FlaskLightIcon } from "../light/flask-light.icon";
+import { FlaskRegularIcon } from "../regular/flask-regular.icon";
+import { FlaskThinIcon } from "../thin/flask-thin.icon";
 
 export const FlaskIcon = memo(function Flask(props: IconWrapperProps) {
   const Icon = useMemo(() => {

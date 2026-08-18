@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CouchBoldIcon } from "../bold";
-import { CouchDuotoneIcon } from "../duotone";
-import { CouchFillIcon } from "../fill";
-import { CouchLightIcon } from "../light";
-import { CouchRegularIcon } from "../regular";
-import { CouchThinIcon } from "../thin";
+import { CouchBoldIcon } from "../bold/couch-bold.icon";
+import { CouchDuotoneIcon } from "../duotone/couch-duotone.icon";
+import { CouchFillIcon } from "../fill/couch-fill.icon";
+import { CouchLightIcon } from "../light/couch-light.icon";
+import { CouchRegularIcon } from "../regular/couch-regular.icon";
+import { CouchThinIcon } from "../thin/couch-thin.icon";
 
 export const CouchIcon = memo(function Couch(props: IconWrapperProps) {
   const Icon = useMemo(() => {

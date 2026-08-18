@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FourKBoldIcon } from "../bold";
-import { FourKDuotoneIcon } from "../duotone";
-import { FourKFillIcon } from "../fill";
-import { FourKLightIcon } from "../light";
-import { FourKRegularIcon } from "../regular";
-import { FourKThinIcon } from "../thin";
+import { FourKBoldIcon } from "../bold/four-k-bold.icon";
+import { FourKDuotoneIcon } from "../duotone/four-k-duotone.icon";
+import { FourKFillIcon } from "../fill/four-k-fill.icon";
+import { FourKLightIcon } from "../light/four-k-light.icon";
+import { FourKRegularIcon } from "../regular/four-k-regular.icon";
+import { FourKThinIcon } from "../thin/four-k-thin.icon";
 
 export const FourKIcon = memo(function FourK(props: IconWrapperProps) {
   const Icon = useMemo(() => {

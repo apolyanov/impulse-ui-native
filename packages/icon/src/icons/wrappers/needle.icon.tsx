@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NeedleBoldIcon } from "../bold";
-import { NeedleDuotoneIcon } from "../duotone";
-import { NeedleFillIcon } from "../fill";
-import { NeedleLightIcon } from "../light";
-import { NeedleRegularIcon } from "../regular";
-import { NeedleThinIcon } from "../thin";
+import { NeedleBoldIcon } from "../bold/needle-bold.icon";
+import { NeedleDuotoneIcon } from "../duotone/needle-duotone.icon";
+import { NeedleFillIcon } from "../fill/needle-fill.icon";
+import { NeedleLightIcon } from "../light/needle-light.icon";
+import { NeedleRegularIcon } from "../regular/needle-regular.icon";
+import { NeedleThinIcon } from "../thin/needle-thin.icon";
 
 export const NeedleIcon = memo(function Needle(props: IconWrapperProps) {
   const Icon = useMemo(() => {

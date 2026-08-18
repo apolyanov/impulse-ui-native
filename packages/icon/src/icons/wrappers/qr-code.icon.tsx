@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { QrCodeBoldIcon } from "../bold";
-import { QrCodeDuotoneIcon } from "../duotone";
-import { QrCodeFillIcon } from "../fill";
-import { QrCodeLightIcon } from "../light";
-import { QrCodeRegularIcon } from "../regular";
-import { QrCodeThinIcon } from "../thin";
+import { QrCodeBoldIcon } from "../bold/qr-code-bold.icon";
+import { QrCodeDuotoneIcon } from "../duotone/qr-code-duotone.icon";
+import { QrCodeFillIcon } from "../fill/qr-code-fill.icon";
+import { QrCodeLightIcon } from "../light/qr-code-light.icon";
+import { QrCodeRegularIcon } from "../regular/qr-code-regular.icon";
+import { QrCodeThinIcon } from "../thin/qr-code-thin.icon";
 
 export const QrCodeIcon = memo(function QrCode(props: IconWrapperProps) {
   const Icon = useMemo(() => {

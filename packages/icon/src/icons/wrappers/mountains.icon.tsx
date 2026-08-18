@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MountainsBoldIcon } from "../bold";
-import { MountainsDuotoneIcon } from "../duotone";
-import { MountainsFillIcon } from "../fill";
-import { MountainsLightIcon } from "../light";
-import { MountainsRegularIcon } from "../regular";
-import { MountainsThinIcon } from "../thin";
+import { MountainsBoldIcon } from "../bold/mountains-bold.icon";
+import { MountainsDuotoneIcon } from "../duotone/mountains-duotone.icon";
+import { MountainsFillIcon } from "../fill/mountains-fill.icon";
+import { MountainsLightIcon } from "../light/mountains-light.icon";
+import { MountainsRegularIcon } from "../regular/mountains-regular.icon";
+import { MountainsThinIcon } from "../thin/mountains-thin.icon";
 
 export const MountainsIcon = memo(function Mountains(props: IconWrapperProps) {
   const Icon = useMemo(() => {

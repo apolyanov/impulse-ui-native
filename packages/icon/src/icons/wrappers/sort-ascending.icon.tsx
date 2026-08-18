@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SortAscendingBoldIcon } from "../bold";
-import { SortAscendingDuotoneIcon } from "../duotone";
-import { SortAscendingFillIcon } from "../fill";
-import { SortAscendingLightIcon } from "../light";
-import { SortAscendingRegularIcon } from "../regular";
-import { SortAscendingThinIcon } from "../thin";
+import { SortAscendingBoldIcon } from "../bold/sort-ascending-bold.icon";
+import { SortAscendingDuotoneIcon } from "../duotone/sort-ascending-duotone.icon";
+import { SortAscendingFillIcon } from "../fill/sort-ascending-fill.icon";
+import { SortAscendingLightIcon } from "../light/sort-ascending-light.icon";
+import { SortAscendingRegularIcon } from "../regular/sort-ascending-regular.icon";
+import { SortAscendingThinIcon } from "../thin/sort-ascending-thin.icon";
 
 export const SortAscendingIcon = memo(function SortAscending(
   props: IconWrapperProps,

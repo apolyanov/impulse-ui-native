@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MinusCircleBoldIcon } from "../bold";
-import { MinusCircleDuotoneIcon } from "../duotone";
-import { MinusCircleFillIcon } from "../fill";
-import { MinusCircleLightIcon } from "../light";
-import { MinusCircleRegularIcon } from "../regular";
-import { MinusCircleThinIcon } from "../thin";
+import { MinusCircleBoldIcon } from "../bold/minus-circle-bold.icon";
+import { MinusCircleDuotoneIcon } from "../duotone/minus-circle-duotone.icon";
+import { MinusCircleFillIcon } from "../fill/minus-circle-fill.icon";
+import { MinusCircleLightIcon } from "../light/minus-circle-light.icon";
+import { MinusCircleRegularIcon } from "../regular/minus-circle-regular.icon";
+import { MinusCircleThinIcon } from "../thin/minus-circle-thin.icon";
 
 export const MinusCircleIcon = memo(function MinusCircle(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SockBoldIcon } from "../bold";
-import { SockDuotoneIcon } from "../duotone";
-import { SockFillIcon } from "../fill";
-import { SockLightIcon } from "../light";
-import { SockRegularIcon } from "../regular";
-import { SockThinIcon } from "../thin";
+import { SockBoldIcon } from "../bold/sock-bold.icon";
+import { SockDuotoneIcon } from "../duotone/sock-duotone.icon";
+import { SockFillIcon } from "../fill/sock-fill.icon";
+import { SockLightIcon } from "../light/sock-light.icon";
+import { SockRegularIcon } from "../regular/sock-regular.icon";
+import { SockThinIcon } from "../thin/sock-thin.icon";
 
 export const SockIcon = memo(function Sock(props: IconWrapperProps) {
   const Icon = useMemo(() => {

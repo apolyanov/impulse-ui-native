@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RecycleBoldIcon } from "../bold";
-import { RecycleDuotoneIcon } from "../duotone";
-import { RecycleFillIcon } from "../fill";
-import { RecycleLightIcon } from "../light";
-import { RecycleRegularIcon } from "../regular";
-import { RecycleThinIcon } from "../thin";
+import { RecycleBoldIcon } from "../bold/recycle-bold.icon";
+import { RecycleDuotoneIcon } from "../duotone/recycle-duotone.icon";
+import { RecycleFillIcon } from "../fill/recycle-fill.icon";
+import { RecycleLightIcon } from "../light/recycle-light.icon";
+import { RecycleRegularIcon } from "../regular/recycle-regular.icon";
+import { RecycleThinIcon } from "../thin/recycle-thin.icon";
 
 export const RecycleIcon = memo(function Recycle(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandSoapBoldIcon } from "../bold";
-import { HandSoapDuotoneIcon } from "../duotone";
-import { HandSoapFillIcon } from "../fill";
-import { HandSoapLightIcon } from "../light";
-import { HandSoapRegularIcon } from "../regular";
-import { HandSoapThinIcon } from "../thin";
+import { HandSoapBoldIcon } from "../bold/hand-soap-bold.icon";
+import { HandSoapDuotoneIcon } from "../duotone/hand-soap-duotone.icon";
+import { HandSoapFillIcon } from "../fill/hand-soap-fill.icon";
+import { HandSoapLightIcon } from "../light/hand-soap-light.icon";
+import { HandSoapRegularIcon } from "../regular/hand-soap-regular.icon";
+import { HandSoapThinIcon } from "../thin/hand-soap-thin.icon";
 
 export const HandSoapIcon = memo(function HandSoap(props: IconWrapperProps) {
   const Icon = useMemo(() => {

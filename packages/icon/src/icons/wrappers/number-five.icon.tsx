@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NumberFiveBoldIcon } from "../bold";
-import { NumberFiveDuotoneIcon } from "../duotone";
-import { NumberFiveFillIcon } from "../fill";
-import { NumberFiveLightIcon } from "../light";
-import { NumberFiveRegularIcon } from "../regular";
-import { NumberFiveThinIcon } from "../thin";
+import { NumberFiveBoldIcon } from "../bold/number-five-bold.icon";
+import { NumberFiveDuotoneIcon } from "../duotone/number-five-duotone.icon";
+import { NumberFiveFillIcon } from "../fill/number-five-fill.icon";
+import { NumberFiveLightIcon } from "../light/number-five-light.icon";
+import { NumberFiveRegularIcon } from "../regular/number-five-regular.icon";
+import { NumberFiveThinIcon } from "../thin/number-five-thin.icon";
 
 export const NumberFiveIcon = memo(function NumberFive(
   props: IconWrapperProps,

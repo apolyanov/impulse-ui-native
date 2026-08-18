@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { VirusBoldIcon } from "../bold";
-import { VirusDuotoneIcon } from "../duotone";
-import { VirusFillIcon } from "../fill";
-import { VirusLightIcon } from "../light";
-import { VirusRegularIcon } from "../regular";
-import { VirusThinIcon } from "../thin";
+import { VirusBoldIcon } from "../bold/virus-bold.icon";
+import { VirusDuotoneIcon } from "../duotone/virus-duotone.icon";
+import { VirusFillIcon } from "../fill/virus-fill.icon";
+import { VirusLightIcon } from "../light/virus-light.icon";
+import { VirusRegularIcon } from "../regular/virus-regular.icon";
+import { VirusThinIcon } from "../thin/virus-thin.icon";
 
 export const VirusIcon = memo(function Virus(props: IconWrapperProps) {
   const Icon = useMemo(() => {

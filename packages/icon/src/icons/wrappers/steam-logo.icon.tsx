@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SteamLogoBoldIcon } from "../bold";
-import { SteamLogoDuotoneIcon } from "../duotone";
-import { SteamLogoFillIcon } from "../fill";
-import { SteamLogoLightIcon } from "../light";
-import { SteamLogoRegularIcon } from "../regular";
-import { SteamLogoThinIcon } from "../thin";
+import { SteamLogoBoldIcon } from "../bold/steam-logo-bold.icon";
+import { SteamLogoDuotoneIcon } from "../duotone/steam-logo-duotone.icon";
+import { SteamLogoFillIcon } from "../fill/steam-logo-fill.icon";
+import { SteamLogoLightIcon } from "../light/steam-logo-light.icon";
+import { SteamLogoRegularIcon } from "../regular/steam-logo-regular.icon";
+import { SteamLogoThinIcon } from "../thin/steam-logo-thin.icon";
 
 export const SteamLogoIcon = memo(function SteamLogo(props: IconWrapperProps) {
   const Icon = useMemo(() => {

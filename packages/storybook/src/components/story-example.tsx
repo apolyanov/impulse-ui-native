@@ -1,13 +1,8 @@
 import type { PropsWithChildren } from "react";
 import { memo } from "react";
 
-import {
-  Typography,
-  useColors,
-  useRadii,
-  useSpace,
-  View,
-} from "@impulse-ui-native/toolkit";
+import { Typography, View } from "@impulse-ui-native/primitives";
+import { useColors, useRadii, useSpace } from "@impulse-ui-native/theme";
 
 export interface StoryExamplePropDefinition {
   name: string;

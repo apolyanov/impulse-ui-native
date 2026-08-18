@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChartBarBoldIcon } from "../bold";
-import { ChartBarDuotoneIcon } from "../duotone";
-import { ChartBarFillIcon } from "../fill";
-import { ChartBarLightIcon } from "../light";
-import { ChartBarRegularIcon } from "../regular";
-import { ChartBarThinIcon } from "../thin";
+import { ChartBarBoldIcon } from "../bold/chart-bar-bold.icon";
+import { ChartBarDuotoneIcon } from "../duotone/chart-bar-duotone.icon";
+import { ChartBarFillIcon } from "../fill/chart-bar-fill.icon";
+import { ChartBarLightIcon } from "../light/chart-bar-light.icon";
+import { ChartBarRegularIcon } from "../regular/chart-bar-regular.icon";
+import { ChartBarThinIcon } from "../thin/chart-bar-thin.icon";
 
 export const ChartBarIcon = memo(function ChartBar(props: IconWrapperProps) {
   const Icon = useMemo(() => {

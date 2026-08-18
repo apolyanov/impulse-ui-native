@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LetterCirclePBoldIcon } from "../bold";
-import { LetterCirclePDuotoneIcon } from "../duotone";
-import { LetterCirclePFillIcon } from "../fill";
-import { LetterCirclePLightIcon } from "../light";
-import { LetterCirclePRegularIcon } from "../regular";
-import { LetterCirclePThinIcon } from "../thin";
+import { LetterCirclePBoldIcon } from "../bold/letter-circle-p-bold.icon";
+import { LetterCirclePDuotoneIcon } from "../duotone/letter-circle-p-duotone.icon";
+import { LetterCirclePFillIcon } from "../fill/letter-circle-p-fill.icon";
+import { LetterCirclePLightIcon } from "../light/letter-circle-p-light.icon";
+import { LetterCirclePRegularIcon } from "../regular/letter-circle-p-regular.icon";
+import { LetterCirclePThinIcon } from "../thin/letter-circle-p-thin.icon";
 
 export const LetterCirclePIcon = memo(function LetterCircleP(
   props: IconWrapperProps,

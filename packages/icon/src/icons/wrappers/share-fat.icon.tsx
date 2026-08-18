@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShareFatBoldIcon } from "../bold";
-import { ShareFatDuotoneIcon } from "../duotone";
-import { ShareFatFillIcon } from "../fill";
-import { ShareFatLightIcon } from "../light";
-import { ShareFatRegularIcon } from "../regular";
-import { ShareFatThinIcon } from "../thin";
+import { ShareFatBoldIcon } from "../bold/share-fat-bold.icon";
+import { ShareFatDuotoneIcon } from "../duotone/share-fat-duotone.icon";
+import { ShareFatFillIcon } from "../fill/share-fat-fill.icon";
+import { ShareFatLightIcon } from "../light/share-fat-light.icon";
+import { ShareFatRegularIcon } from "../regular/share-fat-regular.icon";
+import { ShareFatThinIcon } from "../thin/share-fat-thin.icon";
 
 export const ShareFatIcon = memo(function ShareFat(props: IconWrapperProps) {
   const Icon = useMemo(() => {

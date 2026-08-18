@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StackPlusBoldIcon } from "../bold";
-import { StackPlusDuotoneIcon } from "../duotone";
-import { StackPlusFillIcon } from "../fill";
-import { StackPlusLightIcon } from "../light";
-import { StackPlusRegularIcon } from "../regular";
-import { StackPlusThinIcon } from "../thin";
+import { StackPlusBoldIcon } from "../bold/stack-plus-bold.icon";
+import { StackPlusDuotoneIcon } from "../duotone/stack-plus-duotone.icon";
+import { StackPlusFillIcon } from "../fill/stack-plus-fill.icon";
+import { StackPlusLightIcon } from "../light/stack-plus-light.icon";
+import { StackPlusRegularIcon } from "../regular/stack-plus-regular.icon";
+import { StackPlusThinIcon } from "../thin/stack-plus-thin.icon";
 
 export const StackPlusIcon = memo(function StackPlus(props: IconWrapperProps) {
   const Icon = useMemo(() => {

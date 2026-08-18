@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SolarRoofBoldIcon } from "../bold";
-import { SolarRoofDuotoneIcon } from "../duotone";
-import { SolarRoofFillIcon } from "../fill";
-import { SolarRoofLightIcon } from "../light";
-import { SolarRoofRegularIcon } from "../regular";
-import { SolarRoofThinIcon } from "../thin";
+import { SolarRoofBoldIcon } from "../bold/solar-roof-bold.icon";
+import { SolarRoofDuotoneIcon } from "../duotone/solar-roof-duotone.icon";
+import { SolarRoofFillIcon } from "../fill/solar-roof-fill.icon";
+import { SolarRoofLightIcon } from "../light/solar-roof-light.icon";
+import { SolarRoofRegularIcon } from "../regular/solar-roof-regular.icon";
+import { SolarRoofThinIcon } from "../thin/solar-roof-thin.icon";
 
 export const SolarRoofIcon = memo(function SolarRoof(props: IconWrapperProps) {
   const Icon = useMemo(() => {

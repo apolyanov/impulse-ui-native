@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RewindBoldIcon } from "../bold";
-import { RewindDuotoneIcon } from "../duotone";
-import { RewindFillIcon } from "../fill";
-import { RewindLightIcon } from "../light";
-import { RewindRegularIcon } from "../regular";
-import { RewindThinIcon } from "../thin";
+import { RewindBoldIcon } from "../bold/rewind-bold.icon";
+import { RewindDuotoneIcon } from "../duotone/rewind-duotone.icon";
+import { RewindFillIcon } from "../fill/rewind-fill.icon";
+import { RewindLightIcon } from "../light/rewind-light.icon";
+import { RewindRegularIcon } from "../regular/rewind-regular.icon";
+import { RewindThinIcon } from "../thin/rewind-thin.icon";
 
 export const RewindIcon = memo(function Rewind(props: IconWrapperProps) {
   const Icon = useMemo(() => {

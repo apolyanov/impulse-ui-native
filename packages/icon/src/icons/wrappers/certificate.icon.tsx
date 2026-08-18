@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CertificateBoldIcon } from "../bold";
-import { CertificateDuotoneIcon } from "../duotone";
-import { CertificateFillIcon } from "../fill";
-import { CertificateLightIcon } from "../light";
-import { CertificateRegularIcon } from "../regular";
-import { CertificateThinIcon } from "../thin";
+import { CertificateBoldIcon } from "../bold/certificate-bold.icon";
+import { CertificateDuotoneIcon } from "../duotone/certificate-duotone.icon";
+import { CertificateFillIcon } from "../fill/certificate-fill.icon";
+import { CertificateLightIcon } from "../light/certificate-light.icon";
+import { CertificateRegularIcon } from "../regular/certificate-regular.icon";
+import { CertificateThinIcon } from "../thin/certificate-thin.icon";
 
 export const CertificateIcon = memo(function Certificate(
   props: IconWrapperProps,

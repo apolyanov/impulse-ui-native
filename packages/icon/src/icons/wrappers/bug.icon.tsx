@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BugBoldIcon } from "../bold";
-import { BugDuotoneIcon } from "../duotone";
-import { BugFillIcon } from "../fill";
-import { BugLightIcon } from "../light";
-import { BugRegularIcon } from "../regular";
-import { BugThinIcon } from "../thin";
+import { BugBoldIcon } from "../bold/bug-bold.icon";
+import { BugDuotoneIcon } from "../duotone/bug-duotone.icon";
+import { BugFillIcon } from "../fill/bug-fill.icon";
+import { BugLightIcon } from "../light/bug-light.icon";
+import { BugRegularIcon } from "../regular/bug-regular.icon";
+import { BugThinIcon } from "../thin/bug-thin.icon";
 
 export const BugIcon = memo(function Bug(props: IconWrapperProps) {
   const Icon = useMemo(() => {

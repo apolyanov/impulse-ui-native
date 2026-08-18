@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BowlSteamBoldIcon } from "../bold";
-import { BowlSteamDuotoneIcon } from "../duotone";
-import { BowlSteamFillIcon } from "../fill";
-import { BowlSteamLightIcon } from "../light";
-import { BowlSteamRegularIcon } from "../regular";
-import { BowlSteamThinIcon } from "../thin";
+import { BowlSteamBoldIcon } from "../bold/bowl-steam-bold.icon";
+import { BowlSteamDuotoneIcon } from "../duotone/bowl-steam-duotone.icon";
+import { BowlSteamFillIcon } from "../fill/bowl-steam-fill.icon";
+import { BowlSteamLightIcon } from "../light/bowl-steam-light.icon";
+import { BowlSteamRegularIcon } from "../regular/bowl-steam-regular.icon";
+import { BowlSteamThinIcon } from "../thin/bowl-steam-thin.icon";
 
 export const BowlSteamIcon = memo(function BowlSteam(props: IconWrapperProps) {
   const Icon = useMemo(() => {

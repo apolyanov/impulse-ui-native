@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SealQuestionBoldIcon } from "../bold";
-import { SealQuestionDuotoneIcon } from "../duotone";
-import { SealQuestionFillIcon } from "../fill";
-import { SealQuestionLightIcon } from "../light";
-import { SealQuestionRegularIcon } from "../regular";
-import { SealQuestionThinIcon } from "../thin";
+import { SealQuestionBoldIcon } from "../bold/seal-question-bold.icon";
+import { SealQuestionDuotoneIcon } from "../duotone/seal-question-duotone.icon";
+import { SealQuestionFillIcon } from "../fill/seal-question-fill.icon";
+import { SealQuestionLightIcon } from "../light/seal-question-light.icon";
+import { SealQuestionRegularIcon } from "../regular/seal-question-regular.icon";
+import { SealQuestionThinIcon } from "../thin/seal-question-thin.icon";
 
 export const SealQuestionIcon = memo(function SealQuestion(
   props: IconWrapperProps,

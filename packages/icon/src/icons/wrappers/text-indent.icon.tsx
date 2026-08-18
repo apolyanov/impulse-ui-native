@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TextIndentBoldIcon } from "../bold";
-import { TextIndentDuotoneIcon } from "../duotone";
-import { TextIndentFillIcon } from "../fill";
-import { TextIndentLightIcon } from "../light";
-import { TextIndentRegularIcon } from "../regular";
-import { TextIndentThinIcon } from "../thin";
+import { TextIndentBoldIcon } from "../bold/text-indent-bold.icon";
+import { TextIndentDuotoneIcon } from "../duotone/text-indent-duotone.icon";
+import { TextIndentFillIcon } from "../fill/text-indent-fill.icon";
+import { TextIndentLightIcon } from "../light/text-indent-light.icon";
+import { TextIndentRegularIcon } from "../regular/text-indent-regular.icon";
+import { TextIndentThinIcon } from "../thin/text-indent-thin.icon";
 
 export const TextIndentIcon = memo(function TextIndent(
   props: IconWrapperProps,

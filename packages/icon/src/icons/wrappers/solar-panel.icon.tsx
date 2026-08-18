@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SolarPanelBoldIcon } from "../bold";
-import { SolarPanelDuotoneIcon } from "../duotone";
-import { SolarPanelFillIcon } from "../fill";
-import { SolarPanelLightIcon } from "../light";
-import { SolarPanelRegularIcon } from "../regular";
-import { SolarPanelThinIcon } from "../thin";
+import { SolarPanelBoldIcon } from "../bold/solar-panel-bold.icon";
+import { SolarPanelDuotoneIcon } from "../duotone/solar-panel-duotone.icon";
+import { SolarPanelFillIcon } from "../fill/solar-panel-fill.icon";
+import { SolarPanelLightIcon } from "../light/solar-panel-light.icon";
+import { SolarPanelRegularIcon } from "../regular/solar-panel-regular.icon";
+import { SolarPanelThinIcon } from "../thin/solar-panel-thin.icon";
 
 export const SolarPanelIcon = memo(function SolarPanel(
   props: IconWrapperProps,

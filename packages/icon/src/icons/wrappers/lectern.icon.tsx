@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LecternBoldIcon } from "../bold";
-import { LecternDuotoneIcon } from "../duotone";
-import { LecternFillIcon } from "../fill";
-import { LecternLightIcon } from "../light";
-import { LecternRegularIcon } from "../regular";
-import { LecternThinIcon } from "../thin";
+import { LecternBoldIcon } from "../bold/lectern-bold.icon";
+import { LecternDuotoneIcon } from "../duotone/lectern-duotone.icon";
+import { LecternFillIcon } from "../fill/lectern-fill.icon";
+import { LecternLightIcon } from "../light/lectern-light.icon";
+import { LecternRegularIcon } from "../regular/lectern-regular.icon";
+import { LecternThinIcon } from "../thin/lectern-thin.icon";
 
 export const LecternIcon = memo(function Lectern(props: IconWrapperProps) {
   const Icon = useMemo(() => {

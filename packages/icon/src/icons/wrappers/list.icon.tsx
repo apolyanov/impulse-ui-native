@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ListBoldIcon } from "../bold";
-import { ListDuotoneIcon } from "../duotone";
-import { ListFillIcon } from "../fill";
-import { ListLightIcon } from "../light";
-import { ListRegularIcon } from "../regular";
-import { ListThinIcon } from "../thin";
+import { ListBoldIcon } from "../bold/list-bold.icon";
+import { ListDuotoneIcon } from "../duotone/list-duotone.icon";
+import { ListFillIcon } from "../fill/list-fill.icon";
+import { ListLightIcon } from "../light/list-light.icon";
+import { ListRegularIcon } from "../regular/list-regular.icon";
+import { ListThinIcon } from "../thin/list-thin.icon";
 
 export const ListIcon = memo(function List(props: IconWrapperProps) {
   const Icon = useMemo(() => {

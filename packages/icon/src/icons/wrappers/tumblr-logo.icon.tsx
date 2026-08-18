@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TumblrLogoBoldIcon } from "../bold";
-import { TumblrLogoDuotoneIcon } from "../duotone";
-import { TumblrLogoFillIcon } from "../fill";
-import { TumblrLogoLightIcon } from "../light";
-import { TumblrLogoRegularIcon } from "../regular";
-import { TumblrLogoThinIcon } from "../thin";
+import { TumblrLogoBoldIcon } from "../bold/tumblr-logo-bold.icon";
+import { TumblrLogoDuotoneIcon } from "../duotone/tumblr-logo-duotone.icon";
+import { TumblrLogoFillIcon } from "../fill/tumblr-logo-fill.icon";
+import { TumblrLogoLightIcon } from "../light/tumblr-logo-light.icon";
+import { TumblrLogoRegularIcon } from "../regular/tumblr-logo-regular.icon";
+import { TumblrLogoThinIcon } from "../thin/tumblr-logo-thin.icon";
 
 export const TumblrLogoIcon = memo(function TumblrLogo(
   props: IconWrapperProps,

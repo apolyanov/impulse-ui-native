@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SphereBoldIcon } from "../bold";
-import { SphereDuotoneIcon } from "../duotone";
-import { SphereFillIcon } from "../fill";
-import { SphereLightIcon } from "../light";
-import { SphereRegularIcon } from "../regular";
-import { SphereThinIcon } from "../thin";
+import { SphereBoldIcon } from "../bold/sphere-bold.icon";
+import { SphereDuotoneIcon } from "../duotone/sphere-duotone.icon";
+import { SphereFillIcon } from "../fill/sphere-fill.icon";
+import { SphereLightIcon } from "../light/sphere-light.icon";
+import { SphereRegularIcon } from "../regular/sphere-regular.icon";
+import { SphereThinIcon } from "../thin/sphere-thin.icon";
 
 export const SphereIcon = memo(function Sphere(props: IconWrapperProps) {
   const Icon = useMemo(() => {

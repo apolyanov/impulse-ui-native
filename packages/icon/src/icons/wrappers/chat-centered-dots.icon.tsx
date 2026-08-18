@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChatCenteredDotsBoldIcon } from "../bold";
-import { ChatCenteredDotsDuotoneIcon } from "../duotone";
-import { ChatCenteredDotsFillIcon } from "../fill";
-import { ChatCenteredDotsLightIcon } from "../light";
-import { ChatCenteredDotsRegularIcon } from "../regular";
-import { ChatCenteredDotsThinIcon } from "../thin";
+import { ChatCenteredDotsBoldIcon } from "../bold/chat-centered-dots-bold.icon";
+import { ChatCenteredDotsDuotoneIcon } from "../duotone/chat-centered-dots-duotone.icon";
+import { ChatCenteredDotsFillIcon } from "../fill/chat-centered-dots-fill.icon";
+import { ChatCenteredDotsLightIcon } from "../light/chat-centered-dots-light.icon";
+import { ChatCenteredDotsRegularIcon } from "../regular/chat-centered-dots-regular.icon";
+import { ChatCenteredDotsThinIcon } from "../thin/chat-centered-dots-thin.icon";
 
 export const ChatCenteredDotsIcon = memo(function ChatCenteredDots(
   props: IconWrapperProps,

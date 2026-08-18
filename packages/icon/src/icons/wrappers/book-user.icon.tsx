@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BookUserBoldIcon } from "../bold";
-import { BookUserDuotoneIcon } from "../duotone";
-import { BookUserFillIcon } from "../fill";
-import { BookUserLightIcon } from "../light";
-import { BookUserRegularIcon } from "../regular";
-import { BookUserThinIcon } from "../thin";
+import { BookUserBoldIcon } from "../bold/book-user-bold.icon";
+import { BookUserDuotoneIcon } from "../duotone/book-user-duotone.icon";
+import { BookUserFillIcon } from "../fill/book-user-fill.icon";
+import { BookUserLightIcon } from "../light/book-user-light.icon";
+import { BookUserRegularIcon } from "../regular/book-user-regular.icon";
+import { BookUserThinIcon } from "../thin/book-user-thin.icon";
 
 export const BookUserIcon = memo(function BookUser(props: IconWrapperProps) {
   const Icon = useMemo(() => {

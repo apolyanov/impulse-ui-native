@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CaretLineLeftBoldIcon } from "../bold";
-import { CaretLineLeftDuotoneIcon } from "../duotone";
-import { CaretLineLeftFillIcon } from "../fill";
-import { CaretLineLeftLightIcon } from "../light";
-import { CaretLineLeftRegularIcon } from "../regular";
-import { CaretLineLeftThinIcon } from "../thin";
+import { CaretLineLeftBoldIcon } from "../bold/caret-line-left-bold.icon";
+import { CaretLineLeftDuotoneIcon } from "../duotone/caret-line-left-duotone.icon";
+import { CaretLineLeftFillIcon } from "../fill/caret-line-left-fill.icon";
+import { CaretLineLeftLightIcon } from "../light/caret-line-left-light.icon";
+import { CaretLineLeftRegularIcon } from "../regular/caret-line-left-regular.icon";
+import { CaretLineLeftThinIcon } from "../thin/caret-line-left-thin.icon";
 
 export const CaretLineLeftIcon = memo(function CaretLineLeft(
   props: IconWrapperProps,

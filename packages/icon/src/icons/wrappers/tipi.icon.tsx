@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TipiBoldIcon } from "../bold";
-import { TipiDuotoneIcon } from "../duotone";
-import { TipiFillIcon } from "../fill";
-import { TipiLightIcon } from "../light";
-import { TipiRegularIcon } from "../regular";
-import { TipiThinIcon } from "../thin";
+import { TipiBoldIcon } from "../bold/tipi-bold.icon";
+import { TipiDuotoneIcon } from "../duotone/tipi-duotone.icon";
+import { TipiFillIcon } from "../fill/tipi-fill.icon";
+import { TipiLightIcon } from "../light/tipi-light.icon";
+import { TipiRegularIcon } from "../regular/tipi-regular.icon";
+import { TipiThinIcon } from "../thin/tipi-thin.icon";
 
 export const TipiIcon = memo(function Tipi(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TabsBoldIcon } from "../bold";
-import { TabsDuotoneIcon } from "../duotone";
-import { TabsFillIcon } from "../fill";
-import { TabsLightIcon } from "../light";
-import { TabsRegularIcon } from "../regular";
-import { TabsThinIcon } from "../thin";
+import { TabsBoldIcon } from "../bold/tabs-bold.icon";
+import { TabsDuotoneIcon } from "../duotone/tabs-duotone.icon";
+import { TabsFillIcon } from "../fill/tabs-fill.icon";
+import { TabsLightIcon } from "../light/tabs-light.icon";
+import { TabsRegularIcon } from "../regular/tabs-regular.icon";
+import { TabsThinIcon } from "../thin/tabs-thin.icon";
 
 export const TabsIcon = memo(function Tabs(props: IconWrapperProps) {
   const Icon = useMemo(() => {

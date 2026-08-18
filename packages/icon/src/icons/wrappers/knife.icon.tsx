@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { KnifeBoldIcon } from "../bold";
-import { KnifeDuotoneIcon } from "../duotone";
-import { KnifeFillIcon } from "../fill";
-import { KnifeLightIcon } from "../light";
-import { KnifeRegularIcon } from "../regular";
-import { KnifeThinIcon } from "../thin";
+import { KnifeBoldIcon } from "../bold/knife-bold.icon";
+import { KnifeDuotoneIcon } from "../duotone/knife-duotone.icon";
+import { KnifeFillIcon } from "../fill/knife-fill.icon";
+import { KnifeLightIcon } from "../light/knife-light.icon";
+import { KnifeRegularIcon } from "../regular/knife-regular.icon";
+import { KnifeThinIcon } from "../thin/knife-thin.icon";
 
 export const KnifeIcon = memo(function Knife(props: IconWrapperProps) {
   const Icon = useMemo(() => {

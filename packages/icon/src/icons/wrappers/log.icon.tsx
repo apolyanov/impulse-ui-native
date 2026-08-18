@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LogBoldIcon } from "../bold";
-import { LogDuotoneIcon } from "../duotone";
-import { LogFillIcon } from "../fill";
-import { LogLightIcon } from "../light";
-import { LogRegularIcon } from "../regular";
-import { LogThinIcon } from "../thin";
+import { LogBoldIcon } from "../bold/log-bold.icon";
+import { LogDuotoneIcon } from "../duotone/log-duotone.icon";
+import { LogFillIcon } from "../fill/log-fill.icon";
+import { LogLightIcon } from "../light/log-light.icon";
+import { LogRegularIcon } from "../regular/log-regular.icon";
+import { LogThinIcon } from "../thin/log-thin.icon";
 
 export const LogIcon = memo(function Log(props: IconWrapperProps) {
   const Icon = useMemo(() => {

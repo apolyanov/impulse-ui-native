@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AsclepiusBoldIcon } from "../bold";
-import { AsclepiusDuotoneIcon } from "../duotone";
-import { AsclepiusFillIcon } from "../fill";
-import { AsclepiusLightIcon } from "../light";
-import { AsclepiusRegularIcon } from "../regular";
-import { AsclepiusThinIcon } from "../thin";
+import { AsclepiusBoldIcon } from "../bold/asclepius-bold.icon";
+import { AsclepiusDuotoneIcon } from "../duotone/asclepius-duotone.icon";
+import { AsclepiusFillIcon } from "../fill/asclepius-fill.icon";
+import { AsclepiusLightIcon } from "../light/asclepius-light.icon";
+import { AsclepiusRegularIcon } from "../regular/asclepius-regular.icon";
+import { AsclepiusThinIcon } from "../thin/asclepius-thin.icon";
 
 export const AsclepiusIcon = memo(function Asclepius(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChalkboardSimpleBoldIcon } from "../bold";
-import { ChalkboardSimpleDuotoneIcon } from "../duotone";
-import { ChalkboardSimpleFillIcon } from "../fill";
-import { ChalkboardSimpleLightIcon } from "../light";
-import { ChalkboardSimpleRegularIcon } from "../regular";
-import { ChalkboardSimpleThinIcon } from "../thin";
+import { ChalkboardSimpleBoldIcon } from "../bold/chalkboard-simple-bold.icon";
+import { ChalkboardSimpleDuotoneIcon } from "../duotone/chalkboard-simple-duotone.icon";
+import { ChalkboardSimpleFillIcon } from "../fill/chalkboard-simple-fill.icon";
+import { ChalkboardSimpleLightIcon } from "../light/chalkboard-simple-light.icon";
+import { ChalkboardSimpleRegularIcon } from "../regular/chalkboard-simple-regular.icon";
+import { ChalkboardSimpleThinIcon } from "../thin/chalkboard-simple-thin.icon";
 
 export const ChalkboardSimpleIcon = memo(function ChalkboardSimple(
   props: IconWrapperProps,

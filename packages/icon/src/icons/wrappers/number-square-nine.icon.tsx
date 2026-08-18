@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NumberSquareNineBoldIcon } from "../bold";
-import { NumberSquareNineDuotoneIcon } from "../duotone";
-import { NumberSquareNineFillIcon } from "../fill";
-import { NumberSquareNineLightIcon } from "../light";
-import { NumberSquareNineRegularIcon } from "../regular";
-import { NumberSquareNineThinIcon } from "../thin";
+import { NumberSquareNineBoldIcon } from "../bold/number-square-nine-bold.icon";
+import { NumberSquareNineDuotoneIcon } from "../duotone/number-square-nine-duotone.icon";
+import { NumberSquareNineFillIcon } from "../fill/number-square-nine-fill.icon";
+import { NumberSquareNineLightIcon } from "../light/number-square-nine-light.icon";
+import { NumberSquareNineRegularIcon } from "../regular/number-square-nine-regular.icon";
+import { NumberSquareNineThinIcon } from "../thin/number-square-nine-thin.icon";
 
 export const NumberSquareNineIcon = memo(function NumberSquareNine(
   props: IconWrapperProps,

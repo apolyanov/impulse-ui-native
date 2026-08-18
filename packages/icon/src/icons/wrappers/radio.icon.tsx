@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RadioBoldIcon } from "../bold";
-import { RadioDuotoneIcon } from "../duotone";
-import { RadioFillIcon } from "../fill";
-import { RadioLightIcon } from "../light";
-import { RadioRegularIcon } from "../regular";
-import { RadioThinIcon } from "../thin";
+import { RadioBoldIcon } from "../bold/radio-bold.icon";
+import { RadioDuotoneIcon } from "../duotone/radio-duotone.icon";
+import { RadioFillIcon } from "../fill/radio-fill.icon";
+import { RadioLightIcon } from "../light/radio-light.icon";
+import { RadioRegularIcon } from "../regular/radio-regular.icon";
+import { RadioThinIcon } from "../thin/radio-thin.icon";
 
 export const RadioIcon = memo(function Radio(props: IconWrapperProps) {
   const Icon = useMemo(() => {

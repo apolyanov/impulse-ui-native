@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WifiSlashBoldIcon } from "../bold";
-import { WifiSlashDuotoneIcon } from "../duotone";
-import { WifiSlashFillIcon } from "../fill";
-import { WifiSlashLightIcon } from "../light";
-import { WifiSlashRegularIcon } from "../regular";
-import { WifiSlashThinIcon } from "../thin";
+import { WifiSlashBoldIcon } from "../bold/wifi-slash-bold.icon";
+import { WifiSlashDuotoneIcon } from "../duotone/wifi-slash-duotone.icon";
+import { WifiSlashFillIcon } from "../fill/wifi-slash-fill.icon";
+import { WifiSlashLightIcon } from "../light/wifi-slash-light.icon";
+import { WifiSlashRegularIcon } from "../regular/wifi-slash-regular.icon";
+import { WifiSlashThinIcon } from "../thin/wifi-slash-thin.icon";
 
 export const WifiSlashIcon = memo(function WifiSlash(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { KanbanBoldIcon } from "../bold";
-import { KanbanDuotoneIcon } from "../duotone";
-import { KanbanFillIcon } from "../fill";
-import { KanbanLightIcon } from "../light";
-import { KanbanRegularIcon } from "../regular";
-import { KanbanThinIcon } from "../thin";
+import { KanbanBoldIcon } from "../bold/kanban-bold.icon";
+import { KanbanDuotoneIcon } from "../duotone/kanban-duotone.icon";
+import { KanbanFillIcon } from "../fill/kanban-fill.icon";
+import { KanbanLightIcon } from "../light/kanban-light.icon";
+import { KanbanRegularIcon } from "../regular/kanban-regular.icon";
+import { KanbanThinIcon } from "../thin/kanban-thin.icon";
 
 export const KanbanIcon = memo(function Kanban(props: IconWrapperProps) {
   const Icon = useMemo(() => {

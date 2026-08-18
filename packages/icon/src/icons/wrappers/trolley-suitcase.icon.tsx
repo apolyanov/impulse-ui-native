@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrolleySuitcaseBoldIcon } from "../bold";
-import { TrolleySuitcaseDuotoneIcon } from "../duotone";
-import { TrolleySuitcaseFillIcon } from "../fill";
-import { TrolleySuitcaseLightIcon } from "../light";
-import { TrolleySuitcaseRegularIcon } from "../regular";
-import { TrolleySuitcaseThinIcon } from "../thin";
+import { TrolleySuitcaseBoldIcon } from "../bold/trolley-suitcase-bold.icon";
+import { TrolleySuitcaseDuotoneIcon } from "../duotone/trolley-suitcase-duotone.icon";
+import { TrolleySuitcaseFillIcon } from "../fill/trolley-suitcase-fill.icon";
+import { TrolleySuitcaseLightIcon } from "../light/trolley-suitcase-light.icon";
+import { TrolleySuitcaseRegularIcon } from "../regular/trolley-suitcase-regular.icon";
+import { TrolleySuitcaseThinIcon } from "../thin/trolley-suitcase-thin.icon";
 
 export const TrolleySuitcaseIcon = memo(function TrolleySuitcase(
   props: IconWrapperProps,

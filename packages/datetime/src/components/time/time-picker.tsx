@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useId, useState } from "react";
 
 import { useControllableState, useIsOpen } from "@impulse-ui-native/core";
-import { ClockIcon } from "@impulse-ui-native/icon";
+import { ClockIcon } from "@impulse-ui-native/icon/icons/clock";
 import { Control, Pressable } from "@impulse-ui-native/primitives";
 
 import { DatetimePickerCommonProps, TimePickerValue } from "../../types";

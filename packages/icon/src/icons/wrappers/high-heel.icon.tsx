@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HighHeelBoldIcon } from "../bold";
-import { HighHeelDuotoneIcon } from "../duotone";
-import { HighHeelFillIcon } from "../fill";
-import { HighHeelLightIcon } from "../light";
-import { HighHeelRegularIcon } from "../regular";
-import { HighHeelThinIcon } from "../thin";
+import { HighHeelBoldIcon } from "../bold/high-heel-bold.icon";
+import { HighHeelDuotoneIcon } from "../duotone/high-heel-duotone.icon";
+import { HighHeelFillIcon } from "../fill/high-heel-fill.icon";
+import { HighHeelLightIcon } from "../light/high-heel-light.icon";
+import { HighHeelRegularIcon } from "../regular/high-heel-regular.icon";
+import { HighHeelThinIcon } from "../thin/high-heel-thin.icon";
 
 export const HighHeelIcon = memo(function HighHeel(props: IconWrapperProps) {
   const Icon = useMemo(() => {

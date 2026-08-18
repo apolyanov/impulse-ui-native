@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MotorcycleBoldIcon } from "../bold";
-import { MotorcycleDuotoneIcon } from "../duotone";
-import { MotorcycleFillIcon } from "../fill";
-import { MotorcycleLightIcon } from "../light";
-import { MotorcycleRegularIcon } from "../regular";
-import { MotorcycleThinIcon } from "../thin";
+import { MotorcycleBoldIcon } from "../bold/motorcycle-bold.icon";
+import { MotorcycleDuotoneIcon } from "../duotone/motorcycle-duotone.icon";
+import { MotorcycleFillIcon } from "../fill/motorcycle-fill.icon";
+import { MotorcycleLightIcon } from "../light/motorcycle-light.icon";
+import { MotorcycleRegularIcon } from "../regular/motorcycle-regular.icon";
+import { MotorcycleThinIcon } from "../thin/motorcycle-thin.icon";
 
 export const MotorcycleIcon = memo(function Motorcycle(
   props: IconWrapperProps,

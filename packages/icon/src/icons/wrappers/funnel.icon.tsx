@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FunnelBoldIcon } from "../bold";
-import { FunnelDuotoneIcon } from "../duotone";
-import { FunnelFillIcon } from "../fill";
-import { FunnelLightIcon } from "../light";
-import { FunnelRegularIcon } from "../regular";
-import { FunnelThinIcon } from "../thin";
+import { FunnelBoldIcon } from "../bold/funnel-bold.icon";
+import { FunnelDuotoneIcon } from "../duotone/funnel-duotone.icon";
+import { FunnelFillIcon } from "../fill/funnel-fill.icon";
+import { FunnelLightIcon } from "../light/funnel-light.icon";
+import { FunnelRegularIcon } from "../regular/funnel-regular.icon";
+import { FunnelThinIcon } from "../thin/funnel-thin.icon";
 
 export const FunnelIcon = memo(function Funnel(props: IconWrapperProps) {
   const Icon = useMemo(() => {

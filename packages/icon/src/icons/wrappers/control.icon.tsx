@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ControlBoldIcon } from "../bold";
-import { ControlDuotoneIcon } from "../duotone";
-import { ControlFillIcon } from "../fill";
-import { ControlLightIcon } from "../light";
-import { ControlRegularIcon } from "../regular";
-import { ControlThinIcon } from "../thin";
+import { ControlBoldIcon } from "../bold/control-bold.icon";
+import { ControlDuotoneIcon } from "../duotone/control-duotone.icon";
+import { ControlFillIcon } from "../fill/control-fill.icon";
+import { ControlLightIcon } from "../light/control-light.icon";
+import { ControlRegularIcon } from "../regular/control-regular.icon";
+import { ControlThinIcon } from "../thin/control-thin.icon";
 
 export const ControlIcon = memo(function Control(props: IconWrapperProps) {
   const Icon = useMemo(() => {

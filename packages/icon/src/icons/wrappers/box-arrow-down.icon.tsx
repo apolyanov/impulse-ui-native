@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BoxArrowDownBoldIcon } from "../bold";
-import { BoxArrowDownDuotoneIcon } from "../duotone";
-import { BoxArrowDownFillIcon } from "../fill";
-import { BoxArrowDownLightIcon } from "../light";
-import { BoxArrowDownRegularIcon } from "../regular";
-import { BoxArrowDownThinIcon } from "../thin";
+import { BoxArrowDownBoldIcon } from "../bold/box-arrow-down-bold.icon";
+import { BoxArrowDownDuotoneIcon } from "../duotone/box-arrow-down-duotone.icon";
+import { BoxArrowDownFillIcon } from "../fill/box-arrow-down-fill.icon";
+import { BoxArrowDownLightIcon } from "../light/box-arrow-down-light.icon";
+import { BoxArrowDownRegularIcon } from "../regular/box-arrow-down-regular.icon";
+import { BoxArrowDownThinIcon } from "../thin/box-arrow-down-thin.icon";
 
 export const BoxArrowDownIcon = memo(function BoxArrowDown(
   props: IconWrapperProps,

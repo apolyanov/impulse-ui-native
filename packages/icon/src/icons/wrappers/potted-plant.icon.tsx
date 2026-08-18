@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PottedPlantBoldIcon } from "../bold";
-import { PottedPlantDuotoneIcon } from "../duotone";
-import { PottedPlantFillIcon } from "../fill";
-import { PottedPlantLightIcon } from "../light";
-import { PottedPlantRegularIcon } from "../regular";
-import { PottedPlantThinIcon } from "../thin";
+import { PottedPlantBoldIcon } from "../bold/potted-plant-bold.icon";
+import { PottedPlantDuotoneIcon } from "../duotone/potted-plant-duotone.icon";
+import { PottedPlantFillIcon } from "../fill/potted-plant-fill.icon";
+import { PottedPlantLightIcon } from "../light/potted-plant-light.icon";
+import { PottedPlantRegularIcon } from "../regular/potted-plant-regular.icon";
+import { PottedPlantThinIcon } from "../thin/potted-plant-thin.icon";
 
 export const PottedPlantIcon = memo(function PottedPlant(
   props: IconWrapperProps,

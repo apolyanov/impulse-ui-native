@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CodesandboxLogoBoldIcon } from "../bold";
-import { CodesandboxLogoDuotoneIcon } from "../duotone";
-import { CodesandboxLogoFillIcon } from "../fill";
-import { CodesandboxLogoLightIcon } from "../light";
-import { CodesandboxLogoRegularIcon } from "../regular";
-import { CodesandboxLogoThinIcon } from "../thin";
+import { CodesandboxLogoBoldIcon } from "../bold/codesandbox-logo-bold.icon";
+import { CodesandboxLogoDuotoneIcon } from "../duotone/codesandbox-logo-duotone.icon";
+import { CodesandboxLogoFillIcon } from "../fill/codesandbox-logo-fill.icon";
+import { CodesandboxLogoLightIcon } from "../light/codesandbox-logo-light.icon";
+import { CodesandboxLogoRegularIcon } from "../regular/codesandbox-logo-regular.icon";
+import { CodesandboxLogoThinIcon } from "../thin/codesandbox-logo-thin.icon";
 
 export const CodesandboxLogoIcon = memo(function CodesandboxLogo(
   props: IconWrapperProps,

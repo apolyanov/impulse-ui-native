@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { memo } from "react";
 
-import { Button } from "@impulse-ui-native/toolkit";
+import { Button } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,

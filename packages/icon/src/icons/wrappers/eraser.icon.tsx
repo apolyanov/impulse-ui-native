@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EraserBoldIcon } from "../bold";
-import { EraserDuotoneIcon } from "../duotone";
-import { EraserFillIcon } from "../fill";
-import { EraserLightIcon } from "../light";
-import { EraserRegularIcon } from "../regular";
-import { EraserThinIcon } from "../thin";
+import { EraserBoldIcon } from "../bold/eraser-bold.icon";
+import { EraserDuotoneIcon } from "../duotone/eraser-duotone.icon";
+import { EraserFillIcon } from "../fill/eraser-fill.icon";
+import { EraserLightIcon } from "../light/eraser-light.icon";
+import { EraserRegularIcon } from "../regular/eraser-regular.icon";
+import { EraserThinIcon } from "../thin/eraser-thin.icon";
 
 export const EraserIcon = memo(function Eraser(props: IconWrapperProps) {
   const Icon = useMemo(() => {

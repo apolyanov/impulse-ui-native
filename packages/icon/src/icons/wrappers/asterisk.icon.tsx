@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AsteriskBoldIcon } from "../bold";
-import { AsteriskDuotoneIcon } from "../duotone";
-import { AsteriskFillIcon } from "../fill";
-import { AsteriskLightIcon } from "../light";
-import { AsteriskRegularIcon } from "../regular";
-import { AsteriskThinIcon } from "../thin";
+import { AsteriskBoldIcon } from "../bold/asterisk-bold.icon";
+import { AsteriskDuotoneIcon } from "../duotone/asterisk-duotone.icon";
+import { AsteriskFillIcon } from "../fill/asterisk-fill.icon";
+import { AsteriskLightIcon } from "../light/asterisk-light.icon";
+import { AsteriskRegularIcon } from "../regular/asterisk-regular.icon";
+import { AsteriskThinIcon } from "../thin/asterisk-thin.icon";
 
 export const AsteriskIcon = memo(function Asterisk(props: IconWrapperProps) {
   const Icon = useMemo(() => {

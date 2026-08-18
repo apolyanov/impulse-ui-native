@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SimCardBoldIcon } from "../bold";
-import { SimCardDuotoneIcon } from "../duotone";
-import { SimCardFillIcon } from "../fill";
-import { SimCardLightIcon } from "../light";
-import { SimCardRegularIcon } from "../regular";
-import { SimCardThinIcon } from "../thin";
+import { SimCardBoldIcon } from "../bold/sim-card-bold.icon";
+import { SimCardDuotoneIcon } from "../duotone/sim-card-duotone.icon";
+import { SimCardFillIcon } from "../fill/sim-card-fill.icon";
+import { SimCardLightIcon } from "../light/sim-card-light.icon";
+import { SimCardRegularIcon } from "../regular/sim-card-regular.icon";
+import { SimCardThinIcon } from "../thin/sim-card-thin.icon";
 
 export const SimCardIcon = memo(function SimCard(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StethoscopeBoldIcon } from "../bold";
-import { StethoscopeDuotoneIcon } from "../duotone";
-import { StethoscopeFillIcon } from "../fill";
-import { StethoscopeLightIcon } from "../light";
-import { StethoscopeRegularIcon } from "../regular";
-import { StethoscopeThinIcon } from "../thin";
+import { StethoscopeBoldIcon } from "../bold/stethoscope-bold.icon";
+import { StethoscopeDuotoneIcon } from "../duotone/stethoscope-duotone.icon";
+import { StethoscopeFillIcon } from "../fill/stethoscope-fill.icon";
+import { StethoscopeLightIcon } from "../light/stethoscope-light.icon";
+import { StethoscopeRegularIcon } from "../regular/stethoscope-regular.icon";
+import { StethoscopeThinIcon } from "../thin/stethoscope-thin.icon";
 
 export const StethoscopeIcon = memo(function Stethoscope(
   props: IconWrapperProps,

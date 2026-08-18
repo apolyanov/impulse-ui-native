@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FileLockBoldIcon } from "../bold";
-import { FileLockDuotoneIcon } from "../duotone";
-import { FileLockFillIcon } from "../fill";
-import { FileLockLightIcon } from "../light";
-import { FileLockRegularIcon } from "../regular";
-import { FileLockThinIcon } from "../thin";
+import { FileLockBoldIcon } from "../bold/file-lock-bold.icon";
+import { FileLockDuotoneIcon } from "../duotone/file-lock-duotone.icon";
+import { FileLockFillIcon } from "../fill/file-lock-fill.icon";
+import { FileLockLightIcon } from "../light/file-lock-light.icon";
+import { FileLockRegularIcon } from "../regular/file-lock-regular.icon";
+import { FileLockThinIcon } from "../thin/file-lock-thin.icon";
 
 export const FileLockIcon = memo(function FileLock(props: IconWrapperProps) {
   const Icon = useMemo(() => {

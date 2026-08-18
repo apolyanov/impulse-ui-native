@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GoogleLogoBoldIcon } from "../bold";
-import { GoogleLogoDuotoneIcon } from "../duotone";
-import { GoogleLogoFillIcon } from "../fill";
-import { GoogleLogoLightIcon } from "../light";
-import { GoogleLogoRegularIcon } from "../regular";
-import { GoogleLogoThinIcon } from "../thin";
+import { GoogleLogoBoldIcon } from "../bold/google-logo-bold.icon";
+import { GoogleLogoDuotoneIcon } from "../duotone/google-logo-duotone.icon";
+import { GoogleLogoFillIcon } from "../fill/google-logo-fill.icon";
+import { GoogleLogoLightIcon } from "../light/google-logo-light.icon";
+import { GoogleLogoRegularIcon } from "../regular/google-logo-regular.icon";
+import { GoogleLogoThinIcon } from "../thin/google-logo-thin.icon";
 
 export const GoogleLogoIcon = memo(function GoogleLogo(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShoppingCartSimpleBoldIcon } from "../bold";
-import { ShoppingCartSimpleDuotoneIcon } from "../duotone";
-import { ShoppingCartSimpleFillIcon } from "../fill";
-import { ShoppingCartSimpleLightIcon } from "../light";
-import { ShoppingCartSimpleRegularIcon } from "../regular";
-import { ShoppingCartSimpleThinIcon } from "../thin";
+import { ShoppingCartSimpleBoldIcon } from "../bold/shopping-cart-simple-bold.icon";
+import { ShoppingCartSimpleDuotoneIcon } from "../duotone/shopping-cart-simple-duotone.icon";
+import { ShoppingCartSimpleFillIcon } from "../fill/shopping-cart-simple-fill.icon";
+import { ShoppingCartSimpleLightIcon } from "../light/shopping-cart-simple-light.icon";
+import { ShoppingCartSimpleRegularIcon } from "../regular/shopping-cart-simple-regular.icon";
+import { ShoppingCartSimpleThinIcon } from "../thin/shopping-cart-simple-thin.icon";
 
 export const ShoppingCartSimpleIcon = memo(function ShoppingCartSimple(
   props: IconWrapperProps,

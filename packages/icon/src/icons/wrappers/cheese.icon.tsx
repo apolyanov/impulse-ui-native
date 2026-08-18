@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CheeseBoldIcon } from "../bold";
-import { CheeseDuotoneIcon } from "../duotone";
-import { CheeseFillIcon } from "../fill";
-import { CheeseLightIcon } from "../light";
-import { CheeseRegularIcon } from "../regular";
-import { CheeseThinIcon } from "../thin";
+import { CheeseBoldIcon } from "../bold/cheese-bold.icon";
+import { CheeseDuotoneIcon } from "../duotone/cheese-duotone.icon";
+import { CheeseFillIcon } from "../fill/cheese-fill.icon";
+import { CheeseLightIcon } from "../light/cheese-light.icon";
+import { CheeseRegularIcon } from "../regular/cheese-regular.icon";
+import { CheeseThinIcon } from "../thin/cheese-thin.icon";
 
 export const CheeseIcon = memo(function Cheese(props: IconWrapperProps) {
   const Icon = useMemo(() => {

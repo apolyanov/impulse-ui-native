@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DropSlashBoldIcon } from "../bold";
-import { DropSlashDuotoneIcon } from "../duotone";
-import { DropSlashFillIcon } from "../fill";
-import { DropSlashLightIcon } from "../light";
-import { DropSlashRegularIcon } from "../regular";
-import { DropSlashThinIcon } from "../thin";
+import { DropSlashBoldIcon } from "../bold/drop-slash-bold.icon";
+import { DropSlashDuotoneIcon } from "../duotone/drop-slash-duotone.icon";
+import { DropSlashFillIcon } from "../fill/drop-slash-fill.icon";
+import { DropSlashLightIcon } from "../light/drop-slash-light.icon";
+import { DropSlashRegularIcon } from "../regular/drop-slash-regular.icon";
+import { DropSlashThinIcon } from "../thin/drop-slash-thin.icon";
 
 export const DropSlashIcon = memo(function DropSlash(props: IconWrapperProps) {
   const Icon = useMemo(() => {

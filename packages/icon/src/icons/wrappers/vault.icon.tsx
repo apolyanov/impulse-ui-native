@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { VaultBoldIcon } from "../bold";
-import { VaultDuotoneIcon } from "../duotone";
-import { VaultFillIcon } from "../fill";
-import { VaultLightIcon } from "../light";
-import { VaultRegularIcon } from "../regular";
-import { VaultThinIcon } from "../thin";
+import { VaultBoldIcon } from "../bold/vault-bold.icon";
+import { VaultDuotoneIcon } from "../duotone/vault-duotone.icon";
+import { VaultFillIcon } from "../fill/vault-fill.icon";
+import { VaultLightIcon } from "../light/vault-light.icon";
+import { VaultRegularIcon } from "../regular/vault-regular.icon";
+import { VaultThinIcon } from "../thin/vault-thin.icon";
 
 export const VaultIcon = memo(function Vault(props: IconWrapperProps) {
   const Icon = useMemo(() => {

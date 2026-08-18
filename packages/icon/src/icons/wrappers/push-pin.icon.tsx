@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PushPinBoldIcon } from "../bold";
-import { PushPinDuotoneIcon } from "../duotone";
-import { PushPinFillIcon } from "../fill";
-import { PushPinLightIcon } from "../light";
-import { PushPinRegularIcon } from "../regular";
-import { PushPinThinIcon } from "../thin";
+import { PushPinBoldIcon } from "../bold/push-pin-bold.icon";
+import { PushPinDuotoneIcon } from "../duotone/push-pin-duotone.icon";
+import { PushPinFillIcon } from "../fill/push-pin-fill.icon";
+import { PushPinLightIcon } from "../light/push-pin-light.icon";
+import { PushPinRegularIcon } from "../regular/push-pin-regular.icon";
+import { PushPinThinIcon } from "../thin/push-pin-thin.icon";
 
 export const PushPinIcon = memo(function PushPin(props: IconWrapperProps) {
   const Icon = useMemo(() => {

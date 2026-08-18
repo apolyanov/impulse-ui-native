@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SubsetProperOfBoldIcon } from "../bold";
-import { SubsetProperOfDuotoneIcon } from "../duotone";
-import { SubsetProperOfFillIcon } from "../fill";
-import { SubsetProperOfLightIcon } from "../light";
-import { SubsetProperOfRegularIcon } from "../regular";
-import { SubsetProperOfThinIcon } from "../thin";
+import { SubsetProperOfBoldIcon } from "../bold/subset-proper-of-bold.icon";
+import { SubsetProperOfDuotoneIcon } from "../duotone/subset-proper-of-duotone.icon";
+import { SubsetProperOfFillIcon } from "../fill/subset-proper-of-fill.icon";
+import { SubsetProperOfLightIcon } from "../light/subset-proper-of-light.icon";
+import { SubsetProperOfRegularIcon } from "../regular/subset-proper-of-regular.icon";
+import { SubsetProperOfThinIcon } from "../thin/subset-proper-of-thin.icon";
 
 export const SubsetProperOfIcon = memo(function SubsetProperOf(
   props: IconWrapperProps,

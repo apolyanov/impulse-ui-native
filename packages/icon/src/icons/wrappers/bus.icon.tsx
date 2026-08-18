@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BusBoldIcon } from "../bold";
-import { BusDuotoneIcon } from "../duotone";
-import { BusFillIcon } from "../fill";
-import { BusLightIcon } from "../light";
-import { BusRegularIcon } from "../regular";
-import { BusThinIcon } from "../thin";
+import { BusBoldIcon } from "../bold/bus-bold.icon";
+import { BusDuotoneIcon } from "../duotone/bus-duotone.icon";
+import { BusFillIcon } from "../fill/bus-fill.icon";
+import { BusLightIcon } from "../light/bus-light.icon";
+import { BusRegularIcon } from "../regular/bus-regular.icon";
+import { BusThinIcon } from "../thin/bus-thin.icon";
 
 export const BusIcon = memo(function Bus(props: IconWrapperProps) {
   const Icon = useMemo(() => {

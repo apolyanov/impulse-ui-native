@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TreeEvergreenBoldIcon } from "../bold";
-import { TreeEvergreenDuotoneIcon } from "../duotone";
-import { TreeEvergreenFillIcon } from "../fill";
-import { TreeEvergreenLightIcon } from "../light";
-import { TreeEvergreenRegularIcon } from "../regular";
-import { TreeEvergreenThinIcon } from "../thin";
+import { TreeEvergreenBoldIcon } from "../bold/tree-evergreen-bold.icon";
+import { TreeEvergreenDuotoneIcon } from "../duotone/tree-evergreen-duotone.icon";
+import { TreeEvergreenFillIcon } from "../fill/tree-evergreen-fill.icon";
+import { TreeEvergreenLightIcon } from "../light/tree-evergreen-light.icon";
+import { TreeEvergreenRegularIcon } from "../regular/tree-evergreen-regular.icon";
+import { TreeEvergreenThinIcon } from "../thin/tree-evergreen-thin.icon";
 
 export const TreeEvergreenIcon = memo(function TreeEvergreen(
   props: IconWrapperProps,

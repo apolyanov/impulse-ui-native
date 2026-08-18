@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GridNineBoldIcon } from "../bold";
-import { GridNineDuotoneIcon } from "../duotone";
-import { GridNineFillIcon } from "../fill";
-import { GridNineLightIcon } from "../light";
-import { GridNineRegularIcon } from "../regular";
-import { GridNineThinIcon } from "../thin";
+import { GridNineBoldIcon } from "../bold/grid-nine-bold.icon";
+import { GridNineDuotoneIcon } from "../duotone/grid-nine-duotone.icon";
+import { GridNineFillIcon } from "../fill/grid-nine-fill.icon";
+import { GridNineLightIcon } from "../light/grid-nine-light.icon";
+import { GridNineRegularIcon } from "../regular/grid-nine-regular.icon";
+import { GridNineThinIcon } from "../thin/grid-nine-thin.icon";
 
 export const GridNineIcon = memo(function GridNine(props: IconWrapperProps) {
   const Icon = useMemo(() => {

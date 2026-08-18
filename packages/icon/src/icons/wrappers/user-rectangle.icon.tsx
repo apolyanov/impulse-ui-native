@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { UserRectangleBoldIcon } from "../bold";
-import { UserRectangleDuotoneIcon } from "../duotone";
-import { UserRectangleFillIcon } from "../fill";
-import { UserRectangleLightIcon } from "../light";
-import { UserRectangleRegularIcon } from "../regular";
-import { UserRectangleThinIcon } from "../thin";
+import { UserRectangleBoldIcon } from "../bold/user-rectangle-bold.icon";
+import { UserRectangleDuotoneIcon } from "../duotone/user-rectangle-duotone.icon";
+import { UserRectangleFillIcon } from "../fill/user-rectangle-fill.icon";
+import { UserRectangleLightIcon } from "../light/user-rectangle-light.icon";
+import { UserRectangleRegularIcon } from "../regular/user-rectangle-regular.icon";
+import { UserRectangleThinIcon } from "../thin/user-rectangle-thin.icon";
 
 export const UserRectangleIcon = memo(function UserRectangle(
   props: IconWrapperProps,

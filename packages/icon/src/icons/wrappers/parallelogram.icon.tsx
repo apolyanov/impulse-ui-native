@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ParallelogramBoldIcon } from "../bold";
-import { ParallelogramDuotoneIcon } from "../duotone";
-import { ParallelogramFillIcon } from "../fill";
-import { ParallelogramLightIcon } from "../light";
-import { ParallelogramRegularIcon } from "../regular";
-import { ParallelogramThinIcon } from "../thin";
+import { ParallelogramBoldIcon } from "../bold/parallelogram-bold.icon";
+import { ParallelogramDuotoneIcon } from "../duotone/parallelogram-duotone.icon";
+import { ParallelogramFillIcon } from "../fill/parallelogram-fill.icon";
+import { ParallelogramLightIcon } from "../light/parallelogram-light.icon";
+import { ParallelogramRegularIcon } from "../regular/parallelogram-regular.icon";
+import { ParallelogramThinIcon } from "../thin/parallelogram-thin.icon";
 
 export const ParallelogramIcon = memo(function Parallelogram(
   props: IconWrapperProps,

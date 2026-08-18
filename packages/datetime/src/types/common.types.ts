@@ -1,7 +1,7 @@
 import { ComponentType } from "react";
 
+import type { IconProps } from "@impulse-ui-native/icon/types";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
-import { IconProps } from "@impulse-ui-native/icon";
 import {
   ControlComponentCommonProps,
   ControlComponentProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandsClappingBoldIcon } from "../bold";
-import { HandsClappingDuotoneIcon } from "../duotone";
-import { HandsClappingFillIcon } from "../fill";
-import { HandsClappingLightIcon } from "../light";
-import { HandsClappingRegularIcon } from "../regular";
-import { HandsClappingThinIcon } from "../thin";
+import { HandsClappingBoldIcon } from "../bold/hands-clapping-bold.icon";
+import { HandsClappingDuotoneIcon } from "../duotone/hands-clapping-duotone.icon";
+import { HandsClappingFillIcon } from "../fill/hands-clapping-fill.icon";
+import { HandsClappingLightIcon } from "../light/hands-clapping-light.icon";
+import { HandsClappingRegularIcon } from "../regular/hands-clapping-regular.icon";
+import { HandsClappingThinIcon } from "../thin/hands-clapping-thin.icon";
 
 export const HandsClappingIcon = memo(function HandsClapping(
   props: IconWrapperProps,

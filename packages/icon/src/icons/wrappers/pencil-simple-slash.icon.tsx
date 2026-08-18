@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PencilSimpleSlashBoldIcon } from "../bold";
-import { PencilSimpleSlashDuotoneIcon } from "../duotone";
-import { PencilSimpleSlashFillIcon } from "../fill";
-import { PencilSimpleSlashLightIcon } from "../light";
-import { PencilSimpleSlashRegularIcon } from "../regular";
-import { PencilSimpleSlashThinIcon } from "../thin";
+import { PencilSimpleSlashBoldIcon } from "../bold/pencil-simple-slash-bold.icon";
+import { PencilSimpleSlashDuotoneIcon } from "../duotone/pencil-simple-slash-duotone.icon";
+import { PencilSimpleSlashFillIcon } from "../fill/pencil-simple-slash-fill.icon";
+import { PencilSimpleSlashLightIcon } from "../light/pencil-simple-slash-light.icon";
+import { PencilSimpleSlashRegularIcon } from "../regular/pencil-simple-slash-regular.icon";
+import { PencilSimpleSlashThinIcon } from "../thin/pencil-simple-slash-thin.icon";
 
 export const PencilSimpleSlashIcon = memo(function PencilSimpleSlash(
   props: IconWrapperProps,

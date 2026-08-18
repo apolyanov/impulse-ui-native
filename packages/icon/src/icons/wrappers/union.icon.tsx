@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { UnionBoldIcon } from "../bold";
-import { UnionDuotoneIcon } from "../duotone";
-import { UnionFillIcon } from "../fill";
-import { UnionLightIcon } from "../light";
-import { UnionRegularIcon } from "../regular";
-import { UnionThinIcon } from "../thin";
+import { UnionBoldIcon } from "../bold/union-bold.icon";
+import { UnionDuotoneIcon } from "../duotone/union-duotone.icon";
+import { UnionFillIcon } from "../fill/union-fill.icon";
+import { UnionLightIcon } from "../light/union-light.icon";
+import { UnionRegularIcon } from "../regular/union-regular.icon";
+import { UnionThinIcon } from "../thin/union-thin.icon";
 
 export const UnionIcon = memo(function Union(props: IconWrapperProps) {
   const Icon = useMemo(() => {

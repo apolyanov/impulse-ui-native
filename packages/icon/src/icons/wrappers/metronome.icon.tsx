@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MetronomeBoldIcon } from "../bold";
-import { MetronomeDuotoneIcon } from "../duotone";
-import { MetronomeFillIcon } from "../fill";
-import { MetronomeLightIcon } from "../light";
-import { MetronomeRegularIcon } from "../regular";
-import { MetronomeThinIcon } from "../thin";
+import { MetronomeBoldIcon } from "../bold/metronome-bold.icon";
+import { MetronomeDuotoneIcon } from "../duotone/metronome-duotone.icon";
+import { MetronomeFillIcon } from "../fill/metronome-fill.icon";
+import { MetronomeLightIcon } from "../light/metronome-light.icon";
+import { MetronomeRegularIcon } from "../regular/metronome-regular.icon";
+import { MetronomeThinIcon } from "../thin/metronome-thin.icon";
 
 export const MetronomeIcon = memo(function Metronome(props: IconWrapperProps) {
   const Icon = useMemo(() => {

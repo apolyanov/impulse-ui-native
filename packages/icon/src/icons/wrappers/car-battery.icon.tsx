@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CarBatteryBoldIcon } from "../bold";
-import { CarBatteryDuotoneIcon } from "../duotone";
-import { CarBatteryFillIcon } from "../fill";
-import { CarBatteryLightIcon } from "../light";
-import { CarBatteryRegularIcon } from "../regular";
-import { CarBatteryThinIcon } from "../thin";
+import { CarBatteryBoldIcon } from "../bold/car-battery-bold.icon";
+import { CarBatteryDuotoneIcon } from "../duotone/car-battery-duotone.icon";
+import { CarBatteryFillIcon } from "../fill/car-battery-fill.icon";
+import { CarBatteryLightIcon } from "../light/car-battery-light.icon";
+import { CarBatteryRegularIcon } from "../regular/car-battery-regular.icon";
+import { CarBatteryThinIcon } from "../thin/car-battery-thin.icon";
 
 export const CarBatteryIcon = memo(function CarBattery(
   props: IconWrapperProps,

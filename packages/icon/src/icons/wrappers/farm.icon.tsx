@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FarmBoldIcon } from "../bold";
-import { FarmDuotoneIcon } from "../duotone";
-import { FarmFillIcon } from "../fill";
-import { FarmLightIcon } from "../light";
-import { FarmRegularIcon } from "../regular";
-import { FarmThinIcon } from "../thin";
+import { FarmBoldIcon } from "../bold/farm-bold.icon";
+import { FarmDuotoneIcon } from "../duotone/farm-duotone.icon";
+import { FarmFillIcon } from "../fill/farm-fill.icon";
+import { FarmLightIcon } from "../light/farm-light.icon";
+import { FarmRegularIcon } from "../regular/farm-regular.icon";
+import { FarmThinIcon } from "../thin/farm-thin.icon";
 
 export const FarmIcon = memo(function Farm(props: IconWrapperProps) {
   const Icon = useMemo(() => {

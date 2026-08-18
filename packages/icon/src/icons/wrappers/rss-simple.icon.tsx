@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RssSimpleBoldIcon } from "../bold";
-import { RssSimpleDuotoneIcon } from "../duotone";
-import { RssSimpleFillIcon } from "../fill";
-import { RssSimpleLightIcon } from "../light";
-import { RssSimpleRegularIcon } from "../regular";
-import { RssSimpleThinIcon } from "../thin";
+import { RssSimpleBoldIcon } from "../bold/rss-simple-bold.icon";
+import { RssSimpleDuotoneIcon } from "../duotone/rss-simple-duotone.icon";
+import { RssSimpleFillIcon } from "../fill/rss-simple-fill.icon";
+import { RssSimpleLightIcon } from "../light/rss-simple-light.icon";
+import { RssSimpleRegularIcon } from "../regular/rss-simple-regular.icon";
+import { RssSimpleThinIcon } from "../thin/rss-simple-thin.icon";
 
 export const RssSimpleIcon = memo(function RssSimple(props: IconWrapperProps) {
   const Icon = useMemo(() => {

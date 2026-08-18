@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { memo } from "react";
 
-import { Typography } from "@impulse-ui-native/toolkit";
+import { Typography } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,
@@ -17,8 +17,7 @@ interface TypographyExampleDefinition {
   Component: keyof typeof Typography;
 }
 
-const TypographySampleText =
-  "The quick brown fox jumps over the lazy dog.";
+const TypographySampleText = "The quick brown fox jumps over the lazy dog.";
 
 export const TypographyExampleDefinitions = [
   {
@@ -294,7 +293,8 @@ export const TypographyExampleDefinitions = [
       {
         name: "preset",
         value: "BodyLarge",
-        description: "Uses regular weight with medium font size and larger line height.",
+        description:
+          "Uses regular weight with medium font size and larger line height.",
       },
       {
         name: "children",
@@ -406,7 +406,8 @@ export const TypographyExampleDefinitions = [
       {
         name: "preset",
         value: "Overline",
-        description: "Uses uppercase text, semi-bold weight, and letter spacing.",
+        description:
+          "Uses uppercase text, semi-bold weight, and letter spacing.",
       },
       {
         name: "children",
@@ -460,7 +461,7 @@ export const TypographyExampleDefinitions = [
     ],
     Component: "Code",
     args: {
-      children: "variant=\"filled\"",
+      children: 'variant="filled"',
     },
   },
   {

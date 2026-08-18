@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowCircleRightBoldIcon } from "../bold";
-import { ArrowCircleRightDuotoneIcon } from "../duotone";
-import { ArrowCircleRightFillIcon } from "../fill";
-import { ArrowCircleRightLightIcon } from "../light";
-import { ArrowCircleRightRegularIcon } from "../regular";
-import { ArrowCircleRightThinIcon } from "../thin";
+import { ArrowCircleRightBoldIcon } from "../bold/arrow-circle-right-bold.icon";
+import { ArrowCircleRightDuotoneIcon } from "../duotone/arrow-circle-right-duotone.icon";
+import { ArrowCircleRightFillIcon } from "../fill/arrow-circle-right-fill.icon";
+import { ArrowCircleRightLightIcon } from "../light/arrow-circle-right-light.icon";
+import { ArrowCircleRightRegularIcon } from "../regular/arrow-circle-right-regular.icon";
+import { ArrowCircleRightThinIcon } from "../thin/arrow-circle-right-thin.icon";
 
 export const ArrowCircleRightIcon = memo(function ArrowCircleRight(
   props: IconWrapperProps,

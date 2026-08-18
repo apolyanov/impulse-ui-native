@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Typography } from "@impulse-ui-native/primitives";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
-import { Typography } from "@impulse-ui-native/toolkit";
 
 import { TypographyDocumentation } from "./typography.documentation";
 import {

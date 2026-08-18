@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BeerBottleBoldIcon } from "../bold";
-import { BeerBottleDuotoneIcon } from "../duotone";
-import { BeerBottleFillIcon } from "../fill";
-import { BeerBottleLightIcon } from "../light";
-import { BeerBottleRegularIcon } from "../regular";
-import { BeerBottleThinIcon } from "../thin";
+import { BeerBottleBoldIcon } from "../bold/beer-bottle-bold.icon";
+import { BeerBottleDuotoneIcon } from "../duotone/beer-bottle-duotone.icon";
+import { BeerBottleFillIcon } from "../fill/beer-bottle-fill.icon";
+import { BeerBottleLightIcon } from "../light/beer-bottle-light.icon";
+import { BeerBottleRegularIcon } from "../regular/beer-bottle-regular.icon";
+import { BeerBottleThinIcon } from "../thin/beer-bottle-thin.icon";
 
 export const BeerBottleIcon = memo(function BeerBottle(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GridFourBoldIcon } from "../bold";
-import { GridFourDuotoneIcon } from "../duotone";
-import { GridFourFillIcon } from "../fill";
-import { GridFourLightIcon } from "../light";
-import { GridFourRegularIcon } from "../regular";
-import { GridFourThinIcon } from "../thin";
+import { GridFourBoldIcon } from "../bold/grid-four-bold.icon";
+import { GridFourDuotoneIcon } from "../duotone/grid-four-duotone.icon";
+import { GridFourFillIcon } from "../fill/grid-four-fill.icon";
+import { GridFourLightIcon } from "../light/grid-four-light.icon";
+import { GridFourRegularIcon } from "../regular/grid-four-regular.icon";
+import { GridFourThinIcon } from "../thin/grid-four-thin.icon";
 
 export const GridFourIcon = memo(function GridFour(props: IconWrapperProps) {
   const Icon = useMemo(() => {

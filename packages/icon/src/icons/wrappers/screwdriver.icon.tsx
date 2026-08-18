@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ScrewdriverBoldIcon } from "../bold";
-import { ScrewdriverDuotoneIcon } from "../duotone";
-import { ScrewdriverFillIcon } from "../fill";
-import { ScrewdriverLightIcon } from "../light";
-import { ScrewdriverRegularIcon } from "../regular";
-import { ScrewdriverThinIcon } from "../thin";
+import { ScrewdriverBoldIcon } from "../bold/screwdriver-bold.icon";
+import { ScrewdriverDuotoneIcon } from "../duotone/screwdriver-duotone.icon";
+import { ScrewdriverFillIcon } from "../fill/screwdriver-fill.icon";
+import { ScrewdriverLightIcon } from "../light/screwdriver-light.icon";
+import { ScrewdriverRegularIcon } from "../regular/screwdriver-regular.icon";
+import { ScrewdriverThinIcon } from "../thin/screwdriver-thin.icon";
 
 export const ScrewdriverIcon = memo(function Screwdriver(
   props: IconWrapperProps,

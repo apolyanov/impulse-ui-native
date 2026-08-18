@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ClubBoldIcon } from "../bold";
-import { ClubDuotoneIcon } from "../duotone";
-import { ClubFillIcon } from "../fill";
-import { ClubLightIcon } from "../light";
-import { ClubRegularIcon } from "../regular";
-import { ClubThinIcon } from "../thin";
+import { ClubBoldIcon } from "../bold/club-bold.icon";
+import { ClubDuotoneIcon } from "../duotone/club-duotone.icon";
+import { ClubFillIcon } from "../fill/club-fill.icon";
+import { ClubLightIcon } from "../light/club-light.icon";
+import { ClubRegularIcon } from "../regular/club-regular.icon";
+import { ClubThinIcon } from "../thin/club-thin.icon";
 
 export const ClubIcon = memo(function Club(props: IconWrapperProps) {
   const Icon = useMemo(() => {

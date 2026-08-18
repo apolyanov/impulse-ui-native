@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChatTeardropDotsBoldIcon } from "../bold";
-import { ChatTeardropDotsDuotoneIcon } from "../duotone";
-import { ChatTeardropDotsFillIcon } from "../fill";
-import { ChatTeardropDotsLightIcon } from "../light";
-import { ChatTeardropDotsRegularIcon } from "../regular";
-import { ChatTeardropDotsThinIcon } from "../thin";
+import { ChatTeardropDotsBoldIcon } from "../bold/chat-teardrop-dots-bold.icon";
+import { ChatTeardropDotsDuotoneIcon } from "../duotone/chat-teardrop-dots-duotone.icon";
+import { ChatTeardropDotsFillIcon } from "../fill/chat-teardrop-dots-fill.icon";
+import { ChatTeardropDotsLightIcon } from "../light/chat-teardrop-dots-light.icon";
+import { ChatTeardropDotsRegularIcon } from "../regular/chat-teardrop-dots-regular.icon";
+import { ChatTeardropDotsThinIcon } from "../thin/chat-teardrop-dots-thin.icon";
 
 export const ChatTeardropDotsIcon = memo(function ChatTeardropDots(
   props: IconWrapperProps,

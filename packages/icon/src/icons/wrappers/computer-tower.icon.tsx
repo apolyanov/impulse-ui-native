@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ComputerTowerBoldIcon } from "../bold";
-import { ComputerTowerDuotoneIcon } from "../duotone";
-import { ComputerTowerFillIcon } from "../fill";
-import { ComputerTowerLightIcon } from "../light";
-import { ComputerTowerRegularIcon } from "../regular";
-import { ComputerTowerThinIcon } from "../thin";
+import { ComputerTowerBoldIcon } from "../bold/computer-tower-bold.icon";
+import { ComputerTowerDuotoneIcon } from "../duotone/computer-tower-duotone.icon";
+import { ComputerTowerFillIcon } from "../fill/computer-tower-fill.icon";
+import { ComputerTowerLightIcon } from "../light/computer-tower-light.icon";
+import { ComputerTowerRegularIcon } from "../regular/computer-tower-regular.icon";
+import { ComputerTowerThinIcon } from "../thin/computer-tower-thin.icon";
 
 export const ComputerTowerIcon = memo(function ComputerTower(
   props: IconWrapperProps,

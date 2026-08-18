@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FolderSimpleUserBoldIcon } from "../bold";
-import { FolderSimpleUserDuotoneIcon } from "../duotone";
-import { FolderSimpleUserFillIcon } from "../fill";
-import { FolderSimpleUserLightIcon } from "../light";
-import { FolderSimpleUserRegularIcon } from "../regular";
-import { FolderSimpleUserThinIcon } from "../thin";
+import { FolderSimpleUserBoldIcon } from "../bold/folder-simple-user-bold.icon";
+import { FolderSimpleUserDuotoneIcon } from "../duotone/folder-simple-user-duotone.icon";
+import { FolderSimpleUserFillIcon } from "../fill/folder-simple-user-fill.icon";
+import { FolderSimpleUserLightIcon } from "../light/folder-simple-user-light.icon";
+import { FolderSimpleUserRegularIcon } from "../regular/folder-simple-user-regular.icon";
+import { FolderSimpleUserThinIcon } from "../thin/folder-simple-user-thin.icon";
 
 export const FolderSimpleUserIcon = memo(function FolderSimpleUser(
   props: IconWrapperProps,

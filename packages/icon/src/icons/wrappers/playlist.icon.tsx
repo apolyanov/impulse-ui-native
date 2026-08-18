@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PlaylistBoldIcon } from "../bold";
-import { PlaylistDuotoneIcon } from "../duotone";
-import { PlaylistFillIcon } from "../fill";
-import { PlaylistLightIcon } from "../light";
-import { PlaylistRegularIcon } from "../regular";
-import { PlaylistThinIcon } from "../thin";
+import { PlaylistBoldIcon } from "../bold/playlist-bold.icon";
+import { PlaylistDuotoneIcon } from "../duotone/playlist-duotone.icon";
+import { PlaylistFillIcon } from "../fill/playlist-fill.icon";
+import { PlaylistLightIcon } from "../light/playlist-light.icon";
+import { PlaylistRegularIcon } from "../regular/playlist-regular.icon";
+import { PlaylistThinIcon } from "../thin/playlist-thin.icon";
 
 export const PlaylistIcon = memo(function Playlist(props: IconWrapperProps) {
   const Icon = useMemo(() => {

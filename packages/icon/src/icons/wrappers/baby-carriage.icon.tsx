@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BabyCarriageBoldIcon } from "../bold";
-import { BabyCarriageDuotoneIcon } from "../duotone";
-import { BabyCarriageFillIcon } from "../fill";
-import { BabyCarriageLightIcon } from "../light";
-import { BabyCarriageRegularIcon } from "../regular";
-import { BabyCarriageThinIcon } from "../thin";
+import { BabyCarriageBoldIcon } from "../bold/baby-carriage-bold.icon";
+import { BabyCarriageDuotoneIcon } from "../duotone/baby-carriage-duotone.icon";
+import { BabyCarriageFillIcon } from "../fill/baby-carriage-fill.icon";
+import { BabyCarriageLightIcon } from "../light/baby-carriage-light.icon";
+import { BabyCarriageRegularIcon } from "../regular/baby-carriage-regular.icon";
+import { BabyCarriageThinIcon } from "../thin/baby-carriage-thin.icon";
 
 export const BabyCarriageIcon = memo(function BabyCarriage(
   props: IconWrapperProps,

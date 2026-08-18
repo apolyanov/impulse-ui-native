@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WaveformSlashBoldIcon } from "../bold";
-import { WaveformSlashDuotoneIcon } from "../duotone";
-import { WaveformSlashFillIcon } from "../fill";
-import { WaveformSlashLightIcon } from "../light";
-import { WaveformSlashRegularIcon } from "../regular";
-import { WaveformSlashThinIcon } from "../thin";
+import { WaveformSlashBoldIcon } from "../bold/waveform-slash-bold.icon";
+import { WaveformSlashDuotoneIcon } from "../duotone/waveform-slash-duotone.icon";
+import { WaveformSlashFillIcon } from "../fill/waveform-slash-fill.icon";
+import { WaveformSlashLightIcon } from "../light/waveform-slash-light.icon";
+import { WaveformSlashRegularIcon } from "../regular/waveform-slash-regular.icon";
+import { WaveformSlashThinIcon } from "../thin/waveform-slash-thin.icon";
 
 export const WaveformSlashIcon = memo(function WaveformSlash(
   props: IconWrapperProps,

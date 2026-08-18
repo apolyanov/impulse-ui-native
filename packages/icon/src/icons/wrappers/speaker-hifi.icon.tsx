@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SpeakerHifiBoldIcon } from "../bold";
-import { SpeakerHifiDuotoneIcon } from "../duotone";
-import { SpeakerHifiFillIcon } from "../fill";
-import { SpeakerHifiLightIcon } from "../light";
-import { SpeakerHifiRegularIcon } from "../regular";
-import { SpeakerHifiThinIcon } from "../thin";
+import { SpeakerHifiBoldIcon } from "../bold/speaker-hifi-bold.icon";
+import { SpeakerHifiDuotoneIcon } from "../duotone/speaker-hifi-duotone.icon";
+import { SpeakerHifiFillIcon } from "../fill/speaker-hifi-fill.icon";
+import { SpeakerHifiLightIcon } from "../light/speaker-hifi-light.icon";
+import { SpeakerHifiRegularIcon } from "../regular/speaker-hifi-regular.icon";
+import { SpeakerHifiThinIcon } from "../thin/speaker-hifi-thin.icon";
 
 export const SpeakerHifiIcon = memo(function SpeakerHifi(
   props: IconWrapperProps,

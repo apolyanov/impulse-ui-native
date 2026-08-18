@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SnapchatLogoBoldIcon } from "../bold";
-import { SnapchatLogoDuotoneIcon } from "../duotone";
-import { SnapchatLogoFillIcon } from "../fill";
-import { SnapchatLogoLightIcon } from "../light";
-import { SnapchatLogoRegularIcon } from "../regular";
-import { SnapchatLogoThinIcon } from "../thin";
+import { SnapchatLogoBoldIcon } from "../bold/snapchat-logo-bold.icon";
+import { SnapchatLogoDuotoneIcon } from "../duotone/snapchat-logo-duotone.icon";
+import { SnapchatLogoFillIcon } from "../fill/snapchat-logo-fill.icon";
+import { SnapchatLogoLightIcon } from "../light/snapchat-logo-light.icon";
+import { SnapchatLogoRegularIcon } from "../regular/snapchat-logo-regular.icon";
+import { SnapchatLogoThinIcon } from "../thin/snapchat-logo-thin.icon";
 
 export const SnapchatLogoIcon = memo(function SnapchatLogo(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EngineBoldIcon } from "../bold";
-import { EngineDuotoneIcon } from "../duotone";
-import { EngineFillIcon } from "../fill";
-import { EngineLightIcon } from "../light";
-import { EngineRegularIcon } from "../regular";
-import { EngineThinIcon } from "../thin";
+import { EngineBoldIcon } from "../bold/engine-bold.icon";
+import { EngineDuotoneIcon } from "../duotone/engine-duotone.icon";
+import { EngineFillIcon } from "../fill/engine-fill.icon";
+import { EngineLightIcon } from "../light/engine-light.icon";
+import { EngineRegularIcon } from "../regular/engine-regular.icon";
+import { EngineThinIcon } from "../thin/engine-thin.icon";
 
 export const EngineIcon = memo(function Engine(props: IconWrapperProps) {
   const Icon = useMemo(() => {

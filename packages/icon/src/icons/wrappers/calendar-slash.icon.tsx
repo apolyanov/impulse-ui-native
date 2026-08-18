@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CalendarSlashBoldIcon } from "../bold";
-import { CalendarSlashDuotoneIcon } from "../duotone";
-import { CalendarSlashFillIcon } from "../fill";
-import { CalendarSlashLightIcon } from "../light";
-import { CalendarSlashRegularIcon } from "../regular";
-import { CalendarSlashThinIcon } from "../thin";
+import { CalendarSlashBoldIcon } from "../bold/calendar-slash-bold.icon";
+import { CalendarSlashDuotoneIcon } from "../duotone/calendar-slash-duotone.icon";
+import { CalendarSlashFillIcon } from "../fill/calendar-slash-fill.icon";
+import { CalendarSlashLightIcon } from "../light/calendar-slash-light.icon";
+import { CalendarSlashRegularIcon } from "../regular/calendar-slash-regular.icon";
+import { CalendarSlashThinIcon } from "../thin/calendar-slash-thin.icon";
 
 export const CalendarSlashIcon = memo(function CalendarSlash(
   props: IconWrapperProps,

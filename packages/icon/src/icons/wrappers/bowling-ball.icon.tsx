@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BowlingBallBoldIcon } from "../bold";
-import { BowlingBallDuotoneIcon } from "../duotone";
-import { BowlingBallFillIcon } from "../fill";
-import { BowlingBallLightIcon } from "../light";
-import { BowlingBallRegularIcon } from "../regular";
-import { BowlingBallThinIcon } from "../thin";
+import { BowlingBallBoldIcon } from "../bold/bowling-ball-bold.icon";
+import { BowlingBallDuotoneIcon } from "../duotone/bowling-ball-duotone.icon";
+import { BowlingBallFillIcon } from "../fill/bowling-ball-fill.icon";
+import { BowlingBallLightIcon } from "../light/bowling-ball-light.icon";
+import { BowlingBallRegularIcon } from "../regular/bowling-ball-regular.icon";
+import { BowlingBallThinIcon } from "../thin/bowling-ball-thin.icon";
 
 export const BowlingBallIcon = memo(function BowlingBall(
   props: IconWrapperProps,

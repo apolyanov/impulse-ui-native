@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StepsBoldIcon } from "../bold";
-import { StepsDuotoneIcon } from "../duotone";
-import { StepsFillIcon } from "../fill";
-import { StepsLightIcon } from "../light";
-import { StepsRegularIcon } from "../regular";
-import { StepsThinIcon } from "../thin";
+import { StepsBoldIcon } from "../bold/steps-bold.icon";
+import { StepsDuotoneIcon } from "../duotone/steps-duotone.icon";
+import { StepsFillIcon } from "../fill/steps-fill.icon";
+import { StepsLightIcon } from "../light/steps-light.icon";
+import { StepsRegularIcon } from "../regular/steps-regular.icon";
+import { StepsThinIcon } from "../thin/steps-thin.icon";
 
 export const StepsIcon = memo(function Steps(props: IconWrapperProps) {
   const Icon = useMemo(() => {

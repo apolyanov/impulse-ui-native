@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ScreencastBoldIcon } from "../bold";
-import { ScreencastDuotoneIcon } from "../duotone";
-import { ScreencastFillIcon } from "../fill";
-import { ScreencastLightIcon } from "../light";
-import { ScreencastRegularIcon } from "../regular";
-import { ScreencastThinIcon } from "../thin";
+import { ScreencastBoldIcon } from "../bold/screencast-bold.icon";
+import { ScreencastDuotoneIcon } from "../duotone/screencast-duotone.icon";
+import { ScreencastFillIcon } from "../fill/screencast-fill.icon";
+import { ScreencastLightIcon } from "../light/screencast-light.icon";
+import { ScreencastRegularIcon } from "../regular/screencast-regular.icon";
+import { ScreencastThinIcon } from "../thin/screencast-thin.icon";
 
 export const ScreencastIcon = memo(function Screencast(
   props: IconWrapperProps,

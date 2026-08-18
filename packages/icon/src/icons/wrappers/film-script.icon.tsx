@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FilmScriptBoldIcon } from "../bold";
-import { FilmScriptDuotoneIcon } from "../duotone";
-import { FilmScriptFillIcon } from "../fill";
-import { FilmScriptLightIcon } from "../light";
-import { FilmScriptRegularIcon } from "../regular";
-import { FilmScriptThinIcon } from "../thin";
+import { FilmScriptBoldIcon } from "../bold/film-script-bold.icon";
+import { FilmScriptDuotoneIcon } from "../duotone/film-script-duotone.icon";
+import { FilmScriptFillIcon } from "../fill/film-script-fill.icon";
+import { FilmScriptLightIcon } from "../light/film-script-light.icon";
+import { FilmScriptRegularIcon } from "../regular/film-script-regular.icon";
+import { FilmScriptThinIcon } from "../thin/film-script-thin.icon";
 
 export const FilmScriptIcon = memo(function FilmScript(
   props: IconWrapperProps,

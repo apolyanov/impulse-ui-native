@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TennisBallBoldIcon } from "../bold";
-import { TennisBallDuotoneIcon } from "../duotone";
-import { TennisBallFillIcon } from "../fill";
-import { TennisBallLightIcon } from "../light";
-import { TennisBallRegularIcon } from "../regular";
-import { TennisBallThinIcon } from "../thin";
+import { TennisBallBoldIcon } from "../bold/tennis-ball-bold.icon";
+import { TennisBallDuotoneIcon } from "../duotone/tennis-ball-duotone.icon";
+import { TennisBallFillIcon } from "../fill/tennis-ball-fill.icon";
+import { TennisBallLightIcon } from "../light/tennis-ball-light.icon";
+import { TennisBallRegularIcon } from "../regular/tennis-ball-regular.icon";
+import { TennisBallThinIcon } from "../thin/tennis-ball-thin.icon";
 
 export const TennisBallIcon = memo(function TennisBall(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowBendUpLeftBoldIcon } from "../bold";
-import { ArrowBendUpLeftDuotoneIcon } from "../duotone";
-import { ArrowBendUpLeftFillIcon } from "../fill";
-import { ArrowBendUpLeftLightIcon } from "../light";
-import { ArrowBendUpLeftRegularIcon } from "../regular";
-import { ArrowBendUpLeftThinIcon } from "../thin";
+import { ArrowBendUpLeftBoldIcon } from "../bold/arrow-bend-up-left-bold.icon";
+import { ArrowBendUpLeftDuotoneIcon } from "../duotone/arrow-bend-up-left-duotone.icon";
+import { ArrowBendUpLeftFillIcon } from "../fill/arrow-bend-up-left-fill.icon";
+import { ArrowBendUpLeftLightIcon } from "../light/arrow-bend-up-left-light.icon";
+import { ArrowBendUpLeftRegularIcon } from "../regular/arrow-bend-up-left-regular.icon";
+import { ArrowBendUpLeftThinIcon } from "../thin/arrow-bend-up-left-thin.icon";
 
 export const ArrowBendUpLeftIcon = memo(function ArrowBendUpLeft(
   props: IconWrapperProps,

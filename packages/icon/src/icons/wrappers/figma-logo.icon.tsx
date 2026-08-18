@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FigmaLogoBoldIcon } from "../bold";
-import { FigmaLogoDuotoneIcon } from "../duotone";
-import { FigmaLogoFillIcon } from "../fill";
-import { FigmaLogoLightIcon } from "../light";
-import { FigmaLogoRegularIcon } from "../regular";
-import { FigmaLogoThinIcon } from "../thin";
+import { FigmaLogoBoldIcon } from "../bold/figma-logo-bold.icon";
+import { FigmaLogoDuotoneIcon } from "../duotone/figma-logo-duotone.icon";
+import { FigmaLogoFillIcon } from "../fill/figma-logo-fill.icon";
+import { FigmaLogoLightIcon } from "../light/figma-logo-light.icon";
+import { FigmaLogoRegularIcon } from "../regular/figma-logo-regular.icon";
+import { FigmaLogoThinIcon } from "../thin/figma-logo-thin.icon";
 
 export const FigmaLogoIcon = memo(function FigmaLogo(props: IconWrapperProps) {
   const Icon = useMemo(() => {

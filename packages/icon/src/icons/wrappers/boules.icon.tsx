@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BoulesBoldIcon } from "../bold";
-import { BoulesDuotoneIcon } from "../duotone";
-import { BoulesFillIcon } from "../fill";
-import { BoulesLightIcon } from "../light";
-import { BoulesRegularIcon } from "../regular";
-import { BoulesThinIcon } from "../thin";
+import { BoulesBoldIcon } from "../bold/boules-bold.icon";
+import { BoulesDuotoneIcon } from "../duotone/boules-duotone.icon";
+import { BoulesFillIcon } from "../fill/boules-fill.icon";
+import { BoulesLightIcon } from "../light/boules-light.icon";
+import { BoulesRegularIcon } from "../regular/boules-regular.icon";
+import { BoulesThinIcon } from "../thin/boules-thin.icon";
 
 export const BoulesIcon = memo(function Boules(props: IconWrapperProps) {
   const Icon = useMemo(() => {

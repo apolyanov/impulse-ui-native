@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ThermometerHotBoldIcon } from "../bold";
-import { ThermometerHotDuotoneIcon } from "../duotone";
-import { ThermometerHotFillIcon } from "../fill";
-import { ThermometerHotLightIcon } from "../light";
-import { ThermometerHotRegularIcon } from "../regular";
-import { ThermometerHotThinIcon } from "../thin";
+import { ThermometerHotBoldIcon } from "../bold/thermometer-hot-bold.icon";
+import { ThermometerHotDuotoneIcon } from "../duotone/thermometer-hot-duotone.icon";
+import { ThermometerHotFillIcon } from "../fill/thermometer-hot-fill.icon";
+import { ThermometerHotLightIcon } from "../light/thermometer-hot-light.icon";
+import { ThermometerHotRegularIcon } from "../regular/thermometer-hot-regular.icon";
+import { ThermometerHotThinIcon } from "../thin/thermometer-hot-thin.icon";
 
 export const ThermometerHotIcon = memo(function ThermometerHot(
   props: IconWrapperProps,

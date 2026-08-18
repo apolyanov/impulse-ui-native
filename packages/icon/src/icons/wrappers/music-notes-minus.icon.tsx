@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MusicNotesMinusBoldIcon } from "../bold";
-import { MusicNotesMinusDuotoneIcon } from "../duotone";
-import { MusicNotesMinusFillIcon } from "../fill";
-import { MusicNotesMinusLightIcon } from "../light";
-import { MusicNotesMinusRegularIcon } from "../regular";
-import { MusicNotesMinusThinIcon } from "../thin";
+import { MusicNotesMinusBoldIcon } from "../bold/music-notes-minus-bold.icon";
+import { MusicNotesMinusDuotoneIcon } from "../duotone/music-notes-minus-duotone.icon";
+import { MusicNotesMinusFillIcon } from "../fill/music-notes-minus-fill.icon";
+import { MusicNotesMinusLightIcon } from "../light/music-notes-minus-light.icon";
+import { MusicNotesMinusRegularIcon } from "../regular/music-notes-minus-regular.icon";
+import { MusicNotesMinusThinIcon } from "../thin/music-notes-minus-thin.icon";
 
 export const MusicNotesMinusIcon = memo(function MusicNotesMinus(
   props: IconWrapperProps,

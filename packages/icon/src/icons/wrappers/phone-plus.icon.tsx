@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PhonePlusBoldIcon } from "../bold";
-import { PhonePlusDuotoneIcon } from "../duotone";
-import { PhonePlusFillIcon } from "../fill";
-import { PhonePlusLightIcon } from "../light";
-import { PhonePlusRegularIcon } from "../regular";
-import { PhonePlusThinIcon } from "../thin";
+import { PhonePlusBoldIcon } from "../bold/phone-plus-bold.icon";
+import { PhonePlusDuotoneIcon } from "../duotone/phone-plus-duotone.icon";
+import { PhonePlusFillIcon } from "../fill/phone-plus-fill.icon";
+import { PhonePlusLightIcon } from "../light/phone-plus-light.icon";
+import { PhonePlusRegularIcon } from "../regular/phone-plus-regular.icon";
+import { PhonePlusThinIcon } from "../thin/phone-plus-thin.icon";
 
 export const PhonePlusIcon = memo(function PhonePlus(props: IconWrapperProps) {
   const Icon = useMemo(() => {

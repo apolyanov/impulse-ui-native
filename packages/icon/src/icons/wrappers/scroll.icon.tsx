@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ScrollBoldIcon } from "../bold";
-import { ScrollDuotoneIcon } from "../duotone";
-import { ScrollFillIcon } from "../fill";
-import { ScrollLightIcon } from "../light";
-import { ScrollRegularIcon } from "../regular";
-import { ScrollThinIcon } from "../thin";
+import { ScrollBoldIcon } from "../bold/scroll-bold.icon";
+import { ScrollDuotoneIcon } from "../duotone/scroll-duotone.icon";
+import { ScrollFillIcon } from "../fill/scroll-fill.icon";
+import { ScrollLightIcon } from "../light/scroll-light.icon";
+import { ScrollRegularIcon } from "../regular/scroll-regular.icon";
+import { ScrollThinIcon } from "../thin/scroll-thin.icon";
 
 export const ScrollIcon = memo(function Scroll(props: IconWrapperProps) {
   const Icon = useMemo(() => {

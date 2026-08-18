@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CalendarMinusBoldIcon } from "../bold";
-import { CalendarMinusDuotoneIcon } from "../duotone";
-import { CalendarMinusFillIcon } from "../fill";
-import { CalendarMinusLightIcon } from "../light";
-import { CalendarMinusRegularIcon } from "../regular";
-import { CalendarMinusThinIcon } from "../thin";
+import { CalendarMinusBoldIcon } from "../bold/calendar-minus-bold.icon";
+import { CalendarMinusDuotoneIcon } from "../duotone/calendar-minus-duotone.icon";
+import { CalendarMinusFillIcon } from "../fill/calendar-minus-fill.icon";
+import { CalendarMinusLightIcon } from "../light/calendar-minus-light.icon";
+import { CalendarMinusRegularIcon } from "../regular/calendar-minus-regular.icon";
+import { CalendarMinusThinIcon } from "../thin/calendar-minus-thin.icon";
 
 export const CalendarMinusIcon = memo(function CalendarMinus(
   props: IconWrapperProps,

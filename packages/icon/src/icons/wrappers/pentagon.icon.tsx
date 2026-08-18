@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PentagonBoldIcon } from "../bold";
-import { PentagonDuotoneIcon } from "../duotone";
-import { PentagonFillIcon } from "../fill";
-import { PentagonLightIcon } from "../light";
-import { PentagonRegularIcon } from "../regular";
-import { PentagonThinIcon } from "../thin";
+import { PentagonBoldIcon } from "../bold/pentagon-bold.icon";
+import { PentagonDuotoneIcon } from "../duotone/pentagon-duotone.icon";
+import { PentagonFillIcon } from "../fill/pentagon-fill.icon";
+import { PentagonLightIcon } from "../light/pentagon-light.icon";
+import { PentagonRegularIcon } from "../regular/pentagon-regular.icon";
+import { PentagonThinIcon } from "../thin/pentagon-thin.icon";
 
 export const PentagonIcon = memo(function Pentagon(props: IconWrapperProps) {
   const Icon = useMemo(() => {

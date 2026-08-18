@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BellZBoldIcon } from "../bold";
-import { BellZDuotoneIcon } from "../duotone";
-import { BellZFillIcon } from "../fill";
-import { BellZLightIcon } from "../light";
-import { BellZRegularIcon } from "../regular";
-import { BellZThinIcon } from "../thin";
+import { BellZBoldIcon } from "../bold/bell-z-bold.icon";
+import { BellZDuotoneIcon } from "../duotone/bell-z-duotone.icon";
+import { BellZFillIcon } from "../fill/bell-z-fill.icon";
+import { BellZLightIcon } from "../light/bell-z-light.icon";
+import { BellZRegularIcon } from "../regular/bell-z-regular.icon";
+import { BellZThinIcon } from "../thin/bell-z-thin.icon";
 
 export const BellZIcon = memo(function BellZ(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TruckTrailerBoldIcon } from "../bold";
-import { TruckTrailerDuotoneIcon } from "../duotone";
-import { TruckTrailerFillIcon } from "../fill";
-import { TruckTrailerLightIcon } from "../light";
-import { TruckTrailerRegularIcon } from "../regular";
-import { TruckTrailerThinIcon } from "../thin";
+import { TruckTrailerBoldIcon } from "../bold/truck-trailer-bold.icon";
+import { TruckTrailerDuotoneIcon } from "../duotone/truck-trailer-duotone.icon";
+import { TruckTrailerFillIcon } from "../fill/truck-trailer-fill.icon";
+import { TruckTrailerLightIcon } from "../light/truck-trailer-light.icon";
+import { TruckTrailerRegularIcon } from "../regular/truck-trailer-regular.icon";
+import { TruckTrailerThinIcon } from "../thin/truck-trailer-thin.icon";
 
 export const TruckTrailerIcon = memo(function TruckTrailer(
   props: IconWrapperProps,

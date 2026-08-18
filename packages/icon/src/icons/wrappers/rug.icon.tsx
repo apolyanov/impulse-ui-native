@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RugBoldIcon } from "../bold";
-import { RugDuotoneIcon } from "../duotone";
-import { RugFillIcon } from "../fill";
-import { RugLightIcon } from "../light";
-import { RugRegularIcon } from "../regular";
-import { RugThinIcon } from "../thin";
+import { RugBoldIcon } from "../bold/rug-bold.icon";
+import { RugDuotoneIcon } from "../duotone/rug-duotone.icon";
+import { RugFillIcon } from "../fill/rug-fill.icon";
+import { RugLightIcon } from "../light/rug-light.icon";
+import { RugRegularIcon } from "../regular/rug-regular.icon";
+import { RugThinIcon } from "../thin/rug-thin.icon";
 
 export const RugIcon = memo(function Rug(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BarricadeBoldIcon } from "../bold";
-import { BarricadeDuotoneIcon } from "../duotone";
-import { BarricadeFillIcon } from "../fill";
-import { BarricadeLightIcon } from "../light";
-import { BarricadeRegularIcon } from "../regular";
-import { BarricadeThinIcon } from "../thin";
+import { BarricadeBoldIcon } from "../bold/barricade-bold.icon";
+import { BarricadeDuotoneIcon } from "../duotone/barricade-duotone.icon";
+import { BarricadeFillIcon } from "../fill/barricade-fill.icon";
+import { BarricadeLightIcon } from "../light/barricade-light.icon";
+import { BarricadeRegularIcon } from "../regular/barricade-regular.icon";
+import { BarricadeThinIcon } from "../thin/barricade-thin.icon";
 
 export const BarricadeIcon = memo(function Barricade(props: IconWrapperProps) {
   const Icon = useMemo(() => {

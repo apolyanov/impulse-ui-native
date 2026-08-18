@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ThumbsUpBoldIcon } from "../bold";
-import { ThumbsUpDuotoneIcon } from "../duotone";
-import { ThumbsUpFillIcon } from "../fill";
-import { ThumbsUpLightIcon } from "../light";
-import { ThumbsUpRegularIcon } from "../regular";
-import { ThumbsUpThinIcon } from "../thin";
+import { ThumbsUpBoldIcon } from "../bold/thumbs-up-bold.icon";
+import { ThumbsUpDuotoneIcon } from "../duotone/thumbs-up-duotone.icon";
+import { ThumbsUpFillIcon } from "../fill/thumbs-up-fill.icon";
+import { ThumbsUpLightIcon } from "../light/thumbs-up-light.icon";
+import { ThumbsUpRegularIcon } from "../regular/thumbs-up-regular.icon";
+import { ThumbsUpThinIcon } from "../thin/thumbs-up-thin.icon";
 
 export const ThumbsUpIcon = memo(function ThumbsUp(props: IconWrapperProps) {
   const Icon = useMemo(() => {

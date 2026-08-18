@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FinnTheHumanBoldIcon } from "../bold";
-import { FinnTheHumanDuotoneIcon } from "../duotone";
-import { FinnTheHumanFillIcon } from "../fill";
-import { FinnTheHumanLightIcon } from "../light";
-import { FinnTheHumanRegularIcon } from "../regular";
-import { FinnTheHumanThinIcon } from "../thin";
+import { FinnTheHumanBoldIcon } from "../bold/finn-the-human-bold.icon";
+import { FinnTheHumanDuotoneIcon } from "../duotone/finn-the-human-duotone.icon";
+import { FinnTheHumanFillIcon } from "../fill/finn-the-human-fill.icon";
+import { FinnTheHumanLightIcon } from "../light/finn-the-human-light.icon";
+import { FinnTheHumanRegularIcon } from "../regular/finn-the-human-regular.icon";
+import { FinnTheHumanThinIcon } from "../thin/finn-the-human-thin.icon";
 
 export const FinnTheHumanIcon = memo(function FinnTheHuman(
   props: IconWrapperProps,

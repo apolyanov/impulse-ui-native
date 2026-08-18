@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BoneBoldIcon } from "../bold";
-import { BoneDuotoneIcon } from "../duotone";
-import { BoneFillIcon } from "../fill";
-import { BoneLightIcon } from "../light";
-import { BoneRegularIcon } from "../regular";
-import { BoneThinIcon } from "../thin";
+import { BoneBoldIcon } from "../bold/bone-bold.icon";
+import { BoneDuotoneIcon } from "../duotone/bone-duotone.icon";
+import { BoneFillIcon } from "../fill/bone-fill.icon";
+import { BoneLightIcon } from "../light/bone-light.icon";
+import { BoneRegularIcon } from "../regular/bone-regular.icon";
+import { BoneThinIcon } from "../thin/bone-thin.icon";
 
 export const BoneIcon = memo(function Bone(props: IconWrapperProps) {
   const Icon = useMemo(() => {

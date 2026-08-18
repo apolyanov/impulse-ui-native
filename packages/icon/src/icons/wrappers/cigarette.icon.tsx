@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CigaretteBoldIcon } from "../bold";
-import { CigaretteDuotoneIcon } from "../duotone";
-import { CigaretteFillIcon } from "../fill";
-import { CigaretteLightIcon } from "../light";
-import { CigaretteRegularIcon } from "../regular";
-import { CigaretteThinIcon } from "../thin";
+import { CigaretteBoldIcon } from "../bold/cigarette-bold.icon";
+import { CigaretteDuotoneIcon } from "../duotone/cigarette-duotone.icon";
+import { CigaretteFillIcon } from "../fill/cigarette-fill.icon";
+import { CigaretteLightIcon } from "../light/cigarette-light.icon";
+import { CigaretteRegularIcon } from "../regular/cigarette-regular.icon";
+import { CigaretteThinIcon } from "../thin/cigarette-thin.icon";
 
 export const CigaretteIcon = memo(function Cigarette(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,7 +2,8 @@ import type { PropsWithChildren } from "react";
 import { memo } from "react";
 import { ScrollView } from "react-native";
 
-import { Typography, useSpace, View } from "@impulse-ui-native/toolkit";
+import { Typography, View } from "@impulse-ui-native/primitives";
+import { useSpace } from "@impulse-ui-native/theme";
 
 interface StoryDocumentationPageProps extends PropsWithChildren {
   title: string;

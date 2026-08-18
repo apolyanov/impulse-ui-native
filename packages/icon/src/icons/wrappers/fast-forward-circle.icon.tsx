@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FastForwardCircleBoldIcon } from "../bold";
-import { FastForwardCircleDuotoneIcon } from "../duotone";
-import { FastForwardCircleFillIcon } from "../fill";
-import { FastForwardCircleLightIcon } from "../light";
-import { FastForwardCircleRegularIcon } from "../regular";
-import { FastForwardCircleThinIcon } from "../thin";
+import { FastForwardCircleBoldIcon } from "../bold/fast-forward-circle-bold.icon";
+import { FastForwardCircleDuotoneIcon } from "../duotone/fast-forward-circle-duotone.icon";
+import { FastForwardCircleFillIcon } from "../fill/fast-forward-circle-fill.icon";
+import { FastForwardCircleLightIcon } from "../light/fast-forward-circle-light.icon";
+import { FastForwardCircleRegularIcon } from "../regular/fast-forward-circle-regular.icon";
+import { FastForwardCircleThinIcon } from "../thin/fast-forward-circle-thin.icon";
 
 export const FastForwardCircleIcon = memo(function FastForwardCircle(
   props: IconWrapperProps,

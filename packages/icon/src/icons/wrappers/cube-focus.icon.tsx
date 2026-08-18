@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CubeFocusBoldIcon } from "../bold";
-import { CubeFocusDuotoneIcon } from "../duotone";
-import { CubeFocusFillIcon } from "../fill";
-import { CubeFocusLightIcon } from "../light";
-import { CubeFocusRegularIcon } from "../regular";
-import { CubeFocusThinIcon } from "../thin";
+import { CubeFocusBoldIcon } from "../bold/cube-focus-bold.icon";
+import { CubeFocusDuotoneIcon } from "../duotone/cube-focus-duotone.icon";
+import { CubeFocusFillIcon } from "../fill/cube-focus-fill.icon";
+import { CubeFocusLightIcon } from "../light/cube-focus-light.icon";
+import { CubeFocusRegularIcon } from "../regular/cube-focus-regular.icon";
+import { CubeFocusThinIcon } from "../thin/cube-focus-thin.icon";
 
 export const CubeFocusIcon = memo(function CubeFocus(props: IconWrapperProps) {
   const Icon = useMemo(() => {

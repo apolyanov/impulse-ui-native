@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RacquetBoldIcon } from "../bold";
-import { RacquetDuotoneIcon } from "../duotone";
-import { RacquetFillIcon } from "../fill";
-import { RacquetLightIcon } from "../light";
-import { RacquetRegularIcon } from "../regular";
-import { RacquetThinIcon } from "../thin";
+import { RacquetBoldIcon } from "../bold/racquet-bold.icon";
+import { RacquetDuotoneIcon } from "../duotone/racquet-duotone.icon";
+import { RacquetFillIcon } from "../fill/racquet-fill.icon";
+import { RacquetLightIcon } from "../light/racquet-light.icon";
+import { RacquetRegularIcon } from "../regular/racquet-regular.icon";
+import { RacquetThinIcon } from "../thin/racquet-thin.icon";
 
 export const RacquetIcon = memo(function Racquet(props: IconWrapperProps) {
   const Icon = useMemo(() => {

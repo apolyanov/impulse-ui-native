@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StackOverflowLogoBoldIcon } from "../bold";
-import { StackOverflowLogoDuotoneIcon } from "../duotone";
-import { StackOverflowLogoFillIcon } from "../fill";
-import { StackOverflowLogoLightIcon } from "../light";
-import { StackOverflowLogoRegularIcon } from "../regular";
-import { StackOverflowLogoThinIcon } from "../thin";
+import { StackOverflowLogoBoldIcon } from "../bold/stack-overflow-logo-bold.icon";
+import { StackOverflowLogoDuotoneIcon } from "../duotone/stack-overflow-logo-duotone.icon";
+import { StackOverflowLogoFillIcon } from "../fill/stack-overflow-logo-fill.icon";
+import { StackOverflowLogoLightIcon } from "../light/stack-overflow-logo-light.icon";
+import { StackOverflowLogoRegularIcon } from "../regular/stack-overflow-logo-regular.icon";
+import { StackOverflowLogoThinIcon } from "../thin/stack-overflow-logo-thin.icon";
 
 export const StackOverflowLogoIcon = memo(function StackOverflowLogo(
   props: IconWrapperProps,

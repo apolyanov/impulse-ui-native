@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RecordBoldIcon } from "../bold";
-import { RecordDuotoneIcon } from "../duotone";
-import { RecordFillIcon } from "../fill";
-import { RecordLightIcon } from "../light";
-import { RecordRegularIcon } from "../regular";
-import { RecordThinIcon } from "../thin";
+import { RecordBoldIcon } from "../bold/record-bold.icon";
+import { RecordDuotoneIcon } from "../duotone/record-duotone.icon";
+import { RecordFillIcon } from "../fill/record-fill.icon";
+import { RecordLightIcon } from "../light/record-light.icon";
+import { RecordRegularIcon } from "../regular/record-regular.icon";
+import { RecordThinIcon } from "../thin/record-thin.icon";
 
 export const RecordIcon = memo(function Record(props: IconWrapperProps) {
   const Icon = useMemo(() => {

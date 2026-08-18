@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FilmSlateBoldIcon } from "../bold";
-import { FilmSlateDuotoneIcon } from "../duotone";
-import { FilmSlateFillIcon } from "../fill";
-import { FilmSlateLightIcon } from "../light";
-import { FilmSlateRegularIcon } from "../regular";
-import { FilmSlateThinIcon } from "../thin";
+import { FilmSlateBoldIcon } from "../bold/film-slate-bold.icon";
+import { FilmSlateDuotoneIcon } from "../duotone/film-slate-duotone.icon";
+import { FilmSlateFillIcon } from "../fill/film-slate-fill.icon";
+import { FilmSlateLightIcon } from "../light/film-slate-light.icon";
+import { FilmSlateRegularIcon } from "../regular/film-slate-regular.icon";
+import { FilmSlateThinIcon } from "../thin/film-slate-thin.icon";
 
 export const FilmSlateIcon = memo(function FilmSlate(props: IconWrapperProps) {
   const Icon = useMemo(() => {

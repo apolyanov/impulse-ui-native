@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ApplePodcastsLogoBoldIcon } from "../bold";
-import { ApplePodcastsLogoDuotoneIcon } from "../duotone";
-import { ApplePodcastsLogoFillIcon } from "../fill";
-import { ApplePodcastsLogoLightIcon } from "../light";
-import { ApplePodcastsLogoRegularIcon } from "../regular";
-import { ApplePodcastsLogoThinIcon } from "../thin";
+import { ApplePodcastsLogoBoldIcon } from "../bold/apple-podcasts-logo-bold.icon";
+import { ApplePodcastsLogoDuotoneIcon } from "../duotone/apple-podcasts-logo-duotone.icon";
+import { ApplePodcastsLogoFillIcon } from "../fill/apple-podcasts-logo-fill.icon";
+import { ApplePodcastsLogoLightIcon } from "../light/apple-podcasts-logo-light.icon";
+import { ApplePodcastsLogoRegularIcon } from "../regular/apple-podcasts-logo-regular.icon";
+import { ApplePodcastsLogoThinIcon } from "../thin/apple-podcasts-logo-thin.icon";
 
 export const ApplePodcastsLogoIcon = memo(function ApplePodcastsLogo(
   props: IconWrapperProps,

@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 import { memo } from "react";
 import { StyleSheet } from "react-native";
 
-import { Pressable, Typography, View } from "@impulse-ui-native/toolkit";
+import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,
@@ -226,8 +226,7 @@ export const PressableExampleDefinitions = [
       {
         name: "children",
         value: "<Typography.Master />",
-        description:
-          "Renders the visible content inside the full-width area.",
+        description: "Renders the visible content inside the full-width area.",
       },
     ],
     label: "Full-width Pressable",

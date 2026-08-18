@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MopedFrontBoldIcon } from "../bold";
-import { MopedFrontDuotoneIcon } from "../duotone";
-import { MopedFrontFillIcon } from "../fill";
-import { MopedFrontLightIcon } from "../light";
-import { MopedFrontRegularIcon } from "../regular";
-import { MopedFrontThinIcon } from "../thin";
+import { MopedFrontBoldIcon } from "../bold/moped-front-bold.icon";
+import { MopedFrontDuotoneIcon } from "../duotone/moped-front-duotone.icon";
+import { MopedFrontFillIcon } from "../fill/moped-front-fill.icon";
+import { MopedFrontLightIcon } from "../light/moped-front-light.icon";
+import { MopedFrontRegularIcon } from "../regular/moped-front-regular.icon";
+import { MopedFrontThinIcon } from "../thin/moped-front-thin.icon";
 
 export const MopedFrontIcon = memo(function MopedFront(
   props: IconWrapperProps,

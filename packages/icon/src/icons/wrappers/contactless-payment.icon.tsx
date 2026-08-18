@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ContactlessPaymentBoldIcon } from "../bold";
-import { ContactlessPaymentDuotoneIcon } from "../duotone";
-import { ContactlessPaymentFillIcon } from "../fill";
-import { ContactlessPaymentLightIcon } from "../light";
-import { ContactlessPaymentRegularIcon } from "../regular";
-import { ContactlessPaymentThinIcon } from "../thin";
+import { ContactlessPaymentBoldIcon } from "../bold/contactless-payment-bold.icon";
+import { ContactlessPaymentDuotoneIcon } from "../duotone/contactless-payment-duotone.icon";
+import { ContactlessPaymentFillIcon } from "../fill/contactless-payment-fill.icon";
+import { ContactlessPaymentLightIcon } from "../light/contactless-payment-light.icon";
+import { ContactlessPaymentRegularIcon } from "../regular/contactless-payment-regular.icon";
+import { ContactlessPaymentThinIcon } from "../thin/contactless-payment-thin.icon";
 
 export const ContactlessPaymentIcon = memo(function ContactlessPayment(
   props: IconWrapperProps,

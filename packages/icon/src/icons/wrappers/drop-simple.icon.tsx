@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DropSimpleBoldIcon } from "../bold";
-import { DropSimpleDuotoneIcon } from "../duotone";
-import { DropSimpleFillIcon } from "../fill";
-import { DropSimpleLightIcon } from "../light";
-import { DropSimpleRegularIcon } from "../regular";
-import { DropSimpleThinIcon } from "../thin";
+import { DropSimpleBoldIcon } from "../bold/drop-simple-bold.icon";
+import { DropSimpleDuotoneIcon } from "../duotone/drop-simple-duotone.icon";
+import { DropSimpleFillIcon } from "../fill/drop-simple-fill.icon";
+import { DropSimpleLightIcon } from "../light/drop-simple-light.icon";
+import { DropSimpleRegularIcon } from "../regular/drop-simple-regular.icon";
+import { DropSimpleThinIcon } from "../thin/drop-simple-thin.icon";
 
 export const DropSimpleIcon = memo(function DropSimple(
   props: IconWrapperProps,

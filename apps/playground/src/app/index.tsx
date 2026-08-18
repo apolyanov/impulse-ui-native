@@ -1,17 +1,33 @@
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 
-import { EmptyIcon } from "@impulse-ui-native/icon";
-import { Typography, View } from "@impulse-ui-native/primitives";
+import { Test } from "@impulse-ui-native/charts";
+import { View } from "@impulse-ui-native/toolkit";
+
+function generateHistoricalData(
+  count: number,
+  intervalMs: number,
+  initialValue = 100,
+) {
+  const endTimestamp = Date.now();
+  let value = initialValue;
+
+  return Array.from({ length: count }, (_, index) => {
+    value = Math.max(0, value + (Math.random() - 0.5) * 10);
+
+    return {
+      x: endTimestamp - (count - 1 - index) * intervalMs,
+      y: Number(value.toFixed(2)),
+    };
+  });
+}
+
+const HOUR_IN_MS = 60 * 60 * 1_000;
+const historicalData = generateHistoricalData(24, HOUR_IN_MS);
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text>Playground baseline is running.</Text>
-      <Text>Import one @impulse-ui-native package to test it.</Text>
-      <View backgroundColor="red">
-        <Typography.Body>TEST</Typography.Body>
-      </View>
-      <EmptyIcon />
+      <Test data={historicalData} />
     </View>
   );
 }

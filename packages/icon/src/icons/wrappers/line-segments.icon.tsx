@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LineSegmentsBoldIcon } from "../bold";
-import { LineSegmentsDuotoneIcon } from "../duotone";
-import { LineSegmentsFillIcon } from "../fill";
-import { LineSegmentsLightIcon } from "../light";
-import { LineSegmentsRegularIcon } from "../regular";
-import { LineSegmentsThinIcon } from "../thin";
+import { LineSegmentsBoldIcon } from "../bold/line-segments-bold.icon";
+import { LineSegmentsDuotoneIcon } from "../duotone/line-segments-duotone.icon";
+import { LineSegmentsFillIcon } from "../fill/line-segments-fill.icon";
+import { LineSegmentsLightIcon } from "../light/line-segments-light.icon";
+import { LineSegmentsRegularIcon } from "../regular/line-segments-regular.icon";
+import { LineSegmentsThinIcon } from "../thin/line-segments-thin.icon";
 
 export const LineSegmentsIcon = memo(function LineSegments(
   props: IconWrapperProps,

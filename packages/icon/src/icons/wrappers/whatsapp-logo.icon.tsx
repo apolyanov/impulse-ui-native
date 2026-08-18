@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WhatsappLogoBoldIcon } from "../bold";
-import { WhatsappLogoDuotoneIcon } from "../duotone";
-import { WhatsappLogoFillIcon } from "../fill";
-import { WhatsappLogoLightIcon } from "../light";
-import { WhatsappLogoRegularIcon } from "../regular";
-import { WhatsappLogoThinIcon } from "../thin";
+import { WhatsappLogoBoldIcon } from "../bold/whatsapp-logo-bold.icon";
+import { WhatsappLogoDuotoneIcon } from "../duotone/whatsapp-logo-duotone.icon";
+import { WhatsappLogoFillIcon } from "../fill/whatsapp-logo-fill.icon";
+import { WhatsappLogoLightIcon } from "../light/whatsapp-logo-light.icon";
+import { WhatsappLogoRegularIcon } from "../regular/whatsapp-logo-regular.icon";
+import { WhatsappLogoThinIcon } from "../thin/whatsapp-logo-thin.icon";
 
 export const WhatsappLogoIcon = memo(function WhatsappLogo(
   props: IconWrapperProps,

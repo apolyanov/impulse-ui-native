@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DiceFourBoldIcon } from "../bold";
-import { DiceFourDuotoneIcon } from "../duotone";
-import { DiceFourFillIcon } from "../fill";
-import { DiceFourLightIcon } from "../light";
-import { DiceFourRegularIcon } from "../regular";
-import { DiceFourThinIcon } from "../thin";
+import { DiceFourBoldIcon } from "../bold/dice-four-bold.icon";
+import { DiceFourDuotoneIcon } from "../duotone/dice-four-duotone.icon";
+import { DiceFourFillIcon } from "../fill/dice-four-fill.icon";
+import { DiceFourLightIcon } from "../light/dice-four-light.icon";
+import { DiceFourRegularIcon } from "../regular/dice-four-regular.icon";
+import { DiceFourThinIcon } from "../thin/dice-four-thin.icon";
 
 export const DiceFourIcon = memo(function DiceFour(props: IconWrapperProps) {
   const Icon = useMemo(() => {

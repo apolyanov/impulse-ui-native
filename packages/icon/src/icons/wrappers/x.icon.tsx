@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { XBoldIcon } from "../bold";
-import { XDuotoneIcon } from "../duotone";
-import { XFillIcon } from "../fill";
-import { XLightIcon } from "../light";
-import { XRegularIcon } from "../regular";
-import { XThinIcon } from "../thin";
+import { XBoldIcon } from "../bold/x-bold.icon";
+import { XDuotoneIcon } from "../duotone/x-duotone.icon";
+import { XFillIcon } from "../fill/x-fill.icon";
+import { XLightIcon } from "../light/x-light.icon";
+import { XRegularIcon } from "../regular/x-regular.icon";
+import { XThinIcon } from "../thin/x-thin.icon";
 
 export const XIcon = memo(function X(props: IconWrapperProps) {
   const Icon = useMemo(() => {

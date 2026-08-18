@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrayArrowDownBoldIcon } from "../bold";
-import { TrayArrowDownDuotoneIcon } from "../duotone";
-import { TrayArrowDownFillIcon } from "../fill";
-import { TrayArrowDownLightIcon } from "../light";
-import { TrayArrowDownRegularIcon } from "../regular";
-import { TrayArrowDownThinIcon } from "../thin";
+import { TrayArrowDownBoldIcon } from "../bold/tray-arrow-down-bold.icon";
+import { TrayArrowDownDuotoneIcon } from "../duotone/tray-arrow-down-duotone.icon";
+import { TrayArrowDownFillIcon } from "../fill/tray-arrow-down-fill.icon";
+import { TrayArrowDownLightIcon } from "../light/tray-arrow-down-light.icon";
+import { TrayArrowDownRegularIcon } from "../regular/tray-arrow-down-regular.icon";
+import { TrayArrowDownThinIcon } from "../thin/tray-arrow-down-thin.icon";
 
 export const TrayArrowDownIcon = memo(function TrayArrowDown(
   props: IconWrapperProps,

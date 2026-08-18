@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { VinylRecordBoldIcon } from "../bold";
-import { VinylRecordDuotoneIcon } from "../duotone";
-import { VinylRecordFillIcon } from "../fill";
-import { VinylRecordLightIcon } from "../light";
-import { VinylRecordRegularIcon } from "../regular";
-import { VinylRecordThinIcon } from "../thin";
+import { VinylRecordBoldIcon } from "../bold/vinyl-record-bold.icon";
+import { VinylRecordDuotoneIcon } from "../duotone/vinyl-record-duotone.icon";
+import { VinylRecordFillIcon } from "../fill/vinyl-record-fill.icon";
+import { VinylRecordLightIcon } from "../light/vinyl-record-light.icon";
+import { VinylRecordRegularIcon } from "../regular/vinyl-record-regular.icon";
+import { VinylRecordThinIcon } from "../thin/vinyl-record-thin.icon";
 
 export const VinylRecordIcon = memo(function VinylRecord(
   props: IconWrapperProps,

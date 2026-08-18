@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FireBoldIcon } from "../bold";
-import { FireDuotoneIcon } from "../duotone";
-import { FireFillIcon } from "../fill";
-import { FireLightIcon } from "../light";
-import { FireRegularIcon } from "../regular";
-import { FireThinIcon } from "../thin";
+import { FireBoldIcon } from "../bold/fire-bold.icon";
+import { FireDuotoneIcon } from "../duotone/fire-duotone.icon";
+import { FireFillIcon } from "../fill/fire-fill.icon";
+import { FireLightIcon } from "../light/fire-light.icon";
+import { FireRegularIcon } from "../regular/fire-regular.icon";
+import { FireThinIcon } from "../thin/fire-thin.icon";
 
 export const FireIcon = memo(function Fire(props: IconWrapperProps) {
   const Icon = useMemo(() => {

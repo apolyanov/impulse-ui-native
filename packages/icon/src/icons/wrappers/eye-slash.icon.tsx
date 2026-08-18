@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EyeSlashBoldIcon } from "../bold";
-import { EyeSlashDuotoneIcon } from "../duotone";
-import { EyeSlashFillIcon } from "../fill";
-import { EyeSlashLightIcon } from "../light";
-import { EyeSlashRegularIcon } from "../regular";
-import { EyeSlashThinIcon } from "../thin";
+import { EyeSlashBoldIcon } from "../bold/eye-slash-bold.icon";
+import { EyeSlashDuotoneIcon } from "../duotone/eye-slash-duotone.icon";
+import { EyeSlashFillIcon } from "../fill/eye-slash-fill.icon";
+import { EyeSlashLightIcon } from "../light/eye-slash-light.icon";
+import { EyeSlashRegularIcon } from "../regular/eye-slash-regular.icon";
+import { EyeSlashThinIcon } from "../thin/eye-slash-thin.icon";
 
 export const EyeSlashIcon = memo(function EyeSlash(props: IconWrapperProps) {
   const Icon = useMemo(() => {

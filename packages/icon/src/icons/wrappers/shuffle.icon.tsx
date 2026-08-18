@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShuffleBoldIcon } from "../bold";
-import { ShuffleDuotoneIcon } from "../duotone";
-import { ShuffleFillIcon } from "../fill";
-import { ShuffleLightIcon } from "../light";
-import { ShuffleRegularIcon } from "../regular";
-import { ShuffleThinIcon } from "../thin";
+import { ShuffleBoldIcon } from "../bold/shuffle-bold.icon";
+import { ShuffleDuotoneIcon } from "../duotone/shuffle-duotone.icon";
+import { ShuffleFillIcon } from "../fill/shuffle-fill.icon";
+import { ShuffleLightIcon } from "../light/shuffle-light.icon";
+import { ShuffleRegularIcon } from "../regular/shuffle-regular.icon";
+import { ShuffleThinIcon } from "../thin/shuffle-thin.icon";
 
 export const ShuffleIcon = memo(function Shuffle(props: IconWrapperProps) {
   const Icon = useMemo(() => {

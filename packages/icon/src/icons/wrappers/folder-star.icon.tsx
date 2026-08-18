@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FolderStarBoldIcon } from "../bold";
-import { FolderStarDuotoneIcon } from "../duotone";
-import { FolderStarFillIcon } from "../fill";
-import { FolderStarLightIcon } from "../light";
-import { FolderStarRegularIcon } from "../regular";
-import { FolderStarThinIcon } from "../thin";
+import { FolderStarBoldIcon } from "../bold/folder-star-bold.icon";
+import { FolderStarDuotoneIcon } from "../duotone/folder-star-duotone.icon";
+import { FolderStarFillIcon } from "../fill/folder-star-fill.icon";
+import { FolderStarLightIcon } from "../light/folder-star-light.icon";
+import { FolderStarRegularIcon } from "../regular/folder-star-regular.icon";
+import { FolderStarThinIcon } from "../thin/folder-star-thin.icon";
 
 export const FolderStarIcon = memo(function FolderStar(
   props: IconWrapperProps,

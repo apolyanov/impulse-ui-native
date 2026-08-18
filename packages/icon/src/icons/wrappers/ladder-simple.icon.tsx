@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LadderSimpleBoldIcon } from "../bold";
-import { LadderSimpleDuotoneIcon } from "../duotone";
-import { LadderSimpleFillIcon } from "../fill";
-import { LadderSimpleLightIcon } from "../light";
-import { LadderSimpleRegularIcon } from "../regular";
-import { LadderSimpleThinIcon } from "../thin";
+import { LadderSimpleBoldIcon } from "../bold/ladder-simple-bold.icon";
+import { LadderSimpleDuotoneIcon } from "../duotone/ladder-simple-duotone.icon";
+import { LadderSimpleFillIcon } from "../fill/ladder-simple-fill.icon";
+import { LadderSimpleLightIcon } from "../light/ladder-simple-light.icon";
+import { LadderSimpleRegularIcon } from "../regular/ladder-simple-regular.icon";
+import { LadderSimpleThinIcon } from "../thin/ladder-simple-thin.icon";
 
 export const LadderSimpleIcon = memo(function LadderSimple(
   props: IconWrapperProps,

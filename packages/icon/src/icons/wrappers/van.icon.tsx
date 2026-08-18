@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { VanBoldIcon } from "../bold";
-import { VanDuotoneIcon } from "../duotone";
-import { VanFillIcon } from "../fill";
-import { VanLightIcon } from "../light";
-import { VanRegularIcon } from "../regular";
-import { VanThinIcon } from "../thin";
+import { VanBoldIcon } from "../bold/van-bold.icon";
+import { VanDuotoneIcon } from "../duotone/van-duotone.icon";
+import { VanFillIcon } from "../fill/van-fill.icon";
+import { VanLightIcon } from "../light/van-light.icon";
+import { VanRegularIcon } from "../regular/van-regular.icon";
+import { VanThinIcon } from "../thin/van-thin.icon";
 
 export const VanIcon = memo(function Van(props: IconWrapperProps) {
   const Icon = useMemo(() => {

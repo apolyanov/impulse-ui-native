@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CheersBoldIcon } from "../bold";
-import { CheersDuotoneIcon } from "../duotone";
-import { CheersFillIcon } from "../fill";
-import { CheersLightIcon } from "../light";
-import { CheersRegularIcon } from "../regular";
-import { CheersThinIcon } from "../thin";
+import { CheersBoldIcon } from "../bold/cheers-bold.icon";
+import { CheersDuotoneIcon } from "../duotone/cheers-duotone.icon";
+import { CheersFillIcon } from "../fill/cheers-fill.icon";
+import { CheersLightIcon } from "../light/cheers-light.icon";
+import { CheersRegularIcon } from "../regular/cheers-regular.icon";
+import { CheersThinIcon } from "../thin/cheers-thin.icon";
 
 export const CheersIcon = memo(function Cheers(props: IconWrapperProps) {
   const Icon = useMemo(() => {

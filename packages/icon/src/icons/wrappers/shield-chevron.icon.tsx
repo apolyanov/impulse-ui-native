@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShieldChevronBoldIcon } from "../bold";
-import { ShieldChevronDuotoneIcon } from "../duotone";
-import { ShieldChevronFillIcon } from "../fill";
-import { ShieldChevronLightIcon } from "../light";
-import { ShieldChevronRegularIcon } from "../regular";
-import { ShieldChevronThinIcon } from "../thin";
+import { ShieldChevronBoldIcon } from "../bold/shield-chevron-bold.icon";
+import { ShieldChevronDuotoneIcon } from "../duotone/shield-chevron-duotone.icon";
+import { ShieldChevronFillIcon } from "../fill/shield-chevron-fill.icon";
+import { ShieldChevronLightIcon } from "../light/shield-chevron-light.icon";
+import { ShieldChevronRegularIcon } from "../regular/shield-chevron-regular.icon";
+import { ShieldChevronThinIcon } from "../thin/shield-chevron-thin.icon";
 
 export const ShieldChevronIcon = memo(function ShieldChevron(
   props: IconWrapperProps,

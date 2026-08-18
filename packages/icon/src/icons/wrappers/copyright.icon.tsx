@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CopyrightBoldIcon } from "../bold";
-import { CopyrightDuotoneIcon } from "../duotone";
-import { CopyrightFillIcon } from "../fill";
-import { CopyrightLightIcon } from "../light";
-import { CopyrightRegularIcon } from "../regular";
-import { CopyrightThinIcon } from "../thin";
+import { CopyrightBoldIcon } from "../bold/copyright-bold.icon";
+import { CopyrightDuotoneIcon } from "../duotone/copyright-duotone.icon";
+import { CopyrightFillIcon } from "../fill/copyright-fill.icon";
+import { CopyrightLightIcon } from "../light/copyright-light.icon";
+import { CopyrightRegularIcon } from "../regular/copyright-regular.icon";
+import { CopyrightThinIcon } from "../thin/copyright-thin.icon";
 
 export const CopyrightIcon = memo(function Copyright(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EnvelopeOpenBoldIcon } from "../bold";
-import { EnvelopeOpenDuotoneIcon } from "../duotone";
-import { EnvelopeOpenFillIcon } from "../fill";
-import { EnvelopeOpenLightIcon } from "../light";
-import { EnvelopeOpenRegularIcon } from "../regular";
-import { EnvelopeOpenThinIcon } from "../thin";
+import { EnvelopeOpenBoldIcon } from "../bold/envelope-open-bold.icon";
+import { EnvelopeOpenDuotoneIcon } from "../duotone/envelope-open-duotone.icon";
+import { EnvelopeOpenFillIcon } from "../fill/envelope-open-fill.icon";
+import { EnvelopeOpenLightIcon } from "../light/envelope-open-light.icon";
+import { EnvelopeOpenRegularIcon } from "../regular/envelope-open-regular.icon";
+import { EnvelopeOpenThinIcon } from "../thin/envelope-open-thin.icon";
 
 export const EnvelopeOpenIcon = memo(function EnvelopeOpen(
   props: IconWrapperProps,

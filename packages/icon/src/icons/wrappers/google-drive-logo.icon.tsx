@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GoogleDriveLogoBoldIcon } from "../bold";
-import { GoogleDriveLogoDuotoneIcon } from "../duotone";
-import { GoogleDriveLogoFillIcon } from "../fill";
-import { GoogleDriveLogoLightIcon } from "../light";
-import { GoogleDriveLogoRegularIcon } from "../regular";
-import { GoogleDriveLogoThinIcon } from "../thin";
+import { GoogleDriveLogoBoldIcon } from "../bold/google-drive-logo-bold.icon";
+import { GoogleDriveLogoDuotoneIcon } from "../duotone/google-drive-logo-duotone.icon";
+import { GoogleDriveLogoFillIcon } from "../fill/google-drive-logo-fill.icon";
+import { GoogleDriveLogoLightIcon } from "../light/google-drive-logo-light.icon";
+import { GoogleDriveLogoRegularIcon } from "../regular/google-drive-logo-regular.icon";
+import { GoogleDriveLogoThinIcon } from "../thin/google-drive-logo-thin.icon";
 
 export const GoogleDriveLogoIcon = memo(function GoogleDriveLogo(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DeviceRotateBoldIcon } from "../bold";
-import { DeviceRotateDuotoneIcon } from "../duotone";
-import { DeviceRotateFillIcon } from "../fill";
-import { DeviceRotateLightIcon } from "../light";
-import { DeviceRotateRegularIcon } from "../regular";
-import { DeviceRotateThinIcon } from "../thin";
+import { DeviceRotateBoldIcon } from "../bold/device-rotate-bold.icon";
+import { DeviceRotateDuotoneIcon } from "../duotone/device-rotate-duotone.icon";
+import { DeviceRotateFillIcon } from "../fill/device-rotate-fill.icon";
+import { DeviceRotateLightIcon } from "../light/device-rotate-light.icon";
+import { DeviceRotateRegularIcon } from "../regular/device-rotate-regular.icon";
+import { DeviceRotateThinIcon } from "../thin/device-rotate-thin.icon";
 
 export const DeviceRotateIcon = memo(function DeviceRotate(
   props: IconWrapperProps,

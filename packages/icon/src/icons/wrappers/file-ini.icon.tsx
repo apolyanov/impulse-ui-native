@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FileIniBoldIcon } from "../bold";
-import { FileIniDuotoneIcon } from "../duotone";
-import { FileIniFillIcon } from "../fill";
-import { FileIniLightIcon } from "../light";
-import { FileIniRegularIcon } from "../regular";
-import { FileIniThinIcon } from "../thin";
+import { FileIniBoldIcon } from "../bold/file-ini-bold.icon";
+import { FileIniDuotoneIcon } from "../duotone/file-ini-duotone.icon";
+import { FileIniFillIcon } from "../fill/file-ini-fill.icon";
+import { FileIniLightIcon } from "../light/file-ini-light.icon";
+import { FileIniRegularIcon } from "../regular/file-ini-regular.icon";
+import { FileIniThinIcon } from "../thin/file-ini-thin.icon";
 
 export const FileIniIcon = memo(function FileIni(props: IconWrapperProps) {
   const Icon = useMemo(() => {

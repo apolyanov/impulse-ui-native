@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShowerBoldIcon } from "../bold";
-import { ShowerDuotoneIcon } from "../duotone";
-import { ShowerFillIcon } from "../fill";
-import { ShowerLightIcon } from "../light";
-import { ShowerRegularIcon } from "../regular";
-import { ShowerThinIcon } from "../thin";
+import { ShowerBoldIcon } from "../bold/shower-bold.icon";
+import { ShowerDuotoneIcon } from "../duotone/shower-duotone.icon";
+import { ShowerFillIcon } from "../fill/shower-fill.icon";
+import { ShowerLightIcon } from "../light/shower-light.icon";
+import { ShowerRegularIcon } from "../regular/shower-regular.icon";
+import { ShowerThinIcon } from "../thin/shower-thin.icon";
 
 export const ShowerIcon = memo(function Shower(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrademarkRegisteredBoldIcon } from "../bold";
-import { TrademarkRegisteredDuotoneIcon } from "../duotone";
-import { TrademarkRegisteredFillIcon } from "../fill";
-import { TrademarkRegisteredLightIcon } from "../light";
-import { TrademarkRegisteredRegularIcon } from "../regular";
-import { TrademarkRegisteredThinIcon } from "../thin";
+import { TrademarkRegisteredBoldIcon } from "../bold/trademark-registered-bold.icon";
+import { TrademarkRegisteredDuotoneIcon } from "../duotone/trademark-registered-duotone.icon";
+import { TrademarkRegisteredFillIcon } from "../fill/trademark-registered-fill.icon";
+import { TrademarkRegisteredLightIcon } from "../light/trademark-registered-light.icon";
+import { TrademarkRegisteredRegularIcon } from "../regular/trademark-registered-regular.icon";
+import { TrademarkRegisteredThinIcon } from "../thin/trademark-registered-thin.icon";
 
 export const TrademarkRegisteredIcon = memo(function TrademarkRegistered(
   props: IconWrapperProps,

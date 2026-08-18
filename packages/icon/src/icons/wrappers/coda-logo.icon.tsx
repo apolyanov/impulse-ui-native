@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CodaLogoBoldIcon } from "../bold";
-import { CodaLogoDuotoneIcon } from "../duotone";
-import { CodaLogoFillIcon } from "../fill";
-import { CodaLogoLightIcon } from "../light";
-import { CodaLogoRegularIcon } from "../regular";
-import { CodaLogoThinIcon } from "../thin";
+import { CodaLogoBoldIcon } from "../bold/coda-logo-bold.icon";
+import { CodaLogoDuotoneIcon } from "../duotone/coda-logo-duotone.icon";
+import { CodaLogoFillIcon } from "../fill/coda-logo-fill.icon";
+import { CodaLogoLightIcon } from "../light/coda-logo-light.icon";
+import { CodaLogoRegularIcon } from "../regular/coda-logo-regular.icon";
+import { CodaLogoThinIcon } from "../thin/coda-logo-thin.icon";
 
 export const CodaLogoIcon = memo(function CodaLogo(props: IconWrapperProps) {
   const Icon = useMemo(() => {

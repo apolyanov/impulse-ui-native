@@ -1,7 +1,7 @@
 import { memo, PropsWithChildren } from "react";
 import { PressableProps } from "react-native";
 
-import { CalendarDotsIcon } from "@impulse-ui-native/icon";
+import { CalendarDotsIcon } from "@impulse-ui-native/icon/icons/calendar-dots";
 import { Control, Pressable } from "@impulse-ui-native/primitives";
 
 import { DatetimePickerCommonProps } from "../../types";

@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { EmptyIcon } from "@impulse-ui-native/icon";
+import { EmptyIcon } from "@impulse-ui-native/icon/icons/empty";
 import { Typography, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 

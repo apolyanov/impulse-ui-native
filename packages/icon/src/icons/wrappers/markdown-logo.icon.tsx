@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MarkdownLogoBoldIcon } from "../bold";
-import { MarkdownLogoDuotoneIcon } from "../duotone";
-import { MarkdownLogoFillIcon } from "../fill";
-import { MarkdownLogoLightIcon } from "../light";
-import { MarkdownLogoRegularIcon } from "../regular";
-import { MarkdownLogoThinIcon } from "../thin";
+import { MarkdownLogoBoldIcon } from "../bold/markdown-logo-bold.icon";
+import { MarkdownLogoDuotoneIcon } from "../duotone/markdown-logo-duotone.icon";
+import { MarkdownLogoFillIcon } from "../fill/markdown-logo-fill.icon";
+import { MarkdownLogoLightIcon } from "../light/markdown-logo-light.icon";
+import { MarkdownLogoRegularIcon } from "../regular/markdown-logo-regular.icon";
+import { MarkdownLogoThinIcon } from "../thin/markdown-logo-thin.icon";
 
 export const MarkdownLogoIcon = memo(function MarkdownLogo(
   props: IconWrapperProps,

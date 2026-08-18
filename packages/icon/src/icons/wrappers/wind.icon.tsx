@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WindBoldIcon } from "../bold";
-import { WindDuotoneIcon } from "../duotone";
-import { WindFillIcon } from "../fill";
-import { WindLightIcon } from "../light";
-import { WindRegularIcon } from "../regular";
-import { WindThinIcon } from "../thin";
+import { WindBoldIcon } from "../bold/wind-bold.icon";
+import { WindDuotoneIcon } from "../duotone/wind-duotone.icon";
+import { WindFillIcon } from "../fill/wind-fill.icon";
+import { WindLightIcon } from "../light/wind-light.icon";
+import { WindRegularIcon } from "../regular/wind-regular.icon";
+import { WindThinIcon } from "../thin/wind-thin.icon";
 
 export const WindIcon = memo(function Wind(props: IconWrapperProps) {
   const Icon = useMemo(() => {

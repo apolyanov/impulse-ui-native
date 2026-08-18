@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PersonSimpleSwimBoldIcon } from "../bold";
-import { PersonSimpleSwimDuotoneIcon } from "../duotone";
-import { PersonSimpleSwimFillIcon } from "../fill";
-import { PersonSimpleSwimLightIcon } from "../light";
-import { PersonSimpleSwimRegularIcon } from "../regular";
-import { PersonSimpleSwimThinIcon } from "../thin";
+import { PersonSimpleSwimBoldIcon } from "../bold/person-simple-swim-bold.icon";
+import { PersonSimpleSwimDuotoneIcon } from "../duotone/person-simple-swim-duotone.icon";
+import { PersonSimpleSwimFillIcon } from "../fill/person-simple-swim-fill.icon";
+import { PersonSimpleSwimLightIcon } from "../light/person-simple-swim-light.icon";
+import { PersonSimpleSwimRegularIcon } from "../regular/person-simple-swim-regular.icon";
+import { PersonSimpleSwimThinIcon } from "../thin/person-simple-swim-thin.icon";
 
 export const PersonSimpleSwimIcon = memo(function PersonSimpleSwim(
   props: IconWrapperProps,

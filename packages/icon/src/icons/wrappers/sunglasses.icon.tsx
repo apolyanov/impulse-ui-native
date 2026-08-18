@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SunglassesBoldIcon } from "../bold";
-import { SunglassesDuotoneIcon } from "../duotone";
-import { SunglassesFillIcon } from "../fill";
-import { SunglassesLightIcon } from "../light";
-import { SunglassesRegularIcon } from "../regular";
-import { SunglassesThinIcon } from "../thin";
+import { SunglassesBoldIcon } from "../bold/sunglasses-bold.icon";
+import { SunglassesDuotoneIcon } from "../duotone/sunglasses-duotone.icon";
+import { SunglassesFillIcon } from "../fill/sunglasses-fill.icon";
+import { SunglassesLightIcon } from "../light/sunglasses-light.icon";
+import { SunglassesRegularIcon } from "../regular/sunglasses-regular.icon";
+import { SunglassesThinIcon } from "../thin/sunglasses-thin.icon";
 
 export const SunglassesIcon = memo(function Sunglasses(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TagSimpleBoldIcon } from "../bold";
-import { TagSimpleDuotoneIcon } from "../duotone";
-import { TagSimpleFillIcon } from "../fill";
-import { TagSimpleLightIcon } from "../light";
-import { TagSimpleRegularIcon } from "../regular";
-import { TagSimpleThinIcon } from "../thin";
+import { TagSimpleBoldIcon } from "../bold/tag-simple-bold.icon";
+import { TagSimpleDuotoneIcon } from "../duotone/tag-simple-duotone.icon";
+import { TagSimpleFillIcon } from "../fill/tag-simple-fill.icon";
+import { TagSimpleLightIcon } from "../light/tag-simple-light.icon";
+import { TagSimpleRegularIcon } from "../regular/tag-simple-regular.icon";
+import { TagSimpleThinIcon } from "../thin/tag-simple-thin.icon";
 
 export const TagSimpleIcon = memo(function TagSimple(props: IconWrapperProps) {
   const Icon = useMemo(() => {

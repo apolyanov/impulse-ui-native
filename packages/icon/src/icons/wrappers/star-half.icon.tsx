@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StarHalfBoldIcon } from "../bold";
-import { StarHalfDuotoneIcon } from "../duotone";
-import { StarHalfFillIcon } from "../fill";
-import { StarHalfLightIcon } from "../light";
-import { StarHalfRegularIcon } from "../regular";
-import { StarHalfThinIcon } from "../thin";
+import { StarHalfBoldIcon } from "../bold/star-half-bold.icon";
+import { StarHalfDuotoneIcon } from "../duotone/star-half-duotone.icon";
+import { StarHalfFillIcon } from "../fill/star-half-fill.icon";
+import { StarHalfLightIcon } from "../light/star-half-light.icon";
+import { StarHalfRegularIcon } from "../regular/star-half-regular.icon";
+import { StarHalfThinIcon } from "../thin/star-half-thin.icon";
 
 export const StarHalfIcon = memo(function StarHalf(props: IconWrapperProps) {
   const Icon = useMemo(() => {

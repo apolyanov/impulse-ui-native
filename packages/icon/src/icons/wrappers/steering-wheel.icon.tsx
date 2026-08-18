@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SteeringWheelBoldIcon } from "../bold";
-import { SteeringWheelDuotoneIcon } from "../duotone";
-import { SteeringWheelFillIcon } from "../fill";
-import { SteeringWheelLightIcon } from "../light";
-import { SteeringWheelRegularIcon } from "../regular";
-import { SteeringWheelThinIcon } from "../thin";
+import { SteeringWheelBoldIcon } from "../bold/steering-wheel-bold.icon";
+import { SteeringWheelDuotoneIcon } from "../duotone/steering-wheel-duotone.icon";
+import { SteeringWheelFillIcon } from "../fill/steering-wheel-fill.icon";
+import { SteeringWheelLightIcon } from "../light/steering-wheel-light.icon";
+import { SteeringWheelRegularIcon } from "../regular/steering-wheel-regular.icon";
+import { SteeringWheelThinIcon } from "../thin/steering-wheel-thin.icon";
 
 export const SteeringWheelIcon = memo(function SteeringWheel(
   props: IconWrapperProps,

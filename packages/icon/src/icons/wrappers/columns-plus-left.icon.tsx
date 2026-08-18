@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ColumnsPlusLeftBoldIcon } from "../bold";
-import { ColumnsPlusLeftDuotoneIcon } from "../duotone";
-import { ColumnsPlusLeftFillIcon } from "../fill";
-import { ColumnsPlusLeftLightIcon } from "../light";
-import { ColumnsPlusLeftRegularIcon } from "../regular";
-import { ColumnsPlusLeftThinIcon } from "../thin";
+import { ColumnsPlusLeftBoldIcon } from "../bold/columns-plus-left-bold.icon";
+import { ColumnsPlusLeftDuotoneIcon } from "../duotone/columns-plus-left-duotone.icon";
+import { ColumnsPlusLeftFillIcon } from "../fill/columns-plus-left-fill.icon";
+import { ColumnsPlusLeftLightIcon } from "../light/columns-plus-left-light.icon";
+import { ColumnsPlusLeftRegularIcon } from "../regular/columns-plus-left-regular.icon";
+import { ColumnsPlusLeftThinIcon } from "../thin/columns-plus-left-thin.icon";
 
 export const ColumnsPlusLeftIcon = memo(function ColumnsPlusLeft(
   props: IconWrapperProps,

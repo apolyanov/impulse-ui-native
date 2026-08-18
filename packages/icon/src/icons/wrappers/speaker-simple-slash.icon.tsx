@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SpeakerSimpleSlashBoldIcon } from "../bold";
-import { SpeakerSimpleSlashDuotoneIcon } from "../duotone";
-import { SpeakerSimpleSlashFillIcon } from "../fill";
-import { SpeakerSimpleSlashLightIcon } from "../light";
-import { SpeakerSimpleSlashRegularIcon } from "../regular";
-import { SpeakerSimpleSlashThinIcon } from "../thin";
+import { SpeakerSimpleSlashBoldIcon } from "../bold/speaker-simple-slash-bold.icon";
+import { SpeakerSimpleSlashDuotoneIcon } from "../duotone/speaker-simple-slash-duotone.icon";
+import { SpeakerSimpleSlashFillIcon } from "../fill/speaker-simple-slash-fill.icon";
+import { SpeakerSimpleSlashLightIcon } from "../light/speaker-simple-slash-light.icon";
+import { SpeakerSimpleSlashRegularIcon } from "../regular/speaker-simple-slash-regular.icon";
+import { SpeakerSimpleSlashThinIcon } from "../thin/speaker-simple-slash-thin.icon";
 
 export const SpeakerSimpleSlashIcon = memo(function SpeakerSimpleSlash(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HospitalBoldIcon } from "../bold";
-import { HospitalDuotoneIcon } from "../duotone";
-import { HospitalFillIcon } from "../fill";
-import { HospitalLightIcon } from "../light";
-import { HospitalRegularIcon } from "../regular";
-import { HospitalThinIcon } from "../thin";
+import { HospitalBoldIcon } from "../bold/hospital-bold.icon";
+import { HospitalDuotoneIcon } from "../duotone/hospital-duotone.icon";
+import { HospitalFillIcon } from "../fill/hospital-fill.icon";
+import { HospitalLightIcon } from "../light/hospital-light.icon";
+import { HospitalRegularIcon } from "../regular/hospital-regular.icon";
+import { HospitalThinIcon } from "../thin/hospital-thin.icon";
 
 export const HospitalIcon = memo(function Hospital(props: IconWrapperProps) {
   const Icon = useMemo(() => {

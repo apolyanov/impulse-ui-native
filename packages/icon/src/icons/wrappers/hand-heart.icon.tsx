@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandHeartBoldIcon } from "../bold";
-import { HandHeartDuotoneIcon } from "../duotone";
-import { HandHeartFillIcon } from "../fill";
-import { HandHeartLightIcon } from "../light";
-import { HandHeartRegularIcon } from "../regular";
-import { HandHeartThinIcon } from "../thin";
+import { HandHeartBoldIcon } from "../bold/hand-heart-bold.icon";
+import { HandHeartDuotoneIcon } from "../duotone/hand-heart-duotone.icon";
+import { HandHeartFillIcon } from "../fill/hand-heart-fill.icon";
+import { HandHeartLightIcon } from "../light/hand-heart-light.icon";
+import { HandHeartRegularIcon } from "../regular/hand-heart-regular.icon";
+import { HandHeartThinIcon } from "../thin/hand-heart-thin.icon";
 
 export const HandHeartIcon = memo(function HandHeart(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TramBoldIcon } from "../bold";
-import { TramDuotoneIcon } from "../duotone";
-import { TramFillIcon } from "../fill";
-import { TramLightIcon } from "../light";
-import { TramRegularIcon } from "../regular";
-import { TramThinIcon } from "../thin";
+import { TramBoldIcon } from "../bold/tram-bold.icon";
+import { TramDuotoneIcon } from "../duotone/tram-duotone.icon";
+import { TramFillIcon } from "../fill/tram-fill.icon";
+import { TramLightIcon } from "../light/tram-light.icon";
+import { TramRegularIcon } from "../regular/tram-regular.icon";
+import { TramThinIcon } from "../thin/tram-thin.icon";
 
 export const TramIcon = memo(function Tram(props: IconWrapperProps) {
   const Icon = useMemo(() => {

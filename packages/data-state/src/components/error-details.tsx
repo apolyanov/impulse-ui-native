@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { CloudXIcon } from "@impulse-ui-native/icon";
+import { CloudXIcon } from "@impulse-ui-native/icon/icons/cloud-x";
 import { Typography, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 

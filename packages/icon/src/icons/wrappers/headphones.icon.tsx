@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HeadphonesBoldIcon } from "../bold";
-import { HeadphonesDuotoneIcon } from "../duotone";
-import { HeadphonesFillIcon } from "../fill";
-import { HeadphonesLightIcon } from "../light";
-import { HeadphonesRegularIcon } from "../regular";
-import { HeadphonesThinIcon } from "../thin";
+import { HeadphonesBoldIcon } from "../bold/headphones-bold.icon";
+import { HeadphonesDuotoneIcon } from "../duotone/headphones-duotone.icon";
+import { HeadphonesFillIcon } from "../fill/headphones-fill.icon";
+import { HeadphonesLightIcon } from "../light/headphones-light.icon";
+import { HeadphonesRegularIcon } from "../regular/headphones-regular.icon";
+import { HeadphonesThinIcon } from "../thin/headphones-thin.icon";
 
 export const HeadphonesIcon = memo(function Headphones(
   props: IconWrapperProps,

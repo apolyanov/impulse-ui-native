@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TentBoldIcon } from "../bold";
-import { TentDuotoneIcon } from "../duotone";
-import { TentFillIcon } from "../fill";
-import { TentLightIcon } from "../light";
-import { TentRegularIcon } from "../regular";
-import { TentThinIcon } from "../thin";
+import { TentBoldIcon } from "../bold/tent-bold.icon";
+import { TentDuotoneIcon } from "../duotone/tent-duotone.icon";
+import { TentFillIcon } from "../fill/tent-fill.icon";
+import { TentLightIcon } from "../light/tent-light.icon";
+import { TentRegularIcon } from "../regular/tent-regular.icon";
+import { TentThinIcon } from "../thin/tent-thin.icon";
 
 export const TentIcon = memo(function Tent(props: IconWrapperProps) {
   const Icon = useMemo(() => {

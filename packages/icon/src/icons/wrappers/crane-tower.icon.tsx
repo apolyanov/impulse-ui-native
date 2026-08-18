@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CraneTowerBoldIcon } from "../bold";
-import { CraneTowerDuotoneIcon } from "../duotone";
-import { CraneTowerFillIcon } from "../fill";
-import { CraneTowerLightIcon } from "../light";
-import { CraneTowerRegularIcon } from "../regular";
-import { CraneTowerThinIcon } from "../thin";
+import { CraneTowerBoldIcon } from "../bold/crane-tower-bold.icon";
+import { CraneTowerDuotoneIcon } from "../duotone/crane-tower-duotone.icon";
+import { CraneTowerFillIcon } from "../fill/crane-tower-fill.icon";
+import { CraneTowerLightIcon } from "../light/crane-tower-light.icon";
+import { CraneTowerRegularIcon } from "../regular/crane-tower-regular.icon";
+import { CraneTowerThinIcon } from "../thin/crane-tower-thin.icon";
 
 export const CraneTowerIcon = memo(function CraneTower(
   props: IconWrapperProps,

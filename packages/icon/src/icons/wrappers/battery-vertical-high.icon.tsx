@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BatteryVerticalHighBoldIcon } from "../bold";
-import { BatteryVerticalHighDuotoneIcon } from "../duotone";
-import { BatteryVerticalHighFillIcon } from "../fill";
-import { BatteryVerticalHighLightIcon } from "../light";
-import { BatteryVerticalHighRegularIcon } from "../regular";
-import { BatteryVerticalHighThinIcon } from "../thin";
+import { BatteryVerticalHighBoldIcon } from "../bold/battery-vertical-high-bold.icon";
+import { BatteryVerticalHighDuotoneIcon } from "../duotone/battery-vertical-high-duotone.icon";
+import { BatteryVerticalHighFillIcon } from "../fill/battery-vertical-high-fill.icon";
+import { BatteryVerticalHighLightIcon } from "../light/battery-vertical-high-light.icon";
+import { BatteryVerticalHighRegularIcon } from "../regular/battery-vertical-high-regular.icon";
+import { BatteryVerticalHighThinIcon } from "../thin/battery-vertical-high-thin.icon";
 
 export const BatteryVerticalHighIcon = memo(function BatteryVerticalHigh(
   props: IconWrapperProps,

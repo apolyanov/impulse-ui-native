@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { QuestionBoldIcon } from "../bold";
-import { QuestionDuotoneIcon } from "../duotone";
-import { QuestionFillIcon } from "../fill";
-import { QuestionLightIcon } from "../light";
-import { QuestionRegularIcon } from "../regular";
-import { QuestionThinIcon } from "../thin";
+import { QuestionBoldIcon } from "../bold/question-bold.icon";
+import { QuestionDuotoneIcon } from "../duotone/question-duotone.icon";
+import { QuestionFillIcon } from "../fill/question-fill.icon";
+import { QuestionLightIcon } from "../light/question-light.icon";
+import { QuestionRegularIcon } from "../regular/question-regular.icon";
+import { QuestionThinIcon } from "../thin/question-thin.icon";
 
 export const QuestionIcon = memo(function Question(props: IconWrapperProps) {
   const Icon = useMemo(() => {

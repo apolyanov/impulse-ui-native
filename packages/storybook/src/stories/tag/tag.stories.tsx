@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Tag } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
   ComponentVariantOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
-import { Tag } from "@impulse-ui-native/toolkit";
 
 import { TagDocumentation } from "./tag.documentation";
 import { TagExample, TagExampleDefinitions } from "./tag.examples";

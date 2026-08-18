@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PictureInPictureBoldIcon } from "../bold";
-import { PictureInPictureDuotoneIcon } from "../duotone";
-import { PictureInPictureFillIcon } from "../fill";
-import { PictureInPictureLightIcon } from "../light";
-import { PictureInPictureRegularIcon } from "../regular";
-import { PictureInPictureThinIcon } from "../thin";
+import { PictureInPictureBoldIcon } from "../bold/picture-in-picture-bold.icon";
+import { PictureInPictureDuotoneIcon } from "../duotone/picture-in-picture-duotone.icon";
+import { PictureInPictureFillIcon } from "../fill/picture-in-picture-fill.icon";
+import { PictureInPictureLightIcon } from "../light/picture-in-picture-light.icon";
+import { PictureInPictureRegularIcon } from "../regular/picture-in-picture-regular.icon";
+import { PictureInPictureThinIcon } from "../thin/picture-in-picture-thin.icon";
 
 export const PictureInPictureIcon = memo(function PictureInPicture(
   props: IconWrapperProps,

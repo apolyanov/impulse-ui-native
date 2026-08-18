@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SpeedometerBoldIcon } from "../bold";
-import { SpeedometerDuotoneIcon } from "../duotone";
-import { SpeedometerFillIcon } from "../fill";
-import { SpeedometerLightIcon } from "../light";
-import { SpeedometerRegularIcon } from "../regular";
-import { SpeedometerThinIcon } from "../thin";
+import { SpeedometerBoldIcon } from "../bold/speedometer-bold.icon";
+import { SpeedometerDuotoneIcon } from "../duotone/speedometer-duotone.icon";
+import { SpeedometerFillIcon } from "../fill/speedometer-fill.icon";
+import { SpeedometerLightIcon } from "../light/speedometer-light.icon";
+import { SpeedometerRegularIcon } from "../regular/speedometer-regular.icon";
+import { SpeedometerThinIcon } from "../thin/speedometer-thin.icon";
 
 export const SpeedometerIcon = memo(function Speedometer(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AirplaneLandingBoldIcon } from "../bold";
-import { AirplaneLandingDuotoneIcon } from "../duotone";
-import { AirplaneLandingFillIcon } from "../fill";
-import { AirplaneLandingLightIcon } from "../light";
-import { AirplaneLandingRegularIcon } from "../regular";
-import { AirplaneLandingThinIcon } from "../thin";
+import { AirplaneLandingBoldIcon } from "../bold/airplane-landing-bold.icon";
+import { AirplaneLandingDuotoneIcon } from "../duotone/airplane-landing-duotone.icon";
+import { AirplaneLandingFillIcon } from "../fill/airplane-landing-fill.icon";
+import { AirplaneLandingLightIcon } from "../light/airplane-landing-light.icon";
+import { AirplaneLandingRegularIcon } from "../regular/airplane-landing-regular.icon";
+import { AirplaneLandingThinIcon } from "../thin/airplane-landing-thin.icon";
 
 export const AirplaneLandingIcon = memo(function AirplaneLanding(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ElevatorBoldIcon } from "../bold";
-import { ElevatorDuotoneIcon } from "../duotone";
-import { ElevatorFillIcon } from "../fill";
-import { ElevatorLightIcon } from "../light";
-import { ElevatorRegularIcon } from "../regular";
-import { ElevatorThinIcon } from "../thin";
+import { ElevatorBoldIcon } from "../bold/elevator-bold.icon";
+import { ElevatorDuotoneIcon } from "../duotone/elevator-duotone.icon";
+import { ElevatorFillIcon } from "../fill/elevator-fill.icon";
+import { ElevatorLightIcon } from "../light/elevator-light.icon";
+import { ElevatorRegularIcon } from "../regular/elevator-regular.icon";
+import { ElevatorThinIcon } from "../thin/elevator-thin.icon";
 
 export const ElevatorIcon = memo(function Elevator(props: IconWrapperProps) {
   const Icon = useMemo(() => {

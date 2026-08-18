@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PuzzlePieceBoldIcon } from "../bold";
-import { PuzzlePieceDuotoneIcon } from "../duotone";
-import { PuzzlePieceFillIcon } from "../fill";
-import { PuzzlePieceLightIcon } from "../light";
-import { PuzzlePieceRegularIcon } from "../regular";
-import { PuzzlePieceThinIcon } from "../thin";
+import { PuzzlePieceBoldIcon } from "../bold/puzzle-piece-bold.icon";
+import { PuzzlePieceDuotoneIcon } from "../duotone/puzzle-piece-duotone.icon";
+import { PuzzlePieceFillIcon } from "../fill/puzzle-piece-fill.icon";
+import { PuzzlePieceLightIcon } from "../light/puzzle-piece-light.icon";
+import { PuzzlePieceRegularIcon } from "../regular/puzzle-piece-regular.icon";
+import { PuzzlePieceThinIcon } from "../thin/puzzle-piece-thin.icon";
 
 export const PuzzlePieceIcon = memo(function PuzzlePiece(
   props: IconWrapperProps,

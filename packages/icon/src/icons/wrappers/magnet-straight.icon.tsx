@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MagnetStraightBoldIcon } from "../bold";
-import { MagnetStraightDuotoneIcon } from "../duotone";
-import { MagnetStraightFillIcon } from "../fill";
-import { MagnetStraightLightIcon } from "../light";
-import { MagnetStraightRegularIcon } from "../regular";
-import { MagnetStraightThinIcon } from "../thin";
+import { MagnetStraightBoldIcon } from "../bold/magnet-straight-bold.icon";
+import { MagnetStraightDuotoneIcon } from "../duotone/magnet-straight-duotone.icon";
+import { MagnetStraightFillIcon } from "../fill/magnet-straight-fill.icon";
+import { MagnetStraightLightIcon } from "../light/magnet-straight-light.icon";
+import { MagnetStraightRegularIcon } from "../regular/magnet-straight-regular.icon";
+import { MagnetStraightThinIcon } from "../thin/magnet-straight-thin.icon";
 
 export const MagnetStraightIcon = memo(function MagnetStraight(
   props: IconWrapperProps,

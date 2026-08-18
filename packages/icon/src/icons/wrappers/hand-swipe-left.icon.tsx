@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandSwipeLeftBoldIcon } from "../bold";
-import { HandSwipeLeftDuotoneIcon } from "../duotone";
-import { HandSwipeLeftFillIcon } from "../fill";
-import { HandSwipeLeftLightIcon } from "../light";
-import { HandSwipeLeftRegularIcon } from "../regular";
-import { HandSwipeLeftThinIcon } from "../thin";
+import { HandSwipeLeftBoldIcon } from "../bold/hand-swipe-left-bold.icon";
+import { HandSwipeLeftDuotoneIcon } from "../duotone/hand-swipe-left-duotone.icon";
+import { HandSwipeLeftFillIcon } from "../fill/hand-swipe-left-fill.icon";
+import { HandSwipeLeftLightIcon } from "../light/hand-swipe-left-light.icon";
+import { HandSwipeLeftRegularIcon } from "../regular/hand-swipe-left-regular.icon";
+import { HandSwipeLeftThinIcon } from "../thin/hand-swipe-left-thin.icon";
 
 export const HandSwipeLeftIcon = memo(function HandSwipeLeft(
   props: IconWrapperProps,

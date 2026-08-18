@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { XSquareBoldIcon } from "../bold";
-import { XSquareDuotoneIcon } from "../duotone";
-import { XSquareFillIcon } from "../fill";
-import { XSquareLightIcon } from "../light";
-import { XSquareRegularIcon } from "../regular";
-import { XSquareThinIcon } from "../thin";
+import { XSquareBoldIcon } from "../bold/x-square-bold.icon";
+import { XSquareDuotoneIcon } from "../duotone/x-square-duotone.icon";
+import { XSquareFillIcon } from "../fill/x-square-fill.icon";
+import { XSquareLightIcon } from "../light/x-square-light.icon";
+import { XSquareRegularIcon } from "../regular/x-square-regular.icon";
+import { XSquareThinIcon } from "../thin/x-square-thin.icon";
 
 export const XSquareIcon = memo(function XSquare(props: IconWrapperProps) {
   const Icon = useMemo(() => {

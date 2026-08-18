@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TelevisionSimpleBoldIcon } from "../bold";
-import { TelevisionSimpleDuotoneIcon } from "../duotone";
-import { TelevisionSimpleFillIcon } from "../fill";
-import { TelevisionSimpleLightIcon } from "../light";
-import { TelevisionSimpleRegularIcon } from "../regular";
-import { TelevisionSimpleThinIcon } from "../thin";
+import { TelevisionSimpleBoldIcon } from "../bold/television-simple-bold.icon";
+import { TelevisionSimpleDuotoneIcon } from "../duotone/television-simple-duotone.icon";
+import { TelevisionSimpleFillIcon } from "../fill/television-simple-fill.icon";
+import { TelevisionSimpleLightIcon } from "../light/television-simple-light.icon";
+import { TelevisionSimpleRegularIcon } from "../regular/television-simple-regular.icon";
+import { TelevisionSimpleThinIcon } from "../thin/television-simple-thin.icon";
 
 export const TelevisionSimpleIcon = memo(function TelevisionSimple(
   props: IconWrapperProps,

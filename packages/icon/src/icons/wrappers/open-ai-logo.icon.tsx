@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { OpenAiLogoBoldIcon } from "../bold";
-import { OpenAiLogoDuotoneIcon } from "../duotone";
-import { OpenAiLogoFillIcon } from "../fill";
-import { OpenAiLogoLightIcon } from "../light";
-import { OpenAiLogoRegularIcon } from "../regular";
-import { OpenAiLogoThinIcon } from "../thin";
+import { OpenAiLogoBoldIcon } from "../bold/open-ai-logo-bold.icon";
+import { OpenAiLogoDuotoneIcon } from "../duotone/open-ai-logo-duotone.icon";
+import { OpenAiLogoFillIcon } from "../fill/open-ai-logo-fill.icon";
+import { OpenAiLogoLightIcon } from "../light/open-ai-logo-light.icon";
+import { OpenAiLogoRegularIcon } from "../regular/open-ai-logo-regular.icon";
+import { OpenAiLogoThinIcon } from "../thin/open-ai-logo-thin.icon";
 
 export const OpenAiLogoIcon = memo(function OpenAiLogo(
   props: IconWrapperProps,

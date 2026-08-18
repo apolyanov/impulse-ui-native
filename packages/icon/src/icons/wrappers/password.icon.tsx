@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PasswordBoldIcon } from "../bold";
-import { PasswordDuotoneIcon } from "../duotone";
-import { PasswordFillIcon } from "../fill";
-import { PasswordLightIcon } from "../light";
-import { PasswordRegularIcon } from "../regular";
-import { PasswordThinIcon } from "../thin";
+import { PasswordBoldIcon } from "../bold/password-bold.icon";
+import { PasswordDuotoneIcon } from "../duotone/password-duotone.icon";
+import { PasswordFillIcon } from "../fill/password-fill.icon";
+import { PasswordLightIcon } from "../light/password-light.icon";
+import { PasswordRegularIcon } from "../regular/password-regular.icon";
+import { PasswordThinIcon } from "../thin/password-thin.icon";
 
 export const PasswordIcon = memo(function Password(props: IconWrapperProps) {
   const Icon = useMemo(() => {

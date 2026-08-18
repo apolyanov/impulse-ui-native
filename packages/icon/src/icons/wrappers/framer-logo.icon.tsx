@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FramerLogoBoldIcon } from "../bold";
-import { FramerLogoDuotoneIcon } from "../duotone";
-import { FramerLogoFillIcon } from "../fill";
-import { FramerLogoLightIcon } from "../light";
-import { FramerLogoRegularIcon } from "../regular";
-import { FramerLogoThinIcon } from "../thin";
+import { FramerLogoBoldIcon } from "../bold/framer-logo-bold.icon";
+import { FramerLogoDuotoneIcon } from "../duotone/framer-logo-duotone.icon";
+import { FramerLogoFillIcon } from "../fill/framer-logo-fill.icon";
+import { FramerLogoLightIcon } from "../light/framer-logo-light.icon";
+import { FramerLogoRegularIcon } from "../regular/framer-logo-regular.icon";
+import { FramerLogoThinIcon } from "../thin/framer-logo-thin.icon";
 
 export const FramerLogoIcon = memo(function FramerLogo(
   props: IconWrapperProps,

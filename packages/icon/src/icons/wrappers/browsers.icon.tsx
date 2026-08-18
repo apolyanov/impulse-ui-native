@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BrowsersBoldIcon } from "../bold";
-import { BrowsersDuotoneIcon } from "../duotone";
-import { BrowsersFillIcon } from "../fill";
-import { BrowsersLightIcon } from "../light";
-import { BrowsersRegularIcon } from "../regular";
-import { BrowsersThinIcon } from "../thin";
+import { BrowsersBoldIcon } from "../bold/browsers-bold.icon";
+import { BrowsersDuotoneIcon } from "../duotone/browsers-duotone.icon";
+import { BrowsersFillIcon } from "../fill/browsers-fill.icon";
+import { BrowsersLightIcon } from "../light/browsers-light.icon";
+import { BrowsersRegularIcon } from "../regular/browsers-regular.icon";
+import { BrowsersThinIcon } from "../thin/browsers-thin.icon";
 
 export const BrowsersIcon = memo(function Browsers(props: IconWrapperProps) {
   const Icon = useMemo(() => {

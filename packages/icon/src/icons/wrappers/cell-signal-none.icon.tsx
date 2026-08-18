@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CellSignalNoneBoldIcon } from "../bold";
-import { CellSignalNoneDuotoneIcon } from "../duotone";
-import { CellSignalNoneFillIcon } from "../fill";
-import { CellSignalNoneLightIcon } from "../light";
-import { CellSignalNoneRegularIcon } from "../regular";
-import { CellSignalNoneThinIcon } from "../thin";
+import { CellSignalNoneBoldIcon } from "../bold/cell-signal-none-bold.icon";
+import { CellSignalNoneDuotoneIcon } from "../duotone/cell-signal-none-duotone.icon";
+import { CellSignalNoneFillIcon } from "../fill/cell-signal-none-fill.icon";
+import { CellSignalNoneLightIcon } from "../light/cell-signal-none-light.icon";
+import { CellSignalNoneRegularIcon } from "../regular/cell-signal-none-regular.icon";
+import { CellSignalNoneThinIcon } from "../thin/cell-signal-none-thin.icon";
 
 export const CellSignalNoneIcon = memo(function CellSignalNone(
   props: IconWrapperProps,

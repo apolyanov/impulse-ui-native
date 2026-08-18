@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GithubLogoBoldIcon } from "../bold";
-import { GithubLogoDuotoneIcon } from "../duotone";
-import { GithubLogoFillIcon } from "../fill";
-import { GithubLogoLightIcon } from "../light";
-import { GithubLogoRegularIcon } from "../regular";
-import { GithubLogoThinIcon } from "../thin";
+import { GithubLogoBoldIcon } from "../bold/github-logo-bold.icon";
+import { GithubLogoDuotoneIcon } from "../duotone/github-logo-duotone.icon";
+import { GithubLogoFillIcon } from "../fill/github-logo-fill.icon";
+import { GithubLogoLightIcon } from "../light/github-logo-light.icon";
+import { GithubLogoRegularIcon } from "../regular/github-logo-regular.icon";
+import { GithubLogoThinIcon } from "../thin/github-logo-thin.icon";
 
 export const GithubLogoIcon = memo(function GithubLogo(
   props: IconWrapperProps,

@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { memo } from "react";
 
-import { Tag } from "@impulse-ui-native/toolkit";
+import { Tag } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,
@@ -113,7 +113,8 @@ export const TagExampleDefinitions = [
       {
         name: "variant",
         value: "plain",
-        description: "Removes most visual styling and behaves like a lightweight label.",
+        description:
+          "Removes most visual styling and behaves like a lightweight label.",
       },
       {
         name: "color",
@@ -263,7 +264,8 @@ export const TagExampleDefinitions = [
       {
         name: "variant",
         value: "soft",
-        description: "Keeps the warning visible without using the strongest visual emphasis.",
+        description:
+          "Keeps the warning visible without using the strongest visual emphasis.",
       },
       {
         name: "size",
@@ -374,7 +376,8 @@ export const TagExampleDefinitions = [
       {
         name: "closable",
         value: "true",
-        description: "Allows the tag to display a close icon when onClose is provided.",
+        description:
+          "Allows the tag to display a close icon when onClose is provided.",
       },
       {
         name: "onClose",

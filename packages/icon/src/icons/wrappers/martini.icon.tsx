@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MartiniBoldIcon } from "../bold";
-import { MartiniDuotoneIcon } from "../duotone";
-import { MartiniFillIcon } from "../fill";
-import { MartiniLightIcon } from "../light";
-import { MartiniRegularIcon } from "../regular";
-import { MartiniThinIcon } from "../thin";
+import { MartiniBoldIcon } from "../bold/martini-bold.icon";
+import { MartiniDuotoneIcon } from "../duotone/martini-duotone.icon";
+import { MartiniFillIcon } from "../fill/martini-fill.icon";
+import { MartiniLightIcon } from "../light/martini-light.icon";
+import { MartiniRegularIcon } from "../regular/martini-regular.icon";
+import { MartiniThinIcon } from "../thin/martini-thin.icon";
 
 export const MartiniIcon = memo(function Martini(props: IconWrapperProps) {
   const Icon = useMemo(() => {

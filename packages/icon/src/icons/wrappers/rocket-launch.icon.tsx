@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RocketLaunchBoldIcon } from "../bold";
-import { RocketLaunchDuotoneIcon } from "../duotone";
-import { RocketLaunchFillIcon } from "../fill";
-import { RocketLaunchLightIcon } from "../light";
-import { RocketLaunchRegularIcon } from "../regular";
-import { RocketLaunchThinIcon } from "../thin";
+import { RocketLaunchBoldIcon } from "../bold/rocket-launch-bold.icon";
+import { RocketLaunchDuotoneIcon } from "../duotone/rocket-launch-duotone.icon";
+import { RocketLaunchFillIcon } from "../fill/rocket-launch-fill.icon";
+import { RocketLaunchLightIcon } from "../light/rocket-launch-light.icon";
+import { RocketLaunchRegularIcon } from "../regular/rocket-launch-regular.icon";
+import { RocketLaunchThinIcon } from "../thin/rocket-launch-thin.icon";
 
 export const RocketLaunchIcon = memo(function RocketLaunch(
   props: IconWrapperProps,

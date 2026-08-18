@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PencilRulerBoldIcon } from "../bold";
-import { PencilRulerDuotoneIcon } from "../duotone";
-import { PencilRulerFillIcon } from "../fill";
-import { PencilRulerLightIcon } from "../light";
-import { PencilRulerRegularIcon } from "../regular";
-import { PencilRulerThinIcon } from "../thin";
+import { PencilRulerBoldIcon } from "../bold/pencil-ruler-bold.icon";
+import { PencilRulerDuotoneIcon } from "../duotone/pencil-ruler-duotone.icon";
+import { PencilRulerFillIcon } from "../fill/pencil-ruler-fill.icon";
+import { PencilRulerLightIcon } from "../light/pencil-ruler-light.icon";
+import { PencilRulerRegularIcon } from "../regular/pencil-ruler-regular.icon";
+import { PencilRulerThinIcon } from "../thin/pencil-ruler-thin.icon";
 
 export const PencilRulerIcon = memo(function PencilRuler(
   props: IconWrapperProps,

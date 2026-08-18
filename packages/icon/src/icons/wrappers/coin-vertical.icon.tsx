@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CoinVerticalBoldIcon } from "../bold";
-import { CoinVerticalDuotoneIcon } from "../duotone";
-import { CoinVerticalFillIcon } from "../fill";
-import { CoinVerticalLightIcon } from "../light";
-import { CoinVerticalRegularIcon } from "../regular";
-import { CoinVerticalThinIcon } from "../thin";
+import { CoinVerticalBoldIcon } from "../bold/coin-vertical-bold.icon";
+import { CoinVerticalDuotoneIcon } from "../duotone/coin-vertical-duotone.icon";
+import { CoinVerticalFillIcon } from "../fill/coin-vertical-fill.icon";
+import { CoinVerticalLightIcon } from "../light/coin-vertical-light.icon";
+import { CoinVerticalRegularIcon } from "../regular/coin-vertical-regular.icon";
+import { CoinVerticalThinIcon } from "../thin/coin-vertical-thin.icon";
 
 export const CoinVerticalIcon = memo(function CoinVertical(
   props: IconWrapperProps,

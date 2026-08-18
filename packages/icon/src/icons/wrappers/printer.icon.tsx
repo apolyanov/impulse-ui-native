@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PrinterBoldIcon } from "../bold";
-import { PrinterDuotoneIcon } from "../duotone";
-import { PrinterFillIcon } from "../fill";
-import { PrinterLightIcon } from "../light";
-import { PrinterRegularIcon } from "../regular";
-import { PrinterThinIcon } from "../thin";
+import { PrinterBoldIcon } from "../bold/printer-bold.icon";
+import { PrinterDuotoneIcon } from "../duotone/printer-duotone.icon";
+import { PrinterFillIcon } from "../fill/printer-fill.icon";
+import { PrinterLightIcon } from "../light/printer-light.icon";
+import { PrinterRegularIcon } from "../regular/printer-regular.icon";
+import { PrinterThinIcon } from "../thin/printer-thin.icon";
 
 export const PrinterIcon = memo(function Printer(props: IconWrapperProps) {
   const Icon = useMemo(() => {

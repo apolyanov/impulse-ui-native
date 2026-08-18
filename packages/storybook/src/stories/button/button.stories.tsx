@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
   ComponentVariantOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
-import { Button } from "@impulse-ui-native/toolkit";
 
 import { ButtonDocumentation } from "./button.documentation";
 import { ButtonExample, ButtonExampleDefinitions } from "./button.examples";

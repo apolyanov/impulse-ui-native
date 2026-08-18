@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CloudLightningBoldIcon } from "../bold";
-import { CloudLightningDuotoneIcon } from "../duotone";
-import { CloudLightningFillIcon } from "../fill";
-import { CloudLightningLightIcon } from "../light";
-import { CloudLightningRegularIcon } from "../regular";
-import { CloudLightningThinIcon } from "../thin";
+import { CloudLightningBoldIcon } from "../bold/cloud-lightning-bold.icon";
+import { CloudLightningDuotoneIcon } from "../duotone/cloud-lightning-duotone.icon";
+import { CloudLightningFillIcon } from "../fill/cloud-lightning-fill.icon";
+import { CloudLightningLightIcon } from "../light/cloud-lightning-light.icon";
+import { CloudLightningRegularIcon } from "../regular/cloud-lightning-regular.icon";
+import { CloudLightningThinIcon } from "../thin/cloud-lightning-thin.icon";
 
 export const CloudLightningIcon = memo(function CloudLightning(
   props: IconWrapperProps,

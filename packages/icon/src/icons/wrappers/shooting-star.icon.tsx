@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShootingStarBoldIcon } from "../bold";
-import { ShootingStarDuotoneIcon } from "../duotone";
-import { ShootingStarFillIcon } from "../fill";
-import { ShootingStarLightIcon } from "../light";
-import { ShootingStarRegularIcon } from "../regular";
-import { ShootingStarThinIcon } from "../thin";
+import { ShootingStarBoldIcon } from "../bold/shooting-star-bold.icon";
+import { ShootingStarDuotoneIcon } from "../duotone/shooting-star-duotone.icon";
+import { ShootingStarFillIcon } from "../fill/shooting-star-fill.icon";
+import { ShootingStarLightIcon } from "../light/shooting-star-light.icon";
+import { ShootingStarRegularIcon } from "../regular/shooting-star-regular.icon";
+import { ShootingStarThinIcon } from "../thin/shooting-star-thin.icon";
 
 export const ShootingStarIcon = memo(function ShootingStar(
   props: IconWrapperProps,

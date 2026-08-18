@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NumberEightBoldIcon } from "../bold";
-import { NumberEightDuotoneIcon } from "../duotone";
-import { NumberEightFillIcon } from "../fill";
-import { NumberEightLightIcon } from "../light";
-import { NumberEightRegularIcon } from "../regular";
-import { NumberEightThinIcon } from "../thin";
+import { NumberEightBoldIcon } from "../bold/number-eight-bold.icon";
+import { NumberEightDuotoneIcon } from "../duotone/number-eight-duotone.icon";
+import { NumberEightFillIcon } from "../fill/number-eight-fill.icon";
+import { NumberEightLightIcon } from "../light/number-eight-light.icon";
+import { NumberEightRegularIcon } from "../regular/number-eight-regular.icon";
+import { NumberEightThinIcon } from "../thin/number-eight-thin.icon";
 
 export const NumberEightIcon = memo(function NumberEight(
   props: IconWrapperProps,

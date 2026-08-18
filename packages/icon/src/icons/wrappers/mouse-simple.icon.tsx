@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MouseSimpleBoldIcon } from "../bold";
-import { MouseSimpleDuotoneIcon } from "../duotone";
-import { MouseSimpleFillIcon } from "../fill";
-import { MouseSimpleLightIcon } from "../light";
-import { MouseSimpleRegularIcon } from "../regular";
-import { MouseSimpleThinIcon } from "../thin";
+import { MouseSimpleBoldIcon } from "../bold/mouse-simple-bold.icon";
+import { MouseSimpleDuotoneIcon } from "../duotone/mouse-simple-duotone.icon";
+import { MouseSimpleFillIcon } from "../fill/mouse-simple-fill.icon";
+import { MouseSimpleLightIcon } from "../light/mouse-simple-light.icon";
+import { MouseSimpleRegularIcon } from "../regular/mouse-simple-regular.icon";
+import { MouseSimpleThinIcon } from "../thin/mouse-simple-thin.icon";
 
 export const MouseSimpleIcon = memo(function MouseSimple(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DeviceMobileSlashBoldIcon } from "../bold";
-import { DeviceMobileSlashDuotoneIcon } from "../duotone";
-import { DeviceMobileSlashFillIcon } from "../fill";
-import { DeviceMobileSlashLightIcon } from "../light";
-import { DeviceMobileSlashRegularIcon } from "../regular";
-import { DeviceMobileSlashThinIcon } from "../thin";
+import { DeviceMobileSlashBoldIcon } from "../bold/device-mobile-slash-bold.icon";
+import { DeviceMobileSlashDuotoneIcon } from "../duotone/device-mobile-slash-duotone.icon";
+import { DeviceMobileSlashFillIcon } from "../fill/device-mobile-slash-fill.icon";
+import { DeviceMobileSlashLightIcon } from "../light/device-mobile-slash-light.icon";
+import { DeviceMobileSlashRegularIcon } from "../regular/device-mobile-slash-regular.icon";
+import { DeviceMobileSlashThinIcon } from "../thin/device-mobile-slash-thin.icon";
 
 export const DeviceMobileSlashIcon = memo(function DeviceMobileSlash(
   props: IconWrapperProps,

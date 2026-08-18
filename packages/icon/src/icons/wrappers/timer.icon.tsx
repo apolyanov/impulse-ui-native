@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TimerBoldIcon } from "../bold";
-import { TimerDuotoneIcon } from "../duotone";
-import { TimerFillIcon } from "../fill";
-import { TimerLightIcon } from "../light";
-import { TimerRegularIcon } from "../regular";
-import { TimerThinIcon } from "../thin";
+import { TimerBoldIcon } from "../bold/timer-bold.icon";
+import { TimerDuotoneIcon } from "../duotone/timer-duotone.icon";
+import { TimerFillIcon } from "../fill/timer-fill.icon";
+import { TimerLightIcon } from "../light/timer-light.icon";
+import { TimerRegularIcon } from "../regular/timer-regular.icon";
+import { TimerThinIcon } from "../thin/timer-thin.icon";
 
 export const TimerIcon = memo(function Timer(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FadersHorizontalBoldIcon } from "../bold";
-import { FadersHorizontalDuotoneIcon } from "../duotone";
-import { FadersHorizontalFillIcon } from "../fill";
-import { FadersHorizontalLightIcon } from "../light";
-import { FadersHorizontalRegularIcon } from "../regular";
-import { FadersHorizontalThinIcon } from "../thin";
+import { FadersHorizontalBoldIcon } from "../bold/faders-horizontal-bold.icon";
+import { FadersHorizontalDuotoneIcon } from "../duotone/faders-horizontal-duotone.icon";
+import { FadersHorizontalFillIcon } from "../fill/faders-horizontal-fill.icon";
+import { FadersHorizontalLightIcon } from "../light/faders-horizontal-light.icon";
+import { FadersHorizontalRegularIcon } from "../regular/faders-horizontal-regular.icon";
+import { FadersHorizontalThinIcon } from "../thin/faders-horizontal-thin.icon";
 
 export const FadersHorizontalIcon = memo(function FadersHorizontal(
   props: IconWrapperProps,

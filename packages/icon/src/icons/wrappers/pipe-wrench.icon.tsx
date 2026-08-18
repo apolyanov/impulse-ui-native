@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PipeWrenchBoldIcon } from "../bold";
-import { PipeWrenchDuotoneIcon } from "../duotone";
-import { PipeWrenchFillIcon } from "../fill";
-import { PipeWrenchLightIcon } from "../light";
-import { PipeWrenchRegularIcon } from "../regular";
-import { PipeWrenchThinIcon } from "../thin";
+import { PipeWrenchBoldIcon } from "../bold/pipe-wrench-bold.icon";
+import { PipeWrenchDuotoneIcon } from "../duotone/pipe-wrench-duotone.icon";
+import { PipeWrenchFillIcon } from "../fill/pipe-wrench-fill.icon";
+import { PipeWrenchLightIcon } from "../light/pipe-wrench-light.icon";
+import { PipeWrenchRegularIcon } from "../regular/pipe-wrench-regular.icon";
+import { PipeWrenchThinIcon } from "../thin/pipe-wrench-thin.icon";
 
 export const PipeWrenchIcon = memo(function PipeWrench(
   props: IconWrapperProps,

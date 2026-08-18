@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { OctagonBoldIcon } from "../bold";
-import { OctagonDuotoneIcon } from "../duotone";
-import { OctagonFillIcon } from "../fill";
-import { OctagonLightIcon } from "../light";
-import { OctagonRegularIcon } from "../regular";
-import { OctagonThinIcon } from "../thin";
+import { OctagonBoldIcon } from "../bold/octagon-bold.icon";
+import { OctagonDuotoneIcon } from "../duotone/octagon-duotone.icon";
+import { OctagonFillIcon } from "../fill/octagon-fill.icon";
+import { OctagonLightIcon } from "../light/octagon-light.icon";
+import { OctagonRegularIcon } from "../regular/octagon-regular.icon";
+import { OctagonThinIcon } from "../thin/octagon-thin.icon";
 
 export const OctagonIcon = memo(function Octagon(props: IconWrapperProps) {
   const Icon = useMemo(() => {

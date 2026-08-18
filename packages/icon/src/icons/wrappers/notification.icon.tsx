@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NotificationBoldIcon } from "../bold";
-import { NotificationDuotoneIcon } from "../duotone";
-import { NotificationFillIcon } from "../fill";
-import { NotificationLightIcon } from "../light";
-import { NotificationRegularIcon } from "../regular";
-import { NotificationThinIcon } from "../thin";
+import { NotificationBoldIcon } from "../bold/notification-bold.icon";
+import { NotificationDuotoneIcon } from "../duotone/notification-duotone.icon";
+import { NotificationFillIcon } from "../fill/notification-fill.icon";
+import { NotificationLightIcon } from "../light/notification-light.icon";
+import { NotificationRegularIcon } from "../regular/notification-regular.icon";
+import { NotificationThinIcon } from "../thin/notification-thin.icon";
 
 export const NotificationIcon = memo(function Notification(
   props: IconWrapperProps,

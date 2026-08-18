@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SunDimBoldIcon } from "../bold";
-import { SunDimDuotoneIcon } from "../duotone";
-import { SunDimFillIcon } from "../fill";
-import { SunDimLightIcon } from "../light";
-import { SunDimRegularIcon } from "../regular";
-import { SunDimThinIcon } from "../thin";
+import { SunDimBoldIcon } from "../bold/sun-dim-bold.icon";
+import { SunDimDuotoneIcon } from "../duotone/sun-dim-duotone.icon";
+import { SunDimFillIcon } from "../fill/sun-dim-fill.icon";
+import { SunDimLightIcon } from "../light/sun-dim-light.icon";
+import { SunDimRegularIcon } from "../regular/sun-dim-regular.icon";
+import { SunDimThinIcon } from "../thin/sun-dim-thin.icon";
 
 export const SunDimIcon = memo(function SunDim(props: IconWrapperProps) {
   const Icon = useMemo(() => {

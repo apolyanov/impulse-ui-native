@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FileImageBoldIcon } from "../bold";
-import { FileImageDuotoneIcon } from "../duotone";
-import { FileImageFillIcon } from "../fill";
-import { FileImageLightIcon } from "../light";
-import { FileImageRegularIcon } from "../regular";
-import { FileImageThinIcon } from "../thin";
+import { FileImageBoldIcon } from "../bold/file-image-bold.icon";
+import { FileImageDuotoneIcon } from "../duotone/file-image-duotone.icon";
+import { FileImageFillIcon } from "../fill/file-image-fill.icon";
+import { FileImageLightIcon } from "../light/file-image-light.icon";
+import { FileImageRegularIcon } from "../regular/file-image-regular.icon";
+import { FileImageThinIcon } from "../thin/file-image-thin.icon";
 
 export const FileImageIcon = memo(function FileImage(props: IconWrapperProps) {
   const Icon = useMemo(() => {

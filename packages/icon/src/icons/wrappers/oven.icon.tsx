@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { OvenBoldIcon } from "../bold";
-import { OvenDuotoneIcon } from "../duotone";
-import { OvenFillIcon } from "../fill";
-import { OvenLightIcon } from "../light";
-import { OvenRegularIcon } from "../regular";
-import { OvenThinIcon } from "../thin";
+import { OvenBoldIcon } from "../bold/oven-bold.icon";
+import { OvenDuotoneIcon } from "../duotone/oven-duotone.icon";
+import { OvenFillIcon } from "../fill/oven-fill.icon";
+import { OvenLightIcon } from "../light/oven-light.icon";
+import { OvenRegularIcon } from "../regular/oven-regular.icon";
+import { OvenThinIcon } from "../thin/oven-thin.icon";
 
 export const OvenIcon = memo(function Oven(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PaperPlaneRightBoldIcon } from "../bold";
-import { PaperPlaneRightDuotoneIcon } from "../duotone";
-import { PaperPlaneRightFillIcon } from "../fill";
-import { PaperPlaneRightLightIcon } from "../light";
-import { PaperPlaneRightRegularIcon } from "../regular";
-import { PaperPlaneRightThinIcon } from "../thin";
+import { PaperPlaneRightBoldIcon } from "../bold/paper-plane-right-bold.icon";
+import { PaperPlaneRightDuotoneIcon } from "../duotone/paper-plane-right-duotone.icon";
+import { PaperPlaneRightFillIcon } from "../fill/paper-plane-right-fill.icon";
+import { PaperPlaneRightLightIcon } from "../light/paper-plane-right-light.icon";
+import { PaperPlaneRightRegularIcon } from "../regular/paper-plane-right-regular.icon";
+import { PaperPlaneRightThinIcon } from "../thin/paper-plane-right-thin.icon";
 
 export const PaperPlaneRightIcon = memo(function PaperPlaneRight(
   props: IconWrapperProps,

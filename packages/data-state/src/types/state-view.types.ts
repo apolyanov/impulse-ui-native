@@ -1,7 +1,7 @@
 import { ComponentType, ReactNode } from "react";
 import { PressableProps, ViewStyle } from "react-native";
 
-import { IconProps } from "@impulse-ui-native/icon";
+import type { IconProps } from "@impulse-ui-native/icon/types";
 import { ViewProps } from "@impulse-ui-native/primitives";
 
 export interface StateActionsFooterProps extends ViewProps {

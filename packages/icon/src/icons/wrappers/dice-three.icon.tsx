@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DiceThreeBoldIcon } from "../bold";
-import { DiceThreeDuotoneIcon } from "../duotone";
-import { DiceThreeFillIcon } from "../fill";
-import { DiceThreeLightIcon } from "../light";
-import { DiceThreeRegularIcon } from "../regular";
-import { DiceThreeThinIcon } from "../thin";
+import { DiceThreeBoldIcon } from "../bold/dice-three-bold.icon";
+import { DiceThreeDuotoneIcon } from "../duotone/dice-three-duotone.icon";
+import { DiceThreeFillIcon } from "../fill/dice-three-fill.icon";
+import { DiceThreeLightIcon } from "../light/dice-three-light.icon";
+import { DiceThreeRegularIcon } from "../regular/dice-three-regular.icon";
+import { DiceThreeThinIcon } from "../thin/dice-three-thin.icon";
 
 export const DiceThreeIcon = memo(function DiceThree(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MoonStarsBoldIcon } from "../bold";
-import { MoonStarsDuotoneIcon } from "../duotone";
-import { MoonStarsFillIcon } from "../fill";
-import { MoonStarsLightIcon } from "../light";
-import { MoonStarsRegularIcon } from "../regular";
-import { MoonStarsThinIcon } from "../thin";
+import { MoonStarsBoldIcon } from "../bold/moon-stars-bold.icon";
+import { MoonStarsDuotoneIcon } from "../duotone/moon-stars-duotone.icon";
+import { MoonStarsFillIcon } from "../fill/moon-stars-fill.icon";
+import { MoonStarsLightIcon } from "../light/moon-stars-light.icon";
+import { MoonStarsRegularIcon } from "../regular/moon-stars-regular.icon";
+import { MoonStarsThinIcon } from "../thin/moon-stars-thin.icon";
 
 export const MoonStarsIcon = memo(function MoonStars(props: IconWrapperProps) {
   const Icon = useMemo(() => {

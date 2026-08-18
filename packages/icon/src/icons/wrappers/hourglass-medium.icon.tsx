@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HourglassMediumBoldIcon } from "../bold";
-import { HourglassMediumDuotoneIcon } from "../duotone";
-import { HourglassMediumFillIcon } from "../fill";
-import { HourglassMediumLightIcon } from "../light";
-import { HourglassMediumRegularIcon } from "../regular";
-import { HourglassMediumThinIcon } from "../thin";
+import { HourglassMediumBoldIcon } from "../bold/hourglass-medium-bold.icon";
+import { HourglassMediumDuotoneIcon } from "../duotone/hourglass-medium-duotone.icon";
+import { HourglassMediumFillIcon } from "../fill/hourglass-medium-fill.icon";
+import { HourglassMediumLightIcon } from "../light/hourglass-medium-light.icon";
+import { HourglassMediumRegularIcon } from "../regular/hourglass-medium-regular.icon";
+import { HourglassMediumThinIcon } from "../thin/hourglass-medium-thin.icon";
 
 export const HourglassMediumIcon = memo(function HourglassMedium(
   props: IconWrapperProps,

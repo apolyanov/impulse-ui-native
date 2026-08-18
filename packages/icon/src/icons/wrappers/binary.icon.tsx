@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BinaryBoldIcon } from "../bold";
-import { BinaryDuotoneIcon } from "../duotone";
-import { BinaryFillIcon } from "../fill";
-import { BinaryLightIcon } from "../light";
-import { BinaryRegularIcon } from "../regular";
-import { BinaryThinIcon } from "../thin";
+import { BinaryBoldIcon } from "../bold/binary-bold.icon";
+import { BinaryDuotoneIcon } from "../duotone/binary-duotone.icon";
+import { BinaryFillIcon } from "../fill/binary-fill.icon";
+import { BinaryLightIcon } from "../light/binary-light.icon";
+import { BinaryRegularIcon } from "../regular/binary-regular.icon";
+import { BinaryThinIcon } from "../thin/binary-thin.icon";
 
 export const BinaryIcon = memo(function Binary(props: IconWrapperProps) {
   const Icon = useMemo(() => {

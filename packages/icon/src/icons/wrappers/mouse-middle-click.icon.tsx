@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MouseMiddleClickBoldIcon } from "../bold";
-import { MouseMiddleClickDuotoneIcon } from "../duotone";
-import { MouseMiddleClickFillIcon } from "../fill";
-import { MouseMiddleClickLightIcon } from "../light";
-import { MouseMiddleClickRegularIcon } from "../regular";
-import { MouseMiddleClickThinIcon } from "../thin";
+import { MouseMiddleClickBoldIcon } from "../bold/mouse-middle-click-bold.icon";
+import { MouseMiddleClickDuotoneIcon } from "../duotone/mouse-middle-click-duotone.icon";
+import { MouseMiddleClickFillIcon } from "../fill/mouse-middle-click-fill.icon";
+import { MouseMiddleClickLightIcon } from "../light/mouse-middle-click-light.icon";
+import { MouseMiddleClickRegularIcon } from "../regular/mouse-middle-click-regular.icon";
+import { MouseMiddleClickThinIcon } from "../thin/mouse-middle-click-thin.icon";
 
 export const MouseMiddleClickIcon = memo(function MouseMiddleClick(
   props: IconWrapperProps,

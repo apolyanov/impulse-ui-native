@@ -1,6 +1,7 @@
 import { memo } from "react";
 
-import { CheckIcon, Icon } from "@impulse-ui-native/icon";
+import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { CheckIcon } from "@impulse-ui-native/icon/icons/check";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FlagCheckeredBoldIcon } from "../bold";
-import { FlagCheckeredDuotoneIcon } from "../duotone";
-import { FlagCheckeredFillIcon } from "../fill";
-import { FlagCheckeredLightIcon } from "../light";
-import { FlagCheckeredRegularIcon } from "../regular";
-import { FlagCheckeredThinIcon } from "../thin";
+import { FlagCheckeredBoldIcon } from "../bold/flag-checkered-bold.icon";
+import { FlagCheckeredDuotoneIcon } from "../duotone/flag-checkered-duotone.icon";
+import { FlagCheckeredFillIcon } from "../fill/flag-checkered-fill.icon";
+import { FlagCheckeredLightIcon } from "../light/flag-checkered-light.icon";
+import { FlagCheckeredRegularIcon } from "../regular/flag-checkered-regular.icon";
+import { FlagCheckeredThinIcon } from "../thin/flag-checkered-thin.icon";
 
 export const FlagCheckeredIcon = memo(function FlagCheckered(
   props: IconWrapperProps,

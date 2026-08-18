@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TipJarBoldIcon } from "../bold";
-import { TipJarDuotoneIcon } from "../duotone";
-import { TipJarFillIcon } from "../fill";
-import { TipJarLightIcon } from "../light";
-import { TipJarRegularIcon } from "../regular";
-import { TipJarThinIcon } from "../thin";
+import { TipJarBoldIcon } from "../bold/tip-jar-bold.icon";
+import { TipJarDuotoneIcon } from "../duotone/tip-jar-duotone.icon";
+import { TipJarFillIcon } from "../fill/tip-jar-fill.icon";
+import { TipJarLightIcon } from "../light/tip-jar-light.icon";
+import { TipJarRegularIcon } from "../regular/tip-jar-regular.icon";
+import { TipJarThinIcon } from "../thin/tip-jar-thin.icon";
 
 export const TipJarIcon = memo(function TipJar(props: IconWrapperProps) {
   const Icon = useMemo(() => {

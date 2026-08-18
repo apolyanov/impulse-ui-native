@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StripeLogoBoldIcon } from "../bold";
-import { StripeLogoDuotoneIcon } from "../duotone";
-import { StripeLogoFillIcon } from "../fill";
-import { StripeLogoLightIcon } from "../light";
-import { StripeLogoRegularIcon } from "../regular";
-import { StripeLogoThinIcon } from "../thin";
+import { StripeLogoBoldIcon } from "../bold/stripe-logo-bold.icon";
+import { StripeLogoDuotoneIcon } from "../duotone/stripe-logo-duotone.icon";
+import { StripeLogoFillIcon } from "../fill/stripe-logo-fill.icon";
+import { StripeLogoLightIcon } from "../light/stripe-logo-light.icon";
+import { StripeLogoRegularIcon } from "../regular/stripe-logo-regular.icon";
+import { StripeLogoThinIcon } from "../thin/stripe-logo-thin.icon";
 
 export const StripeLogoIcon = memo(function StripeLogo(
   props: IconWrapperProps,

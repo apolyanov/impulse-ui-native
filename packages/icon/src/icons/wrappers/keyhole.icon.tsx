@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { KeyholeBoldIcon } from "../bold";
-import { KeyholeDuotoneIcon } from "../duotone";
-import { KeyholeFillIcon } from "../fill";
-import { KeyholeLightIcon } from "../light";
-import { KeyholeRegularIcon } from "../regular";
-import { KeyholeThinIcon } from "../thin";
+import { KeyholeBoldIcon } from "../bold/keyhole-bold.icon";
+import { KeyholeDuotoneIcon } from "../duotone/keyhole-duotone.icon";
+import { KeyholeFillIcon } from "../fill/keyhole-fill.icon";
+import { KeyholeLightIcon } from "../light/keyhole-light.icon";
+import { KeyholeRegularIcon } from "../regular/keyhole-regular.icon";
+import { KeyholeThinIcon } from "../thin/keyhole-thin.icon";
 
 export const KeyholeIcon = memo(function Keyhole(props: IconWrapperProps) {
   const Icon = useMemo(() => {

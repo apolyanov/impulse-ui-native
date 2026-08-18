@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AlienBoldIcon } from "../bold";
-import { AlienDuotoneIcon } from "../duotone";
-import { AlienFillIcon } from "../fill";
-import { AlienLightIcon } from "../light";
-import { AlienRegularIcon } from "../regular";
-import { AlienThinIcon } from "../thin";
+import { AlienBoldIcon } from "../bold/alien-bold.icon";
+import { AlienDuotoneIcon } from "../duotone/alien-duotone.icon";
+import { AlienFillIcon } from "../fill/alien-fill.icon";
+import { AlienLightIcon } from "../light/alien-light.icon";
+import { AlienRegularIcon } from "../regular/alien-regular.icon";
+import { AlienThinIcon } from "../thin/alien-thin.icon";
 
 export const AlienIcon = memo(function Alien(props: IconWrapperProps) {
   const Icon = useMemo(() => {

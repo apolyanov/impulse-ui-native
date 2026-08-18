@@ -10,7 +10,6 @@ export * from "@impulse-ui-native/portal";
 export * from "@impulse-ui-native/charts";
 export * from "@impulse-ui-native/primitives";
 export * from "@impulse-ui-native/flyout";
-export * from "@impulse-ui-native/icon";
 export * from "@impulse-ui-native/input";
 export * from "@impulse-ui-native/stepper";
 export * from "@impulse-ui-native/data-state";

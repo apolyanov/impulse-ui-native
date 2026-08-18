@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MatrixLogoBoldIcon } from "../bold";
-import { MatrixLogoDuotoneIcon } from "../duotone";
-import { MatrixLogoFillIcon } from "../fill";
-import { MatrixLogoLightIcon } from "../light";
-import { MatrixLogoRegularIcon } from "../regular";
-import { MatrixLogoThinIcon } from "../thin";
+import { MatrixLogoBoldIcon } from "../bold/matrix-logo-bold.icon";
+import { MatrixLogoDuotoneIcon } from "../duotone/matrix-logo-duotone.icon";
+import { MatrixLogoFillIcon } from "../fill/matrix-logo-fill.icon";
+import { MatrixLogoLightIcon } from "../light/matrix-logo-light.icon";
+import { MatrixLogoRegularIcon } from "../regular/matrix-logo-regular.icon";
+import { MatrixLogoThinIcon } from "../thin/matrix-logo-thin.icon";
 
 export const MatrixLogoIcon = memo(function MatrixLogo(
   props: IconWrapperProps,

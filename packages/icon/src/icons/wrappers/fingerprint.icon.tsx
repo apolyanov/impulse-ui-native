@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FingerprintBoldIcon } from "../bold";
-import { FingerprintDuotoneIcon } from "../duotone";
-import { FingerprintFillIcon } from "../fill";
-import { FingerprintLightIcon } from "../light";
-import { FingerprintRegularIcon } from "../regular";
-import { FingerprintThinIcon } from "../thin";
+import { FingerprintBoldIcon } from "../bold/fingerprint-bold.icon";
+import { FingerprintDuotoneIcon } from "../duotone/fingerprint-duotone.icon";
+import { FingerprintFillIcon } from "../fill/fingerprint-fill.icon";
+import { FingerprintLightIcon } from "../light/fingerprint-light.icon";
+import { FingerprintRegularIcon } from "../regular/fingerprint-regular.icon";
+import { FingerprintThinIcon } from "../thin/fingerprint-thin.icon";
 
 export const FingerprintIcon = memo(function Fingerprint(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { RowsBoldIcon } from "../bold";
-import { RowsDuotoneIcon } from "../duotone";
-import { RowsFillIcon } from "../fill";
-import { RowsLightIcon } from "../light";
-import { RowsRegularIcon } from "../regular";
-import { RowsThinIcon } from "../thin";
+import { RowsBoldIcon } from "../bold/rows-bold.icon";
+import { RowsDuotoneIcon } from "../duotone/rows-duotone.icon";
+import { RowsFillIcon } from "../fill/rows-fill.icon";
+import { RowsLightIcon } from "../light/rows-light.icon";
+import { RowsRegularIcon } from "../regular/rows-regular.icon";
+import { RowsThinIcon } from "../thin/rows-thin.icon";
 
 export const RowsIcon = memo(function Rows(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BaseballBoldIcon } from "../bold";
-import { BaseballDuotoneIcon } from "../duotone";
-import { BaseballFillIcon } from "../fill";
-import { BaseballLightIcon } from "../light";
-import { BaseballRegularIcon } from "../regular";
-import { BaseballThinIcon } from "../thin";
+import { BaseballBoldIcon } from "../bold/baseball-bold.icon";
+import { BaseballDuotoneIcon } from "../duotone/baseball-duotone.icon";
+import { BaseballFillIcon } from "../fill/baseball-fill.icon";
+import { BaseballLightIcon } from "../light/baseball-light.icon";
+import { BaseballRegularIcon } from "../regular/baseball-regular.icon";
+import { BaseballThinIcon } from "../thin/baseball-thin.icon";
 
 export const BaseballIcon = memo(function Baseball(props: IconWrapperProps) {
   const Icon = useMemo(() => {

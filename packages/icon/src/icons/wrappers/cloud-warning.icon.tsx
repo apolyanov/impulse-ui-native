@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CloudWarningBoldIcon } from "../bold";
-import { CloudWarningDuotoneIcon } from "../duotone";
-import { CloudWarningFillIcon } from "../fill";
-import { CloudWarningLightIcon } from "../light";
-import { CloudWarningRegularIcon } from "../regular";
-import { CloudWarningThinIcon } from "../thin";
+import { CloudWarningBoldIcon } from "../bold/cloud-warning-bold.icon";
+import { CloudWarningDuotoneIcon } from "../duotone/cloud-warning-duotone.icon";
+import { CloudWarningFillIcon } from "../fill/cloud-warning-fill.icon";
+import { CloudWarningLightIcon } from "../light/cloud-warning-light.icon";
+import { CloudWarningRegularIcon } from "../regular/cloud-warning-regular.icon";
+import { CloudWarningThinIcon } from "../thin/cloud-warning-thin.icon";
 
 export const CloudWarningIcon = memo(function CloudWarning(
   props: IconWrapperProps,

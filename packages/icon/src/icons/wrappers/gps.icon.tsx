@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GpsBoldIcon } from "../bold";
-import { GpsDuotoneIcon } from "../duotone";
-import { GpsFillIcon } from "../fill";
-import { GpsLightIcon } from "../light";
-import { GpsRegularIcon } from "../regular";
-import { GpsThinIcon } from "../thin";
+import { GpsBoldIcon } from "../bold/gps-bold.icon";
+import { GpsDuotoneIcon } from "../duotone/gps-duotone.icon";
+import { GpsFillIcon } from "../fill/gps-fill.icon";
+import { GpsLightIcon } from "../light/gps-light.icon";
+import { GpsRegularIcon } from "../regular/gps-regular.icon";
+import { GpsThinIcon } from "../thin/gps-thin.icon";
 
 export const GpsIcon = memo(function Gps(props: IconWrapperProps) {
   const Icon = useMemo(() => {

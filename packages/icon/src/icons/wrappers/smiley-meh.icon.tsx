@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SmileyMehBoldIcon } from "../bold";
-import { SmileyMehDuotoneIcon } from "../duotone";
-import { SmileyMehFillIcon } from "../fill";
-import { SmileyMehLightIcon } from "../light";
-import { SmileyMehRegularIcon } from "../regular";
-import { SmileyMehThinIcon } from "../thin";
+import { SmileyMehBoldIcon } from "../bold/smiley-meh-bold.icon";
+import { SmileyMehDuotoneIcon } from "../duotone/smiley-meh-duotone.icon";
+import { SmileyMehFillIcon } from "../fill/smiley-meh-fill.icon";
+import { SmileyMehLightIcon } from "../light/smiley-meh-light.icon";
+import { SmileyMehRegularIcon } from "../regular/smiley-meh-regular.icon";
+import { SmileyMehThinIcon } from "../thin/smiley-meh-thin.icon";
 
 export const SmileyMehIcon = memo(function SmileyMeh(props: IconWrapperProps) {
   const Icon = useMemo(() => {

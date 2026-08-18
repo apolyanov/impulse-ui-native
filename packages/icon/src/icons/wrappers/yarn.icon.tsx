@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { YarnBoldIcon } from "../bold";
-import { YarnDuotoneIcon } from "../duotone";
-import { YarnFillIcon } from "../fill";
-import { YarnLightIcon } from "../light";
-import { YarnRegularIcon } from "../regular";
-import { YarnThinIcon } from "../thin";
+import { YarnBoldIcon } from "../bold/yarn-bold.icon";
+import { YarnDuotoneIcon } from "../duotone/yarn-duotone.icon";
+import { YarnFillIcon } from "../fill/yarn-fill.icon";
+import { YarnLightIcon } from "../light/yarn-light.icon";
+import { YarnRegularIcon } from "../regular/yarn-regular.icon";
+import { YarnThinIcon } from "../thin/yarn-thin.icon";
 
 export const YarnIcon = memo(function Yarn(props: IconWrapperProps) {
   const Icon = useMemo(() => {

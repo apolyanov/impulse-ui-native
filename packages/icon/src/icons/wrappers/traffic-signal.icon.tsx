@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrafficSignalBoldIcon } from "../bold";
-import { TrafficSignalDuotoneIcon } from "../duotone";
-import { TrafficSignalFillIcon } from "../fill";
-import { TrafficSignalLightIcon } from "../light";
-import { TrafficSignalRegularIcon } from "../regular";
-import { TrafficSignalThinIcon } from "../thin";
+import { TrafficSignalBoldIcon } from "../bold/traffic-signal-bold.icon";
+import { TrafficSignalDuotoneIcon } from "../duotone/traffic-signal-duotone.icon";
+import { TrafficSignalFillIcon } from "../fill/traffic-signal-fill.icon";
+import { TrafficSignalLightIcon } from "../light/traffic-signal-light.icon";
+import { TrafficSignalRegularIcon } from "../regular/traffic-signal-regular.icon";
+import { TrafficSignalThinIcon } from "../thin/traffic-signal-thin.icon";
 
 export const TrafficSignalIcon = memo(function TrafficSignal(
   props: IconWrapperProps,

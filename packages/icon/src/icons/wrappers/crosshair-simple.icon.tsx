@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CrosshairSimpleBoldIcon } from "../bold";
-import { CrosshairSimpleDuotoneIcon } from "../duotone";
-import { CrosshairSimpleFillIcon } from "../fill";
-import { CrosshairSimpleLightIcon } from "../light";
-import { CrosshairSimpleRegularIcon } from "../regular";
-import { CrosshairSimpleThinIcon } from "../thin";
+import { CrosshairSimpleBoldIcon } from "../bold/crosshair-simple-bold.icon";
+import { CrosshairSimpleDuotoneIcon } from "../duotone/crosshair-simple-duotone.icon";
+import { CrosshairSimpleFillIcon } from "../fill/crosshair-simple-fill.icon";
+import { CrosshairSimpleLightIcon } from "../light/crosshair-simple-light.icon";
+import { CrosshairSimpleRegularIcon } from "../regular/crosshair-simple-regular.icon";
+import { CrosshairSimpleThinIcon } from "../thin/crosshair-simple-thin.icon";
 
 export const CrosshairSimpleIcon = memo(function CrosshairSimple(
   props: IconWrapperProps,

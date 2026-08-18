@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PipeBoldIcon } from "../bold";
-import { PipeDuotoneIcon } from "../duotone";
-import { PipeFillIcon } from "../fill";
-import { PipeLightIcon } from "../light";
-import { PipeRegularIcon } from "../regular";
-import { PipeThinIcon } from "../thin";
+import { PipeBoldIcon } from "../bold/pipe-bold.icon";
+import { PipeDuotoneIcon } from "../duotone/pipe-duotone.icon";
+import { PipeFillIcon } from "../fill/pipe-fill.icon";
+import { PipeLightIcon } from "../light/pipe-light.icon";
+import { PipeRegularIcon } from "../regular/pipe-regular.icon";
+import { PipeThinIcon } from "../thin/pipe-thin.icon";
 
 export const PipeIcon = memo(function Pipe(props: IconWrapperProps) {
   const Icon = useMemo(() => {

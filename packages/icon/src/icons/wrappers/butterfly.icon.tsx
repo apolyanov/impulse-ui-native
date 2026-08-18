@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ButterflyBoldIcon } from "../bold";
-import { ButterflyDuotoneIcon } from "../duotone";
-import { ButterflyFillIcon } from "../fill";
-import { ButterflyLightIcon } from "../light";
-import { ButterflyRegularIcon } from "../regular";
-import { ButterflyThinIcon } from "../thin";
+import { ButterflyBoldIcon } from "../bold/butterfly-bold.icon";
+import { ButterflyDuotoneIcon } from "../duotone/butterfly-duotone.icon";
+import { ButterflyFillIcon } from "../fill/butterfly-fill.icon";
+import { ButterflyLightIcon } from "../light/butterfly-light.icon";
+import { ButterflyRegularIcon } from "../regular/butterfly-regular.icon";
+import { ButterflyThinIcon } from "../thin/butterfly-thin.icon";
 
 export const ButterflyIcon = memo(function Butterfly(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShippingContainerBoldIcon } from "../bold";
-import { ShippingContainerDuotoneIcon } from "../duotone";
-import { ShippingContainerFillIcon } from "../fill";
-import { ShippingContainerLightIcon } from "../light";
-import { ShippingContainerRegularIcon } from "../regular";
-import { ShippingContainerThinIcon } from "../thin";
+import { ShippingContainerBoldIcon } from "../bold/shipping-container-bold.icon";
+import { ShippingContainerDuotoneIcon } from "../duotone/shipping-container-duotone.icon";
+import { ShippingContainerFillIcon } from "../fill/shipping-container-fill.icon";
+import { ShippingContainerLightIcon } from "../light/shipping-container-light.icon";
+import { ShippingContainerRegularIcon } from "../regular/shipping-container-regular.icon";
+import { ShippingContainerThinIcon } from "../thin/shipping-container-thin.icon";
 
 export const ShippingContainerIcon = memo(function ShippingContainer(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CellSignalHighBoldIcon } from "../bold";
-import { CellSignalHighDuotoneIcon } from "../duotone";
-import { CellSignalHighFillIcon } from "../fill";
-import { CellSignalHighLightIcon } from "../light";
-import { CellSignalHighRegularIcon } from "../regular";
-import { CellSignalHighThinIcon } from "../thin";
+import { CellSignalHighBoldIcon } from "../bold/cell-signal-high-bold.icon";
+import { CellSignalHighDuotoneIcon } from "../duotone/cell-signal-high-duotone.icon";
+import { CellSignalHighFillIcon } from "../fill/cell-signal-high-fill.icon";
+import { CellSignalHighLightIcon } from "../light/cell-signal-high-light.icon";
+import { CellSignalHighRegularIcon } from "../regular/cell-signal-high-regular.icon";
+import { CellSignalHighThinIcon } from "../thin/cell-signal-high-thin.icon";
 
 export const CellSignalHighIcon = memo(function CellSignalHigh(
   props: IconWrapperProps,

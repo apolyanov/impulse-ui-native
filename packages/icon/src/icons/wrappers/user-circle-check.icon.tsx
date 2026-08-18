@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { UserCircleCheckBoldIcon } from "../bold";
-import { UserCircleCheckDuotoneIcon } from "../duotone";
-import { UserCircleCheckFillIcon } from "../fill";
-import { UserCircleCheckLightIcon } from "../light";
-import { UserCircleCheckRegularIcon } from "../regular";
-import { UserCircleCheckThinIcon } from "../thin";
+import { UserCircleCheckBoldIcon } from "../bold/user-circle-check-bold.icon";
+import { UserCircleCheckDuotoneIcon } from "../duotone/user-circle-check-duotone.icon";
+import { UserCircleCheckFillIcon } from "../fill/user-circle-check-fill.icon";
+import { UserCircleCheckLightIcon } from "../light/user-circle-check-light.icon";
+import { UserCircleCheckRegularIcon } from "../regular/user-circle-check-regular.icon";
+import { UserCircleCheckThinIcon } from "../thin/user-circle-check-thin.icon";
 
 export const UserCircleCheckIcon = memo(function UserCircleCheck(
   props: IconWrapperProps,

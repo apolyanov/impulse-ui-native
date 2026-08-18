@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { VideoConferenceBoldIcon } from "../bold";
-import { VideoConferenceDuotoneIcon } from "../duotone";
-import { VideoConferenceFillIcon } from "../fill";
-import { VideoConferenceLightIcon } from "../light";
-import { VideoConferenceRegularIcon } from "../regular";
-import { VideoConferenceThinIcon } from "../thin";
+import { VideoConferenceBoldIcon } from "../bold/video-conference-bold.icon";
+import { VideoConferenceDuotoneIcon } from "../duotone/video-conference-duotone.icon";
+import { VideoConferenceFillIcon } from "../fill/video-conference-fill.icon";
+import { VideoConferenceLightIcon } from "../light/video-conference-light.icon";
+import { VideoConferenceRegularIcon } from "../regular/video-conference-regular.icon";
+import { VideoConferenceThinIcon } from "../thin/video-conference-thin.icon";
 
 export const VideoConferenceIcon = memo(function VideoConference(
   props: IconWrapperProps,

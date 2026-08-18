@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GoogleChromeLogoBoldIcon } from "../bold";
-import { GoogleChromeLogoDuotoneIcon } from "../duotone";
-import { GoogleChromeLogoFillIcon } from "../fill";
-import { GoogleChromeLogoLightIcon } from "../light";
-import { GoogleChromeLogoRegularIcon } from "../regular";
-import { GoogleChromeLogoThinIcon } from "../thin";
+import { GoogleChromeLogoBoldIcon } from "../bold/google-chrome-logo-bold.icon";
+import { GoogleChromeLogoDuotoneIcon } from "../duotone/google-chrome-logo-duotone.icon";
+import { GoogleChromeLogoFillIcon } from "../fill/google-chrome-logo-fill.icon";
+import { GoogleChromeLogoLightIcon } from "../light/google-chrome-logo-light.icon";
+import { GoogleChromeLogoRegularIcon } from "../regular/google-chrome-logo-regular.icon";
+import { GoogleChromeLogoThinIcon } from "../thin/google-chrome-logo-thin.icon";
 
 export const GoogleChromeLogoIcon = memo(function GoogleChromeLogo(
   props: IconWrapperProps,

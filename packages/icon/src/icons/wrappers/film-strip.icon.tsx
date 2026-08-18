@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FilmStripBoldIcon } from "../bold";
-import { FilmStripDuotoneIcon } from "../duotone";
-import { FilmStripFillIcon } from "../fill";
-import { FilmStripLightIcon } from "../light";
-import { FilmStripRegularIcon } from "../regular";
-import { FilmStripThinIcon } from "../thin";
+import { FilmStripBoldIcon } from "../bold/film-strip-bold.icon";
+import { FilmStripDuotoneIcon } from "../duotone/film-strip-duotone.icon";
+import { FilmStripFillIcon } from "../fill/film-strip-fill.icon";
+import { FilmStripLightIcon } from "../light/film-strip-light.icon";
+import { FilmStripRegularIcon } from "../regular/film-strip-regular.icon";
+import { FilmStripThinIcon } from "../thin/film-strip-thin.icon";
 
 export const FilmStripIcon = memo(function FilmStrip(props: IconWrapperProps) {
   const Icon = useMemo(() => {

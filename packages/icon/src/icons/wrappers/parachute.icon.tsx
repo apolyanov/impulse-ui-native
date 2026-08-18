@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ParachuteBoldIcon } from "../bold";
-import { ParachuteDuotoneIcon } from "../duotone";
-import { ParachuteFillIcon } from "../fill";
-import { ParachuteLightIcon } from "../light";
-import { ParachuteRegularIcon } from "../regular";
-import { ParachuteThinIcon } from "../thin";
+import { ParachuteBoldIcon } from "../bold/parachute-bold.icon";
+import { ParachuteDuotoneIcon } from "../duotone/parachute-duotone.icon";
+import { ParachuteFillIcon } from "../fill/parachute-fill.icon";
+import { ParachuteLightIcon } from "../light/parachute-light.icon";
+import { ParachuteRegularIcon } from "../regular/parachute-regular.icon";
+import { ParachuteThinIcon } from "../thin/parachute-thin.icon";
 
 export const ParachuteIcon = memo(function Parachute(props: IconWrapperProps) {
   const Icon = useMemo(() => {

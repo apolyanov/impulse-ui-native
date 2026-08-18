@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CheckSquareBoldIcon } from "../bold";
-import { CheckSquareDuotoneIcon } from "../duotone";
-import { CheckSquareFillIcon } from "../fill";
-import { CheckSquareLightIcon } from "../light";
-import { CheckSquareRegularIcon } from "../regular";
-import { CheckSquareThinIcon } from "../thin";
+import { CheckSquareBoldIcon } from "../bold/check-square-bold.icon";
+import { CheckSquareDuotoneIcon } from "../duotone/check-square-duotone.icon";
+import { CheckSquareFillIcon } from "../fill/check-square-fill.icon";
+import { CheckSquareLightIcon } from "../light/check-square-light.icon";
+import { CheckSquareRegularIcon } from "../regular/check-square-regular.icon";
+import { CheckSquareThinIcon } from "../thin/check-square-thin.icon";
 
 export const CheckSquareIcon = memo(function CheckSquare(
   props: IconWrapperProps,

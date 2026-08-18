@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ExamBoldIcon } from "../bold";
-import { ExamDuotoneIcon } from "../duotone";
-import { ExamFillIcon } from "../fill";
-import { ExamLightIcon } from "../light";
-import { ExamRegularIcon } from "../regular";
-import { ExamThinIcon } from "../thin";
+import { ExamBoldIcon } from "../bold/exam-bold.icon";
+import { ExamDuotoneIcon } from "../duotone/exam-duotone.icon";
+import { ExamFillIcon } from "../fill/exam-fill.icon";
+import { ExamLightIcon } from "../light/exam-light.icon";
+import { ExamRegularIcon } from "../regular/exam-regular.icon";
+import { ExamThinIcon } from "../thin/exam-thin.icon";
 
 export const ExamIcon = memo(function Exam(props: IconWrapperProps) {
   const Icon = useMemo(() => {

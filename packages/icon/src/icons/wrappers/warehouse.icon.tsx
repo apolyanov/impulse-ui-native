@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WarehouseBoldIcon } from "../bold";
-import { WarehouseDuotoneIcon } from "../duotone";
-import { WarehouseFillIcon } from "../fill";
-import { WarehouseLightIcon } from "../light";
-import { WarehouseRegularIcon } from "../regular";
-import { WarehouseThinIcon } from "../thin";
+import { WarehouseBoldIcon } from "../bold/warehouse-bold.icon";
+import { WarehouseDuotoneIcon } from "../duotone/warehouse-duotone.icon";
+import { WarehouseFillIcon } from "../fill/warehouse-fill.icon";
+import { WarehouseLightIcon } from "../light/warehouse-light.icon";
+import { WarehouseRegularIcon } from "../regular/warehouse-regular.icon";
+import { WarehouseThinIcon } from "../thin/warehouse-thin.icon";
 
 export const WarehouseIcon = memo(function Warehouse(props: IconWrapperProps) {
   const Icon = useMemo(() => {

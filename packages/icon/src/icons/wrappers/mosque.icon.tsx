@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MosqueBoldIcon } from "../bold";
-import { MosqueDuotoneIcon } from "../duotone";
-import { MosqueFillIcon } from "../fill";
-import { MosqueLightIcon } from "../light";
-import { MosqueRegularIcon } from "../regular";
-import { MosqueThinIcon } from "../thin";
+import { MosqueBoldIcon } from "../bold/mosque-bold.icon";
+import { MosqueDuotoneIcon } from "../duotone/mosque-duotone.icon";
+import { MosqueFillIcon } from "../fill/mosque-fill.icon";
+import { MosqueLightIcon } from "../light/mosque-light.icon";
+import { MosqueRegularIcon } from "../regular/mosque-regular.icon";
+import { MosqueThinIcon } from "../thin/mosque-thin.icon";
 
 export const MosqueIcon = memo(function Mosque(props: IconWrapperProps) {
   const Icon = useMemo(() => {

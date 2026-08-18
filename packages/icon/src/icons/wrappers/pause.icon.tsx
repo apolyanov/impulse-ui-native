@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PauseBoldIcon } from "../bold";
-import { PauseDuotoneIcon } from "../duotone";
-import { PauseFillIcon } from "../fill";
-import { PauseLightIcon } from "../light";
-import { PauseRegularIcon } from "../regular";
-import { PauseThinIcon } from "../thin";
+import { PauseBoldIcon } from "../bold/pause-bold.icon";
+import { PauseDuotoneIcon } from "../duotone/pause-duotone.icon";
+import { PauseFillIcon } from "../fill/pause-fill.icon";
+import { PauseLightIcon } from "../light/pause-light.icon";
+import { PauseRegularIcon } from "../regular/pause-regular.icon";
+import { PauseThinIcon } from "../thin/pause-thin.icon";
 
 export const PauseIcon = memo(function Pause(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SuitcaseBoldIcon } from "../bold";
-import { SuitcaseDuotoneIcon } from "../duotone";
-import { SuitcaseFillIcon } from "../fill";
-import { SuitcaseLightIcon } from "../light";
-import { SuitcaseRegularIcon } from "../regular";
-import { SuitcaseThinIcon } from "../thin";
+import { SuitcaseBoldIcon } from "../bold/suitcase-bold.icon";
+import { SuitcaseDuotoneIcon } from "../duotone/suitcase-duotone.icon";
+import { SuitcaseFillIcon } from "../fill/suitcase-fill.icon";
+import { SuitcaseLightIcon } from "../light/suitcase-light.icon";
+import { SuitcaseRegularIcon } from "../regular/suitcase-regular.icon";
+import { SuitcaseThinIcon } from "../thin/suitcase-thin.icon";
 
 export const SuitcaseIcon = memo(function Suitcase(props: IconWrapperProps) {
   const Icon = useMemo(() => {

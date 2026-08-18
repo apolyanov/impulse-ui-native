@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GitForkBoldIcon } from "../bold";
-import { GitForkDuotoneIcon } from "../duotone";
-import { GitForkFillIcon } from "../fill";
-import { GitForkLightIcon } from "../light";
-import { GitForkRegularIcon } from "../regular";
-import { GitForkThinIcon } from "../thin";
+import { GitForkBoldIcon } from "../bold/git-fork-bold.icon";
+import { GitForkDuotoneIcon } from "../duotone/git-fork-duotone.icon";
+import { GitForkFillIcon } from "../fill/git-fork-fill.icon";
+import { GitForkLightIcon } from "../light/git-fork-light.icon";
+import { GitForkRegularIcon } from "../regular/git-fork-regular.icon";
+import { GitForkThinIcon } from "../thin/git-fork-thin.icon";
 
 export const GitForkIcon = memo(function GitFork(props: IconWrapperProps) {
   const Icon = useMemo(() => {

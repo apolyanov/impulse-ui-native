@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BookmarksBoldIcon } from "../bold";
-import { BookmarksDuotoneIcon } from "../duotone";
-import { BookmarksFillIcon } from "../fill";
-import { BookmarksLightIcon } from "../light";
-import { BookmarksRegularIcon } from "../regular";
-import { BookmarksThinIcon } from "../thin";
+import { BookmarksBoldIcon } from "../bold/bookmarks-bold.icon";
+import { BookmarksDuotoneIcon } from "../duotone/bookmarks-duotone.icon";
+import { BookmarksFillIcon } from "../fill/bookmarks-fill.icon";
+import { BookmarksLightIcon } from "../light/bookmarks-light.icon";
+import { BookmarksRegularIcon } from "../regular/bookmarks-regular.icon";
+import { BookmarksThinIcon } from "../thin/bookmarks-thin.icon";
 
 export const BookmarksIcon = memo(function Bookmarks(props: IconWrapperProps) {
   const Icon = useMemo(() => {

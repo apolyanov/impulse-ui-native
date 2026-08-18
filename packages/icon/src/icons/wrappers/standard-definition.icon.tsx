@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StandardDefinitionBoldIcon } from "../bold";
-import { StandardDefinitionDuotoneIcon } from "../duotone";
-import { StandardDefinitionFillIcon } from "../fill";
-import { StandardDefinitionLightIcon } from "../light";
-import { StandardDefinitionRegularIcon } from "../regular";
-import { StandardDefinitionThinIcon } from "../thin";
+import { StandardDefinitionBoldIcon } from "../bold/standard-definition-bold.icon";
+import { StandardDefinitionDuotoneIcon } from "../duotone/standard-definition-duotone.icon";
+import { StandardDefinitionFillIcon } from "../fill/standard-definition-fill.icon";
+import { StandardDefinitionLightIcon } from "../light/standard-definition-light.icon";
+import { StandardDefinitionRegularIcon } from "../regular/standard-definition-regular.icon";
+import { StandardDefinitionThinIcon } from "../thin/standard-definition-thin.icon";
 
 export const StandardDefinitionIcon = memo(function StandardDefinition(
   props: IconWrapperProps,

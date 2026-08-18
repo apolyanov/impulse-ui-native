@@ -1,4 +1,4 @@
-import { ComponentSize, ComponentVariant } from "@impulse-ui-native/theme";
+import type { ComponentSize, ComponentVariant } from "@impulse-ui-native/theme";
 
 export const ComponentSizeOptions = [
   "small",

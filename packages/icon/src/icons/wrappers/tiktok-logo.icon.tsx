@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TiktokLogoBoldIcon } from "../bold";
-import { TiktokLogoDuotoneIcon } from "../duotone";
-import { TiktokLogoFillIcon } from "../fill";
-import { TiktokLogoLightIcon } from "../light";
-import { TiktokLogoRegularIcon } from "../regular";
-import { TiktokLogoThinIcon } from "../thin";
+import { TiktokLogoBoldIcon } from "../bold/tiktok-logo-bold.icon";
+import { TiktokLogoDuotoneIcon } from "../duotone/tiktok-logo-duotone.icon";
+import { TiktokLogoFillIcon } from "../fill/tiktok-logo-fill.icon";
+import { TiktokLogoLightIcon } from "../light/tiktok-logo-light.icon";
+import { TiktokLogoRegularIcon } from "../regular/tiktok-logo-regular.icon";
+import { TiktokLogoThinIcon } from "../thin/tiktok-logo-thin.icon";
 
 export const TiktokLogoIcon = memo(function TiktokLogo(
   props: IconWrapperProps,

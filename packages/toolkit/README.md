@@ -1,6 +1,6 @@
 # @impulse-ui-native/toolkit
 
-The complete Impulse UI Native public API from a single package. It combines the theme, primitives, components, overlays, utilities, data helpers, icons, and shared types.
+The complete Impulse UI Native component API from a single package. It combines the theme, primitives, components, overlays, utilities, data helpers, and shared types. Install `@impulse-ui-native/icon` separately for per-icon wrapper entrypoints.
 
 ## Installation
 
@@ -47,7 +47,7 @@ Follow the installation instructions for Gesture Handler, Reanimated, and Workle
 - Date and time: `DatePicker`, `DateRangePicker`, `DatetimePicker`, `DatetimeRangePicker`, and `TimePicker`.
 - Feedback: `Skeleton`, `DataView`, `LoadingView`, `EmptyView`, and `ErrorView`.
 - Navigation and overlays: `Stepper`, `Flyout`, `LayerCenter`, the flyout registry, and portal primitives.
-- Assets and infrastructure: the icon library, `EchoInstance`, echo hooks, and endpoint factories.
+- Infrastructure: `EchoInstance`, echo hooks, and endpoint factories.
 
 All exports come from the package root:
 

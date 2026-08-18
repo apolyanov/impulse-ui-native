@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GameControllerBoldIcon } from "../bold";
-import { GameControllerDuotoneIcon } from "../duotone";
-import { GameControllerFillIcon } from "../fill";
-import { GameControllerLightIcon } from "../light";
-import { GameControllerRegularIcon } from "../regular";
-import { GameControllerThinIcon } from "../thin";
+import { GameControllerBoldIcon } from "../bold/game-controller-bold.icon";
+import { GameControllerDuotoneIcon } from "../duotone/game-controller-duotone.icon";
+import { GameControllerFillIcon } from "../fill/game-controller-fill.icon";
+import { GameControllerLightIcon } from "../light/game-controller-light.icon";
+import { GameControllerRegularIcon } from "../regular/game-controller-regular.icon";
+import { GameControllerThinIcon } from "../thin/game-controller-thin.icon";
 
 export const GameControllerIcon = memo(function GameController(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ApproximateEqualsBoldIcon } from "../bold";
-import { ApproximateEqualsDuotoneIcon } from "../duotone";
-import { ApproximateEqualsFillIcon } from "../fill";
-import { ApproximateEqualsLightIcon } from "../light";
-import { ApproximateEqualsRegularIcon } from "../regular";
-import { ApproximateEqualsThinIcon } from "../thin";
+import { ApproximateEqualsBoldIcon } from "../bold/approximate-equals-bold.icon";
+import { ApproximateEqualsDuotoneIcon } from "../duotone/approximate-equals-duotone.icon";
+import { ApproximateEqualsFillIcon } from "../fill/approximate-equals-fill.icon";
+import { ApproximateEqualsLightIcon } from "../light/approximate-equals-light.icon";
+import { ApproximateEqualsRegularIcon } from "../regular/approximate-equals-regular.icon";
+import { ApproximateEqualsThinIcon } from "../thin/approximate-equals-thin.icon";
 
 export const ApproximateEqualsIcon = memo(function ApproximateEquals(
   props: IconWrapperProps,

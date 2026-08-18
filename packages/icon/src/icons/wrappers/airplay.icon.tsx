@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AirplayBoldIcon } from "../bold";
-import { AirplayDuotoneIcon } from "../duotone";
-import { AirplayFillIcon } from "../fill";
-import { AirplayLightIcon } from "../light";
-import { AirplayRegularIcon } from "../regular";
-import { AirplayThinIcon } from "../thin";
+import { AirplayBoldIcon } from "../bold/airplay-bold.icon";
+import { AirplayDuotoneIcon } from "../duotone/airplay-duotone.icon";
+import { AirplayFillIcon } from "../fill/airplay-fill.icon";
+import { AirplayLightIcon } from "../light/airplay-light.icon";
+import { AirplayRegularIcon } from "../regular/airplay-regular.icon";
+import { AirplayThinIcon } from "../thin/airplay-thin.icon";
 
 export const AirplayIcon = memo(function Airplay(props: IconWrapperProps) {
   const Icon = useMemo(() => {

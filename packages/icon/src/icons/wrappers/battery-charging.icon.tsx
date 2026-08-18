@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BatteryChargingBoldIcon } from "../bold";
-import { BatteryChargingDuotoneIcon } from "../duotone";
-import { BatteryChargingFillIcon } from "../fill";
-import { BatteryChargingLightIcon } from "../light";
-import { BatteryChargingRegularIcon } from "../regular";
-import { BatteryChargingThinIcon } from "../thin";
+import { BatteryChargingBoldIcon } from "../bold/battery-charging-bold.icon";
+import { BatteryChargingDuotoneIcon } from "../duotone/battery-charging-duotone.icon";
+import { BatteryChargingFillIcon } from "../fill/battery-charging-fill.icon";
+import { BatteryChargingLightIcon } from "../light/battery-charging-light.icon";
+import { BatteryChargingRegularIcon } from "../regular/battery-charging-regular.icon";
+import { BatteryChargingThinIcon } from "../thin/battery-charging-thin.icon";
 
 export const BatteryChargingIcon = memo(function BatteryCharging(
   props: IconWrapperProps,

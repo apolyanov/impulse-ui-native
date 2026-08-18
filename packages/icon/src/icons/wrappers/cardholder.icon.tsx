@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CardholderBoldIcon } from "../bold";
-import { CardholderDuotoneIcon } from "../duotone";
-import { CardholderFillIcon } from "../fill";
-import { CardholderLightIcon } from "../light";
-import { CardholderRegularIcon } from "../regular";
-import { CardholderThinIcon } from "../thin";
+import { CardholderBoldIcon } from "../bold/cardholder-bold.icon";
+import { CardholderDuotoneIcon } from "../duotone/cardholder-duotone.icon";
+import { CardholderFillIcon } from "../fill/cardholder-fill.icon";
+import { CardholderLightIcon } from "../light/cardholder-light.icon";
+import { CardholderRegularIcon } from "../regular/cardholder-regular.icon";
+import { CardholderThinIcon } from "../thin/cardholder-thin.icon";
 
 export const CardholderIcon = memo(function Cardholder(
   props: IconWrapperProps,

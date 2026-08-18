@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChargingStationBoldIcon } from "../bold";
-import { ChargingStationDuotoneIcon } from "../duotone";
-import { ChargingStationFillIcon } from "../fill";
-import { ChargingStationLightIcon } from "../light";
-import { ChargingStationRegularIcon } from "../regular";
-import { ChargingStationThinIcon } from "../thin";
+import { ChargingStationBoldIcon } from "../bold/charging-station-bold.icon";
+import { ChargingStationDuotoneIcon } from "../duotone/charging-station-duotone.icon";
+import { ChargingStationFillIcon } from "../fill/charging-station-fill.icon";
+import { ChargingStationLightIcon } from "../light/charging-station-light.icon";
+import { ChargingStationRegularIcon } from "../regular/charging-station-regular.icon";
+import { ChargingStationThinIcon } from "../thin/charging-station-thin.icon";
 
 export const ChargingStationIcon = memo(function ChargingStation(
   props: IconWrapperProps,

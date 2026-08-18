@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ScooterBoldIcon } from "../bold";
-import { ScooterDuotoneIcon } from "../duotone";
-import { ScooterFillIcon } from "../fill";
-import { ScooterLightIcon } from "../light";
-import { ScooterRegularIcon } from "../regular";
-import { ScooterThinIcon } from "../thin";
+import { ScooterBoldIcon } from "../bold/scooter-bold.icon";
+import { ScooterDuotoneIcon } from "../duotone/scooter-duotone.icon";
+import { ScooterFillIcon } from "../fill/scooter-fill.icon";
+import { ScooterLightIcon } from "../light/scooter-light.icon";
+import { ScooterRegularIcon } from "../regular/scooter-regular.icon";
+import { ScooterThinIcon } from "../thin/scooter-thin.icon";
 
 export const ScooterIcon = memo(function Scooter(props: IconWrapperProps) {
   const Icon = useMemo(() => {

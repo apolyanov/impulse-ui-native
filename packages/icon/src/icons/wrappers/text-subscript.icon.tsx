@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TextSubscriptBoldIcon } from "../bold";
-import { TextSubscriptDuotoneIcon } from "../duotone";
-import { TextSubscriptFillIcon } from "../fill";
-import { TextSubscriptLightIcon } from "../light";
-import { TextSubscriptRegularIcon } from "../regular";
-import { TextSubscriptThinIcon } from "../thin";
+import { TextSubscriptBoldIcon } from "../bold/text-subscript-bold.icon";
+import { TextSubscriptDuotoneIcon } from "../duotone/text-subscript-duotone.icon";
+import { TextSubscriptFillIcon } from "../fill/text-subscript-fill.icon";
+import { TextSubscriptLightIcon } from "../light/text-subscript-light.icon";
+import { TextSubscriptRegularIcon } from "../regular/text-subscript-regular.icon";
+import { TextSubscriptThinIcon } from "../thin/text-subscript-thin.icon";
 
 export const TextSubscriptIcon = memo(function TextSubscript(
   props: IconWrapperProps,

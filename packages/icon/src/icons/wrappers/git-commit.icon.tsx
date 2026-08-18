@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { GitCommitBoldIcon } from "../bold";
-import { GitCommitDuotoneIcon } from "../duotone";
-import { GitCommitFillIcon } from "../fill";
-import { GitCommitLightIcon } from "../light";
-import { GitCommitRegularIcon } from "../regular";
-import { GitCommitThinIcon } from "../thin";
+import { GitCommitBoldIcon } from "../bold/git-commit-bold.icon";
+import { GitCommitDuotoneIcon } from "../duotone/git-commit-duotone.icon";
+import { GitCommitFillIcon } from "../fill/git-commit-fill.icon";
+import { GitCommitLightIcon } from "../light/git-commit-light.icon";
+import { GitCommitRegularIcon } from "../regular/git-commit-regular.icon";
+import { GitCommitThinIcon } from "../thin/git-commit-thin.icon";
 
 export const GitCommitIcon = memo(function GitCommit(props: IconWrapperProps) {
   const Icon = useMemo(() => {

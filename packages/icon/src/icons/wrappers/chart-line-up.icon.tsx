@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ChartLineUpBoldIcon } from "../bold";
-import { ChartLineUpDuotoneIcon } from "../duotone";
-import { ChartLineUpFillIcon } from "../fill";
-import { ChartLineUpLightIcon } from "../light";
-import { ChartLineUpRegularIcon } from "../regular";
-import { ChartLineUpThinIcon } from "../thin";
+import { ChartLineUpBoldIcon } from "../bold/chart-line-up-bold.icon";
+import { ChartLineUpDuotoneIcon } from "../duotone/chart-line-up-duotone.icon";
+import { ChartLineUpFillIcon } from "../fill/chart-line-up-fill.icon";
+import { ChartLineUpLightIcon } from "../light/chart-line-up-light.icon";
+import { ChartLineUpRegularIcon } from "../regular/chart-line-up-regular.icon";
+import { ChartLineUpThinIcon } from "../thin/chart-line-up-thin.icon";
 
 export const ChartLineUpIcon = memo(function ChartLineUp(
   props: IconWrapperProps,

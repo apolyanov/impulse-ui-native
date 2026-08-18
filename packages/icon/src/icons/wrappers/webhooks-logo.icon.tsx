@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WebhooksLogoBoldIcon } from "../bold";
-import { WebhooksLogoDuotoneIcon } from "../duotone";
-import { WebhooksLogoFillIcon } from "../fill";
-import { WebhooksLogoLightIcon } from "../light";
-import { WebhooksLogoRegularIcon } from "../regular";
-import { WebhooksLogoThinIcon } from "../thin";
+import { WebhooksLogoBoldIcon } from "../bold/webhooks-logo-bold.icon";
+import { WebhooksLogoDuotoneIcon } from "../duotone/webhooks-logo-duotone.icon";
+import { WebhooksLogoFillIcon } from "../fill/webhooks-logo-fill.icon";
+import { WebhooksLogoLightIcon } from "../light/webhooks-logo-light.icon";
+import { WebhooksLogoRegularIcon } from "../regular/webhooks-logo-regular.icon";
+import { WebhooksLogoThinIcon } from "../thin/webhooks-logo-thin.icon";
 
 export const WebhooksLogoIcon = memo(function WebhooksLogo(
   props: IconWrapperProps,

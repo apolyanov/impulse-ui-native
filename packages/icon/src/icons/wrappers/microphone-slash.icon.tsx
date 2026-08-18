@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MicrophoneSlashBoldIcon } from "../bold";
-import { MicrophoneSlashDuotoneIcon } from "../duotone";
-import { MicrophoneSlashFillIcon } from "../fill";
-import { MicrophoneSlashLightIcon } from "../light";
-import { MicrophoneSlashRegularIcon } from "../regular";
-import { MicrophoneSlashThinIcon } from "../thin";
+import { MicrophoneSlashBoldIcon } from "../bold/microphone-slash-bold.icon";
+import { MicrophoneSlashDuotoneIcon } from "../duotone/microphone-slash-duotone.icon";
+import { MicrophoneSlashFillIcon } from "../fill/microphone-slash-fill.icon";
+import { MicrophoneSlashLightIcon } from "../light/microphone-slash-light.icon";
+import { MicrophoneSlashRegularIcon } from "../regular/microphone-slash-regular.icon";
+import { MicrophoneSlashThinIcon } from "../thin/microphone-slash-thin.icon";
 
 export const MicrophoneSlashIcon = memo(function MicrophoneSlash(
   props: IconWrapperProps,

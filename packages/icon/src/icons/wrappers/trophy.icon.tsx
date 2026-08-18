@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrophyBoldIcon } from "../bold";
-import { TrophyDuotoneIcon } from "../duotone";
-import { TrophyFillIcon } from "../fill";
-import { TrophyLightIcon } from "../light";
-import { TrophyRegularIcon } from "../regular";
-import { TrophyThinIcon } from "../thin";
+import { TrophyBoldIcon } from "../bold/trophy-bold.icon";
+import { TrophyDuotoneIcon } from "../duotone/trophy-duotone.icon";
+import { TrophyFillIcon } from "../fill/trophy-fill.icon";
+import { TrophyLightIcon } from "../light/trophy-light.icon";
+import { TrophyRegularIcon } from "../regular/trophy-regular.icon";
+import { TrophyThinIcon } from "../thin/trophy-thin.icon";
 
 export const TrophyIcon = memo(function Trophy(props: IconWrapperProps) {
   const Icon = useMemo(() => {

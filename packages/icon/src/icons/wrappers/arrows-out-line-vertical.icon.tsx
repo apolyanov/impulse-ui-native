@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowsOutLineVerticalBoldIcon } from "../bold";
-import { ArrowsOutLineVerticalDuotoneIcon } from "../duotone";
-import { ArrowsOutLineVerticalFillIcon } from "../fill";
-import { ArrowsOutLineVerticalLightIcon } from "../light";
-import { ArrowsOutLineVerticalRegularIcon } from "../regular";
-import { ArrowsOutLineVerticalThinIcon } from "../thin";
+import { ArrowsOutLineVerticalBoldIcon } from "../bold/arrows-out-line-vertical-bold.icon";
+import { ArrowsOutLineVerticalDuotoneIcon } from "../duotone/arrows-out-line-vertical-duotone.icon";
+import { ArrowsOutLineVerticalFillIcon } from "../fill/arrows-out-line-vertical-fill.icon";
+import { ArrowsOutLineVerticalLightIcon } from "../light/arrows-out-line-vertical-light.icon";
+import { ArrowsOutLineVerticalRegularIcon } from "../regular/arrows-out-line-vertical-regular.icon";
+import { ArrowsOutLineVerticalThinIcon } from "../thin/arrows-out-line-vertical-thin.icon";
 
 export const ArrowsOutLineVerticalIcon = memo(function ArrowsOutLineVertical(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StampBoldIcon } from "../bold";
-import { StampDuotoneIcon } from "../duotone";
-import { StampFillIcon } from "../fill";
-import { StampLightIcon } from "../light";
-import { StampRegularIcon } from "../regular";
-import { StampThinIcon } from "../thin";
+import { StampBoldIcon } from "../bold/stamp-bold.icon";
+import { StampDuotoneIcon } from "../duotone/stamp-duotone.icon";
+import { StampFillIcon } from "../fill/stamp-fill.icon";
+import { StampLightIcon } from "../light/stamp-light.icon";
+import { StampRegularIcon } from "../regular/stamp-regular.icon";
+import { StampThinIcon } from "../thin/stamp-thin.icon";
 
 export const StampIcon = memo(function Stamp(props: IconWrapperProps) {
   const Icon = useMemo(() => {

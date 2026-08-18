@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ProjectorScreenChartBoldIcon } from "../bold";
-import { ProjectorScreenChartDuotoneIcon } from "../duotone";
-import { ProjectorScreenChartFillIcon } from "../fill";
-import { ProjectorScreenChartLightIcon } from "../light";
-import { ProjectorScreenChartRegularIcon } from "../regular";
-import { ProjectorScreenChartThinIcon } from "../thin";
+import { ProjectorScreenChartBoldIcon } from "../bold/projector-screen-chart-bold.icon";
+import { ProjectorScreenChartDuotoneIcon } from "../duotone/projector-screen-chart-duotone.icon";
+import { ProjectorScreenChartFillIcon } from "../fill/projector-screen-chart-fill.icon";
+import { ProjectorScreenChartLightIcon } from "../light/projector-screen-chart-light.icon";
+import { ProjectorScreenChartRegularIcon } from "../regular/projector-screen-chart-regular.icon";
+import { ProjectorScreenChartThinIcon } from "../thin/projector-screen-chart-thin.icon";
 
 export const ProjectorScreenChartIcon = memo(function ProjectorScreenChart(
   props: IconWrapperProps,

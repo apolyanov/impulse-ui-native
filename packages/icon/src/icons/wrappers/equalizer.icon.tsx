@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EqualizerBoldIcon } from "../bold";
-import { EqualizerDuotoneIcon } from "../duotone";
-import { EqualizerFillIcon } from "../fill";
-import { EqualizerLightIcon } from "../light";
-import { EqualizerRegularIcon } from "../regular";
-import { EqualizerThinIcon } from "../thin";
+import { EqualizerBoldIcon } from "../bold/equalizer-bold.icon";
+import { EqualizerDuotoneIcon } from "../duotone/equalizer-duotone.icon";
+import { EqualizerFillIcon } from "../fill/equalizer-fill.icon";
+import { EqualizerLightIcon } from "../light/equalizer-light.icon";
+import { EqualizerRegularIcon } from "../regular/equalizer-regular.icon";
+import { EqualizerThinIcon } from "../thin/equalizer-thin.icon";
 
 export const EqualizerIcon = memo(function Equalizer(props: IconWrapperProps) {
   const Icon = useMemo(() => {

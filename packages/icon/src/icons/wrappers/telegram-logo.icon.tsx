@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TelegramLogoBoldIcon } from "../bold";
-import { TelegramLogoDuotoneIcon } from "../duotone";
-import { TelegramLogoFillIcon } from "../fill";
-import { TelegramLogoLightIcon } from "../light";
-import { TelegramLogoRegularIcon } from "../regular";
-import { TelegramLogoThinIcon } from "../thin";
+import { TelegramLogoBoldIcon } from "../bold/telegram-logo-bold.icon";
+import { TelegramLogoDuotoneIcon } from "../duotone/telegram-logo-duotone.icon";
+import { TelegramLogoFillIcon } from "../fill/telegram-logo-fill.icon";
+import { TelegramLogoLightIcon } from "../light/telegram-logo-light.icon";
+import { TelegramLogoRegularIcon } from "../regular/telegram-logo-regular.icon";
+import { TelegramLogoThinIcon } from "../thin/telegram-logo-thin.icon";
 
 export const TelegramLogoIcon = memo(function TelegramLogo(
   props: IconWrapperProps,

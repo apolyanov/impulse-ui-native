@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandsPrayingBoldIcon } from "../bold";
-import { HandsPrayingDuotoneIcon } from "../duotone";
-import { HandsPrayingFillIcon } from "../fill";
-import { HandsPrayingLightIcon } from "../light";
-import { HandsPrayingRegularIcon } from "../regular";
-import { HandsPrayingThinIcon } from "../thin";
+import { HandsPrayingBoldIcon } from "../bold/hands-praying-bold.icon";
+import { HandsPrayingDuotoneIcon } from "../duotone/hands-praying-duotone.icon";
+import { HandsPrayingFillIcon } from "../fill/hands-praying-fill.icon";
+import { HandsPrayingLightIcon } from "../light/hands-praying-light.icon";
+import { HandsPrayingRegularIcon } from "../regular/hands-praying-regular.icon";
+import { HandsPrayingThinIcon } from "../thin/hands-praying-thin.icon";
 
 export const HandsPrayingIcon = memo(function HandsPraying(
   props: IconWrapperProps,

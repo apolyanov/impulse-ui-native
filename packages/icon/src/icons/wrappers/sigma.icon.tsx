@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SigmaBoldIcon } from "../bold";
-import { SigmaDuotoneIcon } from "../duotone";
-import { SigmaFillIcon } from "../fill";
-import { SigmaLightIcon } from "../light";
-import { SigmaRegularIcon } from "../regular";
-import { SigmaThinIcon } from "../thin";
+import { SigmaBoldIcon } from "../bold/sigma-bold.icon";
+import { SigmaDuotoneIcon } from "../duotone/sigma-duotone.icon";
+import { SigmaFillIcon } from "../fill/sigma-fill.icon";
+import { SigmaLightIcon } from "../light/sigma-light.icon";
+import { SigmaRegularIcon } from "../regular/sigma-regular.icon";
+import { SigmaThinIcon } from "../thin/sigma-thin.icon";
 
 export const SigmaIcon = memo(function Sigma(props: IconWrapperProps) {
   const Icon = useMemo(() => {

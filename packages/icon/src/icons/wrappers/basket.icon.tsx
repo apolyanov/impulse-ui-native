@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BasketBoldIcon } from "../bold";
-import { BasketDuotoneIcon } from "../duotone";
-import { BasketFillIcon } from "../fill";
-import { BasketLightIcon } from "../light";
-import { BasketRegularIcon } from "../regular";
-import { BasketThinIcon } from "../thin";
+import { BasketBoldIcon } from "../bold/basket-bold.icon";
+import { BasketDuotoneIcon } from "../duotone/basket-duotone.icon";
+import { BasketFillIcon } from "../fill/basket-fill.icon";
+import { BasketLightIcon } from "../light/basket-light.icon";
+import { BasketRegularIcon } from "../regular/basket-regular.icon";
+import { BasketThinIcon } from "../thin/basket-thin.icon";
 
 export const BasketIcon = memo(function Basket(props: IconWrapperProps) {
   const Icon = useMemo(() => {

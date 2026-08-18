@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShareNetworkBoldIcon } from "../bold";
-import { ShareNetworkDuotoneIcon } from "../duotone";
-import { ShareNetworkFillIcon } from "../fill";
-import { ShareNetworkLightIcon } from "../light";
-import { ShareNetworkRegularIcon } from "../regular";
-import { ShareNetworkThinIcon } from "../thin";
+import { ShareNetworkBoldIcon } from "../bold/share-network-bold.icon";
+import { ShareNetworkDuotoneIcon } from "../duotone/share-network-duotone.icon";
+import { ShareNetworkFillIcon } from "../fill/share-network-fill.icon";
+import { ShareNetworkLightIcon } from "../light/share-network-light.icon";
+import { ShareNetworkRegularIcon } from "../regular/share-network-regular.icon";
+import { ShareNetworkThinIcon } from "../thin/share-network-thin.icon";
 
 export const ShareNetworkIcon = memo(function ShareNetwork(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PaintRollerBoldIcon } from "../bold";
-import { PaintRollerDuotoneIcon } from "../duotone";
-import { PaintRollerFillIcon } from "../fill";
-import { PaintRollerLightIcon } from "../light";
-import { PaintRollerRegularIcon } from "../regular";
-import { PaintRollerThinIcon } from "../thin";
+import { PaintRollerBoldIcon } from "../bold/paint-roller-bold.icon";
+import { PaintRollerDuotoneIcon } from "../duotone/paint-roller-duotone.icon";
+import { PaintRollerFillIcon } from "../fill/paint-roller-fill.icon";
+import { PaintRollerLightIcon } from "../light/paint-roller-light.icon";
+import { PaintRollerRegularIcon } from "../regular/paint-roller-regular.icon";
+import { PaintRollerThinIcon } from "../thin/paint-roller-thin.icon";
 
 export const PaintRollerIcon = memo(function PaintRoller(
   props: IconWrapperProps,

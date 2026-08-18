@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ReceiptBoldIcon } from "../bold";
-import { ReceiptDuotoneIcon } from "../duotone";
-import { ReceiptFillIcon } from "../fill";
-import { ReceiptLightIcon } from "../light";
-import { ReceiptRegularIcon } from "../regular";
-import { ReceiptThinIcon } from "../thin";
+import { ReceiptBoldIcon } from "../bold/receipt-bold.icon";
+import { ReceiptDuotoneIcon } from "../duotone/receipt-duotone.icon";
+import { ReceiptFillIcon } from "../fill/receipt-fill.icon";
+import { ReceiptLightIcon } from "../light/receipt-light.icon";
+import { ReceiptRegularIcon } from "../regular/receipt-regular.icon";
+import { ReceiptThinIcon } from "../thin/receipt-thin.icon";
 
 export const ReceiptIcon = memo(function Receipt(props: IconWrapperProps) {
   const Icon = useMemo(() => {

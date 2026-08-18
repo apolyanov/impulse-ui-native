@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AcornBoldIcon } from "../bold";
-import { AcornDuotoneIcon } from "../duotone";
-import { AcornFillIcon } from "../fill";
-import { AcornLightIcon } from "../light";
-import { AcornRegularIcon } from "../regular";
-import { AcornThinIcon } from "../thin";
+import { AcornBoldIcon } from "../bold/acorn-bold.icon";
+import { AcornDuotoneIcon } from "../duotone/acorn-duotone.icon";
+import { AcornFillIcon } from "../fill/acorn-fill.icon";
+import { AcornLightIcon } from "../light/acorn-light.icon";
+import { AcornRegularIcon } from "../regular/acorn-regular.icon";
+import { AcornThinIcon } from "../thin/acorn-thin.icon";
 
 export const AcornIcon = memo(function Acorn(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrainBoldIcon } from "../bold";
-import { TrainDuotoneIcon } from "../duotone";
-import { TrainFillIcon } from "../fill";
-import { TrainLightIcon } from "../light";
-import { TrainRegularIcon } from "../regular";
-import { TrainThinIcon } from "../thin";
+import { TrainBoldIcon } from "../bold/train-bold.icon";
+import { TrainDuotoneIcon } from "../duotone/train-duotone.icon";
+import { TrainFillIcon } from "../fill/train-fill.icon";
+import { TrainLightIcon } from "../light/train-light.icon";
+import { TrainRegularIcon } from "../regular/train-regular.icon";
+import { TrainThinIcon } from "../thin/train-thin.icon";
 
 export const TrainIcon = memo(function Train(props: IconWrapperProps) {
   const Icon = useMemo(() => {

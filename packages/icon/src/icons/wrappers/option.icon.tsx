@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { OptionBoldIcon } from "../bold";
-import { OptionDuotoneIcon } from "../duotone";
-import { OptionFillIcon } from "../fill";
-import { OptionLightIcon } from "../light";
-import { OptionRegularIcon } from "../regular";
-import { OptionThinIcon } from "../thin";
+import { OptionBoldIcon } from "../bold/option-bold.icon";
+import { OptionDuotoneIcon } from "../duotone/option-duotone.icon";
+import { OptionFillIcon } from "../fill/option-fill.icon";
+import { OptionLightIcon } from "../light/option-light.icon";
+import { OptionRegularIcon } from "../regular/option-regular.icon";
+import { OptionThinIcon } from "../thin/option-thin.icon";
 
 export const OptionIcon = memo(function Option(props: IconWrapperProps) {
   const Icon = useMemo(() => {

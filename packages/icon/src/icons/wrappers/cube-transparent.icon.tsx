@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CubeTransparentBoldIcon } from "../bold";
-import { CubeTransparentDuotoneIcon } from "../duotone";
-import { CubeTransparentFillIcon } from "../fill";
-import { CubeTransparentLightIcon } from "../light";
-import { CubeTransparentRegularIcon } from "../regular";
-import { CubeTransparentThinIcon } from "../thin";
+import { CubeTransparentBoldIcon } from "../bold/cube-transparent-bold.icon";
+import { CubeTransparentDuotoneIcon } from "../duotone/cube-transparent-duotone.icon";
+import { CubeTransparentFillIcon } from "../fill/cube-transparent-fill.icon";
+import { CubeTransparentLightIcon } from "../light/cube-transparent-light.icon";
+import { CubeTransparentRegularIcon } from "../regular/cube-transparent-regular.icon";
+import { CubeTransparentThinIcon } from "../thin/cube-transparent-thin.icon";
 
 export const CubeTransparentIcon = memo(function CubeTransparent(
   props: IconWrapperProps,

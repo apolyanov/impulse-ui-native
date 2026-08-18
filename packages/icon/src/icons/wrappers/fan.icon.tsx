@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FanBoldIcon } from "../bold";
-import { FanDuotoneIcon } from "../duotone";
-import { FanFillIcon } from "../fill";
-import { FanLightIcon } from "../light";
-import { FanRegularIcon } from "../regular";
-import { FanThinIcon } from "../thin";
+import { FanBoldIcon } from "../bold/fan-bold.icon";
+import { FanDuotoneIcon } from "../duotone/fan-duotone.icon";
+import { FanFillIcon } from "../fill/fan-fill.icon";
+import { FanLightIcon } from "../light/fan-light.icon";
+import { FanRegularIcon } from "../regular/fan-regular.icon";
+import { FanThinIcon } from "../thin/fan-thin.icon";
 
 export const FanIcon = memo(function Fan(props: IconWrapperProps) {
   const Icon = useMemo(() => {

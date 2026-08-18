@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LassoBoldIcon } from "../bold";
-import { LassoDuotoneIcon } from "../duotone";
-import { LassoFillIcon } from "../fill";
-import { LassoLightIcon } from "../light";
-import { LassoRegularIcon } from "../regular";
-import { LassoThinIcon } from "../thin";
+import { LassoBoldIcon } from "../bold/lasso-bold.icon";
+import { LassoDuotoneIcon } from "../duotone/lasso-duotone.icon";
+import { LassoFillIcon } from "../fill/lasso-fill.icon";
+import { LassoLightIcon } from "../light/lasso-light.icon";
+import { LassoRegularIcon } from "../regular/lasso-regular.icon";
+import { LassoThinIcon } from "../thin/lasso-thin.icon";
 
 export const LassoIcon = memo(function Lasso(props: IconWrapperProps) {
   const Icon = useMemo(() => {

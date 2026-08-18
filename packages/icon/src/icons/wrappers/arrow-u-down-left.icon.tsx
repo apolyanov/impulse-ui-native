@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowUDownLeftBoldIcon } from "../bold";
-import { ArrowUDownLeftDuotoneIcon } from "../duotone";
-import { ArrowUDownLeftFillIcon } from "../fill";
-import { ArrowUDownLeftLightIcon } from "../light";
-import { ArrowUDownLeftRegularIcon } from "../regular";
-import { ArrowUDownLeftThinIcon } from "../thin";
+import { ArrowUDownLeftBoldIcon } from "../bold/arrow-u-down-left-bold.icon";
+import { ArrowUDownLeftDuotoneIcon } from "../duotone/arrow-u-down-left-duotone.icon";
+import { ArrowUDownLeftFillIcon } from "../fill/arrow-u-down-left-fill.icon";
+import { ArrowUDownLeftLightIcon } from "../light/arrow-u-down-left-light.icon";
+import { ArrowUDownLeftRegularIcon } from "../regular/arrow-u-down-left-regular.icon";
+import { ArrowUDownLeftThinIcon } from "../thin/arrow-u-down-left-thin.icon";
 
 export const ArrowUDownLeftIcon = memo(function ArrowUDownLeft(
   props: IconWrapperProps,

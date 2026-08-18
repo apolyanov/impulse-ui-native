@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ToteBoldIcon } from "../bold";
-import { ToteDuotoneIcon } from "../duotone";
-import { ToteFillIcon } from "../fill";
-import { ToteLightIcon } from "../light";
-import { ToteRegularIcon } from "../regular";
-import { ToteThinIcon } from "../thin";
+import { ToteBoldIcon } from "../bold/tote-bold.icon";
+import { ToteDuotoneIcon } from "../duotone/tote-duotone.icon";
+import { ToteFillIcon } from "../fill/tote-fill.icon";
+import { ToteLightIcon } from "../light/tote-light.icon";
+import { ToteRegularIcon } from "../regular/tote-regular.icon";
+import { ToteThinIcon } from "../thin/tote-thin.icon";
 
 export const ToteIcon = memo(function Tote(props: IconWrapperProps) {
   const Icon = useMemo(() => {

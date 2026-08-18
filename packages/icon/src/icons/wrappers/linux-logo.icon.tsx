@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LinuxLogoBoldIcon } from "../bold";
-import { LinuxLogoDuotoneIcon } from "../duotone";
-import { LinuxLogoFillIcon } from "../fill";
-import { LinuxLogoLightIcon } from "../light";
-import { LinuxLogoRegularIcon } from "../regular";
-import { LinuxLogoThinIcon } from "../thin";
+import { LinuxLogoBoldIcon } from "../bold/linux-logo-bold.icon";
+import { LinuxLogoDuotoneIcon } from "../duotone/linux-logo-duotone.icon";
+import { LinuxLogoFillIcon } from "../fill/linux-logo-fill.icon";
+import { LinuxLogoLightIcon } from "../light/linux-logo-light.icon";
+import { LinuxLogoRegularIcon } from "../regular/linux-logo-regular.icon";
+import { LinuxLogoThinIcon } from "../thin/linux-logo-thin.icon";
 
 export const LinuxLogoIcon = memo(function LinuxLogo(props: IconWrapperProps) {
   const Icon = useMemo(() => {

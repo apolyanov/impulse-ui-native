@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrendDownBoldIcon } from "../bold";
-import { TrendDownDuotoneIcon } from "../duotone";
-import { TrendDownFillIcon } from "../fill";
-import { TrendDownLightIcon } from "../light";
-import { TrendDownRegularIcon } from "../regular";
-import { TrendDownThinIcon } from "../thin";
+import { TrendDownBoldIcon } from "../bold/trend-down-bold.icon";
+import { TrendDownDuotoneIcon } from "../duotone/trend-down-duotone.icon";
+import { TrendDownFillIcon } from "../fill/trend-down-fill.icon";
+import { TrendDownLightIcon } from "../light/trend-down-light.icon";
+import { TrendDownRegularIcon } from "../regular/trend-down-regular.icon";
+import { TrendDownThinIcon } from "../thin/trend-down-thin.icon";
 
 export const TrendDownIcon = memo(function TrendDown(props: IconWrapperProps) {
   const Icon = useMemo(() => {

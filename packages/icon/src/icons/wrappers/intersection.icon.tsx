@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { IntersectionBoldIcon } from "../bold";
-import { IntersectionDuotoneIcon } from "../duotone";
-import { IntersectionFillIcon } from "../fill";
-import { IntersectionLightIcon } from "../light";
-import { IntersectionRegularIcon } from "../regular";
-import { IntersectionThinIcon } from "../thin";
+import { IntersectionBoldIcon } from "../bold/intersection-bold.icon";
+import { IntersectionDuotoneIcon } from "../duotone/intersection-duotone.icon";
+import { IntersectionFillIcon } from "../fill/intersection-fill.icon";
+import { IntersectionLightIcon } from "../light/intersection-light.icon";
+import { IntersectionRegularIcon } from "../regular/intersection-regular.icon";
+import { IntersectionThinIcon } from "../thin/intersection-thin.icon";
 
 export const IntersectionIcon = memo(function Intersection(
   props: IconWrapperProps,

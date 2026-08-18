@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandDepositBoldIcon } from "../bold";
-import { HandDepositDuotoneIcon } from "../duotone";
-import { HandDepositFillIcon } from "../fill";
-import { HandDepositLightIcon } from "../light";
-import { HandDepositRegularIcon } from "../regular";
-import { HandDepositThinIcon } from "../thin";
+import { HandDepositBoldIcon } from "../bold/hand-deposit-bold.icon";
+import { HandDepositDuotoneIcon } from "../duotone/hand-deposit-duotone.icon";
+import { HandDepositFillIcon } from "../fill/hand-deposit-fill.icon";
+import { HandDepositLightIcon } from "../light/hand-deposit-light.icon";
+import { HandDepositRegularIcon } from "../regular/hand-deposit-regular.icon";
+import { HandDepositThinIcon } from "../thin/hand-deposit-thin.icon";
 
 export const HandDepositIcon = memo(function HandDeposit(
   props: IconWrapperProps,

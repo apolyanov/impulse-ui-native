@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { View } from "@impulse-ui-native/primitives";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
-import { View } from "@impulse-ui-native/toolkit";
 
 import { ViewDocumentation } from "./view.documentation";
 import { ViewExample, ViewExampleDefinitions } from "./view.examples";

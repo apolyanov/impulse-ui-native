@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MegaphoneSimpleBoldIcon } from "../bold";
-import { MegaphoneSimpleDuotoneIcon } from "../duotone";
-import { MegaphoneSimpleFillIcon } from "../fill";
-import { MegaphoneSimpleLightIcon } from "../light";
-import { MegaphoneSimpleRegularIcon } from "../regular";
-import { MegaphoneSimpleThinIcon } from "../thin";
+import { MegaphoneSimpleBoldIcon } from "../bold/megaphone-simple-bold.icon";
+import { MegaphoneSimpleDuotoneIcon } from "../duotone/megaphone-simple-duotone.icon";
+import { MegaphoneSimpleFillIcon } from "../fill/megaphone-simple-fill.icon";
+import { MegaphoneSimpleLightIcon } from "../light/megaphone-simple-light.icon";
+import { MegaphoneSimpleRegularIcon } from "../regular/megaphone-simple-regular.icon";
+import { MegaphoneSimpleThinIcon } from "../thin/megaphone-simple-thin.icon";
 
 export const MegaphoneSimpleIcon = memo(function MegaphoneSimple(
   props: IconWrapperProps,

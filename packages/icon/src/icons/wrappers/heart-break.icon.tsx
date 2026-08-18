@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HeartBreakBoldIcon } from "../bold";
-import { HeartBreakDuotoneIcon } from "../duotone";
-import { HeartBreakFillIcon } from "../fill";
-import { HeartBreakLightIcon } from "../light";
-import { HeartBreakRegularIcon } from "../regular";
-import { HeartBreakThinIcon } from "../thin";
+import { HeartBreakBoldIcon } from "../bold/heart-break-bold.icon";
+import { HeartBreakDuotoneIcon } from "../duotone/heart-break-duotone.icon";
+import { HeartBreakFillIcon } from "../fill/heart-break-fill.icon";
+import { HeartBreakLightIcon } from "../light/heart-break-light.icon";
+import { HeartBreakRegularIcon } from "../regular/heart-break-regular.icon";
+import { HeartBreakThinIcon } from "../thin/heart-break-thin.icon";
 
 export const HeartBreakIcon = memo(function HeartBreak(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CompassToolBoldIcon } from "../bold";
-import { CompassToolDuotoneIcon } from "../duotone";
-import { CompassToolFillIcon } from "../fill";
-import { CompassToolLightIcon } from "../light";
-import { CompassToolRegularIcon } from "../regular";
-import { CompassToolThinIcon } from "../thin";
+import { CompassToolBoldIcon } from "../bold/compass-tool-bold.icon";
+import { CompassToolDuotoneIcon } from "../duotone/compass-tool-duotone.icon";
+import { CompassToolFillIcon } from "../fill/compass-tool-fill.icon";
+import { CompassToolLightIcon } from "../light/compass-tool-light.icon";
+import { CompassToolRegularIcon } from "../regular/compass-tool-regular.icon";
+import { CompassToolThinIcon } from "../thin/compass-tool-thin.icon";
 
 export const CompassToolIcon = memo(function CompassTool(
   props: IconWrapperProps,

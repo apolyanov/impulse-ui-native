@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MouseLeftClickBoldIcon } from "../bold";
-import { MouseLeftClickDuotoneIcon } from "../duotone";
-import { MouseLeftClickFillIcon } from "../fill";
-import { MouseLeftClickLightIcon } from "../light";
-import { MouseLeftClickRegularIcon } from "../regular";
-import { MouseLeftClickThinIcon } from "../thin";
+import { MouseLeftClickBoldIcon } from "../bold/mouse-left-click-bold.icon";
+import { MouseLeftClickDuotoneIcon } from "../duotone/mouse-left-click-duotone.icon";
+import { MouseLeftClickFillIcon } from "../fill/mouse-left-click-fill.icon";
+import { MouseLeftClickLightIcon } from "../light/mouse-left-click-light.icon";
+import { MouseLeftClickRegularIcon } from "../regular/mouse-left-click-regular.icon";
+import { MouseLeftClickThinIcon } from "../thin/mouse-left-click-thin.icon";
 
 export const MouseLeftClickIcon = memo(function MouseLeftClick(
   props: IconWrapperProps,

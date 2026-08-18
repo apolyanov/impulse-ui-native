@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TerminalWindowBoldIcon } from "../bold";
-import { TerminalWindowDuotoneIcon } from "../duotone";
-import { TerminalWindowFillIcon } from "../fill";
-import { TerminalWindowLightIcon } from "../light";
-import { TerminalWindowRegularIcon } from "../regular";
-import { TerminalWindowThinIcon } from "../thin";
+import { TerminalWindowBoldIcon } from "../bold/terminal-window-bold.icon";
+import { TerminalWindowDuotoneIcon } from "../duotone/terminal-window-duotone.icon";
+import { TerminalWindowFillIcon } from "../fill/terminal-window-fill.icon";
+import { TerminalWindowLightIcon } from "../light/terminal-window-light.icon";
+import { TerminalWindowRegularIcon } from "../regular/terminal-window-regular.icon";
+import { TerminalWindowThinIcon } from "../thin/terminal-window-thin.icon";
 
 export const TerminalWindowIcon = memo(function TerminalWindow(
   props: IconWrapperProps,

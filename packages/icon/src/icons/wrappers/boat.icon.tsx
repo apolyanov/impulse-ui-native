@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BoatBoldIcon } from "../bold";
-import { BoatDuotoneIcon } from "../duotone";
-import { BoatFillIcon } from "../fill";
-import { BoatLightIcon } from "../light";
-import { BoatRegularIcon } from "../regular";
-import { BoatThinIcon } from "../thin";
+import { BoatBoldIcon } from "../bold/boat-bold.icon";
+import { BoatDuotoneIcon } from "../duotone/boat-duotone.icon";
+import { BoatFillIcon } from "../fill/boat-fill.icon";
+import { BoatLightIcon } from "../light/boat-light.icon";
+import { BoatRegularIcon } from "../regular/boat-regular.icon";
+import { BoatThinIcon } from "../thin/boat-thin.icon";
 
 export const BoatIcon = memo(function Boat(props: IconWrapperProps) {
   const Icon = useMemo(() => {

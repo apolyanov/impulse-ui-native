@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NotSubsetOfBoldIcon } from "../bold";
-import { NotSubsetOfDuotoneIcon } from "../duotone";
-import { NotSubsetOfFillIcon } from "../fill";
-import { NotSubsetOfLightIcon } from "../light";
-import { NotSubsetOfRegularIcon } from "../regular";
-import { NotSubsetOfThinIcon } from "../thin";
+import { NotSubsetOfBoldIcon } from "../bold/not-subset-of-bold.icon";
+import { NotSubsetOfDuotoneIcon } from "../duotone/not-subset-of-duotone.icon";
+import { NotSubsetOfFillIcon } from "../fill/not-subset-of-fill.icon";
+import { NotSubsetOfLightIcon } from "../light/not-subset-of-light.icon";
+import { NotSubsetOfRegularIcon } from "../regular/not-subset-of-regular.icon";
+import { NotSubsetOfThinIcon } from "../thin/not-subset-of-thin.icon";
 
 export const NotSubsetOfIcon = memo(function NotSubsetOf(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BombBoldIcon } from "../bold";
-import { BombDuotoneIcon } from "../duotone";
-import { BombFillIcon } from "../fill";
-import { BombLightIcon } from "../light";
-import { BombRegularIcon } from "../regular";
-import { BombThinIcon } from "../thin";
+import { BombBoldIcon } from "../bold/bomb-bold.icon";
+import { BombDuotoneIcon } from "../duotone/bomb-duotone.icon";
+import { BombFillIcon } from "../fill/bomb-fill.icon";
+import { BombLightIcon } from "../light/bomb-light.icon";
+import { BombRegularIcon } from "../regular/bomb-regular.icon";
+import { BombThinIcon } from "../thin/bomb-thin.icon";
 
 export const BombIcon = memo(function Bomb(props: IconWrapperProps) {
   const Icon = useMemo(() => {

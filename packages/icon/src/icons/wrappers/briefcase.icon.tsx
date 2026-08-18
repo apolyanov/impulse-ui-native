@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BriefcaseBoldIcon } from "../bold";
-import { BriefcaseDuotoneIcon } from "../duotone";
-import { BriefcaseFillIcon } from "../fill";
-import { BriefcaseLightIcon } from "../light";
-import { BriefcaseRegularIcon } from "../regular";
-import { BriefcaseThinIcon } from "../thin";
+import { BriefcaseBoldIcon } from "../bold/briefcase-bold.icon";
+import { BriefcaseDuotoneIcon } from "../duotone/briefcase-duotone.icon";
+import { BriefcaseFillIcon } from "../fill/briefcase-fill.icon";
+import { BriefcaseLightIcon } from "../light/briefcase-light.icon";
+import { BriefcaseRegularIcon } from "../regular/briefcase-regular.icon";
+import { BriefcaseThinIcon } from "../thin/briefcase-thin.icon";
 
 export const BriefcaseIcon = memo(function Briefcase(props: IconWrapperProps) {
   const Icon = useMemo(() => {

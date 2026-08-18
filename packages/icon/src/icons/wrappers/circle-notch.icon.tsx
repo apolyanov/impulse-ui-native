@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CircleNotchBoldIcon } from "../bold";
-import { CircleNotchDuotoneIcon } from "../duotone";
-import { CircleNotchFillIcon } from "../fill";
-import { CircleNotchLightIcon } from "../light";
-import { CircleNotchRegularIcon } from "../regular";
-import { CircleNotchThinIcon } from "../thin";
+import { CircleNotchBoldIcon } from "../bold/circle-notch-bold.icon";
+import { CircleNotchDuotoneIcon } from "../duotone/circle-notch-duotone.icon";
+import { CircleNotchFillIcon } from "../fill/circle-notch-fill.icon";
+import { CircleNotchLightIcon } from "../light/circle-notch-light.icon";
+import { CircleNotchRegularIcon } from "../regular/circle-notch-regular.icon";
+import { CircleNotchThinIcon } from "../thin/circle-notch-thin.icon";
 
 export const CircleNotchIcon = memo(function CircleNotch(
   props: IconWrapperProps,

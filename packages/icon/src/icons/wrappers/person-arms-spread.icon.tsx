@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PersonArmsSpreadBoldIcon } from "../bold";
-import { PersonArmsSpreadDuotoneIcon } from "../duotone";
-import { PersonArmsSpreadFillIcon } from "../fill";
-import { PersonArmsSpreadLightIcon } from "../light";
-import { PersonArmsSpreadRegularIcon } from "../regular";
-import { PersonArmsSpreadThinIcon } from "../thin";
+import { PersonArmsSpreadBoldIcon } from "../bold/person-arms-spread-bold.icon";
+import { PersonArmsSpreadDuotoneIcon } from "../duotone/person-arms-spread-duotone.icon";
+import { PersonArmsSpreadFillIcon } from "../fill/person-arms-spread-fill.icon";
+import { PersonArmsSpreadLightIcon } from "../light/person-arms-spread-light.icon";
+import { PersonArmsSpreadRegularIcon } from "../regular/person-arms-spread-regular.icon";
+import { PersonArmsSpreadThinIcon } from "../thin/person-arms-spread-thin.icon";
 
 export const PersonArmsSpreadIcon = memo(function PersonArmsSpread(
   props: IconWrapperProps,

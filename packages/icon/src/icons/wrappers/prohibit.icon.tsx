@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ProhibitBoldIcon } from "../bold";
-import { ProhibitDuotoneIcon } from "../duotone";
-import { ProhibitFillIcon } from "../fill";
-import { ProhibitLightIcon } from "../light";
-import { ProhibitRegularIcon } from "../regular";
-import { ProhibitThinIcon } from "../thin";
+import { ProhibitBoldIcon } from "../bold/prohibit-bold.icon";
+import { ProhibitDuotoneIcon } from "../duotone/prohibit-duotone.icon";
+import { ProhibitFillIcon } from "../fill/prohibit-fill.icon";
+import { ProhibitLightIcon } from "../light/prohibit-light.icon";
+import { ProhibitRegularIcon } from "../regular/prohibit-regular.icon";
+import { ProhibitThinIcon } from "../thin/prohibit-thin.icon";
 
 export const ProhibitIcon = memo(function Prohibit(props: IconWrapperProps) {
   const Icon = useMemo(() => {

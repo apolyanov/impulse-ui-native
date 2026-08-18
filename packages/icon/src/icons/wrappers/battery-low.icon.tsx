@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BatteryLowBoldIcon } from "../bold";
-import { BatteryLowDuotoneIcon } from "../duotone";
-import { BatteryLowFillIcon } from "../fill";
-import { BatteryLowLightIcon } from "../light";
-import { BatteryLowRegularIcon } from "../regular";
-import { BatteryLowThinIcon } from "../thin";
+import { BatteryLowBoldIcon } from "../bold/battery-low-bold.icon";
+import { BatteryLowDuotoneIcon } from "../duotone/battery-low-duotone.icon";
+import { BatteryLowFillIcon } from "../fill/battery-low-fill.icon";
+import { BatteryLowLightIcon } from "../light/battery-low-light.icon";
+import { BatteryLowRegularIcon } from "../regular/battery-low-regular.icon";
+import { BatteryLowThinIcon } from "../thin/battery-low-thin.icon";
 
 export const BatteryLowIcon = memo(function BatteryLow(
   props: IconWrapperProps,

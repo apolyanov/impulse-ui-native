@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { AlignLeftSimpleBoldIcon } from "../bold";
-import { AlignLeftSimpleDuotoneIcon } from "../duotone";
-import { AlignLeftSimpleFillIcon } from "../fill";
-import { AlignLeftSimpleLightIcon } from "../light";
-import { AlignLeftSimpleRegularIcon } from "../regular";
-import { AlignLeftSimpleThinIcon } from "../thin";
+import { AlignLeftSimpleBoldIcon } from "../bold/align-left-simple-bold.icon";
+import { AlignLeftSimpleDuotoneIcon } from "../duotone/align-left-simple-duotone.icon";
+import { AlignLeftSimpleFillIcon } from "../fill/align-left-simple-fill.icon";
+import { AlignLeftSimpleLightIcon } from "../light/align-left-simple-light.icon";
+import { AlignLeftSimpleRegularIcon } from "../regular/align-left-simple-regular.icon";
+import { AlignLeftSimpleThinIcon } from "../thin/align-left-simple-thin.icon";
 
 export const AlignLeftSimpleIcon = memo(function AlignLeftSimple(
   props: IconWrapperProps,

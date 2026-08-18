@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EscalatorDownBoldIcon } from "../bold";
-import { EscalatorDownDuotoneIcon } from "../duotone";
-import { EscalatorDownFillIcon } from "../fill";
-import { EscalatorDownLightIcon } from "../light";
-import { EscalatorDownRegularIcon } from "../regular";
-import { EscalatorDownThinIcon } from "../thin";
+import { EscalatorDownBoldIcon } from "../bold/escalator-down-bold.icon";
+import { EscalatorDownDuotoneIcon } from "../duotone/escalator-down-duotone.icon";
+import { EscalatorDownFillIcon } from "../fill/escalator-down-fill.icon";
+import { EscalatorDownLightIcon } from "../light/escalator-down-light.icon";
+import { EscalatorDownRegularIcon } from "../regular/escalator-down-regular.icon";
+import { EscalatorDownThinIcon } from "../thin/escalator-down-thin.icon";
 
 export const EscalatorDownIcon = memo(function EscalatorDown(
   props: IconWrapperProps,

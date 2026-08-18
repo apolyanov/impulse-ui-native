@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { StopBoldIcon } from "../bold";
-import { StopDuotoneIcon } from "../duotone";
-import { StopFillIcon } from "../fill";
-import { StopLightIcon } from "../light";
-import { StopRegularIcon } from "../regular";
-import { StopThinIcon } from "../thin";
+import { StopBoldIcon } from "../bold/stop-bold.icon";
+import { StopDuotoneIcon } from "../duotone/stop-duotone.icon";
+import { StopFillIcon } from "../fill/stop-fill.icon";
+import { StopLightIcon } from "../light/stop-light.icon";
+import { StopRegularIcon } from "../regular/stop-regular.icon";
+import { StopThinIcon } from "../thin/stop-thin.icon";
 
 export const StopIcon = memo(function Stop(props: IconWrapperProps) {
   const Icon = useMemo(() => {

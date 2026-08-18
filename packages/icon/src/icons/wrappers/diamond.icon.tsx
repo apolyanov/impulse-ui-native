@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DiamondBoldIcon } from "../bold";
-import { DiamondDuotoneIcon } from "../duotone";
-import { DiamondFillIcon } from "../fill";
-import { DiamondLightIcon } from "../light";
-import { DiamondRegularIcon } from "../regular";
-import { DiamondThinIcon } from "../thin";
+import { DiamondBoldIcon } from "../bold/diamond-bold.icon";
+import { DiamondDuotoneIcon } from "../duotone/diamond-duotone.icon";
+import { DiamondFillIcon } from "../fill/diamond-fill.icon";
+import { DiamondLightIcon } from "../light/diamond-light.icon";
+import { DiamondRegularIcon } from "../regular/diamond-regular.icon";
+import { DiamondThinIcon } from "../thin/diamond-thin.icon";
 
 export const DiamondIcon = memo(function Diamond(props: IconWrapperProps) {
   const Icon = useMemo(() => {

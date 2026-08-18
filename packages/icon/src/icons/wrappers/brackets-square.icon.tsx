@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BracketsSquareBoldIcon } from "../bold";
-import { BracketsSquareDuotoneIcon } from "../duotone";
-import { BracketsSquareFillIcon } from "../fill";
-import { BracketsSquareLightIcon } from "../light";
-import { BracketsSquareRegularIcon } from "../regular";
-import { BracketsSquareThinIcon } from "../thin";
+import { BracketsSquareBoldIcon } from "../bold/brackets-square-bold.icon";
+import { BracketsSquareDuotoneIcon } from "../duotone/brackets-square-duotone.icon";
+import { BracketsSquareFillIcon } from "../fill/brackets-square-fill.icon";
+import { BracketsSquareLightIcon } from "../light/brackets-square-light.icon";
+import { BracketsSquareRegularIcon } from "../regular/brackets-square-regular.icon";
+import { BracketsSquareThinIcon } from "../thin/brackets-square-thin.icon";
 
 export const BracketsSquareIcon = memo(function BracketsSquare(
   props: IconWrapperProps,

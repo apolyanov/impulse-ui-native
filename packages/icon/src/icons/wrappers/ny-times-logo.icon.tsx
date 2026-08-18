@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NyTimesLogoBoldIcon } from "../bold";
-import { NyTimesLogoDuotoneIcon } from "../duotone";
-import { NyTimesLogoFillIcon } from "../fill";
-import { NyTimesLogoLightIcon } from "../light";
-import { NyTimesLogoRegularIcon } from "../regular";
-import { NyTimesLogoThinIcon } from "../thin";
+import { NyTimesLogoBoldIcon } from "../bold/ny-times-logo-bold.icon";
+import { NyTimesLogoDuotoneIcon } from "../duotone/ny-times-logo-duotone.icon";
+import { NyTimesLogoFillIcon } from "../fill/ny-times-logo-fill.icon";
+import { NyTimesLogoLightIcon } from "../light/ny-times-logo-light.icon";
+import { NyTimesLogoRegularIcon } from "../regular/ny-times-logo-regular.icon";
+import { NyTimesLogoThinIcon } from "../thin/ny-times-logo-thin.icon";
 
 export const NyTimesLogoIcon = memo(function NyTimesLogo(
   props: IconWrapperProps,

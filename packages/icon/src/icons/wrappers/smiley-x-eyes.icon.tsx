@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SmileyXEyesBoldIcon } from "../bold";
-import { SmileyXEyesDuotoneIcon } from "../duotone";
-import { SmileyXEyesFillIcon } from "../fill";
-import { SmileyXEyesLightIcon } from "../light";
-import { SmileyXEyesRegularIcon } from "../regular";
-import { SmileyXEyesThinIcon } from "../thin";
+import { SmileyXEyesBoldIcon } from "../bold/smiley-x-eyes-bold.icon";
+import { SmileyXEyesDuotoneIcon } from "../duotone/smiley-x-eyes-duotone.icon";
+import { SmileyXEyesFillIcon } from "../fill/smiley-x-eyes-fill.icon";
+import { SmileyXEyesLightIcon } from "../light/smiley-x-eyes-light.icon";
+import { SmileyXEyesRegularIcon } from "../regular/smiley-x-eyes-regular.icon";
+import { SmileyXEyesThinIcon } from "../thin/smiley-x-eyes-thin.icon";
 
 export const SmileyXEyesIcon = memo(function SmileyXEyes(
   props: IconWrapperProps,

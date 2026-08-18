@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PolygonBoldIcon } from "../bold";
-import { PolygonDuotoneIcon } from "../duotone";
-import { PolygonFillIcon } from "../fill";
-import { PolygonLightIcon } from "../light";
-import { PolygonRegularIcon } from "../regular";
-import { PolygonThinIcon } from "../thin";
+import { PolygonBoldIcon } from "../bold/polygon-bold.icon";
+import { PolygonDuotoneIcon } from "../duotone/polygon-duotone.icon";
+import { PolygonFillIcon } from "../fill/polygon-fill.icon";
+import { PolygonLightIcon } from "../light/polygon-light.icon";
+import { PolygonRegularIcon } from "../regular/polygon-regular.icon";
+import { PolygonThinIcon } from "../thin/polygon-thin.icon";
 
 export const PolygonIcon = memo(function Polygon(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CrownBoldIcon } from "../bold";
-import { CrownDuotoneIcon } from "../duotone";
-import { CrownFillIcon } from "../fill";
-import { CrownLightIcon } from "../light";
-import { CrownRegularIcon } from "../regular";
-import { CrownThinIcon } from "../thin";
+import { CrownBoldIcon } from "../bold/crown-bold.icon";
+import { CrownDuotoneIcon } from "../duotone/crown-duotone.icon";
+import { CrownFillIcon } from "../fill/crown-fill.icon";
+import { CrownLightIcon } from "../light/crown-light.icon";
+import { CrownRegularIcon } from "../regular/crown-regular.icon";
+import { CrownThinIcon } from "../thin/crown-thin.icon";
 
 export const CrownIcon = memo(function Crown(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PowerBoldIcon } from "../bold";
-import { PowerDuotoneIcon } from "../duotone";
-import { PowerFillIcon } from "../fill";
-import { PowerLightIcon } from "../light";
-import { PowerRegularIcon } from "../regular";
-import { PowerThinIcon } from "../thin";
+import { PowerBoldIcon } from "../bold/power-bold.icon";
+import { PowerDuotoneIcon } from "../duotone/power-duotone.icon";
+import { PowerFillIcon } from "../fill/power-fill.icon";
+import { PowerLightIcon } from "../light/power-light.icon";
+import { PowerRegularIcon } from "../regular/power-regular.icon";
+import { PowerThinIcon } from "../thin/power-thin.icon";
 
 export const PowerIcon = memo(function Power(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { PiBoldIcon } from "../bold";
-import { PiDuotoneIcon } from "../duotone";
-import { PiFillIcon } from "../fill";
-import { PiLightIcon } from "../light";
-import { PiRegularIcon } from "../regular";
-import { PiThinIcon } from "../thin";
+import { PiBoldIcon } from "../bold/pi-bold.icon";
+import { PiDuotoneIcon } from "../duotone/pi-duotone.icon";
+import { PiFillIcon } from "../fill/pi-fill.icon";
+import { PiLightIcon } from "../light/pi-light.icon";
+import { PiRegularIcon } from "../regular/pi-regular.icon";
+import { PiThinIcon } from "../thin/pi-thin.icon";
 
 export const PiIcon = memo(function Pi(props: IconWrapperProps) {
   const Icon = useMemo(() => {

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowsCounterClockwiseBoldIcon } from "../bold";
-import { ArrowsCounterClockwiseDuotoneIcon } from "../duotone";
-import { ArrowsCounterClockwiseFillIcon } from "../fill";
-import { ArrowsCounterClockwiseLightIcon } from "../light";
-import { ArrowsCounterClockwiseRegularIcon } from "../regular";
-import { ArrowsCounterClockwiseThinIcon } from "../thin";
+import { ArrowsCounterClockwiseBoldIcon } from "../bold/arrows-counter-clockwise-bold.icon";
+import { ArrowsCounterClockwiseDuotoneIcon } from "../duotone/arrows-counter-clockwise-duotone.icon";
+import { ArrowsCounterClockwiseFillIcon } from "../fill/arrows-counter-clockwise-fill.icon";
+import { ArrowsCounterClockwiseLightIcon } from "../light/arrows-counter-clockwise-light.icon";
+import { ArrowsCounterClockwiseRegularIcon } from "../regular/arrows-counter-clockwise-regular.icon";
+import { ArrowsCounterClockwiseThinIcon } from "../thin/arrows-counter-clockwise-thin.icon";
 
 export const ArrowsCounterClockwiseIcon = memo(function ArrowsCounterClockwise(
   props: IconWrapperProps,

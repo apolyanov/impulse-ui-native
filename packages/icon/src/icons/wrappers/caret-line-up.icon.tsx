@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CaretLineUpBoldIcon } from "../bold";
-import { CaretLineUpDuotoneIcon } from "../duotone";
-import { CaretLineUpFillIcon } from "../fill";
-import { CaretLineUpLightIcon } from "../light";
-import { CaretLineUpRegularIcon } from "../regular";
-import { CaretLineUpThinIcon } from "../thin";
+import { CaretLineUpBoldIcon } from "../bold/caret-line-up-bold.icon";
+import { CaretLineUpDuotoneIcon } from "../duotone/caret-line-up-duotone.icon";
+import { CaretLineUpFillIcon } from "../fill/caret-line-up-fill.icon";
+import { CaretLineUpLightIcon } from "../light/caret-line-up-light.icon";
+import { CaretLineUpRegularIcon } from "../regular/caret-line-up-regular.icon";
+import { CaretLineUpThinIcon } from "../thin/caret-line-up-thin.icon";
 
 export const CaretLineUpIcon = memo(function CaretLineUp(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CameraBoldIcon } from "../bold";
-import { CameraDuotoneIcon } from "../duotone";
-import { CameraFillIcon } from "../fill";
-import { CameraLightIcon } from "../light";
-import { CameraRegularIcon } from "../regular";
-import { CameraThinIcon } from "../thin";
+import { CameraBoldIcon } from "../bold/camera-bold.icon";
+import { CameraDuotoneIcon } from "../duotone/camera-duotone.icon";
+import { CameraFillIcon } from "../fill/camera-fill.icon";
+import { CameraLightIcon } from "../light/camera-light.icon";
+import { CameraRegularIcon } from "../regular/camera-regular.icon";
+import { CameraThinIcon } from "../thin/camera-thin.icon";
 
 export const CameraIcon = memo(function Camera(props: IconWrapperProps) {
   const Icon = useMemo(() => {

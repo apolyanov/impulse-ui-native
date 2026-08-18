@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { OrangeBoldIcon } from "../bold";
-import { OrangeDuotoneIcon } from "../duotone";
-import { OrangeFillIcon } from "../fill";
-import { OrangeLightIcon } from "../light";
-import { OrangeRegularIcon } from "../regular";
-import { OrangeThinIcon } from "../thin";
+import { OrangeBoldIcon } from "../bold/orange-bold.icon";
+import { OrangeDuotoneIcon } from "../duotone/orange-duotone.icon";
+import { OrangeFillIcon } from "../fill/orange-fill.icon";
+import { OrangeLightIcon } from "../light/orange-light.icon";
+import { OrangeRegularIcon } from "../regular/orange-regular.icon";
+import { OrangeThinIcon } from "../thin/orange-thin.icon";
 
 export const OrangeIcon = memo(function Orange(props: IconWrapperProps) {
   const Icon = useMemo(() => {

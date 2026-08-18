@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BrandyBoldIcon } from "../bold";
-import { BrandyDuotoneIcon } from "../duotone";
-import { BrandyFillIcon } from "../fill";
-import { BrandyLightIcon } from "../light";
-import { BrandyRegularIcon } from "../regular";
-import { BrandyThinIcon } from "../thin";
+import { BrandyBoldIcon } from "../bold/brandy-bold.icon";
+import { BrandyDuotoneIcon } from "../duotone/brandy-duotone.icon";
+import { BrandyFillIcon } from "../fill/brandy-fill.icon";
+import { BrandyLightIcon } from "../light/brandy-light.icon";
+import { BrandyRegularIcon } from "../regular/brandy-regular.icon";
+import { BrandyThinIcon } from "../thin/brandy-thin.icon";
 
 export const BrandyIcon = memo(function Brandy(props: IconWrapperProps) {
   const Icon = useMemo(() => {

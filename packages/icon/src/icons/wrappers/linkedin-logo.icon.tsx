@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LinkedinLogoBoldIcon } from "../bold";
-import { LinkedinLogoDuotoneIcon } from "../duotone";
-import { LinkedinLogoFillIcon } from "../fill";
-import { LinkedinLogoLightIcon } from "../light";
-import { LinkedinLogoRegularIcon } from "../regular";
-import { LinkedinLogoThinIcon } from "../thin";
+import { LinkedinLogoBoldIcon } from "../bold/linkedin-logo-bold.icon";
+import { LinkedinLogoDuotoneIcon } from "../duotone/linkedin-logo-duotone.icon";
+import { LinkedinLogoFillIcon } from "../fill/linkedin-logo-fill.icon";
+import { LinkedinLogoLightIcon } from "../light/linkedin-logo-light.icon";
+import { LinkedinLogoRegularIcon } from "../regular/linkedin-logo-regular.icon";
+import { LinkedinLogoThinIcon } from "../thin/linkedin-logo-thin.icon";
 
 export const LinkedinLogoIcon = memo(function LinkedinLogo(
   props: IconWrapperProps,

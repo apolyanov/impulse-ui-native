@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { EggBoldIcon } from "../bold";
-import { EggDuotoneIcon } from "../duotone";
-import { EggFillIcon } from "../fill";
-import { EggLightIcon } from "../light";
-import { EggRegularIcon } from "../regular";
-import { EggThinIcon } from "../thin";
+import { EggBoldIcon } from "../bold/egg-bold.icon";
+import { EggDuotoneIcon } from "../duotone/egg-duotone.icon";
+import { EggFillIcon } from "../fill/egg-fill.icon";
+import { EggLightIcon } from "../light/egg-light.icon";
+import { EggRegularIcon } from "../regular/egg-regular.icon";
+import { EggThinIcon } from "../thin/egg-thin.icon";
 
 export const EggIcon = memo(function Egg(props: IconWrapperProps) {
   const Icon = useMemo(() => {

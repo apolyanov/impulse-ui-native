@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ArrowLineLeftBoldIcon } from "../bold";
-import { ArrowLineLeftDuotoneIcon } from "../duotone";
-import { ArrowLineLeftFillIcon } from "../fill";
-import { ArrowLineLeftLightIcon } from "../light";
-import { ArrowLineLeftRegularIcon } from "../regular";
-import { ArrowLineLeftThinIcon } from "../thin";
+import { ArrowLineLeftBoldIcon } from "../bold/arrow-line-left-bold.icon";
+import { ArrowLineLeftDuotoneIcon } from "../duotone/arrow-line-left-duotone.icon";
+import { ArrowLineLeftFillIcon } from "../fill/arrow-line-left-fill.icon";
+import { ArrowLineLeftLightIcon } from "../light/arrow-line-left-light.icon";
+import { ArrowLineLeftRegularIcon } from "../regular/arrow-line-left-regular.icon";
+import { ArrowLineLeftThinIcon } from "../thin/arrow-line-left-thin.icon";
 
 export const ArrowLineLeftIcon = memo(function ArrowLineLeft(
   props: IconWrapperProps,

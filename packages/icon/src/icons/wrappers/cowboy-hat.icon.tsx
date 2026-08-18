@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CowboyHatBoldIcon } from "../bold";
-import { CowboyHatDuotoneIcon } from "../duotone";
-import { CowboyHatFillIcon } from "../fill";
-import { CowboyHatLightIcon } from "../light";
-import { CowboyHatRegularIcon } from "../regular";
-import { CowboyHatThinIcon } from "../thin";
+import { CowboyHatBoldIcon } from "../bold/cowboy-hat-bold.icon";
+import { CowboyHatDuotoneIcon } from "../duotone/cowboy-hat-duotone.icon";
+import { CowboyHatFillIcon } from "../fill/cowboy-hat-fill.icon";
+import { CowboyHatLightIcon } from "../light/cowboy-hat-light.icon";
+import { CowboyHatRegularIcon } from "../regular/cowboy-hat-regular.icon";
+import { CowboyHatThinIcon } from "../thin/cowboy-hat-thin.icon";
 
 export const CowboyHatIcon = memo(function CowboyHat(props: IconWrapperProps) {
   const Icon = useMemo(() => {

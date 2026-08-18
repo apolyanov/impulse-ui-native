@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DiscBoldIcon } from "../bold";
-import { DiscDuotoneIcon } from "../duotone";
-import { DiscFillIcon } from "../fill";
-import { DiscLightIcon } from "../light";
-import { DiscRegularIcon } from "../regular";
-import { DiscThinIcon } from "../thin";
+import { DiscBoldIcon } from "../bold/disc-bold.icon";
+import { DiscDuotoneIcon } from "../duotone/disc-duotone.icon";
+import { DiscFillIcon } from "../fill/disc-fill.icon";
+import { DiscLightIcon } from "../light/disc-light.icon";
+import { DiscRegularIcon } from "../regular/disc-regular.icon";
+import { DiscThinIcon } from "../thin/disc-thin.icon";
 
 export const DiscIcon = memo(function Disc(props: IconWrapperProps) {
   const Icon = useMemo(() => {

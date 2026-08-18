@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SealPercentBoldIcon } from "../bold";
-import { SealPercentDuotoneIcon } from "../duotone";
-import { SealPercentFillIcon } from "../fill";
-import { SealPercentLightIcon } from "../light";
-import { SealPercentRegularIcon } from "../regular";
-import { SealPercentThinIcon } from "../thin";
+import { SealPercentBoldIcon } from "../bold/seal-percent-bold.icon";
+import { SealPercentDuotoneIcon } from "../duotone/seal-percent-duotone.icon";
+import { SealPercentFillIcon } from "../fill/seal-percent-fill.icon";
+import { SealPercentLightIcon } from "../light/seal-percent-light.icon";
+import { SealPercentRegularIcon } from "../regular/seal-percent-regular.icon";
+import { SealPercentThinIcon } from "../thin/seal-percent-thin.icon";
 
 export const SealPercentIcon = memo(function SealPercent(
   props: IconWrapperProps,

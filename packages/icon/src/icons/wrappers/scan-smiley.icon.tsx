@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ScanSmileyBoldIcon } from "../bold";
-import { ScanSmileyDuotoneIcon } from "../duotone";
-import { ScanSmileyFillIcon } from "../fill";
-import { ScanSmileyLightIcon } from "../light";
-import { ScanSmileyRegularIcon } from "../regular";
-import { ScanSmileyThinIcon } from "../thin";
+import { ScanSmileyBoldIcon } from "../bold/scan-smiley-bold.icon";
+import { ScanSmileyDuotoneIcon } from "../duotone/scan-smiley-duotone.icon";
+import { ScanSmileyFillIcon } from "../fill/scan-smiley-fill.icon";
+import { ScanSmileyLightIcon } from "../light/scan-smiley-light.icon";
+import { ScanSmileyRegularIcon } from "../regular/scan-smiley-regular.icon";
+import { ScanSmileyThinIcon } from "../thin/scan-smiley-thin.icon";
 
 export const ScanSmileyIcon = memo(function ScanSmiley(
   props: IconWrapperProps,

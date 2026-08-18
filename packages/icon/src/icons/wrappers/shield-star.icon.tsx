@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ShieldStarBoldIcon } from "../bold";
-import { ShieldStarDuotoneIcon } from "../duotone";
-import { ShieldStarFillIcon } from "../fill";
-import { ShieldStarLightIcon } from "../light";
-import { ShieldStarRegularIcon } from "../regular";
-import { ShieldStarThinIcon } from "../thin";
+import { ShieldStarBoldIcon } from "../bold/shield-star-bold.icon";
+import { ShieldStarDuotoneIcon } from "../duotone/shield-star-duotone.icon";
+import { ShieldStarFillIcon } from "../fill/shield-star-fill.icon";
+import { ShieldStarLightIcon } from "../light/shield-star-light.icon";
+import { ShieldStarRegularIcon } from "../regular/shield-star-regular.icon";
+import { ShieldStarThinIcon } from "../thin/shield-star-thin.icon";
 
 export const ShieldStarIcon = memo(function ShieldStar(
   props: IconWrapperProps,

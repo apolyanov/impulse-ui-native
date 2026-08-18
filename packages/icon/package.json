@@ -1,15 +1,21 @@
 {
   "name": "@impulse-ui-native/icon",
   "version": "2.0.1",
-  "source": "src/index.ts",
-  "module": "dist/index.js",
-  "types": "dist/index.d.mts",
-  "react-native": "dist/index.js",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "react-native": "./dist/index.js",
-      "import": "./dist/index.js"
+    "./components/icon": {
+      "types": "./dist/components/icon.d.mts",
+      "react-native": "./dist/components/icon.js",
+      "import": "./dist/components/icon.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/wrappers/*.icon.d.mts",
+      "react-native": "./dist/icons/wrappers/*.icon.js",
+      "import": "./dist/icons/wrappers/*.icon.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.mts",
+      "react-native": "./dist/types/index.js",
+      "import": "./dist/types/index.js"
     }
   },
   "files": [
@@ -17,6 +23,7 @@
     "README.md",
     "LICENSE"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -30,6 +37,7 @@
     "@impulse-ui-native/eslint-config": "workspace:*",
     "@impulse-ui-native/prettier-config": "workspace:*",
     "@impulse-ui-native/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
     "@types/react": "catalog:react19",
     "eslint": "catalog:",
     "prettier": "catalog:",

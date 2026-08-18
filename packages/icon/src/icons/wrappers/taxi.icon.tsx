@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TaxiBoldIcon } from "../bold";
-import { TaxiDuotoneIcon } from "../duotone";
-import { TaxiFillIcon } from "../fill";
-import { TaxiLightIcon } from "../light";
-import { TaxiRegularIcon } from "../regular";
-import { TaxiThinIcon } from "../thin";
+import { TaxiBoldIcon } from "../bold/taxi-bold.icon";
+import { TaxiDuotoneIcon } from "../duotone/taxi-duotone.icon";
+import { TaxiFillIcon } from "../fill/taxi-fill.icon";
+import { TaxiLightIcon } from "../light/taxi-light.icon";
+import { TaxiRegularIcon } from "../regular/taxi-regular.icon";
+import { TaxiThinIcon } from "../thin/taxi-thin.icon";
 
 export const TaxiIcon = memo(function Taxi(props: IconWrapperProps) {
   const Icon = useMemo(() => {

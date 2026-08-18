@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { DoorBoldIcon } from "../bold";
-import { DoorDuotoneIcon } from "../duotone";
-import { DoorFillIcon } from "../fill";
-import { DoorLightIcon } from "../light";
-import { DoorRegularIcon } from "../regular";
-import { DoorThinIcon } from "../thin";
+import { DoorBoldIcon } from "../bold/door-bold.icon";
+import { DoorDuotoneIcon } from "../duotone/door-duotone.icon";
+import { DoorFillIcon } from "../fill/door-fill.icon";
+import { DoorLightIcon } from "../light/door-light.icon";
+import { DoorRegularIcon } from "../regular/door-regular.icon";
+import { DoorThinIcon } from "../thin/door-thin.icon";
 
 export const DoorIcon = memo(function Door(props: IconWrapperProps) {
   const Icon = useMemo(() => {

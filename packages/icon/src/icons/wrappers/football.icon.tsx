@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { FootballBoldIcon } from "../bold";
-import { FootballDuotoneIcon } from "../duotone";
-import { FootballFillIcon } from "../fill";
-import { FootballLightIcon } from "../light";
-import { FootballRegularIcon } from "../regular";
-import { FootballThinIcon } from "../thin";
+import { FootballBoldIcon } from "../bold/football-bold.icon";
+import { FootballDuotoneIcon } from "../duotone/football-duotone.icon";
+import { FootballFillIcon } from "../fill/football-fill.icon";
+import { FootballLightIcon } from "../light/football-light.icon";
+import { FootballRegularIcon } from "../regular/football-regular.icon";
+import { FootballThinIcon } from "../thin/football-thin.icon";
 
 export const FootballIcon = memo(function Football(props: IconWrapperProps) {
   const Icon = useMemo(() => {

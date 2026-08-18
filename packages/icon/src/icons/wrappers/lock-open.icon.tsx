@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LockOpenBoldIcon } from "../bold";
-import { LockOpenDuotoneIcon } from "../duotone";
-import { LockOpenFillIcon } from "../fill";
-import { LockOpenLightIcon } from "../light";
-import { LockOpenRegularIcon } from "../regular";
-import { LockOpenThinIcon } from "../thin";
+import { LockOpenBoldIcon } from "../bold/lock-open-bold.icon";
+import { LockOpenDuotoneIcon } from "../duotone/lock-open-duotone.icon";
+import { LockOpenFillIcon } from "../fill/lock-open-fill.icon";
+import { LockOpenLightIcon } from "../light/lock-open-light.icon";
+import { LockOpenRegularIcon } from "../regular/lock-open-regular.icon";
+import { LockOpenThinIcon } from "../thin/lock-open-thin.icon";
 
 export const LockOpenIcon = memo(function LockOpen(props: IconWrapperProps) {
   const Icon = useMemo(() => {

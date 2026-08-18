@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TextColumnsBoldIcon } from "../bold";
-import { TextColumnsDuotoneIcon } from "../duotone";
-import { TextColumnsFillIcon } from "../fill";
-import { TextColumnsLightIcon } from "../light";
-import { TextColumnsRegularIcon } from "../regular";
-import { TextColumnsThinIcon } from "../thin";
+import { TextColumnsBoldIcon } from "../bold/text-columns-bold.icon";
+import { TextColumnsDuotoneIcon } from "../duotone/text-columns-duotone.icon";
+import { TextColumnsFillIcon } from "../fill/text-columns-fill.icon";
+import { TextColumnsLightIcon } from "../light/text-columns-light.icon";
+import { TextColumnsRegularIcon } from "../regular/text-columns-regular.icon";
+import { TextColumnsThinIcon } from "../thin/text-columns-thin.icon";
 
 export const TextColumnsIcon = memo(function TextColumns(
   props: IconWrapperProps,

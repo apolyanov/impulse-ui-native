@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { LockLaminatedBoldIcon } from "../bold";
-import { LockLaminatedDuotoneIcon } from "../duotone";
-import { LockLaminatedFillIcon } from "../fill";
-import { LockLaminatedLightIcon } from "../light";
-import { LockLaminatedRegularIcon } from "../regular";
-import { LockLaminatedThinIcon } from "../thin";
+import { LockLaminatedBoldIcon } from "../bold/lock-laminated-bold.icon";
+import { LockLaminatedDuotoneIcon } from "../duotone/lock-laminated-duotone.icon";
+import { LockLaminatedFillIcon } from "../fill/lock-laminated-fill.icon";
+import { LockLaminatedLightIcon } from "../light/lock-laminated-light.icon";
+import { LockLaminatedRegularIcon } from "../regular/lock-laminated-regular.icon";
+import { LockLaminatedThinIcon } from "../thin/lock-laminated-thin.icon";
 
 export const LockLaminatedIcon = memo(function LockLaminated(
   props: IconWrapperProps,

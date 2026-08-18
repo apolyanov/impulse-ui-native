@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { CloudRainBoldIcon } from "../bold";
-import { CloudRainDuotoneIcon } from "../duotone";
-import { CloudRainFillIcon } from "../fill";
-import { CloudRainLightIcon } from "../light";
-import { CloudRainRegularIcon } from "../regular";
-import { CloudRainThinIcon } from "../thin";
+import { CloudRainBoldIcon } from "../bold/cloud-rain-bold.icon";
+import { CloudRainDuotoneIcon } from "../duotone/cloud-rain-duotone.icon";
+import { CloudRainFillIcon } from "../fill/cloud-rain-fill.icon";
+import { CloudRainLightIcon } from "../light/cloud-rain-light.icon";
+import { CloudRainRegularIcon } from "../regular/cloud-rain-regular.icon";
+import { CloudRainThinIcon } from "../thin/cloud-rain-thin.icon";
 
 export const CloudRainIcon = memo(function CloudRain(props: IconWrapperProps) {
   const Icon = useMemo(() => {

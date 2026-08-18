@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TowelBoldIcon } from "../bold";
-import { TowelDuotoneIcon } from "../duotone";
-import { TowelFillIcon } from "../fill";
-import { TowelLightIcon } from "../light";
-import { TowelRegularIcon } from "../regular";
-import { TowelThinIcon } from "../thin";
+import { TowelBoldIcon } from "../bold/towel-bold.icon";
+import { TowelDuotoneIcon } from "../duotone/towel-duotone.icon";
+import { TowelFillIcon } from "../fill/towel-fill.icon";
+import { TowelLightIcon } from "../light/towel-light.icon";
+import { TowelRegularIcon } from "../regular/towel-regular.icon";
+import { TowelThinIcon } from "../thin/towel-thin.icon";
 
 export const TowelIcon = memo(function Towel(props: IconWrapperProps) {
   const Icon = useMemo(() => {

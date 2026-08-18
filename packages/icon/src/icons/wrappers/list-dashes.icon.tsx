@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ListDashesBoldIcon } from "../bold";
-import { ListDashesDuotoneIcon } from "../duotone";
-import { ListDashesFillIcon } from "../fill";
-import { ListDashesLightIcon } from "../light";
-import { ListDashesRegularIcon } from "../regular";
-import { ListDashesThinIcon } from "../thin";
+import { ListDashesBoldIcon } from "../bold/list-dashes-bold.icon";
+import { ListDashesDuotoneIcon } from "../duotone/list-dashes-duotone.icon";
+import { ListDashesFillIcon } from "../fill/list-dashes-fill.icon";
+import { ListDashesLightIcon } from "../light/list-dashes-light.icon";
+import { ListDashesRegularIcon } from "../regular/list-dashes-regular.icon";
+import { ListDashesThinIcon } from "../thin/list-dashes-thin.icon";
 
 export const ListDashesIcon = memo(function ListDashes(
   props: IconWrapperProps,

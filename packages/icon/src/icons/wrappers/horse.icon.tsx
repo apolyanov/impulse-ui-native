@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HorseBoldIcon } from "../bold";
-import { HorseDuotoneIcon } from "../duotone";
-import { HorseFillIcon } from "../fill";
-import { HorseLightIcon } from "../light";
-import { HorseRegularIcon } from "../regular";
-import { HorseThinIcon } from "../thin";
+import { HorseBoldIcon } from "../bold/horse-bold.icon";
+import { HorseDuotoneIcon } from "../duotone/horse-duotone.icon";
+import { HorseFillIcon } from "../fill/horse-fill.icon";
+import { HorseLightIcon } from "../light/horse-light.icon";
+import { HorseRegularIcon } from "../regular/horse-regular.icon";
+import { HorseThinIcon } from "../thin/horse-thin.icon";
 
 export const HorseIcon = memo(function Horse(props: IconWrapperProps) {
   const Icon = useMemo(() => {

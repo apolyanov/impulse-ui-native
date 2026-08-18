@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SplitVerticalBoldIcon } from "../bold";
-import { SplitVerticalDuotoneIcon } from "../duotone";
-import { SplitVerticalFillIcon } from "../fill";
-import { SplitVerticalLightIcon } from "../light";
-import { SplitVerticalRegularIcon } from "../regular";
-import { SplitVerticalThinIcon } from "../thin";
+import { SplitVerticalBoldIcon } from "../bold/split-vertical-bold.icon";
+import { SplitVerticalDuotoneIcon } from "../duotone/split-vertical-duotone.icon";
+import { SplitVerticalFillIcon } from "../fill/split-vertical-fill.icon";
+import { SplitVerticalLightIcon } from "../light/split-vertical-light.icon";
+import { SplitVerticalRegularIcon } from "../regular/split-vertical-regular.icon";
+import { SplitVerticalThinIcon } from "../thin/split-vertical-thin.icon";
 
 export const SplitVerticalIcon = memo(function SplitVertical(
   props: IconWrapperProps,

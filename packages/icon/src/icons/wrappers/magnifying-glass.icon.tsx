@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { MagnifyingGlassBoldIcon } from "../bold";
-import { MagnifyingGlassDuotoneIcon } from "../duotone";
-import { MagnifyingGlassFillIcon } from "../fill";
-import { MagnifyingGlassLightIcon } from "../light";
-import { MagnifyingGlassRegularIcon } from "../regular";
-import { MagnifyingGlassThinIcon } from "../thin";
+import { MagnifyingGlassBoldIcon } from "../bold/magnifying-glass-bold.icon";
+import { MagnifyingGlassDuotoneIcon } from "../duotone/magnifying-glass-duotone.icon";
+import { MagnifyingGlassFillIcon } from "../fill/magnifying-glass-fill.icon";
+import { MagnifyingGlassLightIcon } from "../light/magnifying-glass-light.icon";
+import { MagnifyingGlassRegularIcon } from "../regular/magnifying-glass-regular.icon";
+import { MagnifyingGlassThinIcon } from "../thin/magnifying-glass-thin.icon";
 
 export const MagnifyingGlassIcon = memo(function MagnifyingGlass(
   props: IconWrapperProps,

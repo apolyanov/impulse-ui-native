@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SparkleBoldIcon } from "../bold";
-import { SparkleDuotoneIcon } from "../duotone";
-import { SparkleFillIcon } from "../fill";
-import { SparkleLightIcon } from "../light";
-import { SparkleRegularIcon } from "../regular";
-import { SparkleThinIcon } from "../thin";
+import { SparkleBoldIcon } from "../bold/sparkle-bold.icon";
+import { SparkleDuotoneIcon } from "../duotone/sparkle-duotone.icon";
+import { SparkleFillIcon } from "../fill/sparkle-fill.icon";
+import { SparkleLightIcon } from "../light/sparkle-light.icon";
+import { SparkleRegularIcon } from "../regular/sparkle-regular.icon";
+import { SparkleThinIcon } from "../thin/sparkle-thin.icon";
 
 export const SparkleIcon = memo(function Sparkle(props: IconWrapperProps) {
   const Icon = useMemo(() => {

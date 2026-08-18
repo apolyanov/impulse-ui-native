@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { SquareHalfBoldIcon } from "../bold";
-import { SquareHalfDuotoneIcon } from "../duotone";
-import { SquareHalfFillIcon } from "../fill";
-import { SquareHalfLightIcon } from "../light";
-import { SquareHalfRegularIcon } from "../regular";
-import { SquareHalfThinIcon } from "../thin";
+import { SquareHalfBoldIcon } from "../bold/square-half-bold.icon";
+import { SquareHalfDuotoneIcon } from "../duotone/square-half-duotone.icon";
+import { SquareHalfFillIcon } from "../fill/square-half-fill.icon";
+import { SquareHalfLightIcon } from "../light/square-half-light.icon";
+import { SquareHalfRegularIcon } from "../regular/square-half-regular.icon";
+import { SquareHalfThinIcon } from "../thin/square-half-thin.icon";
 
 export const SquareHalfIcon = memo(function SquareHalf(
   props: IconWrapperProps,

@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { BoundingBoxBoldIcon } from "../bold";
-import { BoundingBoxDuotoneIcon } from "../duotone";
-import { BoundingBoxFillIcon } from "../fill";
-import { BoundingBoxLightIcon } from "../light";
-import { BoundingBoxRegularIcon } from "../regular";
-import { BoundingBoxThinIcon } from "../thin";
+import { BoundingBoxBoldIcon } from "../bold/bounding-box-bold.icon";
+import { BoundingBoxDuotoneIcon } from "../duotone/bounding-box-duotone.icon";
+import { BoundingBoxFillIcon } from "../fill/bounding-box-fill.icon";
+import { BoundingBoxLightIcon } from "../light/bounding-box-light.icon";
+import { BoundingBoxRegularIcon } from "../regular/bounding-box-regular.icon";
+import { BoundingBoxThinIcon } from "../thin/bounding-box-thin.icon";
 
 export const BoundingBoxIcon = memo(function BoundingBox(
   props: IconWrapperProps,

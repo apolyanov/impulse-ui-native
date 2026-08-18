@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { HandEyeBoldIcon } from "../bold";
-import { HandEyeDuotoneIcon } from "../duotone";
-import { HandEyeFillIcon } from "../fill";
-import { HandEyeLightIcon } from "../light";
-import { HandEyeRegularIcon } from "../regular";
-import { HandEyeThinIcon } from "../thin";
+import { HandEyeBoldIcon } from "../bold/hand-eye-bold.icon";
+import { HandEyeDuotoneIcon } from "../duotone/hand-eye-duotone.icon";
+import { HandEyeFillIcon } from "../fill/hand-eye-fill.icon";
+import { HandEyeLightIcon } from "../light/hand-eye-light.icon";
+import { HandEyeRegularIcon } from "../regular/hand-eye-regular.icon";
+import { HandEyeThinIcon } from "../thin/hand-eye-thin.icon";
 
 export const HandEyeIcon = memo(function HandEye(props: IconWrapperProps) {
   const Icon = useMemo(() => {

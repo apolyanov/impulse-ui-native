@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import { memo } from "react";
 
-import { Typography, View } from "@impulse-ui-native/toolkit";
+import { Typography, View } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,
@@ -331,7 +331,9 @@ export const ViewExampleDefinitions = [
         backgroundColor="#FFFFFF"
       >
         <Typography.Title5>Elevated surface</Typography.Title5>
-        <Typography.Body>Useful for cards, overlays, and floating content.</Typography.Body>
+        <Typography.Body>
+          Useful for cards, overlays, and floating content.
+        </Typography.Body>
       </View>
     ),
   },

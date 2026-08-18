@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ReplitLogoBoldIcon } from "../bold";
-import { ReplitLogoDuotoneIcon } from "../duotone";
-import { ReplitLogoFillIcon } from "../fill";
-import { ReplitLogoLightIcon } from "../light";
-import { ReplitLogoRegularIcon } from "../regular";
-import { ReplitLogoThinIcon } from "../thin";
+import { ReplitLogoBoldIcon } from "../bold/replit-logo-bold.icon";
+import { ReplitLogoDuotoneIcon } from "../duotone/replit-logo-duotone.icon";
+import { ReplitLogoFillIcon } from "../fill/replit-logo-fill.icon";
+import { ReplitLogoLightIcon } from "../light/replit-logo-light.icon";
+import { ReplitLogoRegularIcon } from "../regular/replit-logo-regular.icon";
+import { ReplitLogoThinIcon } from "../thin/replit-logo-thin.icon";
 
 export const ReplitLogoIcon = memo(function ReplitLogo(
   props: IconWrapperProps,

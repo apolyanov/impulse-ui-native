@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ToggleLeftBoldIcon } from "../bold";
-import { ToggleLeftDuotoneIcon } from "../duotone";
-import { ToggleLeftFillIcon } from "../fill";
-import { ToggleLeftLightIcon } from "../light";
-import { ToggleLeftRegularIcon } from "../regular";
-import { ToggleLeftThinIcon } from "../thin";
+import { ToggleLeftBoldIcon } from "../bold/toggle-left-bold.icon";
+import { ToggleLeftDuotoneIcon } from "../duotone/toggle-left-duotone.icon";
+import { ToggleLeftFillIcon } from "../fill/toggle-left-fill.icon";
+import { ToggleLeftLightIcon } from "../light/toggle-left-light.icon";
+import { ToggleLeftRegularIcon } from "../regular/toggle-left-regular.icon";
+import { ToggleLeftThinIcon } from "../thin/toggle-left-thin.icon";
 
 export const ToggleLeftIcon = memo(function ToggleLeft(
   props: IconWrapperProps,

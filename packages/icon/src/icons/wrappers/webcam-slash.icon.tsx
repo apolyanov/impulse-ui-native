@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { WebcamSlashBoldIcon } from "../bold";
-import { WebcamSlashDuotoneIcon } from "../duotone";
-import { WebcamSlashFillIcon } from "../fill";
-import { WebcamSlashLightIcon } from "../light";
-import { WebcamSlashRegularIcon } from "../regular";
-import { WebcamSlashThinIcon } from "../thin";
+import { WebcamSlashBoldIcon } from "../bold/webcam-slash-bold.icon";
+import { WebcamSlashDuotoneIcon } from "../duotone/webcam-slash-duotone.icon";
+import { WebcamSlashFillIcon } from "../fill/webcam-slash-fill.icon";
+import { WebcamSlashLightIcon } from "../light/webcam-slash-light.icon";
+import { WebcamSlashRegularIcon } from "../regular/webcam-slash-regular.icon";
+import { WebcamSlashThinIcon } from "../thin/webcam-slash-thin.icon";
 
 export const WebcamSlashIcon = memo(function WebcamSlash(
   props: IconWrapperProps,

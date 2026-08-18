@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TrolleyBoldIcon } from "../bold";
-import { TrolleyDuotoneIcon } from "../duotone";
-import { TrolleyFillIcon } from "../fill";
-import { TrolleyLightIcon } from "../light";
-import { TrolleyRegularIcon } from "../regular";
-import { TrolleyThinIcon } from "../thin";
+import { TrolleyBoldIcon } from "../bold/trolley-bold.icon";
+import { TrolleyDuotoneIcon } from "../duotone/trolley-duotone.icon";
+import { TrolleyFillIcon } from "../fill/trolley-fill.icon";
+import { TrolleyLightIcon } from "../light/trolley-light.icon";
+import { TrolleyRegularIcon } from "../regular/trolley-regular.icon";
+import { TrolleyThinIcon } from "../thin/trolley-thin.icon";
 
 export const TrolleyIcon = memo(function Trolley(props: IconWrapperProps) {
   const Icon = useMemo(() => {

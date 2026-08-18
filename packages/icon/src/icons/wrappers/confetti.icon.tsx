@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ConfettiBoldIcon } from "../bold";
-import { ConfettiDuotoneIcon } from "../duotone";
-import { ConfettiFillIcon } from "../fill";
-import { ConfettiLightIcon } from "../light";
-import { ConfettiRegularIcon } from "../regular";
-import { ConfettiThinIcon } from "../thin";
+import { ConfettiBoldIcon } from "../bold/confetti-bold.icon";
+import { ConfettiDuotoneIcon } from "../duotone/confetti-duotone.icon";
+import { ConfettiFillIcon } from "../fill/confetti-fill.icon";
+import { ConfettiLightIcon } from "../light/confetti-light.icon";
+import { ConfettiRegularIcon } from "../regular/confetti-regular.icon";
+import { ConfettiThinIcon } from "../thin/confetti-thin.icon";
 
 export const ConfettiIcon = memo(function Confetti(props: IconWrapperProps) {
   const Icon = useMemo(() => {

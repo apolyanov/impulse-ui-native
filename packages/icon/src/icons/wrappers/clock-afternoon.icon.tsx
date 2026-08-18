@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { ClockAfternoonBoldIcon } from "../bold";
-import { ClockAfternoonDuotoneIcon } from "../duotone";
-import { ClockAfternoonFillIcon } from "../fill";
-import { ClockAfternoonLightIcon } from "../light";
-import { ClockAfternoonRegularIcon } from "../regular";
-import { ClockAfternoonThinIcon } from "../thin";
+import { ClockAfternoonBoldIcon } from "../bold/clock-afternoon-bold.icon";
+import { ClockAfternoonDuotoneIcon } from "../duotone/clock-afternoon-duotone.icon";
+import { ClockAfternoonFillIcon } from "../fill/clock-afternoon-fill.icon";
+import { ClockAfternoonLightIcon } from "../light/clock-afternoon-light.icon";
+import { ClockAfternoonRegularIcon } from "../regular/clock-afternoon-regular.icon";
+import { ClockAfternoonThinIcon } from "../thin/clock-afternoon-thin.icon";
 
 export const ClockAfternoonIcon = memo(function ClockAfternoon(
   props: IconWrapperProps,

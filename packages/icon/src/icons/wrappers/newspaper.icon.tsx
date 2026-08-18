@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { NewspaperBoldIcon } from "../bold";
-import { NewspaperDuotoneIcon } from "../duotone";
-import { NewspaperFillIcon } from "../fill";
-import { NewspaperLightIcon } from "../light";
-import { NewspaperRegularIcon } from "../regular";
-import { NewspaperThinIcon } from "../thin";
+import { NewspaperBoldIcon } from "../bold/newspaper-bold.icon";
+import { NewspaperDuotoneIcon } from "../duotone/newspaper-duotone.icon";
+import { NewspaperFillIcon } from "../fill/newspaper-fill.icon";
+import { NewspaperLightIcon } from "../light/newspaper-light.icon";
+import { NewspaperRegularIcon } from "../regular/newspaper-regular.icon";
+import { NewspaperThinIcon } from "../thin/newspaper-thin.icon";
 
 export const NewspaperIcon = memo(function Newspaper(props: IconWrapperProps) {
   const Icon = useMemo(() => {

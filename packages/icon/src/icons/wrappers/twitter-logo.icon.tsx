@@ -2,12 +2,12 @@ import { ComponentType, memo, useMemo } from "react";
 import { SvgProps } from "react-native-svg";
 
 import { IconVariant, IconWrapperProps } from "../../types";
-import { TwitterLogoBoldIcon } from "../bold";
-import { TwitterLogoDuotoneIcon } from "../duotone";
-import { TwitterLogoFillIcon } from "../fill";
-import { TwitterLogoLightIcon } from "../light";
-import { TwitterLogoRegularIcon } from "../regular";
-import { TwitterLogoThinIcon } from "../thin";
+import { TwitterLogoBoldIcon } from "../bold/twitter-logo-bold.icon";
+import { TwitterLogoDuotoneIcon } from "../duotone/twitter-logo-duotone.icon";
+import { TwitterLogoFillIcon } from "../fill/twitter-logo-fill.icon";
+import { TwitterLogoLightIcon } from "../light/twitter-logo-light.icon";
+import { TwitterLogoRegularIcon } from "../regular/twitter-logo-regular.icon";
+import { TwitterLogoThinIcon } from "../thin/twitter-logo-thin.icon";
 
 export const TwitterLogoIcon = memo(function TwitterLogo(
   props: IconWrapperProps,
