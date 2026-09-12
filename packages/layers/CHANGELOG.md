@@ -1,5 +1,15 @@
 # @impulse-ui-native/layers
 
+## 2.1.0
+
+### Patch Changes
+
+- Updated dependencies [69e91a4]
+  - @impulse-ui-native/core@2.1.0
+  - @impulse-ui-native/echo@2.1.0
+  - @impulse-ui-native/flyout@2.1.0
+  - @impulse-ui-native/types@2.1.0
+
 ## 2.0.1
 
 ### Patch Changes
