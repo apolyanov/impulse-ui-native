@@ -1,5 +1,28 @@
 # @impulse-ui-native/toolkit
 
+## 2.1.2
+
+### Patch Changes
+
+- Updated dependencies [738c37f]
+- Updated dependencies [738c37f]
+  - @impulse-ui-native/stepper@2.1.2
+  - @impulse-ui-native/charts@2.2.0
+  - @impulse-ui-native/core@2.1.2
+  - @impulse-ui-native/data-state@2.1.2
+  - @impulse-ui-native/datetime@2.1.2
+  - @impulse-ui-native/echo@2.1.2
+  - @impulse-ui-native/endpoint@2.1.2
+  - @impulse-ui-native/flyout@2.1.2
+  - @impulse-ui-native/input@2.1.2
+  - @impulse-ui-native/layers@2.1.2
+  - @impulse-ui-native/portal@2.1.2
+  - @impulse-ui-native/primitives@2.1.2
+  - @impulse-ui-native/select@2.1.2
+  - @impulse-ui-native/skeleton@2.1.2
+  - @impulse-ui-native/theme@2.1.2
+  - @impulse-ui-native/types@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @impulse-ui-native/datetime
 
+## 2.1.2
+
+### Patch Changes
+
+- @impulse-ui-native/core@2.1.2
+- @impulse-ui-native/flyout@2.1.2
+- @impulse-ui-native/icon@2.1.2
+- @impulse-ui-native/portal@2.1.2
+- @impulse-ui-native/primitives@2.1.2
+- @impulse-ui-native/select@2.1.2
+- @impulse-ui-native/theme@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

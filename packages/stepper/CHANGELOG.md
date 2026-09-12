@@ -1,5 +1,13 @@
 # @impulse-ui-native/stepper
 
+## 2.1.2
+
+### Patch Changes
+
+- 738c37f: Keep the stepper context and imperative API synchronized with current props.
+  - @impulse-ui-native/primitives@2.1.2
+  - @impulse-ui-native/theme@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

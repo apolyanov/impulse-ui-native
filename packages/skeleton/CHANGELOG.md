@@ -1,5 +1,12 @@
 # @impulse-ui-native/skeleton
 
+## 2.1.2
+
+### Patch Changes
+
+- @impulse-ui-native/primitives@2.1.2
+- @impulse-ui-native/theme@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @impulse-ui-native/charts
 
+## 2.2.0
+
+### Minor Changes
+
+- 738c37f: Add single-series and grouped multi-series bar charts with categorical scales, positive and negative value support, configurable spacing, and per-series styling.
+
+### Patch Changes
+
+- @impulse-ui-native/core@2.1.2
+- @impulse-ui-native/primitives@2.1.2
+- @impulse-ui-native/theme@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes
