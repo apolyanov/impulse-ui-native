@@ -3,8 +3,8 @@ import { Canvas } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
-import { useChartCanvas } from "../hooks";
-import { MultiPieChartProps } from "../types";
+import { useChartCanvas } from "../../hooks";
+import { MultiPieChartProps } from "../../types";
 import { MultiPieChartBody } from "./multi-pie-chart-body";
 
 export const MultiPieChart = memo(function MultiPieChart(

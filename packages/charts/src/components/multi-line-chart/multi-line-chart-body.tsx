@@ -1,46 +1,52 @@
-import { SkTypefaceFontProvider } from "@shopify/react-native-skia";
+import { useMemo } from "react";
+import { Group } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
-import { AppTheme } from "@impulse-ui-native/theme";
 
-import {
-  ChartGridOptions,
-  ChartLayout,
-  ChartXAxisOptions,
-  ChartXValue,
-  ChartYAxisOptions,
-  LineChartScale,
-} from "../types";
-import { Grid, XAxis, YAxis } from "./primitives";
+import { useChartLayout, useMultiLineChart } from "../../hooks";
+import { ChartXValue, MultiLineChartBodyProps } from "../../types";
+import { createDrawableMultiLineChartSeries } from "../../utils";
+import { Grid, Line, XAxis, YAxis } from "../primitives";
 
-interface ChartAxesProps<X extends ChartXValue> {
-  fontManager?: SkTypefaceFontProvider;
-  grid?: ChartGridOptions;
-  layout: ChartLayout;
-  theme: AppTheme;
-  xAxis?: ChartXAxisOptions<X>;
-  xScale: LineChartScale<X>;
-  xTicks: readonly X[];
-  yAxis?: ChartYAxisOptions;
-  yScale: LineChartScale<number>;
-  yTicks: readonly number[];
-}
-
-export const ChartAxes = memo(function ChartAxes<
+export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
   X extends ChartXValue = number,
->(props: ChartAxesProps<X>) {
+>(props: MultiLineChartBodyProps<X>) {
   const {
     fontManager,
     grid,
-    layout,
+    insets,
+    series,
+    size,
     theme,
     xAxis,
+    xScaleType,
+    yAxis,
+  } = props;
+
+  const layout = useChartLayout(size, insets);
+
+  const {
+    series: seriesModels,
     xScale,
     xTicks,
-    yAxis,
     yScale,
     yTicks,
-  } = props;
+  } = useMultiLineChart({
+    plot: layout.plot,
+    series,
+    xAxis,
+    xScaleType,
+    yAxis,
+  });
+
+  const drawableSeries = useMemo(
+    () =>
+      seriesModels.map((currentSeries, index) =>
+        createDrawableMultiLineChartSeries(currentSeries, index, layout.plot),
+      ),
+    [layout.plot, seriesModels],
+  );
+
   const isGridStyle = grid !== undefined;
 
   return (
@@ -84,6 +90,16 @@ export const ChartAxes = memo(function ChartAxes<
           tickVisible={!isGridStyle}
         />
       ) : null}
+
+      <Group clip={layout.plot}>
+        {drawableSeries.map((currentSeries) => (
+          <Line
+            key={currentSeries.id}
+            coordinates={currentSeries.coordinates}
+            {...currentSeries.line}
+          />
+        ))}
+      </Group>
     </>
   );
 });

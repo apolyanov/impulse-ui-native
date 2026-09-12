@@ -4,11 +4,11 @@ import { Group } from "@shopify/react-native-skia";
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
 
-import { useChartLayout, useMultiBarChart } from "../hooks";
-import { ChartSize, ChartXValue, MultiBarChartProps } from "../types";
-import { createDrawableMultiBarChartSeries } from "../utils";
-import { ChartAxes } from "./chart-axes";
-import { Bar } from "./primitives";
+import { useChartLayout, useMultiBarChart } from "../../hooks";
+import { ChartSize, ChartXValue, MultiBarChartProps } from "../../types";
+import { createDrawableMultiBarChartSeries } from "../../utils";
+import { ChartAxes } from "../chart-axes";
+import { Bar } from "../primitives";
 
 interface MultiBarChartBodyProps<
   X extends ChartXValue,

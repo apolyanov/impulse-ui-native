@@ -1,56 +1,46 @@
-import { useMemo } from "react";
-import { Group } from "@shopify/react-native-skia";
+import { SkTypefaceFontProvider } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
 
-import { LineDefaultWidth } from "../constants";
-import { useChartLayout, useLineChart } from "../hooks";
-import { ChartSize, ChartXValue, LineChartProps } from "../types";
-import { createInsetRect, fitLineCoordinatesToRect } from "../utils";
-import { Grid, Line, XAxis, YAxis } from "./primitives";
+import {
+  ChartGridOptions,
+  ChartLayout,
+  ChartXAxisOptions,
+  ChartXValue,
+  ChartYAxisOptions,
+  LineChartScale,
+} from "../../types";
+import { Grid, XAxis, YAxis } from "../primitives";
 
-interface LineChartBodyProps<X extends ChartXValue> extends LineChartProps<X> {
-  size: ChartSize;
+interface ChartAxesProps<X extends ChartXValue> {
+  fontManager?: SkTypefaceFontProvider;
+  grid?: ChartGridOptions;
+  layout: ChartLayout;
   theme: AppTheme;
+  xAxis?: ChartXAxisOptions<X>;
+  xScale: LineChartScale<X>;
+  xTicks: readonly X[];
+  yAxis?: ChartYAxisOptions;
+  yScale: LineChartScale<number>;
+  yTicks: readonly number[];
 }
 
-export const LineChartBody = memo(function LineChartBodyComponent<
+export const ChartAxes = memo(function ChartAxes<
   X extends ChartXValue = number,
->(props: LineChartBodyProps<X>) {
+>(props: ChartAxesProps<X>) {
   const {
-    data,
     fontManager,
     grid,
-    insets,
-    line,
-    size,
+    layout,
     theme,
     xAxis,
-    xScaleType,
+    xScale,
+    xTicks,
     yAxis,
+    yScale,
+    yTicks,
   } = props;
-
-  const layout = useChartLayout(size, insets);
-
-  const { coordinates, xScale, xTicks, yScale, yTicks } = useLineChart({
-    data,
-    plot: layout.plot,
-    xAxis,
-    xScaleType,
-    yAxis,
-  });
-
-  const linePlot = useMemo(
-    () => createInsetRect(layout.plot, (line?.width ?? LineDefaultWidth) / 2),
-    [layout.plot, line?.width],
-  );
-
-  const lineCoordinates = useMemo(
-    () => fitLineCoordinatesToRect(coordinates, layout.plot, linePlot),
-    [coordinates, layout.plot, linePlot],
-  );
-
   const isGridStyle = grid !== undefined;
 
   return (
@@ -94,10 +84,6 @@ export const LineChartBody = memo(function LineChartBodyComponent<
           tickVisible={!isGridStyle}
         />
       ) : null}
-
-      <Group clip={layout.plot}>
-        <Line coordinates={lineCoordinates} {...line} />
-      </Group>
     </>
   );
 });

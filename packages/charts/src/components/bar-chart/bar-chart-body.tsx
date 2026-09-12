@@ -3,10 +3,10 @@ import { Group } from "@shopify/react-native-skia";
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
 
-import { useBarChart, useChartLayout } from "../hooks";
-import { BarChartProps, ChartSize, ChartXValue } from "../types";
-import { ChartAxes } from "./chart-axes";
-import { Bar } from "./primitives";
+import { useBarChart, useChartLayout } from "../../hooks";
+import { BarChartProps, ChartSize, ChartXValue } from "../../types";
+import { ChartAxes } from "../chart-axes";
+import { Bar } from "../primitives";
 
 interface BarChartBodyProps<X extends ChartXValue> extends BarChartProps<X> {
   size: ChartSize;

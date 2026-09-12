@@ -4,19 +4,20 @@ import { Canvas } from "@shopify/react-native-skia";
 import { memo } from "@impulse-ui-native/core";
 import { useTheme } from "@impulse-ui-native/theme";
 
-import { useChartCanvas } from "../hooks";
-import { BarChartProps, ChartXValue } from "../types";
-import { BarChartBody } from "./bar-chart-body";
+import { useChartCanvas } from "../../hooks";
+import { ChartXValue, MultiLineChartProps } from "../../types";
+import { MultiLineChartBody } from "./multi-line-chart-body";
 
-export const BarChart = memo(function BarChart<X extends ChartXValue = string>(
-  props: BarChartProps<X>,
-) {
+export const MultiLineChart = memo(function MultiLineChart<
+  X extends ChartXValue = number,
+>(props: MultiLineChartProps<X>) {
   const theme = useTheme();
+
   const { ref, size } = useChartCanvas();
 
   return (
     <Canvas ref={ref} style={styles.container}>
-      <BarChartBody {...props} size={size} theme={theme} />
+      <MultiLineChartBody {...props} size={size} theme={theme} />
     </Canvas>
   );
 });

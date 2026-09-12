@@ -2,20 +2,28 @@ import { useMemo } from "react";
 import { Group } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
+import { AppTheme } from "@impulse-ui-native/theme";
 
-import { useChartLayout, useMultiLineChart } from "../hooks";
-import { ChartXValue, MultiLineChartBodyProps } from "../types";
-import { createDrawableMultiLineChartSeries } from "../utils";
-import { Grid, Line, XAxis, YAxis } from "./primitives";
+import { LineDefaultWidth } from "../../constants";
+import { useChartLayout, useLineChart } from "../../hooks";
+import { ChartSize, ChartXValue, LineChartProps } from "../../types";
+import { createInsetRect, fitLineCoordinatesToRect } from "../../utils";
+import { Grid, Line, XAxis, YAxis } from "../primitives";
 
-export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
+interface LineChartBodyProps<X extends ChartXValue> extends LineChartProps<X> {
+  size: ChartSize;
+  theme: AppTheme;
+}
+
+export const LineChartBody = memo(function LineChartBodyComponent<
   X extends ChartXValue = number,
->(props: MultiLineChartBodyProps<X>) {
+>(props: LineChartBodyProps<X>) {
   const {
+    data,
     fontManager,
     grid,
     insets,
-    series,
+    line,
     size,
     theme,
     xAxis,
@@ -25,26 +33,22 @@ export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
 
   const layout = useChartLayout(size, insets);
 
-  const {
-    series: seriesModels,
-    xScale,
-    xTicks,
-    yScale,
-    yTicks,
-  } = useMultiLineChart({
+  const { coordinates, xScale, xTicks, yScale, yTicks } = useLineChart({
+    data,
     plot: layout.plot,
-    series,
     xAxis,
     xScaleType,
     yAxis,
   });
 
-  const drawableSeries = useMemo(
-    () =>
-      seriesModels.map((currentSeries, index) =>
-        createDrawableMultiLineChartSeries(currentSeries, index, layout.plot),
-      ),
-    [layout.plot, seriesModels],
+  const linePlot = useMemo(
+    () => createInsetRect(layout.plot, (line?.width ?? LineDefaultWidth) / 2),
+    [layout.plot, line?.width],
+  );
+
+  const lineCoordinates = useMemo(
+    () => fitLineCoordinatesToRect(coordinates, layout.plot, linePlot),
+    [coordinates, layout.plot, linePlot],
   );
 
   const isGridStyle = grid !== undefined;
@@ -92,13 +96,7 @@ export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
       ) : null}
 
       <Group clip={layout.plot}>
-        {drawableSeries.map((currentSeries) => (
-          <Line
-            key={currentSeries.id}
-            coordinates={currentSeries.coordinates}
-            {...currentSeries.line}
-          />
-        ))}
+        <Line coordinates={lineCoordinates} {...line} />
       </Group>
     </>
   );

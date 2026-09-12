@@ -1,8 +1,8 @@
 import { memo } from "@impulse-ui-native/core";
 
-import { useChartLayout, usePieChart } from "../hooks";
-import { ChartSize, PieChartProps } from "../types";
-import { Pie } from "./primitives";
+import { useChartLayout, usePieChart } from "../../hooks";
+import { ChartSize, PieChartProps } from "../../types";
+import { Pie } from "../primitives";
 
 interface PieChartBodyProps extends PieChartProps {
   size: ChartSize;
