@@ -1,5 +1,17 @@
 # @impulse-ui-native/charts
 
+## 2.3.0
+
+### Minor Changes
+
+- 220d0ac: Add pie and concentric multi-series pie chart components.
+
+### Patch Changes
+
+- @impulse-ui-native/core@2.1.3
+- @impulse-ui-native/primitives@2.1.3
+- @impulse-ui-native/theme@2.1.3
+
 ## 2.2.0
 
 ### Minor Changes

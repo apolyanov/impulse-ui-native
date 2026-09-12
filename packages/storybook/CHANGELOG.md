@@ -1,5 +1,13 @@
 # @impulse-ui-native/storybook
 
+## 2.1.3
+
+### Patch Changes
+
+- @impulse-ui-native/icon@2.1.3
+- @impulse-ui-native/primitives@2.1.3
+- @impulse-ui-native/theme@2.1.3
+
 ## 2.1.2
 
 ### Patch Changes
