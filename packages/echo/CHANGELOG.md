@@ -1,5 +1,13 @@
 # @impulse-ui-native/echo
 
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [f5d8cc1]
+  - @impulse-ui-native/core@2.1.1
+  - @impulse-ui-native/types@2.1.1
+
 ## 2.1.0
 
 ### Patch Changes

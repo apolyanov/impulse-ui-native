@@ -1,5 +1,14 @@
 # @impulse-ui-native/input
 
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [f5d8cc1]
+  - @impulse-ui-native/core@2.1.1
+  - @impulse-ui-native/primitives@2.1.1
+  - @impulse-ui-native/icon@2.1.1
+
 ## 2.1.0
 
 ### Patch Changes
