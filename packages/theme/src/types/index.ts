@@ -1,5 +1,6 @@
 export * from "./border.types";
 export * from "./color.types";
+export * from "./chart.types";
 export * from "./components.types";
 export * from "./dimension.types";
 export * from "./flex.types";

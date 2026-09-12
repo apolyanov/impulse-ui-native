@@ -1,5 +1,6 @@
 import {
   BorderSize,
+  ChartColorPalette,
   ComponentsTokens,
   FontFamily,
   FontSize,
@@ -30,6 +31,24 @@ import { createSelectTokens } from "./create-select-tokens";
 import { createSkeletonTokens } from "./create-skeleton-tokens";
 import { createTagTokens } from "./create-tag-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
+
+export const ChartColorTokens: ChartColorPalette = [
+  "#f55d6b",
+  "#2563eb",
+  "#16a34a",
+  "#9333ea",
+  "#ea580c",
+  "#0891b2",
+  "#db2777",
+  "#65a30d",
+  "#4f46e5",
+  "#0d9488",
+  "#ca8a04",
+  "#c026d3",
+  "#0284c7",
+  "#7c3aed",
+  "#9f5f3f",
+];
 
 export const SpaceTokens: Space = {
   none: 0,

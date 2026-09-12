@@ -14,6 +14,7 @@
     "@impulse-ui-native/charts": "workspace:*",
     "@shopify/flash-list": "catalog:",
     "@shopify/react-native-skia": "catalog:",
+    "@expo-google-fonts/montserrat": "catalog:",
     "@tanstack/react-query": "catalog:",
     "axios": "catalog:",
     "expo-image": "catalog:",

@@ -9,6 +9,9 @@ catalogs:
     '@eslint/js':
       specifier: ^9.38.0
       version: 9.39.4
+    '@expo-google-fonts/montserrat':
+      specifier: 0.4.2
+      version: 0.4.2
     '@expo/metro-runtime':
       specifier: ~57.0.10
       version: 57.0.10
@@ -321,6 +324,9 @@ importers:
 
   apps/playground:
     dependencies:
+      '@expo-google-fonts/montserrat':
+        specifier: 'catalog:'
+        version: 0.4.2
       '@expo/ui':
         specifier: 'catalog:'
         version: 57.0.11(@babel/core@7.29.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(expo@57.0.14)(react-dom@19.2.3(react@19.2.3))(react-native-worklets@0.10.1(@babel/core@7.29.0)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
@@ -470,6 +476,9 @@ importers:
 
   packages/charts:
     dependencies:
+      '@impulse-ui-native/core':
+        specifier: workspace:*
+        version: link:../core
       '@impulse-ui-native/primitives':
         specifier: workspace:*
         version: link:../primitives
@@ -2329,6 +2338,9 @@ packages:
 
   '@expo-google-fonts/material-symbols@0.4.33':
     resolution: {integrity: sha512-GQFy5tx7LBiRJttLYhz+KPmoVCQSVXiJPXVgMt/d8BWYbnJmw0nFixZtOaZQJE9F/L6vni3totwPNmbrdMi3ow==}
+
+  '@expo-google-fonts/montserrat@0.4.2':
+    resolution: {integrity: sha512-Xyq7rKJhhZOE1Xk4wKSSVoUeOkFmQEMhtZ3pdFrgYckGZMs115Apmld1AI8Ju+yrl5GzDdfRCCqRr33dvEDYUA==}
 
   '@expo/cli@57.0.16':
     resolution: {integrity: sha512-+HyMY2nAS6QBJb0nSeMz92p11bZ1AtWSRnhWnklznN07IRoQirisnKq2vr18Ayjb/fnb5F/um+n6FRhF0fZm1Q==}
@@ -9403,6 +9415,8 @@ snapshots:
       levn: 0.4.1
 
   '@expo-google-fonts/material-symbols@0.4.33': {}
+
+  '@expo-google-fonts/montserrat@0.4.2': {}
 
   '@expo/cli@57.0.16(@expo/dom-webview@57.0.1)(@expo/metro-runtime@57.0.10)(expo-constants@57.0.12)(expo-font@57.0.1)(expo-router@57.0.14)(expo@57.0.14)(react-dom@19.2.3(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)(typescript@6.0.3)':
     dependencies:
