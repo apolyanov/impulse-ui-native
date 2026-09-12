@@ -1,8 +1,13 @@
 import { ScrollView, StyleSheet } from "react-native";
 
-import type { MultiLineChartSeries } from "@impulse-ui-native/toolkit";
+import type {
+  MultiBarChartSeries,
+  MultiLineChartSeries,
+} from "@impulse-ui-native/toolkit";
 import {
+  BarChart,
   LineChart,
+  MultiBarChart,
   MultiLineChart,
   Typography,
   View,
@@ -24,6 +29,14 @@ const categoryData = [
   { x: "Fri", y: 19 },
   { x: "Sat", y: 28 },
   { x: "Sun", y: 23 },
+];
+
+const barData = [
+  { x: "Mon", y: 14 },
+  { x: "Tue", y: 22 },
+  { x: "Wed", y: -6 },
+  { x: "Thu", y: 27 },
+  { x: "Fri", y: 18 },
 ];
 
 const multiLineSeries: readonly MultiLineChartSeries<string>[] = [
@@ -65,6 +78,29 @@ const multiLineSeries: readonly MultiLineChartSeries<string>[] = [
       { x: "Sun", y: 30 },
     ],
     line: { curve: "monotone" },
+  },
+];
+
+const multiBarSeries: readonly MultiBarChartSeries<string>[] = [
+  {
+    id: "revenue",
+    data: [
+      { x: "Mon", y: 18 },
+      { x: "Tue", y: 24 },
+      { x: "Wed", y: 21 },
+      { x: "Thu", y: 29 },
+      { x: "Fri", y: 26 },
+    ],
+  },
+  {
+    id: "cost",
+    data: [
+      { x: "Mon", y: 12 },
+      { x: "Tue", y: 15 },
+      { x: "Wed", y: 17 },
+      { x: "Thu", y: 18 },
+      { x: "Fri", y: 20 },
+    ],
   },
 ];
 
@@ -185,6 +221,54 @@ export default function Index() {
               x: { color: "#e2e8f0", dash: [3, 5] },
               y: { color: "#e2e8f0", dash: [3, 5] },
             }}
+            insets={{ top: 20, right: 20, bottom: 44, left: 52 }}
+            xAxis={{
+              label: { color: "#334155", fontSize: 11, gap: 8 },
+            }}
+            yAxis={{
+              domain: [0, 35],
+              tickCount: 5,
+              label: { color: "#334155", fontSize: 11, gap: 8 },
+            }}
+          />
+        </View>
+      </View>
+
+      <Typography.Title2>Bar chart styles</Typography.Title2>
+
+      <View style={styles.card}>
+        <Typography.Title5>Single series</Typography.Title5>
+        <Typography.Master color="#64748b">
+          Rounded categorical bars with positive and negative values
+        </Typography.Master>
+        <View style={styles.chart}>
+          <BarChart
+            data={barData}
+            bar={{ color: "#7c3aed", radius: 5 }}
+            grid={{ y: { color: "#e2e8f0", opacity: 0.8 }, x: false }}
+            insets={{ top: 20, right: 20, bottom: 44, left: 52 }}
+            xAxis={{
+              label: { color: "#334155", fontSize: 11, gap: 8 },
+            }}
+            yAxis={{
+              tickCount: 5,
+              label: { color: "#334155", fontSize: 11, gap: 8 },
+            }}
+          />
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Typography.Title5>Multiple series</Typography.Title5>
+        <Typography.Master color="#64748b">
+          Grouped bars with shared category and value scales
+        </Typography.Master>
+        <View style={styles.chart}>
+          <MultiBarChart
+            series={multiBarSeries}
+            categoryPadding={0.22}
+            seriesPadding={0.12}
+            grid={{ y: { color: "#e2e8f0", dash: [3, 5] }, x: false }}
             insets={{ top: 20, right: 20, bottom: 44, left: 52 }}
             xAxis={{
               label: { color: "#334155", fontSize: 11, gap: 8 },

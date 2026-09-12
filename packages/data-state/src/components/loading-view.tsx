@@ -31,29 +31,6 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
   const loaderOpacity = useSharedValue(loading ? 1 : 0);
   const childrenOpacity = useSharedValue(loading ? 0 : 1);
 
-  const onLoaderLayout = useCallback((event: LayoutChangeEvent) => {
-    const height = event.nativeEvent.layout.height;
-
-    setLoaderHeight((prev) => {
-      if (prev === height) {
-        return prev;
-      }
-
-      return height;
-    });
-  }, []);
-
-  const containerStyle = useMemo<StyleProp<ViewStyle>>(
-    () => [
-      {
-        position: "relative",
-        minHeight: shouldMountLoader ? loaderHeight : undefined,
-      },
-      style,
-    ],
-    [loaderHeight, shouldMountLoader, style],
-  );
-
   const loaderStyles = useAnimatedStyle(() => ({
     position: "absolute",
     bottom: 0,
@@ -68,10 +45,33 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     opacity: childrenOpacity.value,
   }));
 
+  const containerStyle = useMemo<StyleProp<ViewStyle>>(
+    () => [
+      {
+        position: "relative",
+        minHeight: shouldMountLoader ? loaderHeight : undefined,
+      },
+      style,
+    ],
+    [loaderHeight, shouldMountLoader, style],
+  );
+
   const childrenContainerStyles = useMemo(
     () => [contentContainerStyle, childrenStyles],
     [contentContainerStyle, childrenStyles],
   );
+
+  const onLoaderLayout = useCallback((event: LayoutChangeEvent) => {
+    const height = event.nativeEvent.layout.height;
+
+    setLoaderHeight((prev) => {
+      if (prev === height) {
+        return prev;
+      }
+
+      return height;
+    });
+  }, []);
 
   useEffect(() => {
     if (loading) {

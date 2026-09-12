@@ -3,12 +3,9 @@ import { Group } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
-import { useMultiLineChart } from "../hooks";
+import { useChartLayout, useMultiLineChart } from "../hooks";
 import { ChartXValue, MultiLineChartBodyProps } from "../types";
-import {
-  createChartLayout,
-  createDrawableMultiLineChartSeries,
-} from "../utils";
+import { createDrawableMultiLineChartSeries } from "../utils";
 import { Grid, Line, XAxis, YAxis } from "./primitives";
 
 export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
@@ -26,7 +23,7 @@ export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
     yAxis,
   } = props;
 
-  const layout = useMemo(() => createChartLayout(size, insets), [insets, size]);
+  const layout = useChartLayout(size, insets);
 
   const {
     series: seriesModels,

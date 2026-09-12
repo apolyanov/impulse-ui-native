@@ -16,6 +16,8 @@ export function useDatetimePicker({
   defaultValue,
   onChange,
 }: UseDatetimePickerStateOptions) {
+  const id = useId();
+
   const [visible, setVisible] = useState<Date>(
     value ?? defaultValue ?? new Date(),
   );
@@ -30,7 +32,6 @@ export function useDatetimePicker({
     onChange,
   });
 
-  const id = useId();
   const { isOpen, isClosed, open, close } = useIsOpen();
 
   const onPressOpen = useCallback(() => {

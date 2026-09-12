@@ -13,9 +13,8 @@ function SelectComponent<Value extends PrimitiveValue>(
 ) {
   const { options, value, defaultValue, onChange, placeholder, ...rest } =
     props;
-  const { isOpen, open, close } = useIsOpen();
-
   const id = useId();
+  const { isOpen, open, close } = useIsOpen();
 
   const { selected, hasSelected, select, isSelected, getLabel } = useSelect({
     options,

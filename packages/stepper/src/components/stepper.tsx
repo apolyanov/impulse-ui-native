@@ -5,30 +5,31 @@ import { StepperProps, StepperProviderData, StepperRef } from "../types";
 
 export const Stepper = memo(
   forwardRef<StepperRef, StepperProps>(function Stepper(props, ref) {
-    const lastStepIndex = props.items.length - 1;
+    const { current, items, onChange } = props;
+    const lastStepIndex = items.length - 1;
 
     const context = useMemo<StepperProviderData>(
       () => ({
-        current: props.current,
+        current,
         goto(value) {
-          props.onChange(Math.min(Math.max(value, 0), lastStepIndex));
+          onChange(Math.min(Math.max(value, 0), lastStepIndex));
         },
         next() {
-          props.onChange(Math.min(props.current + 1, lastStepIndex));
+          onChange(Math.min(current + 1, lastStepIndex));
         },
         previous() {
-          props.onChange(Math.max(props.current - 1, 0));
+          onChange(Math.max(current - 1, 0));
         },
       }),
-      [],
+      [current, lastStepIndex, onChange],
     );
-
-    useImperativeHandle(ref, () => context);
 
     const Step = useMemo(
-      () => props.items[props.current]?.Component ?? null,
-      [props.items, props.current],
+      () => items[current]?.Component ?? null,
+      [current, items],
     );
+
+    useImperativeHandle(ref, () => context, [context]);
 
     if (!Step) {
       return null;

@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from "react";
+import { memo, useState } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 import { EyeIcon } from "@impulse-ui-native/icon/icons/eye";
@@ -31,21 +31,14 @@ export const Input = memo(function Input(props: InputProps) {
     setShowPassword((prevState) => !prevState);
   });
 
-  const SuffixInternalIcon = useMemo(() => {
-    if (props.secureTextEntry) {
-      return showPassword ? EyeIcon : EyeSlashIcon;
-    }
-
-    return SuffixIcon;
-  }, [props.secureTextEntry, SuffixIcon, showPassword]);
-
-  const internalOnSuffixPress = useMemo(() => {
-    if (props.secureTextEntry) {
-      return togglePasswordVisibility;
-    }
-
-    return onPressSuffix;
-  }, [props.secureTextEntry, onPressSuffix]);
+  const SuffixInternalIcon = props.secureTextEntry
+    ? showPassword
+      ? EyeIcon
+      : EyeSlashIcon
+    : SuffixIcon;
+  const internalOnSuffixPress = props.secureTextEntry
+    ? togglePasswordVisibility
+    : onPressSuffix;
 
   return (
     <Control.Provider

@@ -6,6 +6,10 @@ export {
   createYAxisLabelRect,
   formatAxisTick,
 } from "./axis.util";
+export {
+  createBarChartCoordinates,
+  createBarChartModel,
+} from "./bar-chart.util";
 export { createChartLayout, createInsetRect } from "./chart-layout.util";
 export {
   createHorizontalGridPath,
@@ -19,4 +23,8 @@ export {
   createLineChartModel,
 } from "./line-chart.util";
 export { createDrawableMultiLineChartSeries } from "./multi-line-chart.util";
+export {
+  createDrawableMultiBarChartSeries,
+  createMultiBarChartModel,
+} from "./multi-bar-chart.util";
 export { createParagraphBuilder } from "./paragraph-builder.util";

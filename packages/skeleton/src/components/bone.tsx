@@ -18,6 +18,14 @@ export const Bone = memo(function Bone(
   const tokens = useComponentsTokens().skeleton.bone;
   const opacity = useSharedValue(tokens.initialOpacity);
 
+  const style = useAnimatedStyle(() => {
+    return {
+      backgroundColor: tokens.backgroundColor,
+      borderColor: tokens.borderColor,
+      opacity: opacity.value,
+    };
+  });
+
   useEffect(() => {
     opacity.value = withRepeat(
       withTiming(tokens.animatedOpacity, {
@@ -32,14 +40,6 @@ export const Bone = memo(function Bone(
       cancelAnimation(opacity);
     };
   }, [opacity, tokens.animatedOpacity, tokens.animationDuration]);
-
-  const style = useAnimatedStyle(() => {
-    return {
-      backgroundColor: tokens.backgroundColor,
-      borderColor: tokens.borderColor,
-      opacity: opacity.value,
-    };
-  });
 
   return <Animated.View {...props} style={[props.style, style]} />;
 });

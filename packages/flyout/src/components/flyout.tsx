@@ -92,6 +92,30 @@ export const Flyout = memo(function Flyout(
   );
   const opacity = useSharedValue(0);
 
+  const animatedStyle = useAnimatedStyle(() => {
+    const offset =
+      placement === "bottom" ? -(placementOffset ?? 0) : (placementOffset ?? 0);
+
+    return {
+      transform: [{ translateY: translateY.value + offset }],
+      zIndex,
+    };
+  });
+
+  const overlayStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+    zIndex,
+    backgroundColor: flyoutTokens.overlayColor,
+  }));
+
+  const edges = useMemo<Edge[]>(() => {
+    return [placement, "left", "right"];
+  }, [placement]);
+
+  const styles = useMemo(() => {
+    return themedStyles(theme, placement, maxHeight);
+  }, [theme, placement, maxHeight]);
+
   const onLayout = useCallback(
     (event: LayoutChangeEvent) => {
       if (measuredHeight !== null) {
@@ -196,30 +220,6 @@ export const Flyout = memo(function Flyout(
       translateY,
     ],
   );
-
-  const animatedStyle = useAnimatedStyle(() => {
-    const offset =
-      placement === "bottom" ? -(placementOffset ?? 0) : (placementOffset ?? 0);
-
-    return {
-      transform: [{ translateY: translateY.value + offset }],
-      zIndex,
-    };
-  });
-
-  const overlayStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-    zIndex,
-    backgroundColor: flyoutTokens.overlayColor,
-  }));
-
-  const edges = useMemo<Edge[]>(() => {
-    return [placement, "left", "right"];
-  }, [placement]);
-
-  const styles = useMemo(() => {
-    return themedStyles(theme, placement, maxHeight);
-  }, [theme, placement, maxHeight]);
 
   useEffect(() => {
     if (!open) {

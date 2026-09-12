@@ -1,14 +1,58 @@
 # @impulse-ui-native/charts
 
-The workspace package reserved for Impulse UI Native chart components and chart primitives.
+Skia-rendered chart components and primitives for Impulse UI Native.
 
-## Status
+## Components
 
-This package is currently under development. It declares D3 scale, shape, interpolation, array, and time utilities plus React Native Skia as its rendering peer, but it does not currently expose a public component or type from the package root.
+The package provides Skia-rendered `LineChart`, `MultiLineChart`, `BarChart`, and `MultiBarChart` components. Charts fill their parent, so give the surrounding view an explicit height.
 
-Do not depend on `@impulse-ui-native/charts` for application code until its first public exports are added and documented here.
+```tsx
+import { BarChart } from "@impulse-ui-native/charts";
 
-## Planned scope
+<BarChart
+  data={[
+    { x: "Jan", y: 18 },
+    { x: "Feb", y: 24 },
+    { x: "Mar", y: 16 },
+  ]}
+  insets={{ left: 40, bottom: 28 }}
+  bar={{ color: "#6366f1", radius: 4 }}
+/>;
+```
+
+Use `MultiBarChart` for grouped series. Categories are shared across the series, and each series can supply its own bar style.
+
+```tsx
+import { MultiBarChart } from "@impulse-ui-native/charts";
+
+<MultiBarChart
+  series={[
+    {
+      id: "revenue",
+      data: [
+        { x: "Jan", y: 18 },
+        { x: "Feb", y: 24 },
+      ],
+    },
+    {
+      id: "cost",
+      data: [
+        { x: "Jan", y: 12 },
+        { x: "Feb", y: 15 },
+      ],
+    },
+  ]}
+  categoryPadding={0.2}
+  seriesPadding={0.1}
+  insets={{ left: 40, bottom: 28 }}
+/>;
+```
+
+Bar charts support string, number, and `Date` categories, nullable values, positive and negative values, custom Y domains, axes, and grid styling. Inferred Y domains include zero.
+
+`categoryPadding` and `seriesPadding` are ratios clamped between `0` and `1`. Multi-series bars use the theme's chart palette unless a series supplies `bar.color`.
+
+## Scope
 
 - Token-aware chart primitives for React Native.
 - Skia-based rendering.
@@ -17,4 +61,4 @@ Do not depend on `@impulse-ui-native/charts` for application code until its firs
 
 ## Native prerequisite
 
-Future chart APIs will require `@shopify/react-native-skia` version 2 or newer. Follow Skia's platform setup instructions before using those APIs once they are available.
+Chart APIs require `@shopify/react-native-skia` version 2 or newer. Follow Skia's platform setup instructions before using them.

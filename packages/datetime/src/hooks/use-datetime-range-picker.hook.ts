@@ -24,6 +24,8 @@ export function useDatetimeRangePicker({
   defaultValue,
   onChange,
 }: UseDatetimeRangePickerStateOptions) {
+  const id = useId();
+
   const [visible, setVisible] = useState<Date>(
     getInitialVisibleDate(value, defaultValue),
   );
@@ -38,7 +40,6 @@ export function useDatetimeRangePicker({
     onChange,
   });
 
-  const id = useId();
   const { isOpen, isClosed, open, close } = useIsOpen();
 
   const onPressOpen = useCallback(() => {
