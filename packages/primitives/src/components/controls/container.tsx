@@ -78,12 +78,6 @@ function themedStyles(
         : disabled
           ? variantTokens.disabledBorderColor
           : variantTokens.borderColor,
-
-      borderBottomColor: error
-        ? variantTokens.errorBorderBottomColor
-        : disabled
-          ? variantTokens.disabledBorderBottomColor
-          : variantTokens.borderBottomColor,
     },
   });
 }

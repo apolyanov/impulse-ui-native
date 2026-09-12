@@ -4,5 +4,5 @@
     ".",
     "../primitives/src/constants/control-container.constants.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["dist", "node_modules"]
 }

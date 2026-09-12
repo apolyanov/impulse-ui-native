@@ -1,4 +1,4 @@
-import { PrimitiveValue, SelectOption } from "../../dist/index.mjs";
+import { PrimitiveValue, SelectOption } from "../types";
 
 export function buildLabelMap<Value extends PrimitiveValue>(
   options: SelectOption<Value>[],
@@ -12,4 +12,13 @@ export function buildLabelMap<Value extends PrimitiveValue>(
 
     return acc;
   }, {});
+}
+
+export function getOptionId<Value extends PrimitiveValue>(
+  option: SelectOption<Value>,
+  index: number,
+): string {
+  return option.value === null || option.value === undefined
+    ? `${option.label}-${index}`
+    : String(option.value);
 }

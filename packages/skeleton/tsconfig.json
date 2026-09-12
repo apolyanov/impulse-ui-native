@@ -1,5 +1,5 @@
 {
   "extends": "@impulse-ui-native/tsconfig/base.json",
   "include": ["."],
-  "exclude": ["node_modules"]
+  "exclude": ["dist", "node_modules"]
 }
