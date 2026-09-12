@@ -4,7 +4,7 @@ Skia-rendered chart components and primitives for Impulse UI Native.
 
 ## Components
 
-The package provides Skia-rendered `LineChart`, `MultiLineChart`, `BarChart`, and `MultiBarChart` components. Charts fill their parent, so give the surrounding view an explicit height.
+The package provides Skia-rendered `LineChart`, `MultiLineChart`, `BarChart`, `MultiBarChart`, `PieChart`, and `MultiPieChart` components. Charts fill their parent, so give the surrounding view an explicit height.
 
 ```tsx
 import { BarChart } from "@impulse-ui-native/charts";
@@ -51,6 +51,53 @@ import { MultiBarChart } from "@impulse-ui-native/charts";
 Bar charts support string, number, and `Date` categories, nullable values, positive and negative values, custom Y domains, axes, and grid styling. Inferred Y domains include zero.
 
 `categoryPadding` and `seriesPadding` are ratios clamped between `0` and `1`. Multi-series bars use the theme's chart palette unless a series supplies `bar.color`.
+
+Use `PieChart` for pies and donuts. Slice values must be positive finite numbers; invalid, zero, and negative values are ignored. Colors follow the chart palette unless a datum supplies `color`.
+
+```tsx
+import { PieChart } from "@impulse-ui-native/charts";
+
+<PieChart
+  data={[
+    { id: "mobile", value: 46 },
+    { id: "desktop", value: 34 },
+    { id: "tablet", value: 20 },
+  ]}
+  innerRadius={0.5}
+  outerRadius={0.9}
+  padAngle={2}
+  slice={{ cornerRadius: 4, strokeColor: "#fff", strokeWidth: 2 }}
+/>;
+```
+
+`innerRadius` and `outerRadius` are ratios of the available radius and are clamped between `0` and `1`. Angles use degrees, measured clockwise from 12 o'clock. The defaults render a complete circle from `0` through `360` degrees.
+
+Use `MultiPieChart` for independently normalized concentric series. The first series is the outermost ring, and angular padding keeps a consistent visual width across all rings.
+
+```tsx
+import { MultiPieChart } from "@impulse-ui-native/charts";
+
+<MultiPieChart
+  series={[
+    {
+      id: "current",
+      data: [
+        { id: "organic", value: 42 },
+        { id: "paid", value: 33 },
+      ],
+    },
+    {
+      id: "previous",
+      data: [
+        { id: "organic", value: 36 },
+        { id: "paid", value: 29 },
+      ],
+    },
+  ]}
+  innerRadius={0.25}
+  ringPadding={4}
+/>;
+```
 
 ## Scope
 

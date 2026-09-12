@@ -28,3 +28,10 @@ export {
   createMultiBarChartModel,
 } from "./multi-bar-chart.util";
 export { createParagraphBuilder } from "./paragraph-builder.util";
+export { createMultiPieChartModel } from "./multi-pie-chart.util";
+export {
+  createPieChartModel,
+  createPieChartRadii,
+  normalizeRadiusRatio,
+} from "./pie-chart.util";
+export { createPieSlicePath } from "./pie.util";

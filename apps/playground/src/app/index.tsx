@@ -3,12 +3,15 @@ import { ScrollView, StyleSheet } from "react-native";
 import type {
   MultiBarChartSeries,
   MultiLineChartSeries,
+  MultiPieChartSeries,
 } from "@impulse-ui-native/toolkit";
 import {
   BarChart,
   LineChart,
   MultiBarChart,
   MultiLineChart,
+  MultiPieChart,
+  PieChart,
   Typography,
   View,
 } from "@impulse-ui-native/toolkit";
@@ -100,6 +103,39 @@ const multiBarSeries: readonly MultiBarChartSeries<string>[] = [
       { x: "Wed", y: 17 },
       { x: "Thu", y: 18 },
       { x: "Fri", y: 20 },
+    ],
+  },
+];
+
+const pieData = [
+  { id: "mobile", value: 46 },
+  { id: "desktop", value: 34 },
+  { id: "tablet", value: 20 },
+];
+
+const multiPieSeries: readonly MultiPieChartSeries[] = [
+  {
+    id: "current",
+    data: [
+      { id: "organic", value: 42 },
+      { id: "paid", value: 33 },
+      { id: "referral", value: 25 },
+    ],
+  },
+  {
+    id: "previous",
+    data: [
+      { id: "organic", value: 36 },
+      { id: "paid", value: 29 },
+      { id: "referral", value: 35 },
+    ],
+  },
+  {
+    id: "next",
+    data: [
+      { id: "organic", value: 66 },
+      { id: "paid", value: 49 },
+      { id: "referral", value: 15 },
     ],
   },
 ];
@@ -278,6 +314,42 @@ export default function Index() {
               tickCount: 5,
               label: { color: "#334155", fontSize: 11, gap: 8 },
             }}
+          />
+        </View>
+      </View>
+
+      <Typography.Title2>Pie chart styles</Typography.Title2>
+
+      <View style={styles.card}>
+        <Typography.Title5>Donut</Typography.Title5>
+        <Typography.Master color="#64748b">
+          Rounded slices with proportional inner and outer radii
+        </Typography.Master>
+        <View style={styles.chart}>
+          <PieChart
+            data={pieData}
+            innerRadius={0.52}
+            outerRadius={0.9}
+            slice={{
+              cornerRadius: 5,
+              strokeColor: "#ffffff",
+              strokeWidth: 2,
+            }}
+          />
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Typography.Title5>Multiple series</Typography.Title5>
+        <Typography.Master color="#64748b">
+          Independently normalized series rendered as concentric rings
+        </Typography.Master>
+        <View style={styles.chart}>
+          <MultiPieChart
+            series={multiPieSeries}
+            innerRadius={0.5}
+            padAngle={1}
+            ringPadding={4}
           />
         </View>
       </View>
