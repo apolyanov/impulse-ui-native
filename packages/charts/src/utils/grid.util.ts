@@ -20,14 +20,14 @@ export function createVerticalGridPath<Value>(
     return null;
   }
 
-  const path = Skia.Path.Make();
+  const path = Skia.PathBuilder.Make();
 
   ticks.forEach(({ position }) => {
     path.moveTo(position, plot.y);
     path.lineTo(position, plot.y + plot.height);
   });
 
-  return path;
+  return path.detach();
 }
 
 export function createHorizontalGridPath<Value>(
@@ -41,14 +41,14 @@ export function createHorizontalGridPath<Value>(
     return null;
   }
 
-  const path = Skia.Path.Make();
+  const path = Skia.PathBuilder.Make();
 
   ticks.forEach(({ position }) => {
     path.moveTo(plot.x, position);
     path.lineTo(plot.x + plot.width, position);
   });
 
-  return path;
+  return path.detach();
 }
 
 export function resolveGridLineOptions(
