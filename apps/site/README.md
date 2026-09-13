@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ImpulseUI Native website
 
-## Getting Started
+The public Next.js website for ImpulseUI Native. It contains the project introduction, component previews, design-token overview, package-version API route, search-engine metadata, and AI-readable project context.
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Install workspace dependencies from the repository root, then start the site:
+
+```sh
+pnpm install
+pnpm --filter @impulse-ui-native/site dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The application routes live in `apps/site/app`, shared site code lives in `apps/site/lib`, and static assets live in `apps/site/public`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site uses Tailwind CSS and Montserrat through `next/font`. Set `SITE_URL` when you need generated metadata, `robots.txt`, `sitemap.xml`, and social cards to use a specific canonical origin.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Optional search-engine verification values are read from:
 
-## Learn More
+```dotenv
+GOOGLE_SITE_VERIFICATION=
+BING_SITE_VERIFICATION=
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Checks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run these commands from the repository root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+pnpm --filter @impulse-ui-native/site check-types
+pnpm --filter @impulse-ui-native/site lint
+pnpm --filter @impulse-ui-native/site build
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Production Docker and Traefik deployment instructions are maintained in the [repository README](../../README.md#deploy-the-website).

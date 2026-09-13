@@ -11,7 +11,13 @@ pnpm add @impulse-ui-native/toolkit
 Install the native peer dependencies required by the features you use:
 
 ```sh
-pnpm add @shopify/flash-list react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
+pnpm add @shopify/flash-list @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
+```
+
+Endpoint factories additionally require `axios` and `@tanstack/react-query`:
+
+```sh
+pnpm add axios @tanstack/react-query
 ```
 
 ## Setup
@@ -45,6 +51,7 @@ Follow the installation instructions for Gesture Handler, Reanimated, and Workle
 - Foundations: `core`, `types`, `theme`, and `primitives`.
 - Inputs: `Input`, `Select`, and `MultiSelect`.
 - Date and time: `DatePicker`, `DateRangePicker`, `DatetimePicker`, `DatetimeRangePicker`, and `TimePicker`.
+- Charts: `LineChart`, `MultiLineChart`, `BarChart`, `MultiBarChart`, `PieChart`, `MultiPieChart`, and their lower-level primitives, hooks, and utilities.
 - Feedback: `Skeleton`, `DataView`, `LoadingView`, `EmptyView`, and `ErrorView`.
 - Navigation and overlays: `Stepper`, `Flyout`, `LayerCenter`, the flyout registry, and portal primitives.
 - Infrastructure: `EchoInstance`, echo hooks, and endpoint factories.

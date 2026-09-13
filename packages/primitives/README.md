@@ -10,6 +10,12 @@ pnpm add @impulse-ui-native/primitives
 
 Render primitives inside `ThemeProvider` from `@impulse-ui-native/theme`.
 
+`SafeAreaView` additionally requires `react-native-safe-area-context` and a `SafeAreaProvider` near the application root:
+
+```sh
+pnpm add react-native-safe-area-context
+```
+
 ## Main exports
 
 - `View` adds theme spacing, dimensions, flex, borders, colors, and shadow props to React Native's view.

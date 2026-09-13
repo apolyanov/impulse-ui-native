@@ -1,57 +1,48 @@
-![picture of storybook](https://github.com/user-attachments/assets/cf98766d-8b90-44ab-b718-94ab16e63205)
+# ImpulseUI Native Storybook
 
-# getting started
+The Expo and React Native Web Storybook host for developing and reviewing ImpulseUI Native components. Native stories are discovered from the workspace packages and rendered with the toolkit theme.
 
-```sh
-npx create-expo-app --template expo-template-storybook AwesomeStorybook
-```
+## Development
 
-or
+Install workspace dependencies from the repository root:
 
 ```sh
-yarn create expo-app --template expo-template-storybook AwesomeStorybook
+pnpm install
 ```
 
-# app
+Start the on-device Storybook:
 
 ```sh
-yarn start
+pnpm --filter impulse-ui-native storybook
 ```
 
-# RN Storybook (ondevice)
-
-In this template you can now run `yarn storybook` to start ondevice storybook or `yarn start` to start your expo app.
-This works via env variables and expo constants.
+Open it directly in a simulator or emulator with:
 
 ```sh
-# either
-yarn storybook
-
-# ios
-yarn storybook:ios
-
-# android
-yarn storybook:android
+pnpm --filter impulse-ui-native storybook:ios
+pnpm --filter impulse-ui-native storybook:android
 ```
 
-If you add new stories on the native (ondevice version) you either need to have the watcher running or run the stories loader
+Because this application uses native modules, use a compatible development build rather than Expo Go.
 
-To update the stories one time
+When native stories are added or renamed, regenerate the Storybook loader:
 
 ```sh
-yarn storybook-generate
+pnpm --filter impulse-ui-native storybook-generate
 ```
 
-# Web
+## Web Storybook
 
-Start react native web storybook:
-
-```
-yarn storybook:web
-```
-
-build react native web storybook:
+Start the React Native Web Storybook at [http://localhost:6006](http://localhost:6006):
 
 ```sh
-yarn build-storybook
+pnpm --filter impulse-ui-native storybook:web
 ```
+
+Create its static build with:
+
+```sh
+pnpm --filter impulse-ui-native build-storybook
+```
+
+Storybook configuration lives in `.rnstorybook` for native and `.storybook` for web.

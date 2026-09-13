@@ -5,10 +5,10 @@ Single- and multi-value select controls that present their options in a themed f
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/select
+pnpm add @impulse-ui-native/select @shopify/flash-list react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
 ```
 
-The package relies on the theme, layer, flyout, gesture, animation, safe-area, and list infrastructure. The simplest setup is to use `ThemeProvider` and mount one `LayerCenter` at the application root.
+Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. The simplest application setup is to use `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `LayerCenter` at the application root.
 
 ## Main exports
 

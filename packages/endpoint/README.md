@@ -42,4 +42,4 @@ function ProjectScreen({ id }: { id: string }) {
 }
 ```
 
-Each generated query or mutation is callable as a React hook and also exposes `.execute(...)` for imperative use outside React.
+Generated standard-query and mutation functions are callable as React hooks and also expose `.execute(...)` for imperative use outside React. Infinite-query factories return hooks only; use the configured Axios client directly when an imperative paginated request is needed.

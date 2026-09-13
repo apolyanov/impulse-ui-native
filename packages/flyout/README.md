@@ -5,7 +5,7 @@ A token-driven, gesture-enabled sheet that can enter from the top or bottom of t
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/flyout
+pnpm add @impulse-ui-native/flyout react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
 ```
 
 This package uses React Native Gesture Handler, Reanimated, Safe Area Context, and Worklets. Complete their native setup and render the flyout inside both `GestureHandlerRootView` and `SafeAreaProvider`.

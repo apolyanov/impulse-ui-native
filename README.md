@@ -141,9 +141,11 @@ pnpm --filter @impulse-ui-native/site build
 
 ```text
 apps/
-  impulse-ui-native/  Expo example and Storybook host
+  impulse-ui-native/  Expo native and web Storybook host
+  playground/          Expo playground for exercising package APIs
   site/               Next.js project website
 packages/
+  charts/             Skia-rendered line, bar, and pie charts
   toolkit/            Complete public package
   theme/              Primitive, semantic, and component tokens
   primitives/         Shared component foundations

@@ -2,6 +2,14 @@
 
 Skia-rendered chart components and primitives for Impulse UI Native.
 
+## Installation
+
+```sh
+pnpm add @impulse-ui-native/charts @shopify/react-native-skia
+```
+
+Follow Skia's platform setup instructions before rendering a chart.
+
 ## Components
 
 The package provides Skia-rendered `LineChart`, `MultiLineChart`, `BarChart`, `MultiBarChart`, `PieChart`, and `MultiPieChart` components. Charts fill their parent, so give the surrounding view an explicit height.
@@ -108,4 +116,4 @@ import { MultiPieChart } from "@impulse-ui-native/charts";
 
 ## Native prerequisite
 
-Chart APIs require `@shopify/react-native-skia` version 2 or newer. Follow Skia's platform setup instructions before using them.
+Chart APIs require `@shopify/react-native-skia` version 2 or newer.

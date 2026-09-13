@@ -5,8 +5,10 @@ Composable, theme-aware placeholders for loading layouts.
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/skeleton
+pnpm add @impulse-ui-native/skeleton react-native-reanimated react-native-worklets
 ```
+
+Complete the Reanimated and Worklets setup required by your React Native or Expo project.
 
 ## Main exports
 

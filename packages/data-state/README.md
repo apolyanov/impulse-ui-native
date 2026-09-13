@@ -5,15 +5,16 @@ Reusable loading, empty, error, and content-state composition for data-backed sc
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/data-state
+pnpm add @impulse-ui-native/data-state react-native-reanimated react-native-worklets
 ```
+
+Complete the Reanimated and Worklets setup required by your React Native or Expo project.
 
 ## Main exports
 
-- `LoadingView` swaps content for a caller-provided loading component.
-- `EmptyView` renders empty-state copy and primary or secondary actions when `isEmpty` is true.
-- `ErrorView` renders error-state copy and actions when an error is present.
-- `DataView` coordinates loading, error, empty, and successful-content states in one component.
+- `LoadingView` transitions between content and a caller-provided loading component.
+- `EmptyView` and `ErrorView` are standalone containers for caller-rendered state content.
+- `DataView` coordinates loading, error, empty, and successful-content states and renders the configured state copy and actions.
 - Public prop types describe each state view and its action footer.
 
 ## Usage
@@ -31,7 +32,7 @@ import { DataView } from "@impulse-ui-native/data-state";
   errorViewProps={{
     text: "Could not load projects.",
     primaryActionLabel: "Try again",
-    onPressPrimaryAction: query.refetch,
+    onPressPrimaryAction: () => query.refetch(),
   }}
   emptyViewProps={{
     text: "No projects yet.",
