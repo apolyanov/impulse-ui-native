@@ -2,8 +2,6 @@ import type { Preview } from "@storybook/react-native";
 import { Platform } from "react-native";
 import { withBackgrounds } from "@storybook/addon-ondevice-backgrounds";
 
-import { ThemeProvider, View } from "@impulse-ui-native/toolkit";
-
 if (Platform.OS === "web") {
   // @ts-ignore
   global.ProgressTransitionRegister = {};
@@ -11,16 +9,8 @@ if (Platform.OS === "web") {
   global.UpdatePropsManager = {};
 }
 
-const withTheme = (Story: React.ComponentType) => (
-  <ThemeProvider>
-    <View flex={1}>
-      <Story />
-    </View>
-  </ThemeProvider>
-);
-
 const preview: Preview = {
-  decorators: [withBackgrounds, withTheme],
+  decorators: [withBackgrounds],
 
   parameters: {
     backgrounds: {
