@@ -1,5 +1,17 @@
 # @impulse-ui-native/data-state
 
+## 2.1.6
+
+### Patch Changes
+
+- f169c09: Fixing wrong tag flex prop
+- Updated dependencies [f169c09]
+  - @impulse-ui-native/core@2.1.6
+  - @impulse-ui-native/icon@2.1.6
+  - @impulse-ui-native/primitives@2.1.6
+  - @impulse-ui-native/skeleton@2.1.6
+  - @impulse-ui-native/theme@2.1.6
+
 ## 2.1.5
 
 ### Patch Changes

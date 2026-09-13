@@ -1,5 +1,11 @@
 # @impulse-ui-native/endpoint
 
+## 2.1.6
+
+### Patch Changes
+
+- f169c09: Fixing wrong tag flex prop
+
 ## 2.1.5
 
 ## 2.1.4

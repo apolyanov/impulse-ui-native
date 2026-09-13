@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/input",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

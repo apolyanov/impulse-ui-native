@@ -1,5 +1,14 @@
 # @impulse-ui-native/echo
 
+## 2.1.6
+
+### Patch Changes
+
+- f169c09: Fixing wrong tag flex prop
+- Updated dependencies [f169c09]
+  - @impulse-ui-native/core@2.1.6
+  - @impulse-ui-native/types@2.1.6
+
 ## 2.1.5
 
 ### Patch Changes
