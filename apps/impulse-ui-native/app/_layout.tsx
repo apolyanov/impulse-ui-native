@@ -18,9 +18,7 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <ThemeProvider>
           <PortalProvider store={portalStore}>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="index" />
-            </Stack>
+            <Stack />
             <LayerCenter />
             <PortalsHost />
           </PortalProvider>
