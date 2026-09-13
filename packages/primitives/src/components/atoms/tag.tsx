@@ -38,8 +38,7 @@ export const Tag = memo(function Tag({
     return View;
   }, [onPress]);
 
-  const showClose =
-    (closable || size === "medium" || size === "large") && !disabled && onClose;
+  const showClose = closable && !disabled && onClose;
 
   return (
     <Container onPress={onPress} disabled={disabled} style={styles.container}>
@@ -91,6 +90,7 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
     },
 
     label: {
+      flex: 1,
       fontSize: sizeTokens.fontSize,
       color: disabled ? variantTokens.disabledColor : variantTokens.color,
     },
