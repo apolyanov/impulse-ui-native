@@ -3,12 +3,13 @@ import { ChartInsets, ChartLayout, ChartRect, ChartSize } from "../types";
 export function createChartLayout(
   size: ChartSize,
   insets: Partial<ChartInsets> = {},
+  defaultInsets: Partial<ChartInsets> = {},
 ): ChartLayout {
   const resolvedInsets: ChartInsets = {
-    top: insets.top ?? 0,
-    right: insets.right ?? 0,
-    bottom: insets.bottom ?? 0,
-    left: insets.left ?? 0,
+    top: insets.top ?? defaultInsets.top ?? 0,
+    right: insets.right ?? defaultInsets.right ?? 0,
+    bottom: insets.bottom ?? defaultInsets.bottom ?? 0,
+    left: insets.left ?? defaultInsets.left ?? 0,
   };
 
   const plotWidth = Math.max(

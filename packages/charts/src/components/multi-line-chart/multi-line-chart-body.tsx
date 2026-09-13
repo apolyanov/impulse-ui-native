@@ -3,6 +3,7 @@ import { Group } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
+import { CartesianChartDefaultInsets } from "../../constants";
 import { useChartLayout, useMultiLineChart } from "../../hooks";
 import { ChartXValue, MultiLineChartBodyProps } from "../../types";
 import { createDrawableMultiLineChartSeries } from "../../utils";
@@ -23,7 +24,7 @@ export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
     yAxis,
   } = props;
 
-  const layout = useChartLayout(size, insets);
+  const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
 
   const {
     series: seriesModels,

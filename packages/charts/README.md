@@ -23,10 +23,13 @@ import { BarChart } from "@impulse-ui-native/charts";
     { x: "Feb", y: 24 },
     { x: "Mar", y: 16 },
   ]}
-  insets={{ left: 40, bottom: 28 }}
   bar={{ color: "#6366f1", radius: 4 }}
 />;
 ```
+
+Cartesian charts reserve enough space for their default axes and endpoint
+labels. Use partial `insets` to override individual sides when custom labels,
+font sizes, or rotations need different spacing.
 
 Use `MultiBarChart` for grouped series. Categories are shared across the series, and each series can supply its own bar style.
 
@@ -52,7 +55,6 @@ import { MultiBarChart } from "@impulse-ui-native/charts";
   ]}
   categoryPadding={0.2}
   seriesPadding={0.1}
-  insets={{ left: 40, bottom: 28 }}
 />;
 ```
 

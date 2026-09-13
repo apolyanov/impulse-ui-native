@@ -6,6 +6,10 @@ import { createChartLayout } from "../utils/chart-layout.util";
 export function useChartLayout(
   size: ChartSize,
   insets?: Partial<ChartInsets>,
+  defaultInsets?: Partial<ChartInsets>,
 ): ChartLayout {
-  return useMemo(() => createChartLayout(size, insets), [insets, size]);
+  return useMemo(
+    () => createChartLayout(size, insets, defaultInsets),
+    [defaultInsets, insets, size],
+  );
 }
