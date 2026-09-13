@@ -1,5 +1,14 @@
 # @impulse-ui-native/stepper
 
+## 2.1.5
+
+### Patch Changes
+
+- fd608af: Add stable keys to stepper tab indicators.
+- Updated dependencies [fd608af]
+  - @impulse-ui-native/primitives@2.1.5
+  - @impulse-ui-native/theme@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes

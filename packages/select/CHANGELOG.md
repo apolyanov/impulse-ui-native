@@ -1,5 +1,20 @@
 # @impulse-ui-native/select
 
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [fd608af]
+  - @impulse-ui-native/primitives@2.1.5
+  - @impulse-ui-native/flyout@2.1.5
+  - @impulse-ui-native/input@2.1.5
+  - @impulse-ui-native/layers@2.1.5
+  - @impulse-ui-native/core@2.1.5
+  - @impulse-ui-native/icon@2.1.5
+  - @impulse-ui-native/portal@2.1.5
+  - @impulse-ui-native/theme@2.1.5
+  - @impulse-ui-native/types@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes

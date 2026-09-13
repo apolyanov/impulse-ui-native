@@ -1,5 +1,15 @@
 # @impulse-ui-native/charts
 
+## 2.3.2
+
+### Patch Changes
+
+- fd608af: Apply safe default Cartesian chart insets while preserving per-side overrides.
+- Updated dependencies [fd608af]
+  - @impulse-ui-native/primitives@2.1.5
+  - @impulse-ui-native/core@2.1.5
+  - @impulse-ui-native/theme@2.1.5
+
 ## 2.3.1
 
 ### Patch Changes

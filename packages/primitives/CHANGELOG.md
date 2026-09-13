@@ -1,5 +1,14 @@
 # @impulse-ui-native/primitives
 
+## 2.1.5
+
+### Patch Changes
+
+- fd608af: Show the Tag close action only when `closable` is enabled and allow labels to fill the available width.
+  - @impulse-ui-native/core@2.1.5
+  - @impulse-ui-native/icon@2.1.5
+  - @impulse-ui-native/theme@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes

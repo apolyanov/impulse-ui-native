@@ -1,5 +1,15 @@
 # @impulse-ui-native/storybook
 
+## 2.1.5
+
+### Patch Changes
+
+- fd608af: Add stories for charts, data states, date and time controls, flyouts, icons, inputs, layers, portals, selection, skeletons, and steppers.
+- Updated dependencies [fd608af]
+  - @impulse-ui-native/primitives@2.1.5
+  - @impulse-ui-native/icon@2.1.5
+  - @impulse-ui-native/theme@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes

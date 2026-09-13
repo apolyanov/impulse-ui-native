@@ -1,5 +1,14 @@
 # @impulse-ui-native/layers
 
+## 2.1.5
+
+### Patch Changes
+
+- @impulse-ui-native/flyout@2.1.5
+- @impulse-ui-native/core@2.1.5
+- @impulse-ui-native/echo@2.1.5
+- @impulse-ui-native/types@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes

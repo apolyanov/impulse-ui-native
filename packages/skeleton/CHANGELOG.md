@@ -1,5 +1,13 @@
 # @impulse-ui-native/skeleton
 
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [fd608af]
+  - @impulse-ui-native/primitives@2.1.5
+  - @impulse-ui-native/theme@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes
