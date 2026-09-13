@@ -34,4 +34,4 @@ export default {
 };
 ```
 
-The package source also contains the toolkit's own stories and documentation screens, but those files are not part of the public root export.
+The package source also contains the toolkit's stories and documentation screens for primitives, inputs, selection, date and time, feedback, navigation, overlays, portals, icons, and charts. Those files are discovered directly by the native and web Storybook hosts and are not part of the public root export.

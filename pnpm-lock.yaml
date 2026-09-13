@@ -218,6 +218,9 @@ importers:
       '@shopify/flash-list':
         specifier: 'catalog:'
         version: 2.0.2(@babel/runtime@7.29.2)(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
+      '@shopify/react-native-skia':
+        specifier: 'catalog:'
+        version: 2.6.2(react-native-reanimated@4.5.1(react-native-worklets@0.10.1(@babel/core@7.29.0)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
       expo:
         specifier: 'catalog:'
         version: 57.0.14(@babel/core@7.29.0)(@expo/dom-webview@57.0.1)(@expo/metro-runtime@57.0.10)(expo-router@57.0.14)(react-dom@19.2.3(react@19.2.3))(react-native-web@0.21.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-native-worklets@0.10.1(@babel/core@7.29.0)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)(typescript@6.0.3)
@@ -1168,15 +1171,51 @@ importers:
         specifier: workspace:*
         version: link:../theme
     devDependencies:
+      '@impulse-ui-native/charts':
+        specifier: workspace:*
+        version: link:../charts
+      '@impulse-ui-native/data-state':
+        specifier: workspace:*
+        version: link:../data-state
+      '@impulse-ui-native/datetime':
+        specifier: workspace:*
+        version: link:../datetime
       '@impulse-ui-native/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
+      '@impulse-ui-native/flyout':
+        specifier: workspace:*
+        version: link:../flyout
+      '@impulse-ui-native/input':
+        specifier: workspace:*
+        version: link:../input
+      '@impulse-ui-native/layers':
+        specifier: workspace:*
+        version: link:../layers
+      '@impulse-ui-native/portal':
+        specifier: workspace:*
+        version: link:../portal
       '@impulse-ui-native/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@impulse-ui-native/select':
+        specifier: workspace:*
+        version: link:../select
+      '@impulse-ui-native/skeleton':
+        specifier: workspace:*
+        version: link:../skeleton
+      '@impulse-ui-native/stepper':
+        specifier: workspace:*
+        version: link:../stepper
       '@impulse-ui-native/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@shopify/react-native-skia':
+        specifier: 'catalog:'
+        version: 2.6.2(react-native-reanimated@4.5.1(react-native-worklets@0.10.1(@babel/core@7.29.0)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
+      '@storybook/react':
+        specifier: ^10.0.0
+        version: 10.4.0(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.4.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@testing-library/dom@10.4.1)(@types/react@19.2.14)(prettier@3.8.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@6.0.3)
       '@types/react':
         specifier: catalog:react19
         version: 19.2.14

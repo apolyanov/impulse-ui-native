@@ -23,6 +23,7 @@
     "@react-native-community/datetimepicker": "catalog:",
     "@react-native-community/slider": "catalog:",
     "@shopify/flash-list": "catalog:",
+    "@shopify/react-native-skia": "catalog:",
     "@impulse-ui-native/toolkit": "workspace:*",
     "expo": "catalog:",
     "expo-constants": "catalog:",

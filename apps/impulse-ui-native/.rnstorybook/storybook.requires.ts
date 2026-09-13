@@ -19,39 +19,6 @@ const normalizedStories = [
       true,
       /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
     ),
-  },
-  {
-    titlePrefix: "",
-    directory: "../../packages",
-    files: "**/*.story.?(ts|tsx|js|jsx)",
-    importPathMatcher: /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.story\.(?:ts|tsx|js|jsx)?)$/,
-    req: require.context(
-      '../../../packages',
-      true,
-      /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.story\.(?:ts|tsx|js|jsx)?)$/
-    ),
-  },
-  {
-    titlePrefix: "",
-    directory: "./stories",
-    files: "**/*.stories.?(ts|tsx|js|jsx)",
-    importPathMatcher: /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
-    req: require.context(
-      '../stories',
-      true,
-      /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
-    ),
-  },
-  {
-    titlePrefix: "",
-    directory: "./stories",
-    files: "**/*.story.?(ts|tsx|js|jsx)",
-    importPathMatcher: /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.story\.(?:ts|tsx|js|jsx)?)$/,
-    req: require.context(
-      '../stories',
-      true,
-      /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.story\.(?:ts|tsx|js|jsx)?)$/
-    ),
   }
 ];
 
