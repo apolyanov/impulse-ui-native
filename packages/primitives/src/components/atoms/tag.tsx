@@ -90,7 +90,6 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
     },
 
     label: {
-      flex: 1,
       fontSize: sizeTokens.fontSize,
       color: disabled ? variantTokens.disabledColor : variantTokens.color,
     },
