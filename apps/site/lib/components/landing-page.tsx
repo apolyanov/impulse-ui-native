@@ -607,8 +607,8 @@ const buttonApi = [
   ["variant", '"filled" | "outlined" | "soft" | "ghost" | "plain"', '"filled"'],
   ["loading", "boolean", "false"],
   ["disabled", "boolean", "false"],
-  ["onPress", "PressableProps['onPress']", "—"],
-  ["shadow", '"none" | "xs" | "sm" | "md" | "lg" | "xl"', "—"],
+  ["onPress", "PressableProps['onPress']", "–"],
+  ["shadow", '"none" | "xs" | "sm" | "md" | "lg" | "xl"', "–"],
 ] as const;
 
 export function DeveloperExperienceSection() {

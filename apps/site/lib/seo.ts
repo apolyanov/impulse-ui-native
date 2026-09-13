@@ -5,7 +5,7 @@ const configuredUrl = process.env.SITE_URL ?? "http://localhost:3000";
 export const siteUrl = new URL(configuredUrl).origin;
 
 export const seo = {
-  title: "ImpulseUI Native — Open-source React Native UI system",
+  title: "ImpulseUI Native - Open-source React Native UI system",
   shortTitle: "ImpulseUI Native",
   description:
     "A token-driven, composable React Native UI system for building consistent interfaces across iOS, Android, and the web.",
