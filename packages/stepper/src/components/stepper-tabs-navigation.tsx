@@ -12,8 +12,13 @@ export const StepperTabsNavigation = memo(
 
       return (
         <View flexDirection="row" width="100%">
-          {props.items.map(() => (
-            <View height={6} flex={1} backgroundColor={colors.primary.value} />
+          {props.items.map((item, index) => (
+            <View
+              key={`${item.title ?? "step"}-${index}`}
+              height={6}
+              flex={1}
+              backgroundColor={colors.primary.value}
+            />
           ))}
         </View>
       );
