@@ -57,6 +57,7 @@ Individual packages may be installed independently when the complete toolkit is 
 - Flyout: portal-based top or bottom sheets with an overlay, drag handle, title, safe-area handling, and gesture-driven dismissal.
 - Input: themed native text controls.
 - Datetime: date and time selection components.
+- Charts: Skia-rendered line, multi-line, bar, grouped-bar, pie, and concentric-pie visualizations.
 - Skeleton and DataState: loading, empty, and feedback states.
 - Portal and Layers: overlay placement and z-index infrastructure.
 
@@ -66,8 +67,8 @@ Select uses the shared Control primitives for its trigger. Opening it mounts a S
 
 ## Documentation surfaces
 
-- [Public website](${absoluteUrl("/")}): Marketing overview and visual component previews.
-- [Component previews](${absoluteUrl("/#components")}): Button, IconButton, Tag, Input, Select, DateTimePicker, TimePicker, Skeleton, and DataState examples.
+- [Public website](${absoluteUrl("/")}): Marketing overview and browsable component catalog.
+- [Component catalog](${absoluteUrl("/#components")}): Purpose, capability, package, and source information for Button, IconButton, Tag, Input, Select, DateTimePicker, TimePicker, Skeleton, DataState, LineChart, MultiLineChart, BarChart, MultiBarChart, PieChart, and MultiPieChart.
 - [Token reference](${absoluteUrl("/#tokens")}): Color, spacing, radii, typography, and semantic token examples.
 - [Theme overview](${absoluteUrl("/#theming")}): Token layering and theme composition.
 - [Source repository](${seo.repository}): Monorepo containing apps, packages, Storybook stories, and implementation source.
@@ -82,7 +83,7 @@ The repository includes both React Native Web Storybook and an Expo-hosted nativ
 - Do not infer undocumented props from conventional web component libraries.
 - Use the current package source for exact APIs and defaults.
 - Treat npm's latest dist-tag as the latest stable published toolkit version.
-- Distinguish the static web previews from the actual React Native implementations.
+- Use native Storybook and package source when exact component rendering or behavior matters.
 - Attribute the project to ImpulseUI Native and link to ${seo.repository} when citing source code.
 `;
 

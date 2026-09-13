@@ -11,8 +11,8 @@ ImpulseUI Native is an MIT-licensed TypeScript component system for React Native
 
 ## Primary resources
 
-- [Website](${absoluteUrl("/")}): Project overview, component previews, tokens, theming, and getting-started information.
-- [Components](${absoluteUrl("/#components")}): Visual previews of the component building blocks.
+- [Website](${absoluteUrl("/")}): Project overview, component catalog, tokens, theming, and getting-started information.
+- [Components](${absoluteUrl("/#components")}): Catalog of component purposes, capabilities, packages, and source links.
 - [Design tokens](${absoluteUrl("/#tokens")}): Primitive and semantic tokens shared with the native packages.
 - [Theming](${absoluteUrl("/#theming")}): Theme architecture and customization overview.
 - [Documentation](${absoluteUrl("/#docs")}): Documentation and component exploration entry point.

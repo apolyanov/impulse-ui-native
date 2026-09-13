@@ -16,18 +16,7 @@ import {
   SectionHeading,
 } from "./marketing-primitives";
 import { WebTag } from "./native-web";
-import {
-  ButtonPreview,
-  DataStatePreview,
-  DateTimePickerPreview,
-  IconButtonPreview,
-  InputPreview,
-  PhonePreview,
-  SelectPreview,
-  SkeletonPreview,
-  TagPreview,
-  TimePickerPreview,
-} from "./previews";
+import { PhonePreview } from "./previews";
 
 const actionBase =
   "inline-flex h-component-large items-center justify-center gap-xs rounded-md border-sm px-sm text-xsm font-semiBold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2";
@@ -146,27 +135,173 @@ export function OpenSourceStrip() {
   );
 }
 
-export function ComponentsSection() {
-  const previews = [
-    ["Button", <ButtonPreview key="Button" />],
-    ["IconButton", <IconButtonPreview key="IconButton" />],
-    ["Tag", <TagPreview key="Tag" />],
-    ["Input", <InputPreview key="Input" />],
-    ["Select", <SelectPreview key="Select" />],
-    ["DateTimePicker", <DateTimePickerPreview key="DateTimePicker" />],
-    ["TimePicker", <TimePickerPreview key="TimePicker" />],
-    ["Skeleton", <SkeletonPreview key="Skeleton" />],
-    ["DataState", <DataStatePreview key="DataState" />],
-  ] as const;
+const componentGroups = [
+  {
+    name: "Actions",
+    icon: "zap",
+    components: [
+      {
+        name: "Button",
+        description:
+          "Trigger primary and secondary actions across sizes, variants, and loading states.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/button.tsx",
+        tags: ["Interactive", "5 variants"],
+      },
+      {
+        name: "IconButton",
+        description:
+          "Present compact, accessible actions when an icon communicates the intent.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/icon-button.tsx",
+        tags: ["Interactive", "Accessible"],
+      },
+    ],
+  },
+  {
+    name: "Inputs",
+    icon: "type",
+    components: [
+      {
+        name: "Input",
+        description:
+          "Collect typed text with themed labels, validation, and supporting content.",
+        packageName: "@impulse-ui-native/input",
+        sourcePath: "input/src/components/input.tsx",
+        tags: ["Interactive", "Validated"],
+      },
+      {
+        name: "Select",
+        description:
+          "Choose one or many values through a themed control and native flyout.",
+        packageName: "@impulse-ui-native/select",
+        sourcePath: "select/src/components/select.tsx",
+        tags: ["Interactive", "Flyout"],
+      },
+      {
+        name: "DateTimePicker",
+        description:
+          "Select dates with calendar navigation and configurable date constraints.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath: "datetime/src/components/datetime/datetime-picker.tsx",
+        tags: ["Interactive", "Calendar"],
+      },
+      {
+        name: "TimePicker",
+        description:
+          "Select hours and minutes using native-friendly scrolling controls.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath: "datetime/src/components/time/time-picker.tsx",
+        tags: ["Interactive", "Time"],
+      },
+    ],
+  },
+  {
+    name: "Feedback",
+    icon: "bell",
+    components: [
+      {
+        name: "Tag",
+        description:
+          "Label status and categories with semantic colors and optional dismissal.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/tag.tsx",
+        tags: ["Display", "Closable"],
+      },
+      {
+        name: "Skeleton",
+        description:
+          "Communicate loading layouts with animated bones, text, and shape presets.",
+        packageName: "@impulse-ui-native/skeleton",
+        sourcePath: "skeleton/src/components/skeleton.tsx",
+        tags: ["Animated", "Loading"],
+      },
+      {
+        name: "DataState",
+        description:
+          "Explain empty, error, and completed states with composable actions.",
+        packageName: "@impulse-ui-native/data-state",
+        sourcePath: "data-state/src/components/data-view.tsx",
+        tags: ["Feedback", "Composable"],
+      },
+    ],
+  },
+  {
+    name: "Charts",
+    icon: "layers",
+    components: [
+      {
+        name: "LineChart",
+        description:
+          "Show a continuous trend across numeric, date, or categorical values.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/line-chart/line-chart.tsx",
+        tags: ["Skia", "Cartesian"],
+      },
+      {
+        name: "MultiLineChart",
+        description:
+          "Compare multiple series against the same axes, domain, and grid.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath:
+          "charts/src/components/multi-line-chart/multi-line-chart.tsx",
+        tags: ["Skia", "Multi-series"],
+      },
+      {
+        name: "BarChart",
+        description:
+          "Compare categorical values, including positive and negative measurements.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/bar-chart/bar-chart.tsx",
+        tags: ["Skia", "Cartesian"],
+      },
+      {
+        name: "MultiBarChart",
+        description:
+          "Compare grouped series across categories with configurable spacing.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/multi-bar-chart/multi-bar-chart.tsx",
+        tags: ["Skia", "Grouped"],
+      },
+      {
+        name: "PieChart",
+        description:
+          "Communicate proportions as a token-colored pie or donut chart.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/pie-chart/pie-chart.tsx",
+        tags: ["Skia", "Radial"],
+      },
+      {
+        name: "MultiPieChart",
+        description:
+          "Display independently normalized data as concentric proportional rings.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/multi-pie-chart/multi-pie-chart.tsx",
+        tags: ["Skia", "Concentric"],
+      },
+    ],
+  },
+] as const satisfies readonly {
+  name: string;
+  icon: SystemIconName;
+  components: readonly {
+    name: string;
+    description: string;
+    packageName: string;
+    sourcePath: string;
+    tags: readonly string[];
+  }[];
+}[];
 
+export function ComponentsSection() {
   return (
     <section id="components">
       <SectionContainer className="py-xxl">
         <div className="flex flex-wrap items-end justify-between gap-sm">
           <SectionHeading
-            copy="Accessible, composable building blocks whose web previews use the same dimensions, variants, colors, and states as the native packages."
+            copy="Browse the library by purpose, capability, and package. Native behavior stays in native Storybook, while this catalog gives every component a clear place in the system."
             eyebrow="Components"
-            title="Explore the real building blocks."
+            title="Know what is available."
           />
           <a
             className="inline-flex items-center gap-xxs text-xsm font-semiBold text-primary"
@@ -176,11 +311,31 @@ export function ComponentsSection() {
             <SystemIcon className="size-sm" name="arrow" />
           </a>
         </div>
-        <div className="mt-lg grid gap-sm md:grid-cols-2 lg:grid-cols-3">
-          {previews.map(([name, preview]) => (
-            <ComponentCard key={name} name={name}>
-              {preview}
-            </ComponentCard>
+        <div className="mt-lg space-y-lg">
+          {componentGroups.map((group) => (
+            <section key={group.name}>
+              <div className="mb-sm flex items-center gap-xs">
+                <span className="flex size-component-small items-center justify-center rounded-sm bg-secondary text-primary">
+                  <SystemIcon className="size-sm" name={group.icon} />
+                </span>
+                <h3 className="text-title-5 font-bold">{group.name}</h3>
+                <span className="text-caption text-text-disabled">
+                  {group.components.length}
+                </span>
+                <span className="h-px flex-1 bg-border-subtle" />
+              </div>
+              <div className="grid gap-sm md:grid-cols-2 lg:grid-cols-3">
+                {group.components.map((component) => (
+                  <ComponentCard
+                    {...component}
+                    category={group.name}
+                    icon={group.icon}
+                    key={component.name}
+                    sourceHref={`${project.repository}/blob/main/packages/${component.sourcePath}`}
+                  />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
         <ButtonPlayground />

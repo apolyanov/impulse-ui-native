@@ -62,7 +62,7 @@ Create a static Storybook build with:
 pnpm --filter impulse-ui-native build-storybook
 ```
 
-The project website contains the public introduction, component previews, design-token overview, and links into the source. Written guides can be added to its `/docs` section as the documentation grows.
+The project website contains the public introduction, component catalog, design-token overview, and links into the source. Written guides can be added to its `/docs` section as the documentation grows.
 
 ## Deploy the website
 

@@ -1,3 +1,4 @@
+import type { SystemIconName } from "@/lib/icons/system-icon";
 import type { HTMLAttributes, ReactNode } from "react";
 import { SystemIcon } from "@/lib/icons/system-icon";
 import { classNames } from "@/lib/utils/class-names";
@@ -46,28 +47,60 @@ export function SectionHeading({
 }
 
 export function ComponentCard({
+  category,
+  description,
+  icon,
   name,
-  children,
+  packageName,
+  sourceHref,
+  tags,
 }: {
+  category: string;
+  description: string;
+  icon: SystemIconName;
   name: string;
-  children: ReactNode;
+  packageName: string;
+  sourceHref: string;
+  tags: readonly string[];
 }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-md border border-border-subtle bg-surface-elevated transition-colors hover:border-primary hover:shadow-lg">
-      <div className="flex min-h-48 flex-1 items-center justify-center border-b border-border-subtle bg-surface-primary p-msm">
-        {children}
+    <article className="group flex h-full flex-col rounded-md border border-border-subtle bg-surface-elevated p-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg">
+      <div className="flex items-start justify-between gap-xs">
+        <span className="flex size-component-large items-center justify-center rounded-md bg-secondary text-primary">
+          <SystemIcon className="size-msm" name={icon} />
+        </span>
+        <span className="rounded-round border border-border-subtle bg-surface-primary px-xs py-xxs text-[10px] font-semiBold uppercase tracking-wider text-text-disabled">
+          {category}
+        </span>
       </div>
-      <div className="flex h-xl shrink-0 items-center justify-between gap-xs px-sm">
-        <div className="min-w-0">
-          <h3 className="truncate text-xsm font-bold">{name}</h3>
-          <code className="mt-1 block truncate text-caption text-text-disabled">
-            {`<${name} />`}
-          </code>
-        </div>
-        <SystemIcon
-          className="size-sm shrink-0 text-text-disabled transition-all group-hover:translate-x-1 group-hover:text-primary"
-          name="arrow"
-        />
+      <h3 className="mt-sm text-title-5 font-bold">{name}</h3>
+      <p className="mt-xs flex-1 text-body-small text-text-secondary">
+        {description}
+      </p>
+      <div className="mt-sm flex flex-wrap gap-xxs">
+        {tags.map((tag) => (
+          <span
+            className="rounded-sm bg-surface-primary px-xs py-xxs text-[10px] font-semiBold text-text-disabled"
+            key={tag}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+      <div className="mt-sm flex items-center gap-xs border-t border-border-subtle pt-mxs">
+        <code className="min-w-0 flex-1 truncate text-[10px] text-text-disabled">
+          {packageName}
+        </code>
+        <a
+          aria-label={`View ${name} source`}
+          className="flex size-component-small shrink-0 items-center justify-center rounded-sm text-text-disabled transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus"
+          href={sourceHref}
+        >
+          <SystemIcon
+            className="size-sm transition-transform group-hover:translate-x-1"
+            name="arrow"
+          />
+        </a>
       </div>
     </article>
   );

@@ -1,6 +1,6 @@
 # ImpulseUI Native website
 
-The public Next.js website for ImpulseUI Native. It contains the project introduction, component previews, design-token overview, package-version API route, search-engine metadata, and AI-readable project context.
+The public Next.js website for ImpulseUI Native. It contains the project introduction, component catalog, design-token overview, package-version API route, search-engine metadata, and AI-readable project context.
 
 ## Development
 
