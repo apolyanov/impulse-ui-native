@@ -1,5 +1,14 @@
 # @impulse-ui-native/stepper
 
+## 2.3.4
+
+### Patch Changes
+
+- Adding licenses to packages
+- Updated dependencies
+  - @impulse-ui-native/primitives@2.3.4
+  - @impulse-ui-native/theme@2.3.4
+
 ## 2.1.6
 
 ### Patch Changes

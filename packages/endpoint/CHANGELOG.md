@@ -1,5 +1,11 @@
 # @impulse-ui-native/endpoint
 
+## 2.3.4
+
+### Patch Changes
+
+- Adding licenses to packages
+
 ## 2.1.6
 
 ### Patch Changes

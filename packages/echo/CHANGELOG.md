@@ -1,5 +1,14 @@
 # @impulse-ui-native/echo
 
+## 2.3.4
+
+### Patch Changes
+
+- Adding licenses to packages
+- Updated dependencies
+  - @impulse-ui-native/core@2.3.4
+  - @impulse-ui-native/types@2.3.4
+
 ## 2.1.6
 
 ### Patch Changes
