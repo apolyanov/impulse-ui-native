@@ -44,4 +44,8 @@ import { DataView } from "@impulse-ui-native/data-state";
 </DataView>;
 ```
 
+While loading, `DataView` keeps its successful-state children mounted and
+visually hidden beneath the loader. Give those children their expected loaded
+height to prevent the surrounding layout from shifting when loading finishes.
+
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
