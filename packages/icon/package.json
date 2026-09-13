@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/icon",
-  "version": "2.1.6",
+  "version": "2.3.3",
   "exports": {
     "./components/icon": {
       "types": "./dist/components/icon.d.mts",

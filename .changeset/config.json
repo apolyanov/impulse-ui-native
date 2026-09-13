@@ -4,6 +4,7 @@
   "commit": false,
   "fixed": [
     [
+      "@impulse-ui-native/charts",
       "@impulse-ui-native/core",
       "@impulse-ui-native/data-state",
       "@impulse-ui-native/datetime",
