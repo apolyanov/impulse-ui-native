@@ -1,5 +1,11 @@
 # @impulse-ui-native/types
 
+## 2.1.4
+
+### Patch Changes
+
+- 13ae4f4: Updating README docs
+
 ## 2.1.3
 
 ## 2.1.2

@@ -1,5 +1,16 @@
 # @impulse-ui-native/flyout
 
+## 2.1.4
+
+### Patch Changes
+
+- 13ae4f4: Updating README docs
+- Updated dependencies [13ae4f4]
+  - @impulse-ui-native/core@2.1.4
+  - @impulse-ui-native/primitives@2.1.4
+  - @impulse-ui-native/theme@2.1.4
+  - @impulse-ui-native/types@2.1.4
+
 ## 2.1.3
 
 ### Patch Changes

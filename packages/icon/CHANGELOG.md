@@ -1,5 +1,13 @@
 # @impulse-ui-native/icon
 
+## 2.1.4
+
+### Patch Changes
+
+- 13ae4f4: Updating README docs
+- Updated dependencies [13ae4f4]
+  - @impulse-ui-native/theme@2.1.4
+
 ## 2.1.3
 
 ### Patch Changes
