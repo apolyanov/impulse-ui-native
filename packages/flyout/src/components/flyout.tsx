@@ -1,53 +1,20 @@
-import {
-  Fragment,
-  memo,
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import {
-  LayoutChangeEvent,
-  Pressable,
-  StyleSheet,
-  useWindowDimensions,
-} from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from "react-native-reanimated";
+import { Fragment, memo, PropsWithChildren, useMemo } from "react";
+import { Pressable, StyleSheet, useWindowDimensions } from "react-native";
+import { GestureDetector } from "react-native-gesture-handler";
+import Animated, { useAnimatedStyle } from "react-native-reanimated";
 import {
   Edge,
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { scheduleOnRN } from "react-native-worklets";
 
 import { View } from "@impulse-ui-native/primitives";
 import { AppTheme, useTheme } from "@impulse-ui-native/theme";
 
-import { FlyoutHandleHeight } from "../constants";
+import { useFlyoutLifecycle } from "../hooks";
 import { FlyoutProps } from "../types";
 import { FlyoutHandle } from "./flyout-handle";
 import { FlyoutTitle } from "./flyout-title";
-
-const EnterAnimationConfig = {
-  damping: 50,
-  stiffness: 300,
-  mass: 1,
-  overshootClamping: true,
-};
-
-const ExitAnimationConfig = {
-  duration: 150,
-  easing: Easing.in(Easing.quad),
-};
 
 export const Flyout = memo(function Flyout(
   props: PropsWithChildren<FlyoutProps>,
@@ -79,18 +46,27 @@ export const Flyout = memo(function Flyout(
   const maxHeight = screenHeight * flyoutTokens.maxHeightRatio;
   const zIndex = flyoutTokens.zIndexBase + layer;
 
-  const [mounted, setMounted] = useState(open);
-  const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
-  const [hasMeasured, setHasMeasured] = useState(false);
-  const [isTouchable, setIsTouchable] = useState(false);
-
-  const didOpen = useRef(false);
-  const isClosing = useRef(false);
-
-  const translateY = useSharedValue(
-    placement === "top" ? -screenHeight : screenHeight,
-  );
-  const opacity = useSharedValue(0);
+  const {
+    close,
+    dragGesture,
+    hasMeasured,
+    isTouchable,
+    mounted,
+    onLayout,
+    opacity,
+    translateY,
+  } = useFlyoutLifecycle({
+    id,
+    open,
+    placement,
+    screenHeight,
+    safeAreaInset: insets[placement],
+    overlayVisibleOpacity: flyoutTokens.overlayVisibleOpacity,
+    onClose,
+    onCloseFinished,
+    onOpen,
+    onOpenFinished,
+  });
 
   const animatedStyle = useAnimatedStyle(() => {
     const offset =
@@ -116,166 +92,6 @@ export const Flyout = memo(function Flyout(
     return themedStyles(theme, placement, maxHeight);
   }, [theme, placement, maxHeight]);
 
-  const onLayout = useCallback(
-    (event: LayoutChangeEvent) => {
-      if (measuredHeight !== null) {
-        return;
-      }
-
-      const rawHeight = event.nativeEvent.layout.height;
-      const clampedHeight = rawHeight + insets[placement] + FlyoutHandleHeight;
-
-      translateY.value = placement === "top" ? -clampedHeight : clampedHeight;
-
-      setMeasuredHeight(clampedHeight);
-      setHasMeasured(true);
-    },
-    [insets, measuredHeight, placement, translateY],
-  );
-
-  const animateOut = useCallback(() => {
-    if (measuredHeight === null || isClosing.current) {
-      return;
-    }
-
-    isClosing.current = true;
-    setIsTouchable(false);
-    onClose?.(id);
-
-    const target = placement === "top" ? -measuredHeight : measuredHeight;
-
-    translateY.value = withTiming(target, ExitAnimationConfig, (finished) => {
-      if (finished) {
-        if (onCloseFinished) {
-          scheduleOnRN(onCloseFinished, id);
-        }
-
-        scheduleOnRN(setMounted, false);
-        scheduleOnRN(setMeasuredHeight, null);
-        scheduleOnRN(setHasMeasured, false);
-      }
-    });
-
-    opacity.value = withTiming(0, ExitAnimationConfig);
-    didOpen.current = false;
-  }, [
-    id,
-    measuredHeight,
-    onClose,
-    onCloseFinished,
-    opacity,
-    placement,
-    translateY,
-  ]);
-
-  const dragGesture = useMemo(
-    () =>
-      Gesture.Pan()
-        .enabled(hasMeasured)
-        .onUpdate((event) => {
-          if (placement === "bottom") {
-            translateY.value = Math.max(0, event.translationY);
-            return;
-          }
-
-          translateY.value = Math.min(0, event.translationY);
-        })
-        .onEnd((event) => {
-          if (measuredHeight === null) {
-            return;
-          }
-
-          let shouldClose = false;
-
-          if (placement === "bottom") {
-            shouldClose =
-              event.translationY > measuredHeight * 0.5 ||
-              event.velocityY > 1500;
-          }
-
-          if (placement === "top") {
-            shouldClose =
-              event.translationY < -measuredHeight * 0.5 ||
-              event.velocityY < -1500;
-          }
-
-          if (shouldClose) {
-            scheduleOnRN(animateOut);
-            return;
-          }
-
-          translateY.value = withSpring(0, EnterAnimationConfig);
-          opacity.value = withSpring(
-            flyoutTokens.overlayVisibleOpacity,
-            EnterAnimationConfig,
-          );
-        }),
-    [
-      animateOut,
-      flyoutTokens.overlayVisibleOpacity,
-      hasMeasured,
-      measuredHeight,
-      opacity,
-      placement,
-      translateY,
-    ],
-  );
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    setMounted(true);
-    setIsTouchable(false);
-    setMeasuredHeight(null);
-    setHasMeasured(false);
-
-    isClosing.current = false;
-    didOpen.current = false;
-
-    translateY.value = placement === "top" ? -screenHeight : screenHeight;
-    opacity.value = 0;
-  }, [open, opacity, placement, screenHeight, translateY]);
-
-  useEffect(() => {
-    if (!open || measuredHeight === null || !hasMeasured || didOpen.current) {
-      return;
-    }
-
-    setIsTouchable(true);
-    onOpen?.(id);
-
-    translateY.value = withSpring(0, EnterAnimationConfig, (finished) => {
-      if (finished && onOpenFinished) {
-        scheduleOnRN(onOpenFinished, id);
-      }
-    });
-
-    opacity.value = withSpring(
-      flyoutTokens.overlayVisibleOpacity,
-      EnterAnimationConfig,
-    );
-
-    didOpen.current = true;
-  }, [
-    flyoutTokens.overlayVisibleOpacity,
-    hasMeasured,
-    id,
-    measuredHeight,
-    onOpen,
-    onOpenFinished,
-    opacity,
-    open,
-    translateY,
-  ]);
-
-  useEffect(() => {
-    if (!open && didOpen.current) {
-      animateOut();
-    }
-  }, [animateOut, open]);
-
   if (!mounted) {
     return null;
   }
@@ -286,7 +102,7 @@ export const Flyout = memo(function Flyout(
         pointerEvents={isTouchable ? "auto" : "none"}
         style={[StyleSheet.absoluteFill, overlayStyle]}
       >
-        <Pressable onPress={animateOut} style={StyleSheet.absoluteFill} />
+        <Pressable onPress={close} style={StyleSheet.absoluteFill} />
       </Animated.View>
 
       <GestureDetector gesture={dragGesture}>
