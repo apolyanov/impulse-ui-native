@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 
 import { HostName } from "../types";
 import { usePortalContext } from "./use-portal-context.hook";
