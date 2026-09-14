@@ -1,5 +1,11 @@
 # @impulse-ui-native/endpoint
 
+## 2.3.5
+
+### Patch Changes
+
+- Adding missing props in the package.json
+
 ## 2.3.4
 
 ### Patch Changes

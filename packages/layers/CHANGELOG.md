@@ -1,5 +1,16 @@
 # @impulse-ui-native/layers
 
+## 2.3.5
+
+### Patch Changes
+
+- Adding missing props in the package.json
+- Updated dependencies
+  - @impulse-ui-native/core@2.3.5
+  - @impulse-ui-native/echo@2.3.5
+  - @impulse-ui-native/flyout@2.3.5
+  - @impulse-ui-native/types@2.3.5
+
 ## 2.3.4
 
 ### Patch Changes

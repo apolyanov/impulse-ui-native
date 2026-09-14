@@ -1,5 +1,13 @@
 # @impulse-ui-native/icon
 
+## 2.3.5
+
+### Patch Changes
+
+- Adding missing props in the package.json
+- Updated dependencies
+  - @impulse-ui-native/theme@2.3.5
+
 ## 2.3.4
 
 ### Patch Changes

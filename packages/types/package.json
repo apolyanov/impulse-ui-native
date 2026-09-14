@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/types",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "Shared TypeScript types for ImpulseUI Native components and utilities.",
   "keywords": [
     "react-native",

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/icon",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "A typed icon library for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

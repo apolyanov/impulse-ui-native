@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/primitives",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "Foundational UI primitives for building ImpulseUI Native components.",
   "keywords": [
     "react-native",

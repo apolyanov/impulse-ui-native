@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/toolkit",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "The complete ImpulseUI Native component toolkit for building React Native applications.",
   "keywords": [
     "react-native",

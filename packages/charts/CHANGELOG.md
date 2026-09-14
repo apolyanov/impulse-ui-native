@@ -1,5 +1,15 @@
 # @impulse-ui-native/charts
 
+## 2.3.5
+
+### Patch Changes
+
+- Adding missing props in the package.json
+- Updated dependencies
+  - @impulse-ui-native/core@2.3.5
+  - @impulse-ui-native/primitives@2.3.5
+  - @impulse-ui-native/theme@2.3.5
+
 ## 2.3.4
 
 ### Patch Changes
