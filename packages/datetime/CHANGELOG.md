@@ -1,5 +1,20 @@
 # @impulse-ui-native/datetime
 
+## 2.4.0
+
+### Patch Changes
+
+- e0a9246: Make date and date-range pickers clearable by default and forward the range clearable option.
+- Updated dependencies [fe0bf8e]
+- Updated dependencies [7bc2723]
+  - @impulse-ui-native/flyout@2.4.0
+  - @impulse-ui-native/select@2.4.0
+  - @impulse-ui-native/core@2.4.0
+  - @impulse-ui-native/icon@2.4.0
+  - @impulse-ui-native/portal@2.4.0
+  - @impulse-ui-native/primitives@2.4.0
+  - @impulse-ui-native/theme@2.4.0
+
 ## 2.3.5
 
 ### Patch Changes

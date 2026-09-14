@@ -1,5 +1,30 @@
 # @impulse-ui-native/toolkit
 
+## 2.4.0
+
+### Patch Changes
+
+- fe0bf8e: Replace the layers registry with a typed overlay store, provider, and host API.
+- Updated dependencies [fe0bf8e]
+- Updated dependencies [7bc2723]
+- Updated dependencies [e0a9246]
+  - @impulse-ui-native/overlay@2.4.0
+  - @impulse-ui-native/echo@2.4.0
+  - @impulse-ui-native/flyout@2.4.0
+  - @impulse-ui-native/select@2.4.0
+  - @impulse-ui-native/types@2.4.0
+  - @impulse-ui-native/datetime@2.4.0
+  - @impulse-ui-native/charts@2.4.0
+  - @impulse-ui-native/core@2.4.0
+  - @impulse-ui-native/data-state@2.4.0
+  - @impulse-ui-native/endpoint@2.4.0
+  - @impulse-ui-native/input@2.4.0
+  - @impulse-ui-native/portal@2.4.0
+  - @impulse-ui-native/primitives@2.4.0
+  - @impulse-ui-native/skeleton@2.4.0
+  - @impulse-ui-native/stepper@2.4.0
+  - @impulse-ui-native/theme@2.4.0
+
 ## 2.3.5
 
 ### Patch Changes

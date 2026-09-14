@@ -1,5 +1,7 @@
 # @impulse-ui-native/portal
 
+## 2.4.0
+
 ## 2.3.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/data-state",
-  "version": "2.3.5",
+  "version": "2.4.0",
   "description": "Loading, empty, and error state components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

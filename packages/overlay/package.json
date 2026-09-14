@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/overlay",
-  "version": "2.3.5",
+  "version": "2.4.0",
   "description": "Overlay management components for overlays and stacked interfaces in ImpulseUI Native.",
   "keywords": [
     "react-native",

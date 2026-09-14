@@ -1,5 +1,11 @@
 # @impulse-ui-native/types
 
+## 2.4.0
+
+### Patch Changes
+
+- fe0bf8e: Replace the layers registry with a typed overlay store, provider, and host API.
+
 ## 2.3.5
 
 ### Patch Changes

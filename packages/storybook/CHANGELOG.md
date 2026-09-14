@@ -1,5 +1,14 @@
 # @impulse-ui-native/storybook
 
+## 2.4.0
+
+### Patch Changes
+
+- fe0bf8e: Replace the layers registry with a typed overlay store, provider, and host API.
+  - @impulse-ui-native/icon@2.4.0
+  - @impulse-ui-native/primitives@2.4.0
+  - @impulse-ui-native/theme@2.4.0
+
 ## 2.3.5
 
 ### Patch Changes

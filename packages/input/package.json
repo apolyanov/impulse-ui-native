@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/input",
-  "version": "2.3.5",
+  "version": "2.4.0",
   "description": "Form input components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
