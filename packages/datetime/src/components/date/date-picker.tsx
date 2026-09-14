@@ -11,7 +11,7 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
   const {
     value,
     defaultValue,
-    clearable,
+    clearable = true,
     onChange,
     placeholder,
     quickDateOptions,

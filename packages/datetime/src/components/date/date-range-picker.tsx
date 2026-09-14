@@ -16,6 +16,7 @@ export const DateRangePicker = memo(function DateRangePicker(
     onChange,
     placeholder,
     quickDateOptions,
+    clearable = true,
     ...rest
   } = props;
 
@@ -50,10 +51,11 @@ export const DateRangePicker = memo(function DateRangePicker(
 
       <DatePickerFlyout
         id={id}
-        title="Datetime"
         open={isOpen}
+        title="Date"
         visible={visible}
         value={tempRange}
+        clearable={clearable}
         quickDateOptions={quickDateOptions}
         onClose={close}
         onCloseFinished={syncState}
