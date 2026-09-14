@@ -13,7 +13,7 @@ This package uses React Native Gesture Handler, Reanimated, Safe Area Context, a
 ## Main exports
 
 - `Flyout` renders the sheet, overlay, drag handle, title, safe-area padding, and lifecycle animations.
-- `FlyoutProps` adds `open`, `placement`, `topOffset`, and `bottomOffset` to the common layer contract.
+- `FlyoutProps` adds `placement`, `topOffset`, and `bottomOffset` to the common overlay contract.
 
 ## Usage
 
@@ -33,4 +33,4 @@ import { Flyout } from "@impulse-ui-native/flyout";
 
 The overlay closes the sheet when pressed. A drag past half the measured sheet height, or a sufficiently fast swipe toward the edge, closes it as well.
 
-For app-wide imperative sheets, register flyouts through `@impulse-ui-native/layers` and mount `LayerCenter` once.
+For app-wide imperative sheets, register `Flyout` through an `OverlayStore` and mount `OverlayHost` inside the matching `OverlayProvider`.

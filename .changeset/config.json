@@ -13,7 +13,7 @@
       "@impulse-ui-native/flyout",
       "@impulse-ui-native/icon",
       "@impulse-ui-native/input",
-      "@impulse-ui-native/layers",
+      "@impulse-ui-native/overlay",
       "@impulse-ui-native/portal",
       "@impulse-ui-native/primitives",
       "@impulse-ui-native/select",

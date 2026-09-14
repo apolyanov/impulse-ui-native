@@ -35,9 +35,8 @@
   },
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
-    "@impulse-ui-native/core": "workspace:*",
-    "@impulse-ui-native/primitives": "workspace:*",
-    "@impulse-ui-native/types": "workspace:*"
+    "@impulse-ui-native/overlay": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",

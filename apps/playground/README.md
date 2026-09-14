@@ -19,7 +19,7 @@ pnpm --filter playground android
 pnpm --filter playground web
 ```
 
-The Expo Router routes live in `apps/playground/src/app`. The root layout loads Montserrat, installs the theme, portal, safe-area, and gesture providers, and mounts `LayerCenter` and `PortalsHost` for overlay examples.
+The Expo Router routes live in `apps/playground/src/app`. The root layout loads Montserrat, installs the theme, overlay, portal, safe-area, and gesture providers, and mounts `OverlayHost` and `PortalsHost` for overlay examples.
 
 The chart examples require `@shopify/react-native-skia` to be available in the target runtime.
 

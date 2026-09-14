@@ -15,7 +15,7 @@ pnpm add @impulse-ui-native/core
 - `useIsOpen` manages common open/close state.
 - `useWhyDidYouUpdate` helps inspect prop changes during development.
 - `merge` recursively applies a `DeepPartial` value to a target object.
-- `uuid` creates identifiers used by the layer registry.
+- `uuid` creates unique identifiers.
 - `resolverStateSetter` resolves React value-or-updater state arguments.
 - `DeepPartial` is the recursive partial type used by theme overrides.
 

@@ -1,11 +1,5 @@
-import { OpenLayerParams } from "@impulse-ui-native/types";
-
 export interface EchoEvents {
   placeholder: unknown;
-  addLayer: OpenLayerParams<any>;
-  removeLayer: {
-    id: string;
-  };
 }
 
 export type EchoEventNames = keyof EchoEvents;

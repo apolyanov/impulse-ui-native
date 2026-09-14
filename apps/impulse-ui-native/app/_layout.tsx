@@ -3,7 +3,11 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 
 import {
-  LayerCenter,
+  OverlayHost,
+  OverlayProvider,
+  OverlayStore,
+} from "@impulse-ui-native/overlay";
+import {
   PortalProvider,
   PortalsHost,
   PortalStore,
@@ -11,17 +15,20 @@ import {
 } from "@impulse-ui-native/toolkit";
 
 const portalStore = new PortalStore();
+const overlayStore = new OverlayStore();
 
 export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <ThemeProvider>
-          <PortalProvider store={portalStore}>
-            <Stack />
-            <LayerCenter />
-            <PortalsHost />
-          </PortalProvider>
+          <OverlayProvider store={overlayStore}>
+            <PortalProvider store={portalStore}>
+              <Stack />
+              <OverlayHost />
+              <PortalsHost />
+            </PortalProvider>
+          </OverlayProvider>
         </ThemeProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>

@@ -21,6 +21,7 @@
     "@impulse-ui-native/toolkit": "workspace:*",
     "@impulse-ui-native/icon": "workspace:*",
     "@impulse-ui-native/charts": "workspace:*",
+    "@impulse-ui-native/overlay": "workspace:*",
     "@shopify/flash-list": "catalog:",
     "@shopify/react-native-skia": "catalog:",
     "@expo-google-fonts/montserrat": "catalog:",

@@ -66,7 +66,9 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 
 import {
-  LayerCenter,
+  OverlayHost,
+  OverlayProvider,
+  OverlayStore,
   PortalProvider,
   PortalsHost,
   PortalStore,
@@ -74,17 +76,20 @@ import {
 } from "@impulse-ui-native/toolkit";
 
 const portalStore = new PortalStore();
+const overlayStore = new OverlayStore();
 
 export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <ThemeProvider>
-          <PortalProvider store={portalStore}>
-            <Stack />
-            <LayerCenter />
-            <PortalsHost />
-          </PortalProvider>
+          <OverlayProvider store={overlayStore}>
+            <PortalProvider store={portalStore}>
+              <Stack />
+              <OverlayHost />
+              <PortalsHost />
+            </PortalProvider>
+          </OverlayProvider>
         </ThemeProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
@@ -92,18 +97,19 @@ export default function RootLayout() {
 }
 ```
 
-Keep `portalStore` outside the component so the same store survives every render. In an application that does not use Expo Router, replace `<Stack />` with your navigator or root application content and keep the surrounding hierarchy unchanged.
+Keep `overlayStore` and `portalStore` outside the component so the same stores survive every render. In an application that does not use Expo Router, replace `<Stack />` with your navigator or root application content and keep the surrounding hierarchy unchanged.
 
 | Root element             | Purpose                                                                  |
 | ------------------------ | ------------------------------------------------------------------------ |
 | `GestureHandlerRootView` | Enables native gesture handling for flyouts and gesture-driven controls. |
 | `SafeAreaProvider`       | Supplies safe-area measurements to primitives and overlays.              |
 | `ThemeProvider`          | Supplies primitive, semantic, and component design tokens.               |
+| `OverlayProvider`        | Connects imperative overlays to the stable `OverlayStore`.               |
 | `PortalProvider`         | Connects the tree to the stable `PortalStore`.                           |
-| `LayerCenter`            | Renders flyouts registered through the app-wide layer registry.          |
+| `OverlayHost`            | Renders components registered through the app-wide overlay store.        |
 | `PortalsHost`            | Renders content sent to the default portal host.                         |
 
-`LayerCenter` and `PortalsHost` should be siblings of the navigator and children of `PortalProvider`. Mount only one of each at the root.
+`OverlayHost` and `PortalsHost` should be siblings of the navigator and children of their matching providers. Mount only one of each at the root.
 
 ## Basic usage
 
@@ -136,7 +142,7 @@ export function SignInForm() {
 
 ## Selects and flyouts
 
-`Select`, `MultiSelect`, and the date/time pickers use the root `LayerCenter`. Once the application setup above is in place, a select can be rendered anywhere below it:
+`Select`, `MultiSelect`, and the date/time pickers use the root `PortalsHost`. Once the application setup above is in place, a select can be rendered anywhere below it:
 
 ```tsx
 import { useState } from "react";
@@ -164,7 +170,7 @@ export function DepartmentField() {
 }
 ```
 
-Do not mount another `LayerCenter` beside the control; registered overlays are rendered by the single application-level instance.
+Do not mount another host beside the control; portal content and registered overlays are rendered by the application-level `PortalsHost` and `OverlayHost`.
 
 ## Theming
 
@@ -198,7 +204,7 @@ Theme overrides are deep partials. Hooks including `useTheme`, `useColors`, `use
 - Date and time: `DatePicker`, `DateRangePicker`, `DatetimePicker`, `DatetimeRangePicker`, and `TimePicker`.
 - Charts: line, bar, pie, multi-series chart components, axes, grids, labels, hooks, and utilities.
 - Feedback: `Skeleton`, `DataView`, `LoadingView`, `EmptyView`, and `ErrorView`.
-- Navigation and overlays: `Stepper`, `Flyout`, `LayerCenter`, the flyout registry, `Portal`, `PortalProvider`, `PortalStore`, and portal hosts.
+- Navigation and overlays: `Stepper`, `Flyout`, `OverlayHost`, `OverlayProvider`, `OverlayStore`, overlay registration types, `Portal`, `PortalProvider`, `PortalStore`, and portal hosts.
 - Data utilities: `EchoInstance`, echo hooks, and typed Axios/TanStack Query endpoint factories.
 
 ## Icons
@@ -223,7 +229,7 @@ The toolkit uses ES modules and declares itself side-effect free, allowing compa
 ## Troubleshooting
 
 - If gestures do not respond, verify that `GestureHandlerRootView` is the outermost application view and has `flex: 1`.
-- If a select or registered flyout does not appear, verify that one `LayerCenter` is mounted inside the root providers.
+- If a registered flyout does not appear, verify that one `OverlayHost` is mounted inside the matching `OverlayProvider`.
 - If portal content does not appear, verify that `PortalProvider` and `PortalsHost` use the same stable store and host name.
 - If content overlaps a notch or system bar, verify that `SafeAreaProvider` wraps the themed application.
 - If a native dependency was just installed, rebuild the native application rather than relying only on a JavaScript refresh.

@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import {
   Montserrat_100Thin,
   Montserrat_100Thin_Italic,
@@ -21,11 +24,12 @@ import {
   Montserrat_900Black,
   Montserrat_900Black_Italic,
 } from "@expo-google-fonts/montserrat";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
 
-import { LayerCenter } from "@impulse-ui-native/layers";
+import {
+  OverlayHost,
+  OverlayProvider,
+  OverlayStore,
+} from "@impulse-ui-native/overlay";
 import {
   PortalProvider,
   PortalsHost,
@@ -34,6 +38,7 @@ import {
 import { ThemeProvider } from "@impulse-ui-native/theme";
 
 const portalStore = new PortalStore();
+const overlayStore = new OverlayStore();
 
 SplashScreen.preventAutoHideAsync();
 
@@ -73,11 +78,13 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <ThemeProvider>
-          <PortalProvider store={portalStore}>
-            <Stack />
-            <LayerCenter />
-            <PortalsHost />
-          </PortalProvider>
+          <OverlayProvider store={overlayStore}>
+            <PortalProvider store={portalStore}>
+              <Stack />
+              <OverlayHost />
+              <PortalsHost />
+            </PortalProvider>
+          </OverlayProvider>
         </ThemeProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>

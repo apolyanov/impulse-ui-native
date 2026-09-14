@@ -8,7 +8,7 @@ Single- and multi-value select controls that present their options in a themed f
 pnpm add @impulse-ui-native/select @shopify/flash-list react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
 ```
 
-Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. The simplest application setup is to use `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `LayerCenter` at the application root.
+Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. The simplest application setup is to use `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `PortalsHost` inside a `PortalProvider` at the application root.
 
 ## Main exports
 
@@ -20,8 +20,14 @@ Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup 
 ## Usage
 
 ```tsx
-import { LayerCenter } from "@impulse-ui-native/layers";
+import {
+  PortalProvider,
+  PortalsHost,
+  PortalStore,
+} from "@impulse-ui-native/portal";
 import { Select } from "@impulse-ui-native/select";
+
+const portalStore = new PortalStore();
 
 const options = [
   { label: "Design", value: "design" },
@@ -33,7 +39,7 @@ export function DepartmentField() {
   const [value, setValue] = useState<string>();
 
   return (
-    <>
+    <PortalProvider store={portalStore}>
       <Select
         label="Department"
         options={options}
@@ -41,8 +47,8 @@ export function DepartmentField() {
         onChange={setValue}
         placeholder="Choose a department"
       />
-      <LayerCenter />
-    </>
+      <PortalsHost />
+    </PortalProvider>
   );
 }
 ```

@@ -3,7 +3,11 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import {
-  LayerCenter,
+  OverlayHost,
+  OverlayProvider,
+  OverlayStore,
+} from "@impulse-ui-native/overlay";
+import {
   PortalProvider,
   PortalsHost,
   PortalStore,
@@ -12,18 +16,21 @@ import {
 } from "@impulse-ui-native/toolkit";
 
 const portalStore = new PortalStore();
+const overlayStore = new OverlayStore();
 
 const withTheme = (Story: React.ComponentType) => (
   <GestureHandlerRootView style={{ flex: 1 }}>
     <SafeAreaProvider>
       <ThemeProvider>
-        <PortalProvider store={portalStore}>
-          <View flex={1}>
-            <Story />
-          </View>
-          <LayerCenter />
-          <PortalsHost />
-        </PortalProvider>
+        <OverlayProvider store={overlayStore}>
+          <PortalProvider store={portalStore}>
+            <View flex={1}>
+              <Story />
+            </View>
+            <OverlayHost />
+            <PortalsHost />
+          </PortalProvider>
+        </OverlayProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   </GestureHandlerRootView>

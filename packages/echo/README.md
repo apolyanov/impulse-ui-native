@@ -15,16 +15,14 @@ pnpm add @impulse-ui-native/echo
 - `useEchoEmitter` emits a typed event from a component.
 - `EchoEvents`, `EchoEventNames`, and `EchoListenerEntry` describe the event map and listeners.
 
-The built-in event map currently powers the layer system with `addLayer` and `removeLayer` events.
-
 ## Usage
 
 ```tsx
 import { useEchoListener } from "@impulse-ui-native/echo";
 
-function LayerObserver() {
-  useEchoListener("removeLayer", ({ id }) => {
-    console.log("Layer closed", id);
+function EventObserver() {
+  useEchoListener("placeholder", (data) => {
+    console.log("Event received", data);
   });
 
   return null;

@@ -1,6 +1,6 @@
 # @impulse-ui-native/datetime
 
-Token-driven date, time, date-time, and range controls backed by the Impulse UI Native flyout layer system.
+Token-driven date, time, date-time, and range controls backed by Impulse UI Native flyouts and portals.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Token-driven date, time, date-time, and range controls backed by the Impulse UI 
 pnpm add @impulse-ui-native/datetime @shopify/flash-list react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
 ```
 
-Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. Render the controls inside `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `LayerCenter` in the application.
+Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. Render the controls inside `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `PortalsHost` inside a `PortalProvider` in the application.
 
 ## Main exports
 

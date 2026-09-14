@@ -1,10 +1,9 @@
 {
-  "name": "@impulse-ui-native/layers",
+  "name": "@impulse-ui-native/overlay",
   "version": "2.3.5",
-  "description": "Layer management components for overlays and stacked interfaces in ImpulseUI Native.",
+  "description": "Overlay management components for overlays and stacked interfaces in ImpulseUI Native.",
   "keywords": [
     "react-native",
-    "layers",
     "overlay",
     "components",
     "impulse-ui-native"
@@ -32,12 +31,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
-  },
-  "dependencies": {
-    "@impulse-ui-native/core": "workspace:*",
-    "@impulse-ui-native/echo": "workspace:*",
-    "@impulse-ui-native/flyout": "workspace:*",
-    "@impulse-ui-native/types": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",
