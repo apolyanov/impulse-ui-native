@@ -1,6 +1,14 @@
 {
   "name": "@impulse-ui-native/tsconfig",
   "version": "1.0.0",
+  "description": "Shared TypeScript configurations for the ImpulseUI Native monorepo.",
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "configuration",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "private": true,
   "files": [
     "*.json"

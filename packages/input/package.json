@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/input",
   "version": "2.3.4",
+  "description": "Form input components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "input",
+    "form",
+    "components",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

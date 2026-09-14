@@ -1,5 +1,14 @@
 {
   "name": "impulse-ui-native",
+  "description": "A monorepo for the ImpulseUI Native React Native component library, examples, and documentation.",
+  "keywords": [
+    "react-native",
+    "expo",
+    "ui",
+    "components",
+    "design-system"
+  ],
+  "license": "MIT",
   "private": true,
   "scripts": {
     "build": "turbo run build",

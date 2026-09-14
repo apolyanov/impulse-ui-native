@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/theme",
   "version": "2.3.4",
+  "description": "Theme tokens, providers, and styling utilities for ImpulseUI Native.",
+  "keywords": [
+    "react-native",
+    "theme",
+    "design-tokens",
+    "styling",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

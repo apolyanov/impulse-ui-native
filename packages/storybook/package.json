@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/storybook",
   "version": "2.3.4",
+  "description": "Shared Storybook stories and configuration for ImpulseUI Native components.",
+  "keywords": [
+    "react-native",
+    "storybook",
+    "components",
+    "documentation",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

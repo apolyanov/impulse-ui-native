@@ -1,5 +1,14 @@
 {
   "name": "playground",
+  "description": "An Expo playground for developing and testing ImpulseUI Native components.",
+  "keywords": [
+    "react-native",
+    "expo",
+    "playground",
+    "components",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {

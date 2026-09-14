@@ -1,6 +1,14 @@
 {
   "name": "@impulse-ui-native/prettier-config",
   "version": "1.0.0",
+  "description": "Shared Prettier configuration for the ImpulseUI Native monorepo.",
+  "keywords": [
+    "prettier",
+    "formatting",
+    "configuration",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "private": true,
   "type": "module",
   "exports": {

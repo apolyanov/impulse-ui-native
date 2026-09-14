@@ -1,6 +1,14 @@
 {
   "name": "@impulse-ui-native/eslint-config",
   "version": "1.0.0",
+  "description": "Shared ESLint configurations for React, React Native, and Next.js projects in ImpulseUI Native.",
+  "keywords": [
+    "eslint",
+    "react-native",
+    "nextjs",
+    "configuration"
+  ],
+  "license": "MIT",
   "private": true,
   "type": "module",
   "exports": {

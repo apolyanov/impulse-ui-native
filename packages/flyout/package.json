@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/flyout",
   "version": "2.3.4",
+  "description": "Flyout, popover, and overlay components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "flyout",
+    "popover",
+    "overlay",
+    "components"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

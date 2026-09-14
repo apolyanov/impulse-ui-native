@@ -1,6 +1,14 @@
 {
   "name": "impulse-ui-native",
   "version": "1.0.0",
+  "description": "An Expo and Storybook showcase for ImpulseUI Native components.",
+  "keywords": [
+    "react-native",
+    "expo",
+    "storybook",
+    "components",
+    "impulse-ui-native"
+  ],
   "main": "expo-router/entry",
   "license": "MIT",
   "private": true,

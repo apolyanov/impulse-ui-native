@@ -1,6 +1,14 @@
 {
   "name": "@impulse-ui-native/types",
   "version": "2.3.4",
+  "description": "Shared TypeScript types for ImpulseUI Native components and utilities.",
+  "keywords": [
+    "react-native",
+    "typescript",
+    "types",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

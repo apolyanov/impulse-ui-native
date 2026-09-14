@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/skeleton",
   "version": "2.3.4",
+  "description": "Animated skeleton loading components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "skeleton",
+    "loading",
+    "animation",
+    "components"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

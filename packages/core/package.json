@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/core",
   "version": "2.3.4",
+  "description": "Core hooks and utilities for the ImpulseUI Native component library.",
+  "keywords": [
+    "react-native",
+    "hooks",
+    "utilities",
+    "components",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

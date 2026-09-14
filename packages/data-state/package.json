@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/data-state",
   "version": "2.3.4",
+  "description": "Loading, empty, and error state components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "data-state",
+    "loading",
+    "empty-state",
+    "components"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

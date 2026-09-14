@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/toolkit",
   "version": "2.3.4",
+  "description": "The complete ImpulseUI Native component toolkit for building React Native applications.",
+  "keywords": [
+    "react-native",
+    "expo",
+    "ui",
+    "components",
+    "design-system"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

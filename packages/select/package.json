@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/select",
   "version": "2.3.4",
+  "description": "Accessible select and option picker components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "select",
+    "picker",
+    "form",
+    "components"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

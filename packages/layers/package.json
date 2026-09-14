@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/layers",
   "version": "2.3.4",
+  "description": "Layer management components for overlays and stacked interfaces in ImpulseUI Native.",
+  "keywords": [
+    "react-native",
+    "layers",
+    "overlay",
+    "components",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

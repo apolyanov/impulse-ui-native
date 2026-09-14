@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/datetime",
   "version": "2.3.4",
+  "description": "Date and time selection components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "datetime",
+    "date-picker",
+    "time-picker",
+    "components"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",

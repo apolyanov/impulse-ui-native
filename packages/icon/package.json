@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/icon",
   "version": "2.3.4",
+  "description": "A typed icon library for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "icons",
+    "svg",
+    "components",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "exports": {
     "./components/icon": {
       "types": "./dist/components/icon.d.mts",

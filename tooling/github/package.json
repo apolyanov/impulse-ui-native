@@ -1,5 +1,13 @@
 {
   "name": "@impulse-ui-native/github",
   "version": "1.0.0",
+  "description": "GitHub configuration and automation for the ImpulseUI Native monorepo.",
+  "keywords": [
+    "github",
+    "automation",
+    "configuration",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "private": true
 }

@@ -1,6 +1,15 @@
 {
   "name": "@impulse-ui-native/echo",
   "version": "2.3.4",
+  "description": "Feedback and notification components for ImpulseUI Native applications.",
+  "keywords": [
+    "react-native",
+    "feedback",
+    "notifications",
+    "components",
+    "impulse-ui-native"
+  ],
+  "license": "MIT",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",
