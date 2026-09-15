@@ -1,4 +1,4 @@
-import { PropsWithChildren, useCallback } from "react";
+import { memo, PropsWithChildren, useCallback } from "react";
 import {
   PressableStateCallbackType,
   Pressable as RNPressable,
@@ -15,7 +15,7 @@ import {
 
 import { PressableCoreProps } from "../../types";
 
-export const Pressable = function PressableCore({
+export const Pressable = memo(function PressableCore({
   children,
   disabled,
   pressedStyle,
@@ -59,4 +59,4 @@ export const Pressable = function PressableCore({
       {children}
     </RNPressable>
   );
-};
+});
