@@ -7,11 +7,15 @@ import { Bone } from "./bone";
 
 export const Text = memo(function Text(props: SkeletonTextProps) {
   const { text, Component, ...rest } = props;
-  const tokens = useComponentsTokens().skeleton.text;
+  const tokens = useComponentsTokens();
+  const textTokens = tokens.skeleton.text;
 
   return (
-    <Bone alignSelf={tokens.alignSelf} {...rest}>
-      <Component textTransform={tokens.textTransform} opacity={tokens.opacity}>
+    <Bone alignSelf={textTokens.alignSelf} {...rest}>
+      <Component
+        textTransform={textTokens.textTransform}
+        opacity={textTokens.opacity}
+      >
         {text}
       </Component>
     </Bone>

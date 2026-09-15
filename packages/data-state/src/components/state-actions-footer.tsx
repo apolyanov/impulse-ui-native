@@ -8,7 +8,8 @@ import { StateActionsFooterProps } from "../types";
 export const StateActionsFooter = memo(function StateActionsFooter(
   props: StateActionsFooterProps,
 ) {
-  const tokens = useComponentsTokens().dataState.actionsFooter;
+  const tokens = useComponentsTokens();
+  const actionsFooterTokens = tokens.dataState.actionsFooter;
   const {
     onPressPrimaryAction,
     onPressSecondaryAction,
@@ -20,7 +21,7 @@ export const StateActionsFooter = memo(function StateActionsFooter(
   return (
     <View
       flexDirection="row"
-      gap={tokens.gap}
+      gap={actionsFooterTokens.gap}
       justifyContent="center"
       alignItems="center"
       {...rest}

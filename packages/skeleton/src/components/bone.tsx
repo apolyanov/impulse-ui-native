@@ -15,21 +15,22 @@ import { SkeletonBoneProps } from "../types";
 export const Bone = memo(function Bone(
   props: PropsWithChildren<SkeletonBoneProps>,
 ) {
-  const tokens = useComponentsTokens().skeleton.bone;
-  const opacity = useSharedValue(tokens.initialOpacity);
+  const tokens = useComponentsTokens();
+  const boneTokens = tokens.skeleton.bone;
+  const opacity = useSharedValue(boneTokens.initialOpacity);
 
   const style = useAnimatedStyle(() => {
     return {
-      backgroundColor: tokens.backgroundColor,
-      borderColor: tokens.borderColor,
+      backgroundColor: boneTokens.backgroundColor,
+      borderColor: boneTokens.borderColor,
       opacity: opacity.value,
     };
   });
 
   useEffect(() => {
     opacity.value = withRepeat(
-      withTiming(tokens.animatedOpacity, {
-        duration: tokens.animationDuration,
+      withTiming(boneTokens.animatedOpacity, {
+        duration: boneTokens.animationDuration,
         easing: Easing.linear,
       }),
       -1,
@@ -39,7 +40,7 @@ export const Bone = memo(function Bone(
     return () => {
       cancelAnimation(opacity);
     };
-  }, [opacity, tokens.animatedOpacity, tokens.animationDuration]);
+  }, [boneTokens.animatedOpacity, boneTokens.animationDuration, opacity]);
 
   return <Animated.View {...props} style={[props.style, style]} />;
 });

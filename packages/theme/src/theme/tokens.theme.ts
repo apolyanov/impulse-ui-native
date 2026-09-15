@@ -8,6 +8,7 @@ import {
   FontWeightItalic,
   FontWeightNormal,
   FontWeightValue,
+  LetterSpacings,
   LineHeight,
   NeutralColor,
   PrimitiveThemeTokens,
@@ -27,8 +28,11 @@ import { createDataStateTokens } from "./create-data-state-tokens";
 import { createDatetimePickerTokens } from "./create-datetime-picker";
 import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
+import { createIconTokens } from "./create-icon-tokens";
+import { createPressableTokens } from "./create-pressable-tokens";
 import { createSelectTokens } from "./create-select-tokens";
 import { createSkeletonTokens } from "./create-skeleton-tokens";
+import { createStepperTokens } from "./create-stepper-tokens";
 import { createTagTokens } from "./create-tag-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
 
@@ -111,6 +115,17 @@ export const LineHeightTokens: LineHeight = {
   massive: 48,
   giant: 56,
   colossal: 64,
+};
+
+export const LetterSpacingTokens: LetterSpacings = {
+  tightest: -1,
+  tighter: -0.5,
+  tight: -0.25,
+  normal: 0,
+  wide: 0.25,
+  wider: 0.5,
+  widest: 0.75,
+  ultraWide: 1,
 };
 
 export const FontWeightTokens: FontWeight = {
@@ -272,6 +287,8 @@ export function createComponentsTokens(
   return {
     button: createButtonTokens(tokens),
     iconButton: createIconButtonTokens(tokens),
+    icon: createIconTokens(),
+    pressable: createPressableTokens(),
     tag: createTagTokens(tokens),
     controlAddon: createControlAddonTokens(tokens),
     controlContainer: createControlContainerTokens(tokens),
@@ -283,6 +300,7 @@ export function createComponentsTokens(
     timePicker: createTimePickerTokens(tokens),
     flyout: createFlyoutTokens(tokens),
     skeleton: createSkeletonTokens(tokens),
+    stepper: createStepperTokens(tokens),
     dataState: createDataStateTokens(tokens),
   };
 }

@@ -4,6 +4,7 @@ import {
   FontFamilyTokens,
   FontSizeTokens,
   FontWeightTokens,
+  LetterSpacingTokens,
   LightColors,
   LineHeightTokens,
   RadiiTokens,
@@ -19,4 +20,5 @@ export const DarkTheme: PrimitiveThemeTokens = {
   fontSize: FontSizeTokens,
   fontWeight: FontWeightTokens,
   lineHeight: LineHeightTokens,
+  letterSpacing: LetterSpacingTokens,
 };

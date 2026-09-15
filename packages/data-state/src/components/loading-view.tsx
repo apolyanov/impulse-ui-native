@@ -23,7 +23,8 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     ...rest
   } = props;
 
-  const tokens = useComponentsTokens().dataState.loading;
+  const tokens = useComponentsTokens();
+  const loadingTokens = tokens.dataState.loading;
 
   const [shouldMountLoader, setShouldMountLoader] = useState(loading);
   const [loaderHeight, setLoaderHeight] = useState(0);
@@ -37,7 +38,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     left: 0,
     right: 0,
     top: 0,
-    zIndex: tokens.loaderZIndex,
+    zIndex: loadingTokens.loaderZIndex,
     opacity: loaderOpacity.value,
   }));
 
@@ -86,7 +87,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     loaderOpacity.value = withTiming(
       0,
       {
-        duration: tokens.transitionDuration,
+        duration: loadingTokens.transitionDuration,
         easing: Easing.linear,
       },
       (finished) => {
@@ -97,10 +98,15 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     );
 
     childrenOpacity.value = withTiming(1, {
-      duration: tokens.transitionDuration,
+      duration: loadingTokens.transitionDuration,
       easing: Easing.linear,
     });
-  }, [loading, loaderOpacity, childrenOpacity, tokens.transitionDuration]);
+  }, [
+    childrenOpacity,
+    loaderOpacity,
+    loading,
+    loadingTokens.transitionDuration,
+  ]);
 
   return (
     <View {...rest} style={containerStyle}>

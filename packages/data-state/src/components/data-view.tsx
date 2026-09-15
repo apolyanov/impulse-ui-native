@@ -9,7 +9,8 @@ import { ErrorDetails } from "./error-details";
 import { LoadingView } from "./loading-view";
 
 export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
-  const tokens = useComponentsTokens().dataState;
+  const tokens = useComponentsTokens();
+  const dataStateTokens = tokens.dataState;
   const {
     error,
     isEmpty,
@@ -31,13 +32,19 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
       <View
         alignItems="center"
         justifyContent="center"
-        zIndex={tokens.content.zIndex}
+        zIndex={dataStateTokens.content.zIndex}
       >
         {error ? <ErrorDetails {...errorViewProps} /> : null}
         {isEmpty ? <EmptyDetails {...emptyViewProps} /> : null}
       </View>
     );
-  }, [error, isEmpty, errorViewProps, emptyViewProps, tokens.content.zIndex]);
+  }, [
+    dataStateTokens.content.zIndex,
+    emptyViewProps,
+    error,
+    errorViewProps,
+    isEmpty,
+  ]);
 
   return (
     <LoadingView

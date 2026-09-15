@@ -8,15 +8,16 @@ import { StateViewProps } from "../types";
 import { StateActionsFooter } from "./state-actions-footer";
 
 export const ErrorDetails = memo(function ErrorDetails(props: StateViewProps) {
-  const tokens = useComponentsTokens().dataState.details;
+  const tokens = useComponentsTokens();
+  const detailsTokens = tokens.dataState.details;
 
   return (
-    <View alignItems="center" justifyContent="center" gap={tokens.gap}>
+    <View alignItems="center" justifyContent="center" gap={detailsTokens.gap}>
       <CloudXIcon
-        width={tokens.iconSize}
-        height={tokens.iconSize}
+        width={detailsTokens.iconSize}
+        height={detailsTokens.iconSize}
         variant={props.variant}
-        color={tokens.iconColor}
+        color={detailsTokens.iconColor}
       />
       <Typography.Body>{props.text}</Typography.Body>
       <StateActionsFooter

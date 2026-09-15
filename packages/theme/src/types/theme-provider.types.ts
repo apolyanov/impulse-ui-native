@@ -9,8 +9,11 @@ import {
 import { DataStateTokens } from "./data-state-tokens.types";
 import { DatetimePickerTokens } from "./datetime-picker-tokens.types";
 import { FlyoutTokens } from "./flyout-tokens.types";
+import { IconTokens } from "./icon-tokens.types";
+import { PressableTokens } from "./pressable-tokens.types";
 import { SelectTokens } from "./select-tokens.types";
 import { SkeletonTokens } from "./skeleton-tokens.types";
+import { StepperTokens } from "./stepper-tokens.types";
 import { TagTokens } from "./tag-tokens.types";
 import { TimePickerTokens } from "./time-picker-token.types";
 import {
@@ -18,6 +21,7 @@ import {
   FontFamily,
   FontSize,
   FontWeight,
+  LetterSpacings,
   LineHeight,
   NeutralColor,
   Radii,
@@ -86,6 +90,8 @@ export interface ComponentsThemes {
 export interface ComponentsTokens {
   button: ButtonTokens;
   iconButton: IconButtonTokens;
+  icon: IconTokens;
+  pressable: PressableTokens;
   tag: TagTokens;
   controlAddon: ControlAddonTokens;
   controlContainer: ControlContainerTokens;
@@ -97,6 +103,7 @@ export interface ComponentsTokens {
   timePicker: TimePickerTokens;
   flyout: FlyoutTokens;
   skeleton: SkeletonTokens;
+  stepper: StepperTokens;
   dataState: DataStateTokens;
 }
 
@@ -109,6 +116,7 @@ export interface PrimitiveThemeTokens {
   fontWeight: FontWeight;
   fontSize: FontSize;
   lineHeight: LineHeight;
+  letterSpacing: LetterSpacings;
 }
 
 export interface AppTheme extends PrimitiveThemeTokens {

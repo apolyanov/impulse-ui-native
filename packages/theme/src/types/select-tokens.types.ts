@@ -6,5 +6,8 @@ export interface SelectOptionTokens {
 }
 
 export interface SelectTokens {
+  flyoutHeight: number;
+  multiValueGap: number;
+  multiValueMarginHorizontal: number;
   option: SelectOptionTokens;
 }

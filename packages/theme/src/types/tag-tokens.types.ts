@@ -37,6 +37,7 @@ export interface TagTokens {
   borderWidth: number;
   borderRadius: number;
   gap: number;
+  closeHitSlop: number;
   iconMarginLeft: number;
   sizes: TagSizeTokens;
   colors: TagColorTokens;

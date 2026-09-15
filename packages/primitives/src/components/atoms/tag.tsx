@@ -3,7 +3,11 @@ import { StyleSheet, View } from "react-native";
 
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { XCircleIcon } from "@impulse-ui-native/icon/icons/x-circle";
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  AppTheme,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import { TagProps, TagThemeProps } from "../../types";
 import { Pressable } from "./pressable";
@@ -19,6 +23,8 @@ export const Tag = memo(function Tag({
   onClose,
   onPress,
 }: TagProps) {
+  const tokens = useComponentsTokens();
+  const tagTokens = tokens.tag;
   const styles = useThemedStyles(
     themedStyles,
     {
@@ -45,7 +51,7 @@ export const Tag = memo(function Tag({
       <Typography.Caption style={styles.label}>{label}</Typography.Caption>
 
       {showClose ? (
-        <Pressable onPress={onClose} hitSlop={10}>
+        <Pressable onPress={onClose} hitSlop={tagTokens.closeHitSlop}>
           <Icon
             icon={XCircleIcon}
             size="small"

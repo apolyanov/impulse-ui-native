@@ -9,8 +9,9 @@ import {
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
+import { useComponentsTokens } from "@impulse-ui-native/theme";
+
 import type { FlyoutProps } from "../types";
-import { FlyoutHandleHeight } from "../constants";
 
 const EnterAnimationConfig = {
   damping: 50,
@@ -51,6 +52,9 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     onOpenFinished,
   } = props;
 
+  const tokens = useComponentsTokens();
+  const handleHeight = tokens.flyout.handle.containerHeight;
+
   const [mounted, setMounted] = useState(open);
   const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
   const [isTouchable, setIsTouchable] = useState(false);
@@ -73,12 +77,12 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
       }
 
       const height =
-        event.nativeEvent.layout.height + safeAreaInset + FlyoutHandleHeight;
+        event.nativeEvent.layout.height + safeAreaInset + handleHeight;
 
       translateY.value = placement === "top" ? -height : height;
       setMeasuredHeight(height);
     },
-    [measuredHeight, placement, safeAreaInset, translateY],
+    [handleHeight, measuredHeight, placement, safeAreaInset, translateY],
   );
 
   const finishClosing = useCallback(

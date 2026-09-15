@@ -60,6 +60,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.round,
     gap: tokens.space.xxs,
+    closeHitSlop: 10,
     iconMarginLeft: tokens.borderSize.md,
 
     sizes: {

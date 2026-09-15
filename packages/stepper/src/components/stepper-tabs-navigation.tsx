@@ -1,23 +1,24 @@
 import { forwardRef, memo } from "react";
 
 import { View } from "@impulse-ui-native/primitives";
-import { useColors } from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { StepperNavigationProps, StepperRef } from "../types";
 
 export const StepperTabsNavigation = memo(
   forwardRef<StepperRef, StepperNavigationProps>(
     function StepperTabsNavigation(props, ref) {
-      const colors = useColors();
+      const tokens = useComponentsTokens();
+      const navigationTokens = tokens.stepper.navigation;
 
       return (
         <View flexDirection="row" width="100%">
           {props.items.map((item, index) => (
             <View
               key={`${item.title ?? "step"}-${index}`}
-              height={6}
+              height={navigationTokens.itemHeight}
               flex={1}
-              backgroundColor={colors.primary.value}
+              backgroundColor={navigationTokens.itemBackgroundColor}
             />
           ))}
         </View>

@@ -9,7 +9,8 @@ import { Bone } from "./bone";
 export const Tag = memo(function Tag(props: SkeletonTagProps) {
   const { size, ...rest } = props;
 
-  const tagTokens = useComponentsTokens().tag;
+  const tokens = useComponentsTokens();
+  const tagTokens = tokens.tag;
   const sizeTokens = tagTokens.sizes[size];
 
   const style = useMemo<ViewStyle>(

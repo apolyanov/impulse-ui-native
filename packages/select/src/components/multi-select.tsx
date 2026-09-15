@@ -2,6 +2,7 @@ import { memo, ReactElement, useId } from "react";
 
 import { useIsOpen } from "@impulse-ui-native/core";
 import { Control, Tag, View } from "@impulse-ui-native/primitives";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { useMultiSelect } from "../hooks/use-multi-select.hook";
 import { MultiSelectProps, PrimitiveValue } from "../types";
@@ -13,6 +14,8 @@ function MultiSelectComponent<Value extends PrimitiveValue>(
 ) {
   const { options, value, defaultValue, onChange, placeholder, ...rest } =
     props;
+  const tokens = useComponentsTokens();
+  const selectTokens = tokens.select;
   const id = useId();
   const { isOpen, open, close } = useIsOpen();
 
@@ -33,8 +36,8 @@ function MultiSelectComponent<Value extends PrimitiveValue>(
         <View
           flex={1}
           flexDirection="row"
-          gap={4}
-          marginHorizontal={4}
+          gap={selectTokens.multiValueGap}
+          marginHorizontal={selectTokens.multiValueMarginHorizontal}
           overflow="hidden"
         >
           {selected

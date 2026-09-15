@@ -4,6 +4,7 @@ import { FlatList, ListRenderItemInfo } from "react-native";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
 import { View } from "@impulse-ui-native/primitives";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { PrimitiveValue, SelectFlyoutProps, SelectOption } from "../types";
 import { getOptionId } from "../utils";
@@ -13,6 +14,8 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
   Value extends PrimitiveValue,
 >(props: SelectFlyoutProps<Value>) {
   const { options, isSelected, onSelect, ...rest } = props;
+  const tokens = useComponentsTokens();
+  const selectTokens = tokens.select;
 
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<SelectOption<Value>>) => {
@@ -31,7 +34,7 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
   return (
     <Portal>
       <Flyout {...rest}>
-        <View height={300}>
+        <View height={selectTokens.flyoutHeight}>
           <FlatList
             data={options}
             renderItem={renderItem}
