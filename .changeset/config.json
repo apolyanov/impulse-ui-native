@@ -21,8 +21,7 @@
       "@impulse-ui-native/stepper",
       "@impulse-ui-native/storybook",
       "@impulse-ui-native/theme",
-      "@impulse-ui-native/toolkit",
-      "@impulse-ui-native/types"
+      "@impulse-ui-native/toolkit"
     ]
   ],
   "linked": [],

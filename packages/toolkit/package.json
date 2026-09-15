@@ -42,7 +42,6 @@
     "@impulse-ui-native/stepper": "workspace:*",
     "@impulse-ui-native/input": "workspace:*",
     "@impulse-ui-native/overlay": "workspace:*",
-    "@impulse-ui-native/types": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
     "@impulse-ui-native/data-state": "workspace:*",

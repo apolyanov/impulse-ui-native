@@ -20,6 +20,3 @@ export * from "@impulse-ui-native/datetime";
 // Utilities
 export * from "@impulse-ui-native/echo";
 export * from "@impulse-ui-native/endpoint";
-
-// Types
-export * from "@impulse-ui-native/types";
