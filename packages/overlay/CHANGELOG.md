@@ -1,5 +1,11 @@
 # @impulse-ui-native/overlay
 
+## 2.5.0
+
+### Minor Changes
+
+- Theme tokens cleanup
+
 ## 2.4.0
 
 ### Minor Changes

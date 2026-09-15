@@ -1,5 +1,30 @@
 # @impulse-ui-native/toolkit
 
+## 2.5.0
+
+### Minor Changes
+
+- Theme tokens cleanup
+
+### Patch Changes
+
+- Updated dependencies
+  - @impulse-ui-native/charts@2.5.0
+  - @impulse-ui-native/core@2.5.0
+  - @impulse-ui-native/data-state@2.5.0
+  - @impulse-ui-native/datetime@2.5.0
+  - @impulse-ui-native/echo@2.5.0
+  - @impulse-ui-native/endpoint@2.5.0
+  - @impulse-ui-native/flyout@2.5.0
+  - @impulse-ui-native/input@2.5.0
+  - @impulse-ui-native/overlay@2.5.0
+  - @impulse-ui-native/portal@2.5.0
+  - @impulse-ui-native/primitives@2.5.0
+  - @impulse-ui-native/select@2.5.0
+  - @impulse-ui-native/skeleton@2.5.0
+  - @impulse-ui-native/stepper@2.5.0
+  - @impulse-ui-native/theme@2.5.0
+
 ## 2.4.0
 
 ### Patch Changes

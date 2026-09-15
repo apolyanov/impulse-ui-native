@@ -1,5 +1,18 @@
 # @impulse-ui-native/primitives
 
+## 2.5.0
+
+### Minor Changes
+
+- Theme tokens cleanup
+
+### Patch Changes
+
+- Updated dependencies
+  - @impulse-ui-native/core@2.5.0
+  - @impulse-ui-native/icon@2.5.0
+  - @impulse-ui-native/theme@2.5.0
+
 ## 2.4.0
 
 ### Patch Changes

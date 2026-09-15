@@ -1,5 +1,16 @@
 # @impulse-ui-native/echo
 
+## 2.5.0
+
+### Minor Changes
+
+- Theme tokens cleanup
+
+### Patch Changes
+
+- Updated dependencies
+  - @impulse-ui-native/core@2.5.0
+
 ## 2.4.0
 
 ### Patch Changes

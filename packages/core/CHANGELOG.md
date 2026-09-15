@@ -1,5 +1,11 @@
 # @impulse-ui-native/core
 
+## 2.5.0
+
+### Minor Changes
+
+- Theme tokens cleanup
+
 ## 2.4.0
 
 ## 2.3.5
