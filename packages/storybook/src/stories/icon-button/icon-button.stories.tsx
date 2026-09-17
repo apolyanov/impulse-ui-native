@@ -82,8 +82,8 @@ function createIconButtonStory(name: string): Story {
 
   return {
     args: example.args,
-    render: function renderIconButtonStory() {
-      return <IconButtonExample example={example} elevated />;
+    render: function renderIconButtonStory(args) {
+      return <IconButtonExample example={{ ...example, args }} elevated />;
     },
     parameters: createStoryDescription(example.description),
   };

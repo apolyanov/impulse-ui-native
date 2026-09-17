@@ -79,8 +79,8 @@ function createButtonStory(name: string): Story {
 
   return {
     args: example.args,
-    render: function renderStory() {
-      return <ButtonExample example={example} />;
+    render: function renderStory(args) {
+      return <ButtonExample example={{ ...example, args }} />;
     },
     parameters: createStoryDescription(example.description),
   };

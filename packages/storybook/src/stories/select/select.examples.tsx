@@ -1,7 +1,12 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { memo } from "react";
 
-import { MultiSelect, Select } from "@impulse-ui-native/select";
+import {
+  MultiSelect,
+  PrimitiveValue,
+  Select,
+  SelectOption,
+} from "@impulse-ui-native/select";
 
 import {
   StoryExample,
@@ -13,10 +18,24 @@ interface SelectExampleDefinition {
   title: string;
   description: string;
   props: StoryExamplePropDefinition[];
-  preview: ReactNode;
+  args?: Partial<SelectStoryArgs>;
+  renderPreview: (args: SelectStoryArgs) => ReactNode;
 }
 
-const options = [
+type SelectStoryArgs = Pick<
+  ComponentProps<typeof Select>,
+  | "size"
+  | "variant"
+  | "disabled"
+  | "loading"
+  | "error"
+  | "label"
+  | "placeholder"
+> & {
+  options: SelectOption<PrimitiveValue>[];
+};
+
+export const SelectStoryOptions = [
   { label: "Design", value: "design" },
   { label: "Engineering", value: "engineering" },
   { label: "Operations", value: "operations" },
@@ -41,12 +60,12 @@ export const SelectExampleDefinitions = [
         description: "Sets the initial value for uncontrolled usage.",
       },
     ],
-    preview: (
-      <Select
+    renderPreview: (args) => (
+      <Select<PrimitiveValue>
         label="Department"
-        options={options}
         defaultValue="design"
         placeholder="Choose a department"
+        {...args}
       />
     ),
   },
@@ -62,12 +81,12 @@ export const SelectExampleDefinitions = [
         description: "Sets the initial selected-value array.",
       },
     ],
-    preview: (
-      <MultiSelect
+    renderPreview: (args) => (
+      <MultiSelect<PrimitiveValue>
         label="Teams"
-        options={options}
         defaultValue={["design", "engineering"]}
         placeholder="Choose teams"
+        {...args}
       />
     ),
   },
@@ -83,12 +102,14 @@ export const SelectExampleDefinitions = [
         description: "Replaces the value area with a progress indicator.",
       },
     ],
-    preview: (
-      <Select
+    args: {
+      loading: true,
+    },
+    renderPreview: (args) => (
+      <Select<PrimitiveValue>
         label="Department"
-        options={options}
-        loading
         placeholder="Loading departments"
+        {...args}
       />
     ),
   },
@@ -96,11 +117,13 @@ export const SelectExampleDefinitions = [
 
 interface SelectExampleProps {
   example: SelectExampleDefinition;
+  args?: SelectStoryArgs;
   elevated?: boolean;
 }
 
 export const SelectExample = memo(function SelectExample({
   example,
+  args = { options: SelectStoryOptions },
   elevated,
 }: SelectExampleProps) {
   return (
@@ -110,7 +133,7 @@ export const SelectExample = memo(function SelectExample({
       props={example.props}
       elevated={elevated}
     >
-      {example.preview}
+      {example.renderPreview(args)}
     </StoryExample>
   );
 });

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { memo } from "react";
 
 import {
@@ -19,8 +19,19 @@ interface DatetimeExampleDefinition {
   title: string;
   description: string;
   props: StoryExamplePropDefinition[];
-  preview: ReactNode;
+  renderPreview: (args: DatetimeStoryArgs) => ReactNode;
 }
+
+type DatetimeStoryArgs = Pick<
+  ComponentProps<typeof DatePicker>,
+  | "size"
+  | "variant"
+  | "disabled"
+  | "clearable"
+  | "error"
+  | "label"
+  | "placeholder"
+>;
 
 const start = new Date(2026, 8, 14, 9, 30);
 const end = new Date(2026, 8, 18, 17, 0);
@@ -37,12 +48,12 @@ export const DatetimeExampleDefinitions = [
         description: "Offers shortcuts alongside the calendar.",
       },
     ],
-    preview: (
+    renderPreview: (args) => (
       <DatePicker
         label="Start date"
         defaultValue={start}
-        clearable
         quickDateOptions={[{ label: "Today", value: new Date() }]}
+        {...args}
       />
     ),
   },
@@ -58,11 +69,11 @@ export const DatetimeExampleDefinitions = [
         description: "Sets the initial uncontrolled range.",
       },
     ],
-    preview: (
+    renderPreview: (args) => (
       <DateRangePicker
         label="Project dates"
         defaultValue={{ start, end }}
-        clearable
+        {...args}
       />
     ),
   },
@@ -78,8 +89,8 @@ export const DatetimeExampleDefinitions = [
         description: "Combines the selected date and time.",
       },
     ],
-    preview: (
-      <DatetimePicker label="Starts at" defaultValue={start} clearable />
+    renderPreview: (args) => (
+      <DatetimePicker label="Starts at" defaultValue={start} {...args} />
     ),
   },
   {
@@ -94,11 +105,11 @@ export const DatetimeExampleDefinitions = [
         description: "Stores optional start and end Date values.",
       },
     ],
-    preview: (
+    renderPreview: (args) => (
       <DatetimeRangePicker
         label="Reservation"
         defaultValue={{ start, end }}
-        clearable
+        {...args}
       />
     ),
   },
@@ -114,11 +125,11 @@ export const DatetimeExampleDefinitions = [
         description: "Sets the initial uncontrolled time.",
       },
     ],
-    preview: (
+    renderPreview: (args) => (
       <TimePicker
         label="Reminder time"
         defaultValue={{ hours: 9, minutes: 30, seconds: 0 }}
-        clearable
+        {...args}
       />
     ),
   },
@@ -126,11 +137,13 @@ export const DatetimeExampleDefinitions = [
 
 interface DatetimeExampleProps {
   example: DatetimeExampleDefinition;
+  args?: DatetimeStoryArgs;
   elevated?: boolean;
 }
 
 export const DatetimeExample = memo(function DatetimeExample({
   example,
+  args = {},
   elevated,
 }: DatetimeExampleProps) {
   return (
@@ -140,7 +153,7 @@ export const DatetimeExample = memo(function DatetimeExample({
       props={example.props}
       elevated={elevated}
     >
-      {example.preview}
+      {example.renderPreview(args)}
     </StoryExample>
   );
 });
