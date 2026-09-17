@@ -35,6 +35,7 @@
   "devDependencies": {
     "@impulse-ui-native/prettier-config": "workspace:*",
     "@impulse-ui-native/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

@@ -1426,6 +1426,9 @@ importers:
       '@impulse-ui-native/tsconfig':
         specifier: workspace:*
         version: link:../typescript
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.19.17
       eslint:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.7.0)
