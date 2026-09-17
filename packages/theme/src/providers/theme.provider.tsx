@@ -1,20 +1,16 @@
-import {
-  createContext,
-  memo,
-  PropsWithChildren,
-  useContext,
-  useMemo,
-} from "react";
+import type { PropsWithChildren } from "react";
+import { createContext, memo, useContext, useMemo } from "react";
 
-import { DeepPartial, merge } from "@impulse-ui-native/core";
+import type { DeepPartial } from "@impulse-ui-native/core";
+import { merge } from "@impulse-ui-native/core";
 
-import { createComponentsTokens, DarkTheme, LightTheme } from "../theme";
-import {
+import type {
   AppTheme,
   ColorScheme,
   ComponentsTokens,
   PrimitiveThemeTokens,
 } from "../types";
+import { createComponentsTokens, DarkTheme, LightTheme } from "../theme";
 
 const ThemeContext = createContext<AppTheme | undefined>(undefined);
 
@@ -32,23 +28,30 @@ interface ThemeProviderProps {
 export const ThemeProvider = memo(function ThemeProvider(
   props: PropsWithChildren<ThemeProviderProps>,
 ) {
-  const scheme = props?.scheme ?? "light";
+  const {
+    children,
+    components: componentsOverride,
+    scheme = "light",
+    theme: themeOverride,
+  } = props;
 
   const context = useMemo<AppTheme>(() => {
     const baseTheme = scheme === "light" ? LightTheme : DarkTheme;
-    const customBaseTheme = props.theme?.[scheme];
+    const customBaseTheme = themeOverride?.[scheme];
     const theme = merge(baseTheme, customBaseTheme);
+    const customComponents =
+      typeof componentsOverride === "function"
+        ? componentsOverride(theme)
+        : componentsOverride;
 
     return {
       ...theme,
-      components: createComponentsTokens(theme),
+      components: merge(createComponentsTokens(theme), customComponents),
     };
-  }, [scheme, props.theme?.light, props.theme?.dark, props.components]);
+  }, [scheme, themeOverride, componentsOverride]);
 
   return (
-    <ThemeContext.Provider value={context}>
-      {props.children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
   );
 });
 

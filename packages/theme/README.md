@@ -51,3 +51,26 @@ export function App() {
 ```
 
 Theme overrides are deep partials, so only the tokens you want to change need to be supplied.
+
+Component-token overrides can be supplied as a deep-partial object or as a
+callback that receives the resolved primitive theme:
+
+```tsx
+<ThemeProvider
+  components={(theme) => ({
+    button: {
+      borderRadius: theme.radii.lg,
+      variants: {
+        filled: {
+          backgroundColor: theme.colors.accent.value,
+        },
+      },
+    },
+  })}
+>
+  {/* application */}
+</ThemeProvider>
+```
+
+Component overrides are merged with the generated defaults, so unspecified
+tokens retain their theme-derived values.

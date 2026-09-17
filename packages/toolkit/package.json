@@ -63,6 +63,7 @@
   },
   "peerDependencies": {
     "@shopify/flash-list": ">=2",
+    "@shopify/react-native-skia": ">=2",
     "react": ">=18",
     "react-native": ">=0.73",
     "react-native-gesture-handler": ">=2.0.0",
