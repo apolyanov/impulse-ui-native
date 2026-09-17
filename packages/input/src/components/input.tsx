@@ -36,6 +36,7 @@ export const Input = memo(function Input(props: InputProps) {
       ? EyeIcon
       : EyeSlashIcon
     : SuffixIcon;
+
   const internalOnSuffixPress = props.secureTextEntry
     ? togglePasswordVisibility
     : onPressSuffix;

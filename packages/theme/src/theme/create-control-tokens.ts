@@ -10,13 +10,40 @@ import {
 export function createControlAddonTokens(
   tokens: PrimitiveThemeTokens,
 ): ControlAddonTokens {
+  const DefaultIconColor = tokens.colors.text.primary;
+  const DisabledIconColor = tokens.colors.text.disabled;
+  const SoftIconColor = tokens.colors.accent.contrast;
+
   return {
     marginHorizontal: tokens.space.xxs,
     hitSlop: tokens.space.sm,
-
-    iconColor: tokens.colors.text.secondary,
-    errorIconColor: tokens.colors.feedback.error.value,
-    disabledIconColor: tokens.colors.text.disabled,
+    variants: {
+      filled: {
+        iconColor: DefaultIconColor,
+        errorIconColor: DefaultIconColor,
+        disabledIconColor: DisabledIconColor,
+      },
+      outlined: {
+        iconColor: DefaultIconColor,
+        errorIconColor: DefaultIconColor,
+        disabledIconColor: DisabledIconColor,
+      },
+      soft: {
+        iconColor: SoftIconColor,
+        errorIconColor: SoftIconColor,
+        disabledIconColor: DisabledIconColor,
+      },
+      ghost: {
+        iconColor: DefaultIconColor,
+        errorIconColor: DefaultIconColor,
+        disabledIconColor: DisabledIconColor,
+      },
+      plain: {
+        iconColor: DefaultIconColor,
+        errorIconColor: DefaultIconColor,
+        disabledIconColor: DisabledIconColor,
+      },
+    },
   };
 }
 

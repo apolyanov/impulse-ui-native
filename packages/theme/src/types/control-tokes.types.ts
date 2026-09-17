@@ -1,12 +1,18 @@
 import { ComponentSize, ComponentVariant } from "./components.types";
 
+export type ControlAddonVariantTokens = Record<
+  ComponentVariant,
+  {
+    iconColor: string;
+    errorIconColor: string;
+    disabledIconColor: string;
+  }
+>;
+
 export interface ControlAddonTokens {
   marginHorizontal: number;
   hitSlop: number;
-
-  iconColor: string;
-  errorIconColor: string;
-  disabledIconColor: string;
+  variants: ControlAddonVariantTokens;
 }
 
 export type ControlContainerSizeTokens = Record<

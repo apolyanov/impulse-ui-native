@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import {
   AppTheme,
+  ComponentVariant,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -17,17 +18,18 @@ export const ControlAddon = memo(function ControlAddon(
 ) {
   const { icon: AddonIcon, onPress, Content, style, ...rest } = props;
 
-  const { disabled, error } = useControlContext();
+  const { variant, disabled, error } = useControlContext();
 
   const tokens = useComponentsTokens();
 
   const styles = useThemedStyles(
     themedStyles,
     {
+      variant,
       disabled,
       error,
     },
-    [disabled, error],
+    [variant, disabled, error],
   );
 
   const Container = useMemo(() => {
@@ -75,13 +77,21 @@ export const ControlAddon = memo(function ControlAddon(
 function themedStyles(
   theme: AppTheme,
   props: {
+    variant: ComponentVariant;
     disabled?: boolean;
     error?: string;
   },
 ) {
-  const { disabled, error } = props;
+  const { variant, disabled, error } = props;
 
   const controlAddonTokens = theme.components.controlAddon;
+  const variantTokens = controlAddonTokens.variants[variant];
+
+  const color = disabled
+    ? variantTokens.disabledIconColor
+    : error
+      ? variantTokens.errorIconColor
+      : variantTokens.iconColor;
 
   return StyleSheet.create({
     container: {
@@ -89,11 +99,7 @@ function themedStyles(
     },
 
     icon: {
-      color: disabled
-        ? controlAddonTokens.disabledIconColor
-        : error
-          ? controlAddonTokens.errorIconColor
-          : controlAddonTokens.iconColor,
+      color,
     },
   });
 }
