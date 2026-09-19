@@ -1,10 +1,11 @@
 import type {
+  AccessibilityState,
   GestureResponderEvent,
   PressableStateCallbackType,
   StyleProp,
   ViewStyle,
 } from "react-native";
-import { memo, useCallback } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -51,6 +52,15 @@ export const Checkbox = memo(function Checkbox({
   const StateIcon =
     checked === "indeterminate" ? MinusIcon : checked ? CheckIcon : undefined;
 
+  const resolvedAccessibilityState = useMemo<AccessibilityState>(
+    () => ({
+      ...accessibilityState,
+      checked: checked === "indeterminate" ? "mixed" : checked,
+      disabled: Boolean(disabled),
+    }),
+    [accessibilityState, checked, disabled],
+  );
+
   const checkboxStyle = useCallback(
     (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
       StyleSheet.flatten([
@@ -72,11 +82,7 @@ export const Checkbox = memo(function Checkbox({
     <Pressable
       {...props}
       accessibilityRole="checkbox"
-      accessibilityState={{
-        ...accessibilityState,
-        checked: checked === "indeterminate" ? "mixed" : checked,
-        disabled: Boolean(disabled),
-      }}
+      accessibilityState={resolvedAccessibilityState}
       disabled={disabled}
       hitSlop={hitSlop ?? sizeTokens.hitSlop}
       onPress={handlePress}
