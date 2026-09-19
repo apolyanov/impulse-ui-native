@@ -8,6 +8,7 @@ export * from "@impulse-ui-native/portal";
 
 // Components
 export * from "@impulse-ui-native/charts";
+export * from "@impulse-ui-native/checkbox";
 export * from "@impulse-ui-native/primitives";
 export * from "@impulse-ui-native/flyout";
 export * from "@impulse-ui-native/input";

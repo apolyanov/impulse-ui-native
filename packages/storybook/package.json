@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@impulse-ui-native/charts": "workspace:*",
+    "@impulse-ui-native/checkbox": "workspace:*",
     "@impulse-ui-native/data-state": "workspace:*",
     "@impulse-ui-native/datetime": "workspace:*",
     "@impulse-ui-native/eslint-config": "workspace:*",

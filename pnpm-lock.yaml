@@ -1198,6 +1198,9 @@ importers:
       '@impulse-ui-native/charts':
         specifier: workspace:*
         version: link:../charts
+      '@impulse-ui-native/checkbox':
+        specifier: workspace:*
+        version: link:../checkbox
       '@impulse-ui-native/data-state':
         specifier: workspace:*
         version: link:../data-state
@@ -1298,6 +1301,9 @@ importers:
       '@impulse-ui-native/charts':
         specifier: workspace:*
         version: link:../charts
+      '@impulse-ui-native/checkbox':
+        specifier: workspace:*
+        version: link:../checkbox
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core

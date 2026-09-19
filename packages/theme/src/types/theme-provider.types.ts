@@ -1,3 +1,4 @@
+import type { CheckboxTokens } from "./checkbox-tokens.types";
 import { ButtonTokens, IconButtonTokens } from "./buttons-tokens.types";
 import {
   ControlAddonTokens,
@@ -89,6 +90,7 @@ export interface ComponentsThemes {
 
 export interface ComponentsTokens {
   button: ButtonTokens;
+  checkbox: CheckboxTokens;
   iconButton: IconButtonTokens;
   icon: IconTokens;
   pressable: PressableTokens;

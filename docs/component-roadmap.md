@@ -129,7 +129,8 @@ have been discussed.
 
 | Candidate                    | Status    | Suggested scope                                                                                                                                       |
 | ---------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Checkbox / Checkbox Group    | Planned   | Private package scaffold created; implement controlled and uncontrolled state, indeterminate state, labels, errors, and group layout.                 |
+| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, disabled behavior, and accessible mixed-state semantics.           |
+| Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                                       |
 | Radio / Radio Group          | Candidate | Keyboard navigation on web, disabled items, descriptions, and validation.                                                                             |
 | Switch                       | Candidate | Native-feeling switch with token-driven colors, labels, and disabled/loading behavior.                                                                |
 | Textarea                     | Candidate | A multiline control API with character count, validation, and auto-grow behavior.                                                                     |

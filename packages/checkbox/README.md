@@ -1,29 +1,48 @@
 # @impulse-ui-native/checkbox
 
-Package scaffold for the ImpulseUI Native checkbox controls.
+Accessible, token-aware checkbox controls for React Native and React Native Web.
 
-## Status
+## Installation
 
-The package is private and currently exports no components. It is included in
-the workspace so the `Checkbox` and `CheckboxGroup` APIs can be developed and
-verified without exposing an unfinished package.
+```sh
+pnpm add @impulse-ui-native/checkbox
+```
 
-## Planned responsibilities
+Render the component inside `ThemeProvider` from `@impulse-ui-native/theme`.
 
-- `Checkbox` with controlled and uncontrolled checked state;
-- checked, unchecked, and indeterminate visual states;
-- label, description, error, disabled, and required states;
-- `CheckboxGroup` for shared value, validation, and layout behavior;
-- theme tokens for sizes, colors, borders, spacing, and motion;
-- accessible touch, keyboard, focus, and screen-reader behavior across native
-  platforms and React Native Web.
+## Main exports
 
-## Before publishing
+- `Checkbox` supports checked, unchecked, and indeterminate states.
+- `CheckboxProps` describes the controlled and uncontrolled component API.
+- `CheckboxState` is `boolean | "indeterminate"`.
 
-1. Implement and export the component and public prop types.
-2. Add checkbox tokens to `@impulse-ui-native/theme`.
-3. Add native and web Storybook examples and documentation.
-4. Add interaction and accessibility tests.
-5. Remove `private`, add `publishConfig`, add the package to the Changesets
-   fixed group, and re-export it from `@impulse-ui-native/toolkit`.
-6. Update `docs/component-roadmap.md` and add a Changeset.
+## Usage
+
+```tsx
+import { useState } from "react";
+
+import type { CheckboxState } from "@impulse-ui-native/checkbox";
+import { Checkbox } from "@impulse-ui-native/checkbox";
+
+export function TermsCheckbox() {
+  const [checked, setChecked] = useState<CheckboxState>(false);
+
+  return (
+    <Checkbox
+      accessibilityLabel="Accept terms"
+      checked={checked}
+      onCheckedChange={setChecked}
+      size="medium"
+      variant="filled"
+    />
+  );
+}
+```
+
+Use `defaultChecked` for uncontrolled state. Pressing an indeterminate checkbox
+changes it to checked. The component accepts the shared `small`, `medium`, and
+`large` sizes and all shared component variants.
+
+The standalone checkbox does not render a label, so provide
+`accessibilityLabel` unless a surrounding labelled control supplies an
+accessible name.

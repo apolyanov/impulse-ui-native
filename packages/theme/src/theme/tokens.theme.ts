@@ -17,6 +17,7 @@ import {
   ThemeColors,
 } from "../types";
 import { createButtonTokens } from "./create-button-tokens";
+import { createCheckboxTokens } from "./create-checkbox-tokens";
 import {
   createControlAddonTokens,
   createControlContainerTokens,
@@ -286,6 +287,7 @@ export function createComponentsTokens(
 ): ComponentsTokens {
   return {
     button: createButtonTokens(tokens),
+    checkbox: createCheckboxTokens(tokens),
     iconButton: createIconButtonTokens(tokens),
     icon: createIconTokens(),
     pressable: createPressableTokens(),

@@ -10,7 +10,6 @@
     "impulse-ui-native"
   ],
   "license": "MIT",
-  "private": true,
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",
@@ -54,6 +53,9 @@
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.73"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "prettier": "@impulse-ui-native/prettier-config"
 }
