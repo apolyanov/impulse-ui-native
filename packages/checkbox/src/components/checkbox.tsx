@@ -52,10 +52,11 @@ export const Checkbox = memo(function Checkbox({
     checked === "indeterminate" ? MinusIcon : checked ? CheckIcon : undefined;
 
   const checkboxStyle = useCallback(
-    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
-      styles.root,
-      typeof style === "function" ? style(state) : style,
-    ],
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
+      StyleSheet.flatten([
+        styles.root,
+        typeof style === "function" ? style(state) : style,
+      ]),
     [style, styles.root],
   );
 
