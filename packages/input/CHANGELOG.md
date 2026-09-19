@@ -1,5 +1,13 @@
 # @impulse-ui-native/input
 
+## 2.6.0
+
+### Patch Changes
+
+- @impulse-ui-native/icon@2.6.0
+- @impulse-ui-native/primitives@2.6.0
+- @impulse-ui-native/core@2.6.0
+
 ## 2.5.0
 
 ### Minor Changes

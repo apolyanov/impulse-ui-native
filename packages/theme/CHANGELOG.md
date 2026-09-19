@@ -1,5 +1,17 @@
 # @impulse-ui-native/theme
 
+## 2.6.0
+
+### Minor Changes
+
+- f5dec23: Add the accessible, themeable Checkbox component with controlled and uncontrolled checked, unchecked, and indeterminate states.
+- e34f2c3: Add the accessible, themeable Radio component with controlled and uncontrolled selection, shared sizes, and shared variants.
+
+### Patch Changes
+
+- 6f49e9f: Apply `ThemeProvider` component-token overrides and declare Skia as a toolkit peer dependency.
+  - @impulse-ui-native/core@2.6.0
+
 ## 2.5.0
 
 ### Minor Changes
