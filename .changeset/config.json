@@ -17,6 +17,7 @@
       "@impulse-ui-native/overlay",
       "@impulse-ui-native/portal",
       "@impulse-ui-native/primitives",
+      "@impulse-ui-native/radio",
       "@impulse-ui-native/select",
       "@impulse-ui-native/skeleton",
       "@impulse-ui-native/stepper",

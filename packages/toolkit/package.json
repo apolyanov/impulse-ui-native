@@ -45,6 +45,7 @@
     "@impulse-ui-native/overlay": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/radio": "workspace:*",
     "@impulse-ui-native/data-state": "workspace:*",
     "@impulse-ui-native/skeleton": "workspace:*",
     "@impulse-ui-native/select": "workspace:*",

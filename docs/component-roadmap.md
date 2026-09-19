@@ -131,7 +131,8 @@ have been discussed.
 | ---------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, disabled behavior, and accessible mixed-state semantics.           |
 | Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                                       |
-| Radio / Radio Group          | Candidate | Keyboard navigation on web, disabled items, descriptions, and validation.                                                                             |
+| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, disabled behavior, and accessible radio semantics.                                  |
+| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and keyboard navigation on web.                                                |
 | Switch                       | Candidate | Native-feeling switch with token-driven colors, labels, and disabled/loading behavior.                                                                |
 | Textarea                     | Candidate | A multiline control API with character count, validation, and auto-grow behavior.                                                                     |
 | Form Field                   | Candidate | Shared label, description, required marker, validation, and accessibility wiring around custom controls. Build on `Control` rather than duplicate it. |

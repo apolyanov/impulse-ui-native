@@ -1,4 +1,5 @@
 import type { CheckboxTokens } from "./checkbox-tokens.types";
+import type { RadioTokens } from "./radio-tokens.types";
 import { ButtonTokens, IconButtonTokens } from "./buttons-tokens.types";
 import {
   ControlAddonTokens,
@@ -94,6 +95,7 @@ export interface ComponentsTokens {
   iconButton: IconButtonTokens;
   icon: IconTokens;
   pressable: PressableTokens;
+  radio: RadioTokens;
   tag: TagTokens;
   controlAddon: ControlAddonTokens;
   controlContainer: ControlContainerTokens;

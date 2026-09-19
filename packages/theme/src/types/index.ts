@@ -20,6 +20,7 @@ export * from "./time-picker-token.types";
 export * from "./flyout-tokens.types";
 export * from "./icon-tokens.types";
 export * from "./pressable-tokens.types";
+export * from "./radio-tokens.types";
 export * from "./skeleton-tokens.types";
 export * from "./stepper-tokens.types";
 export * from "./data-state-tokens.types";
