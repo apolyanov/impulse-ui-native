@@ -1,5 +1,11 @@
 # @impulse-ui-native/core
 
+## 2.8.0
+
+### Patch Changes
+
+- e899f0a: Add an accessible compound Accordion with single and multiple expansion, animated height, keyboard navigation, and nested content support. Forward refs through the shared Pressable primitive, use it consistently across package implementations, and stabilize render-created callbacks, styles, derived structures, and hook result objects across the affected controls.
+
 ## 2.7.0
 
 ## 2.6.0

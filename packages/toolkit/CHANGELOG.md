@@ -1,5 +1,45 @@
 # @impulse-ui-native/toolkit
 
+## 2.8.0
+
+### Minor Changes
+
+- 385bd4f: Add accessible linear and circular progress indicators with determinate and reduced-motion-aware indeterminate states.
+- 6a63019: Add a token-aware compound Card with static, media, section, and pressable composition APIs.
+- e899f0a: Add an accessible compound Accordion with single and multiple expansion, animated height, keyboard navigation, and nested content support. Forward refs through the shared Pressable primitive, use it consistently across package implementations, and stabilize render-created callbacks, styles, derived structures, and hook result objects across the affected controls.
+- 1256f76: Add a token-aware Avatar with shared visual variants, image, initials, custom fallback, sizes, and semantic presence status.
+- 598ea3d: Add a token-aware Divider with horizontal and vertical orientations, logical insets, and semantic colors.
+- c6fb200: Add a token-aware Spinner primitive and use it across button, field, and switch loading states.
+
+### Patch Changes
+
+- Updated dependencies [385bd4f]
+- Updated dependencies [6a63019]
+- Updated dependencies [e899f0a]
+- Updated dependencies [1256f76]
+- Updated dependencies [598ea3d]
+- Updated dependencies [c6fb200]
+  - @impulse-ui-native/primitives@2.8.0
+  - @impulse-ui-native/theme@2.8.0
+  - @impulse-ui-native/accordion@2.8.0
+  - @impulse-ui-native/charts@2.8.0
+  - @impulse-ui-native/core@2.8.0
+  - @impulse-ui-native/flyout@2.8.0
+  - @impulse-ui-native/input@2.8.0
+  - @impulse-ui-native/switch@2.8.0
+  - @impulse-ui-native/select@2.8.0
+  - @impulse-ui-native/skeleton@2.8.0
+  - @impulse-ui-native/datetime@2.8.0
+  - @impulse-ui-native/checkbox@2.8.0
+  - @impulse-ui-native/data-state@2.8.0
+  - @impulse-ui-native/form-field@2.8.0
+  - @impulse-ui-native/radio@2.8.0
+  - @impulse-ui-native/stepper@2.8.0
+  - @impulse-ui-native/echo@2.8.0
+  - @impulse-ui-native/endpoint@2.8.0
+  - @impulse-ui-native/overlay@2.8.0
+  - @impulse-ui-native/portal@2.8.0
+
 ## 2.7.0
 
 ### Minor Changes

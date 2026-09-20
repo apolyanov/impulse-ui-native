@@ -1,5 +1,7 @@
 # @impulse-ui-native/portal
 
+## 2.8.0
+
 ## 2.7.0
 
 ## 2.6.0

@@ -1,5 +1,21 @@
 # @impulse-ui-native/theme
 
+## 2.8.0
+
+### Minor Changes
+
+- 385bd4f: Add accessible linear and circular progress indicators with determinate and reduced-motion-aware indeterminate states.
+- 6a63019: Add a token-aware compound Card with static, media, section, and pressable composition APIs.
+- e899f0a: Add an accessible compound Accordion with single and multiple expansion, animated height, keyboard navigation, and nested content support. Forward refs through the shared Pressable primitive, use it consistently across package implementations, and stabilize render-created callbacks, styles, derived structures, and hook result objects across the affected controls.
+- 1256f76: Add a token-aware Avatar with shared visual variants, image, initials, custom fallback, sizes, and semantic presence status.
+- 598ea3d: Add a token-aware Divider with horizontal and vertical orientations, logical insets, and semantic colors.
+- c6fb200: Add a token-aware Spinner primitive and use it across button, field, and switch loading states.
+
+### Patch Changes
+
+- Updated dependencies [e899f0a]
+  - @impulse-ui-native/core@2.8.0
+
 ## 2.7.0
 
 ### Minor Changes

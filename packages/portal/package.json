@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/portal",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "Portal components for rendering React Native content outside its parent hierarchy.",
   "keywords": [
     "react-native",

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/skeleton",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "Animated skeleton loading components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
