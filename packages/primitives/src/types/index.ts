@@ -4,5 +4,6 @@ export * from "./typography.types";
 export * from "./typography.types";
 export * from "./button.types";
 export * from "./icon-button.types";
+export * from "./spinner.types";
 export * from "./tag.types";
 export * from "./control-components.types";

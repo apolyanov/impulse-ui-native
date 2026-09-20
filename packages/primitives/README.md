@@ -22,6 +22,7 @@ pnpm add react-native-safe-area-context
 - `SafeAreaView` maps safe-area edges to the theme spacing scale.
 - `Typography` exposes named text presets such as `DisplayLarge`, `Title1`, `Body`, `Caption`, and `Code`.
 - `Button`, `IconButton`, `Pressable`, and `Tag` provide themed interaction primitives.
+- `Spinner` provides token-aware sizes and semantic colors for indeterminate loading states.
 - `Control` is a compound control system with `Provider`, `Root`, `Label`, `Container`, `Addon`, `Input`, `Placeholder`, `Value`, `Loader`, and `Error` parts.
 - `createPreset` creates reusable themed typography presets.
 - Public prop types describe every primitive and control part.
@@ -29,13 +30,24 @@ pnpm add react-native-safe-area-context
 ## Example
 
 ```tsx
-import { Button, Tag, Typography, View } from "@impulse-ui-native/primitives";
+import {
+  Button,
+  Spinner,
+  Tag,
+  Typography,
+  View,
+} from "@impulse-ui-native/primitives";
 
 export function ProfileSummary() {
   return (
     <View gap="md" padding="lg">
       <Typography.Title3>Profile</Typography.Title3>
       <Tag label="Active" color="success" />
+      <Spinner
+        size="small"
+        tone="secondary"
+        accessibilityLabel="Loading profile"
+      />
       <Button variant="filled" onPress={() => {}}>
         Continue
       </Button>
@@ -47,3 +59,5 @@ export function ProfileSummary() {
 Use the compound `Control` when building a custom field that should share the same label, addon, error, size, and variant behavior as `Input` and `Select`.
 
 `Button` and `IconButton` replace their content with a loading indicator when `loading` is true. Loading controls block interaction and expose their busy state to assistive technologies. Provide an `accessibilityLabel` for every `IconButton` because its icon does not supply an accessible name.
+
+`Spinner` defaults to the primary theme tone and medium size. Use `tone="inverse"` on inverse surfaces, or provide `color` when the indicator must match contextual content. Give standalone spinners an `accessibilityLabel` that describes what is loading.

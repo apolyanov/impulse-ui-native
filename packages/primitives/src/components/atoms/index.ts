@@ -4,4 +4,5 @@ export { Typography, type TypographyComponent } from "./typography";
 export { Button } from "./button";
 export { IconButton } from "./icon-button";
 export { Pressable } from "./pressable";
+export { Spinner } from "./spinner";
 export { Tag } from "./tag";

@@ -1,11 +1,12 @@
 import type { AccessibilityState } from "react-native";
 import { memo, PropsWithChildren, useMemo } from "react";
-import { ActivityIndicator, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
 
 import { ButtonProps, ButtonThemeProps } from "../../types";
 import { Pressable } from "./pressable";
+import { Spinner } from "./spinner";
 import { Typography } from "./typography";
 
 export const Button = memo(function Button({
@@ -42,7 +43,9 @@ export const Button = memo(function Button({
 
   const content = useMemo(() => {
     if (loading) {
-      return <ActivityIndicator color={styles.text.color} />;
+      return (
+        <Spinner accessible={false} color={styles.text.color} size={size} />
+      );
     }
 
     return typeof children === "string" ? (
@@ -50,7 +53,7 @@ export const Button = memo(function Button({
     ) : (
       children
     );
-  }, [children, loading, styles.text]);
+  }, [children, loading, size, styles.text]);
 
   return (
     <Pressable

@@ -15,6 +15,7 @@ import { IconTokens } from "./icon-tokens.types";
 import { PressableTokens } from "./pressable-tokens.types";
 import { SelectTokens } from "./select-tokens.types";
 import { SkeletonTokens } from "./skeleton-tokens.types";
+import { SpinnerTokens } from "./spinner-tokens.types";
 import { StepperTokens } from "./stepper-tokens.types";
 import { SwitchTokens } from "./switch-tokens.types";
 import { TagTokens } from "./tag-tokens.types";
@@ -109,6 +110,7 @@ export interface ComponentsTokens {
   timePicker: TimePickerTokens;
   flyout: FlyoutTokens;
   skeleton: SkeletonTokens;
+  spinner: SpinnerTokens;
   stepper: StepperTokens;
   switch: SwitchTokens;
   textarea: TextareaTokens;

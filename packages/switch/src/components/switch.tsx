@@ -6,11 +6,11 @@ import type {
   ViewStyle,
 } from "react-native";
 import { memo, useCallback, useMemo } from "react";
-import { ActivityIndicator, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
 import { useControllableState } from "@impulse-ui-native/core";
-import { Pressable } from "@impulse-ui-native/primitives";
+import { Pressable, Spinner } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { SwitchProps } from "../types";
@@ -93,9 +93,10 @@ export const Switch = memo(function Switch({
       <Animated.View pointerEvents="none" style={[styles.track, trackStyle]}>
         <Animated.View style={[styles.thumb, thumbStyle]}>
           {loading ? (
-            <ActivityIndicator
+            <Spinner
+              accessible={false}
               color={loadingIndicatorColor}
-              size="small"
+              size="medium"
               style={styles.loadingIndicator}
             />
           ) : null}

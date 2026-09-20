@@ -140,7 +140,7 @@ have been discussed.
 | Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                                     |
 | Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                               |
 | Toast                        | Candidate | Imperative queue, placements, durations, actions, screen-reader announcements, and reduced motion.                                          |
-| Spinner / Activity Indicator | Candidate | Token-aware sizes and colors for buttons, controls, and standalone loading states.                                                          |
+| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                 |
 | Progress                     | Candidate | Linear and circular determinate/indeterminate variants with accessible values.                                                              |
 
 ### Priority 2: composition and navigation

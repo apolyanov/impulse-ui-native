@@ -1,12 +1,13 @@
 import type { AccessibilityState } from "react-native";
 import { memo, PropsWithChildren, useMemo } from "react";
-import { ActivityIndicator, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
 
 import { IconButtonProps, IconButtonThemeProps } from "../../types";
 import { Pressable } from "./pressable";
+import { Spinner } from "./spinner";
 
 export const IconButton = memo(function IconButton({
   accessibilityState,
@@ -48,7 +49,7 @@ export const IconButton = memo(function IconButton({
       style={iconButtonStyles}
     >
       {loading ? (
-        <ActivityIndicator color={styles.icon.color} />
+        <Spinner accessible={false} color={styles.icon.color} size={size} />
       ) : (
         <Icon size={size} icon={icon} color={styles.icon.color} />
       )}

@@ -34,6 +34,7 @@ import { createPressableTokens } from "./create-pressable-tokens";
 import { createRadioTokens } from "./create-radio-tokens";
 import { createSelectTokens } from "./create-select-tokens";
 import { createSkeletonTokens } from "./create-skeleton-tokens";
+import { createSpinnerTokens } from "./create-spinner-tokens";
 import { createStepperTokens } from "./create-stepper-tokens";
 import { createSwitchTokens } from "./create-switch-tokens";
 import { createTagTokens } from "./create-tag-tokens";
@@ -306,6 +307,7 @@ export function createComponentsTokens(
     timePicker: createTimePickerTokens(tokens),
     flyout: createFlyoutTokens(tokens),
     skeleton: createSkeletonTokens(tokens),
+    spinner: createSpinnerTokens(tokens),
     stepper: createStepperTokens(tokens),
     switch: createSwitchTokens(tokens),
     textarea: createTextareaTokens(tokens),
