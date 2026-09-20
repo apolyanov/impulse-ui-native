@@ -145,17 +145,17 @@ have been discussed.
 
 ### Priority 2: composition and navigation
 
-| Candidate               | Status    | Suggested scope                                                                           |
-| ----------------------- | --------- | ----------------------------------------------------------------------------------------- |
-| Card                    | Candidate | Header, content, footer, media, and pressable variants without imposing screen layout.    |
-| Divider / Separator     | Candidate | Horizontal and vertical orientation with inset and semantic color options.                |
-| Avatar / Avatar Group   | Candidate | Image, initials, fallback, status, and overflow count.                                    |
-| Badge                   | Candidate | Status and numeric variants; define its relationship with `Tag` before implementation.    |
-| List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.       |
-| Tabs                    | Candidate | Controlled tabs, keyboard navigation, scrollable tab lists, and lazy panels.              |
-| Accordion / Collapsible | Candidate | Single/multiple expansion, animated height, keyboard behavior, and nested content.        |
-| Menu                    | Candidate | Anchored actions, nested sections, destructive items, keyboard navigation, and portals.   |
-| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, focus/hover/press triggers, and portal rendering. |
+| Candidate               | Status    | Suggested scope                                                                                 |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------------------- |
+| Card                    | Available | Compound header, content, footer, media, and pressable surfaces without imposing screen layout. |
+| Divider / Separator     | Candidate | Horizontal and vertical orientation with inset and semantic color options.                      |
+| Avatar / Avatar Group   | Candidate | Image, initials, fallback, status, and overflow count.                                          |
+| Badge                   | Candidate | Status and numeric variants; define its relationship with `Tag` before implementation.          |
+| List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.             |
+| Tabs                    | Candidate | Controlled tabs, keyboard navigation, scrollable tab lists, and lazy panels.                    |
+| Accordion / Collapsible | Candidate | Single/multiple expansion, animated height, keyboard behavior, and nested content.              |
+| Menu                    | Candidate | Anchored actions, nested sections, destructive items, keyboard navigation, and portals.         |
+| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, focus/hover/press triggers, and portal rendering.       |
 
 ### Priority 3: advanced input and data display
 

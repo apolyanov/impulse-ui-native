@@ -1,6 +1,7 @@
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { RadioTokens } from "./radio-tokens.types";
 import { ButtonTokens, IconButtonTokens } from "./buttons-tokens.types";
+import { CardTokens } from "./card-tokens.types";
 import {
   ControlAddonTokens,
   ControlContainerTokens,
@@ -95,6 +96,7 @@ export interface ComponentsThemes {
 
 export interface ComponentsTokens {
   button: ButtonTokens;
+  card: CardTokens;
   checkbox: CheckboxTokens;
   iconButton: IconButtonTokens;
   icon: IconTokens;

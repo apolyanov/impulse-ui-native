@@ -3,6 +3,7 @@ export * from "./safe-area-view.types";
 export * from "./typography.types";
 export * from "./typography.types";
 export * from "./button.types";
+export * from "./card.types";
 export * from "./icon-button.types";
 export * from "./progress.types";
 export * from "./spinner.types";
