@@ -22,6 +22,7 @@
       "@impulse-ui-native/skeleton",
       "@impulse-ui-native/stepper",
       "@impulse-ui-native/storybook",
+      "@impulse-ui-native/switch",
       "@impulse-ui-native/theme",
       "@impulse-ui-native/toolkit"
     ]

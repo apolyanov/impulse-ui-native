@@ -4,7 +4,7 @@ This document is the living inventory for ImpulseUI Native. It records what is
 available today, where an existing component needs more work, and which
 components are candidates for future development.
 
-Last reviewed: 2026-09-16
+Last reviewed: 2026-09-20
 
 ## How to use this document
 
@@ -50,6 +50,7 @@ A component should normally include all of the following before it moves to
 | --------------------- | ------------------------------- | --------- | --------- | ------------------------------------------------------------------------------- |
 | Compound `Control`    | `@impulse-ui-native/primitives` | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
 | `Input`               | `@impulse-ui-native/input`      | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
+| `Switch`              | `@impulse-ui-native/switch`     | Available | Yes       | Add labelled field composition and automated interaction/accessibility tests.   |
 | `Select`              | `@impulse-ui-native/select`     | Extend    | Yes       | Add search, custom option rendering, grouped options, and async states.         |
 | `MultiSelect`         | `@impulse-ui-native/select`     | Extend    | Yes       | Add search, selected-item summaries, large-list behavior, and selection limits. |
 | `DatePicker`          | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add min/max dates, disabled dates, locale, and first-day-of-week controls.      |
@@ -133,7 +134,7 @@ have been discussed.
 | Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                                       |
 | Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, disabled behavior, and accessible radio semantics.                                  |
 | Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and keyboard navigation on web.                                                |
-| Switch                       | Candidate | Native-feeling switch with token-driven colors, labels, and disabled/loading behavior.                                                                |
+| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.                    |
 | Textarea                     | Candidate | A multiline control API with character count, validation, and auto-grow behavior.                                                                     |
 | Form Field                   | Candidate | Shared label, description, required marker, validation, and accessibility wiring around custom controls. Build on `Control` rather than duplicate it. |
 | Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                                               |

@@ -23,4 +23,5 @@ export * from "./pressable-tokens.types";
 export * from "./radio-tokens.types";
 export * from "./skeleton-tokens.types";
 export * from "./stepper-tokens.types";
+export * from "./switch-tokens.types";
 export * from "./data-state-tokens.types";

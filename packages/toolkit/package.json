@@ -41,6 +41,7 @@
     "@impulse-ui-native/endpoint": "workspace:*",
     "@impulse-ui-native/flyout": "workspace:*",
     "@impulse-ui-native/stepper": "workspace:*",
+    "@impulse-ui-native/switch": "workspace:*",
     "@impulse-ui-native/input": "workspace:*",
     "@impulse-ui-native/overlay": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",

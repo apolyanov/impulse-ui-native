@@ -14,6 +14,7 @@ export * from "@impulse-ui-native/radio";
 export * from "@impulse-ui-native/flyout";
 export * from "@impulse-ui-native/input";
 export * from "@impulse-ui-native/stepper";
+export * from "@impulse-ui-native/switch";
 export * from "@impulse-ui-native/data-state";
 export * from "@impulse-ui-native/skeleton";
 export * from "@impulse-ui-native/select";
