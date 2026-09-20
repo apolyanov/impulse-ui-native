@@ -16,6 +16,7 @@ import {
   Space,
   ThemeColors,
 } from "../types";
+import { createAvatarTokens } from "./create-avatar-tokens";
 import { createButtonTokens } from "./create-button-tokens";
 import { createCardTokens } from "./create-card-tokens";
 import { createCheckboxTokens } from "./create-checkbox-tokens";
@@ -293,6 +294,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    avatar: createAvatarTokens(tokens),
     button: createButtonTokens(tokens),
     card: createCardTokens(tokens),
     checkbox: createCheckboxTokens(tokens),
