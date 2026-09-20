@@ -1,5 +1,16 @@
 # @impulse-ui-native/theme
 
+## 2.7.0
+
+### Minor Changes
+
+- 3c5cb51: Add a themed Textarea control with character counting, validation feedback, accessible disabled and invalid states, and bounded auto-grow behavior.
+- 6a3c644: Add an accessible, token-aware Switch component with controlled and uncontrolled state, loading and disabled behavior, RTL support, and reduced-motion-aware Reanimated transitions.
+
+### Patch Changes
+
+- @impulse-ui-native/core@2.7.0
+
 ## 2.6.0
 
 ### Minor Changes

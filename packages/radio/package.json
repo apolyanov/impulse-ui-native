@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/radio",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Radio controls for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

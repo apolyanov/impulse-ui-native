@@ -1,5 +1,39 @@
 # @impulse-ui-native/toolkit
 
+## 2.7.0
+
+### Minor Changes
+
+- 3c5cb51: Add a themed Textarea control with character counting, validation feedback, accessible disabled and invalid states, and bounded auto-grow behavior.
+- 6a3c644: Add an accessible, token-aware Switch component with controlled and uncontrolled state, loading and disabled behavior, RTL support, and reduced-motion-aware Reanimated transitions.
+- 3c5cb51: Add a FormField composition component for accessible labels, descriptions, required markers, validation feedback, disabled state, and custom-control wiring.
+
+### Patch Changes
+
+- Updated dependencies [3c5cb51]
+- Updated dependencies [6a3c644]
+- Updated dependencies [3c5cb51]
+- Updated dependencies [683305b]
+  - @impulse-ui-native/input@2.7.0
+  - @impulse-ui-native/theme@2.7.0
+  - @impulse-ui-native/switch@2.7.0
+  - @impulse-ui-native/form-field@2.7.0
+  - @impulse-ui-native/primitives@2.7.0
+  - @impulse-ui-native/select@2.7.0
+  - @impulse-ui-native/charts@2.7.0
+  - @impulse-ui-native/checkbox@2.7.0
+  - @impulse-ui-native/data-state@2.7.0
+  - @impulse-ui-native/datetime@2.7.0
+  - @impulse-ui-native/flyout@2.7.0
+  - @impulse-ui-native/radio@2.7.0
+  - @impulse-ui-native/skeleton@2.7.0
+  - @impulse-ui-native/stepper@2.7.0
+  - @impulse-ui-native/core@2.7.0
+  - @impulse-ui-native/echo@2.7.0
+  - @impulse-ui-native/endpoint@2.7.0
+  - @impulse-ui-native/overlay@2.7.0
+  - @impulse-ui-native/portal@2.7.0
+
 ## 2.6.0
 
 ### Minor Changes
