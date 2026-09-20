@@ -52,11 +52,14 @@ export function useMultiSelect<Value extends PrimitiveValue>(
     [selectedValuesSet],
   );
 
-  return {
-    selected,
-    hasSelected: selected && selected.length > 0,
-    select,
-    isSelected,
-    getLabel,
-  };
+  return useMemo(
+    () => ({
+      selected,
+      hasSelected: selected && selected.length > 0,
+      select,
+      isSelected,
+      getLabel,
+    }),
+    [getLabel, isSelected, select, selected],
+  );
 }

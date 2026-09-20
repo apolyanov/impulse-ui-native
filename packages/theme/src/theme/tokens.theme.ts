@@ -16,6 +16,7 @@ import {
   Space,
   ThemeColors,
 } from "../types";
+import { createAccordionTokens } from "./create-accordion-tokens";
 import { createAvatarTokens } from "./create-avatar-tokens";
 import { createButtonTokens } from "./create-button-tokens";
 import { createCardTokens } from "./create-card-tokens";
@@ -294,6 +295,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    accordion: createAccordionTokens(tokens),
     avatar: createAvatarTokens(tokens),
     button: createButtonTokens(tokens),
     card: createCardTokens(tokens),

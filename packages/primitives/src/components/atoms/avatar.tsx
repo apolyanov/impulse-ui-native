@@ -126,6 +126,11 @@ const AvatarImageLayer = memo(function AvatarImageLayer({
     [imageProps],
   );
 
+  const imageStyle = useMemo(
+    () => [styles.image, imageProps?.style],
+    [imageProps?.style],
+  );
+
   if (hasError) return null;
 
   return (
@@ -135,7 +140,7 @@ const AvatarImageLayer = memo(function AvatarImageLayer({
       accessible={false}
       onError={handleError}
       source={source}
-      style={[styles.image, imageProps?.style]}
+      style={imageStyle}
     />
   );
 });

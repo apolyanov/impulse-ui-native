@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useState } from "react";
 
 import { useControllableState, useIsOpen } from "@impulse-ui-native/core";
 
@@ -118,24 +118,44 @@ export function useDatetimePicker({
     }
   }, [isOpen, selected, isClosed]);
 
-  return {
-    id,
-    isOpen,
-    visible,
-    tempDate,
-    selected,
-    setVisible,
-    setTempDate,
-    setSelected,
-    open,
-    close,
-    onPressOpen,
-    onPressApply,
-    onPressCancel,
-    onPressCalendarDay,
-    onChangeTime,
-    onPressClear,
-    onPressQuickDateOption,
-    syncState,
-  };
+  return useMemo(
+    () => ({
+      id,
+      isOpen,
+      visible,
+      tempDate,
+      selected,
+      setVisible,
+      setTempDate,
+      setSelected,
+      open,
+      close,
+      onPressOpen,
+      onPressApply,
+      onPressCancel,
+      onPressCalendarDay,
+      onChangeTime,
+      onPressClear,
+      onPressQuickDateOption,
+      syncState,
+    }),
+    [
+      close,
+      id,
+      isOpen,
+      onChangeTime,
+      onPressApply,
+      onPressCalendarDay,
+      onPressCancel,
+      onPressClear,
+      onPressOpen,
+      onPressQuickDateOption,
+      open,
+      selected,
+      setSelected,
+      syncState,
+      tempDate,
+      visible,
+    ],
+  );
 }

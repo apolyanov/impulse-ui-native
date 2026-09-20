@@ -39,6 +39,7 @@
     "@impulse-ui-native/theme": "workspace:*"
   },
   "devDependencies": {
+    "@impulse-ui-native/accordion": "workspace:*",
     "@impulse-ui-native/charts": "workspace:*",
     "@impulse-ui-native/checkbox": "workspace:*",
     "@impulse-ui-native/data-state": "workspace:*",

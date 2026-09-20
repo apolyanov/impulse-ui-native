@@ -1,5 +1,6 @@
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { RadioTokens } from "./radio-tokens.types";
+import { AccordionTokens } from "./accordion-tokens.types";
 import { AvatarTokens } from "./avatar-tokens.types";
 import { ButtonTokens, IconButtonTokens } from "./buttons-tokens.types";
 import { CardTokens } from "./card-tokens.types";
@@ -97,6 +98,7 @@ export interface ComponentsThemes {
 }
 
 export interface ComponentsTokens {
+  accordion: AccordionTokens;
   avatar: AvatarTokens;
   button: ButtonTokens;
   card: CardTokens;

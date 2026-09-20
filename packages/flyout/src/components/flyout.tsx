@@ -1,5 +1,5 @@
 import { Fragment, memo, PropsWithChildren, useMemo } from "react";
-import { Pressable, StyleSheet, useWindowDimensions } from "react-native";
+import { StyleSheet, useWindowDimensions } from "react-native";
 import { GestureDetector } from "react-native-gesture-handler";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
 import {
@@ -8,7 +8,7 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
-import { View } from "@impulse-ui-native/primitives";
+import { Pressable, View } from "@impulse-ui-native/primitives";
 import { AppTheme, useTheme } from "@impulse-ui-native/theme";
 
 import { useFlyoutLifecycle } from "../hooks";
@@ -92,6 +92,16 @@ export const Flyout = memo(function Flyout(
     return themedStyles(theme, placement, maxHeight);
   }, [theme, placement, maxHeight]);
 
+  const overlayContainerStyle = useMemo(
+    () => [StyleSheet.absoluteFill, overlayStyle],
+    [overlayStyle],
+  );
+
+  const containerStyle = useMemo(
+    () => [styles.container, !hasMeasured && styles.hidden, animatedStyle],
+    [animatedStyle, hasMeasured, styles.container, styles.hidden],
+  );
+
   if (!mounted) {
     return null;
   }
@@ -100,20 +110,13 @@ export const Flyout = memo(function Flyout(
     <Fragment>
       <Animated.View
         pointerEvents={isTouchable ? "auto" : "none"}
-        style={[StyleSheet.absoluteFill, overlayStyle]}
+        style={overlayContainerStyle}
       >
         <Pressable onPress={close} style={StyleSheet.absoluteFill} />
       </Animated.View>
 
       <GestureDetector gesture={dragGesture}>
-        <Animated.View
-          onLayout={onLayout}
-          style={[
-            styles.container,
-            !hasMeasured && styles.hidden,
-            animatedStyle,
-          ]}
-        >
+        <Animated.View onLayout={onLayout} style={containerStyle}>
           <SafeAreaView edges={edges}>
             {placement === "bottom" ? (
               <FlyoutHandle placement={placement} />

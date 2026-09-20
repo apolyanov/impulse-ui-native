@@ -3,9 +3,11 @@ import type {
   TextInputContentSizeChangeEventData,
   TextInputProps,
 } from "react-native";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { useControllableState } from "@impulse-ui-native/core";
+
+import { normalizeTextareaRows } from "../utils";
 
 interface UseTextareaOptions {
   autoGrow: boolean;
@@ -39,10 +41,10 @@ export function useTextarea({
   });
   const [contentHeight, setContentHeight] = useState(0);
 
-  const normalizedMinRows = normalizeRows(minRows, 3);
+  const normalizedMinRows = normalizeTextareaRows(minRows, 3);
   const normalizedMaxRows = Math.max(
     normalizedMinRows,
-    normalizeRows(maxRows, 8),
+    normalizeTextareaRows(maxRows, 8),
   );
   const verticalInset = paddingVertical * 2 + borderWidth * 2;
   const minHeight = normalizedMinRows * rowHeight + verticalInset;
@@ -59,17 +61,23 @@ export function useTextarea({
     [onContentSizeChange],
   );
 
-  return {
-    characterCount: value.length,
-    handleChangeText: setValue,
-    handleContentSizeChange,
-    height,
-    numberOfLines: normalizedMinRows,
-    scrollEnabled,
-    value,
-  };
-}
-
-function normalizeRows(value: number, fallback: number) {
-  return Number.isFinite(value) ? Math.max(1, Math.floor(value)) : fallback;
+  return useMemo(
+    () => ({
+      characterCount: value.length,
+      handleChangeText: setValue,
+      handleContentSizeChange,
+      height,
+      numberOfLines: normalizedMinRows,
+      scrollEnabled,
+      value,
+    }),
+    [
+      handleContentSizeChange,
+      height,
+      normalizedMinRows,
+      scrollEnabled,
+      setValue,
+      value,
+    ],
+  );
 }

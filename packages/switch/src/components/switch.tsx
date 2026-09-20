@@ -80,6 +80,16 @@ export const Switch = memo(function Switch({
     [onPress, setChecked],
   );
 
+  const trackAnimatedStyle = useMemo(
+    () => [styles.track, trackStyle],
+    [styles.track, trackStyle],
+  );
+
+  const thumbAnimatedStyle = useMemo(
+    () => [styles.thumb, thumbStyle],
+    [styles.thumb, thumbStyle],
+  );
+
   return (
     <Pressable
       {...props}
@@ -90,8 +100,8 @@ export const Switch = memo(function Switch({
       onPress={handlePress}
       style={switchStyle}
     >
-      <Animated.View pointerEvents="none" style={[styles.track, trackStyle]}>
-        <Animated.View style={[styles.thumb, thumbStyle]}>
+      <Animated.View pointerEvents="none" style={trackAnimatedStyle}>
+        <Animated.View style={thumbAnimatedStyle}>
           {loading ? (
             <Spinner
               accessible={false}

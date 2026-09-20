@@ -44,11 +44,14 @@ export function useSelect<Value extends PrimitiveValue>(
     [selected],
   );
 
-  return {
-    selected,
-    hasSelected: selected !== null && selected !== undefined,
-    select,
-    getLabel,
-    isSelected,
-  };
+  return useMemo(
+    () => ({
+      selected,
+      hasSelected: selected !== null && selected !== undefined,
+      select,
+      getLabel,
+      isSelected,
+    }),
+    [getLabel, isSelected, select, selected],
+  );
 }

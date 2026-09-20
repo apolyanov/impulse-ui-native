@@ -7,6 +7,7 @@ export * from "@impulse-ui-native/overlay";
 export * from "@impulse-ui-native/portal";
 
 // Components
+export * from "@impulse-ui-native/accordion";
 export * from "@impulse-ui-native/charts";
 export * from "@impulse-ui-native/checkbox";
 export * from "@impulse-ui-native/primitives";

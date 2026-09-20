@@ -1,5 +1,5 @@
 import type { ColorValue, LayoutChangeEvent, ViewProps } from "react-native";
-import { memo, useCallback, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { Animated, I18nManager, StyleSheet, View } from "react-native";
 
 import { useIndeterminateProgressAnimation } from "../../hooks/use-indeterminate-progress-animation.hook";
@@ -38,20 +38,34 @@ export const LinearProgress = memo(function LinearProgress({
     [onLayout],
   );
 
+  const trackStyle = useMemo(
+    () => [
+      styles.track,
+      {
+        backgroundColor: trackColor,
+        borderRadius,
+        height: trackHeight,
+      },
+      style,
+    ],
+    [borderRadius, style, trackColor, trackHeight],
+  );
+
+  const determinateIndicatorStyle = useMemo(
+    () => ({
+      alignSelf: I18nManager.isRTL
+        ? ("flex-end" as const)
+        : ("flex-start" as const),
+      backgroundColor: indicatorColor,
+      borderRadius,
+      height: trackHeight,
+      width: `${fraction * 100}%` as const,
+    }),
+    [borderRadius, fraction, indicatorColor, trackHeight],
+  );
+
   return (
-    <View
-      {...props}
-      onLayout={handleLayout}
-      style={[
-        styles.track,
-        {
-          backgroundColor: trackColor,
-          borderRadius,
-          height: trackHeight,
-        },
-        style,
-      ]}
-    >
+    <View {...props} onLayout={handleLayout} style={trackStyle}>
       {indeterminate ? (
         <LinearIndeterminateIndicator
           animationDuration={animationDuration}
@@ -62,15 +76,7 @@ export const LinearProgress = memo(function LinearProgress({
           trackWidth={trackWidth}
         />
       ) : (
-        <View
-          style={{
-            alignSelf: I18nManager.isRTL ? "flex-end" : "flex-start",
-            backgroundColor: indicatorColor,
-            borderRadius,
-            height: trackHeight,
-            width: `${fraction * 100}%`,
-          }}
-        />
+        <View style={determinateIndicatorStyle} />
       )}
     </View>
   );
@@ -103,17 +109,18 @@ const LinearIndeterminateIndicator = memo(
         : [-indicatorWidth, trackWidth],
     });
 
-    return (
-      <Animated.View
-        style={{
-          backgroundColor: color,
-          borderRadius,
-          height: trackHeight,
-          transform: [{ translateX }],
-          width: `${ratio * 100}%`,
-        }}
-      />
+    const indicatorStyle = useMemo(
+      () => ({
+        backgroundColor: color,
+        borderRadius,
+        height: trackHeight,
+        transform: [{ translateX }],
+        width: `${ratio * 100}%` as const,
+      }),
+      [borderRadius, color, ratio, trackHeight, translateX],
     );
+
+    return <Animated.View style={indicatorStyle} />;
   },
 );
 

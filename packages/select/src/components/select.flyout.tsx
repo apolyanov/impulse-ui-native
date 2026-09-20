@@ -1,6 +1,7 @@
 import { memo, ReactElement, useCallback } from "react";
 import { FlatList, ListRenderItemInfo } from "react-native";
 
+import { useEventCallback } from "@impulse-ui-native/core";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
 import { View } from "@impulse-ui-native/primitives";
@@ -9,6 +10,35 @@ import { useComponentsTokens } from "@impulse-ui-native/theme";
 import { PrimitiveValue, SelectFlyoutProps, SelectOption } from "../types";
 import { getOptionId } from "../utils";
 import { Option } from "./option";
+
+interface SelectFlyoutOptionProps<Value extends PrimitiveValue> {
+  option: SelectOption<Value>;
+  selected: boolean;
+  onSelect: (value: Value) => void;
+}
+
+function SelectFlyoutOptionComponent<Value extends PrimitiveValue>(
+  props: SelectFlyoutOptionProps<Value>,
+) {
+  const handlePress = useEventCallback(() =>
+    props.onSelect(props.option.value),
+  );
+
+  return (
+    <Option
+      label={props.option.label}
+      onPress={handlePress}
+      disabled={props.option.disabled}
+      selected={props.selected}
+    />
+  );
+}
+
+const SelectFlyoutOption = memo(SelectFlyoutOptionComponent) as <
+  Value extends PrimitiveValue,
+>(
+  props: SelectFlyoutOptionProps<Value>,
+) => ReactElement | null;
 
 const SelectFlyoutComponent = function SelectFlyoutContent<
   Value extends PrimitiveValue,
@@ -20,11 +50,10 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<SelectOption<Value>>) => {
       return (
-        <Option
-          label={item.label}
-          onPress={() => onSelect(item.value)}
-          disabled={item.disabled}
+        <SelectFlyoutOption
+          option={item}
           selected={isSelected(item.value)}
+          onSelect={onSelect}
         />
       );
     },

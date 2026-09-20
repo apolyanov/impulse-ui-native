@@ -154,7 +154,7 @@ have been discussed.
 | Badge                   | Candidate | Status and numeric variants; define its relationship with `Tag` before implementation.              |
 | List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.                 |
 | Tabs                    | Candidate | Controlled tabs, keyboard navigation, scrollable tab lists, and lazy panels.                        |
-| Accordion / Collapsible | Candidate | Single/multiple expansion, animated height, keyboard behavior, and nested content.                  |
+| Accordion / Collapsible | Available | Single/multiple expansion, animated height, keyboard behavior, and nested content.                  |
 | Menu                    | Candidate | Anchored actions, nested sections, destructive items, keyboard navigation, and portals.             |
 | Tooltip / Popover       | Candidate | Anchor measurement, collision handling, focus/hover/press triggers, and portal rendering.           |
 

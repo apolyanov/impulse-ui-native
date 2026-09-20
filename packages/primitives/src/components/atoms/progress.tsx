@@ -50,18 +50,34 @@ export const Progress = memo(function Progress({
     [accessibilityValue, indeterminate, normalized],
   );
 
-  const commonProps = {
-    ...props,
-    accessibilityRole,
-    accessibilityState: resolvedAccessibilityState,
-    accessibilityValue: resolvedAccessibilityValue,
-    accessible,
-    animationDuration: tokens.animationDuration,
-    fraction: normalized.fraction,
-    indicatorColor: color ?? colorTokens.indicatorColor,
-    indeterminate,
-    trackColor: trackColor ?? colorTokens.trackColor,
-  };
+  const commonProps = useMemo(
+    () => ({
+      ...props,
+      accessibilityRole,
+      accessibilityState: resolvedAccessibilityState,
+      accessibilityValue: resolvedAccessibilityValue,
+      accessible,
+      animationDuration: tokens.animationDuration,
+      fraction: normalized.fraction,
+      indicatorColor: color ?? colorTokens.indicatorColor,
+      indeterminate,
+      trackColor: trackColor ?? colorTokens.trackColor,
+    }),
+    [
+      accessibilityRole,
+      accessible,
+      color,
+      colorTokens.indicatorColor,
+      colorTokens.trackColor,
+      indeterminate,
+      normalized.fraction,
+      props,
+      resolvedAccessibilityState,
+      resolvedAccessibilityValue,
+      tokens.animationDuration,
+      trackColor,
+    ],
+  );
 
   return variant === "circular" ? (
     <CircularProgress

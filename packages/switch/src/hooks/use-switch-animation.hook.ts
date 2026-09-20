@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { I18nManager } from "react-native";
 import {
   Easing,
@@ -79,5 +79,5 @@ export function useSwitchAnimation({
     });
   }, [animationDuration, checked, progress, reduceMotion]);
 
-  return { thumbStyle, trackStyle };
+  return useMemo(() => ({ thumbStyle, trackStyle }), [thumbStyle, trackStyle]);
 }

@@ -65,7 +65,7 @@ Use this order as a default convention:
 6. Memoized callbacks
 7. Effects
 8. Layout or imperative effects
-9. Non-hook helper functions
+9. Module-level pure helpers
 10. Early returns
 11. JSX
 
@@ -76,6 +76,16 @@ Think of the component as:
 ## Example
 
 ```tsx
+function formatUserName(name: string) {
+  return name.trim();
+}
+
+const UserRow = memo(function UserRow({ user, onSelect }: UserRowProps) {
+  const handleSelect = useCallback(() => onSelect(user.id), [onSelect, user.id]);
+
+  return <button onClick={handleSelect}>{formatUserName(user.name)}</button>;
+});
+
 function UserList() {
   // 1. Context / framework hooks
   const user = useContext(UserContext);
@@ -116,9 +126,6 @@ function UserList() {
     // Use only when measurement or pre-paint DOM work is required.
   }, []);
 
-  // 9. Ordinary helpers
-  const renderUserName = (name: string) => name.trim();
-
   // 10. Early returns
   if (isLoading) return <Spinner />;
   if (error) return <ErrorState error={error} />;
@@ -127,9 +134,7 @@ function UserList() {
   return (
     <div>
       {activeUsers.map((user) => (
-        <button key={user.id} onClick={() => handleSelect(user.id)}>
-          {renderUserName(user.name)}
-        </button>
+        <UserRow key={user.id} user={user} onSelect={handleSelect} />
       ))}
     </div>
   );
@@ -139,6 +144,8 @@ function UserList() {
 ## Guidance for Custom Hooks
 
 Custom hooks should generally be placed according to the role they play.
+
+Keep one custom hook implementation per `.hook.ts` or `.hook.tsx` file. Give the file the hook's kebab-case name and export related hooks through the directory barrel. Put shared option types, constants, and pure utilities in separate focused files instead of grouping multiple hooks into one implementation file. Function overloads that describe one hook contract remain with that hook.
 
 Hooks that provide foundational inputs to the rest of the component should appear high in the component.
 
@@ -156,9 +163,7 @@ If a custom hook internally manages effects, state, and callbacks, treat it as a
 
 ## useMemo
 
-Use `useMemo` for expensive calculations or when referential stability is genuinely useful.
-
-Do not use it simply to make every derived value look optimized.
+Use `useMemo` for expensive calculations and for objects, arrays, style compositions, context values, or derived structures created during render and passed across component or hook boundaries. Primitive strings, numbers, and booleans do not need memoization because their value identity is already stable.
 
 Prefer:
 
@@ -172,13 +177,13 @@ When used, place `useMemo` after the values it depends on.
 
 ## useCallback
 
-Use `useCallback` when stable function identity matters, such as:
+Any function created during render must be deliberately stabilized or moved outside the component when it is pure and render-independent. Use `useCallback` so a render-created function's identity changes only with its declared dependencies. In ImpulseUI controls, prefer `useEventCallback` from `@impulse-ui-native/core` for event handlers that need stable identity while reading current props or state.
+
+Stable function identity matters especially when:
 
 - passing callbacks to memoized children
 - using a callback as a dependency
 - integrating with APIs that depend on stable references
-
-Do not wrap every event handler in `useCallback`.
 
 Place callbacks after the state, data, and derived values they use.
 
@@ -275,6 +280,12 @@ function CheckoutPage() {
 
 This is often clearer than keeping dozens of loosely related hooks in one component.
 
+## Helper Placement and Typing
+
+Keep closures that depend on component state or props near the component. Move pure domain mappings, normalization, clamping, and state-conversion logic into the owning package's utilities when it can be understood and tested independently of rendering.
+
+Give extracted utilities explicit parameter and return types. For finite results, define a named union or enum-like type and return it directly instead of using call-site `as const` assertions to recover narrow inference. Presentation-only render helpers and themed style factories may remain local.
+
 ## Review Checklist
 
 When reviewing a React component, verify that:
@@ -286,7 +297,7 @@ When reviewing a React component, verify that:
 - state and external data appear before derived values
 - callbacks appear after the values they depend on
 - effects appear after the values they synchronize
-- `useMemo` and `useCallback` are used intentionally
+- render-created functions and reference-valued constants are stabilized with `useEventCallback`, `useCallback`, or `useMemo`
 - `useLayoutEffect` is used only when pre-paint DOM work is necessary
 - large clusters of related hooks are extracted when that improves clarity
 
@@ -303,7 +314,7 @@ useMemo
 useCallback
 useEffect
 useLayoutEffect
-helpers
+module-level pure helpers
 early returns
 JSX
 ```

@@ -1,5 +1,5 @@
 import type { ColorValue, ViewProps } from "react-native";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Animated, StyleSheet, View } from "react-native";
 import Svg, { Circle, G } from "react-native-svg";
 
@@ -26,8 +26,13 @@ export const CircularProgress = memo(function CircularProgress({
   width,
   ...props
 }: CircularProgressProps) {
+  const rootStyle = useMemo(
+    () => [styles.root, { height: width, width }, style],
+    [style, width],
+  );
+
   return (
-    <View {...props} style={[styles.root, { height: width, width }, style]}>
+    <View {...props} style={rootStyle}>
       {indeterminate ? (
         <CircularIndeterminateIndicator
           animationDuration={animationDuration}
@@ -67,6 +72,10 @@ const ProgressCircle = memo(function ProgressCircle({
   const center = width / 2;
   const radius = (width - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
+  const strokeDasharray = useMemo(
+    () => [circumference, circumference],
+    [circumference],
+  );
 
   return (
     <Svg accessible={false} height={width} width={width}>
@@ -85,7 +94,7 @@ const ProgressCircle = memo(function ProgressCircle({
           fill="none"
           r={radius}
           stroke={color}
-          strokeDasharray={[circumference, circumference]}
+          strokeDasharray={strokeDasharray}
           strokeDashoffset={circumference * (1 - fraction)}
           strokeLinecap={fraction === 0 ? "butt" : "round"}
           strokeWidth={strokeWidth}
@@ -119,9 +128,17 @@ const CircularIndeterminateIndicator = memo(
     const center = width / 2;
     const radius = (width - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
+    const animatedStyle = useMemo(
+      () => ({ transform: [{ rotate: rotation }] }),
+      [rotation],
+    );
+    const strokeDasharray = useMemo(
+      () => [circumference * 0.25, circumference * 0.75],
+      [circumference],
+    );
 
     return (
-      <Animated.View style={{ transform: [{ rotate: rotation }] }}>
+      <Animated.View style={animatedStyle}>
         <Svg accessible={false} height={width} width={width}>
           <Circle
             cx={center}
@@ -137,7 +154,7 @@ const CircularIndeterminateIndicator = memo(
             fill="none"
             r={radius}
             stroke={color}
-            strokeDasharray={[circumference * 0.25, circumference * 0.75]}
+            strokeDasharray={strokeDasharray}
             strokeLinecap="round"
             strokeWidth={strokeWidth}
           />

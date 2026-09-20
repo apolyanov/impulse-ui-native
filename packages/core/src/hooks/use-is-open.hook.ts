@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 interface UseIsOpenProps {
   default?: boolean;
@@ -29,12 +29,15 @@ export function useIsOpen(props?: UseIsOpenProps) {
     }
   }, [close, isOpen, open]);
 
-  return {
-    isOpen,
-    isClosed,
-    open,
-    close,
-    toggle,
-    finishClose,
-  };
+  return useMemo(
+    () => ({
+      isOpen,
+      isClosed,
+      open,
+      close,
+      toggle,
+      finishClose,
+    }),
+    [close, finishClose, isClosed, isOpen, open, toggle],
+  );
 }

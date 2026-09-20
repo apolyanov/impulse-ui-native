@@ -233,14 +233,26 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     setMeasuredHeight(null);
   }, [close, mounted, open]);
 
-  return {
-    close,
-    dragGesture,
-    hasMeasured,
-    isTouchable,
-    mounted,
-    onLayout,
-    opacity,
-    translateY,
-  };
+  return useMemo(
+    () => ({
+      close,
+      dragGesture,
+      hasMeasured,
+      isTouchable,
+      mounted,
+      onLayout,
+      opacity,
+      translateY,
+    }),
+    [
+      close,
+      dragGesture,
+      hasMeasured,
+      isTouchable,
+      mounted,
+      onLayout,
+      opacity,
+      translateY,
+    ],
+  );
 }

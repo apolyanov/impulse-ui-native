@@ -1,6 +1,6 @@
 import { memo, ReactElement, useId } from "react";
 
-import { useIsOpen } from "@impulse-ui-native/core";
+import { useEventCallback, useIsOpen } from "@impulse-ui-native/core";
 import { Control, Tag, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
@@ -8,6 +8,35 @@ import { useMultiSelect } from "../hooks/use-multi-select.hook";
 import { MultiSelectProps, PrimitiveValue } from "../types";
 import { SelectControl } from "./select-control";
 import { SelectFlyout } from "./select.flyout";
+
+interface SelectedTagProps<Value extends PrimitiveValue> {
+  value: Value;
+  label: string;
+  size: MultiSelectProps<Value>["size"];
+  onSelect: (value: Value) => void;
+}
+
+function SelectedTagComponent<Value extends PrimitiveValue>(
+  props: SelectedTagProps<Value>,
+) {
+  const handleClose = useEventCallback(() => props.onSelect(props.value));
+
+  return (
+    <Tag
+      variant="filled"
+      size={props.size}
+      closable
+      onClose={handleClose}
+      label={props.label}
+    />
+  );
+}
+
+const SelectedTag = memo(SelectedTagComponent) as <
+  Value extends PrimitiveValue,
+>(
+  props: SelectedTagProps<Value>,
+) => ReactElement | null;
 
 function MultiSelectComponent<Value extends PrimitiveValue>(
   props: MultiSelectProps<Value>,
@@ -42,13 +71,12 @@ function MultiSelectComponent<Value extends PrimitiveValue>(
         >
           {selected
             ? selected.map((value) => (
-                <Tag
-                  variant="filled"
+                <SelectedTag
                   size={props.size}
                   key={value}
-                  closable
-                  onClose={() => select(value)}
                   label={String(getLabel(value))}
+                  value={value}
+                  onSelect={select}
                 />
               ))
             : null}

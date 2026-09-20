@@ -1,4 +1,4 @@
-import { memo, PropsWithChildren, useEffect } from "react";
+import { memo, PropsWithChildren, useEffect, useMemo } from "react";
 import Animated, {
   cancelAnimation,
   Easing,
@@ -42,5 +42,10 @@ export const Bone = memo(function Bone(
     };
   }, [boneTokens.animatedOpacity, boneTokens.animationDuration, opacity]);
 
-  return <Animated.View {...props} style={[props.style, style]} />;
+  const animatedStyle = useMemo(
+    () => [props.style, style],
+    [props.style, style],
+  );
+
+  return <Animated.View {...props} style={animatedStyle} />;
 });

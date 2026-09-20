@@ -11,6 +11,7 @@ export * from "./theme-provider.types";
 export * from "./tokens.types";
 export * from "./typography.types";
 export * from "./buttons-tokens.types";
+export * from "./accordion-tokens.types";
 export * from "./avatar-tokens.types";
 export * from "./card-tokens.types";
 export * from "./checkbox-tokens.types";

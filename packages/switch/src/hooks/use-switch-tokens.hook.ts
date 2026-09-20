@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import type { ComponentSize, ComponentVariant } from "@impulse-ui-native/theme";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
@@ -25,32 +27,38 @@ export function useSwitchTokens({
   const sizeTokens = tokens.sizes[size];
   const variantTokens = tokens.variants[variant];
 
-  const colors: SwitchAnimationColors = {
-    activeBackgroundColor: disabled
-      ? tokens.disabledBackgroundColor
-      : variantTokens.backgroundColor,
-    activeBorderColor: disabled
-      ? tokens.disabledBorderColor
-      : variantTokens.borderColor,
-    activeThumbColor: disabled
-      ? tokens.disabledThumbColor
-      : variantTokens.color,
-    inactiveBackgroundColor: disabled
-      ? tokens.disabledBackgroundColor
-      : tokens.uncheckedBackgroundColor,
-    inactiveBorderColor: disabled
-      ? tokens.disabledBorderColor
-      : tokens.uncheckedBorderColor,
-    inactiveThumbColor: disabled
-      ? tokens.disabledThumbColor
-      : tokens.uncheckedThumbColor,
-  };
+  const colors = useMemo<SwitchAnimationColors>(
+    () => ({
+      activeBackgroundColor: disabled
+        ? tokens.disabledBackgroundColor
+        : variantTokens.backgroundColor,
+      activeBorderColor: disabled
+        ? tokens.disabledBorderColor
+        : variantTokens.borderColor,
+      activeThumbColor: disabled
+        ? tokens.disabledThumbColor
+        : variantTokens.color,
+      inactiveBackgroundColor: disabled
+        ? tokens.disabledBackgroundColor
+        : tokens.uncheckedBackgroundColor,
+      inactiveBorderColor: disabled
+        ? tokens.disabledBorderColor
+        : tokens.uncheckedBorderColor,
+      inactiveThumbColor: disabled
+        ? tokens.disabledThumbColor
+        : tokens.uncheckedThumbColor,
+    }),
+    [disabled, tokens, variantTokens],
+  );
 
-  return {
-    animationDuration: tokens.animationDuration,
-    borderWidth: tokens.borderWidth,
-    colors,
-    loadingIndicatorColor: tokens.loadingIndicatorColor,
-    sizeTokens,
-  };
+  return useMemo(
+    () => ({
+      animationDuration: tokens.animationDuration,
+      borderWidth: tokens.borderWidth,
+      colors,
+      loadingIndicatorColor: tokens.loadingIndicatorColor,
+      sizeTokens,
+    }),
+    [colors, sizeTokens, tokens],
+  );
 }
