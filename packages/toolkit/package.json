@@ -40,6 +40,7 @@
     "@impulse-ui-native/echo": "workspace:*",
     "@impulse-ui-native/endpoint": "workspace:*",
     "@impulse-ui-native/flyout": "workspace:*",
+    "@impulse-ui-native/form-field": "workspace:*",
     "@impulse-ui-native/stepper": "workspace:*",
     "@impulse-ui-native/switch": "workspace:*",
     "@impulse-ui-native/input": "workspace:*",

@@ -12,6 +12,7 @@
       "@impulse-ui-native/echo",
       "@impulse-ui-native/endpoint",
       "@impulse-ui-native/flyout",
+      "@impulse-ui-native/form-field",
       "@impulse-ui-native/icon",
       "@impulse-ui-native/input",
       "@impulse-ui-native/overlay",

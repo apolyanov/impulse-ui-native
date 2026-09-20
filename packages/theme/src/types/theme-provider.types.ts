@@ -18,6 +18,7 @@ import { SkeletonTokens } from "./skeleton-tokens.types";
 import { StepperTokens } from "./stepper-tokens.types";
 import { SwitchTokens } from "./switch-tokens.types";
 import { TagTokens } from "./tag-tokens.types";
+import { TextareaTokens } from "./textarea-tokens.types";
 import { TimePickerTokens } from "./time-picker-token.types";
 import {
   BorderSize,
@@ -110,6 +111,7 @@ export interface ComponentsTokens {
   skeleton: SkeletonTokens;
   stepper: StepperTokens;
   switch: SwitchTokens;
+  textarea: TextareaTokens;
   dataState: DataStateTokens;
 }
 

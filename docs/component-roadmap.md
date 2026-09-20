@@ -128,20 +128,20 @@ have been discussed.
 
 ### Priority 1: essential controls and feedback
 
-| Candidate                    | Status    | Suggested scope                                                                                                                                       |
-| ---------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, disabled behavior, and accessible mixed-state semantics.           |
-| Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                                       |
-| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, disabled behavior, and accessible radio semantics.                                  |
-| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and keyboard navigation on web.                                                |
-| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.                    |
-| Textarea                     | Candidate | A multiline control API with character count, validation, and auto-grow behavior.                                                                     |
-| Form Field                   | Candidate | Shared label, description, required marker, validation, and accessibility wiring around custom controls. Build on `Control` rather than duplicate it. |
-| Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                                               |
-| Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                                         |
-| Toast                        | Candidate | Imperative queue, placements, durations, actions, screen-reader announcements, and reduced motion.                                                    |
-| Spinner / Activity Indicator | Candidate | Token-aware sizes and colors for buttons, controls, and standalone loading states.                                                                    |
-| Progress                     | Candidate | Linear and circular determinate/indeterminate variants with accessible values.                                                                        |
+| Candidate                    | Status    | Suggested scope                                                                                                                             |
+| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, disabled behavior, and accessible mixed-state semantics. |
+| Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                             |
+| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, disabled behavior, and accessible radio semantics.                        |
+| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and keyboard navigation on web.                                      |
+| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.          |
+| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                 |
+| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, disabled state, and accessibility wiring.   |
+| Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                                     |
+| Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                               |
+| Toast                        | Candidate | Imperative queue, placements, durations, actions, screen-reader announcements, and reduced motion.                                          |
+| Spinner / Activity Indicator | Candidate | Token-aware sizes and colors for buttons, controls, and standalone loading states.                                                          |
+| Progress                     | Candidate | Linear and circular determinate/indeterminate variants with accessible values.                                                              |
 
 ### Priority 2: composition and navigation
 

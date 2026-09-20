@@ -37,6 +37,7 @@ import { createSkeletonTokens } from "./create-skeleton-tokens";
 import { createStepperTokens } from "./create-stepper-tokens";
 import { createSwitchTokens } from "./create-switch-tokens";
 import { createTagTokens } from "./create-tag-tokens";
+import { createTextareaTokens } from "./create-textarea-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
 
 export const ChartColorTokens: ChartColorPalette = [
@@ -307,6 +308,7 @@ export function createComponentsTokens(
     skeleton: createSkeletonTokens(tokens),
     stepper: createStepperTokens(tokens),
     switch: createSwitchTokens(tokens),
+    textarea: createTextareaTokens(tokens),
     dataState: createDataStateTokens(tokens),
   };
 }

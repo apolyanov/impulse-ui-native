@@ -34,6 +34,7 @@
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/icon": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
     "@impulse-ui-native/core": "workspace:*"
