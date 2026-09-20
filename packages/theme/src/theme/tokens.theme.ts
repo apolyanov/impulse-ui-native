@@ -31,6 +31,7 @@ import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
 import { createPressableTokens } from "./create-pressable-tokens";
+import { createProgressTokens } from "./create-progress-tokens";
 import { createRadioTokens } from "./create-radio-tokens";
 import { createSelectTokens } from "./create-select-tokens";
 import { createSkeletonTokens } from "./create-skeleton-tokens";
@@ -295,6 +296,7 @@ export function createComponentsTokens(
     iconButton: createIconButtonTokens(tokens),
     icon: createIconTokens(),
     pressable: createPressableTokens(),
+    progress: createProgressTokens(tokens),
     radio: createRadioTokens(tokens),
     tag: createTagTokens(tokens),
     controlAddon: createControlAddonTokens(tokens),

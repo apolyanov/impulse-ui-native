@@ -13,6 +13,7 @@ import { DatetimePickerTokens } from "./datetime-picker-tokens.types";
 import { FlyoutTokens } from "./flyout-tokens.types";
 import { IconTokens } from "./icon-tokens.types";
 import { PressableTokens } from "./pressable-tokens.types";
+import { ProgressTokens } from "./progress-tokens.types";
 import { SelectTokens } from "./select-tokens.types";
 import { SkeletonTokens } from "./skeleton-tokens.types";
 import { SpinnerTokens } from "./spinner-tokens.types";
@@ -98,6 +99,7 @@ export interface ComponentsTokens {
   iconButton: IconButtonTokens;
   icon: IconTokens;
   pressable: PressableTokens;
+  progress: ProgressTokens;
   radio: RadioTokens;
   tag: TagTokens;
   controlAddon: ControlAddonTokens;

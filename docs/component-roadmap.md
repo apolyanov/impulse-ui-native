@@ -141,7 +141,7 @@ have been discussed.
 | Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                               |
 | Toast                        | Candidate | Imperative queue, placements, durations, actions, screen-reader announcements, and reduced motion.                                          |
 | Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                 |
-| Progress                     | Candidate | Linear and circular determinate/indeterminate variants with accessible values.                                                              |
+| Progress                     | Available | Linear and circular determinate/indeterminate variants with accessible values and reduced-motion behavior.                                  |
 
 ### Priority 2: composition and navigation
 

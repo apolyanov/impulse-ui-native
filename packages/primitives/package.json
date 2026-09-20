@@ -48,12 +48,14 @@
     "react": "catalog:react19",
     "react-native": "catalog:",
     "react-native-safe-area-context": "catalog:",
+    "react-native-svg": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.73",
-    "react-native-safe-area-context": ">=5.0.0"
+    "react-native-safe-area-context": ">=5.0.0",
+    "react-native-svg": ">=13.9.0"
   },
   "publishConfig": {
     "access": "public"
