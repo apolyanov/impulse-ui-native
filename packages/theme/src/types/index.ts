@@ -17,6 +17,7 @@ export * from "./tag-tokens.types";
 export * from "./control-tokes.types";
 export * from "./select-tokens.types";
 export * from "./datetime-picker-tokens.types";
+export * from "./divider-tokens.types";
 export * from "./time-picker-token.types";
 export * from "./flyout-tokens.types";
 export * from "./icon-tokens.types";

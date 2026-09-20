@@ -25,6 +25,7 @@ pnpm add react-native-safe-area-context react-native-svg
 - `Spinner` provides token-aware sizes and semantic colors for indeterminate loading states.
 - `Progress` provides accessible linear and circular determinate or indeterminate progress.
 - `Card` provides compound `Root`, `Pressable`, `Header`, `Content`, `Footer`, and `Media` surfaces.
+- `Divider` separates content horizontally or vertically with logical insets and semantic colors.
 - `Control` is a compound control system with `Provider`, `Root`, `Label`, `Container`, `Addon`, `Input`, `Placeholder`, `Value`, `Loader`, and `Error` parts.
 - `createPreset` creates reusable themed typography presets.
 - Public prop types describe every primitive and control part.
@@ -35,6 +36,7 @@ pnpm add react-native-safe-area-context react-native-svg
 import {
   Button,
   Card,
+  Divider,
   Progress,
   Spinner,
   Tag,
@@ -61,6 +63,7 @@ export function ProfileSummary() {
           <Typography.Body>Three new updates are available.</Typography.Body>
         </Card.Content>
       </Card.Root>
+      <Divider inset="both" />
       <Button variant="filled" onPress={() => {}}>
         Continue
       </Button>
@@ -78,3 +81,5 @@ Use the compound `Control` when building a custom field that should share the sa
 `Progress` defaults to a medium linear indicator. Provide `value` for determinate progress or omit it for an indeterminate animation. Values are clamped between `min` and `max`, defaulting to `0` and `100`. Indeterminate animation respects the platform reduced-motion preference. Give each progress indicator an `accessibilityLabel` describing the operation.
 
 Use `Card.Root` for a static surface and `Card.Pressable` when the whole card has one action. Pressable cards default to the `button` accessibility role; override it when another role such as `link` is more accurate and provide an accessible label. Avoid placing independently pressable controls inside `Card.Pressable`; use `Card.Root` with actions in `Card.Footer` instead.
+
+`Divider` defaults to a subtle horizontal separator and exposes `role="separator"`. Use logical start/end insets to preserve RTL alignment, switch to vertical orientation inside a container with a defined height, and use `color` only when the semantic tones do not fit the surrounding surface.

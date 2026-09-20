@@ -11,6 +11,7 @@ import {
 } from "./control-tokes.types";
 import { DataStateTokens } from "./data-state-tokens.types";
 import { DatetimePickerTokens } from "./datetime-picker-tokens.types";
+import { DividerTokens } from "./divider-tokens.types";
 import { FlyoutTokens } from "./flyout-tokens.types";
 import { IconTokens } from "./icon-tokens.types";
 import { PressableTokens } from "./pressable-tokens.types";
@@ -111,6 +112,7 @@ export interface ComponentsTokens {
   controlLabel: ControlLabelTokens;
   select: SelectTokens;
   datetimePicker: DatetimePickerTokens;
+  divider: DividerTokens;
   timePicker: TimePickerTokens;
   flyout: FlyoutTokens;
   skeleton: SkeletonTokens;

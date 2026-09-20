@@ -148,7 +148,7 @@ have been discussed.
 | Candidate               | Status    | Suggested scope                                                                                 |
 | ----------------------- | --------- | ----------------------------------------------------------------------------------------------- |
 | Card                    | Available | Compound header, content, footer, media, and pressable surfaces without imposing screen layout. |
-| Divider / Separator     | Candidate | Horizontal and vertical orientation with inset and semantic color options.                      |
+| Divider / Separator     | Available | Horizontal and vertical orientation with logical insets and semantic color options.             |
 | Avatar / Avatar Group   | Candidate | Image, initials, fallback, status, and overflow count.                                          |
 | Badge                   | Candidate | Status and numeric variants; define its relationship with `Tag` before implementation.          |
 | List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.             |

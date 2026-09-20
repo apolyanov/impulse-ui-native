@@ -28,6 +28,7 @@ import {
 } from "./create-control-tokens";
 import { createDataStateTokens } from "./create-data-state-tokens";
 import { createDatetimePickerTokens } from "./create-datetime-picker";
+import { createDividerTokens } from "./create-divider-tokens";
 import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
@@ -308,6 +309,7 @@ export function createComponentsTokens(
     controlLabel: createControlLabelTokens(tokens),
     select: createSelectTokens(tokens),
     datetimePicker: createDatetimePickerTokens(tokens),
+    divider: createDividerTokens(tokens),
     timePicker: createTimePickerTokens(tokens),
     flyout: createFlyoutTokens(tokens),
     skeleton: createSkeletonTokens(tokens),
