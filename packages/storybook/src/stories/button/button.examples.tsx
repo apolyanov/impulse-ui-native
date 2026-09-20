@@ -242,7 +242,8 @@ export const ButtonExampleDefinitions = [
       {
         name: "loading",
         value: "true",
-        description: "Replaces the button content with a loading indicator.",
+        description:
+          "Replaces the content with a loading indicator and prevents interaction.",
       },
       {
         name: "variant",

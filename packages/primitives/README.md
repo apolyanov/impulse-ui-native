@@ -45,3 +45,5 @@ export function ProfileSummary() {
 ```
 
 Use the compound `Control` when building a custom field that should share the same label, addon, error, size, and variant behavior as `Input` and `Select`.
+
+`Button` and `IconButton` replace their content with a loading indicator when `loading` is true. Loading controls block interaction and expose their busy state to assistive technologies. Provide an `accessibilityLabel` for every `IconButton` because its icon does not supply an accessible name.

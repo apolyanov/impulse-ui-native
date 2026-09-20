@@ -1,3 +1,4 @@
+import type { AccessibilityState } from "react-native";
 import { memo, PropsWithChildren, useMemo } from "react";
 import { ActivityIndicator, StyleSheet } from "react-native";
 
@@ -8,9 +9,11 @@ import { Pressable } from "./pressable";
 import { Typography } from "./typography";
 
 export const Button = memo(function Button({
+  accessibilityState,
   size = "medium",
   variant = "filled",
   disabled,
+  loading = false,
   children,
   style,
   ...props
@@ -21,13 +24,24 @@ export const Button = memo(function Button({
     disabled,
   ]);
 
+  const interactionDisabled = disabled === true || loading;
+
+  const resolvedAccessibilityState = useMemo<AccessibilityState>(
+    () => ({
+      ...accessibilityState,
+      busy: loading,
+      disabled: interactionDisabled,
+    }),
+    [accessibilityState, interactionDisabled, loading],
+  );
+
   const buttonStyles = useMemo(
     () => [styles.button, style],
     [styles.button, style],
   );
 
   const content = useMemo(() => {
-    if (props.loading) {
+    if (loading) {
       return <ActivityIndicator color={styles.text.color} />;
     }
 
@@ -36,10 +50,15 @@ export const Button = memo(function Button({
     ) : (
       children
     );
-  }, [children, props.loading, styles.text]);
+  }, [children, loading, styles.text]);
 
   return (
-    <Pressable style={buttonStyles} disabled={disabled} {...props}>
+    <Pressable
+      {...props}
+      accessibilityState={resolvedAccessibilityState}
+      disabled={interactionDisabled}
+      style={buttonStyles}
+    >
       {content}
     </Pressable>
   );

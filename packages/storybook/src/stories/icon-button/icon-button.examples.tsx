@@ -279,6 +279,41 @@ export const IconButtonExampleDefinitions = [
       icon: SparkleIcon,
     },
   },
+  {
+    name: "Loading",
+    title: "Loading icon button",
+    description:
+      "Use the loading state after an icon action has started and the user should wait for completion. This prevents repeated activation and communicates progress.",
+    props: [
+      {
+        name: "loading",
+        value: "true",
+        description:
+          "Replaces the icon with a loading indicator and prevents interaction.",
+      },
+      {
+        name: "variant",
+        value: "filled",
+        description: "Keeps the icon button in the filled visual style.",
+      },
+      {
+        name: "size",
+        value: "medium",
+        description: "Uses the default icon button size and padding.",
+      },
+      {
+        name: "icon",
+        value: "SparkleIcon",
+        description: "Returns when loading completes.",
+      },
+    ],
+    args: {
+      loading: true,
+      variant: "filled",
+      size: "medium",
+      icon: SparkleIcon,
+    },
+  },
 ] satisfies IconButtonExampleDefinition[];
 
 interface IconButtonExampleProps {

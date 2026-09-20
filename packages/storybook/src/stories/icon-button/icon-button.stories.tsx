@@ -22,6 +22,7 @@ const meta = {
     size: "medium",
     variant: "filled",
     disabled: false,
+    loading: false,
   },
   argTypes: {
     size: {
@@ -38,6 +39,11 @@ const meta = {
     disabled: {
       control: "boolean",
       description: "Prevents interaction and applies disabled styling.",
+    },
+    loading: {
+      control: "boolean",
+      description:
+        "Replaces the icon with a loading indicator and prevents interaction.",
     },
     icon: {
       control: false,
@@ -68,6 +74,7 @@ export const Small: Story = createIconButtonStory("Small");
 export const Medium: Story = createIconButtonStory("Medium");
 export const Large: Story = createIconButtonStory("Large");
 export const Disabled: Story = createIconButtonStory("Disabled");
+export const Loading: Story = createIconButtonStory("Loading");
 
 function createIconButtonStory(name: string): Story {
   const example = IconButtonExampleDefinitions.find(

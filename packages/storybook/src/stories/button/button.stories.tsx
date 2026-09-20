@@ -37,7 +37,8 @@ const meta = {
     },
     loading: {
       control: "boolean",
-      description: "Replaces the button content with a loading indicator.",
+      description:
+        "Replaces the content with a loading indicator and prevents interaction.",
     },
     children: {
       control: "text",
