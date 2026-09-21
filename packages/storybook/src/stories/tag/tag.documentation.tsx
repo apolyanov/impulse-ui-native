@@ -7,7 +7,7 @@ export function TagDocumentation() {
   return (
     <StoryDocumentationPage
       title="Tag"
-      description="Tags help users identify statuses, categories, filters, metadata, and compact contextual information."
+      description="Tags label categories, filters, metadata, and other compact text. They may be display-only, pressable, or closable. Use Badge instead for a dot-only status or bounded numeric count."
     >
       {TagExampleDefinitions.map((example) => (
         <View key={example.name}>

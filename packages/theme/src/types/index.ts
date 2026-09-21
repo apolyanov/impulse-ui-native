@@ -13,6 +13,7 @@ export * from "./typography.types";
 export * from "./buttons-tokens.types";
 export * from "./accordion-tokens.types";
 export * from "./avatar-tokens.types";
+export * from "./badge-tokens.types";
 export * from "./card-tokens.types";
 export * from "./checkbox-tokens.types";
 export * from "./tag-tokens.types";

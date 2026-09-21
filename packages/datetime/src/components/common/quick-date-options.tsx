@@ -1,11 +1,12 @@
-import { memo, useMemo } from "react";
-import { ScrollView, ViewStyle } from "react-native";
+import { memo } from "react";
+import { ScrollView, StyleSheet } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Tag } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import { QuickDateOption, TimeRange } from "../../types";
+import type { QuickDateOption, TimeRange } from "../../types";
 import { getQuickOptionKey } from "../../utils";
 
 interface QuickDateOptionsProps {
@@ -31,17 +32,12 @@ const QuickDateOptionTag = memo(function QuickDateOptionTag(
 export const QuickDateOptions = memo(function QuickDateOptions(
   props: QuickDateOptionsProps,
 ) {
-  const tokens = useComponentsTokens();
-
-  const style = useMemo<ViewStyle>(
-    () => ({ gap: tokens.datetimePicker.quickDateOptions.gap }),
-    [tokens.datetimePicker.quickDateOptions],
-  );
+  const styles = useThemedStyles(themedStyles);
 
   return (
     <ScrollView
       horizontal
-      contentContainerStyle={style}
+      contentContainerStyle={styles.content}
       showsHorizontalScrollIndicator={false}
     >
       {props.options.map((option, index) => (
@@ -54,3 +50,11 @@ export const QuickDateOptions = memo(function QuickDateOptions(
     </ScrollView>
   );
 });
+
+function themedStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    content: {
+      gap: theme.components.datetimePicker.quickDateOptions.gap,
+    },
+  });
+}

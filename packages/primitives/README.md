@@ -21,7 +21,9 @@ pnpm add react-native-safe-area-context react-native-svg
 - `View` adds theme spacing, dimensions, flex, borders, colors, and shadow props to React Native's view.
 - `SafeAreaView` maps safe-area edges to the theme spacing scale.
 - `Typography` exposes named text presets such as `DisplayLarge`, `Title1`, `Body`, `Caption`, and `Code`.
-- `Button`, `IconButton`, `Pressable`, and `Tag` provide themed interaction primitives.
+- `Button`, `IconButton`, and `Pressable` provide themed interaction primitives.
+- `Tag` labels categories, filters, and metadata, with optional press and close behavior.
+- `Badge` provides compact semantic labels with visual variants and Input-style prefix and suffix addons.
 - `Spinner` provides token-aware sizes and semantic colors for indeterminate loading states.
 - `Progress` provides accessible linear and circular determinate or indeterminate progress.
 - `Card` provides compound `Root`, `Pressable`, `Header`, `Content`, `Footer`, and `Media` surfaces.
@@ -36,6 +38,7 @@ pnpm add react-native-safe-area-context react-native-svg
 ```tsx
 import {
   Avatar,
+  Badge,
   Button,
   Card,
   Divider,
@@ -57,6 +60,9 @@ export function ProfileSummary() {
         accessibilityLabel="Alex Kim, online"
       />
       <Tag label="Active" color="success" />
+      <Badge tone="success" variant="soft">
+        Active
+      </Badge>
       <Spinner
         size="small"
         tone="secondary"
@@ -93,3 +99,5 @@ Use `Card.Root` for a static surface and `Card.Pressable` when the whole card ha
 `Divider` defaults to a subtle horizontal separator and exposes `role="separator"`. Use logical start/end insets to preserve RTL alignment, switch to vertical orientation inside a container with a defined height, and use `color` only when the semantic tones do not fit the surrounding surface.
 
 `Avatar` supports the same `filled`, `outlined`, `soft`, `ghost`, and `plain` variants as the control family. It renders fallback content below its image so initials or a custom fallback remain visible while the image loads or when it fails. Provide an `accessibilityLabel` when the represented identity is meaningful, and include presence status in that label when `status` conveys useful information. Avatar grouping and overflow counts are intentionally handled separately.
+
+Use `Badge` for compact states and metadata. It supports the same `filled`, `outlined`, `soft`, `ghost`, and `plain` visual variants as controls and semantic tones. Its addons follow Input: use `PrefixIcon` or `Prefix`, `SuffixIcon` or `Suffix`, and optionally `onPressPrefix` or `onPressSuffix`. A custom component takes precedence over its corresponding icon. Use `Tag` when the whole label needs built-in press or close behavior.

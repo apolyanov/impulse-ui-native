@@ -10,11 +10,12 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Platform, StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { CaretDownIcon } from "@impulse-ui-native/icon/icons/caret-down";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { AccordionKeyDownEvent, AccordionTriggerProps } from "../types";
 import { useAccordionContext, useAccordionItemContext } from "../contexts";
@@ -36,15 +37,20 @@ export const AccordionTrigger = memo(function AccordionTrigger({
 }: AccordionTriggerProps) {
   const { focusTrigger, registerTrigger, toggleItem } = useAccordionContext();
   const item = useAccordionItemContext();
-  const tokens = useComponentsTokens().accordion;
   const [focused, setFocused] = useState(false);
   // The host ref is required for roving keyboard focus between triggers.
   const triggerRef = useRef<ComponentRef<typeof Pressable>>(null);
+  const tokens = useComponentsTokens().accordion;
   const resolvedDisabled = item.disabled || disabled === true;
   const indicatorStyle = useAccordionIndicatorAnimation({
     duration: tokens.animationDuration,
     open: item.open,
   });
+  const styles = useThemedStyles(
+    themedStyles,
+    { focused, disabled: resolvedDisabled },
+    [focused, resolvedDisabled],
+  );
 
   const resolvedAccessibilityState = useMemo(
     () => ({
@@ -54,31 +60,13 @@ export const AccordionTrigger = memo(function AccordionTrigger({
     }),
     [accessibilityState, item.open, resolvedDisabled],
   );
-  const titleStyle = useMemo(
-    () => ({
-      color: resolvedDisabled ? tokens.disabledColor : tokens.titleColor,
-    }),
-    [resolvedDisabled, tokens.disabledColor, tokens.titleColor],
-  );
-
   const triggerStyle = useCallback(
     ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
       styles.trigger,
-      {
-        backgroundColor: focused ? tokens.focusBackgroundColor : "transparent",
-        gap: tokens.trigger.gap,
-        minHeight: tokens.trigger.minHeight,
-        opacity: resolvedDisabled
-          ? tokens.disabledOpacity
-          : pressed
-            ? tokens.pressedOpacity
-            : 1,
-        paddingHorizontal: tokens.trigger.paddingHorizontal,
-        paddingVertical: tokens.trigger.paddingVertical,
-      },
+      pressed ? styles.triggerPressed : undefined,
       typeof style === "function" ? style({ pressed }) : style,
     ],
-    [focused, resolvedDisabled, style, tokens],
+    [style, styles.trigger, styles.triggerPressed],
   );
 
   const handleBlur = useEventCallback<NonNullable<PressableProps["onBlur"]>>(
@@ -152,7 +140,7 @@ export const AccordionTrigger = memo(function AccordionTrigger({
     >
       <View flex={1} pointerEvents="none">
         {typeof children === "string" || typeof children === "number" ? (
-          <Typography.Label style={titleStyle}>{children}</Typography.Label>
+          <Typography.Label style={styles.title}>{children}</Typography.Label>
         ) : (
           children
         )}
@@ -173,10 +161,38 @@ export const AccordionTrigger = memo(function AccordionTrigger({
   );
 });
 
-const styles = StyleSheet.create({
-  trigger: {
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-});
+interface AccordionTriggerThemeProps {
+  disabled: boolean;
+  focused: boolean;
+}
+
+function themedStyles(theme: AppTheme, props: AccordionTriggerThemeProps) {
+  const { disabled, focused } = props;
+  const accordionTokens = theme.components.accordion;
+
+  return StyleSheet.create({
+    title: {
+      color: disabled
+        ? accordionTokens.disabledColor
+        : accordionTokens.titleColor,
+    },
+    trigger: {
+      alignItems: "center",
+      backgroundColor: focused
+        ? accordionTokens.focusBackgroundColor
+        : "transparent",
+      flexDirection: "row",
+      gap: accordionTokens.trigger.gap,
+      justifyContent: "space-between",
+      minHeight: accordionTokens.trigger.minHeight,
+      opacity: disabled ? accordionTokens.disabledOpacity : 1,
+      paddingHorizontal: accordionTokens.trigger.paddingHorizontal,
+      paddingVertical: accordionTokens.trigger.paddingVertical,
+    },
+    triggerPressed: {
+      opacity: disabled
+        ? accordionTokens.disabledOpacity
+        : accordionTokens.pressedOpacity,
+    },
+  });
+}

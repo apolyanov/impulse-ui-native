@@ -1,18 +1,14 @@
-import { memo, useCallback, useEffect, useMemo, useRef } from "react";
-import {
-  FlatList,
+import type {
   ListRenderItemInfo,
   NativeScrollEvent,
   NativeSyntheticEvent,
-  StyleSheet,
 } from "react-native";
+import { memo, useCallback, useEffect, useRef } from "react";
+import { FlatList, StyleSheet } from "react-native";
 
+import type { AppTheme, FontWeightValue } from "@impulse-ui-native/theme";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import {
-  FontWeightValue,
-  useComponentsTokens,
-  useTheme,
-} from "@impulse-ui-native/theme";
+import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import { getClosestIndexByValue } from "../../utils";
 
@@ -31,32 +27,11 @@ export const PickerColumn = memo(function PickerColumn(
 ) {
   const { data, label, value, initialScrollIndex = 0, onChange } = props;
 
-  const tokens = useComponentsTokens();
-  const columnTokens = tokens.timePicker.column;
-
   const listRef = useRef<FlatList<number>>(null);
   const currentIndexRef = useRef(initialScrollIndex);
-
-  const pressableStyle = useMemo(
-    () => [
-      styles.pressableStyle,
-      {
-        width: columnTokens.listWidth,
-        height: columnTokens.itemHeight,
-      },
-    ],
-    [columnTokens.listWidth, columnTokens.itemHeight],
-  );
-
-  const contentContainerStyle = useMemo(
-    () => [
-      styles.contentContainerStyle,
-      {
-        paddingVertical: columnTokens.verticalPadding,
-      },
-    ],
-    [columnTokens.verticalPadding],
-  );
+  const tokens = useComponentsTokens();
+  const columnTokens = tokens.timePicker.column;
+  const styles = useThemedStyles(themedStyles);
 
   const keyExtractor = useCallback((item: number, index: number) => {
     return `${item}-${index}`;
@@ -90,7 +65,7 @@ export const PickerColumn = memo(function PickerColumn(
       ) as FontWeightValue;
 
       return (
-        <Pressable style={pressableStyle}>
+        <Pressable style={styles.pressable}>
           <Typography.Master
             fontSize={columnTokens.fontSize}
             color={selected ? columnTokens.selectedColor : columnTokens.color}
@@ -110,7 +85,7 @@ export const PickerColumn = memo(function PickerColumn(
       columnTokens.fontWeight,
       columnTokens.selectedColor,
       columnTokens.selectedFontWeight,
-      pressableStyle,
+      styles.pressable,
       value,
     ],
   );
@@ -185,7 +160,7 @@ export const PickerColumn = memo(function PickerColumn(
           decelerationRate="fast"
           initialScrollIndex={initialScrollIndex}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={contentContainerStyle}
+          contentContainerStyle={styles.contentContainer}
           onMomentumScrollEnd={onMomentumScrollEnd}
           onScrollToIndexFailed={onScrollToIndexFailed}
           removeClippedSubviews
@@ -202,10 +177,18 @@ export const PickerColumn = memo(function PickerColumn(
   );
 });
 
-const styles = StyleSheet.create({
-  pressableStyle: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  contentContainerStyle: {},
-});
+function themedStyles(theme: AppTheme) {
+  const columnTokens = theme.components.timePicker.column;
+
+  return StyleSheet.create({
+    contentContainer: {
+      paddingVertical: columnTokens.verticalPadding,
+    },
+    pressable: {
+      alignItems: "center",
+      height: columnTokens.itemHeight,
+      justifyContent: "center",
+      width: columnTokens.listWidth,
+    },
+  });
+}

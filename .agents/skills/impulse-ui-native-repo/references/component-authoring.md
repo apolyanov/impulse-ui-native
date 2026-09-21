@@ -65,6 +65,10 @@ Export through the nearest barrel and then the package root. Re-export from
 - Use `useEventCallback` for stable handlers that need current values.
 - Follow the repository's `hook-ordering` skill when writing React components.
 - Use React Native `StyleSheet` and token-aware style hooks for library code.
+- Build token-dependent React Native styles with `useThemedStyles` and a
+  module-level `themedStyles(theme, props)` factory. Use `useComponentsTokens`
+  directly only for non-style values, token-aware primitive props, or animated
+  worklet styles that cannot be created by `useThemedStyles`.
 - Preserve native, Android, iOS, and React Native Web behavior unless the
   component is explicitly platform-limited.
 

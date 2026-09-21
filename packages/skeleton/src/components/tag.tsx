@@ -1,20 +1,25 @@
-import { memo, useMemo } from "react";
-import { ViewStyle } from "react-native";
+import { memo } from "react";
+import { StyleSheet } from "react-native";
 
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import { SkeletonTagProps } from "../types";
+import type { SkeletonTagProps } from "../types";
 import { Bone } from "./bone";
 
 export const Tag = memo(function Tag(props: SkeletonTagProps) {
   const { size, ...rest } = props;
+  const styles = useThemedStyles(themedStyles, { size }, [size]);
 
-  const tokens = useComponentsTokens();
-  const tagTokens = tokens.tag;
-  const sizeTokens = tagTokens.sizes[size];
+  return <Bone style={styles.tag} {...rest} />;
+});
 
-  const style = useMemo<ViewStyle>(
-    () => ({
+function themedStyles(theme: AppTheme, props: Pick<SkeletonTagProps, "size">) {
+  const tagTokens = theme.components.tag;
+  const sizeTokens = tagTokens.sizes[props.size];
+
+  return StyleSheet.create({
+    tag: {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
@@ -25,9 +30,6 @@ export const Tag = memo(function Tag(props: SkeletonTagProps) {
       minWidth: sizeTokens.minWidth,
       borderRadius: tagTokens.borderRadius,
       borderWidth: tagTokens.borderWidth,
-    }),
-    [sizeTokens, tagTokens.borderRadius, tagTokens.borderWidth],
-  );
-
-  return <Bone style={style} {...rest} />;
-});
+    },
+  });
+}

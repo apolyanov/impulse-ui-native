@@ -1,18 +1,20 @@
-import { Fragment, memo, PropsWithChildren, useMemo } from "react";
+import type { PropsWithChildren } from "react";
+import type { Edge } from "react-native-safe-area-context";
+import { Fragment, memo, useMemo } from "react";
 import { StyleSheet, useWindowDimensions } from "react-native";
 import { GestureDetector } from "react-native-gesture-handler";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
 import {
-  Edge,
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { Pressable, View } from "@impulse-ui-native/primitives";
-import { AppTheme, useTheme } from "@impulse-ui-native/theme";
+import { useTheme, useThemedStyles } from "@impulse-ui-native/theme";
 
+import type { FlyoutProps } from "../types";
 import { useFlyoutLifecycle } from "../hooks";
-import { FlyoutProps } from "../types";
 import { FlyoutHandle } from "./flyout-handle";
 import { FlyoutTitle } from "./flyout-title";
 
@@ -45,6 +47,10 @@ export const Flyout = memo(function Flyout(
   const screenHeight = windowDimensions.height;
   const maxHeight = screenHeight * flyoutTokens.maxHeightRatio;
   const zIndex = flyoutTokens.zIndexBase + layer;
+  const styles = useThemedStyles(themedStyles, { maxHeight, placement }, [
+    maxHeight,
+    placement,
+  ]);
 
   const {
     close,
@@ -87,10 +93,6 @@ export const Flyout = memo(function Flyout(
   const edges = useMemo<Edge[]>(() => {
     return [placement, "left", "right"];
   }, [placement]);
-
-  const styles = useMemo(() => {
-    return themedStyles(theme, placement, maxHeight);
-  }, [theme, placement, maxHeight]);
 
   const overlayContainerStyle = useMemo(
     () => [StyleSheet.absoluteFill, overlayStyle],
@@ -136,11 +138,13 @@ export const Flyout = memo(function Flyout(
   );
 });
 
-function themedStyles(
-  theme: AppTheme,
-  placement: "top" | "bottom",
-  maxHeight: number,
-) {
+interface FlyoutThemeProps {
+  maxHeight: number;
+  placement: "top" | "bottom";
+}
+
+function themedStyles(theme: AppTheme, props: FlyoutThemeProps) {
+  const { maxHeight, placement } = props;
   const flyoutTokens = theme.components.flyout;
 
   return StyleSheet.create({

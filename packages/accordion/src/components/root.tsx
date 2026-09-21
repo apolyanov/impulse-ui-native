@@ -1,12 +1,13 @@
 import { memo, useCallback, useMemo, useRef } from "react";
 import { StyleSheet } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import {
   useControllableState,
   useEventCallback,
 } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { AccordionContextData } from "../contexts";
 import type {
@@ -32,8 +33,8 @@ export const AccordionRoot = memo(function AccordionRoot({
   value,
   ...props
 }: AccordionRootProps) {
-  const tokens = useComponentsTokens().accordion;
   const triggerRegistry = useRef<TriggerRegistration[]>([]);
+  const styles = useThemedStyles(themedStyles);
 
   const notifyValueChange = useEventCallback(
     (nextValues: readonly string[]) => {
@@ -134,20 +135,7 @@ export const AccordionRoot = memo(function AccordionRoot({
     }),
     [disabled, expandedValues, focusTrigger, registerTrigger, toggleItem],
   );
-  const rootStyle = useMemo(
-    () => [
-      styles.root,
-      {
-        backgroundColor: tokens.dividerColor,
-        borderColor: tokens.borderColor,
-        borderRadius: tokens.borderRadius,
-        borderWidth: tokens.borderWidth,
-        gap: tokens.dividerWidth,
-      },
-      style,
-    ],
-    [style, tokens],
-  );
+  const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
 
   return (
     <AccordionProvider value={context}>
@@ -158,8 +146,17 @@ export const AccordionRoot = memo(function AccordionRoot({
   );
 });
 
-const styles = StyleSheet.create({
-  root: {
-    overflow: "hidden",
-  },
-});
+function themedStyles(theme: AppTheme) {
+  const accordionTokens = theme.components.accordion;
+
+  return StyleSheet.create({
+    root: {
+      backgroundColor: accordionTokens.dividerColor,
+      borderColor: accordionTokens.borderColor,
+      borderRadius: accordionTokens.borderRadius,
+      borderWidth: accordionTokens.borderWidth,
+      gap: accordionTokens.dividerWidth,
+      overflow: "hidden",
+    },
+  });
+}

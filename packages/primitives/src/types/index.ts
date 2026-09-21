@@ -1,4 +1,5 @@
 export * from "./avatar.types";
+export * from "./badge.types";
 export * from "./view.types";
 export * from "./safe-area-view.types";
 export * from "./typography.types";

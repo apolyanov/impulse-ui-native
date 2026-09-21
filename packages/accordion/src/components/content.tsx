@@ -3,9 +3,10 @@ import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { AccordionContentProps } from "../types";
 import { useAccordionItemContext } from "../contexts";
@@ -19,6 +20,7 @@ export const AccordionContent = memo(function AccordionContent({
 }: AccordionContentProps) {
   const item = useAccordionItemContext();
   const tokens = useComponentsTokens().accordion;
+  const styles = useThemedStyles(themedStyles);
   const { contentStyle, setContentHeight } = useAccordionContentAnimation({
     duration: tokens.animationDuration,
     open: item.open,
@@ -26,18 +28,11 @@ export const AccordionContent = memo(function AccordionContent({
 
   const viewportStyle = useMemo(
     () => [styles.viewport, contentStyle],
-    [contentStyle],
+    [contentStyle, styles.viewport],
   );
   const innerStyle = useMemo(
-    () => [
-      styles.content,
-      {
-        paddingBottom: tokens.content.paddingBottom,
-        paddingHorizontal: tokens.content.paddingHorizontal,
-      },
-      style,
-    ],
-    [style, tokens.content.paddingBottom, tokens.content.paddingHorizontal],
+    () => [styles.content, style],
+    [style, styles.content],
   );
 
   const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
@@ -67,14 +62,20 @@ export const AccordionContent = memo(function AccordionContent({
   );
 });
 
-const styles = StyleSheet.create({
-  content: {
-    left: 0,
-    position: "absolute",
-    right: 0,
-    top: 0,
-  },
-  viewport: {
-    overflow: "hidden",
-  },
-});
+function themedStyles(theme: AppTheme) {
+  const contentTokens = theme.components.accordion.content;
+
+  return StyleSheet.create({
+    content: {
+      left: 0,
+      paddingBottom: contentTokens.paddingBottom,
+      paddingHorizontal: contentTokens.paddingHorizontal,
+      position: "absolute",
+      right: 0,
+      top: 0,
+    },
+    viewport: {
+      overflow: "hidden",
+    },
+  });
+}

@@ -1,7 +1,8 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import { useComponentsTokens, useStyleProps } from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { useStyleProps, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { CardMediaProps } from "../../types";
 import { View } from "../atoms/view";
@@ -10,24 +11,22 @@ export const CardMedia = memo(function CardMedia({
   style,
   ...props
 }: CardMediaProps) {
-  const tokens = useComponentsTokens().card;
   const extractedStyleProps = useStyleProps(props);
+  const styles = useThemedStyles(themedStyles);
   const mediaStyle = useMemo(
-    () => [
-      styles.media,
-      { backgroundColor: tokens.mediaBackgroundColor },
-      extractedStyleProps,
-      style,
-    ],
-    [extractedStyleProps, style, tokens.mediaBackgroundColor],
+    () => [styles.media, extractedStyleProps, style],
+    [extractedStyleProps, style, styles.media],
   );
 
   return <View {...props} style={mediaStyle} />;
 });
 
-const styles = StyleSheet.create({
-  media: {
-    overflow: "hidden",
-    width: "100%",
-  },
-});
+function themedStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    media: {
+      backgroundColor: theme.components.card.mediaBackgroundColor,
+      overflow: "hidden",
+      width: "100%",
+    },
+  });
+}

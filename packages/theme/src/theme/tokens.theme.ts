@@ -18,6 +18,7 @@ import {
 } from "../types";
 import { createAccordionTokens } from "./create-accordion-tokens";
 import { createAvatarTokens } from "./create-avatar-tokens";
+import { createBadgeTokens } from "./create-badge-tokens";
 import { createButtonTokens } from "./create-button-tokens";
 import { createCardTokens } from "./create-card-tokens";
 import { createCheckboxTokens } from "./create-checkbox-tokens";
@@ -297,6 +298,7 @@ export function createComponentsTokens(
   return {
     accordion: createAccordionTokens(tokens),
     avatar: createAvatarTokens(tokens),
+    badge: createBadgeTokens(tokens),
     button: createButtonTokens(tokens),
     card: createCardTokens(tokens),
     checkbox: createCheckboxTokens(tokens),

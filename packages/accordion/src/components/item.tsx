@@ -1,7 +1,9 @@
 import { memo, useId, useMemo } from "react";
+import { StyleSheet } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { AccordionItemContextData } from "../contexts";
 import type { AccordionItemProps } from "../types";
@@ -15,8 +17,8 @@ export const AccordionItem = memo(function AccordionItem({
   ...props
 }: AccordionItemProps) {
   const accordion = useAccordionContext();
-  const tokens = useComponentsTokens().accordion;
   const reactId = useId().replaceAll(":", "");
+  const styles = useThemedStyles(themedStyles);
   const resolvedDisabled = accordion.disabled || disabled;
   const open = accordion.expandedValues.includes(value);
 
@@ -30,10 +32,7 @@ export const AccordionItem = memo(function AccordionItem({
     }),
     [open, reactId, resolvedDisabled, value],
   );
-  const itemStyle = useMemo(
-    () => [{ backgroundColor: tokens.backgroundColor }, style],
-    [style, tokens.backgroundColor],
-  );
+  const itemStyle = useMemo(() => [styles.item, style], [style, styles.item]);
 
   return (
     <AccordionItemProvider value={context}>
@@ -43,3 +42,11 @@ export const AccordionItem = memo(function AccordionItem({
     </AccordionItemProvider>
   );
 });
+
+function themedStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    item: {
+      backgroundColor: theme.components.accordion.backgroundColor,
+    },
+  });
+}

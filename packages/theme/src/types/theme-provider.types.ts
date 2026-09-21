@@ -1,3 +1,4 @@
+import type { BadgeTokens } from "./badge-tokens.types";
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { RadioTokens } from "./radio-tokens.types";
 import { AccordionTokens } from "./accordion-tokens.types";
@@ -100,6 +101,7 @@ export interface ComponentsThemes {
 export interface ComponentsTokens {
   accordion: AccordionTokens;
   avatar: AvatarTokens;
+  badge: BadgeTokens;
   button: ButtonTokens;
   card: CardTokens;
   checkbox: CheckboxTokens;

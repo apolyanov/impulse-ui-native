@@ -2,7 +2,8 @@ import type { AccessibilityState } from "react-native";
 import { memo, useMemo } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { SpinnerProps } from "../../types";
 
@@ -18,8 +19,11 @@ export const Spinner = memo(function Spinner({
   tone = "primary",
   ...props
 }: SpinnerProps) {
-  const tokens = useComponentsTokens().spinner;
-  const resolvedSize = tokens.sizes[size];
+  const styles = useThemedStyles(themedStyles, { color, size, tone }, [
+    color,
+    size,
+    tone,
+  ]);
 
   const resolvedAccessibilityState = useMemo<AccessibilityState>(
     () => ({
@@ -30,22 +34,8 @@ export const Spinner = memo(function Spinner({
   );
 
   const containerStyle = useMemo(
-    () => [
-      styles.container,
-      {
-        width: resolvedSize,
-        height: resolvedSize,
-      },
-      style,
-    ],
-    [resolvedSize, style],
-  );
-
-  const indicatorStyle = useMemo(
-    () => ({
-      transform: [{ scale: resolvedSize / tokens.baseSize }],
-    }),
-    [resolvedSize, tokens.baseSize],
+    () => [styles.container, style],
+    [style, styles.container],
   );
 
   return (
@@ -59,18 +49,36 @@ export const Spinner = memo(function Spinner({
       <ActivityIndicator
         accessible={false}
         animating={animating}
-        color={color ?? tokens.colors[tone]}
+        color={styles.indicator.color}
         hidesWhenStopped={hidesWhenStopped}
         size="small"
-        style={indicatorStyle}
+        style={styles.indicator}
       />
     </View>
   );
 });
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+interface SpinnerThemeProps {
+  color: SpinnerProps["color"];
+  size: NonNullable<SpinnerProps["size"]>;
+  tone: NonNullable<SpinnerProps["tone"]>;
+}
+
+function themedStyles(theme: AppTheme, props: SpinnerThemeProps) {
+  const { color, size, tone } = props;
+  const spinnerTokens = theme.components.spinner;
+  const resolvedSize = spinnerTokens.sizes[size];
+
+  return StyleSheet.create({
+    container: {
+      alignItems: "center",
+      height: resolvedSize,
+      justifyContent: "center",
+      width: resolvedSize,
+    },
+    indicator: {
+      color: color ?? spinnerTokens.colors[tone],
+      transform: [{ scale: resolvedSize / spinnerTokens.baseSize }],
+    },
+  });
+}
