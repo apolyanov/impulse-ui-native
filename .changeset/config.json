@@ -4,6 +4,7 @@
   "commit": false,
   "fixed": [
     [
+      "@impulse-ui-native/accordion",
       "@impulse-ui-native/charts",
       "@impulse-ui-native/checkbox",
       "@impulse-ui-native/core",

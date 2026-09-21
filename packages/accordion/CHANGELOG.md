@@ -1,6 +1,6 @@
 # @impulse-ui-native/accordion
 
-## 2.8.1
+## 2.9.0
 
 ### Patch Changes
 

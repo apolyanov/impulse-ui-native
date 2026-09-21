@@ -7,7 +7,7 @@
 - Updated dependencies [3b7df07]
   - @impulse-ui-native/primitives@2.9.0
   - @impulse-ui-native/theme@2.9.0
-  - @impulse-ui-native/accordion@2.8.1
+  - @impulse-ui-native/accordion@2.9.0
   - @impulse-ui-native/datetime@2.9.0
   - @impulse-ui-native/flyout@2.9.0
   - @impulse-ui-native/skeleton@2.9.0
