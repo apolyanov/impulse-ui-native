@@ -106,6 +106,11 @@ Use compound components when parts need to share state and composition matters,
 as with `Control` and `Skeleton`. Keep internal parts private unless direct
 composition is an intended public capability.
 
+Put meaningful child components in focused files under the owning component's
+directory. Assemble public child APIs through a namespaced object such as
+`Card.Title`; keep private implementation children unexported from the public
+namespace and package barrels.
+
 Create external stores once outside render. Portal and overlay stores expose
 stable snapshot/subscription APIs and are installed through providers. Complex
 overlay components expect the app root to include Gesture Handler, safe-area,
