@@ -1,5 +1,14 @@
 # @impulse-ui-native/skeleton
 
+## 2.9.0
+
+### Patch Changes
+
+- 3b7df07: Add a Badge primitive with semantic tones, control-style variants, Input-style prefix and suffix addons, theme tokens, and Storybook documentation. Standardize token-dependent React Native styles on `useThemedStyles` across affected components.
+- Updated dependencies [3b7df07]
+  - @impulse-ui-native/primitives@2.9.0
+  - @impulse-ui-native/theme@2.9.0
+
 ## 2.8.0
 
 ### Patch Changes

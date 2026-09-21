@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/datetime",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "Date and time selection components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

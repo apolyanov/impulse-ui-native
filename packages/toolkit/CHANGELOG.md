@@ -1,5 +1,31 @@
 # @impulse-ui-native/toolkit
 
+## 2.9.0
+
+### Patch Changes
+
+- Updated dependencies [3b7df07]
+  - @impulse-ui-native/primitives@2.9.0
+  - @impulse-ui-native/theme@2.9.0
+  - @impulse-ui-native/accordion@2.8.1
+  - @impulse-ui-native/datetime@2.9.0
+  - @impulse-ui-native/flyout@2.9.0
+  - @impulse-ui-native/skeleton@2.9.0
+  - @impulse-ui-native/charts@2.9.0
+  - @impulse-ui-native/checkbox@2.9.0
+  - @impulse-ui-native/data-state@2.9.0
+  - @impulse-ui-native/form-field@2.9.0
+  - @impulse-ui-native/input@2.9.0
+  - @impulse-ui-native/radio@2.9.0
+  - @impulse-ui-native/select@2.9.0
+  - @impulse-ui-native/stepper@2.9.0
+  - @impulse-ui-native/switch@2.9.0
+  - @impulse-ui-native/core@2.9.0
+  - @impulse-ui-native/echo@2.9.0
+  - @impulse-ui-native/endpoint@2.9.0
+  - @impulse-ui-native/overlay@2.9.0
+  - @impulse-ui-native/portal@2.9.0
+
 ## 2.8.0
 
 ### Minor Changes

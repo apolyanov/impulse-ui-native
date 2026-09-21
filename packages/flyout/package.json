@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/flyout",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "Flyout, popover, and overlay components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
