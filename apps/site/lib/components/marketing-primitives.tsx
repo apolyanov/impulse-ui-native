@@ -64,7 +64,7 @@ export function ComponentCard({
   tags: readonly string[];
 }) {
   return (
-    <article className="group flex h-full flex-col rounded-md border border-border-subtle bg-surface-elevated p-sm transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg">
+    <article className="flex h-full flex-col rounded-md border border-border-subtle bg-surface-elevated p-sm hover:border-primary hover:shadow-lg">
       <div className="flex items-start justify-between gap-xs">
         <span className="flex size-component-large items-center justify-center rounded-md bg-secondary text-primary">
           <SystemIcon className="size-msm" name={icon} />
@@ -93,13 +93,10 @@ export function ComponentCard({
         </code>
         <a
           aria-label={`View ${name} source`}
-          className="flex size-component-small shrink-0 items-center justify-center rounded-sm text-text-disabled transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus"
+          className="flex size-component-small shrink-0 items-center justify-center rounded-sm text-text-disabled hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus"
           href={sourceHref}
         >
-          <SystemIcon
-            className="size-sm transition-transform group-hover:translate-x-1"
-            name="arrow"
-          />
+          <SystemIcon className="size-sm" name="arrow" />
         </a>
       </div>
     </article>

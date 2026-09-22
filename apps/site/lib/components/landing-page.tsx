@@ -171,12 +171,52 @@ const componentGroups = [
         tags: ["Interactive", "Validated"],
       },
       {
+        name: "Textarea",
+        description:
+          "Collect longer text with character counting and bounded auto-grow behavior.",
+        packageName: "@impulse-ui-native/input",
+        sourcePath: "input/src/components/textarea.tsx",
+        tags: ["Interactive", "Multiline"],
+      },
+      {
+        name: "Checkbox",
+        description:
+          "Toggle checked, unchecked, and indeterminate states with accessible semantics.",
+        packageName: "@impulse-ui-native/checkbox",
+        sourcePath: "checkbox/src/components/checkbox.tsx",
+        tags: ["Interactive", "3 states"],
+      },
+      {
+        name: "Radio",
+        description:
+          "Present an accessible single-choice control across shared sizes and variants.",
+        packageName: "@impulse-ui-native/radio",
+        sourcePath: "radio/src/components/radio.tsx",
+        tags: ["Interactive", "Accessible"],
+      },
+      {
+        name: "Switch",
+        description:
+          "Toggle settings with animated state changes and disabled or loading behavior.",
+        packageName: "@impulse-ui-native/switch",
+        sourcePath: "switch/src/components/switch.tsx",
+        tags: ["Interactive", "Animated"],
+      },
+      {
         name: "Select",
         description:
           "Choose one or many values through a themed control and native flyout.",
         packageName: "@impulse-ui-native/select",
         sourcePath: "select/src/components/select.tsx",
         tags: ["Interactive", "Flyout"],
+      },
+      {
+        name: "FormField",
+        description:
+          "Compose labels, descriptions, required state, and validation around custom controls.",
+        packageName: "@impulse-ui-native/form-field",
+        sourcePath: "form-field/src/components/form-field.tsx",
+        tags: ["Accessible", "Validated"],
       },
       {
         name: "DateTimePicker",
@@ -197,6 +237,44 @@ const componentGroups = [
     ],
   },
   {
+    name: "Content",
+    icon: "box",
+    components: [
+      {
+        name: "Avatar",
+        description:
+          "Represent people and entities with images, initials, fallbacks, and presence states.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/avatar.tsx",
+        tags: ["Identity", "5 variants"],
+      },
+      {
+        name: "Card",
+        description:
+          "Group related content in compound static or pressable themed surfaces.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/card/card.tsx",
+        tags: ["Compound", "Composable"],
+      },
+      {
+        name: "Divider",
+        description:
+          "Separate content horizontally or vertically with logical insets and semantic colors.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/divider.tsx",
+        tags: ["Layout", "Accessible"],
+      },
+      {
+        name: "Accordion",
+        description:
+          "Reveal collapsible sections with single or multiple expansion and keyboard navigation.",
+        packageName: "@impulse-ui-native/accordion",
+        sourcePath: "accordion/src/components/accordion.ts",
+        tags: ["Compound", "Animated"],
+      },
+    ],
+  },
+  {
     name: "Feedback",
     icon: "bell",
     components: [
@@ -207,6 +285,30 @@ const componentGroups = [
         packageName: "@impulse-ui-native/primitives",
         sourcePath: "primitives/src/components/atoms/tag.tsx",
         tags: ["Display", "Closable"],
+      },
+      {
+        name: "Badge",
+        description:
+          "Display compact semantic states and metadata with optional leading or trailing content.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/badge/root.tsx",
+        tags: ["Display", "Semantic"],
+      },
+      {
+        name: "Spinner",
+        description:
+          "Communicate indeterminate work with token-aware sizes and semantic colors.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/spinner.tsx",
+        tags: ["Loading", "Indeterminate"],
+      },
+      {
+        name: "Progress",
+        description:
+          "Show determinate or indeterminate progress with linear and circular variants.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/progress.tsx",
+        tags: ["Loading", "Accessible"],
       },
       {
         name: "Skeleton",

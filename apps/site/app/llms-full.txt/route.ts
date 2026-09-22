@@ -51,11 +51,14 @@ Individual packages may be installed independently when the complete toolkit is 
 
 - Toolkit: aggregated public exports for the component system.
 - Theme: primitive, semantic, and component-level tokens.
-- Primitives: shared foundations including controls, typography, views, and pressable behavior.
+- Primitives: shared foundations plus Button, IconButton, Avatar, Badge, Card, Divider, Progress, Spinner, and Tag.
 - Icon: typed icons and standard small, medium, and large icon sizing.
+- Accordion: animated single- and multi-section disclosure with keyboard navigation.
+- Checkbox, Radio, and Switch: accessible selection controls with shared sizes and visual variants.
+- FormField: labels, descriptions, required state, and validation composition for custom controls.
 - Select: single- and multi-select controls whose options open in a Flyout.
 - Flyout: portal-based top or bottom sheets with an overlay, drag handle, title, safe-area handling, and gesture-driven dismissal.
-- Input: themed native text controls.
+- Input: themed single-line and multiline text controls, including Textarea auto-grow and character counting.
 - Datetime: date and time selection components.
 - Charts: Skia-rendered line, multi-line, bar, grouped-bar, pie, and concentric-pie visualizations.
 - Skeleton and DataState: loading, empty, and feedback states.
@@ -68,7 +71,7 @@ Select uses the shared Control primitives for its trigger. Opening it mounts a S
 ## Documentation surfaces
 
 - [Public website](${absoluteUrl("/")}): Marketing overview and browsable component catalog.
-- [Component catalog](${absoluteUrl("/#components")}): Purpose, capability, package, and source information for Button, IconButton, Tag, Input, Select, DateTimePicker, TimePicker, Skeleton, DataState, LineChart, MultiLineChart, BarChart, MultiBarChart, PieChart, and MultiPieChart.
+- [Component catalog](${absoluteUrl("/#components")}): Purpose, capability, package, and source information for Button, IconButton, Input, Textarea, Checkbox, Radio, Switch, Select, FormField, DateTimePicker, TimePicker, Avatar, Card, Divider, Accordion, Tag, Badge, Spinner, Progress, Skeleton, DataState, LineChart, MultiLineChart, BarChart, MultiBarChart, PieChart, and MultiPieChart.
 - [Token reference](${absoluteUrl("/#tokens")}): Color, spacing, radii, typography, and semantic token examples.
 - [Theme overview](${absoluteUrl("/#theming")}): Token layering and theme composition.
 - [Source repository](${seo.repository}): Monorepo containing apps, packages, Storybook stories, and implementation source.
