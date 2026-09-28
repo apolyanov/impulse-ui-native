@@ -1,12 +1,5 @@
-import type {
-  AccessibilityValue,
-  GestureResponderEvent,
-  LayoutChangeEvent,
-  View,
-  ViewStyle,
-} from "react-native";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { I18nManager } from "react-native";
+import type { AccessibilityValue, ViewStyle } from "react-native";
+import { useEffect, useMemo, useRef } from "react";
 
 import {
   useControllableState,
@@ -16,7 +9,6 @@ import {
 import type { SliderKeyDownEvent, SliderThumb, SliderValue } from "../types";
 import type {
   RangeSliderThumbBehavior,
-  SliderInteractionHandlers,
   SliderMarkLayout,
   UseRangeSliderOptions,
   UseRangeSliderResult,
@@ -25,13 +17,16 @@ import {
   formatSliderValue,
   getClosestThumb,
   getKeyboardSliderValue,
+  getSliderActiveTrackStyle,
   getSliderBounds,
   getSliderPercentage,
+  getSliderPositionStyle,
   getValueFromPosition,
   normalizeRangeValue,
   normalizeSliderMarks,
   updateRangeThumb,
 } from "../utils";
+import { useSliderInteraction } from "./use-slider-interaction.hook";
 
 export function useRangeSlider({
   accessibilityState,
@@ -51,9 +46,6 @@ export function useRangeSlider({
   step,
   value: valueProp,
 }: UseRangeSliderOptions): UseRangeSliderResult {
-  const [trackWidth, setTrackWidth] = useState(0);
-  const trackRef = useRef<View | null>(null);
-  const trackPageXRef = useRef(0);
   const activeThumbRef = useRef<SliderThumb>("start");
   const currentValueRef = useRef<SliderValue>(defaultValue);
   const bounds = useMemo(
@@ -69,10 +61,9 @@ export function useRangeSlider({
     ),
     onChange: onValueChange,
   });
-  const normalizedValue = normalizeRangeValue(
-    value,
-    bounds,
-    minStepsBetweenThumbs,
+  const normalizedValue = useMemo(
+    () => normalizeRangeValue(value, bounds, minStepsBetweenThumbs),
+    [bounds, minStepsBetweenThumbs, value],
   );
   const startPercentage = getSliderPercentage(normalizedValue[0], bounds);
   const endPercentage = getSliderPercentage(normalizedValue[1], bounds);
@@ -110,22 +101,15 @@ export function useRangeSlider({
     [accessibilityValues, bounds.max, bounds.min, formatValue, normalizedValue],
   );
   const startPositionStyle = useMemo<ViewStyle>(
-    () => ({
-      [I18nManager.isRTL ? "right" : "left"]: `${startPercentage}%`,
-    }),
+    () => getSliderPositionStyle(startPercentage),
     [startPercentage],
   );
   const endPositionStyle = useMemo<ViewStyle>(
-    () => ({
-      [I18nManager.isRTL ? "right" : "left"]: `${endPercentage}%`,
-    }),
+    () => getSliderPositionStyle(endPercentage),
     [endPercentage],
   );
   const activeTrackStyle = useMemo<ViewStyle>(
-    () => ({
-      [I18nManager.isRTL ? "right" : "left"]: `${startPercentage}%`,
-      width: `${endPercentage - startPercentage}%`,
-    }),
+    () => getSliderActiveTrackStyle(startPercentage, endPercentage),
     [endPercentage, startPercentage],
   );
   const markLayouts = useMemo<readonly SliderMarkLayout[]>(
@@ -142,9 +126,7 @@ export function useRangeSlider({
                 ? "end"
                 : undefined,
           label: formatSliderValue(mark, formatValue),
-          position: {
-            [I18nManager.isRTL ? "right" : "left"]: `${percentage}%`,
-          },
+          position: getSliderPositionStyle(percentage),
           value: mark,
         };
       }),
@@ -157,10 +139,10 @@ export function useRangeSlider({
   });
 
   const updateThumbFromPosition = useEventCallback(
-    (thumb: SliderThumb, position: number) => {
+    (thumb: SliderThumb, position: number, width: number) => {
       if (disabled) return;
 
-      const positionValue = getValueFromPosition(position, trackWidth, bounds);
+      const positionValue = getValueFromPosition(position, width, bounds);
       commitRange(
         updateRangeThumb(
           currentValueRef.current,
@@ -173,53 +155,26 @@ export function useRangeSlider({
     },
   );
 
-  const updateThumbFromPageX = useEventCallback(
-    (thumb: SliderThumb, pageX: number) => {
-      updateThumbFromPosition(thumb, pageX - trackPageXRef.current);
-    },
-  );
-
-  const measureTrack = useEventCallback(() => {
-    trackRef.current?.measureInWindow((x) => {
-      trackPageXRef.current = x;
-    });
-  });
-
-  const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
-    setTrackWidth(event.nativeEvent.layout.width);
-    measureTrack();
-    onLayout?.(event);
-  });
-
-  const handleResponderGrant = useEventCallback(
-    (event: GestureResponderEvent) => {
-      const position = event.nativeEvent.pageX - trackPageXRef.current;
-      const positionValue = getValueFromPosition(position, trackWidth, bounds);
+  const handleSlidingStart = useEventCallback(
+    (position: number, width: number) => {
+      const positionValue = getValueFromPosition(position, width, bounds);
       const thumb = getClosestThumb(positionValue, currentValueRef.current);
 
       activeThumbRef.current = thumb;
       onSlidingStart?.(currentValueRef.current);
-      measureTrack();
-      updateThumbFromPosition(thumb, position);
+      updateThumbFromPosition(thumb, position, width);
     },
   );
 
-  const handleResponderMove = useEventCallback(
-    (event: GestureResponderEvent) => {
-      updateThumbFromPageX(activeThumbRef.current, event.nativeEvent.pageX);
+  const handleSlidingMove = useEventCallback(
+    (position: number, width: number) => {
+      updateThumbFromPosition(activeThumbRef.current, position, width);
     },
   );
 
-  const handleResponderRelease = useEventCallback(() => {
+  const handleSlidingComplete = useEventCallback(() => {
     onSlidingComplete?.(currentValueRef.current);
   });
-
-  const handleStartShouldSetResponder = useCallback(
-    () => !disabled,
-    [disabled],
-  );
-
-  const handleResponderTerminationRequest = useCallback(() => false, []);
 
   const updateThumbFromKey = useEventCallback(
     (thumb: SliderThumb, key: string) => {
@@ -281,28 +236,13 @@ export function useRangeSlider({
     updateThumbFromKey("end", "ArrowDown");
   });
 
-  const interactionHandlers = useMemo<SliderInteractionHandlers>(
-    () => ({
-      onLayout: handleLayout,
-      onMoveShouldSetResponder: handleStartShouldSetResponder,
-      onMoveShouldSetResponderCapture: handleStartShouldSetResponder,
-      onResponderGrant: handleResponderGrant,
-      onResponderMove: handleResponderMove,
-      onResponderRelease: handleResponderRelease,
-      onResponderTerminate: handleResponderRelease,
-      onResponderTerminationRequest: handleResponderTerminationRequest,
-      onStartShouldSetResponder: handleStartShouldSetResponder,
-      onStartShouldSetResponderCapture: handleStartShouldSetResponder,
-    }),
-    [
-      handleLayout,
-      handleResponderGrant,
-      handleResponderMove,
-      handleResponderRelease,
-      handleResponderTerminationRequest,
-      handleStartShouldSetResponder,
-    ],
-  );
+  const { interactionHandlers, trackRef } = useSliderInteraction({
+    disabled,
+    onEnd: handleSlidingComplete,
+    onLayout,
+    onMove: handleSlidingMove,
+    onStart: handleSlidingStart,
+  });
   const startThumb = useMemo<RangeSliderThumbBehavior>(
     () => ({
       accessibilityValue: resolvedAccessibilityValues[0],
@@ -310,7 +250,6 @@ export function useRangeSlider({
       onIncrement: handleStartIncrement,
       onKeyDown: handleStartKeyDown,
       positionStyle: startPositionStyle,
-      thumb: "start",
       valueLabel: formatSliderValue(normalizedValue[0], formatValue),
     }),
     [
@@ -330,7 +269,6 @@ export function useRangeSlider({
       onIncrement: handleEndIncrement,
       onKeyDown: handleEndKeyDown,
       positionStyle: endPositionStyle,
-      thumb: "end",
       valueLabel: formatSliderValue(normalizedValue[1], formatValue),
     }),
     [

@@ -16,7 +16,6 @@ import type {
   RangeSliderProps,
   SliderKeyDownEvent,
   SliderProps,
-  SliderThumb,
   SliderValue,
 } from "./slider.types";
 
@@ -39,6 +38,19 @@ export interface SliderInteractionHandlers {
   onResponderTerminationRequest: () => boolean;
   onStartShouldSetResponder: () => boolean;
   onStartShouldSetResponderCapture: () => boolean;
+}
+
+export interface UseSliderInteractionOptions {
+  disabled: boolean;
+  onEnd: () => void;
+  onLayout?: SliderProps["onLayout"];
+  onMove: (position: number, width: number) => void;
+  onStart: (position: number, width: number) => void;
+}
+
+export interface UseSliderInteractionResult {
+  interactionHandlers: SliderInteractionHandlers;
+  trackRef: RefObject<View | null>;
 }
 
 export interface SliderTrackProps extends SliderInteractionHandlers {
@@ -137,7 +149,6 @@ export interface RangeSliderThumbBehavior {
   onIncrement: () => void;
   onKeyDown: (event: SliderKeyDownEvent) => void;
   positionStyle: ViewStyle;
-  thumb: SliderThumb;
   valueLabel: string;
 }
 

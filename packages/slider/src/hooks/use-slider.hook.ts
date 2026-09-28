@@ -1,12 +1,5 @@
-import type {
-  AccessibilityValue,
-  GestureResponderEvent,
-  LayoutChangeEvent,
-  View,
-  ViewStyle,
-} from "react-native";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { I18nManager } from "react-native";
+import type { AccessibilityValue, ViewStyle } from "react-native";
+import { useEffect, useMemo, useRef } from "react";
 
 import {
   useControllableState,
@@ -14,7 +7,6 @@ import {
 } from "@impulse-ui-native/core";
 
 import type {
-  SliderInteractionHandlers,
   SliderMarkLayout,
   UseSliderOptions,
   UseSliderResult,
@@ -22,12 +14,15 @@ import type {
 import {
   formatSliderValue,
   getKeyboardSliderValue,
+  getSliderActiveTrackStyle,
   getSliderBounds,
   getSliderPercentage,
+  getSliderPositionStyle,
   getValueFromPosition,
   normalizeSliderMarks,
   normalizeSliderValue,
 } from "../utils";
+import { useSliderInteraction } from "./use-slider-interaction.hook";
 
 export function useSlider({
   accessibilityState,
@@ -46,9 +41,6 @@ export function useSlider({
   step,
   value: valueProp,
 }: UseSliderOptions): UseSliderResult {
-  const [trackWidth, setTrackWidth] = useState(0);
-  const trackRef = useRef<View | null>(null);
-  const trackPageXRef = useRef(0);
   const currentValueRef = useRef(defaultValue);
   const bounds = useMemo(
     () => getSliderBounds(min, max, step),
@@ -84,16 +76,11 @@ export function useSlider({
     [accessibilityValue, bounds.max, bounds.min, formatValue, normalizedValue],
   );
   const positionStyle = useMemo<ViewStyle>(
-    () => ({
-      [I18nManager.isRTL ? "right" : "left"]: `${percentage}%`,
-    }),
+    () => getSliderPositionStyle(percentage),
     [percentage],
   );
   const activeTrackStyle = useMemo<ViewStyle>(
-    () => ({
-      [I18nManager.isRTL ? "right" : "left"]: 0,
-      width: `${percentage}%`,
-    }),
+    () => getSliderActiveTrackStyle(0, percentage),
     [percentage],
   );
   const markLayouts = useMemo<readonly SliderMarkLayout[]>(
@@ -110,9 +97,7 @@ export function useSlider({
                 ? "end"
                 : undefined,
           label: formatSliderValue(mark, formatValue),
-          position: {
-            [I18nManager.isRTL ? "right" : "left"]: `${markPercentage}%`,
-          },
+          position: getSliderPositionStyle(markPercentage),
           value: mark,
         };
       }),
@@ -120,54 +105,26 @@ export function useSlider({
   );
   const valueLabel = formatSliderValue(normalizedValue, formatValue);
 
-  const updateFromPosition = useEventCallback((position: number) => {
-    if (disabled) return;
+  const updateFromPosition = useEventCallback(
+    (position: number, width: number) => {
+      if (disabled) return;
 
-    const nextValue = getValueFromPosition(position, trackWidth, bounds);
-    currentValueRef.current = nextValue;
-    setValue(nextValue);
-  });
+      const nextValue = getValueFromPosition(position, width, bounds);
+      currentValueRef.current = nextValue;
+      setValue(nextValue);
+    },
+  );
 
-  const updateFromPageX = useEventCallback((pageX: number) => {
-    updateFromPosition(pageX - trackPageXRef.current);
-  });
-
-  const measureTrack = useEventCallback(() => {
-    trackRef.current?.measureInWindow((x) => {
-      trackPageXRef.current = x;
-    });
-  });
-
-  const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
-    setTrackWidth(event.nativeEvent.layout.width);
-    measureTrack();
-    onLayout?.(event);
-  });
-
-  const handleResponderGrant = useEventCallback(
-    (event: GestureResponderEvent) => {
+  const handleSlidingStart = useEventCallback(
+    (position: number, width: number) => {
       onSlidingStart?.(currentValueRef.current);
-      measureTrack();
-      updateFromPageX(event.nativeEvent.pageX);
+      updateFromPosition(position, width);
     },
   );
 
-  const handleResponderMove = useEventCallback(
-    (event: GestureResponderEvent) => {
-      updateFromPageX(event.nativeEvent.pageX);
-    },
-  );
-
-  const handleResponderRelease = useEventCallback(() => {
+  const handleSlidingComplete = useEventCallback(() => {
     onSlidingComplete?.(currentValueRef.current);
   });
-
-  const handleStartShouldSetResponder = useCallback(
-    () => !disabled,
-    [disabled],
-  );
-
-  const handleResponderTerminationRequest = useCallback(() => false, []);
 
   const updateFromKey = useEventCallback((key: string) => {
     if (disabled) return false;
@@ -205,28 +162,13 @@ export function useSlider({
     updateFromKey("ArrowDown");
   });
 
-  const interactionHandlers = useMemo<SliderInteractionHandlers>(
-    () => ({
-      onLayout: handleLayout,
-      onMoveShouldSetResponder: handleStartShouldSetResponder,
-      onMoveShouldSetResponderCapture: handleStartShouldSetResponder,
-      onResponderGrant: handleResponderGrant,
-      onResponderMove: handleResponderMove,
-      onResponderRelease: handleResponderRelease,
-      onResponderTerminate: handleResponderRelease,
-      onResponderTerminationRequest: handleResponderTerminationRequest,
-      onStartShouldSetResponder: handleStartShouldSetResponder,
-      onStartShouldSetResponderCapture: handleStartShouldSetResponder,
-    }),
-    [
-      handleLayout,
-      handleResponderGrant,
-      handleResponderMove,
-      handleResponderRelease,
-      handleResponderTerminationRequest,
-      handleStartShouldSetResponder,
-    ],
-  );
+  const { interactionHandlers, trackRef } = useSliderInteraction({
+    disabled,
+    onEnd: handleSlidingComplete,
+    onLayout,
+    onMove: updateFromPosition,
+    onStart: handleSlidingStart,
+  });
 
   useEffect(() => {
     currentValueRef.current = normalizedValue;
