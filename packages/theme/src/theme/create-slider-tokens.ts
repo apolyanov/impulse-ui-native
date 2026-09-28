@@ -1,0 +1,77 @@
+import type { PrimitiveThemeTokens, SliderTokens } from "../types";
+
+export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
+  return {
+    trackBorderRadius: tokens.radii.round,
+    thumbBorderRadius: tokens.radii.round,
+    thumbBorderWidth: tokens.borderSize.sm,
+    outlinedThumbBorderWidth: tokens.borderSize.md,
+    focusRingWidth: tokens.borderSize.md,
+    focusRingOffset: 2,
+    inactiveTrackColor: tokens.colors.neutral["5"],
+    markColor: tokens.colors.neutral["6"],
+    activeMarkColor: tokens.colors.primary.value,
+    disabledTrackColor: tokens.colors.neutral["5"],
+    disabledThumbColor: tokens.colors.neutral["6"],
+    disabledTextColor: tokens.colors.text.disabled,
+    focusRingColor: tokens.colors.border.focus.value,
+    valueBubbleBorderRadius: tokens.radii.md,
+    valueBubbleBorderWidth: tokens.borderSize.sm,
+    valueBubblePaddingHorizontal: tokens.space.xs,
+    valueBubblePaddingVertical: tokens.space.xxs,
+    valueBubbleGap: tokens.space.xxs,
+    labelGap: tokens.space.xxs,
+    sizes: {
+      small: {
+        trackHeight: 4,
+        thumbSize: 16,
+        markSize: 6,
+        hitSlop: 16,
+      },
+      medium: {
+        trackHeight: 6,
+        thumbSize: 20,
+        markSize: 6,
+        hitSlop: 14,
+      },
+      large: {
+        trackHeight: 8,
+        thumbSize: 24,
+        markSize: 8,
+        hitSlop: 12,
+      },
+    },
+    variants: {
+      filled: {
+        activeTrackColor: tokens.colors.primary.value,
+        labelColor: tokens.colors.primary.value,
+        thumbBackgroundColor: tokens.colors.primary.value,
+        thumbBorderColor: tokens.colors.primary.value,
+        thumbHighlightColor: tokens.colors.primary.contrast,
+        valueBubbleBackgroundColor: tokens.colors.primary.value,
+        valueBubbleBorderColor: tokens.colors.primary.value,
+        valueBubbleColor: tokens.colors.primary.contrast,
+      },
+      outlined: {
+        activeTrackColor: tokens.colors.primary.value,
+        labelColor: tokens.colors.primary.value,
+        thumbBackgroundColor: tokens.colors.surface.elevated.value,
+        thumbBorderColor: tokens.colors.primary.value,
+        thumbHighlightColor: "transparent",
+        valueBubbleBackgroundColor: "transparent",
+        valueBubbleBorderColor: tokens.colors.primary.value,
+        valueBubbleColor: tokens.colors.primary.value,
+      },
+      soft: {
+        activeTrackColor: tokens.colors.secondary.value,
+        labelColor: tokens.colors.secondary.contrast,
+        thumbBackgroundColor: tokens.colors.accent.value,
+        thumbBorderColor: tokens.colors.accent.value,
+        thumbHighlightColor: tokens.colors.primary.value,
+        valueBubbleBackgroundColor: tokens.colors.secondary.value,
+        valueBubbleBorderColor: tokens.colors.secondary.value,
+        valueBubbleColor: tokens.colors.secondary.contrast,
+      },
+    },
+  };
+}

@@ -30,6 +30,7 @@ packages/<name>/
       <name>.tsx
       index.ts
     hooks/                 only when behavior warrants extraction
+    constants/             module-level constants when needed
     types/
       <name>.types.ts
       index.ts
@@ -52,6 +53,24 @@ Export through the nearest barrel and then the package root. Re-export from
 
 ## Component implementation pattern
 
+- Keep each React component in its own file. Do not define multiple components
+  in one module, including private implementation children.
+- A compound `Parent.Child` public API is allowed when the parts form a
+  coherent composition model. Implement every part in its own component file,
+  then assemble the namespace through the component barrel or a dedicated
+  composition module.
+- Do not declare non-component functions in a component file. The only
+  exception is the `themedStyles` function used by `useThemedStyles`, which may
+  remain at module scope in the component file. Keep callbacks and
+  render-specific functions inside the component; move every other reusable
+  pure helper to a focused file under the owning package's `utils` directory.
+- Apart from the component export itself, do not declare module-level constants
+  in a component file. Put all constants in focused `.constants.ts` files under
+  the owning package's `constants` directory and import them where needed. Name
+  constants declared in those constant modules in PascalCase (`DefaultMin`,
+  not `DEFAULT_MIN`). Ordinary bindings such as configuration objects, static
+  style sheets, fixture data, and Storybook metadata continue to use camelCase.
+  Preserve identifiers required by external frameworks or generated code.
 - Use named function expressions wrapped with `memo` for public components:
   `export const Name = memo(function Name(...) { ... })`.
 - Destructure defaults near the component entry. Existing defaults commonly use
@@ -66,9 +85,11 @@ Export through the nearest barrel and then the package root. Re-export from
 - Follow the repository's `hook-ordering` skill when writing React components.
 - Use React Native `StyleSheet` and token-aware style hooks for library code.
 - Build token-dependent React Native styles with `useThemedStyles` and a
-  module-level `themedStyles(theme, props)` factory. Use `useComponentsTokens`
-  directly only for non-style values, token-aware primitive props, or animated
-  worklet styles that cannot be created by `useThemedStyles`.
+  module-level `themedStyles(theme, props)` factory in the component file. This
+  style factory is the sole exception to the rule against functions outside a
+  component. Use `useComponentsTokens` directly only for non-style values,
+  token-aware primitive props, or animated worklet styles that cannot be
+  created by `useThemedStyles`.
 - Preserve native, Android, iOS, and React Native Web behavior unless the
   component is explicitly platform-limited.
 
@@ -106,7 +127,7 @@ Use compound components when parts need to share state and composition matters,
 as with `Control` and `Skeleton`. Keep internal parts private unless direct
 composition is an intended public capability.
 
-Put meaningful child components in focused files under the owning component's
+Put every child component in a focused file under the owning component's
 directory. Assemble public child APIs through a namespaced object such as
 `Card.Title`; keep private implementation children unexported from the public
 namespace and package barrels.

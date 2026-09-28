@@ -28,6 +28,7 @@ export * from "./pressable-tokens.types";
 export * from "./progress-tokens.types";
 export * from "./radio-tokens.types";
 export * from "./skeleton-tokens.types";
+export * from "./slider-tokens.types";
 export * from "./spinner-tokens.types";
 export * from "./stepper-tokens.types";
 export * from "./switch-tokens.types";

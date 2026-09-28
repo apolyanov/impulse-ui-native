@@ -21,6 +21,7 @@ import { PressableTokens } from "./pressable-tokens.types";
 import { ProgressTokens } from "./progress-tokens.types";
 import { SelectTokens } from "./select-tokens.types";
 import { SkeletonTokens } from "./skeleton-tokens.types";
+import { SliderTokens } from "./slider-tokens.types";
 import { SpinnerTokens } from "./spinner-tokens.types";
 import { StepperTokens } from "./stepper-tokens.types";
 import { SwitchTokens } from "./switch-tokens.types";
@@ -122,6 +123,7 @@ export interface ComponentsTokens {
   timePicker: TimePickerTokens;
   flyout: FlyoutTokens;
   skeleton: SkeletonTokens;
+  slider: SliderTokens;
   spinner: SpinnerTokens;
   stepper: StepperTokens;
   switch: SwitchTokens;

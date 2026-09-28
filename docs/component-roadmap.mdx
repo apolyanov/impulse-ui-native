@@ -51,6 +51,8 @@ A component should normally include all of the following before it moves to
 | Compound `Control`    | `@impulse-ui-native/primitives` | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
 | `Input`               | `@impulse-ui-native/input`      | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
 | `Switch`              | `@impulse-ui-native/switch`     | Available | Yes       | Add labelled field composition and automated interaction/accessibility tests.   |
+| `Slider`              | `@impulse-ui-native/slider`     | Extend    | Yes       | Add automated gesture, keyboard, RTL, and accessibility behavior tests.         |
+| `RangeSlider`         | `@impulse-ui-native/slider`     | Extend    | Yes       | Add automated thumb-collision and assistive-technology behavior tests.          |
 | `Select`              | `@impulse-ui-native/select`     | Extend    | Yes       | Add search, custom option rendering, grouped options, and async states.         |
 | `MultiSelect`         | `@impulse-ui-native/select`     | Extend    | Yes       | Add search, selected-item summaries, large-list behavior, and selection limits. |
 | `DatePicker`          | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add min/max dates, disabled dates, locale, and first-day-of-week controls.      |
@@ -162,7 +164,7 @@ have been discussed.
 
 | Candidate               | Status    | Suggested scope                                                                                  |
 | ----------------------- | --------- | ------------------------------------------------------------------------------------------------ |
-| Slider / Range Slider   | Candidate | Steps, marks, min/max values, gestures, keyboard input, and accessible value text.               |
+| Slider / Range Slider   | Extend    | Steps, marks, min/max values, gestures, keyboard input, and accessible value text.               |
 | Segmented Control       | Candidate | Single selection, icons, labels, disabled options, and overflow policy.                          |
 | Search Input / Combobox | Candidate | Decide whether this extends `Input` and `Select` or becomes a dedicated component.               |
 | Pagination              | Candidate | Compact native controls plus complete web keyboard and screen-reader behavior.                   |

@@ -1,6 +1,6 @@
 import { Platform, ViewStyle } from "react-native";
 
-import { shadowScale, StylePropsSet } from "../constants";
+import { ShadowScale, StylePropsSet } from "../constants";
 import {
   ShadowLevel,
   ShadowPosition,
@@ -43,7 +43,7 @@ export const getShadowStyle = (
   position: ShadowPosition = "bottom",
   colors: ThemeColors,
 ): ViewStyle => {
-  const token = shadowScale[level];
+  const token = ShadowScale[level];
 
   if (level === "none") return {};
 

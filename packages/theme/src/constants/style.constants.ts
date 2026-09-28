@@ -89,7 +89,7 @@ export const StylePropsSet = new Set<keyof StyleProps>(
   Object.keys(StylePropsRecord) as (keyof StyleProps)[],
 );
 
-export const shadowScale: Record<ShadowLevel, ShadowIntensity> = {
+export const ShadowScale: Record<ShadowLevel, ShadowIntensity> = {
   none: { radius: 0, opacity: 0, elevation: 0 },
   xs: { radius: 2, opacity: 0.08, elevation: 1 },
   sm: { radius: 4, opacity: 0.1, elevation: 2 },
