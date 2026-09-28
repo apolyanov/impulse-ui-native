@@ -1,5 +1,14 @@
 # @impulse-ui-native/charts
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [8873b55]
+  - @impulse-ui-native/theme@3.0.0
+  - @impulse-ui-native/primitives@3.0.0
+  - @impulse-ui-native/core@3.0.0
+
 ## 2.9.0
 
 ### Patch Changes

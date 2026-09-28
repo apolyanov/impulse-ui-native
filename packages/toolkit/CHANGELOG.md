@@ -1,5 +1,38 @@
 # @impulse-ui-native/toolkit
 
+## 3.0.0
+
+### Major Changes
+
+- 8873b55: Add token-driven Slider and RangeSlider controls with shared sizes, filled, outlined, and soft variants, steps, marks, value labels, pointer gestures, keyboard input, and adjustable accessibility semantics.
+
+  Rename the public theme constant `shadowScale` to `ShadowScale` to follow the PascalCase constants convention.
+
+### Patch Changes
+
+- Updated dependencies [8873b55]
+  - @impulse-ui-native/slider@3.0.0
+  - @impulse-ui-native/theme@3.0.0
+  - @impulse-ui-native/accordion@3.0.0
+  - @impulse-ui-native/charts@3.0.0
+  - @impulse-ui-native/checkbox@3.0.0
+  - @impulse-ui-native/data-state@3.0.0
+  - @impulse-ui-native/datetime@3.0.0
+  - @impulse-ui-native/flyout@3.0.0
+  - @impulse-ui-native/form-field@3.0.0
+  - @impulse-ui-native/input@3.0.0
+  - @impulse-ui-native/primitives@3.0.0
+  - @impulse-ui-native/radio@3.0.0
+  - @impulse-ui-native/select@3.0.0
+  - @impulse-ui-native/skeleton@3.0.0
+  - @impulse-ui-native/stepper@3.0.0
+  - @impulse-ui-native/switch@3.0.0
+  - @impulse-ui-native/core@3.0.0
+  - @impulse-ui-native/echo@3.0.0
+  - @impulse-ui-native/endpoint@3.0.0
+  - @impulse-ui-native/overlay@3.0.0
+  - @impulse-ui-native/portal@3.0.0
+
 ## 2.9.0
 
 ### Patch Changes
