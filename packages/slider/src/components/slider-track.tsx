@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Platform, StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -32,6 +32,19 @@ export const SliderTrack = memo(function SliderTrack({
     },
     [disabled, hasEndMark, hasStartMark, showValueBubble, size, variant],
   );
+  const activeTrackStyles = useMemo(
+    () => [styles.activeTrack, activeTrackStyle],
+    [activeTrackStyle, styles.activeTrack],
+  );
+  const markStyles = useMemo(
+    () =>
+      marks.map((mark) => [
+        styles.mark,
+        mark.active ? styles.activeMark : undefined,
+        mark.position,
+      ]),
+    [marks, styles.activeMark, styles.mark],
+  );
 
   return (
     <View
@@ -40,19 +53,11 @@ export const SliderTrack = memo(function SliderTrack({
       style={styles.interactionArea}
     >
       <View pointerEvents="none" style={styles.track}>
-        <View style={[styles.activeTrack, activeTrackStyle]} />
+        <View style={activeTrackStyles} />
       </View>
 
-      {marks.map((mark) => (
-        <View
-          key={mark.value}
-          pointerEvents="none"
-          style={[
-            styles.mark,
-            mark.active ? styles.activeMark : undefined,
-            mark.position,
-          ]}
-        />
+      {marks.map((mark, index) => (
+        <View key={mark.value} pointerEvents="none" style={markStyles[index]} />
       ))}
 
       {children}

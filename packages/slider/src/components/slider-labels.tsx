@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -20,6 +20,10 @@ export const SliderLabels = memo(function SliderLabels({
     disabled,
     variant,
   ]);
+  const markLabelStyles = useMemo(
+    () => marks.map((mark) => [styles.markLabel, mark.position]),
+    [marks, styles.markLabel],
+  );
 
   if (!showMinMax && (!showMarkLabels || marks.length === 0)) return null;
 
@@ -38,11 +42,8 @@ export const SliderLabels = memo(function SliderLabels({
 
       {showMarkLabels && marks.length > 0 ? (
         <View pointerEvents="none" style={styles.markLabelRow}>
-          {marks.map((mark) => (
-            <Typography.Caption
-              key={mark.value}
-              style={[styles.markLabel, mark.position]}
-            >
+          {marks.map((mark, index) => (
+            <Typography.Caption key={mark.value} style={markLabelStyles[index]}>
               {mark.label}
             </Typography.Caption>
           ))}

@@ -4,6 +4,7 @@ import { View } from "@impulse-ui-native/primitives";
 
 import type { RangeSliderProps } from "../types";
 import {
+  DefaultAccessibilityLabels,
   DefaultMax,
   DefaultMin,
   DefaultRangeValue,
@@ -16,7 +17,7 @@ import { SliderThumbControl } from "./slider-thumb";
 import { SliderTrack } from "./slider-track";
 
 export const RangeSlider = memo(function RangeSlider({
-  accessibilityLabels = ["Minimum value", "Maximum value"],
+  accessibilityLabels = DefaultAccessibilityLabels,
   accessibilityState,
   accessibilityValues,
   defaultValue = DefaultRangeValue,

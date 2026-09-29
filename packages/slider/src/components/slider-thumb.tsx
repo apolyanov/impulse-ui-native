@@ -36,6 +36,15 @@ export const SliderThumbControl = memo(function SliderThumbControl({
     () => [{ name: "increment" as const }, { name: "decrement" as const }],
     [],
   );
+  const webInteractionProps = useMemo(
+    () =>
+      Platform.OS === "web" ? ({ onKeyDown } as PressableProps) : undefined,
+    [onKeyDown],
+  );
+  const thumbStyles = useMemo(
+    () => [styles.focusRing, positionStyle],
+    [positionStyle, styles.focusRing],
+  );
 
   const handleAccessibilityAction = useEventCallback(
     (event: AccessibilityActionEvent) => {
@@ -68,12 +77,6 @@ export const SliderThumbControl = memo(function SliderThumbControl({
     },
   );
 
-  const webInteractionProps = useMemo(
-    () =>
-      Platform.OS === "web" ? ({ onKeyDown } as PressableProps) : undefined,
-    [onKeyDown],
-  );
-
   return (
     <Pressable
       {...webInteractionProps}
@@ -89,7 +92,7 @@ export const SliderThumbControl = memo(function SliderThumbControl({
       onBlur={handleBlur}
       onFocus={handleFocus}
       pressedStyle={styles.pressed}
-      style={[styles.focusRing, positionStyle]}
+      style={thumbStyles}
     >
       {showValueBubble ? (
         <View pointerEvents="none" style={styles.valueBubble}>
