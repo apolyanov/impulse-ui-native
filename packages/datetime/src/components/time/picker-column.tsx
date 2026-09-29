@@ -8,7 +8,11 @@ import { FlatList, StyleSheet } from "react-native";
 
 import type { AppTheme, FontWeightValue } from "@impulse-ui-native/theme";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getSelectionItemStateTokens,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import { getClosestIndexByValue } from "../../utils";
 
@@ -60,15 +64,17 @@ export const PickerColumn = memo(function PickerColumn(
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<number>) => {
       const selected = item === value;
-      const fontWeight: FontWeightValue = (
-        selected ? columnTokens.selectedFontWeight : columnTokens.fontWeight
-      ) as FontWeightValue;
+      const appearanceTokens = getSelectionItemStateTokens(
+        columnTokens.states,
+        { selected },
+      );
+      const fontWeight = appearanceTokens.fontWeight as FontWeightValue;
 
       return (
         <Pressable style={styles.pressable}>
           <Typography.Master
             fontSize={columnTokens.fontSize}
-            color={selected ? columnTokens.selectedColor : columnTokens.color}
+            color={appearanceTokens.color}
             textAlign="center"
             numberOfLines={1}
             fontWeight={fontWeight}
@@ -79,15 +85,7 @@ export const PickerColumn = memo(function PickerColumn(
         </Pressable>
       );
     },
-    [
-      columnTokens.color,
-      columnTokens.fontSize,
-      columnTokens.fontWeight,
-      columnTokens.selectedColor,
-      columnTokens.selectedFontWeight,
-      styles.pressable,
-      value,
-    ],
+    [columnTokens.fontSize, columnTokens.states, styles.pressable, value],
   );
 
   const onMomentumScrollEnd = useCallback(

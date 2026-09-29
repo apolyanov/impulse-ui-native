@@ -37,43 +37,75 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
 
     variants: {
       filled: {
-        backgroundColor: primary,
-        borderColor: primary,
-        color: primaryContrast,
-
-        disabledBackgroundColor: neutral["5"],
-        disabledBorderColor: neutral["5"],
-        disabledColor,
+        default: {
+          backgroundColor: primary,
+          borderColor: primary,
+          color: primaryContrast,
+        },
+        loading: {
+          backgroundColor: primary,
+          borderColor: primary,
+          color: primaryContrast,
+        },
+        disabled: {
+          backgroundColor: neutral["5"],
+          borderColor: neutral["5"],
+          color: disabledColor,
+        },
       },
 
       outlined: {
-        backgroundColor: "transparent",
-        borderColor: primary,
-        color: primary,
-
-        disabledBackgroundColor: "transparent",
-        disabledBorderColor: neutral["5"],
-        disabledColor,
+        default: {
+          backgroundColor: "transparent",
+          borderColor: primary,
+          color: primary,
+        },
+        loading: {
+          backgroundColor: "transparent",
+          borderColor: primary,
+          color: primary,
+        },
+        disabled: {
+          backgroundColor: "transparent",
+          borderColor: neutral["5"],
+          color: disabledColor,
+        },
       },
 
       soft: {
-        backgroundColor: secondary,
-        borderColor: secondary,
-        color: secondaryContrast,
-
-        disabledBackgroundColor: neutral["3"],
-        disabledBorderColor: neutral["3"],
-        disabledColor,
+        default: {
+          backgroundColor: secondary,
+          borderColor: secondary,
+          color: secondaryContrast,
+        },
+        loading: {
+          backgroundColor: secondary,
+          borderColor: secondary,
+          color: secondaryContrast,
+        },
+        disabled: {
+          backgroundColor: neutral["3"],
+          borderColor: neutral["3"],
+          color: disabledColor,
+        },
       },
 
       ghost: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-
-        disabledBackgroundColor: "transparent",
-        disabledBorderColor: "transparent",
-        disabledColor,
+        default: {
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          color: primary,
+        },
+        loading: {
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          color: primary,
+        },
+        disabled: {
+          backgroundColor: "transparent",
+          borderColor: "transparent",
+          color: disabledColor,
+        },
       },
     },
   };

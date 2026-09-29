@@ -4,10 +4,7 @@ export function createTextareaTokens(
   tokens: PrimitiveThemeTokens,
 ): TextareaTokens {
   return {
-    counterColor: tokens.colors.text.tertiary,
     counterFontSize: tokens.fontSize.xs,
-    disabledCounterColor: tokens.colors.text.disabled,
-    errorCounterColor: tokens.colors.feedback.error.value,
     footerGap: tokens.space.xs,
     footerMarginTop: tokens.space.xxs,
     sizes: {
@@ -23,6 +20,12 @@ export function createTextareaTokens(
         lineHeight: tokens.lineHeight.sm,
         paddingVertical: tokens.space.xs,
       },
+    },
+    states: {
+      default: { counterColor: tokens.colors.text.tertiary },
+      error: { counterColor: tokens.colors.feedback.error.value },
+      disabled: { counterColor: tokens.colors.text.disabled },
+      disabledError: { counterColor: tokens.colors.text.disabled },
     },
   };
 }

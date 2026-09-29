@@ -1,12 +1,16 @@
-import { ComponentSize, FieldVariant } from "./components.types";
+import {
+  ComponentSize,
+  FieldVariant,
+  FieldVisualState,
+} from "./components.types";
+
+export interface ControlAddonAppearanceTokens {
+  iconColor: string;
+}
 
 export type ControlAddonVariantTokens = Record<
   FieldVariant,
-  {
-    iconColor: string;
-    errorIconColor: string;
-    disabledIconColor: string;
-  }
+  Record<FieldVisualState, ControlAddonAppearanceTokens>
 >;
 
 export interface ControlAddonTokens {
@@ -25,21 +29,19 @@ export type ControlContainerSizeTokens = Record<
 
 export type ControlContainerVariantTokens = Record<
   FieldVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-
-    errorBorderColor: string;
-
-    disabledBackgroundColor: string;
-    disabledBorderColor: string;
-  }
+  Record<
+    FieldVisualState,
+    {
+      backgroundColor: string;
+      borderColor: string;
+      opacity: number;
+    }
+  >
 >;
 
 export interface ControlContainerTokens {
   borderWidth: number;
   borderRadius: number;
-  disabledOpacity: number;
   sizes: ControlContainerSizeTokens;
   variants: ControlContainerVariantTokens;
 }
@@ -59,16 +61,13 @@ export type ControlInputSizeTokens = Record<
 
 export type ControlInputVariantTokens = Record<
   FieldVariant,
-  {
-    color: string;
-    placeholderColor: string;
-
-    disabledColor: string;
-    disabledPlaceholderColor: string;
-
-    errorColor: string;
-    errorPlaceholderColor: string;
-  }
+  Record<
+    FieldVisualState,
+    {
+      color: string;
+      placeholderColor: string;
+    }
+  >
 >;
 
 export interface ControlInputTokens {
@@ -82,8 +81,5 @@ export interface ControlInputTokens {
 export interface ControlLabelTokens {
   marginBottom: number;
   fontSize: number;
-
-  color: string;
-  disabledColor: string;
-  errorColor: string;
+  states: Record<FieldVisualState, { color: string }>;
 }

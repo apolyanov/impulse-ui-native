@@ -1,4 +1,8 @@
-import type { ComponentSize, SelectionVariant } from "./components.types";
+import type {
+  ComponentSize,
+  SelectionVariant,
+  SelectionVisualState,
+} from "./components.types";
 
 export type CheckboxSizeTokens = Record<
   ComponentSize,
@@ -9,23 +13,20 @@ export type CheckboxSizeTokens = Record<
   }
 >;
 
+export interface CheckboxAppearanceTokens {
+  backgroundColor: string;
+  borderColor: string;
+  color: string;
+}
+
 export type CheckboxVariantTokens = Record<
   SelectionVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-    color: string;
-  }
+  Record<SelectionVisualState, CheckboxAppearanceTokens>
 >;
 
 export interface CheckboxTokens {
   borderWidth: number;
   borderRadius: number;
-  uncheckedBackgroundColor: string;
-  uncheckedBorderColor: string;
-  disabledBackgroundColor: string;
-  disabledBorderColor: string;
-  disabledColor: string;
   sizes: CheckboxSizeTokens;
   variants: CheckboxVariantTokens;
 }

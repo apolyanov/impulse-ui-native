@@ -1,7 +1,11 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  AppTheme,
+  getFieldStateTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import { ControlLabelProps } from "../../types";
 import { Typography } from "../atoms";
@@ -49,18 +53,16 @@ function themedStyles(
   const { disabled, error } = props;
 
   const controlLabelTokens = theme.components.controlLabel;
-
-  const color = disabled
-    ? controlLabelTokens.disabledColor
-    : error
-      ? controlLabelTokens.errorColor
-      : controlLabelTokens.color;
+  const appearanceTokens = getFieldStateTokens(controlLabelTokens.states, {
+    disabled,
+    error: Boolean(error),
+  });
 
   return StyleSheet.create({
     label: {
       marginBottom: controlLabelTokens.marginBottom,
       fontSize: controlLabelTokens.fontSize,
-      color,
+      color: appearanceTokens.color,
     },
   });
 }

@@ -5,7 +5,11 @@ import { Platform, StyleSheet } from "react-native";
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getControlStateTokens,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { SliderThumbProps } from "../types/slider-internal.types";
 
@@ -120,7 +124,10 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
   const { disabled, focused, size, variant } = props;
   const tokens = theme.components.slider;
   const sizeTokens = tokens.sizes[size];
-  const variantTokens = tokens.variants[variant];
+  const appearanceTokens = getControlStateTokens(tokens.variants[variant], {
+    disabled,
+    focused,
+  });
   const thumbOuterSize =
     sizeTokens.thumbSize + (tokens.focusRingWidth + tokens.focusRingOffset) * 2;
 
@@ -133,7 +140,7 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
       width: thumbOuterSize,
       height: thumbOuterSize,
       marginStart: -thumbOuterSize / 2,
-      borderWidth: focused ? tokens.focusRingWidth : 0,
+      borderWidth: appearanceTokens.focusRingBorderWidth,
       borderRadius: tokens.thumbBorderRadius,
       borderColor: tokens.focusRingColor,
     },
@@ -145,25 +152,16 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
       justifyContent: "center",
       width: sizeTokens.thumbSize,
       height: sizeTokens.thumbSize,
-      borderWidth:
-        variant === "outlined"
-          ? tokens.outlinedThumbBorderWidth
-          : tokens.thumbBorderWidth,
+      borderWidth: appearanceTokens.thumbBorderWidth,
       borderRadius: tokens.thumbBorderRadius,
-      borderColor: disabled
-        ? tokens.disabledThumbColor
-        : variantTokens.thumbBorderColor,
-      backgroundColor: disabled
-        ? tokens.disabledThumbColor
-        : variantTokens.thumbBackgroundColor,
+      borderColor: appearanceTokens.thumbBorderColor,
+      backgroundColor: appearanceTokens.thumbBackgroundColor,
     },
     thumbHighlight: {
       width: 4,
       height: 4,
       borderRadius: tokens.thumbBorderRadius,
-      backgroundColor: disabled
-        ? "transparent"
-        : variantTokens.thumbHighlightColor,
+      backgroundColor: appearanceTokens.thumbHighlightColor,
     },
     valueBubble: {
       position: "absolute",
@@ -174,17 +172,11 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
       paddingVertical: tokens.valueBubblePaddingVertical,
       borderWidth: tokens.valueBubbleBorderWidth,
       borderRadius: tokens.valueBubbleBorderRadius,
-      borderColor: disabled
-        ? tokens.disabledThumbColor
-        : variantTokens.valueBubbleBorderColor,
-      backgroundColor: disabled
-        ? tokens.disabledThumbColor
-        : variantTokens.valueBubbleBackgroundColor,
+      borderColor: appearanceTokens.valueBubbleBorderColor,
+      backgroundColor: appearanceTokens.valueBubbleBackgroundColor,
     },
     valueBubbleText: {
-      color: disabled
-        ? tokens.disabledTextColor
-        : variantTokens.valueBubbleColor,
+      color: appearanceTokens.valueBubbleColor,
     },
   });
 }

@@ -1,3 +1,15 @@
+export type DatetimePickerDayVisualState =
+  | "default"
+  | "outsideMonth"
+  | "range"
+  | "selected";
+
+export interface DatetimePickerDayState {
+  currentMonth?: boolean;
+  inRange?: boolean;
+  selected?: boolean;
+}
+
 export interface DatetimePickerCalendarTokens {
   dayNamesMarginBottom: number;
   weeksGap: number;
@@ -6,15 +18,13 @@ export interface DatetimePickerCalendarTokens {
 export interface DatetimePickerDayTokens {
   size: number;
   borderRadius: number;
-
-  color: string;
-  outsideMonthColor: string;
-
-  selectedBackgroundColor: string;
-  selectedColor: string;
-
-  rangeBackgroundColor: string;
-  rangeColor: string;
+  states: Record<
+    DatetimePickerDayVisualState,
+    {
+      backgroundColor: string;
+      color: string;
+    }
+  >;
 }
 
 export interface DatetimePickerFlyoutActionsTokens {

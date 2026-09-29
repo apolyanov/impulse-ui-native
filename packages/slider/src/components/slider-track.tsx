@@ -3,7 +3,10 @@ import { Platform, StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
-import { useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getControlStateTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { SliderTrackProps } from "../types/slider-internal.types";
 
@@ -79,7 +82,9 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
     props;
   const tokens = theme.components.slider;
   const sizeTokens = tokens.sizes[size];
-  const variantTokens = tokens.variants[variant];
+  const appearanceTokens = getControlStateTokens(tokens.variants[variant], {
+    disabled,
+  });
   const thumbOuterSize =
     sizeTokens.thumbSize + (tokens.focusRingWidth + tokens.focusRingOffset) * 2;
   const bubbleSpace = showValueBubble ? 28 + tokens.valueBubbleGap : 0;
@@ -101,17 +106,13 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
       borderBottomStartRadius: hasStartMark ? 0 : tokens.trackBorderRadius,
       borderTopEndRadius: hasEndMark ? 0 : tokens.trackBorderRadius,
       borderBottomEndRadius: hasEndMark ? 0 : tokens.trackBorderRadius,
-      backgroundColor: disabled
-        ? tokens.disabledTrackColor
-        : tokens.inactiveTrackColor,
+      backgroundColor: appearanceTokens.inactiveTrackColor,
       overflow: "hidden",
     },
     activeTrack: {
       position: "absolute",
       height: "100%",
-      backgroundColor: disabled
-        ? tokens.disabledTrackColor
-        : variantTokens.activeTrackColor,
+      backgroundColor: appearanceTokens.activeTrackColor,
     },
     mark: {
       position: "absolute",
@@ -120,12 +121,10 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
       height: sizeTokens.markSize,
       marginStart: -sizeTokens.markSize / 2,
       borderRadius: tokens.trackBorderRadius,
-      backgroundColor: disabled ? tokens.disabledThumbColor : tokens.markColor,
+      backgroundColor: appearanceTokens.markColor,
     },
     activeMark: {
-      backgroundColor: disabled
-        ? tokens.disabledThumbColor
-        : tokens.activeMarkColor,
+      backgroundColor: appearanceTokens.activeMarkColor,
     },
   });
 }

@@ -1,4 +1,8 @@
-import type { ComponentSize, SelectionVariant } from "./components.types";
+import type {
+  ComponentSize,
+  DisplayVisualState,
+  SelectionVariant,
+} from "./components.types";
 
 export type SwitchSizeTokens = Record<
   ComponentSize,
@@ -12,13 +16,18 @@ export type SwitchSizeTokens = Record<
   }
 >;
 
+export interface SwitchAppearanceTokens {
+  activeBackgroundColor: string;
+  activeBorderColor: string;
+  activeThumbColor: string;
+  inactiveBackgroundColor: string;
+  inactiveBorderColor: string;
+  inactiveThumbColor: string;
+}
+
 export type SwitchVariantTokens = Record<
   SelectionVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-    color: string;
-  }
+  Record<DisplayVisualState, SwitchAppearanceTokens>
 >;
 
 export interface SwitchTokens {
@@ -26,12 +35,6 @@ export interface SwitchTokens {
   borderWidth: number;
   borderRadius: number;
   thumbBorderRadius: number;
-  uncheckedBackgroundColor: string;
-  uncheckedBorderColor: string;
-  uncheckedThumbColor: string;
-  disabledBackgroundColor: string;
-  disabledBorderColor: string;
-  disabledThumbColor: string;
   loadingIndicatorColor: string;
   sizes: SwitchSizeTokens;
   variants: SwitchVariantTokens;

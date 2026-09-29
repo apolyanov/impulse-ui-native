@@ -2,7 +2,11 @@ import type { AccessibilityState } from "react-native";
 import { memo, PropsWithChildren, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  AppTheme,
+  getActionStateTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import { ButtonProps, ButtonThemeProps } from "../../types";
 import { Pressable } from "./pressable";
@@ -19,11 +23,11 @@ export const Button = memo(function Button({
   style,
   ...props
 }: PropsWithChildren<ButtonProps>) {
-  const styles = useThemedStyles(themedStyles, { size, variant, disabled }, [
-    size,
-    variant,
-    disabled,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { size, variant, disabled, loading },
+    [size, variant, disabled, loading],
+  );
 
   const interactionDisabled = disabled === true || loading;
 
@@ -68,11 +72,17 @@ export const Button = memo(function Button({
 });
 
 function themedStyles(theme: AppTheme, props: ButtonThemeProps) {
-  const { size, variant, disabled } = props;
+  const { size, variant, disabled, loading } = props;
 
   const buttonTokens = theme.components.button;
   const sizeTokens = buttonTokens.sizes[size];
-  const variantTokens = buttonTokens.variants[variant];
+  const appearanceTokens = getActionStateTokens(
+    buttonTokens.variants[variant],
+    {
+      disabled,
+      loading,
+    },
+  );
 
   return StyleSheet.create({
     button: {
@@ -86,13 +96,8 @@ function themedStyles(theme: AppTheme, props: ButtonThemeProps) {
       borderWidth: buttonTokens.borderWidth,
       borderRadius: buttonTokens.borderRadius,
 
-      borderColor: disabled
-        ? variantTokens.disabledBorderColor
-        : variantTokens.borderColor,
-
-      backgroundColor: disabled
-        ? variantTokens.disabledBackgroundColor
-        : variantTokens.backgroundColor,
+      borderColor: appearanceTokens.borderColor,
+      backgroundColor: appearanceTokens.backgroundColor,
     },
 
     text: {
@@ -101,7 +106,7 @@ function themedStyles(theme: AppTheme, props: ButtonThemeProps) {
 
       fontSize: sizeTokens.fontSize,
 
-      color: disabled ? variantTokens.disabledColor : variantTokens.color,
+      color: appearanceTokens.color,
     },
   });
 }

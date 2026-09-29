@@ -5,6 +5,7 @@ import { Icon } from "@impulse-ui-native/icon/components/icon";
 import {
   AppTheme,
   FieldVariant,
+  getFieldStateTokens,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -85,13 +86,10 @@ function themedStyles(
   const { variant, disabled, error } = props;
 
   const controlAddonTokens = theme.components.controlAddon;
-  const variantTokens = controlAddonTokens.variants[variant];
-
-  const color = disabled
-    ? variantTokens.disabledIconColor
-    : error
-      ? variantTokens.errorIconColor
-      : variantTokens.iconColor;
+  const appearanceTokens = getFieldStateTokens(
+    controlAddonTokens.variants[variant],
+    { disabled, error: Boolean(error) },
+  );
 
   return StyleSheet.create({
     container: {
@@ -99,7 +97,7 @@ function themedStyles(
     },
 
     icon: {
-      color,
+      color: appearanceTokens.iconColor,
     },
   });
 }

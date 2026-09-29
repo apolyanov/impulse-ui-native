@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import type { AppTheme, ComponentSize } from "@impulse-ui-native/theme";
+import { getFieldStateTokens } from "@impulse-ui-native/theme";
 
 interface TextareaStyleProps {
   disabled: boolean;
@@ -14,6 +15,10 @@ export function textareaStyles(
 ) {
   const tokens = theme.components.textarea;
   const sizeTokens = tokens.sizes[size];
+  const appearanceTokens = getFieldStateTokens(tokens.states, {
+    disabled,
+    error,
+  });
 
   return StyleSheet.create({
     container: {
@@ -36,11 +41,7 @@ export function textareaStyles(
       marginTop: 0,
     },
     counter: {
-      color: disabled
-        ? tokens.disabledCounterColor
-        : error
-          ? tokens.errorCounterColor
-          : tokens.counterColor,
+      color: appearanceTokens.counterColor,
       fontSize: tokens.counterFontSize,
     },
   });

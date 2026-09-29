@@ -10,21 +10,21 @@ import {
 export function createControlAddonTokens(
   tokens: PrimitiveThemeTokens,
 ): ControlAddonTokens {
-  const DefaultIconColor = tokens.colors.text.primary;
-  const DisabledIconColor = tokens.colors.text.disabled;
   return {
     marginHorizontal: tokens.space.xxs,
     hitSlop: tokens.space.sm,
     variants: {
       filled: {
-        iconColor: DefaultIconColor,
-        errorIconColor: DefaultIconColor,
-        disabledIconColor: DisabledIconColor,
+        default: { iconColor: tokens.colors.text.primary },
+        error: { iconColor: tokens.colors.text.primary },
+        disabled: { iconColor: tokens.colors.text.disabled },
+        disabledError: { iconColor: tokens.colors.text.disabled },
       },
       outlined: {
-        iconColor: DefaultIconColor,
-        errorIconColor: DefaultIconColor,
-        disabledIconColor: DisabledIconColor,
+        default: { iconColor: tokens.colors.text.primary },
+        error: { iconColor: tokens.colors.text.primary },
+        disabled: { iconColor: tokens.colors.text.disabled },
+        disabledError: { iconColor: tokens.colors.text.disabled },
       },
     },
   };
@@ -33,13 +33,9 @@ export function createControlAddonTokens(
 export function createControlContainerTokens(
   tokens: PrimitiveThemeTokens,
 ): ControlContainerTokens {
-  const ErrorColor = tokens.colors.feedback.error.value;
-  const TransparentColor = "transparent";
-
   return {
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.sm,
-    disabledOpacity: 0.7,
 
     sizes: {
       small: {
@@ -58,23 +54,49 @@ export function createControlContainerTokens(
 
     variants: {
       filled: {
-        backgroundColor: tokens.colors.surface.secondary.value,
-        borderColor: TransparentColor,
-
-        errorBorderColor: ErrorColor,
-
-        disabledBackgroundColor: tokens.colors.neutral["2"],
-        disabledBorderColor: TransparentColor,
+        default: {
+          backgroundColor: tokens.colors.surface.secondary.value,
+          borderColor: "transparent",
+          opacity: 1,
+        },
+        error: {
+          backgroundColor: tokens.colors.surface.secondary.value,
+          borderColor: tokens.colors.feedback.error.value,
+          opacity: 1,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.neutral["2"],
+          borderColor: "transparent",
+          opacity: 0.7,
+        },
+        disabledError: {
+          backgroundColor: tokens.colors.neutral["2"],
+          borderColor: tokens.colors.feedback.error.value,
+          opacity: 0.7,
+        },
       },
 
       outlined: {
-        backgroundColor: TransparentColor,
-        borderColor: tokens.colors.neutral["5"],
-
-        errorBorderColor: ErrorColor,
-
-        disabledBackgroundColor: TransparentColor,
-        disabledBorderColor: tokens.colors.neutral["5"],
+        default: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.neutral["5"],
+          opacity: 1,
+        },
+        error: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.feedback.error.value,
+          opacity: 1,
+        },
+        disabled: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.neutral["5"],
+          opacity: 0.7,
+        },
+        disabledError: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.feedback.error.value,
+          opacity: 0.7,
+        },
       },
     },
   };
@@ -112,25 +134,41 @@ export function createControlInputTokens(
 
     variants: {
       filled: {
-        color: tokens.colors.text.primary,
-        placeholderColor: tokens.colors.text.disabled,
-
-        disabledColor: tokens.colors.text.disabled,
-        disabledPlaceholderColor: tokens.colors.text.disabled,
-
-        errorColor: tokens.colors.text.primary,
-        errorPlaceholderColor: tokens.colors.feedback.error.value,
+        default: {
+          color: tokens.colors.text.primary,
+          placeholderColor: tokens.colors.text.disabled,
+        },
+        error: {
+          color: tokens.colors.text.primary,
+          placeholderColor: tokens.colors.feedback.error.value,
+        },
+        disabled: {
+          color: tokens.colors.text.disabled,
+          placeholderColor: tokens.colors.text.disabled,
+        },
+        disabledError: {
+          color: tokens.colors.text.disabled,
+          placeholderColor: tokens.colors.text.disabled,
+        },
       },
 
       outlined: {
-        color: tokens.colors.text.primary,
-        placeholderColor: tokens.colors.text.disabled,
-
-        disabledColor: tokens.colors.text.disabled,
-        disabledPlaceholderColor: tokens.colors.text.disabled,
-
-        errorColor: tokens.colors.text.primary,
-        errorPlaceholderColor: tokens.colors.feedback.error.value,
+        default: {
+          color: tokens.colors.text.primary,
+          placeholderColor: tokens.colors.text.disabled,
+        },
+        error: {
+          color: tokens.colors.text.primary,
+          placeholderColor: tokens.colors.feedback.error.value,
+        },
+        disabled: {
+          color: tokens.colors.text.disabled,
+          placeholderColor: tokens.colors.text.disabled,
+        },
+        disabledError: {
+          color: tokens.colors.text.disabled,
+          placeholderColor: tokens.colors.text.disabled,
+        },
       },
     },
   };
@@ -142,9 +180,11 @@ export function createControlLabelTokens(
   return {
     marginBottom: tokens.space.xxs,
     fontSize: tokens.fontSize.xsm,
-
-    color: tokens.colors.text.secondary,
-    disabledColor: tokens.colors.text.disabled,
-    errorColor: tokens.colors.feedback.error.value,
+    states: {
+      default: { color: tokens.colors.text.secondary },
+      error: { color: tokens.colors.feedback.error.value },
+      disabled: { color: tokens.colors.text.disabled },
+      disabledError: { color: tokens.colors.text.disabled },
+    },
   };
 }

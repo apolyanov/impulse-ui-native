@@ -1,4 +1,8 @@
-import { ActionVariant, ComponentSize } from "./components.types";
+import {
+  ActionVariant,
+  ActionVisualState,
+  ComponentSize,
+} from "./components.types";
 
 export type ButtonSizeTokens = Record<
   ComponentSize,
@@ -18,30 +22,20 @@ export type IconButtonSizeTokens = Record<
   }
 >;
 
+export interface ButtonAppearanceTokens {
+  backgroundColor: string;
+  borderColor: string;
+  color: string;
+}
+
 export type ButtonVariantTokens = Record<
   ActionVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-    color: string;
-
-    disabledBackgroundColor: string;
-    disabledBorderColor: string;
-    disabledColor: string;
-  }
+  Record<ActionVisualState, ButtonAppearanceTokens>
 >;
 
 export type IconButtonVariantTokens = Record<
   ActionVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-    color: string;
-
-    disabledBackgroundColor: string;
-    disabledBorderColor: string;
-    disabledColor: string;
-  }
+  Record<ActionVisualState, ButtonAppearanceTokens>
 >;
 
 export interface ButtonTokens {

@@ -1,3 +1,5 @@
+import type { ControlVisualState } from "./components.types";
+
 export interface AccordionTokens {
   animationDuration: number;
   backgroundColor: string;
@@ -8,19 +10,23 @@ export interface AccordionTokens {
     paddingBottom: number;
     paddingHorizontal: number;
   };
-  disabledColor: string;
-  disabledOpacity: number;
   dividerColor: string;
   dividerWidth: number;
-  focusBackgroundColor: string;
-  iconColor: string;
   iconSize: number;
-  pressedOpacity: number;
-  titleColor: string;
   trigger: {
     gap: number;
     minHeight: number;
     paddingHorizontal: number;
     paddingVertical: number;
+    states: Record<
+      ControlVisualState,
+      {
+        backgroundColor: string;
+        iconColor: string;
+        opacity: number;
+        pressedOpacity: number;
+        titleColor: string;
+      }
+    >;
   };
 }

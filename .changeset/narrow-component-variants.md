@@ -12,4 +12,5 @@
 
 Replace the shared component variant contract with action, display, field, and
 selection variant families, and remove variants that are not meaningful for
-each family.
+each family. Organize interactive component appearance tokens into explicit
+variant and visual-state lookup tables with shared state resolvers.

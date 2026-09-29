@@ -5,6 +5,7 @@ import {
   AppTheme,
   ComponentSize,
   FieldVariant,
+  getFieldStateTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
@@ -54,7 +55,10 @@ function themedStyles(
 ) {
   const controlContainerTokens = theme.components.controlContainer;
   const sizeTokens = controlContainerTokens.sizes[size];
-  const variantTokens = controlContainerTokens.variants[variant];
+  const appearanceTokens = getFieldStateTokens(
+    controlContainerTokens.variants[variant],
+    { disabled, error: Boolean(error) },
+  );
 
   return StyleSheet.create({
     inputContainer: {
@@ -67,17 +71,9 @@ function themedStyles(
       borderRadius: controlContainerTokens.borderRadius,
       borderWidth: controlContainerTokens.borderWidth,
 
-      opacity: disabled ? controlContainerTokens.disabledOpacity : 1,
-
-      backgroundColor: disabled
-        ? variantTokens.disabledBackgroundColor
-        : variantTokens.backgroundColor,
-
-      borderColor: error
-        ? variantTokens.errorBorderColor
-        : disabled
-          ? variantTokens.disabledBorderColor
-          : variantTokens.borderColor,
+      opacity: appearanceTokens.opacity,
+      backgroundColor: appearanceTokens.backgroundColor,
+      borderColor: appearanceTokens.borderColor,
     },
   });
 }

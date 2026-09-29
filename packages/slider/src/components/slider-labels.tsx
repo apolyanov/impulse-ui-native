@@ -3,7 +3,10 @@ import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { Typography, View } from "@impulse-ui-native/primitives";
-import { useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getControlStateTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { SliderLabelsProps } from "../types/slider-internal.types";
 
@@ -60,9 +63,10 @@ interface SliderLabelsThemeProps {
 
 function themedStyles(theme: AppTheme, props: SliderLabelsThemeProps) {
   const tokens = theme.components.slider;
-  const color = props.disabled
-    ? tokens.disabledTextColor
-    : tokens.variants[props.variant].labelColor;
+  const appearanceTokens = getControlStateTokens(
+    tokens.variants[props.variant],
+    { disabled: props.disabled },
+  );
 
   return StyleSheet.create({
     labelRow: {
@@ -71,7 +75,7 @@ function themedStyles(theme: AppTheme, props: SliderLabelsThemeProps) {
       marginTop: tokens.labelGap,
     },
     label: {
-      color,
+      color: appearanceTokens.labelColor,
     },
     markLabelRow: {
       position: "relative",
@@ -83,7 +87,7 @@ function themedStyles(theme: AppTheme, props: SliderLabelsThemeProps) {
       width: 48,
       marginStart: -24,
       textAlign: "center",
-      color,
+      color: appearanceTokens.labelColor,
     },
   });
 }

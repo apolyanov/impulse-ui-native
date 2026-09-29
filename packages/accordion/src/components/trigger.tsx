@@ -15,7 +15,11 @@ import { useEventCallback } from "@impulse-ui-native/core";
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { CaretDownIcon } from "@impulse-ui-native/icon/icons/caret-down";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getControlStateTokens,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { AccordionKeyDownEvent, AccordionTriggerProps } from "../types";
 import { useAccordionContext, useAccordionItemContext } from "../contexts";
@@ -150,7 +154,7 @@ export const AccordionTrigger = memo(function AccordionTrigger({
         <Animated.View pointerEvents="none" style={indicatorStyle}>
           {indicator ?? (
             <Icon
-              color={resolvedDisabled ? tokens.disabledColor : tokens.iconColor}
+              color={styles.icon.color}
               icon={CaretDownIcon}
               size={tokens.iconSize}
             />
@@ -169,30 +173,31 @@ interface AccordionTriggerThemeProps {
 function themedStyles(theme: AppTheme, props: AccordionTriggerThemeProps) {
   const { disabled, focused } = props;
   const accordionTokens = theme.components.accordion;
+  const appearanceTokens = getControlStateTokens(
+    accordionTokens.trigger.states,
+    { disabled, focused },
+  );
 
   return StyleSheet.create({
     title: {
-      color: disabled
-        ? accordionTokens.disabledColor
-        : accordionTokens.titleColor,
+      color: appearanceTokens.titleColor,
+    },
+    icon: {
+      color: appearanceTokens.iconColor,
     },
     trigger: {
       alignItems: "center",
-      backgroundColor: focused
-        ? accordionTokens.focusBackgroundColor
-        : "transparent",
+      backgroundColor: appearanceTokens.backgroundColor,
       flexDirection: "row",
       gap: accordionTokens.trigger.gap,
       justifyContent: "space-between",
       minHeight: accordionTokens.trigger.minHeight,
-      opacity: disabled ? accordionTokens.disabledOpacity : 1,
+      opacity: appearanceTokens.opacity,
       paddingHorizontal: accordionTokens.trigger.paddingHorizontal,
       paddingVertical: accordionTokens.trigger.paddingVertical,
     },
     triggerPressed: {
-      opacity: disabled
-        ? accordionTokens.disabledOpacity
-        : accordionTokens.pressedOpacity,
+      opacity: appearanceTokens.pressedOpacity,
     },
   });
 }

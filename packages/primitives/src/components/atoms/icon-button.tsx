@@ -3,7 +3,11 @@ import { memo, PropsWithChildren, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import { Icon } from "@impulse-ui-native/icon/components/icon";
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  AppTheme,
+  getActionStateTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import { IconButtonProps, IconButtonThemeProps } from "../../types";
 import { Pressable } from "./pressable";
@@ -19,11 +23,11 @@ export const IconButton = memo(function IconButton({
   icon,
   ...props
 }: PropsWithChildren<IconButtonProps>) {
-  const styles = useThemedStyles(themedStyles, { size, variant, disabled }, [
-    size,
-    variant,
-    disabled,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { size, variant, disabled, loading },
+    [size, variant, disabled, loading],
+  );
 
   const interactionDisabled = disabled === true || loading;
 
@@ -58,11 +62,14 @@ export const IconButton = memo(function IconButton({
 });
 
 function themedStyles(theme: AppTheme, props: IconButtonThemeProps) {
-  const { size, variant, disabled } = props;
+  const { size, variant, disabled, loading } = props;
 
   const iconButtonTokens = theme.components.iconButton;
   const sizeTokens = iconButtonTokens.sizes[size];
-  const variantTokens = iconButtonTokens.variants[variant];
+  const appearanceTokens = getActionStateTokens(
+    iconButtonTokens.variants[variant],
+    { disabled, loading },
+  );
 
   return StyleSheet.create({
     button: {
@@ -76,17 +83,12 @@ function themedStyles(theme: AppTheme, props: IconButtonThemeProps) {
       borderWidth: iconButtonTokens.borderWidth,
       borderRadius: iconButtonTokens.borderRadius,
 
-      borderColor: disabled
-        ? variantTokens.disabledBorderColor
-        : variantTokens.borderColor,
-
-      backgroundColor: disabled
-        ? variantTokens.disabledBackgroundColor
-        : variantTokens.backgroundColor,
+      borderColor: appearanceTokens.borderColor,
+      backgroundColor: appearanceTokens.backgroundColor,
     },
 
     icon: {
-      color: disabled ? variantTokens.disabledColor : variantTokens.color,
+      color: appearanceTokens.color,
     },
   });
 }

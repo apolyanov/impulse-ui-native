@@ -11,15 +11,24 @@ export function createDatetimePickerTokens(
     day: {
       size: 40,
       borderRadius: tokens.radii.sm,
-
-      color: tokens.colors.text.primary,
-      outsideMonthColor: tokens.colors.neutral["5"],
-
-      selectedBackgroundColor: tokens.colors.primary.value,
-      selectedColor: tokens.colors.primary.contrast,
-
-      rangeBackgroundColor: tokens.colors.secondary.value,
-      rangeColor: tokens.colors.secondary.contrast,
+      states: {
+        default: {
+          backgroundColor: "transparent",
+          color: tokens.colors.text.primary,
+        },
+        outsideMonth: {
+          backgroundColor: "transparent",
+          color: tokens.colors.neutral["5"],
+        },
+        range: {
+          backgroundColor: tokens.colors.secondary.value,
+          color: tokens.colors.secondary.contrast,
+        },
+        selected: {
+          backgroundColor: tokens.colors.primary.value,
+          color: tokens.colors.primary.contrast,
+        },
+      },
     },
     datePickerFlyout: {
       gap: tokens.space.msm,

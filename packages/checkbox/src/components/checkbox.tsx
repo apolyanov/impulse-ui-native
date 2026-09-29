@@ -14,7 +14,11 @@ import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { CheckIcon } from "@impulse-ui-native/icon/icons/check";
 import { MinusIcon } from "@impulse-ui-native/icon/icons/minus";
 import { Pressable } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getSelectionStateTokens,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type {
   CheckboxProps,
@@ -105,8 +109,11 @@ function themedStyles(theme: AppTheme, props: CheckboxThemeProps) {
 
   const checkboxTokens = theme.components.checkbox;
   const sizeTokens = checkboxTokens.sizes[size];
-  const variantTokens = checkboxTokens.variants[variant];
   const selected = checked !== false;
+  const appearanceTokens = getSelectionStateTokens(
+    checkboxTokens.variants[variant],
+    { disabled, selected },
+  );
 
   return StyleSheet.create({
     root: {
@@ -118,22 +125,12 @@ function themedStyles(theme: AppTheme, props: CheckboxThemeProps) {
 
       borderWidth: checkboxTokens.borderWidth,
       borderRadius: checkboxTokens.borderRadius,
-      borderColor: disabled
-        ? checkboxTokens.disabledBorderColor
-        : selected
-          ? variantTokens.borderColor
-          : checkboxTokens.uncheckedBorderColor,
-      backgroundColor: disabled
-        ? selected
-          ? checkboxTokens.disabledBackgroundColor
-          : checkboxTokens.uncheckedBackgroundColor
-        : selected
-          ? variantTokens.backgroundColor
-          : checkboxTokens.uncheckedBackgroundColor,
+      borderColor: appearanceTokens.borderColor,
+      backgroundColor: appearanceTokens.backgroundColor,
     },
 
     icon: {
-      color: disabled ? checkboxTokens.disabledColor : variantTokens.color,
+      color: appearanceTokens.color,
     },
   });
 }

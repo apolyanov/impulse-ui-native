@@ -3,7 +3,10 @@ import { memo } from "react";
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { CheckIcon } from "@impulse-ui-native/icon/icons/check";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import {
+  getSelectionItemStateTokens,
+  useComponentsTokens,
+} from "@impulse-ui-native/theme";
 
 import { OptionProps } from "../types";
 
@@ -12,6 +15,9 @@ export const Option = memo(function Option(props: OptionProps) {
 
   const tokens = useComponentsTokens();
   const optionTokens = tokens.select.option;
+  const appearanceTokens = getSelectionItemStateTokens(optionTokens.states, {
+    selected,
+  });
 
   return (
     <Pressable {...rest}>
@@ -25,12 +31,8 @@ export const Option = memo(function Option(props: OptionProps) {
 
         <Icon
           icon={CheckIcon}
-          color={optionTokens.selectedIconColor}
-          opacity={
-            selected
-              ? optionTokens.selectedIconVisibleOpacity
-              : optionTokens.selectedIconHiddenOpacity
-          }
+          color={appearanceTokens.iconColor}
+          opacity={appearanceTokens.iconOpacity}
         />
       </View>
     </Pressable>

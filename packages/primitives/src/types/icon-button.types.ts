@@ -11,4 +11,5 @@ export interface IconButtonThemeProps {
   size: ComponentSize;
   variant: ActionVariant;
   disabled?: boolean;
+  loading: boolean;
 }

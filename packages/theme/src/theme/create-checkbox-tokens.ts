@@ -11,11 +11,6 @@ export function createCheckboxTokens(
   return {
     borderWidth: tokens.borderSize.md,
     borderRadius: tokens.radii.sm,
-    uncheckedBackgroundColor: "transparent",
-    uncheckedBorderColor: tokens.colors.border.strong.value,
-    disabledBackgroundColor: tokens.colors.neutral["3"],
-    disabledBorderColor: tokens.colors.neutral["5"],
-    disabledColor: tokens.colors.text.disabled,
 
     sizes: {
       small: {
@@ -37,19 +32,70 @@ export function createCheckboxTokens(
 
     variants: {
       filled: {
-        backgroundColor: primary,
-        borderColor: primary,
-        color: primaryContrast,
+        unselected: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.border.strong.value,
+          color: primaryContrast,
+        },
+        selected: {
+          backgroundColor: primary,
+          borderColor: primary,
+          color: primaryContrast,
+        },
+        disabledUnselected: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
+        },
+        disabledSelected: {
+          backgroundColor: tokens.colors.neutral["3"],
+          borderColor: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
+        },
       },
       outlined: {
-        backgroundColor: "transparent",
-        borderColor: primary,
-        color: primary,
+        unselected: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.border.strong.value,
+          color: primary,
+        },
+        selected: {
+          backgroundColor: "transparent",
+          borderColor: primary,
+          color: primary,
+        },
+        disabledUnselected: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
+        },
+        disabledSelected: {
+          backgroundColor: tokens.colors.neutral["3"],
+          borderColor: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
+        },
       },
       soft: {
-        backgroundColor: secondary,
-        borderColor: secondary,
-        color: secondaryContrast,
+        unselected: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.border.strong.value,
+          color: secondaryContrast,
+        },
+        selected: {
+          backgroundColor: secondary,
+          borderColor: secondary,
+          color: secondaryContrast,
+        },
+        disabledUnselected: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
+        },
+        disabledSelected: {
+          backgroundColor: tokens.colors.neutral["3"],
+          borderColor: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
+        },
       },
     },
   };

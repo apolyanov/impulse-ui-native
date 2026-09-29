@@ -5,6 +5,7 @@ import {
   AppTheme,
   ComponentSize,
   FieldVariant,
+  getFieldStateTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
@@ -60,24 +61,15 @@ function themedStyles(
 ) {
   const controlInputTokens = theme.components.controlInput;
   const sizeTokens = controlInputTokens.sizes[size];
-  const variantTokens = controlInputTokens.variants[variant];
-
-  const color = disabled
-    ? variantTokens.disabledColor
-    : error
-      ? variantTokens.errorColor
-      : variantTokens.color;
-
-  const placeholderColor = disabled
-    ? variantTokens.disabledPlaceholderColor
-    : error
-      ? variantTokens.errorPlaceholderColor
-      : variantTokens.placeholderColor;
+  const appearanceTokens = getFieldStateTokens(
+    controlInputTokens.variants[variant],
+    { disabled, error: Boolean(error) },
+  );
 
   return StyleSheet.create({
     input: {
       flex: controlInputTokens.flex,
-      color,
+      color: appearanceTokens.color,
       fontSize: sizeTokens.fontSize,
       fontFamily: controlInputTokens.fontFamily,
       paddingHorizontal: controlInputTokens.paddingHorizontal,
@@ -85,7 +77,7 @@ function themedStyles(
     },
 
     placeholder: {
-      color: placeholderColor,
+      color: appearanceTokens.placeholderColor,
     },
   });
 }

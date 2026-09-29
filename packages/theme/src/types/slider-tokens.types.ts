@@ -1,4 +1,8 @@
-import type { ComponentSize, SelectionVariant } from "./components.types";
+import type {
+  ComponentSize,
+  ControlVisualState,
+  SelectionVariant,
+} from "./components.types";
 
 /** @deprecated Use SelectionVariant. */
 export type SliderVariant = SelectionVariant;
@@ -13,33 +17,32 @@ export type SliderSizeTokens = Record<
   }
 >;
 
+export interface SliderAppearanceTokens {
+  activeMarkColor: string;
+  activeTrackColor: string;
+  focusRingBorderWidth: number;
+  inactiveTrackColor: string;
+  labelColor: string;
+  markColor: string;
+  thumbBackgroundColor: string;
+  thumbBorderColor: string;
+  thumbBorderWidth: number;
+  thumbHighlightColor: string;
+  valueBubbleBackgroundColor: string;
+  valueBubbleBorderColor: string;
+  valueBubbleColor: string;
+}
+
 export type SliderVariantTokens = Record<
   SelectionVariant,
-  {
-    activeTrackColor: string;
-    labelColor: string;
-    thumbBackgroundColor: string;
-    thumbBorderColor: string;
-    thumbHighlightColor: string;
-    valueBubbleBackgroundColor: string;
-    valueBubbleBorderColor: string;
-    valueBubbleColor: string;
-  }
+  Record<ControlVisualState, SliderAppearanceTokens>
 >;
 
 export interface SliderTokens {
   trackBorderRadius: number;
   thumbBorderRadius: number;
-  thumbBorderWidth: number;
-  outlinedThumbBorderWidth: number;
   focusRingWidth: number;
   focusRingOffset: number;
-  inactiveTrackColor: string;
-  markColor: string;
-  activeMarkColor: string;
-  disabledTrackColor: string;
-  disabledThumbColor: string;
-  disabledTextColor: string;
   focusRingColor: string;
   valueBubbleBorderRadius: number;
   valueBubbleBorderWidth: number;

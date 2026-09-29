@@ -11,12 +11,6 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.round,
     thumbBorderRadius: tokens.radii.round,
-    uncheckedBackgroundColor: tokens.colors.surface.primary.value,
-    uncheckedBorderColor: tokens.colors.border.strong.value,
-    uncheckedThumbColor: tokens.colors.surface.elevated.value,
-    disabledBackgroundColor: tokens.colors.neutral["3"],
-    disabledBorderColor: tokens.colors.neutral["5"],
-    disabledThumbColor: tokens.colors.neutral["7"],
     loadingIndicatorColor: tokens.colors.surface.elevated.value,
 
     sizes: {
@@ -48,19 +42,58 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
 
     variants: {
       filled: {
-        backgroundColor: primary,
-        borderColor: primary,
-        color: primaryContrast,
+        default: {
+          activeBackgroundColor: primary,
+          activeBorderColor: primary,
+          activeThumbColor: primaryContrast,
+          inactiveBackgroundColor: tokens.colors.surface.primary.value,
+          inactiveBorderColor: tokens.colors.border.strong.value,
+          inactiveThumbColor: tokens.colors.surface.elevated.value,
+        },
+        disabled: {
+          activeBackgroundColor: tokens.colors.neutral["3"],
+          activeBorderColor: tokens.colors.neutral["5"],
+          activeThumbColor: tokens.colors.neutral["7"],
+          inactiveBackgroundColor: tokens.colors.neutral["3"],
+          inactiveBorderColor: tokens.colors.neutral["5"],
+          inactiveThumbColor: tokens.colors.neutral["7"],
+        },
       },
       outlined: {
-        backgroundColor: "transparent",
-        borderColor: primary,
-        color: primary,
+        default: {
+          activeBackgroundColor: "transparent",
+          activeBorderColor: primary,
+          activeThumbColor: primary,
+          inactiveBackgroundColor: tokens.colors.surface.primary.value,
+          inactiveBorderColor: tokens.colors.border.strong.value,
+          inactiveThumbColor: tokens.colors.surface.elevated.value,
+        },
+        disabled: {
+          activeBackgroundColor: tokens.colors.neutral["3"],
+          activeBorderColor: tokens.colors.neutral["5"],
+          activeThumbColor: tokens.colors.neutral["7"],
+          inactiveBackgroundColor: tokens.colors.neutral["3"],
+          inactiveBorderColor: tokens.colors.neutral["5"],
+          inactiveThumbColor: tokens.colors.neutral["7"],
+        },
       },
       soft: {
-        backgroundColor: secondary,
-        borderColor: secondary,
-        color: secondaryContrast,
+        default: {
+          activeBackgroundColor: secondary,
+          activeBorderColor: secondary,
+          activeThumbColor: secondaryContrast,
+          inactiveBackgroundColor: tokens.colors.surface.primary.value,
+          inactiveBorderColor: tokens.colors.border.strong.value,
+          inactiveThumbColor: tokens.colors.surface.elevated.value,
+        },
+        disabled: {
+          activeBackgroundColor: tokens.colors.neutral["3"],
+          activeBorderColor: tokens.colors.neutral["5"],
+          activeThumbColor: tokens.colors.neutral["7"],
+          inactiveBackgroundColor: tokens.colors.neutral["3"],
+          inactiveBorderColor: tokens.colors.neutral["5"],
+          inactiveThumbColor: tokens.colors.neutral["7"],
+        },
       },
     },
   };

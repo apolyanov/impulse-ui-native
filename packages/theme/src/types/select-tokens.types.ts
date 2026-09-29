@@ -1,8 +1,14 @@
+import type { SelectionItemVisualState } from "./components.types";
+
 export interface SelectOptionTokens {
   padding: number;
-  selectedIconColor: string;
-  selectedIconVisibleOpacity: number;
-  selectedIconHiddenOpacity: number;
+  states: Record<
+    SelectionItemVisualState,
+    {
+      iconColor: string;
+      iconOpacity: number;
+    }
+  >;
 }
 
 export interface SelectTokens {

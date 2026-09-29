@@ -5,6 +5,7 @@ import {
   AppTheme,
   ComponentSize,
   FieldVariant,
+  getFieldStateTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
@@ -49,18 +50,15 @@ function themedStyles(
 ) {
   const controlInputTokens = theme.components.controlInput;
   const sizeTokens = controlInputTokens.sizes[size];
-  const variantTokens = controlInputTokens.variants[variant];
-
-  const color = disabled
-    ? variantTokens.disabledColor
-    : error
-      ? variantTokens.errorColor
-      : variantTokens.color;
+  const appearanceTokens = getFieldStateTokens(
+    controlInputTokens.variants[variant],
+    { disabled, error: Boolean(error) },
+  );
 
   return StyleSheet.create({
     value: {
       flex: controlInputTokens.flex,
-      color,
+      color: appearanceTokens.color,
       fontFamily: controlInputTokens.fontFamily,
       fontSize: sizeTokens.fontSize,
       paddingHorizontal: controlInputTokens.paddingHorizontal,

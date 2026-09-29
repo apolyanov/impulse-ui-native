@@ -1,4 +1,8 @@
-import type { ComponentSize, SelectionVariant } from "./components.types";
+import type {
+  ComponentSize,
+  SelectionVariant,
+  SelectionVisualState,
+} from "./components.types";
 
 export type RadioSizeTokens = Record<
   ComponentSize,
@@ -9,23 +13,20 @@ export type RadioSizeTokens = Record<
   }
 >;
 
+export interface RadioAppearanceTokens {
+  backgroundColor: string;
+  borderColor: string;
+  color: string;
+}
+
 export type RadioVariantTokens = Record<
   SelectionVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-    color: string;
-  }
+  Record<SelectionVisualState, RadioAppearanceTokens>
 >;
 
 export interface RadioTokens {
   borderWidth: number;
   borderRadius: number;
-  uncheckedBackgroundColor: string;
-  uncheckedBorderColor: string;
-  disabledBackgroundColor: string;
-  disabledBorderColor: string;
-  disabledColor: string;
   sizes: RadioSizeTokens;
   variants: RadioVariantTokens;
 }

@@ -21,6 +21,7 @@ export interface ButtonThemeProps {
   size: ComponentSize;
   variant: ActionVariant;
   disabled?: boolean;
+  loading: boolean;
 }
 
 export interface PressableCoreProps

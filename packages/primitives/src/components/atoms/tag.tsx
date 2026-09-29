@@ -5,6 +5,7 @@ import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { XCircleIcon } from "@impulse-ui-native/icon/icons/x-circle";
 import {
   AppTheme,
+  getDisplayStateTokens,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -69,7 +70,10 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
 
   const tagTokens = theme.components.tag;
   const sizeTokens = tagTokens.sizes[size];
-  const variantTokens = tagTokens.colors[color][variant];
+  const appearanceTokens = getDisplayStateTokens(
+    tagTokens.colors[color][variant],
+    { disabled },
+  );
 
   return StyleSheet.create({
     container: {
@@ -86,23 +90,18 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
       gap: tagTokens.gap,
       borderWidth: tagTokens.borderWidth,
 
-      borderColor: disabled
-        ? variantTokens.disabledBorderColor
-        : variantTokens.borderColor,
-
-      backgroundColor: disabled
-        ? variantTokens.disabledBackgroundColor
-        : variantTokens.backgroundColor,
+      borderColor: appearanceTokens.borderColor,
+      backgroundColor: appearanceTokens.backgroundColor,
     },
 
     label: {
       fontSize: sizeTokens.fontSize,
-      color: disabled ? variantTokens.disabledColor : variantTokens.color,
+      color: appearanceTokens.color,
     },
 
     icon: {
       marginLeft: tagTokens.iconMarginLeft,
-      color: disabled ? variantTokens.disabledColor : variantTokens.color,
+      color: appearanceTokens.color,
     },
   });
 }

@@ -1,7 +1,10 @@
 import { useMemo } from "react";
 
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import {
+  getDisplayStateTokens,
+  useComponentsTokens,
+} from "@impulse-ui-native/theme";
 
 export interface SwitchAnimationColors {
   activeBackgroundColor: string;
@@ -25,30 +28,9 @@ export function useSwitchTokens({
 }: UseSwitchTokensOptions) {
   const tokens = useComponentsTokens().switch;
   const sizeTokens = tokens.sizes[size];
-  const variantTokens = tokens.variants[variant];
-
-  const colors = useMemo<SwitchAnimationColors>(
-    () => ({
-      activeBackgroundColor: disabled
-        ? tokens.disabledBackgroundColor
-        : variantTokens.backgroundColor,
-      activeBorderColor: disabled
-        ? tokens.disabledBorderColor
-        : variantTokens.borderColor,
-      activeThumbColor: disabled
-        ? tokens.disabledThumbColor
-        : variantTokens.color,
-      inactiveBackgroundColor: disabled
-        ? tokens.disabledBackgroundColor
-        : tokens.uncheckedBackgroundColor,
-      inactiveBorderColor: disabled
-        ? tokens.disabledBorderColor
-        : tokens.uncheckedBorderColor,
-      inactiveThumbColor: disabled
-        ? tokens.disabledThumbColor
-        : tokens.uncheckedThumbColor,
-    }),
-    [disabled, tokens, variantTokens],
+  const colors: SwitchAnimationColors = getDisplayStateTokens(
+    tokens.variants[variant],
+    { disabled },
   );
 
   return useMemo(

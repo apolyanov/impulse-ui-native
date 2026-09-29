@@ -13,20 +13,37 @@ export function createAccordionTokens(
       paddingBottom: tokens.space.sm,
       paddingHorizontal: tokens.space.sm,
     },
-    disabledColor: tokens.colors.text.disabled,
-    disabledOpacity: 0.5,
     dividerColor: tokens.colors.border.subtle.value,
     dividerWidth: tokens.borderSize.sm,
-    focusBackgroundColor: tokens.colors.surface.secondary.value,
-    iconColor: tokens.colors.text.secondary,
     iconSize: 18,
-    pressedOpacity: 0.72,
-    titleColor: tokens.colors.text.primary,
     trigger: {
       gap: tokens.space.xs,
       minHeight: 48,
       paddingHorizontal: tokens.space.sm,
       paddingVertical: tokens.space.xs,
+      states: {
+        default: {
+          backgroundColor: "transparent",
+          iconColor: tokens.colors.text.secondary,
+          opacity: 1,
+          pressedOpacity: 0.72,
+          titleColor: tokens.colors.text.primary,
+        },
+        focused: {
+          backgroundColor: tokens.colors.surface.secondary.value,
+          iconColor: tokens.colors.text.secondary,
+          opacity: 1,
+          pressedOpacity: 0.72,
+          titleColor: tokens.colors.text.primary,
+        },
+        disabled: {
+          backgroundColor: "transparent",
+          iconColor: tokens.colors.text.disabled,
+          opacity: 0.5,
+          pressedOpacity: 0.5,
+          titleColor: tokens.colors.text.disabled,
+        },
+      },
     },
   };
 }

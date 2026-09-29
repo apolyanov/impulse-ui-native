@@ -11,7 +11,11 @@ import { StyleSheet } from "react-native";
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useControllableState } from "@impulse-ui-native/core";
 import { Pressable, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getSelectionStateTokens,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { RadioProps, RadioThemeProps } from "../types";
 
@@ -89,7 +93,10 @@ function themedStyles(theme: AppTheme, props: RadioThemeProps) {
 
   const radioTokens = theme.components.radio;
   const sizeTokens = radioTokens.sizes[size];
-  const variantTokens = radioTokens.variants[variant];
+  const appearanceTokens = getSelectionStateTokens(
+    radioTokens.variants[variant],
+    { disabled, selected: checked },
+  );
 
   return StyleSheet.create({
     root: {
@@ -101,27 +108,15 @@ function themedStyles(theme: AppTheme, props: RadioThemeProps) {
 
       borderWidth: radioTokens.borderWidth,
       borderRadius: radioTokens.borderRadius,
-      borderColor: disabled
-        ? radioTokens.disabledBorderColor
-        : checked
-          ? variantTokens.borderColor
-          : radioTokens.uncheckedBorderColor,
-      backgroundColor: disabled
-        ? checked
-          ? radioTokens.disabledBackgroundColor
-          : radioTokens.uncheckedBackgroundColor
-        : checked
-          ? variantTokens.backgroundColor
-          : radioTokens.uncheckedBackgroundColor,
+      borderColor: appearanceTokens.borderColor,
+      backgroundColor: appearanceTokens.backgroundColor,
     },
 
     indicator: {
       width: sizeTokens.indicatorSize,
       height: sizeTokens.indicatorSize,
       borderRadius: radioTokens.borderRadius,
-      backgroundColor: disabled
-        ? radioTokens.disabledColor
-        : variantTokens.color,
+      backgroundColor: appearanceTokens.color,
     },
   });
 }

@@ -1,4 +1,8 @@
-import { ComponentSize, DisplayVariant } from "./components.types";
+import {
+  ComponentSize,
+  DisplayVariant,
+  DisplayVisualState,
+} from "./components.types";
 
 export type TagColor =
   | "primary"
@@ -18,17 +22,15 @@ export type TagSizeTokens = Record<
   }
 >;
 
+export interface TagAppearanceTokens {
+  backgroundColor: string;
+  borderColor: string;
+  color: string;
+}
+
 export type TagVariantTokens = Record<
   DisplayVariant,
-  {
-    backgroundColor: string;
-    borderColor: string;
-    color: string;
-
-    disabledBackgroundColor: string;
-    disabledBorderColor: string;
-    disabledColor: string;
-  }
+  Record<DisplayVisualState, TagAppearanceTokens>
 >;
 
 export type TagColorTokens = Record<TagColor, TagVariantTokens>;

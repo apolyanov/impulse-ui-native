@@ -1,8 +1,12 @@
 import { memo, useCallback } from "react";
-import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  AppTheme,
+  getDatetimePickerDayStateTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 interface CalendarDayProps {
   date: Date;
@@ -51,23 +55,11 @@ function themedStyles(
   },
 ) {
   const dayTokens = theme.components.datetimePicker.day;
-
-  let color: TextStyle["color"] = dayTokens.color;
-  let backgroundColor: ViewStyle["backgroundColor"] = "transparent";
-
-  if (!props.isCurrentMonth) {
-    color = dayTokens.outsideMonthColor;
-  }
-
-  if (props.isInRange) {
-    backgroundColor = dayTokens.rangeBackgroundColor;
-    color = dayTokens.rangeColor;
-  }
-
-  if (props.isSelected || props.isRangeStart || props.isRangeEnd) {
-    backgroundColor = dayTokens.selectedBackgroundColor;
-    color = dayTokens.selectedColor;
-  }
+  const appearanceTokens = getDatetimePickerDayStateTokens(dayTokens.states, {
+    currentMonth: props.isCurrentMonth,
+    inRange: props.isInRange,
+    selected: props.isSelected || props.isRangeStart || props.isRangeEnd,
+  });
 
   return StyleSheet.create({
     pressableStyles: {
@@ -81,11 +73,11 @@ function themedStyles(
       height: dayTokens.size,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor,
+      backgroundColor: appearanceTokens.backgroundColor,
     },
 
     text: {
-      color,
+      color: appearanceTokens.color,
     },
   });
 }

@@ -8,9 +8,16 @@ export function createSelectTokens(tokens: PrimitiveThemeTokens): SelectTokens {
 
     option: {
       padding: tokens.space.sm,
-      selectedIconColor: tokens.colors.primary.value,
-      selectedIconVisibleOpacity: 1,
-      selectedIconHiddenOpacity: 0,
+      states: {
+        default: {
+          iconColor: tokens.colors.primary.value,
+          iconOpacity: 0,
+        },
+        selected: {
+          iconColor: tokens.colors.primary.value,
+          iconOpacity: 1,
+        },
+      },
     },
   };
 }
