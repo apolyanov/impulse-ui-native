@@ -2,6 +2,7 @@ import type {
   ComponentSize,
   SelectionVariant,
   SelectionVisualState,
+  VisualStateTokens,
 } from "./components.types";
 
 export type CheckboxSizeTokens = Record<
@@ -21,7 +22,7 @@ export interface CheckboxAppearanceTokens {
 
 export type CheckboxVariantTokens = Record<
   SelectionVariant,
-  Record<SelectionVisualState, CheckboxAppearanceTokens>
+  VisualStateTokens<SelectionVisualState, CheckboxAppearanceTokens>
 >;
 
 export interface CheckboxTokens {

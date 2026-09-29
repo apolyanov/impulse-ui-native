@@ -1,7 +1,7 @@
-import type { FieldState, FieldVisualState } from "../types";
+import type { FieldState, FieldVisualState, VisualStateTokens } from "../types";
 
 export function getFieldStateTokens<Tokens>(
-  tokens: Record<FieldVisualState, Tokens>,
+  tokens: VisualStateTokens<FieldVisualState, Tokens>,
   state: FieldState,
 ): Tokens {
   const { disabled = false, error = false } = state;

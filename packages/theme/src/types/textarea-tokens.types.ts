@@ -1,4 +1,8 @@
-import type { ComponentSize, FieldVisualState } from "./components.types";
+import type {
+  ComponentSize,
+  FieldVisualState,
+  VisualStateTokens,
+} from "./components.types";
 
 export type TextareaSizeTokens = Record<
   ComponentSize,
@@ -8,10 +12,14 @@ export type TextareaSizeTokens = Record<
   }
 >;
 
+export interface TextareaAppearanceTokens {
+  counterColor: string;
+}
+
 export interface TextareaTokens {
   counterFontSize: number;
   footerGap: number;
   footerMarginTop: number;
   sizes: TextareaSizeTokens;
-  states: Record<FieldVisualState, { counterColor: string }>;
+  states: VisualStateTokens<FieldVisualState, TextareaAppearanceTokens>;
 }

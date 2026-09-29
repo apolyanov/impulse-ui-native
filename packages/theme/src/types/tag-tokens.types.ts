@@ -1,7 +1,8 @@
-import {
+import type {
+  AvailabilityVisualState,
   ComponentSize,
   DisplayVariant,
-  DisplayVisualState,
+  VisualStateTokens,
 } from "./components.types";
 
 export type TagColor =
@@ -30,7 +31,7 @@ export interface TagAppearanceTokens {
 
 export type TagVariantTokens = Record<
   DisplayVariant,
-  Record<DisplayVisualState, TagAppearanceTokens>
+  VisualStateTokens<AvailabilityVisualState, TagAppearanceTokens>
 >;
 
 export type TagColorTokens = Record<TagColor, TagVariantTokens>;

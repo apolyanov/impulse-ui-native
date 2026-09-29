@@ -11,7 +11,7 @@ import {
   ControlErrorTokens,
   ControlInputTokens,
   ControlLabelTokens,
-} from "./control-tokes.types";
+} from "./control-tokens.types";
 import { DataStateTokens } from "./data-state-tokens.types";
 import { DatetimePickerTokens } from "./datetime-picker-tokens.types";
 import { DividerTokens } from "./divider-tokens.types";

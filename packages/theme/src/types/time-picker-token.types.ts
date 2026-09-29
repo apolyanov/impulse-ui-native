@@ -1,4 +1,12 @@
-import type { SelectionItemVisualState } from "./components.types";
+import type {
+  SelectionItemVisualState,
+  VisualStateTokens,
+} from "./components.types";
+
+export interface TimePickerColumnAppearanceTokens {
+  color: string;
+  fontWeight: number;
+}
 
 export interface TimePickerColumnTokens {
   width: number;
@@ -12,12 +20,9 @@ export interface TimePickerColumnTokens {
   initialScrollIndexViewOffset: number;
 
   fontSize: number;
-  states: Record<
+  states: VisualStateTokens<
     SelectionItemVisualState,
-    {
-      color: string;
-      fontWeight: number;
-    }
+    TimePickerColumnAppearanceTokens
   >;
 }
 

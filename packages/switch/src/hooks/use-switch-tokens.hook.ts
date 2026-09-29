@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 import {
-  getDisplayStateTokens,
+  getAvailabilityStateTokens,
   useComponentsTokens,
 } from "@impulse-ui-native/theme";
 
@@ -28,7 +28,7 @@ export function useSwitchTokens({
 }: UseSwitchTokensOptions) {
   const tokens = useComponentsTokens().switch;
   const sizeTokens = tokens.sizes[size];
-  const colors: SwitchAnimationColors = getDisplayStateTokens(
+  const colors: SwitchAnimationColors = getAvailabilityStateTokens(
     tokens.variants[variant],
     { disabled },
   );

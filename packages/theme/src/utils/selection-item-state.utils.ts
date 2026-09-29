@@ -1,7 +1,11 @@
-import type { SelectionItemState, SelectionItemVisualState } from "../types";
+import type {
+  SelectionItemState,
+  SelectionItemVisualState,
+  VisualStateTokens,
+} from "../types";
 
 export function getSelectionItemStateTokens<Tokens>(
-  tokens: Record<SelectionItemVisualState, Tokens>,
+  tokens: VisualStateTokens<SelectionItemVisualState, Tokens>,
   state: SelectionItemState,
 ): Tokens {
   const { selected } = state;

@@ -1,10 +1,14 @@
-import type { ControlState, ControlVisualState } from "../types";
+import type {
+  ControlState,
+  ControlVisualState,
+  VisualStateTokens,
+} from "../types";
 
 export function getControlStateTokens<Tokens>(
-  tokens: Record<ControlVisualState, Tokens>,
+  tokens: VisualStateTokens<ControlVisualState, Tokens>,
   state: ControlState,
 ): Tokens {
-  const { disabled, focused = false } = state;
+  const { disabled = false, focused = false } = state;
 
   if (disabled) return tokens.disabled;
   return focused ? tokens.focused : tokens.default;

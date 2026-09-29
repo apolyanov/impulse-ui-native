@@ -1,7 +1,11 @@
-import type { SelectionState, SelectionVisualState } from "../types";
+import type {
+  SelectionState,
+  SelectionVisualState,
+  VisualStateTokens,
+} from "../types";
 
 export function getSelectionStateTokens<Tokens>(
-  tokens: Record<SelectionVisualState, Tokens>,
+  tokens: VisualStateTokens<SelectionVisualState, Tokens>,
   state: SelectionState,
 ): Tokens {
   const { disabled = false, selected } = state;

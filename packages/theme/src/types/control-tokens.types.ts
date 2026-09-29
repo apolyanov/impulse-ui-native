@@ -1,7 +1,8 @@
-import {
+import type {
   ComponentSize,
   FieldVariant,
   FieldVisualState,
+  VisualStateTokens,
 } from "./components.types";
 
 export interface ControlAddonAppearanceTokens {
@@ -10,7 +11,7 @@ export interface ControlAddonAppearanceTokens {
 
 export type ControlAddonVariantTokens = Record<
   FieldVariant,
-  Record<FieldVisualState, ControlAddonAppearanceTokens>
+  VisualStateTokens<FieldVisualState, ControlAddonAppearanceTokens>
 >;
 
 export interface ControlAddonTokens {
@@ -27,16 +28,15 @@ export type ControlContainerSizeTokens = Record<
   }
 >;
 
+export interface ControlContainerAppearanceTokens {
+  backgroundColor: string;
+  borderColor: string;
+  opacity: number;
+}
+
 export type ControlContainerVariantTokens = Record<
   FieldVariant,
-  Record<
-    FieldVisualState,
-    {
-      backgroundColor: string;
-      borderColor: string;
-      opacity: number;
-    }
-  >
+  VisualStateTokens<FieldVisualState, ControlContainerAppearanceTokens>
 >;
 
 export interface ControlContainerTokens {
@@ -59,15 +59,14 @@ export type ControlInputSizeTokens = Record<
   }
 >;
 
+export interface ControlInputAppearanceTokens {
+  color: string;
+  placeholderColor: string;
+}
+
 export type ControlInputVariantTokens = Record<
   FieldVariant,
-  Record<
-    FieldVisualState,
-    {
-      color: string;
-      placeholderColor: string;
-    }
-  >
+  VisualStateTokens<FieldVisualState, ControlInputAppearanceTokens>
 >;
 
 export interface ControlInputTokens {
@@ -78,8 +77,12 @@ export interface ControlInputTokens {
   variants: ControlInputVariantTokens;
 }
 
+export interface ControlLabelAppearanceTokens {
+  color: string;
+}
+
 export interface ControlLabelTokens {
   marginBottom: number;
   fontSize: number;
-  states: Record<FieldVisualState, { color: string }>;
+  states: VisualStateTokens<FieldVisualState, ControlLabelAppearanceTokens>;
 }

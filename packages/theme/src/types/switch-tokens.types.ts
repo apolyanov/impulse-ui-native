@@ -1,7 +1,8 @@
 import type {
+  AvailabilityVisualState,
   ComponentSize,
-  DisplayVisualState,
   SelectionVariant,
+  VisualStateTokens,
 } from "./components.types";
 
 export type SwitchSizeTokens = Record<
@@ -27,7 +28,7 @@ export interface SwitchAppearanceTokens {
 
 export type SwitchVariantTokens = Record<
   SelectionVariant,
-  Record<DisplayVisualState, SwitchAppearanceTokens>
+  VisualStateTokens<AvailabilityVisualState, SwitchAppearanceTokens>
 >;
 
 export interface SwitchTokens {

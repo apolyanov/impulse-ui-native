@@ -5,7 +5,7 @@ import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { XCircleIcon } from "@impulse-ui-native/icon/icons/x-circle";
 import {
   AppTheme,
-  getDisplayStateTokens,
+  getAvailabilityStateTokens,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -70,7 +70,7 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
 
   const tagTokens = theme.components.tag;
   const sizeTokens = tagTokens.sizes[size];
-  const appearanceTokens = getDisplayStateTokens(
+  const appearanceTokens = getAvailabilityStateTokens(
     tagTokens.colors[color][variant],
     { disabled },
   );

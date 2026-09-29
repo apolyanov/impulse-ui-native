@@ -1,9 +1,14 @@
 export type ComponentSize = "small" | "medium" | "large";
 
+export type VisualStateTokens<VisualState extends PropertyKey, Tokens> = Record<
+  VisualState,
+  Tokens
+>;
+
 export type ControlVisualState = "default" | "focused" | "disabled";
 
 export interface ControlState {
-  disabled: boolean;
+  disabled?: boolean;
   focused?: boolean;
 }
 
@@ -14,9 +19,9 @@ export interface ActionState {
   loading?: boolean;
 }
 
-export type DisplayVisualState = "default" | "disabled";
+export type AvailabilityVisualState = "default" | "disabled";
 
-export interface DisplayState {
+export interface AvailabilityState {
   disabled?: boolean;
 }
 

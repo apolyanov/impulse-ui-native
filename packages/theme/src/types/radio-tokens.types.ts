@@ -2,6 +2,7 @@ import type {
   ComponentSize,
   SelectionVariant,
   SelectionVisualState,
+  VisualStateTokens,
 } from "./components.types";
 
 export type RadioSizeTokens = Record<
@@ -21,7 +22,7 @@ export interface RadioAppearanceTokens {
 
 export type RadioVariantTokens = Record<
   SelectionVariant,
-  Record<SelectionVisualState, RadioAppearanceTokens>
+  VisualStateTokens<SelectionVisualState, RadioAppearanceTokens>
 >;
 
 export interface RadioTokens {

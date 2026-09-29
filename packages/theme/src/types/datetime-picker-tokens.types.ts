@@ -1,3 +1,5 @@
+import type { VisualStateTokens } from "./components.types";
+
 export type DatetimePickerDayVisualState =
   | "default"
   | "outsideMonth"
@@ -15,15 +17,17 @@ export interface DatetimePickerCalendarTokens {
   weeksGap: number;
 }
 
+export interface DatetimePickerDayAppearanceTokens {
+  backgroundColor: string;
+  color: string;
+}
+
 export interface DatetimePickerDayTokens {
   size: number;
   borderRadius: number;
-  states: Record<
+  states: VisualStateTokens<
     DatetimePickerDayVisualState,
-    {
-      backgroundColor: string;
-      color: string;
-    }
+    DatetimePickerDayAppearanceTokens
   >;
 }
 

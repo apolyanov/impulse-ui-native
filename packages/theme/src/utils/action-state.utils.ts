@@ -1,7 +1,11 @@
-import type { ActionState, ActionVisualState } from "../types";
+import type {
+  ActionState,
+  ActionVisualState,
+  VisualStateTokens,
+} from "../types";
 
 export function getActionStateTokens<Tokens>(
-  tokens: Record<ActionVisualState, Tokens>,
+  tokens: VisualStateTokens<ActionVisualState, Tokens>,
   state: ActionState,
 ): Tokens {
   const { disabled = false, loading = false } = state;

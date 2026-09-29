@@ -17,7 +17,7 @@ export * from "./badge-tokens.types";
 export * from "./card-tokens.types";
 export * from "./checkbox-tokens.types";
 export * from "./tag-tokens.types";
-export * from "./control-tokes.types";
+export * from "./control-tokens.types";
 export * from "./select-tokens.types";
 export * from "./datetime-picker-tokens.types";
 export * from "./divider-tokens.types";

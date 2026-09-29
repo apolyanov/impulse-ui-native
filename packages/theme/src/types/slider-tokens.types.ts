@@ -2,6 +2,7 @@ import type {
   ComponentSize,
   ControlVisualState,
   SelectionVariant,
+  VisualStateTokens,
 } from "./components.types";
 
 /** @deprecated Use SelectionVariant. */
@@ -35,7 +36,7 @@ export interface SliderAppearanceTokens {
 
 export type SliderVariantTokens = Record<
   SelectionVariant,
-  Record<ControlVisualState, SliderAppearanceTokens>
+  VisualStateTokens<ControlVisualState, SliderAppearanceTokens>
 >;
 
 export interface SliderTokens {
