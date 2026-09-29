@@ -1,5 +1,32 @@
 # @impulse-ui-native/toolkit
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [cfd0e78]
+  - @impulse-ui-native/checkbox@4.0.0
+  - @impulse-ui-native/datetime@4.0.0
+  - @impulse-ui-native/input@4.0.0
+  - @impulse-ui-native/primitives@4.0.0
+  - @impulse-ui-native/radio@4.0.0
+  - @impulse-ui-native/select@4.0.0
+  - @impulse-ui-native/slider@4.0.0
+  - @impulse-ui-native/switch@4.0.0
+  - @impulse-ui-native/theme@4.0.0
+  - @impulse-ui-native/accordion@4.0.0
+  - @impulse-ui-native/charts@4.0.0
+  - @impulse-ui-native/data-state@4.0.0
+  - @impulse-ui-native/flyout@4.0.0
+  - @impulse-ui-native/form-field@4.0.0
+  - @impulse-ui-native/skeleton@4.0.0
+  - @impulse-ui-native/stepper@4.0.0
+  - @impulse-ui-native/core@4.0.0
+  - @impulse-ui-native/echo@4.0.0
+  - @impulse-ui-native/endpoint@4.0.0
+  - @impulse-ui-native/overlay@4.0.0
+  - @impulse-ui-native/portal@4.0.0
+
 ## 3.0.0
 
 ### Major Changes

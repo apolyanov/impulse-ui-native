@@ -1,5 +1,21 @@
 # @impulse-ui-native/radio
 
+## 4.0.0
+
+### Major Changes
+
+- cfd0e78: Replace the shared component variant contract with action, display, field, and
+  selection variant families, and remove variants that are not meaningful for
+  each family. Organize interactive component appearance tokens into explicit
+  variant and visual-state lookup tables with shared state resolvers.
+
+### Patch Changes
+
+- Updated dependencies [cfd0e78]
+  - @impulse-ui-native/primitives@4.0.0
+  - @impulse-ui-native/theme@4.0.0
+  - @impulse-ui-native/core@4.0.0
+
 ## 3.0.0
 
 ### Patch Changes
