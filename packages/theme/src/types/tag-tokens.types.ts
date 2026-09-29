@@ -1,4 +1,4 @@
-import { ComponentSize, ComponentVariant } from "./components.types";
+import { ComponentSize, DisplayVariant } from "./components.types";
 
 export type TagColor =
   | "primary"
@@ -19,7 +19,7 @@ export type TagSizeTokens = Record<
 >;
 
 export type TagVariantTokens = Record<
-  ComponentVariant,
+  DisplayVariant,
   {
     backgroundColor: string;
     borderColor: string;

@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import {
   AppTheme,
-  ComponentVariant,
+  FieldVariant,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -77,7 +77,7 @@ export const ControlAddon = memo(function ControlAddon(
 function themedStyles(
   theme: AppTheme,
   props: {
-    variant: ComponentVariant;
+    variant: FieldVariant;
     disabled?: boolean;
     error?: string;
   },

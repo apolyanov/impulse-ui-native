@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@impulse-ui-native/primitives";
 import {
+  ActionVariantOptions,
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 
@@ -28,7 +28,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: ActionVariantOptions,
       description: "Controls the button visual emphasis and styling.",
     },
     disabled: {
@@ -64,7 +64,6 @@ export const Filled: Story = createButtonStory("Filled");
 export const Outlined: Story = createButtonStory("Outlined");
 export const Soft: Story = createButtonStory("Soft");
 export const Ghost: Story = createButtonStory("Ghost");
-export const Plain: Story = createButtonStory("Plain");
 export const Small: Story = createButtonStory("Small");
 export const Medium: Story = createButtonStory("Medium");
 export const Large: Story = createButtonStory("Large");

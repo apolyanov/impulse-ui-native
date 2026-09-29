@@ -1,4 +1,4 @@
-import type { ComponentSize, ComponentVariant } from "./components.types";
+import type { ComponentSize, DisplayVariant } from "./components.types";
 
 export type BadgeTone =
   | "primary"
@@ -24,7 +24,7 @@ export interface BadgeVariantTokens {
   color: string;
 }
 
-export type BadgeColorTokens = Record<ComponentVariant, BadgeVariantTokens>;
+export type BadgeColorTokens = Record<DisplayVariant, BadgeVariantTokens>;
 
 export interface BadgeTokens {
   addonHitSlop: number;

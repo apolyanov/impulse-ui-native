@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { DatePicker } from "@impulse-ui-native/datetime";
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { DatetimeDocumentation } from "./datetime.documentation";
@@ -30,7 +30,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: FieldVariantOptions,
       description: "Controls the picker surface, border, and text styling.",
     },
     disabled: {

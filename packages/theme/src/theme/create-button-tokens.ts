@@ -75,16 +75,6 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
         disabledBorderColor: "transparent",
         disabledColor,
       },
-
-      plain: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-
-        disabledBackgroundColor: "transparent",
-        disabledBorderColor: "transparent",
-        disabledColor,
-      },
     },
   };
 }

@@ -52,16 +52,6 @@ export function createAvatarTokens(tokens: PrimitiveThemeTokens): AvatarTokens {
         borderColor: secondary,
         color: secondaryContrast,
       },
-      ghost: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-      },
-      plain: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-      },
     },
   };
 }

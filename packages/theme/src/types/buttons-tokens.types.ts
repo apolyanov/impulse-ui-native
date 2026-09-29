@@ -1,4 +1,4 @@
-import { ComponentSize, ComponentVariant } from "./components.types";
+import { ActionVariant, ComponentSize } from "./components.types";
 
 export type ButtonSizeTokens = Record<
   ComponentSize,
@@ -19,7 +19,7 @@ export type IconButtonSizeTokens = Record<
 >;
 
 export type ButtonVariantTokens = Record<
-  ComponentVariant,
+  ActionVariant,
   {
     backgroundColor: string;
     borderColor: string;
@@ -32,7 +32,7 @@ export type ButtonVariantTokens = Record<
 >;
 
 export type IconButtonVariantTokens = Record<
-  ComponentVariant,
+  ActionVariant,
   {
     backgroundColor: string;
     borderColor: string;

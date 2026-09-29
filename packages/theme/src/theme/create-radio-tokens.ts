@@ -49,16 +49,6 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
         borderColor: secondary,
         color: secondaryContrast,
       },
-      ghost: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-      },
-      plain: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-      },
     },
   };
 }

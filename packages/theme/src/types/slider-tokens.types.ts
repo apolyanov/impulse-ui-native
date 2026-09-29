@@ -1,6 +1,7 @@
-import type { ComponentSize } from "./components.types";
+import type { ComponentSize, SelectionVariant } from "./components.types";
 
-export type SliderVariant = "filled" | "outlined" | "soft";
+/** @deprecated Use SelectionVariant. */
+export type SliderVariant = SelectionVariant;
 
 export type SliderSizeTokens = Record<
   ComponentSize,
@@ -13,7 +14,7 @@ export type SliderSizeTokens = Record<
 >;
 
 export type SliderVariantTokens = Record<
-  SliderVariant,
+  SelectionVariant,
   {
     activeTrackColor: string;
     labelColor: string;

@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  DisplayVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { AvatarDocumentation } from "./avatar.documentation";
@@ -26,7 +26,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: DisplayVariantOptions,
       description: "Controls the avatar's visual emphasis.",
     },
     status: {
@@ -63,8 +63,6 @@ export const CustomFallback: Story = createAvatarStory("CustomFallback");
 export const Filled: Story = createAvatarStory("Filled");
 export const Outlined: Story = createAvatarStory("Outlined");
 export const Soft: Story = createAvatarStory("Soft");
-export const Ghost: Story = createAvatarStory("Ghost");
-export const Plain: Story = createAvatarStory("Plain");
 export const Small: Story = createAvatarStory("Small");
 export const Medium: Story = createAvatarStory("Medium");
 export const Large: Story = createAvatarStory("Large");

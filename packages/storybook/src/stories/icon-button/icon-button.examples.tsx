@@ -133,35 +133,6 @@ export const IconButtonExampleDefinitions = [
     },
   },
   {
-    name: "Plain",
-    title: "Plain icon button",
-    description:
-      "Use plain icon buttons for the lowest-emphasis icon actions, usually in dense or utility-focused layouts.",
-    props: [
-      {
-        name: "variant",
-        value: "plain",
-        description:
-          "Removes most visual styling and behaves like a minimal icon action.",
-      },
-      {
-        name: "size",
-        value: "medium",
-        description: "Uses the default icon button size.",
-      },
-      {
-        name: "icon",
-        value: "SparkleIcon",
-        description: "Renders the icon inside the button.",
-      },
-    ],
-    args: {
-      variant: "plain",
-      size: "medium",
-      icon: SparkleIcon,
-    },
-  },
-  {
     name: "Small",
     title: "Small icon button",
     description:

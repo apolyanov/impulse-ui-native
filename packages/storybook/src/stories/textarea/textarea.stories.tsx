@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Textarea } from "@impulse-ui-native/input";
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { TextareaDocumentation } from "./textarea.documentation";
@@ -73,7 +73,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: FieldVariantOptions,
       description: "Controls the textarea surface and border styling.",
     },
   },

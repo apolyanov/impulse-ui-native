@@ -105,36 +105,6 @@ export const TagExampleDefinitions = [
     },
   },
   {
-    name: "Plain",
-    title: "Plain tag",
-    description:
-      "Use plain tags for the lowest-emphasis labels when the surrounding layout already provides enough structure.",
-    props: [
-      {
-        name: "variant",
-        value: "plain",
-        description:
-          "Removes most visual styling and behaves like a lightweight label.",
-      },
-      {
-        name: "color",
-        value: "primary",
-        description: "Applies the primary semantic color.",
-      },
-      {
-        name: "size",
-        value: "medium",
-        description: "Uses the default tag height, padding, and text size.",
-      },
-    ],
-    args: {
-      label: "Plain",
-      variant: "plain",
-      color: "primary",
-      size: "medium",
-    },
-  },
-  {
     name: "Small",
     title: "Small tag",
     description:

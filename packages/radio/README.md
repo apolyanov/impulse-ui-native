@@ -39,7 +39,8 @@ export function DeliveryMethodRadio() {
 
 Use `defaultChecked` for uncontrolled state. Pressing a radio selects it;
 pressing it again does not clear the selection. The component accepts the
-shared `small`, `medium`, and `large` sizes and all shared component variants.
+shared `small`, `medium`, and `large` sizes and the `filled`, `outlined`, and
+`soft` selection variants.
 
 The standalone radio does not render a label, so provide `accessibilityLabel`
 unless a surrounding labelled control supplies an accessible name. Mutual

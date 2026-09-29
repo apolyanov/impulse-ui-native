@@ -1,4 +1,4 @@
-import type { ComponentSize, ComponentVariant } from "./components.types";
+import type { ComponentSize, SelectionVariant } from "./components.types";
 
 export type SwitchSizeTokens = Record<
   ComponentSize,
@@ -13,7 +13,7 @@ export type SwitchSizeTokens = Record<
 >;
 
 export type SwitchVariantTokens = Record<
-  ComponentVariant,
+  SelectionVariant,
   {
     backgroundColor: string;
     borderColor: string;

@@ -62,16 +62,6 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
         borderColor: secondary,
         color: secondaryContrast,
       },
-      ghost: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-      },
-      plain: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-      },
     },
   };
 }

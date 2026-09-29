@@ -4,7 +4,7 @@ import type { ColorValue } from "react-native";
 import type {
   BadgeTone,
   ComponentSize,
-  ComponentVariant,
+  DisplayVariant,
 } from "@impulse-ui-native/theme";
 
 import type { ControlComponentCommonProps } from "./control-components.types";
@@ -25,7 +25,7 @@ export interface BadgeProps
   children: ReactNode;
   size?: ComponentSize;
   tone?: BadgeTone;
-  variant?: ComponentVariant;
+  variant?: DisplayVariant;
 }
 
 export interface BadgeThemeProps {
@@ -33,5 +33,5 @@ export interface BadgeThemeProps {
   color?: ColorValue;
   size: ComponentSize;
   tone: BadgeTone;
-  variant: ComponentVariant;
+  variant: DisplayVariant;
 }

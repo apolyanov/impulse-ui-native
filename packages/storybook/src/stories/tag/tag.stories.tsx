@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tag } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  DisplayVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { TagDocumentation } from "./tag.documentation";
@@ -42,7 +42,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: DisplayVariantOptions,
       description: "Controls the tag visual emphasis and styling.",
     },
     color: {
@@ -85,7 +85,6 @@ export const Documentation: Story = {
 export const Filled: Story = createTagStory("Filled");
 export const Outlined: Story = createTagStory("Outlined");
 export const Soft: Story = createTagStory("Soft");
-export const Plain: Story = createTagStory("Plain");
 export const Small: Story = createTagStory("Small");
 export const Medium: Story = createTagStory("Medium");
 export const Large: Story = createTagStory("Large");

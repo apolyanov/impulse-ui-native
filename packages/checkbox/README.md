@@ -41,7 +41,7 @@ export function TermsCheckbox() {
 
 Use `defaultChecked` for uncontrolled state. Pressing an indeterminate checkbox
 changes it to checked. The component accepts the shared `small`, `medium`, and
-`large` sizes and all shared component variants.
+`large` sizes and the `filled`, `outlined`, and `soft` selection variants.
 
 The standalone checkbox does not render a label, so provide
 `accessibilityLabel` unless a surrounding labelled control supplies an

@@ -70,7 +70,7 @@ export const CardExampleDefinitions = [
           justifyContent="space-between"
         >
           <Tag label="On track" color="success" size="small" />
-          <Button size="small" variant="plain">
+          <Button size="small" variant="ghost">
             View details
           </Button>
         </Card.Footer>

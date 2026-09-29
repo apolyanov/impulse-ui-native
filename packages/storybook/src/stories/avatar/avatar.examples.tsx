@@ -73,21 +73,6 @@ export const AvatarExampleDefinitions = [
     args: { initials: "AK", variant: "soft" },
   },
   {
-    name: "Ghost",
-    title: "Ghost avatar",
-    description:
-      "Use the ghost variant when the surrounding surface is enough.",
-    props: [{ name: "variant", value: "ghost" }],
-    args: { initials: "AK", variant: "ghost" },
-  },
-  {
-    name: "Plain",
-    title: "Plain avatar",
-    description: "Use the plain variant for the most minimal presentation.",
-    props: [{ name: "variant", value: "plain" }],
-    args: { initials: "AK", variant: "plain" },
-  },
-  {
     name: "Small",
     title: "Small avatar",
     description: "Use the small size in dense rows and compact metadata.",

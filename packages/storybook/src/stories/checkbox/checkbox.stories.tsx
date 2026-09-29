@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "@impulse-ui-native/checkbox";
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  SelectionVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { CheckboxDocumentation } from "./checkbox.documentation";
@@ -41,7 +41,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: SelectionVariantOptions,
       description: "Controls the selected-state visual treatment.",
     },
     disabled: {
@@ -78,8 +78,6 @@ export const Indeterminate: Story = createCheckboxStory("Indeterminate");
 export const Filled: Story = createCheckboxStory("Filled");
 export const Outlined: Story = createCheckboxStory("Outlined");
 export const Soft: Story = createCheckboxStory("Soft");
-export const Ghost: Story = createCheckboxStory("Ghost");
-export const Plain: Story = createCheckboxStory("Plain");
 export const Small: Story = createCheckboxStory("Small");
 export const Medium: Story = createCheckboxStory("Medium");
 export const Large: Story = createCheckboxStory("Large");

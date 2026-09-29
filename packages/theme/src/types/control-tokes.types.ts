@@ -1,7 +1,7 @@
-import { ComponentSize, ComponentVariant } from "./components.types";
+import { ComponentSize, FieldVariant } from "./components.types";
 
 export type ControlAddonVariantTokens = Record<
-  ComponentVariant,
+  FieldVariant,
   {
     iconColor: string;
     errorIconColor: string;
@@ -24,7 +24,7 @@ export type ControlContainerSizeTokens = Record<
 >;
 
 export type ControlContainerVariantTokens = Record<
-  ComponentVariant,
+  FieldVariant,
   {
     backgroundColor: string;
     borderColor: string;
@@ -58,7 +58,7 @@ export type ControlInputSizeTokens = Record<
 >;
 
 export type ControlInputVariantTokens = Record<
-  ComponentVariant,
+  FieldVariant,
   {
     color: string;
     placeholderColor: string;

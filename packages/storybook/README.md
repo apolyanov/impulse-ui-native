@@ -15,7 +15,9 @@ This is an authoring-support package rather than a UI component package.
 - `createStoryDescription(notes)` produces the notes metadata for an individual story.
 - `createComponentDescription(notes)` produces component-level notes metadata.
 - `ComponentSizeOptions` contains `small`, `medium`, and `large`.
-- `ComponentVariantOptions` contains `filled`, `outlined`, `soft`, `ghost`, and `plain`.
+- `ActionVariantOptions`, `DisplayVariantOptions`, `FieldVariantOptions`, and
+  `SelectionVariantOptions` expose the variants supported by each component
+  family.
 
 ## Usage
 

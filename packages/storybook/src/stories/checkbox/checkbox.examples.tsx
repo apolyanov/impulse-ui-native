@@ -149,7 +149,7 @@ function ControlledCheckbox(props: ComponentProps<typeof Checkbox>) {
 }
 
 function createVariantExamples(): CheckboxExampleDefinition[] {
-  const variants = ["filled", "outlined", "soft", "ghost", "plain"] as const;
+  const variants = ["filled", "outlined", "soft"] as const;
 
   return variants.map((variant) => ({
     name: `${variant[0]?.toUpperCase()}${variant.slice(1)}`,

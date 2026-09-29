@@ -1,4 +1,4 @@
-import type { ComponentSize, ComponentVariant } from "./components.types";
+import type { ComponentSize, DisplayVariant } from "./components.types";
 
 export type AvatarStatus = "online" | "offline" | "away" | "busy";
 
@@ -21,5 +21,5 @@ export interface AvatarTokens {
   sizes: Record<ComponentSize, AvatarSizeTokens>;
   statusBorderColor: string;
   statusColors: Record<AvatarStatus, string>;
-  variants: Record<ComponentVariant, AvatarVariantTokens>;
+  variants: Record<DisplayVariant, AvatarVariantTokens>;
 }

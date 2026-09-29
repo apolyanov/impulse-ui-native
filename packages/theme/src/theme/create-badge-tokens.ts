@@ -22,16 +22,6 @@ export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
       borderColor: softBackgroundColor,
       color: softColor,
     },
-    ghost: {
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      color: value,
-    },
-    plain: {
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      color: value,
-    },
   });
 
   return {

@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SparkleIcon } from "@impulse-ui-native/icon/icons/sparkle";
 import { IconButton } from "@impulse-ui-native/primitives";
 import {
+  ActionVariantOptions,
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 
@@ -33,7 +33,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: ActionVariantOptions,
       description: "Controls the icon button visual emphasis and styling.",
     },
     disabled: {
@@ -69,7 +69,6 @@ export const Filled: Story = createIconButtonStory("Filled");
 export const Outlined: Story = createIconButtonStory("Outlined");
 export const Soft: Story = createIconButtonStory("Soft");
 export const Ghost: Story = createIconButtonStory("Ghost");
-export const Plain: Story = createIconButtonStory("Plain");
 export const Small: Story = createIconButtonStory("Small");
 export const Medium: Story = createIconButtonStory("Medium");
 export const Large: Story = createIconButtonStory("Large");

@@ -4,7 +4,7 @@ import type {
   ViewProps,
 } from "react-native";
 
-import type { ComponentSize, SliderVariant } from "@impulse-ui-native/theme";
+import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 
 export type SliderValue = readonly [number, number];
 export type SliderThumb = "start" | "end";
@@ -31,7 +31,7 @@ interface SliderCommonProps extends Omit<
   showValueBubble?: boolean;
   size?: ComponentSize;
   step?: number;
-  variant?: SliderVariant;
+  variant?: SelectionVariant;
 }
 
 export interface SliderProps extends SliderCommonProps {

@@ -71,16 +71,6 @@ export function createIconButtonTokens(
         disabledBorderColor: "transparent",
         disabledColor,
       },
-
-      plain: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: primary,
-
-        disabledBackgroundColor: "transparent",
-        disabledBorderColor: "transparent",
-        disabledColor,
-      },
     },
   };
 }

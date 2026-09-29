@@ -2,7 +2,7 @@ import { PressableProps, ViewStyle } from "react-native";
 
 import {
   ComponentSize,
-  ComponentVariant,
+  DisplayVariant,
   TagColor,
   TagColorTokens,
 } from "@impulse-ui-native/theme";
@@ -10,7 +10,7 @@ import {
 export interface TagProps {
   label: string;
   size?: ComponentSize;
-  variant?: ComponentVariant;
+  variant?: DisplayVariant;
   color?: TagColor;
   closable?: boolean;
   disabled?: boolean;
@@ -21,7 +21,7 @@ export interface TagProps {
 
 export interface TagThemeProps {
   size: ComponentSize;
-  variant: ComponentVariant;
+  variant: DisplayVariant;
   color: TagColor;
   disabled?: boolean;
 }

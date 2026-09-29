@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  DisplayVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { BadgeDocumentation } from "./badge.documentation";
@@ -26,7 +26,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: DisplayVariantOptions,
       description: "Applies the same visual variant axis as controls.",
     },
     size: {

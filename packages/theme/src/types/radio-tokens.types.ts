@@ -1,4 +1,4 @@
-import type { ComponentSize, ComponentVariant } from "./components.types";
+import type { ComponentSize, SelectionVariant } from "./components.types";
 
 export type RadioSizeTokens = Record<
   ComponentSize,
@@ -10,7 +10,7 @@ export type RadioSizeTokens = Record<
 >;
 
 export type RadioVariantTokens = Record<
-  ComponentVariant,
+  SelectionVariant,
   {
     backgroundColor: string;
     borderColor: string;

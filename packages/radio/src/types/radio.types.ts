@@ -1,5 +1,5 @@
 import type { PressableCoreProps } from "@impulse-ui-native/primitives";
-import type { ComponentSize, ComponentVariant } from "@impulse-ui-native/theme";
+import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 
 export interface RadioProps extends Omit<
   PressableCoreProps,
@@ -9,12 +9,12 @@ export interface RadioProps extends Omit<
   defaultChecked?: boolean;
   onCheckedChange?: (checked: boolean) => void;
   size?: ComponentSize;
-  variant?: ComponentVariant;
+  variant?: SelectionVariant;
 }
 
 export interface RadioThemeProps {
   checked: boolean;
   disabled?: boolean;
   size: ComponentSize;
-  variant: ComponentVariant;
+  variant: SelectionVariant;
 }

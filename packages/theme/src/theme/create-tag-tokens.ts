@@ -34,26 +34,6 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
       disabledBorderColor: neutral["3"],
       disabledColor,
     },
-
-    ghost: {
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      color: value,
-
-      disabledBackgroundColor: "transparent",
-      disabledBorderColor: "transparent",
-      disabledColor,
-    },
-
-    plain: {
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      color: value,
-
-      disabledBackgroundColor: "transparent",
-      disabledBorderColor: "transparent",
-      disabledColor,
-    },
   });
 
   return {

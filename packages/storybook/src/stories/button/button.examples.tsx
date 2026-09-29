@@ -112,30 +112,6 @@ export const ButtonExampleDefinitions = [
     },
   },
   {
-    name: "Plain",
-    title: "Plain button",
-    description:
-      "Use plain buttons for the lowest-emphasis actions, usually text-like interactions.",
-    props: [
-      {
-        name: "variant",
-        value: "plain",
-        description:
-          "Removes most visual styling and behaves like a text action.",
-      },
-      {
-        name: "size",
-        value: "medium",
-        description: "Uses the default button height, padding, and text size.",
-      },
-    ],
-    args: {
-      variant: "plain",
-      size: "medium",
-      children: "Plain Button",
-    },
-  },
-  {
     name: "Small",
     title: "Small button",
     description:

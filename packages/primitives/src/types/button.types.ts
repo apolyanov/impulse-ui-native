@@ -1,8 +1,8 @@
 import { PressableProps, StyleProp, ViewStyle } from "react-native";
 
 import {
+  ActionVariant,
   ComponentSize,
-  ComponentVariant,
   DimensionProps,
   ShadowProps,
   SpacingProps,
@@ -11,7 +11,7 @@ import {
 export interface ButtonProps
   extends PressableProps, DimensionProps, SpacingProps, ShadowProps {
   size?: ComponentSize;
-  variant?: ComponentVariant;
+  variant?: ActionVariant;
   disabled?: boolean;
   style?: ViewStyle;
   loading?: boolean;
@@ -19,7 +19,7 @@ export interface ButtonProps
 
 export interface ButtonThemeProps {
   size: ComponentSize;
-  variant: ComponentVariant;
+  variant: ActionVariant;
   disabled?: boolean;
 }
 

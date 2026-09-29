@@ -12,8 +12,6 @@ export function createControlAddonTokens(
 ): ControlAddonTokens {
   const DefaultIconColor = tokens.colors.text.primary;
   const DisabledIconColor = tokens.colors.text.disabled;
-  const SoftIconColor = tokens.colors.accent.contrast;
-
   return {
     marginHorizontal: tokens.space.xxs,
     hitSlop: tokens.space.sm,
@@ -24,21 +22,6 @@ export function createControlAddonTokens(
         disabledIconColor: DisabledIconColor,
       },
       outlined: {
-        iconColor: DefaultIconColor,
-        errorIconColor: DefaultIconColor,
-        disabledIconColor: DisabledIconColor,
-      },
-      soft: {
-        iconColor: SoftIconColor,
-        errorIconColor: SoftIconColor,
-        disabledIconColor: DisabledIconColor,
-      },
-      ghost: {
-        iconColor: DefaultIconColor,
-        errorIconColor: DefaultIconColor,
-        disabledIconColor: DisabledIconColor,
-      },
-      plain: {
         iconColor: DefaultIconColor,
         errorIconColor: DefaultIconColor,
         disabledIconColor: DisabledIconColor,
@@ -93,36 +76,6 @@ export function createControlContainerTokens(
         disabledBackgroundColor: TransparentColor,
         disabledBorderColor: tokens.colors.neutral["5"],
       },
-
-      soft: {
-        backgroundColor: tokens.colors.accent.value,
-        borderColor: TransparentColor,
-
-        errorBorderColor: ErrorColor,
-
-        disabledBackgroundColor: tokens.colors.neutral["2"],
-        disabledBorderColor: TransparentColor,
-      },
-
-      ghost: {
-        backgroundColor: TransparentColor,
-        borderColor: TransparentColor,
-
-        errorBorderColor: ErrorColor,
-
-        disabledBackgroundColor: TransparentColor,
-        disabledBorderColor: TransparentColor,
-      },
-
-      plain: {
-        backgroundColor: TransparentColor,
-        borderColor: TransparentColor,
-
-        errorBorderColor: ErrorColor,
-
-        disabledBackgroundColor: TransparentColor,
-        disabledBorderColor: TransparentColor,
-      },
     },
   };
 }
@@ -170,39 +123,6 @@ export function createControlInputTokens(
       },
 
       outlined: {
-        color: tokens.colors.text.primary,
-        placeholderColor: tokens.colors.text.disabled,
-
-        disabledColor: tokens.colors.text.disabled,
-        disabledPlaceholderColor: tokens.colors.text.disabled,
-
-        errorColor: tokens.colors.text.primary,
-        errorPlaceholderColor: tokens.colors.feedback.error.value,
-      },
-
-      soft: {
-        color: tokens.colors.accent.contrast,
-        placeholderColor: tokens.colors.accent.contrast,
-
-        disabledColor: tokens.colors.text.disabled,
-        disabledPlaceholderColor: tokens.colors.text.disabled,
-
-        errorColor: tokens.colors.accent.contrast,
-        errorPlaceholderColor: tokens.colors.feedback.error.value,
-      },
-
-      ghost: {
-        color: tokens.colors.text.primary,
-        placeholderColor: tokens.colors.text.disabled,
-
-        disabledColor: tokens.colors.text.disabled,
-        disabledPlaceholderColor: tokens.colors.text.disabled,
-
-        errorColor: tokens.colors.text.primary,
-        errorPlaceholderColor: tokens.colors.feedback.error.value,
-      },
-
-      plain: {
         color: tokens.colors.text.primary,
         placeholderColor: tokens.colors.text.disabled,
 

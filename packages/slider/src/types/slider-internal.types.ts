@@ -9,7 +9,7 @@ import type {
   ViewStyle,
 } from "react-native";
 
-import type { ComponentSize, SliderVariant } from "@impulse-ui-native/theme";
+import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 
 import type { SliderBounds } from "../utils";
 import type {
@@ -61,7 +61,7 @@ export interface SliderTrackProps extends SliderInteractionHandlers {
   showValueBubble: boolean;
   size: ComponentSize;
   trackRef: RefObject<View | null>;
-  variant: SliderVariant;
+  variant: SelectionVariant;
 }
 
 export interface SliderThumbProps {
@@ -78,7 +78,7 @@ export interface SliderThumbProps {
   showValueBubble: boolean;
   size: ComponentSize;
   valueLabel: string;
-  variant: SliderVariant;
+  variant: SelectionVariant;
 }
 
 export interface SliderLabelsProps {
@@ -88,7 +88,7 @@ export interface SliderLabelsProps {
   minLabel: string;
   showMarkLabels: boolean;
   showMinMax: boolean;
-  variant: SliderVariant;
+  variant: SelectionVariant;
 }
 
 export interface UseSliderOptions {

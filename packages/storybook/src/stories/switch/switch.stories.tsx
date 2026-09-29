@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   ComponentSizeOptions,
-  ComponentVariantOptions,
   createStoryDescription,
+  SelectionVariantOptions,
 } from "@impulse-ui-native/storybook";
 import { Switch } from "@impulse-ui-native/switch";
 
@@ -38,7 +38,7 @@ const meta = {
     },
     variant: {
       control: "select",
-      options: ComponentVariantOptions,
+      options: SelectionVariantOptions,
       description: "Controls the on-state visual treatment.",
     },
     disabled: {
@@ -80,8 +80,6 @@ export const On: Story = createSwitchStory("On");
 export const Filled: Story = createSwitchStory("Filled");
 export const Outlined: Story = createSwitchStory("Outlined");
 export const Soft: Story = createSwitchStory("Soft");
-export const Ghost: Story = createSwitchStory("Ghost");
-export const Plain: Story = createSwitchStory("Plain");
 export const Small: Story = createSwitchStory("Small");
 export const Medium: Story = createSwitchStory("Medium");
 export const Large: Story = createSwitchStory("Large");

@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import {
   AppTheme,
   ComponentSize,
-  ComponentVariant,
+  FieldVariant,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
@@ -42,7 +42,7 @@ function themedStyles(
     error,
   }: {
     size: ComponentSize;
-    variant: ComponentVariant;
+    variant: FieldVariant;
     disabled?: boolean;
     error?: string;
   },

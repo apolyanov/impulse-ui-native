@@ -2,7 +2,7 @@ import { ComponentType } from "react";
 import { TextInputProps, TextProps, ViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import { ComponentSize, ComponentVariant } from "@impulse-ui-native/theme";
+import { ComponentSize, FieldVariant } from "@impulse-ui-native/theme";
 
 import type { SpinnerProps } from "./spinner.types";
 import { PressableCoreProps } from "./button.types";
@@ -20,7 +20,7 @@ export interface ControlComponentCommonProps {
 
 export interface ControlComponentProps {
   size: ComponentSize;
-  variant: ComponentVariant;
+  variant: FieldVariant;
   error: string | undefined;
   disabled: boolean | undefined;
 }
