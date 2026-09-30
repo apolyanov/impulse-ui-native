@@ -211,7 +211,7 @@ Theme overrides are deep partials. Hooks including `useTheme`, `useColors`, `use
 - Date and time: `DatePicker`, `DateRangePicker`, `DatetimePicker`, `DatetimeRangePicker`, and `TimePicker`.
 - Charts: line, bar, pie, multi-series chart components, axes, grids, labels, hooks, and utilities.
 - Feedback: `Skeleton`, `DataView`, `LoadingView`, `EmptyView`, and `ErrorView`.
-- Navigation and overlays: `Stepper`, `Flyout`, `OverlayHost`, `OverlayProvider`, `OverlayStore`, overlay registration types, `Portal`, `PortalProvider`, `PortalStore`, and portal hosts.
+- Navigation and overlays: `Pagination`, `Stepper`, `Flyout`, `OverlayHost`, `OverlayProvider`, `OverlayStore`, overlay registration types, `Portal`, `PortalProvider`, `PortalStore`, and portal hosts.
 - Data utilities: `EchoInstance`, echo hooks, and typed Axios/TanStack Query endpoint factories.
 
 ## Icons

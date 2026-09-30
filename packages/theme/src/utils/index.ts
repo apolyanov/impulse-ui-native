@@ -5,6 +5,7 @@ export * from "./datetime-picker-state.utils";
 export * from "./divider-tokens.utils";
 export * from "./field-state.utils";
 export * from "./flyout-tokens.utils";
+export * from "./pagination-state.utils";
 export * from "./selection-item-state.utils";
 export * from "./selection-state.utils";
 export * from "./segmented-control-state.utils";

@@ -17,6 +17,7 @@ import { DatetimePickerTokens } from "./datetime-picker-tokens.types";
 import { DividerTokens } from "./divider-tokens.types";
 import { FlyoutTokens } from "./flyout-tokens.types";
 import { IconTokens } from "./icon-tokens.types";
+import { PaginationTokens } from "./pagination-tokens.types";
 import { PressableTokens } from "./pressable-tokens.types";
 import { ProgressTokens } from "./progress-tokens.types";
 import { SegmentedControlTokens } from "./segmented-control-tokens.types";
@@ -109,6 +110,7 @@ export interface ComponentsTokens {
   checkbox: CheckboxTokens;
   iconButton: IconButtonTokens;
   icon: IconTokens;
+  pagination: PaginationTokens;
   pressable: PressableTokens;
   progress: ProgressTokens;
   radio: RadioTokens;

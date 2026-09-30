@@ -47,6 +47,7 @@
     "@impulse-ui-native/slider": "workspace:*",
     "@impulse-ui-native/input": "workspace:*",
     "@impulse-ui-native/overlay": "workspace:*",
+    "@impulse-ui-native/pagination": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
     "@impulse-ui-native/radio": "workspace:*",
