@@ -118,13 +118,20 @@ All toolkit components and public types are available from the package root:
 ```tsx
 import { useState } from "react";
 
-import { Button, Input, Typography, View } from "@impulse-ui-native/toolkit";
+import {
+  Button,
+  Input,
+  Typography,
+  useSpace,
+  View,
+} from "@impulse-ui-native/toolkit";
 
 export function SignInForm() {
   const [email, setEmail] = useState("");
+  const space = useSpace();
 
   return (
-    <View gap="md" padding="lg">
+    <View gap={space.md} padding={space.lg}>
       <Typography.Title2>Welcome back</Typography.Title2>
       <Input
         autoCapitalize="none"

@@ -123,9 +123,15 @@ interface SelectExampleProps {
 
 export const SelectExample = memo(function SelectExample({
   example,
-  args = { options: SelectStoryOptions },
+  args,
   elevated,
 }: SelectExampleProps) {
+  const resolvedArgs: SelectStoryArgs = {
+    options: SelectStoryOptions,
+    ...example.args,
+    ...args,
+  };
+
   return (
     <StoryExample
       title={example.title}
@@ -133,7 +139,7 @@ export const SelectExample = memo(function SelectExample({
       props={example.props}
       elevated={elevated}
     >
-      {example.renderPreview(args)}
+      {example.renderPreview(resolvedArgs)}
     </StoryExample>
   );
 });

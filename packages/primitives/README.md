@@ -48,10 +48,13 @@ import {
   Typography,
   View,
 } from "@impulse-ui-native/primitives";
+import { useSpace } from "@impulse-ui-native/theme";
 
 export function ProfileSummary() {
+  const space = useSpace();
+
   return (
-    <View gap="md" padding="lg">
+    <View gap={space.md} padding={space.lg}>
       <Typography.Title3>Profile</Typography.Title3>
       <Avatar initials="AK" status="online" variant="soft" />
       <Tag label="Active" color="success" />
