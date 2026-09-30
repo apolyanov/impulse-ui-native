@@ -17,6 +17,12 @@ export type SliderSizeTokens = Record<
   }
 >;
 
+export type SliderTrackLayout = "default" | "valueBubble";
+
+export interface SliderTrackLayoutTokens {
+  reservedVerticalSpace: number;
+}
+
 export interface SliderAppearanceTokens {
   activeMarkColor: string;
   activeTrackColor: string;
@@ -46,6 +52,20 @@ export interface SliderTokens {
   valueBubblePaddingVertical: number;
   valueBubbleGap: number;
   labelGap: number;
+  layouts: Record<SliderTrackLayout, SliderTrackLayoutTokens>;
   sizes: SliderSizeTokens;
   variants: SliderVariantTokens;
 }
+
+export interface SliderTrackTokenState {
+  disabled: boolean;
+  layout: SliderTrackLayout;
+  size: ComponentSize;
+  variant: SelectionVariant;
+}
+
+export type ResolvedSliderTrackTokens = SliderTrackLayoutTokens &
+  SliderSizeTokens[ComponentSize] &
+  SliderAppearanceTokens & {
+    trackBorderRadius: number;
+  };

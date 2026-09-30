@@ -1,9 +1,26 @@
 export interface FlyoutHandleTokens {
-  containerHeight: number;
   width: `${number}%`;
   height: number;
   borderRadius: number;
   backgroundColor: string;
+}
+
+export type FlyoutPlacement = "top" | "bottom";
+
+export interface FlyoutPlacementTokens {
+  container: {
+    top?: number;
+    bottom?: number;
+    borderTopLeftRadius: number;
+    borderTopRightRadius: number;
+    borderBottomLeftRadius: number;
+    borderBottomRightRadius: number;
+  };
+  handleContainer: {
+    top?: number;
+    bottom?: number;
+    height: number;
+  };
 }
 
 export interface FlyoutTitleTokens {
@@ -22,10 +39,16 @@ export interface FlyoutTokens {
   backgroundColor: string;
   contentPaddingHorizontal: number;
 
-  borderRadius: number;
-
   hiddenOpacity: number;
 
   title: FlyoutTitleTokens;
   handle: FlyoutHandleTokens;
+  placements: Record<FlyoutPlacement, FlyoutPlacementTokens>;
 }
+
+export interface FlyoutTokenState {
+  placement: FlyoutPlacement;
+}
+
+export type ResolvedFlyoutTokens = Omit<FlyoutTokens, "placements"> &
+  FlyoutPlacementTokens;

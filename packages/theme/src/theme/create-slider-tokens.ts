@@ -10,6 +10,14 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
     valueBubblePaddingVertical: tokens.space.xxs,
     valueBubbleGap: tokens.space.xxs,
     labelGap: tokens.space.xxs,
+    layouts: {
+      default: {
+        reservedVerticalSpace: 0,
+      },
+      valueBubble: {
+        reservedVerticalSpace: 28 + tokens.space.xxs,
+      },
+    },
     sizes: {
       small: {
         trackHeight: 4,

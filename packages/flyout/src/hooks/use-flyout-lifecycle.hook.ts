@@ -9,7 +9,7 @@ import {
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { getFlyoutTokens, useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { FlyoutProps } from "../types";
 
@@ -53,7 +53,8 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   } = props;
 
   const tokens = useComponentsTokens();
-  const handleHeight = tokens.flyout.handle.containerHeight;
+  const flyoutTokens = getFlyoutTokens(tokens.flyout, { placement });
+  const handleHeight = flyoutTokens.handleContainer.height;
 
   const [mounted, setMounted] = useState(open);
   const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);

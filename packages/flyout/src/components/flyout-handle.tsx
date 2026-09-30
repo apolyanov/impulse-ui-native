@@ -3,7 +3,11 @@ import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
 import { View } from "@impulse-ui-native/primitives";
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  AppTheme,
+  getFlyoutTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 interface FlyoutHandleProps {
   placement: "top" | "bottom";
@@ -25,7 +29,8 @@ function themedStyles(
   theme: AppTheme,
   { placement }: { placement: "top" | "bottom" },
 ) {
-  const handleTokens = theme.components.flyout.handle;
+  const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
+  const handleTokens = flyoutTokens.handle;
 
   return StyleSheet.create({
     flyoutHandle: {
@@ -37,12 +42,10 @@ function themedStyles(
     },
     flyoutHandleContainer: {
       position: "absolute",
-      top: placement === "bottom" ? -handleTokens.containerHeight : undefined,
-      bottom: placement === "top" ? -handleTokens.containerHeight : undefined,
       width: "100%",
       justifyContent: "center",
       alignItems: "center",
-      height: handleTokens.containerHeight,
+      ...flyoutTokens.handleContainer,
     },
   });
 }

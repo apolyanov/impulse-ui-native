@@ -11,7 +11,11 @@ import {
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { Pressable, View } from "@impulse-ui-native/primitives";
-import { useTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getFlyoutTokens,
+  useTheme,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { FlyoutProps } from "../types";
 import { useFlyoutLifecycle } from "../hooks";
@@ -41,7 +45,7 @@ export const Flyout = memo(function Flyout(
 
   const windowDimensions = useWindowDimensions();
 
-  const flyoutTokens = theme.components.flyout;
+  const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
 
   const placementOffset = placement === "top" ? topOffset : bottomOffset;
   const screenHeight = windowDimensions.height;
@@ -145,23 +149,15 @@ interface FlyoutThemeProps {
 
 function themedStyles(theme: AppTheme, props: FlyoutThemeProps) {
   const { maxHeight, placement } = props;
-  const flyoutTokens = theme.components.flyout;
+  const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
 
   return StyleSheet.create({
     container: {
       position: "absolute",
-      [placement]: 0,
       left: 0,
       right: 0,
       backgroundColor: flyoutTokens.backgroundColor,
-      borderTopLeftRadius:
-        placement === "bottom" ? flyoutTokens.borderRadius : 0,
-      borderTopRightRadius:
-        placement === "bottom" ? flyoutTokens.borderRadius : 0,
-      borderBottomLeftRadius:
-        placement === "top" ? flyoutTokens.borderRadius : 0,
-      borderBottomRightRadius:
-        placement === "top" ? flyoutTokens.borderRadius : 0,
+      ...flyoutTokens.container,
     },
     content: {
       paddingHorizontal: flyoutTokens.contentPaddingHorizontal,

@@ -1,10 +1,10 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import type { AppTheme } from "@impulse-ui-native/theme";
+import type { AppTheme, SliderTrackLayout } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
 import {
-  getControlStateTokens,
+  getSliderTrackTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
@@ -23,17 +23,18 @@ export const SliderTrack = memo(function SliderTrack({
 }: SliderTrackProps) {
   const hasStartMark = marks.some((mark) => mark.endpoint === "start");
   const hasEndMark = marks.some((mark) => mark.endpoint === "end");
+  const layout: SliderTrackLayout = showValueBubble ? "valueBubble" : "default";
   const styles = useThemedStyles(
     themedStyles,
     {
       disabled,
       hasEndMark,
       hasStartMark,
-      showValueBubble,
+      layout,
       size,
       variant,
     },
-    [disabled, hasEndMark, hasStartMark, showValueBubble, size, variant],
+    [disabled, hasEndMark, hasStartMark, layout, size, variant],
   );
   const activeTrackStyles = useMemo(
     () => [styles.activeTrack, activeTrackStyle],
@@ -72,57 +73,56 @@ interface SliderTrackThemeProps {
   disabled: boolean;
   hasEndMark: boolean;
   hasStartMark: boolean;
-  showValueBubble: boolean;
+  layout: SliderTrackLayout;
   size: SliderTrackProps["size"];
   variant: SliderTrackProps["variant"];
 }
 
 function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
-  const { disabled, hasEndMark, hasStartMark, showValueBubble, size, variant } =
-    props;
-  const tokens = theme.components.slider;
-  const sizeTokens = tokens.sizes[size];
-  const appearanceTokens = getControlStateTokens(tokens.variants[variant], {
+  const { disabled, hasEndMark, hasStartMark, layout, size, variant } = props;
+  const tokens = getSliderTrackTokens(theme.components.slider, {
     disabled,
+    layout,
+    size,
+    variant,
   });
-  const thumbOuterSize = sizeTokens.thumbSize;
-  const bubbleSpace = showValueBubble ? 28 + tokens.valueBubbleGap : 0;
+  const thumbOuterSize = tokens.thumbSize;
 
   return StyleSheet.create({
     interactionArea: {
-      height: thumbOuterSize + bubbleSpace,
+      height: thumbOuterSize + tokens.reservedVerticalSpace,
       justifyContent: "flex-end",
       overflow: "visible",
     },
     track: {
       position: "absolute",
-      bottom: (thumbOuterSize - sizeTokens.trackHeight) / 2,
+      bottom: (thumbOuterSize - tokens.trackHeight) / 2,
       width: "100%",
-      height: sizeTokens.trackHeight,
+      height: tokens.trackHeight,
       borderRadius: tokens.trackBorderRadius,
       borderTopStartRadius: hasStartMark ? 0 : tokens.trackBorderRadius,
       borderBottomStartRadius: hasStartMark ? 0 : tokens.trackBorderRadius,
       borderTopEndRadius: hasEndMark ? 0 : tokens.trackBorderRadius,
       borderBottomEndRadius: hasEndMark ? 0 : tokens.trackBorderRadius,
-      backgroundColor: appearanceTokens.inactiveTrackColor,
+      backgroundColor: tokens.inactiveTrackColor,
       overflow: "hidden",
     },
     activeTrack: {
       position: "absolute",
       height: "100%",
-      backgroundColor: appearanceTokens.activeTrackColor,
+      backgroundColor: tokens.activeTrackColor,
     },
     mark: {
       position: "absolute",
-      bottom: (thumbOuterSize - sizeTokens.markSize) / 2,
-      width: sizeTokens.markSize,
-      height: sizeTokens.markSize,
-      marginStart: -sizeTokens.markSize / 2,
+      bottom: (thumbOuterSize - tokens.markSize) / 2,
+      width: tokens.markSize,
+      height: tokens.markSize,
+      marginStart: -tokens.markSize / 2,
       borderRadius: tokens.trackBorderRadius,
-      backgroundColor: appearanceTokens.markColor,
+      backgroundColor: tokens.markColor,
     },
     activeMark: {
-      backgroundColor: appearanceTokens.activeMarkColor,
+      backgroundColor: tokens.activeMarkColor,
     },
   });
 }

@@ -1,6 +1,7 @@
 ---
 "@impulse-ui-native/accordion": major
 "@impulse-ui-native/checkbox": major
+"@impulse-ui-native/flyout": major
 "@impulse-ui-native/form-field": major
 "@impulse-ui-native/input": major
 "@impulse-ui-native/primitives": major
@@ -17,3 +18,6 @@ web and accessibility support will return together in a future major version.
 
 Model segmented-control inline and stacked item layouts as theme tokens and
 resolve layout, size, and selection-state tokens through one theme utility.
+
+Model divider orientation and inset layouts, flyout placement layouts, and
+slider value-bubble spacing as resolved component theme tokens.

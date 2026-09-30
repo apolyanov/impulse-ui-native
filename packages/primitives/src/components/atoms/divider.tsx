@@ -2,7 +2,11 @@ import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
-import { useStyleProps, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getDividerTokens,
+  useStyleProps,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { DividerProps } from "../../types";
 import { View } from "./view";
@@ -38,26 +42,23 @@ interface DividerThemeProps {
 
 function themedStyles(theme: AppTheme, props: DividerThemeProps) {
   const { color, inset, orientation, tone } = props;
-  const dividerTokens = theme.components.divider;
-  const insetStart = inset === "start" || inset === "both";
-  const insetEnd = inset === "end" || inset === "both";
+  const dividerTokens = getDividerTokens(theme.components.divider, {
+    inset,
+    orientation,
+    tone,
+  });
 
   return StyleSheet.create({
     divider: {
       alignSelf: "stretch",
       flexShrink: 0,
-      height:
-        orientation === "horizontal" ? dividerTokens.thickness : undefined,
-      marginBottom:
-        orientation === "vertical" && insetEnd ? dividerTokens.inset : 0,
-      marginEnd:
-        orientation === "horizontal" && insetEnd ? dividerTokens.inset : 0,
-      marginStart:
-        orientation === "horizontal" && insetStart ? dividerTokens.inset : 0,
-      marginTop:
-        orientation === "vertical" && insetStart ? dividerTokens.inset : 0,
-      width: orientation === "vertical" ? dividerTokens.thickness : undefined,
-      backgroundColor: color ?? dividerTokens.colors[tone],
+      height: dividerTokens.height,
+      marginBottom: dividerTokens.marginBottom,
+      marginEnd: dividerTokens.marginEnd,
+      marginStart: dividerTokens.marginStart,
+      marginTop: dividerTokens.marginTop,
+      width: dividerTokens.width,
+      backgroundColor: color ?? dividerTokens.backgroundColor,
     },
   });
 }

@@ -1,6 +1,9 @@
 import { FlyoutTokens, PrimitiveThemeTokens } from "../types";
 
 export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
+  const borderRadius = tokens.radii.xl;
+  const handleContainerHeight = 32;
+
   return {
     zIndexBase: 100,
 
@@ -12,8 +15,6 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
     backgroundColor: tokens.colors.surface.secondary.value,
     contentPaddingHorizontal: tokens.space.md,
 
-    borderRadius: tokens.radii.xl,
-
     hiddenOpacity: 0,
 
     title: {
@@ -22,11 +23,39 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
     },
 
     handle: {
-      containerHeight: 32,
       width: "25%",
       height: 6,
       borderRadius: tokens.radii.round,
       backgroundColor: tokens.colors.surface.primary.value,
+    },
+
+    placements: {
+      top: {
+        container: {
+          top: 0,
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
+          borderBottomLeftRadius: borderRadius,
+          borderBottomRightRadius: borderRadius,
+        },
+        handleContainer: {
+          bottom: -handleContainerHeight,
+          height: handleContainerHeight,
+        },
+      },
+      bottom: {
+        container: {
+          bottom: 0,
+          borderTopLeftRadius: borderRadius,
+          borderTopRightRadius: borderRadius,
+          borderBottomLeftRadius: 0,
+          borderBottomRightRadius: 0,
+        },
+        handleContainer: {
+          top: -handleContainerHeight,
+          height: handleContainerHeight,
+        },
+      },
     },
   };
 }
