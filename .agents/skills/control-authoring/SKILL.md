@@ -13,7 +13,9 @@ Author controls for native iOS and Android only. Do not implement browser-only
 interaction, DOM behavior, hover/focus-visible states, web keyboard navigation,
 or web-specific examples and tests unless the user explicitly requests them.
 Existing web compatibility may remain when it is incidental, but it is not a
-completion requirement.
+completion requirement. Built-in accessibility semantics are deferred alongside
+web work. Do not add accessibility props or screen-reader-specific behavior
+unless the user explicitly requests that scope.
 
 ## Start with repository context
 
@@ -37,7 +39,7 @@ Record the ownership decision before implementation. If the answer is unclear, c
 
 Write down the control's semantic role, value model, state transitions, and disabled behavior before styling it.
 
-- Prefer native React Native prop contracts and extend the nearest primitive props rather than recreating press, style, accessibility, spacing, dimension, or shadow props.
+- Prefer native React Native prop contracts and extend the nearest primitive props rather than recreating press, style, spacing, dimension, or shadow props.
 - Support controlled and uncontrolled operation when both are useful. Use `value`/`defaultValue`/`onChange` for value controls or the established semantic equivalent such as `checked`/`defaultChecked`/`onCheckedChange`.
 - Use `useControllableState` for that dual mode. Do not mirror controlled props into local state with effects.
 - Keep transient interaction state separate from committed value state. Picker flyouts, for example, stage temporary values and commit on Apply.
@@ -59,15 +61,15 @@ Write down the control's semantic role, value model, state transitions, and disa
 - Use React Native `StyleSheet` and theme hooks. Keep state-derived visual selection in one themed style function rather than scattering inline color and spacing decisions through JSX.
 - Keep render code declarative. Extract a custom hook when open state, temporary values, committed values, effects, and handlers form a coherent behavior model.
 
-## Treat accessibility as behavior
+## Keep deferred concerns out of scope
 
-- Set the semantic `accessibilityRole` and merge caller-provided `accessibilityState` with the control's actual selected, checked, disabled, busy, expanded, invalid, or mixed state as applicable.
-- Never let caller state make the rendered semantics untrue. The control-owned state wins for fields the component manages.
-- Ensure icon-only and otherwise unlabelled controls have an accessible-name path; document when consumers must provide `accessibilityLabel`.
-- Disabled and loading states must block or intentionally constrain interaction, not only change opacity.
-- Keep small visuals usable through tokenized `hitSlop` or an adequately sized press target.
-- Consider native accessibility focus, RTL, font scaling, reduced motion, and VoiceOver/TalkBack announcements according to the control's semantics.
-- For a group, implement the platform-native group semantics rather than relying only on individual item roles.
+- Do not add `accessibilityRole`, `accessibilityLabel`, `accessibilityState`,
+  `accessible`, live-region announcements, or other screen-reader-specific
+  behavior unless accessibility work is explicitly requested.
+- Disabled and loading states must still block or intentionally constrain
+  interaction, not only change opacity.
+- Keep small visuals usable through tokenized `hitSlop` or an adequately sized
+  press target. Continue to consider RTL, font scaling, and reduced motion.
 
 ## Add theme tokens deliberately
 
@@ -103,9 +105,9 @@ Add the established Storybook trio under `packages/storybook/src/stories/<contro
 - `<control>.examples.tsx` for reusable typed examples;
 - `<control>.documentation.tsx` for the long-form documentation page.
 
-Cover the meaningful matrix: default, supported sizes and variants, disabled/loading/error states, controlled and uncontrolled behavior, empty/selected/mixed states, accessibility-relevant states, and important composition or group behavior. Use examples designed for the native host.
+Cover the meaningful matrix: default, supported sizes and variants, disabled/loading/error states, controlled and uncontrolled behavior, empty/selected/mixed states, and important composition or group behavior. Use examples designed for the native host.
 
-Update the owning package README with installation, provider/peer requirements, exports, a minimal example, state behavior, and accessibility obligations. Update `docs/component-roadmap.md` for a new control or maturity change. Add a Changeset for a release-worthy public change; a new public control is normally minor.
+Update the owning package README with installation, provider/peer requirements, exports, a minimal example, and state behavior. Update `docs/component-roadmap.md` for a new control or maturity change. Add a Changeset for a release-worthy public change; a new public control is normally minor.
 
 ## Verify the result
 
@@ -115,7 +117,7 @@ Use checks proportional to the changed surface:
 2. Typecheck and build the owning package plus directly affected `theme`, `primitives`, `toolkit`, and `storybook` packages.
 3. Run relevant lint checks; remember package lint scripts can modify files.
 4. Run `git diff --check`.
-5. Render the Storybook stories in the native host when behavior or layout changed. Manually exercise interaction, accessibility state, controlled/uncontrolled behavior, disabled/loading behavior, and light/dark themes on the relevant iOS and Android targets.
+5. Render the Storybook stories in the native host when behavior or layout changed. Manually exercise interaction, controlled/uncontrolled behavior, disabled/loading behavior, and light/dark themes on the relevant iOS and Android targets.
 
 Do not describe builds or Storybook checks as unit tests. If automated behavioral tests are warranted, first verify that an appropriate runner and native iOS/Android scope exist.
 
@@ -126,7 +128,7 @@ Do not call a new control complete until all applicable items are true:
 - ownership and dependency direction are correct;
 - semantic state transitions are explicit;
 - controlled and uncontrolled modes behave consistently;
-- accessibility role, name, state, focus, and touch target are accounted for;
+- touch targets are accounted for;
 - visuals come from theme tokens and work in light and dark themes;
 - public types, package exports, and toolkit aggregation are intentional;
 - Storybook, README, roadmap, and Changeset reflect the public contract;

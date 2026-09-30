@@ -9,10 +9,10 @@ Last reviewed: 2026-09-30
 ## Current platform scope
 
 Component development currently targets native iOS and Android. Web-specific
-features, browser interaction models, and React Native Web parity are deferred
-until this policy is revised. Existing web preview tooling may remain available,
-but it does not define component scope or block a component from being marked
-**Available**.
+features, browser interaction models, React Native Web parity, and built-in
+accessibility semantics are deferred until this policy is revised. Existing web
+preview tooling may remain available, but web and accessibility work do not
+define component scope or block a component from being marked **Available**.
 
 ## How to use this document
 
@@ -29,8 +29,6 @@ A component should normally include all of the following before it moves to
 
 - a public, typed API and package export;
 - light and dark theme tokens where visual styling is involved;
-- accessibility roles, labels, state, focus, and assistive-technology behavior
-  appropriate to iOS and Android;
 - controlled and uncontrolled behavior where both models are useful;
 - native Storybook examples for important states;
 - automated behavior tests for interaction and state changes;
@@ -46,9 +44,9 @@ A component should normally include all of the following before it moves to
 | `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Add native responsive-layout examples if responsive props are introduced. |
 | `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for edges and themed spacing.                                 |
 | `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit text scaling, truncation, selection, and RTL behavior.              |
-| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Document native pressed, disabled, and accessibility behavior.            |
-| `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Add icon-leading/icon-trailing examples and accessibility tests.          |
-| `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Require or strongly document accessible labels for icon-only actions.     |
+| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Document native pressed and disabled behavior.                            |
+| `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Add icon-leading/icon-trailing examples and interaction tests.            |
+| `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Add icon sizing, weight, loading, and disabled examples.                  |
 | `Tag`                          | `@impulse-ui-native/primitives` | Available | Yes       | Clarify when to use interactive, closable, and display-only tags.         |
 | `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable icon catalogue and bundle-size guidance.                 |
 
@@ -58,10 +56,10 @@ A component should normally include all of the following before it moves to
 | --------------------- | -------------------------------------- | --------- | --------- | ------------------------------------------------------------------------------- |
 | Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
 | `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
-| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and automated interaction/accessibility tests.   |
-| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture, RTL, and native accessibility behavior tests.            |
-| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated thumb-collision and assistive-technology behavior tests.          |
-| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Add automated selection, overflow, and native accessibility behavior tests.     |
+| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and automated interaction tests.                 |
+| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture and RTL behavior tests.                                   |
+| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated thumb-collision and range interaction tests.                      |
+| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Add automated selection and overflow behavior tests.                            |
 | `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, custom option rendering, grouped options, and async states.         |
 | `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selected-item summaries, large-list behavior, and selection limits. |
 | `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add min/max dates, disabled dates, locale, and first-day-of-week controls.      |
@@ -74,19 +72,19 @@ A component should normally include all of the following before it moves to
 
 | Component           | Package                         | Status    | Storybook      | Follow-up                                                      |
 | ------------------- | ------------------------------- | --------- | -------------- | -------------------------------------------------------------- |
-| Compound `Skeleton` | `@impulse-ui-native/skeleton`   | Available | Yes            | Add reduced-motion behavior and accessibility guidance.        |
+| Compound `Skeleton` | `@impulse-ui-native/skeleton`   | Available | Yes            | Add reduced-motion behavior guidance.                          |
 | `LoadingView`       | `@impulse-ui-native/data-state` | Available | Via `DataView` | Add a direct story and transition tests.                       |
 | `EmptyView`         | `@impulse-ui-native/data-state` | Available | Via `DataView` | Add direct stories for zero, one, and two actions.             |
-| `ErrorView`         | `@impulse-ui-native/data-state` | Available | Via `DataView` | Add direct stories and screen-reader announcement guidance.    |
+| `ErrorView`         | `@impulse-ui-native/data-state` | Available | Via `DataView` | Add direct stories and retry-action guidance.                  |
 | `DataView`          | `@impulse-ui-native/data-state` | Available | Yes            | Test state precedence and transitions between all four states. |
 
 ### Navigation and workflow
 
-| Component               | Package                      | Status | Storybook | Follow-up                                                                   |
-| ----------------------- | ---------------------------- | ------ | --------- | --------------------------------------------------------------------------- |
-| `Pagination`            | `@impulse-ui-native/pagination` | Available | Yes    | Add automated page-window and navigation-boundary tests.                    |
-| `Stepper`               | `@impulse-ui-native/stepper` | Extend | Yes       | Add optional/disabled steps, validation hooks, and accessibility semantics. |
-| `StepperTabsNavigation` | `@impulse-ui-native/stepper` | Extend | Yes       | Add native overflow, scrolling, and accessibility behavior.                 |
+| Component               | Package                         | Status    | Storybook | Follow-up                                                |
+| ----------------------- | ------------------------------- | --------- | --------- | -------------------------------------------------------- |
+| `Pagination`            | `@impulse-ui-native/pagination` | Available | Yes       | Add automated page-window and navigation-boundary tests. |
+| `Stepper`               | `@impulse-ui-native/stepper`    | Extend    | Yes       | Add optional/disabled steps and validation hooks.        |
+| `StepperTabsNavigation` | `@impulse-ui-native/stepper`    | Extend    | Yes       | Add native overflow and scrolling behavior.              |
 
 ### Overlays and composition infrastructure
 
@@ -98,14 +96,14 @@ A component should normally include all of the following before it moves to
 
 ### Data visualization
 
-| Component        | Package                     | Status | Storybook | Follow-up                                                                   |
-| ---------------- | --------------------------- | ------ | --------- | --------------------------------------------------------------------------- |
-| `LineChart`      | `@impulse-ui-native/charts` | Extend | Yes       | Add interaction, tooltips, legends, selection, and accessibility summaries. |
-| `MultiLineChart` | `@impulse-ui-native/charts` | Extend | Yes       | Add series toggling and clearer overlapping-series treatment.               |
-| `BarChart`       | `@impulse-ui-native/charts` | Extend | Yes       | Add interaction, labels, stacked bars, and horizontal orientation.          |
-| `MultiBarChart`  | `@impulse-ui-native/charts` | Extend | Yes       | Add stacked mode, legends, and series toggling.                             |
-| `PieChart`       | `@impulse-ui-native/charts` | Extend | Yes       | Add labels, legends, selection, and empty-data behavior.                    |
-| `MultiPieChart`  | `@impulse-ui-native/charts` | Extend | Yes       | Add ring labels, legends, and interactive series details.                   |
+| Component        | Package                     | Status | Storybook | Follow-up                                                          |
+| ---------------- | --------------------------- | ------ | --------- | ------------------------------------------------------------------ |
+| `LineChart`      | `@impulse-ui-native/charts` | Extend | Yes       | Add interaction, tooltips, legends, and selection.                 |
+| `MultiLineChart` | `@impulse-ui-native/charts` | Extend | Yes       | Add series toggling and clearer overlapping-series treatment.      |
+| `BarChart`       | `@impulse-ui-native/charts` | Extend | Yes       | Add interaction, labels, stacked bars, and horizontal orientation. |
+| `MultiBarChart`  | `@impulse-ui-native/charts` | Extend | Yes       | Add stacked mode, legends, and series toggling.                    |
+| `PieChart`       | `@impulse-ui-native/charts` | Extend | Yes       | Add labels, legends, selection, and empty-data behavior.           |
+| `MultiPieChart`  | `@impulse-ui-native/charts` | Extend | Yes       | Add ring labels, legends, and interactive series details.          |
 
 ## Supporting packages
 
@@ -129,8 +127,6 @@ have been discussed.
 
 - [ ] Add an automated test setup for packages. No package-level `*.test.*` or
       `*.spec.*` files were present when this inventory was created.
-- [ ] Add accessibility checks and a manual VoiceOver/TalkBack test
-      matrix for interactive components.
 - [ ] Add direct Storybook coverage for `SafeAreaView`, compound `Control`, the
       standalone data-state views, and theme tokens.
 - [ ] Define supported React Native, Expo, iOS, and Android versions in one
@@ -140,20 +136,20 @@ have been discussed.
 
 ### Priority 1: essential controls and feedback
 
-| Candidate                    | Status    | Suggested scope                                                                                                                             |
-| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, disabled behavior, and accessible mixed-state semantics. |
-| Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                             |
-| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, disabled behavior, and accessible radio semantics.                        |
-| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and native group accessibility.                                      |
-| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.          |
-| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                 |
-| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, disabled state, and accessibility wiring.   |
-| Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                                     |
-| Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                               |
-| Toast                        | Candidate | Imperative queue, placements, durations, actions, screen-reader announcements, and reduced motion.                                          |
-| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                 |
-| Progress                     | Available | Linear and circular determinate/indeterminate variants with accessible values and reduced-motion behavior.                                  |
+| Candidate                    | Status    | Suggested scope                                                                                                                    |
+| ---------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, and disabled behavior.                          |
+| Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                    |
+| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, and disabled behavior.                                           |
+| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and group state.                                            |
+| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior. |
+| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.        |
+| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                |
+| Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                            |
+| Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                      |
+| Toast                        | Candidate | Imperative queue, placements, durations, actions, and reduced motion.                                                              |
+| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                        |
+| Progress                     | Available | Linear and circular determinate/indeterminate variants with reduced-motion behavior.                                               |
 
 ### Priority 2: composition and navigation
 
@@ -161,34 +157,32 @@ have been discussed.
 | ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Card                    | Available | Compound header, content, footer, media, and pressable surfaces without imposing screen layout.                          |
 | Divider / Separator     | Available | Horizontal and vertical orientation with logical insets and semantic color options.                                      |
-| Avatar                  | Available | Shared visual variants, image, initials, custom fallback, semantic status, and accessible identity.                      |
+| Avatar                  | Available | Shared visual variants, image, initials, custom fallback, and semantic status.                                           |
 | Avatar Group            | Candidate | Overlapping group layout, maximum visible items, and overflow count.                                                     |
 | Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction. |
 | List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.                                      |
-| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, lazy panels, and native accessibility semantics.                                  |
-| Accordion / Collapsible | Available | Single/multiple expansion, animated height, native accessibility behavior, and nested content.                           |
-| Menu                    | Candidate | Anchored actions, nested sections, destructive items, native accessibility, and portals.                                 |
+| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                  |
+| Accordion / Collapsible | Available | Single/multiple expansion, animated height, and nested content.                                                          |
+| Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                       |
 | Tooltip / Popover       | Candidate | Anchor measurement, collision handling, press/long-press triggers, and portal rendering.                                 |
 
 ### Priority 3: advanced input and data display
 
-| Candidate               | Status    | Suggested scope                                                                                  |
-| ----------------------- | --------- | ------------------------------------------------------------------------------------------------ |
-| Slider / Range Slider   | Extend    | Steps, marks, min/max values, gestures, and accessible value text.                               |
-| Segmented Control       | Available | Single selection, icons, labels, disabled options, token-driven variants, and overflow policy.   |
-| Search Input / Combobox | Candidate | Decide whether this extends `Input` and `Select` or becomes a dedicated component.               |
-| Pagination              | Available | Compact native controls with page-window overflow and shared Pressable feedback.                 |
-| Table / Data Grid       | Candidate | Start only after defining responsive behavior, virtualization, sorting, and accessibility scope. |
-| Carousel                | Candidate | Snapping, pagination indicators, autoplay policy, RTL, and reduced motion.                       |
-| Additional charts       | Candidate | Area, stacked-area, scatter, and sparkline variants after shared chart interaction APIs exist.   |
+| Candidate               | Status    | Suggested scope                                                                                |
+| ----------------------- | --------- | ---------------------------------------------------------------------------------------------- |
+| Slider / Range Slider   | Extend    | Steps, marks, min/max values, gestures, and visible value labels.                              |
+| Segmented Control       | Available | Single selection, icons, labels, disabled options, token-driven variants, and overflow policy. |
+| Search Input / Combobox | Candidate | Decide whether this extends `Input` and `Select` or becomes a dedicated component.             |
+| Pagination              | Available | Compact native controls with page-window overflow and shared Pressable feedback.               |
+| Table / Data Grid       | Candidate | Start only after defining responsive behavior, virtualization, sorting, and interaction scope. |
+| Carousel                | Candidate | Snapping, pagination indicators, autoplay policy, RTL, and reduced motion.                     |
+| Additional charts       | Candidate | Area, stacked-area, scatter, and sparkline variants after shared chart interaction APIs exist. |
 
 ## Cross-component work
 
 These concerns should be addressed as shared systems instead of separately in
 each new component:
 
-- accessibility conventions and reusable test helpers;
-- native VoiceOver/TalkBack behavior and accessibility focus;
 - reduced-motion support for Reanimated components;
 - RTL layout and gesture direction;
 - font scaling and dynamic type;
@@ -205,6 +199,6 @@ When adding or changing a component:
 
 1. Update its row in the current inventory.
 2. Add or update its Storybook documentation and examples.
-3. Add tests for new behavior and accessibility state.
+3. Add tests for new behavior and interaction state.
 4. Move the corresponding backlog entry to the correct status or remove it.
 5. Update the `Last reviewed` date at the top of this document.

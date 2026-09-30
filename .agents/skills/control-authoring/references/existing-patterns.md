@@ -4,15 +4,15 @@ Use this reference to choose analogs before implementing a new control. Re-read 
 
 ## Choose analogs by concern
 
-| Concern                  | Primary examples                   | Pattern to reuse                                                                                       |
-| ------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Basic action             | `primitives` Button and IconButton | Primitive ownership, Pressable behavior, size/variant tokens, disabled and loading visuals             |
-| Binary or item selection | Checkbox and Radio                 | Dedicated package, semantic controlled state, accessibility state, tokenized hit slop, state indicator |
-| Text-entry field         | Input                              | Compound `Control` composition, label/addons/error, native input prop forwarding                       |
-| Option field             | Select                             | Generic value API, behavior hook, field control separated from flyout content, open/close lifecycle    |
-| Staged picker            | DatePicker and datetime hooks      | Temporary versus committed values, apply/cancel/clear behavior, domain-family ownership                |
+| Concern                  | Primary examples                   | Pattern to reuse                                                                                    |
+| ------------------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Basic action             | `primitives` Button and IconButton | Primitive ownership, Pressable behavior, size/variant tokens, disabled and loading visuals          |
+| Binary or item selection | Checkbox and Radio                 | Dedicated package, semantic controlled state, tokenized hit slop, state indicator                   |
+| Text-entry field         | Input                              | Compound `Control` composition, label/addons/error, native input prop forwarding                    |
+| Option field             | Select                             | Generic value API, behavior hook, field control separated from flyout content, open/close lifecycle |
+| Staged picker            | DatePicker and datetime hooks      | Temporary versus committed values, apply/cancel/clear behavior, domain-family ownership             |
 
-Combine analogs when needed. A new switch may borrow package/state patterns from Checkbox, action handling from Pressable, and accessibility semantics specific to a switch. A searchable picker may borrow field composition from Select and text behavior from Input.
+Combine analogs when needed. A new switch may borrow package/state patterns from Checkbox and action handling from Pressable. A searchable picker may borrow field composition from Select and text behavior from Input.
 
 ## Source paths
 
@@ -37,9 +37,9 @@ Button and IconButton are appropriate references for low-domain actions. Their p
 - `packages/theme/src/theme/create-checkbox-tokens.ts`
 - `packages/theme/src/theme/create-radio-tokens.ts`
 
-Checkbox demonstrates three-state checked semantics and maps `indeterminate` to accessibility `mixed`. Radio demonstrates a one-way item transition: pressing an unchecked item selects it; pressing it again does not deselect it. Mutual exclusion and shared native group semantics belong to a future group-level abstraction, not the standalone item.
+Checkbox demonstrates three-state checked semantics. Radio demonstrates a one-way item transition: pressing an unchecked item selects it; pressing it again does not deselect it. Mutual exclusion and shared group state belong to a future group-level abstraction, not the standalone item.
 
-Both merge consumer styles through the Pressable callback, derive default hit slop from size tokens, preserve `onPress`, and make component-owned accessibility state explicit.
+Both merge consumer styles through the Pressable callback, derive default hit slop from size tokens, and preserve `onPress`.
 
 ### Field controls
 
@@ -128,11 +128,9 @@ Do not create a story for every Cartesian combination. Cover each independent ax
 
 Older controls can omit requirements a new control needs. In particular, verify rather than assume:
 
-- an icon-only control has a documented accessible-name requirement;
-- loading blocks duplicate activation and exposes appropriate accessibility state;
-- native VoiceOver and TalkBack behavior matches the semantic role;
+- loading blocks duplicate activation;
 - group controls implement group semantics rather than only styling a row of items;
 - theme component overrides work before documenting consumer override support;
 - stories were actually rendered in the native host.
 
-Prefer the intended semantic contract when an existing implementation and platform accessibility guidance differ.
+Prefer the intended native interaction contract when older implementations differ.

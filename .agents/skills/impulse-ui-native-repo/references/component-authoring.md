@@ -9,7 +9,9 @@ Design and implement public components for native iOS and Android. Do not add
 web-specific props, DOM behavior, hover/focus-visible styling, browser keyboard
 models, or React Native Web workarounds unless the user explicitly requests web
 scope. Preserve harmless compatibility with the existing web preview when it
-comes for free, but do not treat web parity as an acceptance criterion.
+comes for free, but do not treat web parity as an acceptance criterion. Built-in
+accessibility semantics are also deferred: do not add accessibility props,
+screen-reader behavior, examples, or tests unless explicitly requested.
 
 ## Decide package ownership first
 
@@ -160,8 +162,7 @@ established three-file pattern is:
 Use `satisfies Meta<typeof Component>`, `StoryObj<typeof meta>`, shared size and
 variant options, and `createStoryDescription`. Keep examples useful in the
 native Storybook host. Cover defaults, sizes, variants, disabled/loading/error
-states, controlled behavior, accessibility-relevant states, and important
-composition—not only a happy path.
+states, controlled behavior, and important composition—not only a happy path.
 
 Update the package README with installation, peer setup, main exports, a minimal
 example, and behavioral constraints. Update `docs/component-roadmap.md` when a
@@ -184,8 +185,8 @@ component is added or its maturity changes.
 - No package imports the toolkit as an implementation dependency.
 - Visual values come from the theme unless intrinsically data-driven.
 - Controlled and uncontrolled behavior does not switch accidentally.
-- Disabled state blocks interaction and exposes accessibility state.
-- Touch targets, labels, native accessibility focus, RTL, font scaling, and
-  reduced motion were considered.
+- Disabled state blocks interaction.
+- Touch targets, visible labels, RTL, font scaling, and reduced motion were
+  considered.
 - Native stories render with required providers.
 - README, roadmap, dependency metadata, and Changeset match the change.

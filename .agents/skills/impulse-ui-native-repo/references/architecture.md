@@ -55,6 +55,8 @@ compatibility decisions.
   Reanimated, Gesture Handler, and safe-area context.
 - `skeleton`: compound animated loading placeholders.
 - `data-state`: loading, empty, error, and coordinated `DataView` states.
+- `pagination`: token-driven native page navigation with full and compact
+  layouts.
 - `stepper`: controlled step flow and tabs navigation.
 - `charts`: Skia-rendered line, multi-line, bar, multi-bar, pie, and multi-pie
   charts with D3 scale/shape helpers.

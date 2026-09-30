@@ -15,7 +15,9 @@ Component development currently targets native iOS and Android only. Do not add
 web-specific APIs, interaction behavior, styling, examples, tests, or acceptance
 criteria unless the user explicitly expands the scope. Existing web tooling may
 remain useful as a preview environment, but web parity is deferred and must not
-drive component design or block completion.
+drive component design or block completion. Built-in accessibility semantics are
+deferred with web work; do not add accessibility props, screen-reader behavior,
+examples, tests, or acceptance criteria unless explicitly requested.
 
 ## Before changing code
 
