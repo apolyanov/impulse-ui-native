@@ -10,7 +10,7 @@ export function SkeletonDocumentation() {
   return (
     <StoryDocumentationPage
       title="Skeleton"
-      description="Skeleton provides animated, theme-aware placeholders that can mirror the shape of content while it loads."
+      description="Skeleton provides animated, theme-aware primitives and token-matched component presets that preserve content geometry while data loads. Composite surfaces remain recipes so they can follow each application's layout."
     >
       {SkeletonExampleDefinitions.map((example) => (
         <View key={example.name}>

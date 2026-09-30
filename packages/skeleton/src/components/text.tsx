@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
-import { SkeletonTextProps } from "../types";
+import type { SkeletonTextProps } from "../types";
 import { Bone } from "./bone";
 
 export const Text = memo(function Text(props: SkeletonTextProps) {

@@ -1,4 +1,5 @@
-import { memo, PropsWithChildren, useEffect, useMemo } from "react";
+import type { PropsWithChildren } from "react";
+import { memo, useEffect, useMemo } from "react";
 import Animated, {
   cancelAnimation,
   Easing,
@@ -8,16 +9,18 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useComponentsTokens, useStyleProps } from "@impulse-ui-native/theme";
 
-import { SkeletonBoneProps } from "../types";
+import type { SkeletonBoneProps } from "../types";
 
 export const Bone = memo(function Bone(
   props: PropsWithChildren<SkeletonBoneProps>,
 ) {
+  const { style: styleProp, ...rest } = props;
   const tokens = useComponentsTokens();
   const boneTokens = tokens.skeleton.bone;
   const opacity = useSharedValue(boneTokens.initialOpacity);
+  const extractedStyleProps = useStyleProps(props);
 
   const style = useAnimatedStyle(() => {
     return {
@@ -26,6 +29,10 @@ export const Bone = memo(function Bone(
       opacity: opacity.value,
     };
   });
+  const animatedStyle = useMemo(
+    () => [extractedStyleProps, styleProp, style],
+    [extractedStyleProps, style, styleProp],
+  );
 
   useEffect(() => {
     opacity.value = withRepeat(
@@ -42,10 +49,5 @@ export const Bone = memo(function Bone(
     };
   }, [boneTokens.animatedOpacity, boneTokens.animationDuration, opacity]);
 
-  const animatedStyle = useMemo(
-    () => [props.style, style],
-    [props.style, style],
-  );
-
-  return <Animated.View {...props} style={animatedStyle} />;
+  return <Animated.View {...rest} style={animatedStyle} />;
 });

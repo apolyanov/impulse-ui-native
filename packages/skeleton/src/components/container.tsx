@@ -1,8 +1,9 @@
-import { memo, PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
+import { memo } from "react";
 
 import { View } from "@impulse-ui-native/primitives";
 
-import { SkeletonContainerProps } from "../types";
+import type { SkeletonContainerProps } from "../types";
 
 export const Container = memo(function Container(
   props: PropsWithChildren<SkeletonContainerProps>,

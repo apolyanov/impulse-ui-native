@@ -1,35 +1,27 @@
 import { memo } from "react";
-import { StyleSheet } from "react-native";
 
-import type { AppTheme } from "@impulse-ui-native/theme";
-import { useThemedStyles } from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { SkeletonTagProps } from "../types";
 import { Bone } from "./bone";
 
 export const Tag = memo(function Tag(props: SkeletonTagProps) {
-  const { size, ...rest } = props;
-  const styles = useThemedStyles(themedStyles, { size }, [size]);
+  const { size = "medium", ...rest } = props;
+  const tokens = useComponentsTokens().tag;
+  const sizeTokens = tokens.sizes[size];
 
-  return <Bone style={styles.tag} {...rest} />;
+  return (
+    <Bone
+      alignItems="center"
+      alignSelf="flex-start"
+      borderRadius={tokens.borderRadius}
+      borderWidth={tokens.borderWidth}
+      flexDirection="row"
+      height={sizeTokens.height}
+      justifyContent="center"
+      minWidth={sizeTokens.minWidth}
+      paddingHorizontal={sizeTokens.paddingHorizontal}
+      {...rest}
+    />
+  );
 });
-
-function themedStyles(theme: AppTheme, props: Pick<SkeletonTagProps, "size">) {
-  const tagTokens = theme.components.tag;
-  const sizeTokens = tagTokens.sizes[props.size];
-
-  return StyleSheet.create({
-    tag: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-      alignSelf: "flex-start",
-
-      height: sizeTokens.height,
-      paddingHorizontal: sizeTokens.paddingHorizontal,
-      minWidth: sizeTokens.minWidth,
-      borderRadius: tagTokens.borderRadius,
-      borderWidth: tagTokens.borderWidth,
-    },
-  });
-}

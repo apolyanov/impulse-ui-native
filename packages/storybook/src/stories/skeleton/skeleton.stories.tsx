@@ -26,6 +26,12 @@ export const Documentation: Story = {
 
 export const Profile: Story = createSkeletonStory("Profile");
 export const Card: Story = createSkeletonStory("Card");
+export const ActionsAndChoices: Story =
+  createSkeletonStory("ActionsAndChoices");
+export const Fields: Story = createSkeletonStory("Fields");
+export const NavigationAndFeedback: Story = createSkeletonStory(
+  "NavigationAndFeedback",
+);
 
 function createSkeletonStory(name: string): Story {
   const example = SkeletonExampleDefinitions.find((item) => item.name === name);

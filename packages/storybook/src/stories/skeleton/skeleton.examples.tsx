@@ -32,7 +32,7 @@ export const SkeletonExampleDefinitions = [
     ],
     preview: (
       <Skeleton.Container flexDirection="row" alignItems="center" gap={12}>
-        <Skeleton.Bone width={48} height={48} borderRadius={24} />
+        <Skeleton.Avatar size="large" />
         <Skeleton.Container flex={1} gap={8}>
           <Skeleton.Text
             text="Account holder name"
@@ -68,6 +68,82 @@ export const SkeletonExampleDefinitions = [
           Component={Typography.Title5}
         />
         <Skeleton.Tag size="small" width={88} />
+      </Skeleton.Container>
+    ),
+  },
+  {
+    name: "ActionsAndChoices",
+    title: "Actions and choices",
+    description:
+      "Token-matched presets preserve the geometry of actions, identity, metadata, and choice controls.",
+    props: [
+      {
+        name: "size",
+        value: "small | medium | large",
+        description: "Matches the corresponding component size tokens.",
+      },
+    ],
+    preview: (
+      <Skeleton.Container gap={12}>
+        <Skeleton.Container flexDirection="row" alignItems="center" gap={8}>
+          <Skeleton.Avatar />
+          <Skeleton.Badge width={72} />
+          <Skeleton.Tag size="medium" width={80} />
+        </Skeleton.Container>
+        <Skeleton.Container flexDirection="row" alignItems="center" gap={8}>
+          <Skeleton.Button width={112} />
+          <Skeleton.IconButton />
+          <Skeleton.Checkbox />
+          <Skeleton.Radio />
+          <Skeleton.Switch />
+        </Skeleton.Container>
+      </Skeleton.Container>
+    ),
+  },
+  {
+    name: "Fields",
+    title: "Fields",
+    description:
+      "Control covers Input, Select, and date/time fields while Textarea preserves multiline height.",
+    props: [
+      {
+        name: "rows",
+        value: "3",
+        description: "Sets the Textarea placeholder's visible row count.",
+      },
+    ],
+    preview: (
+      <Skeleton.Container gap={12}>
+        <Skeleton.Control size="small" />
+        <Skeleton.Control size="medium" />
+        <Skeleton.Control size="large" />
+        <Skeleton.Textarea rows={4} />
+      </Skeleton.Container>
+    ),
+  },
+  {
+    name: "NavigationAndFeedback",
+    title: "Navigation and feedback",
+    description:
+      "Higher-level presets reserve stable space for progress, sliders, segmented choices, and pagination.",
+    props: [
+      {
+        name: "itemCount",
+        value: "3 | 5",
+        description:
+          "Controls the reserved width for SegmentedControl and Pagination.",
+      },
+    ],
+    preview: (
+      <Skeleton.Container gap={16}>
+        <Skeleton.Progress />
+        <Skeleton.Container flexDirection="row" alignItems="center" gap={12}>
+          <Skeleton.Progress variant="circular" />
+          <Skeleton.Slider width={200} />
+        </Skeleton.Container>
+        <Skeleton.SegmentedControl itemCount={3} />
+        <Skeleton.Pagination itemCount={5} />
+        <Skeleton.Divider />
       </Skeleton.Container>
     ),
   },
