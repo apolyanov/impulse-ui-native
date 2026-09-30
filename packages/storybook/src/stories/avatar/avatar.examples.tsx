@@ -28,7 +28,6 @@ export const AvatarExampleDefinitions = [
       { name: "initials", value: "AK" },
     ],
     args: {
-      accessibilityLabel: "Alex Kim",
       initials: "AK",
       source: { uri: "https://i.pravatar.cc/128?img=47" },
     },
@@ -38,7 +37,7 @@ export const AvatarExampleDefinitions = [
     title: "Initials fallback",
     description: "Use one or two initials when no profile image is available.",
     props: [{ name: "initials", value: "AK" }],
-    args: { accessibilityLabel: "Alex Kim", initials: "AK" },
+    args: { initials: "AK" },
   },
   {
     name: "CustomFallback",
@@ -46,9 +45,7 @@ export const AvatarExampleDefinitions = [
     description:
       "Provide custom fallback content when initials are not meaningful for the represented entity.",
     props: [{ name: "fallback", value: "ReactNode" }],
-    args: {
-      accessibilityLabel: "Guest profile",
-    },
+    args: {},
     customFallback: true,
   },
   {
@@ -101,7 +98,6 @@ export const AvatarExampleDefinitions = [
       "Use the online status when presence information is current and useful.",
     props: [{ name: "status", value: "online" }],
     args: {
-      accessibilityLabel: "Alex Kim, online",
       initials: "AK",
       status: "online",
     },
@@ -112,7 +108,6 @@ export const AvatarExampleDefinitions = [
     description: "Use the away status for temporarily inactive profiles.",
     props: [{ name: "status", value: "away" }],
     args: {
-      accessibilityLabel: "Alex Kim, away",
       initials: "AK",
       status: "away",
     },
@@ -123,7 +118,6 @@ export const AvatarExampleDefinitions = [
     description: "Use the busy status when interruptions should be avoided.",
     props: [{ name: "status", value: "busy" }],
     args: {
-      accessibilityLabel: "Alex Kim, busy",
       initials: "AK",
       status: "busy",
     },
@@ -134,7 +128,6 @@ export const AvatarExampleDefinitions = [
     description: "Use the offline status when the profile is unavailable.",
     props: [{ name: "status", value: "offline" }],
     args: {
-      accessibilityLabel: "Alex Kim, offline",
       initials: "AK",
       status: "offline",
     },

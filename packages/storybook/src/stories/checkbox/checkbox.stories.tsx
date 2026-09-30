@@ -17,7 +17,6 @@ const meta = {
   title: "Components/Checkbox",
   component: Checkbox,
   args: {
-    accessibilityLabel: "Checkbox",
     defaultChecked: false,
     disabled: false,
     size: "medium",
@@ -68,7 +67,7 @@ export const Documentation: Story = {
     return <CheckboxDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete usage guide for Checkbox states, variants, sizes, accessibility, and controlled behavior.",
+    "A complete usage guide for Checkbox states, variants, sizes, and controlled behavior.",
   ),
 };
 

@@ -1,6 +1,6 @@
 # @impulse-ui-native/switch
 
-Accessible, token-aware animated switch controls for React Native and React Native Web.
+Token-aware animated switch controls for React Native mobile applications.
 
 ## Installation
 
@@ -27,7 +27,6 @@ export function NotificationsSwitch() {
 
   return (
     <Switch
-      accessibilityLabel="Notifications"
       checked={checked}
       onCheckedChange={setChecked}
       size="medium"
@@ -37,8 +36,6 @@ export function NotificationsSwitch() {
 }
 ```
 
-Use `defaultChecked` for uncontrolled state. The thumb position and track colors animate when the state changes. System reduced-motion preferences disable the transition while preserving the state change.
+Use `defaultChecked` for uncontrolled state. The thumb position and track colors animate when the state changes.
 
-Set `loading` while an update is pending. Loading switches expose a busy accessibility state, show an activity indicator, and block further presses until loading ends. Disabled switches also block interaction.
-
-The standalone switch does not render a label, so provide `accessibilityLabel` unless a surrounding labelled control supplies an accessible name.
+Set `loading` while an update is pending. Loading switches show an activity indicator and block further presses until loading ends. Disabled switches also block interaction.

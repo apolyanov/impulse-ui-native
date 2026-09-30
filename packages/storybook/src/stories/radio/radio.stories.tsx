@@ -14,7 +14,6 @@ const meta = {
   title: "Components/Radio",
   component: Radio,
   args: {
-    accessibilityLabel: "Radio",
     defaultChecked: false,
     disabled: false,
     size: "medium",
@@ -63,7 +62,7 @@ export const Documentation: Story = {
     return <RadioDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete usage guide for Radio states, variants, sizes, accessibility, and controlled behavior.",
+    "A complete usage guide for Radio states, variants, sizes, and controlled behavior.",
   ),
 };
 

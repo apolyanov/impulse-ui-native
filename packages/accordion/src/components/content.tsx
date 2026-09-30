@@ -42,20 +42,10 @@ export const AccordionContent = memo(function AccordionContent({
 
   return (
     <Animated.View
-      aria-hidden={!item.open}
-      accessibilityElementsHidden={!item.open}
-      importantForAccessibility={item.open ? "auto" : "no-hide-descendants"}
       pointerEvents={item.open ? "auto" : "none"}
       style={viewportStyle}
     >
-      <View
-        {...props}
-        aria-labelledby={item.triggerId}
-        accessibilityLabelledBy={item.triggerId}
-        nativeID={item.contentId}
-        onLayout={handleLayout}
-        style={innerStyle}
-      >
+      <View {...props} onLayout={handleLayout} style={innerStyle}>
         {children}
       </View>
     </Animated.View>

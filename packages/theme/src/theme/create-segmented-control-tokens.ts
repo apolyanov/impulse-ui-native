@@ -12,9 +12,6 @@ export function createSegmentedControlTokens(
   return {
     borderRadius: tokens.radii.md,
     borderWidth: tokens.borderSize.sm,
-    focusBackgroundColor: tokens.colors.surface.elevated.value,
-    focusBorderWidth: tokens.borderSize.md,
-    focusColor: primary,
     itemBorderRadius: tokens.radii.md,
     itemBorderWidth: tokens.borderSize.sm,
     rootBackgroundColor: tokens.colors.surface.primary.value,

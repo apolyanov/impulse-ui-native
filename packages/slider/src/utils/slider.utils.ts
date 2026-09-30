@@ -2,7 +2,6 @@ import type { ViewStyle } from "react-native";
 import { I18nManager } from "react-native";
 
 import type { SliderThumb, SliderValue } from "../types";
-import { PageStepMultiplier } from "../constants";
 
 export interface SliderBounds {
   max: number;
@@ -94,47 +93,6 @@ export function getValueFromPosition(
     bounds.min + ratio * (bounds.max - bounds.min),
     bounds,
   );
-}
-
-export function getKeyboardSliderValue(
-  key: string,
-  current: number,
-  bounds: SliderBounds,
-): number | undefined {
-  const horizontalDirection = I18nManager.isRTL ? -1 : 1;
-
-  switch (key) {
-    case "ArrowRight":
-      return normalizeSliderValue(
-        current + bounds.step * horizontalDirection,
-        bounds,
-      );
-    case "ArrowLeft":
-      return normalizeSliderValue(
-        current - bounds.step * horizontalDirection,
-        bounds,
-      );
-    case "ArrowUp":
-      return normalizeSliderValue(current + bounds.step, bounds);
-    case "ArrowDown":
-      return normalizeSliderValue(current - bounds.step, bounds);
-    case "PageUp":
-      return normalizeSliderValue(
-        current + bounds.step * PageStepMultiplier,
-        bounds,
-      );
-    case "PageDown":
-      return normalizeSliderValue(
-        current - bounds.step * PageStepMultiplier,
-        bounds,
-      );
-    case "Home":
-      return bounds.min;
-    case "End":
-      return bounds.max;
-    default:
-      return undefined;
-  }
 }
 
 export function getClosestThumb(

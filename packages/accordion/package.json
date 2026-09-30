@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/accordion",
   "version": "4.0.0",
-  "description": "Accessible animated accordion components for ImpulseUI Native applications.",
+  "description": "Animated accordion components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
     "accordion",

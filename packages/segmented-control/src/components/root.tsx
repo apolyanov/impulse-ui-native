@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useRef } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -12,12 +12,7 @@ import type {
 } from "../types";
 import { SegmentedControlProvider } from "../contexts";
 
-type ItemRegistration = Parameters<
-  SegmentedControlContextData["registerItem"]
->[0];
-
 export const SegmentedControlRoot = memo(function SegmentedControlRoot({
-  accessibilityState,
   children,
   contentContainerStyle,
   defaultValue,
@@ -36,83 +31,22 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
     defaultProp: defaultValue,
     onChange: onValueChange,
   });
-  const itemRegistry = useRef<ItemRegistration[]>([]);
   const styles = useThemedStyles(themedStyles, { size }, [size]);
-
-  const registerItem = useCallback((registration: ItemRegistration) => {
-    itemRegistry.current = [...itemRegistry.current, registration];
-
-    return () => {
-      itemRegistry.current = itemRegistry.current.filter(
-        (candidate) => candidate !== registration,
-      );
-    };
-  }, []);
 
   const selectValue = useCallback(
     (nextValue: string) => setSelectedValue(nextValue),
     [setSelectedValue],
   );
 
-  const focusItem = useCallback<SegmentedControlContextData["focusItem"]>(
-    (currentValue, direction) => {
-      const enabledItems = itemRegistry.current.filter(
-        (item) => !item.disabled,
-      );
-      const currentIndex = enabledItems.findIndex(
-        (item) => item.value === currentValue,
-      );
-
-      if (enabledItems.length === 0) return;
-
-      let nextIndex = currentIndex;
-
-      if (direction === "first") nextIndex = 0;
-      if (direction === "last") nextIndex = enabledItems.length - 1;
-      if (direction === "next") {
-        nextIndex = (currentIndex + 1) % enabledItems.length;
-      }
-      if (direction === "previous") {
-        nextIndex =
-          (currentIndex - 1 + enabledItems.length) % enabledItems.length;
-      }
-
-      const nextItem = enabledItems[nextIndex];
-
-      if (!nextItem) return;
-
-      nextItem.ref.current?.focus();
-      setSelectedValue(nextItem.value);
-    },
-    [setSelectedValue],
-  );
-
   const context = useMemo<SegmentedControlContextData>(
     () => ({
       disabled,
-      focusItem,
-      registerItem,
       selectValue,
       selectedValue,
       size,
       variant,
     }),
-    [
-      disabled,
-      focusItem,
-      registerItem,
-      selectValue,
-      selectedValue,
-      size,
-      variant,
-    ],
-  );
-  const resolvedAccessibilityState = useMemo(
-    () => ({
-      ...accessibilityState,
-      disabled,
-    }),
-    [accessibilityState, disabled],
+    [disabled, selectValue, selectedValue, size, variant],
   );
   const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
   const resolvedContentContainerStyle = useMemo(
@@ -124,8 +58,6 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
     <SegmentedControlProvider value={context}>
       <ScrollView
         {...props}
-        accessibilityRole="radiogroup"
-        accessibilityState={resolvedAccessibilityState}
         contentContainerStyle={resolvedContentContainerStyle}
         directionalLockEnabled
         horizontal

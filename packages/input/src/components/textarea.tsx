@@ -1,4 +1,3 @@
-import type { AccessibilityState } from "react-native";
 import { memo, useMemo } from "react";
 
 import { Control, Typography, View } from "@impulse-ui-native/primitives";
@@ -9,8 +8,6 @@ import { useTextarea } from "../hooks";
 import { textareaStyles } from "./textarea.styles";
 
 export const Textarea = memo(function Textarea({
-  accessibilityLabel,
-  accessibilityState,
   autoGrow = false,
   containerStyle,
   defaultValue = "",
@@ -52,14 +49,6 @@ export const Textarea = memo(function Textarea({
     value: valueProp,
   });
 
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      disabled,
-      invalid: Boolean(error),
-    }),
-    [accessibilityState, disabled, error],
-  );
   const resolvedContainerStyle = useMemo(
     () => [styles.container, containerStyle, { height: textarea.height }],
     [containerStyle, styles.container, textarea.height],
@@ -86,8 +75,6 @@ export const Textarea = memo(function Textarea({
         <Control.Container style={resolvedContainerStyle}>
           <Control.Input
             {...props}
-            accessibilityLabel={accessibilityLabel ?? label}
-            accessibilityState={resolvedAccessibilityState}
             maxLength={maxLength}
             multiline
             numberOfLines={textarea.numberOfLines}
@@ -104,10 +91,7 @@ export const Textarea = memo(function Textarea({
           <View style={styles.footer}>
             <Control.Error style={styles.error} />
             {showCharacterCount ? (
-              <Typography.Caption
-                accessibilityLabel={`Character count: ${counterLabel}`}
-                style={styles.counter}
-              >
+              <Typography.Caption style={styles.counter}>
                 {counterLabel}
               </Typography.Caption>
             ) : null}

@@ -14,7 +14,6 @@ const meta = {
   title: "Components/Switch",
   component: Switch,
   args: {
-    accessibilityLabel: "Switch",
     defaultChecked: false,
     disabled: false,
     loading: false,
@@ -71,7 +70,7 @@ export const Documentation: Story = {
     return <SwitchDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete usage guide for Switch states, animation, variants, sizes, accessibility, and controlled behavior.",
+    "A complete usage guide for Switch states, animation, variants, sizes, and controlled behavior.",
   ),
 };
 

@@ -13,7 +13,7 @@ export interface TextareaProps
   autoGrow?: boolean;
   /** Styles the bordered textarea container. */
   containerStyle?: ViewProps["style"];
-  /** Visible label and accessible-name fallback for the textarea. */
+  /** Visible label for the textarea. */
   label?: string;
   /** Maximum visible rows when `autoGrow` is enabled. */
   maxRows?: number;

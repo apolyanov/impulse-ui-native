@@ -29,7 +29,6 @@ export const SwitchExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Off example",
       defaultChecked: false,
     },
   },
@@ -46,7 +45,6 @@ export const SwitchExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "On example",
       defaultChecked: true,
     },
   },
@@ -55,8 +53,7 @@ export const SwitchExampleDefinitions = [
   {
     name: "Disabled",
     title: "Disabled switch",
-    description:
-      "Disabled switches remain legible but block presses and expose their disabled state.",
+    description: "Disabled switches remain legible but block presses.",
     props: [
       {
         name: "disabled",
@@ -65,7 +62,6 @@ export const SwitchExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Disabled example",
       defaultChecked: true,
       disabled: true,
     },
@@ -74,7 +70,7 @@ export const SwitchExampleDefinitions = [
     name: "Loading",
     title: "Loading switch",
     description:
-      "Loading switches expose a busy state, show progress in the thumb, and block duplicate presses.",
+      "Loading switches show progress in the thumb and block duplicate presses.",
     props: [
       {
         name: "loading",
@@ -83,7 +79,6 @@ export const SwitchExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Loading example",
       defaultChecked: true,
       loading: true,
     },
@@ -105,9 +100,7 @@ export const SwitchExampleDefinitions = [
         description: "Receives the next state after a press.",
       },
     ],
-    args: {
-      accessibilityLabel: "Controlled example",
-    },
+    args: {},
     controlled: true,
   },
 ] satisfies SwitchExampleDefinition[];
@@ -163,7 +156,6 @@ function createVariantExamples(): SwitchExampleDefinition[] {
       },
     ],
     args: {
-      accessibilityLabel: `${variant} example`,
       defaultChecked: true,
       variant,
     },
@@ -185,7 +177,6 @@ function createSizeExamples(): SwitchExampleDefinition[] {
       },
     ],
     args: {
-      accessibilityLabel: `${size} example`,
       defaultChecked: true,
       size,
     },

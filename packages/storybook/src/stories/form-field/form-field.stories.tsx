@@ -31,20 +31,19 @@ const meta = {
     },
     disabled: {
       control: "boolean",
-      description:
-        "Coordinates disabled styling, semantics, and control behavior.",
+      description: "Coordinates disabled styling and control behavior.",
     },
     error: {
       control: "text",
-      description: "Displays and announces validation feedback.",
+      description: "Displays validation feedback.",
     },
     label: {
       control: "text",
-      description: "Provides the visible and accessible field name.",
+      description: "Provides the visible field name.",
     },
     required: {
       control: "boolean",
-      description: "Adds a visible and accessible required marker.",
+      description: "Adds a visible required marker.",
     },
   },
 } satisfies Meta<typeof FormField>;
@@ -58,7 +57,7 @@ export const Documentation: Story = {
     return <FormFieldDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete usage guide for FormField labels, descriptions, required state, validation, disabled behavior, and custom-control accessibility wiring.",
+    "A complete usage guide for FormField labels, descriptions, required state, validation, disabled behavior, and custom-control wiring.",
   ),
 };
 

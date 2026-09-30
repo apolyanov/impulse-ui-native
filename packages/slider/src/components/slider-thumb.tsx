@@ -1,103 +1,35 @@
-import type { AccessibilityActionEvent, PressableProps } from "react-native";
-import { memo, useMemo, useState } from "react";
-import { Platform, StyleSheet } from "react-native";
+import { memo, useMemo } from "react";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
-import { useEventCallback } from "@impulse-ui-native/core";
-import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
+import { Typography, View } from "@impulse-ui-native/primitives";
 import {
   getControlStateTokens,
-  useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
 import type { SliderThumbProps } from "../types/slider-internal.types";
 
 export const SliderThumbControl = memo(function SliderThumbControl({
-  accessibilityLabel,
-  accessibilityState,
-  accessibilityValue,
   disabled,
-  onBlur,
-  onDecrement,
-  onFocus,
-  onIncrement,
-  onKeyDown,
   positionStyle,
   showValueBubble,
   size,
   valueLabel,
   variant,
 }: SliderThumbProps) {
-  const [focused, setFocused] = useState(false);
-  const sizeTokens = useComponentsTokens().slider.sizes[size];
-  const styles = useThemedStyles(
-    themedStyles,
-    { disabled, focused, size, variant },
-    [disabled, focused, size, variant],
-  );
-  const accessibilityActions = useMemo(
-    () => [{ name: "increment" as const }, { name: "decrement" as const }],
-    [],
-  );
-  const webInteractionProps = useMemo(
-    () =>
-      Platform.OS === "web" ? ({ onKeyDown } as PressableProps) : undefined,
-    [onKeyDown],
-  );
+  const styles = useThemedStyles(themedStyles, { disabled, size, variant }, [
+    disabled,
+    size,
+    variant,
+  ]);
   const thumbStyles = useMemo(
-    () => [styles.focusRing, positionStyle],
-    [positionStyle, styles.focusRing],
-  );
-
-  const handleAccessibilityAction = useEventCallback(
-    (event: AccessibilityActionEvent) => {
-      if (event.nativeEvent.actionName === "increment") {
-        onIncrement();
-      } else if (event.nativeEvent.actionName === "decrement") {
-        onDecrement();
-      }
-    },
-  );
-
-  const handleBlur = useEventCallback<NonNullable<PressableProps["onBlur"]>>(
-    (event) => {
-      setFocused(false);
-      onBlur?.(event);
-    },
-  );
-
-  const handleFocus = useEventCallback<NonNullable<PressableProps["onFocus"]>>(
-    (event) => {
-      const focusTarget = event.currentTarget as unknown as {
-        matches?: (selector: string) => boolean;
-      };
-
-      setFocused(
-        Platform.OS !== "web" ||
-          focusTarget.matches?.(":focus-visible") !== false,
-      );
-      onFocus?.(event);
-    },
+    () => [styles.container, positionStyle],
+    [positionStyle, styles.container],
   );
 
   return (
-    <Pressable
-      {...webInteractionProps}
-      accessibilityActions={accessibilityActions}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityRole="adjustable"
-      accessibilityState={accessibilityState}
-      accessibilityValue={accessibilityValue}
-      disabled={disabled}
-      focusable={!disabled}
-      hitSlop={sizeTokens.hitSlop}
-      onAccessibilityAction={handleAccessibilityAction}
-      onBlur={handleBlur}
-      onFocus={handleFocus}
-      pressedStyle={styles.pressed}
-      style={thumbStyles}
-    >
+    <View pointerEvents="none" style={thumbStyles}>
       {showValueBubble ? (
         <View pointerEvents="none" style={styles.valueBubble}>
           <Typography.Caption style={styles.valueBubbleText}>
@@ -109,30 +41,27 @@ export const SliderThumbControl = memo(function SliderThumbControl({
       <View pointerEvents="none" shadow="sm" style={styles.thumb}>
         {variant === "outlined" ? null : <View style={styles.thumbHighlight} />}
       </View>
-    </Pressable>
+    </View>
   );
 });
 
 interface SliderThumbThemeProps {
   disabled: boolean;
-  focused: boolean;
   size: SliderThumbProps["size"];
   variant: SliderThumbProps["variant"];
 }
 
 function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
-  const { disabled, focused, size, variant } = props;
+  const { disabled, size, variant } = props;
   const tokens = theme.components.slider;
   const sizeTokens = tokens.sizes[size];
   const appearanceTokens = getControlStateTokens(tokens.variants[variant], {
     disabled,
-    focused,
   });
-  const thumbOuterSize =
-    sizeTokens.thumbSize + (tokens.focusRingWidth + tokens.focusRingOffset) * 2;
+  const thumbOuterSize = sizeTokens.thumbSize;
 
   return StyleSheet.create({
-    focusRing: {
+    container: {
       position: "absolute",
       bottom: 0,
       alignItems: "center",
@@ -140,12 +69,7 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
       width: thumbOuterSize,
       height: thumbOuterSize,
       marginStart: -thumbOuterSize / 2,
-      borderWidth: appearanceTokens.focusRingBorderWidth,
       borderRadius: tokens.thumbBorderRadius,
-      borderColor: tokens.focusRingColor,
-    },
-    pressed: {
-      opacity: 1,
     },
     thumb: {
       alignItems: "center",

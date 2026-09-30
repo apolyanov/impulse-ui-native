@@ -1,7 +1,6 @@
 # @impulse-ui-native/segmented-control
 
-Accessible, token-aware single-selection controls for React Native and React
-Native Web.
+Token-aware single-selection controls for React Native mobile applications.
 
 ## Installation
 
@@ -16,7 +15,7 @@ peer dependencies in the host application.
 ## Main exports
 
 - `SegmentedControl.Root` owns the selected value, shared appearance, disabled
-  state, keyboard navigation, and overflow policy.
+  state, and overflow policy.
 - `SegmentedControl.Item` represents one selectable value and supports a label,
   an icon, or both.
 
@@ -49,7 +48,3 @@ to disable the whole group or on an item to disable only that option.
 
 `overflow="scroll"` is the default and preserves readable item widths in narrow
 containers. Use `overflow="clip"` only when the layout guarantees enough room.
-
-The root exposes radio-group semantics. Items expose their selected and disabled
-states and support Arrow Left, Arrow Right, Home, and End navigation on web,
-including RTL direction. Provide `accessibilityLabel` for icon-only items.

@@ -1,11 +1,10 @@
 {
   "name": "@impulse-ui-native/form-field",
   "version": "4.0.0",
-  "description": "Accessible form-field composition for Impulse UI Native controls.",
+  "description": "Form-field composition for Impulse UI Native controls.",
   "keywords": [
     "react-native",
     "form-field",
-    "accessibility",
     "validation",
     "components",
     "impulse-ui-native"

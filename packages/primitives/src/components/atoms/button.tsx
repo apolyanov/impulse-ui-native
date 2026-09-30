@@ -1,4 +1,3 @@
-import type { AccessibilityState } from "react-native";
 import { memo, PropsWithChildren, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
@@ -14,7 +13,6 @@ import { Spinner } from "./spinner";
 import { Typography } from "./typography";
 
 export const Button = memo(function Button({
-  accessibilityState,
   size = "medium",
   variant = "filled",
   disabled,
@@ -31,15 +29,6 @@ export const Button = memo(function Button({
 
   const interactionDisabled = disabled === true || loading;
 
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      busy: loading,
-      disabled: interactionDisabled,
-    }),
-    [accessibilityState, interactionDisabled, loading],
-  );
-
   const buttonStyles = useMemo(
     () => [styles.button, style],
     [styles.button, style],
@@ -47,9 +36,7 @@ export const Button = memo(function Button({
 
   const content = useMemo(() => {
     if (loading) {
-      return (
-        <Spinner accessible={false} color={styles.text.color} size={size} />
-      );
+      return <Spinner color={styles.text.color} size={size} />;
     }
 
     return typeof children === "string" ? (
@@ -60,12 +47,7 @@ export const Button = memo(function Button({
   }, [children, loading, size, styles.text]);
 
   return (
-    <Pressable
-      {...props}
-      accessibilityState={resolvedAccessibilityState}
-      disabled={interactionDisabled}
-      style={buttonStyles}
-    >
+    <Pressable {...props} disabled={interactionDisabled} style={buttonStyles}>
       {content}
     </Pressable>
   );

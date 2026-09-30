@@ -23,25 +23,16 @@ export const FormField = memo(function FormField({
 }: FormFieldProps) {
   const generatedId = useId();
   const fieldId = nativeID ?? `form-field-${generatedId}`;
-  const labelId = `${fieldId}-label`;
   const controlId = `${fieldId}-control`;
-  const descriptionId = `${fieldId}-description`;
-  const errorId = `${fieldId}-error`;
   const invalid = Boolean(error);
-  const accessibleLabel = required ? `${label}, required` : label;
-  const accessibilityHint = [error, description].filter(Boolean).join(" ");
   const styles = useThemedStyles(formFieldStyles, { disabled }, [disabled]);
 
   const controlProps = useMemo<FormFieldControlProps>(
     () => ({
-      accessibilityHint: accessibilityHint || undefined,
-      accessibilityLabel: accessibleLabel,
-      accessibilityLabelledBy: labelId,
-      accessibilityState: { disabled },
       disabled,
       nativeID: controlId,
     }),
-    [accessibilityHint, accessibleLabel, controlId, disabled, labelId],
+    [controlId, disabled],
   );
   const renderProps = useMemo<FormFieldRenderProps>(
     () => ({ controlProps, invalid, required }),
@@ -56,23 +47,16 @@ export const FormField = memo(function FormField({
       variant="outlined"
     >
       <Control.Root {...props} nativeID={fieldId} style={style}>
-        <Control.Label
-          accessibilityLabel={accessibleLabel}
-          disabled={disabled}
-          nativeID={labelId}
-        >
+        <Control.Label disabled={disabled}>
           {required ? `${label} *` : label}
         </Control.Label>
         {description ? (
-          <Typography.Caption
-            nativeID={descriptionId}
-            style={styles.description}
-          >
+          <Typography.Caption style={styles.description}>
             {description}
           </Typography.Caption>
         ) : null}
         {children(renderProps)}
-        <Control.Error accessibilityLiveRegion="polite" nativeID={errorId} />
+        <Control.Error />
       </Control.Root>
     </Control.Provider>
   );

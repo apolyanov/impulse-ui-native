@@ -30,7 +30,6 @@ export const CheckboxExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Unchecked example",
       defaultChecked: false,
     },
   },
@@ -46,7 +45,6 @@ export const CheckboxExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Checked example",
       defaultChecked: true,
     },
   },
@@ -64,7 +62,6 @@ export const CheckboxExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Indeterminate example",
       defaultChecked: "indeterminate",
     },
   },
@@ -73,8 +70,7 @@ export const CheckboxExampleDefinitions = [
   {
     name: "Disabled",
     title: "Disabled checkbox",
-    description:
-      "Disabled checkboxes remain visible but block state changes and expose their disabled state to assistive technology.",
+    description: "Disabled checkboxes remain visible but block state changes.",
     props: [
       {
         name: "disabled",
@@ -88,7 +84,6 @@ export const CheckboxExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Disabled example",
       defaultChecked: true,
       disabled: true,
     },
@@ -110,9 +105,7 @@ export const CheckboxExampleDefinitions = [
         description: "Receives the next checkbox state after a press.",
       },
     ],
-    args: {
-      accessibilityLabel: "Controlled example",
-    },
+    args: {},
     controlled: true,
   },
 ] satisfies CheckboxExampleDefinition[];
@@ -168,7 +161,6 @@ function createVariantExamples(): CheckboxExampleDefinition[] {
       },
     ],
     args: {
-      accessibilityLabel: `${variant} example`,
       defaultChecked: true,
       variant,
     },
@@ -190,7 +182,6 @@ function createSizeExamples(): CheckboxExampleDefinition[] {
       },
     ],
     args: {
-      accessibilityLabel: `${size} example`,
       defaultChecked: true,
       size,
     },

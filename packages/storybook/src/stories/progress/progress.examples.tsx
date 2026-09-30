@@ -28,7 +28,6 @@ export const ProgressExampleDefinitions = [
       { name: "value", value: "65" },
     ],
     args: {
-      accessibilityLabel: "File upload progress",
       value: 65,
       variant: "linear",
     },
@@ -43,7 +42,6 @@ export const ProgressExampleDefinitions = [
       { name: "value", value: "undefined" },
     ],
     args: {
-      accessibilityLabel: "Preparing download",
       value: undefined,
       variant: "linear",
     },
@@ -58,7 +56,6 @@ export const ProgressExampleDefinitions = [
       { name: "value", value: "72" },
     ],
     args: {
-      accessibilityLabel: "Profile completion",
       value: 72,
       variant: "circular",
     },
@@ -66,14 +63,12 @@ export const ProgressExampleDefinitions = [
   {
     name: "CircularIndeterminate",
     title: "Circular indeterminate progress",
-    description:
-      "The circular indeterminate state rotates continuously unless reduced motion is enabled.",
+    description: "The circular indeterminate state rotates continuously.",
     props: [
       { name: "variant", value: "circular" },
       { name: "value", value: "undefined" },
     ],
     args: {
-      accessibilityLabel: "Processing payment",
       value: undefined,
       variant: "circular",
     },
@@ -88,7 +83,6 @@ export const ProgressExampleDefinitions = [
       { name: "variant", value: "circular" },
     ],
     args: {
-      accessibilityLabel: "Compact task progress",
       size: "small",
       value: 40,
       variant: "circular",
@@ -104,7 +98,6 @@ export const ProgressExampleDefinitions = [
       { name: "variant", value: "linear" },
     ],
     args: {
-      accessibilityLabel: "Onboarding progress",
       size: "large",
       value: 80,
       variant: "linear",
@@ -120,7 +113,6 @@ export const ProgressExampleDefinitions = [
       { name: "variant", value: "circular" },
     ],
     args: {
-      accessibilityLabel: "Inverse surface progress",
       tone: "inverse",
       value: 58,
       variant: "circular",
@@ -136,7 +128,6 @@ export const ProgressExampleDefinitions = [
       { name: "trackColor", value: "#ede9fe" },
     ],
     args: {
-      accessibilityLabel: "Custom task progress",
       color: "#7c3aed",
       trackColor: "#ede9fe",
       value: 45,
@@ -153,7 +144,6 @@ export const ProgressExampleDefinitions = [
       { name: "value", value: "50" },
     ],
     args: {
-      accessibilityLabel: "Temperature calibration progress",
       max: 80,
       min: 20,
       value: 50,

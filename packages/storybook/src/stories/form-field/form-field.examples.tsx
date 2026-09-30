@@ -31,7 +31,7 @@ export const FormFieldExampleDefinitions = [
       {
         name: "label",
         value: "Notifications",
-        description: "Provides the visible and accessible control name.",
+        description: "Provides the visible control name.",
       },
       {
         name: "description",
@@ -47,13 +47,12 @@ export const FormFieldExampleDefinitions = [
   {
     name: "Required",
     title: "Required field",
-    description:
-      "Required fields include a visible marker and announce the requirement as part of the accessible label.",
+    description: "Required fields include a visible marker.",
     props: [
       {
         name: "required",
         value: "true",
-        description: "Adds the visible and accessible required treatment.",
+        description: "Adds the visible required treatment.",
       },
     ],
     args: {
@@ -67,12 +66,12 @@ export const FormFieldExampleDefinitions = [
     name: "Validation",
     title: "Field with validation feedback",
     description:
-      "Validation feedback is rendered once and included in the custom control's accessibility hint.",
+      "Validation feedback is rendered once below the custom control.",
     props: [
       {
         name: "error",
         value: "Enable notifications to continue.",
-        description: "Displays and announces the current validation message.",
+        description: "Displays the current validation message.",
       },
     ],
     args: {
@@ -85,7 +84,7 @@ export const FormFieldExampleDefinitions = [
     name: "Disabled",
     title: "Disabled field",
     description:
-      "The field coordinates disabled label styling, accessibility state, and interaction on the rendered control.",
+      "The field coordinates disabled label styling and interaction on the rendered control.",
     props: [
       {
         name: "disabled",
@@ -107,9 +106,9 @@ export const FormFieldExampleDefinitions = [
     props: [
       {
         name: "controlProps",
-        value: "accessibility props",
+        value: "native props",
         description:
-          "Spreads generated identity, labeling, hint, and disabled props onto the custom control.",
+          "Spreads the generated ID and disabled state onto the custom control.",
       },
     ],
     args: {

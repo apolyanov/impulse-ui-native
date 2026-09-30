@@ -1,6 +1,6 @@
 # @impulse-ui-native/checkbox
 
-Accessible, token-aware checkbox controls for React Native and React Native Web.
+Token-aware checkbox controls for React Native mobile applications.
 
 ## Installation
 
@@ -29,7 +29,6 @@ export function TermsCheckbox() {
 
   return (
     <Checkbox
-      accessibilityLabel="Accept terms"
       checked={checked}
       onCheckedChange={setChecked}
       size="medium"
@@ -42,7 +41,3 @@ export function TermsCheckbox() {
 Use `defaultChecked` for uncontrolled state. Pressing an indeterminate checkbox
 changes it to checked. The component accepts the shared `small`, `medium`, and
 `large` sizes and the `filled`, `outlined`, and `soft` selection variants.
-
-The standalone checkbox does not render a label, so provide
-`accessibilityLabel` unless a surrounding labelled control supplies an
-accessible name.

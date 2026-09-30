@@ -8,11 +8,9 @@ import type { DividerProps } from "../../types";
 import { View } from "./view";
 
 export const Divider = memo(function Divider({
-  accessible = true,
   color,
   inset = "none",
   orientation = "horizontal",
-  role = "separator",
   style,
   tone = "subtle",
   ...props
@@ -28,9 +26,7 @@ export const Divider = memo(function Divider({
     [extractedStyleProps, style, styles.divider],
   );
 
-  return (
-    <View {...props} accessible={accessible} role={role} style={dividerStyle} />
-  );
+  return <View {...props} style={dividerStyle} />;
 });
 
 interface DividerThemeProps {

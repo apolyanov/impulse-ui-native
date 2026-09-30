@@ -4,7 +4,6 @@ import {
   Easing,
   interpolateColor,
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
@@ -28,7 +27,6 @@ export function useSwitchAnimation({
   colors,
   sizeTokens,
 }: UseSwitchAnimationOptions) {
-  const reduceMotion = useReducedMotion();
   const progress = useSharedValue(checked ? 1 : 0);
 
   const thumbTravel =
@@ -74,10 +72,10 @@ export function useSwitchAnimation({
     // Reanimated shared values are mutable handles updated from React effects.
     // eslint-disable-next-line react-hooks/immutability
     progress.value = withTiming(checked ? 1 : 0, {
-      duration: reduceMotion ? 0 : animationDuration,
+      duration: animationDuration,
       easing: Easing.out(Easing.cubic),
     });
-  }, [animationDuration, checked, progress, reduceMotion]);
+  }, [animationDuration, checked, progress]);
 
   return useMemo(() => ({ thumbStyle, trackStyle }), [thumbStyle, trackStyle]);
 }

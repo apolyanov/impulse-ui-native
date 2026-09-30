@@ -42,7 +42,7 @@ export const Documentation: Story = {
     return <AccordionDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete guide to Accordion composition, expansion modes, keyboard behavior, animation, and nesting.",
+    "A complete guide to Accordion composition, expansion modes, animation, and nesting.",
   ),
 };
 

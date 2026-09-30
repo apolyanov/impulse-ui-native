@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useRef } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -18,10 +18,6 @@ import type {
 import { AccordionProvider } from "../contexts";
 import { normalizeAccordionValue } from "../utils";
 
-type TriggerRegistration = Parameters<
-  AccordionContextData["registerTrigger"]
->[0];
-
 export const AccordionRoot = memo(function AccordionRoot({
   children,
   collapsible = true,
@@ -33,7 +29,6 @@ export const AccordionRoot = memo(function AccordionRoot({
   value,
   ...props
 }: AccordionRootProps) {
-  const triggerRegistry = useRef<TriggerRegistration[]>([]);
   const styles = useThemedStyles(themedStyles);
 
   const notifyValueChange = useEventCallback(
@@ -66,44 +61,6 @@ export const AccordionRoot = memo(function AccordionRoot({
     onChange: notifyValueChange,
   });
 
-  const registerTrigger = useCallback((registration: TriggerRegistration) => {
-    triggerRegistry.current = [...triggerRegistry.current, registration];
-
-    return () => {
-      triggerRegistry.current = triggerRegistry.current.filter(
-        (candidate) => candidate !== registration,
-      );
-    };
-  }, []);
-
-  const focusTrigger = useCallback<AccordionContextData["focusTrigger"]>(
-    (currentValue, direction) => {
-      const enabledTriggers = triggerRegistry.current.filter(
-        (trigger) => !trigger.disabled,
-      );
-      const currentIndex = enabledTriggers.findIndex(
-        (trigger) => trigger.value === currentValue,
-      );
-
-      if (enabledTriggers.length === 0) return;
-
-      let nextIndex = currentIndex;
-
-      if (direction === "first") nextIndex = 0;
-      if (direction === "last") nextIndex = enabledTriggers.length - 1;
-      if (direction === "next") {
-        nextIndex = (currentIndex + 1) % enabledTriggers.length;
-      }
-      if (direction === "previous") {
-        nextIndex =
-          (currentIndex - 1 + enabledTriggers.length) % enabledTriggers.length;
-      }
-
-      enabledTriggers[nextIndex]?.ref.current?.focus();
-    },
-    [],
-  );
-
   const toggleItem = useCallback(
     (itemValue: string) => {
       setExpandedValues((currentValues) => {
@@ -129,11 +86,9 @@ export const AccordionRoot = memo(function AccordionRoot({
     () => ({
       disabled,
       expandedValues,
-      focusTrigger,
-      registerTrigger,
       toggleItem,
     }),
-    [disabled, expandedValues, focusTrigger, registerTrigger, toggleItem],
+    [disabled, expandedValues, toggleItem],
   );
   const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
 

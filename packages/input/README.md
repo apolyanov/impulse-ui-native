@@ -55,4 +55,4 @@ import { Textarea } from "@impulse-ui-native/input";
 />;
 ```
 
-`Textarea` supports native controlled and uncontrolled values. When `autoGrow` is enabled, it grows from `minRows` through `maxRows`, then becomes scrollable. Validation remains application-owned: pass the current message through `error`. The visible `label` is used as the accessible-name fallback when `accessibilityLabel` is not provided.
+`Textarea` supports native controlled and uncontrolled values. When `autoGrow` is enabled, it grows from `minRows` through `maxRows`, then becomes scrollable. Validation remains application-owned: pass the current message through `error`.

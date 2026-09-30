@@ -1,6 +1,6 @@
 # @impulse-ui-native/form-field
 
-Accessible label, description, required-state, and validation composition for custom Impulse UI Native controls.
+Label, description, required-state, and validation composition for custom Impulse UI Native controls.
 
 ## Installation
 
@@ -34,10 +34,10 @@ import { Switch } from "@impulse-ui-native/switch";
 
 The render function receives:
 
-- `controlProps`: the generated native ID, accessible label, label relationship, hint, disabled state, and accessibility state to spread onto the control;
+- `controlProps`: the generated native ID and disabled state to spread onto the control;
 - `invalid`: whether the field currently has an error;
 - `required`: the field's required state for custom visual treatment.
 
 `FormField` renders validation feedback once outside the custom control. Use `invalid` only to map the field state into a control's own visual API; do not render the error a second time inside the control.
 
-The required marker is both visible and included in the accessible label. Errors are announced as a polite live region and included in the control's accessibility hint. An explicit `nativeID` can be provided when stable IDs are required; otherwise, `FormField` generates one with React `useId`.
+An explicit `nativeID` can be provided when stable IDs are required; otherwise, `FormField` generates one with React `useId`.

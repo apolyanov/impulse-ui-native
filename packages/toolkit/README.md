@@ -8,7 +8,7 @@ The complete Impulse UI Native component library in one package.
 
 - React Native components with TypeScript types.
 - One theme system shared by every component.
-- Works with native applications and React Native Web.
+- Works with React Native mobile applications.
 - Gesture-driven flyouts and app-wide overlay management.
 - Single- and multi-select controls, date/time pickers, charts, skeletons, and data states.
 - Modular internals: applications with a narrow use case can install an individual `@impulse-ui-native/*` package instead.

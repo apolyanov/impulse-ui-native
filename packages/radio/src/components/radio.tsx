@@ -1,11 +1,10 @@
 import type {
-  AccessibilityState,
   GestureResponderEvent,
   PressableStateCallbackType,
   StyleProp,
   ViewStyle,
 } from "react-native";
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -20,7 +19,6 @@ import {
 import type { RadioProps, RadioThemeProps } from "../types";
 
 export const Radio = memo(function Radio({
-  accessibilityState,
   checked: checkedProp,
   defaultChecked = false,
   disabled,
@@ -47,15 +45,6 @@ export const Radio = memo(function Radio({
   const radioTokens = tokens.radio;
   const sizeTokens = radioTokens.sizes[size];
 
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      checked,
-      disabled: Boolean(disabled),
-    }),
-    [accessibilityState, checked, disabled],
-  );
-
   const radioStyle = useCallback(
     (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
       StyleSheet.flatten([
@@ -76,8 +65,6 @@ export const Radio = memo(function Radio({
   return (
     <Pressable
       {...props}
-      accessibilityRole="radio"
-      accessibilityState={resolvedAccessibilityState}
       disabled={disabled}
       hitSlop={hitSlop ?? sizeTokens.hitSlop}
       onPress={handlePress}

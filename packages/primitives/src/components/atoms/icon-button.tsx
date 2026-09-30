@@ -1,4 +1,3 @@
-import type { AccessibilityState } from "react-native";
 import { memo, PropsWithChildren, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
@@ -14,7 +13,6 @@ import { Pressable } from "./pressable";
 import { Spinner } from "./spinner";
 
 export const IconButton = memo(function IconButton({
-  accessibilityState,
   size = "medium",
   variant = "filled",
   disabled,
@@ -31,15 +29,6 @@ export const IconButton = memo(function IconButton({
 
   const interactionDisabled = disabled === true || loading;
 
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      busy: loading,
-      disabled: interactionDisabled,
-    }),
-    [accessibilityState, interactionDisabled, loading],
-  );
-
   const iconButtonStyles = useMemo(
     () => [styles.button, style],
     [styles.button, style],
@@ -48,12 +37,11 @@ export const IconButton = memo(function IconButton({
   return (
     <Pressable
       {...props}
-      accessibilityState={resolvedAccessibilityState}
       disabled={interactionDisabled}
       style={iconButtonStyles}
     >
       {loading ? (
-        <Spinner accessible={false} color={styles.icon.color} size={size} />
+        <Spinner color={styles.icon.color} size={size} />
       ) : (
         <Icon size={size} icon={icon} color={styles.icon.color} />
       )}

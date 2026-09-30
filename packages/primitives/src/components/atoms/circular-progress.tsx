@@ -78,7 +78,7 @@ const ProgressCircle = memo(function ProgressCircle({
   );
 
   return (
-    <Svg accessible={false} height={width} width={width}>
+    <Svg height={width} width={width}>
       <Circle
         cx={center}
         cy={center}
@@ -139,7 +139,7 @@ const CircularIndeterminateIndicator = memo(
 
     return (
       <Animated.View style={animatedStyle}>
-        <Svg accessible={false} height={width} width={width}>
+        <Svg height={width} width={width}>
           <Circle
             cx={center}
             cy={center}

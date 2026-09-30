@@ -67,7 +67,7 @@ export const Documentation: Story = {
     return <SegmentedControlDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete usage guide for segmented-control content, variants, sizes, disabled states, controlled state, accessibility, and overflow.",
+    "A complete usage guide for segmented-control content, variants, sizes, disabled states, controlled state, and overflow.",
   ),
 };
 

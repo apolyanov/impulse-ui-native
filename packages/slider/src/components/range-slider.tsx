@@ -4,7 +4,6 @@ import { View } from "@impulse-ui-native/primitives";
 
 import type { RangeSliderProps } from "../types";
 import {
-  DefaultAccessibilityLabels,
   DefaultMax,
   DefaultMin,
   DefaultRangeValue,
@@ -17,9 +16,6 @@ import { SliderThumbControl } from "./slider-thumb";
 import { SliderTrack } from "./slider-track";
 
 export const RangeSlider = memo(function RangeSlider({
-  accessibilityLabels = DefaultAccessibilityLabels,
-  accessibilityState,
-  accessibilityValues,
   defaultValue = DefaultRangeValue,
   disabled = false,
   formatValue,
@@ -27,9 +23,6 @@ export const RangeSlider = memo(function RangeSlider({
   max = DefaultMax,
   min = DefaultMin,
   minStepsBetweenThumbs = 0,
-  onBlur,
-  onFocus,
-  onKeyDown,
   onLayout,
   onSlidingComplete,
   onSlidingStart,
@@ -45,8 +38,6 @@ export const RangeSlider = memo(function RangeSlider({
   ...props
 }: RangeSliderProps) {
   const slider = useRangeSlider({
-    accessibilityState,
-    accessibilityValues,
     defaultValue,
     disabled,
     formatValue,
@@ -54,7 +45,6 @@ export const RangeSlider = memo(function RangeSlider({
     max,
     min,
     minStepsBetweenThumbs,
-    onKeyDown,
     onLayout,
     onSlidingComplete,
     onSlidingStart,
@@ -76,15 +66,7 @@ export const RangeSlider = memo(function RangeSlider({
         variant={variant}
       >
         <SliderThumbControl
-          accessibilityLabel={accessibilityLabels[0]}
-          accessibilityState={slider.accessibilityState}
-          accessibilityValue={slider.startThumb.accessibilityValue}
           disabled={disabled}
-          onBlur={onBlur}
-          onDecrement={slider.startThumb.onDecrement}
-          onFocus={onFocus}
-          onIncrement={slider.startThumb.onIncrement}
-          onKeyDown={slider.startThumb.onKeyDown}
           positionStyle={slider.startThumb.positionStyle}
           showValueBubble={showValueBubble}
           size={size}
@@ -92,15 +74,7 @@ export const RangeSlider = memo(function RangeSlider({
           variant={variant}
         />
         <SliderThumbControl
-          accessibilityLabel={accessibilityLabels[1]}
-          accessibilityState={slider.accessibilityState}
-          accessibilityValue={slider.endThumb.accessibilityValue}
           disabled={disabled}
-          onBlur={onBlur}
-          onDecrement={slider.endThumb.onDecrement}
-          onFocus={onFocus}
-          onIncrement={slider.endThumb.onIncrement}
-          onKeyDown={slider.endThumb.onKeyDown}
           positionStyle={slider.endThumb.positionStyle}
           showValueBubble={showValueBubble}
           size={size}

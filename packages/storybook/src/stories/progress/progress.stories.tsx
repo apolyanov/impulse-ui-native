@@ -24,7 +24,6 @@ const meta = {
   title: "Components/Progress",
   component: Progress,
   args: {
-    accessibilityLabel: "Task progress",
     max: 100,
     min: 0,
     size: "medium",

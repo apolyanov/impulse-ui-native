@@ -68,7 +68,7 @@ export const TextareaExampleDefinitions = [
     name: "Validation",
     title: "Textarea with validation feedback",
     description:
-      "Pass an error message when validation fails so the field can expose invalid semantics and explain the correction.",
+      "Pass an error message when validation fails so the field can explain the correction.",
     props: [
       {
         name: "error",
@@ -150,7 +150,7 @@ export const TextareaExampleDefinitions = [
       {
         name: "disabled",
         value: "true",
-        description: "Prevents editing and exposes disabled semantics.",
+        description: "Prevents editing.",
       },
     ],
     args: {

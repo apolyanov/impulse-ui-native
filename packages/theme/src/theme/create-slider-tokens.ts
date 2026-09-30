@@ -4,9 +4,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
   return {
     trackBorderRadius: tokens.radii.round,
     thumbBorderRadius: tokens.radii.round,
-    focusRingWidth: tokens.borderSize.md,
-    focusRingOffset: 2,
-    focusRingColor: tokens.colors.border.focus.value,
     valueBubbleBorderRadius: tokens.radii.md,
     valueBubbleBorderWidth: tokens.borderSize.sm,
     valueBubblePaddingHorizontal: tokens.space.xs,
@@ -18,19 +15,16 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         trackHeight: 4,
         thumbSize: 16,
         markSize: 6,
-        hitSlop: 16,
       },
       medium: {
         trackHeight: 6,
         thumbSize: 20,
         markSize: 6,
-        hitSlop: 14,
       },
       large: {
         trackHeight: 8,
         thumbSize: 24,
         markSize: 8,
-        hitSlop: 12,
       },
     },
     variants: {
@@ -38,7 +32,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         default: {
           activeMarkColor: tokens.colors.primary.value,
           activeTrackColor: tokens.colors.primary.value,
-          focusRingBorderWidth: 0,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.primary.value,
           markColor: tokens.colors.neutral["6"],
@@ -53,7 +46,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         focused: {
           activeMarkColor: tokens.colors.primary.value,
           activeTrackColor: tokens.colors.primary.value,
-          focusRingBorderWidth: tokens.borderSize.md,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.primary.value,
           markColor: tokens.colors.neutral["6"],
@@ -68,7 +60,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         disabled: {
           activeMarkColor: tokens.colors.neutral["6"],
           activeTrackColor: tokens.colors.neutral["5"],
-          focusRingBorderWidth: 0,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.text.disabled,
           markColor: tokens.colors.neutral["6"],
@@ -85,7 +76,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         default: {
           activeMarkColor: tokens.colors.primary.value,
           activeTrackColor: tokens.colors.primary.value,
-          focusRingBorderWidth: 0,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.primary.value,
           markColor: tokens.colors.neutral["6"],
@@ -100,7 +90,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         focused: {
           activeMarkColor: tokens.colors.primary.value,
           activeTrackColor: tokens.colors.primary.value,
-          focusRingBorderWidth: tokens.borderSize.md,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.primary.value,
           markColor: tokens.colors.neutral["6"],
@@ -115,7 +104,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         disabled: {
           activeMarkColor: tokens.colors.neutral["6"],
           activeTrackColor: tokens.colors.neutral["5"],
-          focusRingBorderWidth: 0,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.text.disabled,
           markColor: tokens.colors.neutral["6"],
@@ -132,7 +120,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         default: {
           activeMarkColor: tokens.colors.primary.value,
           activeTrackColor: tokens.colors.secondary.value,
-          focusRingBorderWidth: 0,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.secondary.contrast,
           markColor: tokens.colors.neutral["6"],
@@ -147,7 +134,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         focused: {
           activeMarkColor: tokens.colors.primary.value,
           activeTrackColor: tokens.colors.secondary.value,
-          focusRingBorderWidth: tokens.borderSize.md,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.secondary.contrast,
           markColor: tokens.colors.neutral["6"],
@@ -162,7 +148,6 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         disabled: {
           activeMarkColor: tokens.colors.neutral["6"],
           activeTrackColor: tokens.colors.neutral["5"],
-          focusRingBorderWidth: 0,
           inactiveTrackColor: tokens.colors.neutral["5"],
           labelColor: tokens.colors.text.disabled,
           markColor: tokens.colors.neutral["6"],

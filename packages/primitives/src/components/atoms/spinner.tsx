@@ -1,4 +1,3 @@
-import type { AccessibilityState } from "react-native";
 import { memo, useMemo } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 
@@ -8,9 +7,6 @@ import { useThemedStyles } from "@impulse-ui-native/theme";
 import type { SpinnerProps } from "../../types";
 
 export const Spinner = memo(function Spinner({
-  accessibilityRole = "progressbar",
-  accessibilityState,
-  accessible = true,
   animating = true,
   color,
   hidesWhenStopped,
@@ -25,29 +21,14 @@ export const Spinner = memo(function Spinner({
     tone,
   ]);
 
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      busy: animating,
-    }),
-    [accessibilityState, animating],
-  );
-
   const containerStyle = useMemo(
     () => [styles.container, style],
     [style, styles.container],
   );
 
   return (
-    <View
-      {...props}
-      accessibilityRole={accessibilityRole}
-      accessibilityState={resolvedAccessibilityState}
-      accessible={accessible}
-      style={containerStyle}
-    >
+    <View {...props} style={containerStyle}>
       <ActivityIndicator
-        accessible={false}
         animating={animating}
         color={styles.indicator.color}
         hidesWhenStopped={hidesWhenStopped}

@@ -1,29 +1,14 @@
-import type { ComponentRef, RefObject } from "react";
 import { createContext, useContext } from "react";
-
-import type { Pressable } from "@impulse-ui-native/primitives";
-
-import type { AccordionFocusDirection } from "../utils";
-
-interface AccordionTriggerRegistration {
-  disabled: boolean;
-  ref: RefObject<ComponentRef<typeof Pressable> | null>;
-  value: string;
-}
 
 export interface AccordionContextData {
   disabled: boolean;
   expandedValues: readonly string[];
-  focusTrigger: (value: string, direction: AccordionFocusDirection) => void;
-  registerTrigger: (registration: AccordionTriggerRegistration) => () => void;
   toggleItem: (value: string) => void;
 }
 
 export interface AccordionItemContextData {
-  contentId: string;
   disabled: boolean;
   open: boolean;
-  triggerId: string;
   value: string;
 }
 

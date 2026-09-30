@@ -16,18 +16,12 @@ import { SliderThumbControl } from "./slider-thumb";
 import { SliderTrack } from "./slider-track";
 
 export const Slider = memo(function Slider({
-  accessibilityLabel,
-  accessibilityState,
-  accessibilityValue,
   defaultValue = DefaultValue,
   disabled = false,
   formatValue,
   marks,
   max = DefaultMax,
   min = DefaultMin,
-  onBlur,
-  onFocus,
-  onKeyDown,
   onLayout,
   onSlidingComplete,
   onSlidingStart,
@@ -43,15 +37,12 @@ export const Slider = memo(function Slider({
   ...props
 }: SliderProps) {
   const slider = useSlider({
-    accessibilityState,
-    accessibilityValue,
     defaultValue,
     disabled,
     formatValue,
     marks,
     max,
     min,
-    onKeyDown,
     onLayout,
     onSlidingComplete,
     onSlidingStart,
@@ -73,15 +64,7 @@ export const Slider = memo(function Slider({
         variant={variant}
       >
         <SliderThumbControl
-          accessibilityLabel={accessibilityLabel}
-          accessibilityState={slider.accessibilityState}
-          accessibilityValue={slider.accessibilityValue}
           disabled={disabled}
-          onBlur={onBlur}
-          onDecrement={slider.onDecrement}
-          onFocus={onFocus}
-          onIncrement={slider.onIncrement}
-          onKeyDown={slider.onKeyDown}
           positionStyle={slider.positionStyle}
           showValueBubble={showValueBubble}
           size={size}

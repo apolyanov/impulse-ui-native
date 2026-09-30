@@ -1,5 +1,5 @@
 import { memo, useMemo } from "react";
-import { Platform, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
@@ -85,8 +85,7 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
   const appearanceTokens = getControlStateTokens(tokens.variants[variant], {
     disabled,
   });
-  const thumbOuterSize =
-    sizeTokens.thumbSize + (tokens.focusRingWidth + tokens.focusRingOffset) * 2;
+  const thumbOuterSize = sizeTokens.thumbSize;
   const bubbleSpace = showValueBubble ? 28 + tokens.valueBubbleGap : 0;
 
   return StyleSheet.create({
@@ -94,7 +93,6 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
       height: thumbOuterSize + bubbleSpace,
       justifyContent: "flex-end",
       overflow: "visible",
-      ...(Platform.OS === "web" ? { touchAction: "none" as const } : undefined),
     },
     track: {
       position: "absolute",

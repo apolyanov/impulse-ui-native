@@ -29,7 +29,6 @@ export const RadioExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Unchecked example",
       defaultChecked: false,
     },
   },
@@ -46,7 +45,6 @@ export const RadioExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Checked example",
       defaultChecked: true,
     },
   },
@@ -55,8 +53,7 @@ export const RadioExampleDefinitions = [
   {
     name: "Disabled",
     title: "Disabled radio",
-    description:
-      "Disabled radios remain visible but block selection and expose their disabled state to assistive technology.",
+    description: "Disabled radios remain visible but block selection.",
     props: [
       {
         name: "disabled",
@@ -70,7 +67,6 @@ export const RadioExampleDefinitions = [
       },
     ],
     args: {
-      accessibilityLabel: "Disabled example",
       defaultChecked: true,
       disabled: true,
     },
@@ -92,9 +88,7 @@ export const RadioExampleDefinitions = [
         description: "Receives true when the radio is selected.",
       },
     ],
-    args: {
-      accessibilityLabel: "Controlled example",
-    },
+    args: {},
     controlled: true,
   },
 ] satisfies RadioExampleDefinition[];
@@ -150,7 +144,6 @@ function createVariantExamples(): RadioExampleDefinition[] {
       },
     ],
     args: {
-      accessibilityLabel: `${variant} example`,
       defaultChecked: true,
       variant,
     },
@@ -172,7 +165,6 @@ function createSizeExamples(): RadioExampleDefinition[] {
       },
     ],
     args: {
-      accessibilityLabel: `${size} example`,
       defaultChecked: true,
       size,
     },

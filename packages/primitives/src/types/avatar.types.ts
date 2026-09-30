@@ -15,10 +15,7 @@ import type {
 
 import type { ViewProps } from "./view.types";
 
-export interface AvatarImageProps extends Omit<
-  ImageProps,
-  "accessible" | "source" | "style"
-> {
+export interface AvatarImageProps extends Omit<ImageProps, "source" | "style"> {
   style?: StyleProp<ImageStyle>;
 }
 

@@ -1,9 +1,5 @@
 import type { ReactNode } from "react";
-import type {
-  NativeSyntheticEvent,
-  PressableProps,
-  ScrollViewProps,
-} from "react-native";
+import type { PressableProps, ScrollViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
@@ -12,7 +8,7 @@ export type SegmentedControlOverflow = "clip" | "scroll";
 
 interface SegmentedControlRootCommonProps extends Omit<
   ScrollViewProps,
-  "accessibilityRole" | "children" | "horizontal" | "scrollEnabled"
+  "children" | "horizontal" | "scrollEnabled"
 > {
   children?: ReactNode;
   disabled?: boolean;
@@ -38,17 +34,12 @@ export type SegmentedControlRootProps =
 
 export interface SegmentedControlItemProps extends Omit<
   PressableProps,
-  "accessibilityRole" | "children"
+  "children"
 > {
   children?: ReactNode;
   Icon?: IconProps["icon"];
-  onKeyDown?: (event: SegmentedControlKeyDownEvent) => void;
   value: string;
 }
-
-export type SegmentedControlKeyDownEvent = NativeSyntheticEvent<{
-  key: string;
-}>;
 
 export interface SegmentedControlRootThemeProps {
   size: ComponentSize;
@@ -56,7 +47,6 @@ export interface SegmentedControlRootThemeProps {
 
 export interface SegmentedControlItemThemeProps {
   disabled: boolean;
-  focused: boolean;
   selected: boolean;
   size: ComponentSize;
   stacked: boolean;

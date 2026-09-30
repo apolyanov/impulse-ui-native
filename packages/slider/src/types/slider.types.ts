@@ -1,31 +1,16 @@
-import type {
-  AccessibilityValue,
-  NativeSyntheticEvent,
-  ViewProps,
-} from "react-native";
+import type { ViewProps } from "react-native";
 
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 
 export type SliderValue = readonly [number, number];
 export type SliderThumb = "start" | "end";
 
-export type SliderKeyDownEvent = NativeSyntheticEvent<{
-  key: string;
-}>;
-
-interface SliderCommonProps extends Omit<
-  ViewProps,
-  | "accessibilityActions"
-  | "accessibilityRole"
-  | "accessibilityValue"
-  | "onAccessibilityAction"
-> {
+interface SliderCommonProps extends ViewProps {
   disabled?: boolean;
   formatValue?: (value: number) => string;
   marks?: readonly number[];
   max?: number;
   min?: number;
-  onKeyDown?: (event: SliderKeyDownEvent) => void;
   showMarkLabels?: boolean;
   showMinMax?: boolean;
   showValueBubble?: boolean;
@@ -35,7 +20,6 @@ interface SliderCommonProps extends Omit<
 }
 
 export interface SliderProps extends SliderCommonProps {
-  accessibilityValue?: AccessibilityValue;
   defaultValue?: number;
   onSlidingComplete?: (value: number) => void;
   onSlidingStart?: (value: number) => void;
@@ -43,15 +27,9 @@ export interface SliderProps extends SliderCommonProps {
   value?: number;
 }
 
-export interface RangeSliderProps extends Omit<
-  SliderCommonProps,
-  "accessibilityLabel" | "onKeyDown"
-> {
-  accessibilityLabels?: readonly [string, string];
-  accessibilityValues?: readonly [AccessibilityValue?, AccessibilityValue?];
+export interface RangeSliderProps extends SliderCommonProps {
   defaultValue?: SliderValue;
   minStepsBetweenThumbs?: number;
-  onKeyDown?: (thumb: SliderThumb, event: SliderKeyDownEvent) => void;
   onSlidingComplete?: (value: SliderValue) => void;
   onSlidingStart?: (value: SliderValue) => void;
   onValueChange?: (value: SliderValue) => void;

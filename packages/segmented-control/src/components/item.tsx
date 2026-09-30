@@ -1,14 +1,11 @@
-import type { ComponentRef } from "react";
 import type {
-  AccessibilityState,
   GestureResponderEvent,
-  PressableProps,
   PressableStateCallbackType,
   StyleProp,
   ViewStyle,
 } from "react-native";
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { I18nManager, Platform, StyleSheet } from "react-native";
+import { memo, useCallback } from "react";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
@@ -23,20 +20,14 @@ import {
 import type {
   SegmentedControlItemProps,
   SegmentedControlItemThemeProps,
-  SegmentedControlKeyDownEvent,
 } from "../types";
 import { useSegmentedControlContext } from "../contexts";
-import { getSegmentedControlFocusDirection } from "../utils";
 
 export const SegmentedControlItem = memo(function SegmentedControlItem({
-  accessibilityState,
   children,
   disabled = false,
   hitSlop,
   Icon: IconComponent,
-  onBlur,
-  onFocus,
-  onKeyDown,
   onPress,
   style,
   value,
@@ -44,15 +35,11 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
 }: SegmentedControlItemProps) {
   const {
     disabled: groupDisabled,
-    focusItem,
-    registerItem,
     selectValue,
     selectedValue,
     size,
     variant,
   } = useSegmentedControlContext();
-  const [focused, setFocused] = useState(false);
-  const itemRef = useRef<ComponentRef<typeof Pressable>>(null);
   const tokens = useComponentsTokens().segmentedControl;
   const resolvedDisabled = groupDisabled || Boolean(disabled);
   const selected = selectedValue === value;
@@ -64,23 +51,12 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     themedStyles,
     {
       disabled: resolvedDisabled,
-      focused,
       selected,
       size,
       stacked,
       variant,
     },
-    [focused, resolvedDisabled, size, selected, stacked, variant],
-  );
-
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      checked: selected,
-      disabled: resolvedDisabled,
-      selected,
-    }),
-    [accessibilityState, resolvedDisabled, selected],
+    [resolvedDisabled, size, selected, stacked, variant],
   );
   const itemStyle = useCallback(
     ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
@@ -90,76 +66,16 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     [style, styles.item],
   );
 
-  const handleBlur = useEventCallback<NonNullable<PressableProps["onBlur"]>>(
-    (event) => {
-      setFocused(false);
-      onBlur?.(event);
-    },
-  );
-
-  const handleFocus = useEventCallback<NonNullable<PressableProps["onFocus"]>>(
-    (event) => {
-      setFocused(true);
-      onFocus?.(event);
-    },
-  );
-
   const handlePress = useEventCallback((event: GestureResponderEvent) => {
     selectValue(value);
     onPress?.(event);
   });
 
-  const handleKeyDown = useEventCallback(
-    (event: SegmentedControlKeyDownEvent) => {
-      onKeyDown?.(event);
-
-      if (event.isDefaultPrevented()) return;
-
-      const direction = getSegmentedControlFocusDirection(
-        event.nativeEvent.key,
-        I18nManager.isRTL,
-      );
-
-      if (!direction) return;
-
-      event.preventDefault();
-      focusItem(value, direction);
-    },
-  );
-
-  const webInteractionProps = useMemo(
-    () =>
-      Platform.OS === "web"
-        ? ({
-            onKeyDown: handleKeyDown,
-            tabIndex: selected ? 0 : -1,
-          } as PressableProps)
-        : undefined,
-    [handleKeyDown, selected],
-  );
-
-  useEffect(
-    () =>
-      registerItem({
-        disabled: resolvedDisabled,
-        ref: itemRef,
-        value,
-      }),
-    [registerItem, resolvedDisabled, value],
-  );
-
   return (
     <Pressable
       {...props}
-      {...webInteractionProps}
-      ref={itemRef}
-      accessibilityRole="radio"
-      accessibilityState={resolvedAccessibilityState}
       disabled={resolvedDisabled}
-      focusable={!resolvedDisabled}
       hitSlop={hitSlop ?? sizeTokens.hitSlop}
-      onBlur={handleBlur}
-      onFocus={handleFocus}
       onPress={handlePress}
       style={itemStyle}
     >
@@ -185,7 +101,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
 });
 
 function themedStyles(theme: AppTheme, props: SegmentedControlItemThemeProps) {
-  const { disabled, focused, selected, size, stacked, variant } = props;
+  const { disabled, selected, size, stacked, variant } = props;
   const tokens = theme.components.segmentedControl;
   const sizeTokens = tokens.sizes[size];
   const variantTokens = tokens.variants[variant];
@@ -204,14 +120,10 @@ function themedStyles(theme: AppTheme, props: SegmentedControlItemThemeProps) {
       paddingHorizontal: sizeTokens.paddingHorizontal,
       paddingVertical: stacked ? sizeTokens.stackedPaddingVertical : 0,
 
-      backgroundColor: focused
-        ? tokens.focusBackgroundColor
-        : appearanceTokens.backgroundColor,
-      borderColor: focused
-        ? theme.colors.border.focus.value
-        : appearanceTokens.borderColor,
+      backgroundColor: appearanceTokens.backgroundColor,
+      borderColor: appearanceTokens.borderColor,
       borderRadius: tokens.itemBorderRadius,
-      borderWidth: focused ? tokens.focusBorderWidth : tokens.itemBorderWidth,
+      borderWidth: tokens.itemBorderWidth,
     },
     content: {
       alignItems: "center",
@@ -220,7 +132,7 @@ function themedStyles(theme: AppTheme, props: SegmentedControlItemThemeProps) {
       justifyContent: "center",
     },
     label: {
-      color: focused ? tokens.focusColor : appearanceTokens.color,
+      color: appearanceTokens.color,
       fontFamily: theme.fontFamily.normal[theme.fontWeight.medium],
       fontSize: sizeTokens.fontSize,
       textAlign: "center",

@@ -1,38 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import { AccessibilityInfo, Animated, Easing } from "react-native";
+import { useEffect, useRef } from "react";
+import { Animated, Easing } from "react-native";
 
 export function useIndeterminateProgressAnimation(duration: number) {
-  const [reduceMotion, setReduceMotion] = useState(false);
   const progress = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    let mounted = true;
-
-    AccessibilityInfo.isReduceMotionEnabled().then((enabled) => {
-      if (mounted) {
-        setReduceMotion(enabled);
-      }
-    });
-
-    const subscription = AccessibilityInfo.addEventListener(
-      "reduceMotionChanged",
-      setReduceMotion,
-    );
-
-    return () => {
-      mounted = false;
-      subscription.remove();
-    };
-  }, []);
-
-  useEffect(() => {
     progress.stopAnimation();
-
-    if (reduceMotion) {
-      progress.setValue(0.5);
-      return;
-    }
-
     progress.setValue(0);
 
     const animation = Animated.loop(
@@ -49,7 +22,7 @@ export function useIndeterminateProgressAnimation(duration: number) {
     return () => {
       animation.stop();
     };
-  }, [duration, progress, reduceMotion]);
+  }, [duration, progress]);
 
   return progress;
 }

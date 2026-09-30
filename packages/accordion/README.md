@@ -1,6 +1,6 @@
 # @impulse-ui-native/accordion
 
-Accessible compound accordion and collapsible sections for React Native and React Native Web.
+Compound accordion and collapsible sections for React Native mobile applications.
 
 ## Installation
 
@@ -14,7 +14,7 @@ Render the component inside `ThemeProvider` from `@impulse-ui-native/theme` and 
 
 - `Accordion.Root` manages controlled or uncontrolled single/multiple expansion.
 - `Accordion.Item` provides an independently disabled disclosure item.
-- `Accordion.Trigger` exposes expanded state and keyboard navigation.
+- `Accordion.Trigger` toggles its item's expanded state.
 - `Accordion.Content` animates measured height while keeping nested content mounted.
 - Public prop types are available for every compound part.
 
@@ -42,4 +42,4 @@ export function FrequentlyAskedQuestions() {
 
 Set `type="multiple"` and use string arrays for `value`, `defaultValue`, and `onValueChange` when several items may be open. Single accordions collapse an open item by default; use `collapsible={false}` when one item must remain open.
 
-Triggers support Enter and Space activation through the native pressable behavior. Arrow Up/Down and Home/End move focus between enabled triggers. Content remains mounted during collapse, which preserves local and nested component state. Reduced-motion preferences disable the height and indicator duration.
+Content remains mounted during collapse, which preserves local and nested component state.

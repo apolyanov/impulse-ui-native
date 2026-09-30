@@ -35,9 +35,6 @@ export interface SegmentedControlVariantTokens {
 export interface SegmentedControlTokens {
   borderRadius: number;
   borderWidth: number;
-  focusBackgroundColor: string;
-  focusBorderWidth: number;
-  focusColor: string;
   itemBorderRadius: number;
   itemBorderWidth: number;
   rootBackgroundColor: string;

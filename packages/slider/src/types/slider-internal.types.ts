@@ -1,10 +1,7 @@
 import type { ReactNode, RefObject } from "react";
 import type {
-  AccessibilityState,
-  AccessibilityValue,
   GestureResponderEvent,
   LayoutChangeEvent,
-  PressableProps,
   View,
   ViewStyle,
 } from "react-native";
@@ -14,7 +11,6 @@ import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 import type { SliderBounds } from "../utils";
 import type {
   RangeSliderProps,
-  SliderKeyDownEvent,
   SliderProps,
   SliderValue,
 } from "./slider.types";
@@ -65,15 +61,7 @@ export interface SliderTrackProps extends SliderInteractionHandlers {
 }
 
 export interface SliderThumbProps {
-  accessibilityLabel?: string;
-  accessibilityState: AccessibilityState;
-  accessibilityValue: AccessibilityValue;
   disabled: boolean;
-  onBlur?: PressableProps["onBlur"];
-  onDecrement: () => void;
-  onFocus?: PressableProps["onFocus"];
-  onIncrement: () => void;
-  onKeyDown: (event: SliderKeyDownEvent) => void;
   positionStyle: ViewStyle;
   showValueBubble: boolean;
   size: ComponentSize;
@@ -92,15 +80,12 @@ export interface SliderLabelsProps {
 }
 
 export interface UseSliderOptions {
-  accessibilityState?: SliderProps["accessibilityState"];
-  accessibilityValue?: SliderProps["accessibilityValue"];
   defaultValue: number;
   disabled: boolean;
   formatValue?: SliderProps["formatValue"];
   marks?: SliderProps["marks"];
   max: number;
   min: number;
-  onKeyDown?: SliderProps["onKeyDown"];
   onLayout?: SliderProps["onLayout"];
   onSlidingComplete?: SliderProps["onSlidingComplete"];
   onSlidingStart?: SliderProps["onSlidingStart"];
@@ -110,23 +95,16 @@ export interface UseSliderOptions {
 }
 
 export interface UseSliderResult {
-  accessibilityState: AccessibilityState;
-  accessibilityValue: AccessibilityValue;
   activeTrackStyle: ViewStyle;
   bounds: SliderBounds;
   interactionHandlers: SliderInteractionHandlers;
   marks: readonly SliderMarkLayout[];
-  onDecrement: () => void;
-  onIncrement: () => void;
-  onKeyDown: (event: SliderKeyDownEvent) => void;
   positionStyle: ViewStyle;
   trackRef: RefObject<View | null>;
   valueLabel: string;
 }
 
 export interface UseRangeSliderOptions {
-  accessibilityState?: RangeSliderProps["accessibilityState"];
-  accessibilityValues?: RangeSliderProps["accessibilityValues"];
   defaultValue: SliderValue;
   disabled: boolean;
   formatValue?: RangeSliderProps["formatValue"];
@@ -134,7 +112,6 @@ export interface UseRangeSliderOptions {
   max: number;
   min: number;
   minStepsBetweenThumbs: number;
-  onKeyDown?: RangeSliderProps["onKeyDown"];
   onLayout?: RangeSliderProps["onLayout"];
   onSlidingComplete?: RangeSliderProps["onSlidingComplete"];
   onSlidingStart?: RangeSliderProps["onSlidingStart"];
@@ -144,16 +121,11 @@ export interface UseRangeSliderOptions {
 }
 
 export interface RangeSliderThumbBehavior {
-  accessibilityValue: AccessibilityValue;
-  onDecrement: () => void;
-  onIncrement: () => void;
-  onKeyDown: (event: SliderKeyDownEvent) => void;
   positionStyle: ViewStyle;
   valueLabel: string;
 }
 
 export interface UseRangeSliderResult {
-  accessibilityState: AccessibilityState;
   activeTrackStyle: ViewStyle;
   bounds: SliderBounds;
   endThumb: RangeSliderThumbBehavior;

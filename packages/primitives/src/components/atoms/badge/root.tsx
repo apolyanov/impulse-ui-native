@@ -13,8 +13,6 @@ import { View } from "../view";
 import { BadgeAddon } from "./addon";
 
 export const BadgeRoot = memo(function BadgeRoot({
-  accessible,
-  accessibilityLabel,
   backgroundColor,
   children,
   color,
@@ -22,7 +20,6 @@ export const BadgeRoot = memo(function BadgeRoot({
   PrefixIcon,
   onPressPrefix,
   onPressSuffix,
-  role,
   size = "medium",
   style,
   Suffix,
@@ -49,13 +46,7 @@ export const BadgeRoot = memo(function BadgeRoot({
     typeof styles.label.color === "string" ? styles.label.color : undefined;
 
   return (
-    <View
-      {...props}
-      accessibilityLabel={accessibilityLabel}
-      accessible={accessible ?? Boolean(accessibilityLabel)}
-      role={role}
-      style={containerStyle}
-    >
+    <View {...props} style={containerStyle}>
       <BadgeAddon
         Content={Prefix}
         IconComponent={PrefixIcon}

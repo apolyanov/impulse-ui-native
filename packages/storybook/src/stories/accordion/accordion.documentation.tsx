@@ -9,7 +9,7 @@ import {
 export function AccordionDocumentation() {
   return (
     <StoryDocumentationPage
-      description="Accordion organizes related disclosure sections without imposing screen layout. Root coordinates controlled or uncontrolled single/multiple expansion, Trigger provides accessible keyboard interaction, and Content animates its measured height while remaining mounted for nested state."
+      description="Accordion organizes related disclosure sections without imposing screen layout. Root coordinates controlled or uncontrolled single/multiple expansion, Trigger toggles each item, and Content animates its measured height while remaining mounted for nested state."
       title="Accordion"
     >
       {AccordionExampleDefinitions.map((example) => (

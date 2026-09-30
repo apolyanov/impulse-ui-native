@@ -1,9 +1,5 @@
 import type { ReactNode } from "react";
-import type {
-  NativeSyntheticEvent,
-  PressableProps,
-  ViewProps,
-} from "react-native";
+import type { PressableProps, ViewProps } from "react-native";
 
 interface AccordionRootCommonProps extends ViewProps {
   children?: ReactNode;
@@ -37,17 +33,12 @@ export interface AccordionItemProps extends ViewProps {
 
 export interface AccordionTriggerProps extends Omit<
   PressableProps,
-  "accessibilityRole" | "children"
+  "children"
 > {
   children?: ReactNode;
   hideIndicator?: boolean;
   indicator?: ReactNode;
-  onKeyDown?: (event: AccordionKeyDownEvent) => void;
 }
-
-export type AccordionKeyDownEvent = NativeSyntheticEvent<{
-  key: string;
-}>;
 
 export interface AccordionContentProps extends ViewProps {
   children?: ReactNode;

@@ -44,7 +44,6 @@ export const SliderExampleDefinitions = [
     ],
     kind: "slider",
     args: {
-      accessibilityLabel: "Volume",
       defaultValue: 60,
       showMinMax: true,
       showValueBubble: true,
@@ -53,15 +52,13 @@ export const SliderExampleDefinitions = [
   {
     name: "Range",
     title: "Range slider",
-    description:
-      "Two independently accessible thumbs select a bounded interval.",
+    description: "Two thumbs select a bounded interval.",
     props: [
       { name: "defaultValue", value: "[25, 75]" },
       { name: "showValueBubble", value: "true" },
     ],
     kind: "range",
     args: {
-      accessibilityLabels: ["Minimum price", "Maximum price"],
       defaultValue: [25, 75],
       showMinMax: true,
       showValueBubble: true,
@@ -81,7 +78,6 @@ export const SliderExampleDefinitions = [
     ],
     kind: "slider",
     args: {
-      accessibilityLabel: "Completion",
       defaultValue: 40,
       marks: sharedMarks,
       showMarkLabels: true,
@@ -101,7 +97,6 @@ export const SliderExampleDefinitions = [
     ],
     kind: "range",
     args: {
-      accessibilityLabels: ["Lower score", "Upper score"],
       defaultValue: [25, 75],
       marks: sharedMarks,
       minStepsBetweenThumbs: 2,
@@ -113,15 +108,13 @@ export const SliderExampleDefinitions = [
   {
     name: "Disabled",
     title: "Disabled slider",
-    description:
-      "Disabled controls use neutral tokens, expose disabled semantics, and block interaction.",
+    description: "Disabled controls use neutral tokens and block interaction.",
     props: [
       { name: "disabled", value: "true" },
       { name: "defaultValue", value: "60" },
     ],
     kind: "slider",
     args: {
-      accessibilityLabel: "Locked value",
       defaultValue: 60,
       disabled: true,
       showMinMax: true,
@@ -140,7 +133,6 @@ export const SliderExampleDefinitions = [
     kind: "slider",
     controlled: true,
     args: {
-      accessibilityLabel: "Controlled value",
       showValueBubble: true,
       step: 5,
     },
@@ -157,7 +149,6 @@ export const SliderExampleDefinitions = [
     kind: "range",
     controlled: true,
     args: {
-      accessibilityLabels: ["Controlled minimum", "Controlled maximum"],
       showValueBubble: true,
       step: 5,
     },
@@ -217,11 +208,10 @@ function createSizeExamples(): SliderExampleDefinition[] {
   return sizes.map((size) => ({
     name: `${size[0]?.toUpperCase()}${size.slice(1)}`,
     title: `${size} slider`,
-    description: `The ${size} size adjusts track, thumb, marks, focus ring, and hit slop together.`,
+    description: `The ${size} size adjusts track, thumb, marks, and touch area together.`,
     props: [{ name: "size", value: size }],
     kind: "slider",
     args: {
-      accessibilityLabel: `${size} value`,
       defaultValue: 60,
       showMinMax: true,
       showValueBubble: true,
@@ -240,7 +230,6 @@ function createVariantExamples(): SliderExampleDefinition[] {
     props: [{ name: "variant", value: variant }],
     kind: "slider",
     args: {
-      accessibilityLabel: `${variant} value`,
       defaultValue: 60,
       showValueBubble: true,
       variant,

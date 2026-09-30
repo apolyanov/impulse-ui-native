@@ -13,7 +13,6 @@ import type { StoryExamplePropDefinition } from "../../components/story-example"
 import { StoryExample } from "../../components/story-example";
 
 interface SegmentedControlExampleItem {
-  accessibilityLabel?: string;
   children?: ReactNode;
   disabled?: boolean;
   Icon?: SegmentedControlItemProps["Icon"];
@@ -77,20 +76,10 @@ export const SegmentedControlExampleDefinitions = [
   {
     name: "IconOnly",
     title: "Icon-only items",
-    description:
-      "Icon-only items require an accessibility label because they have no visible text.",
-    props: [
-      {
-        name: "accessibilityLabel",
-        value: '"List view"',
-        description: "Supplies the accessible name for an icon-only item.",
-      },
-    ],
+    description: "Items can render an icon without visible text.",
+    props: [],
     args: { defaultValue: "list" },
-    items: iconItems.map(({ children, ...item }) => ({
-      ...item,
-      accessibilityLabel: `${children} view`,
-    })),
+    items: iconItems.map(({ children: _children, ...item }) => item),
   },
   ...(["filled", "outlined", "soft"] as const).map((variant) => ({
     name: `${variant.charAt(0).toUpperCase()}${variant.slice(1)}`,
@@ -139,8 +128,7 @@ export const SegmentedControlExampleDefinitions = [
   {
     name: "DisabledGroup",
     title: "Disabled group",
-    description:
-      "Root-level disabled state blocks every item and is exposed to assistive technology.",
+    description: "Root-level disabled state blocks every item.",
     props: [
       {
         name: "disabled",

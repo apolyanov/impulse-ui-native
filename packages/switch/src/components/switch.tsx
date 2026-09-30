@@ -1,5 +1,4 @@
 import type {
-  AccessibilityState,
   GestureResponderEvent,
   PressableStateCallbackType,
   StyleProp,
@@ -18,7 +17,6 @@ import { useSwitchAnimation, useSwitchTokens } from "../hooks";
 import { switchStyles } from "./switch.styles";
 
 export const Switch = memo(function Switch({
-  accessibilityState,
   checked: checkedProp,
   defaultChecked = false,
   disabled,
@@ -53,16 +51,6 @@ export const Switch = memo(function Switch({
     sizeTokens,
   });
 
-  const resolvedAccessibilityState = useMemo<AccessibilityState>(
-    () => ({
-      ...accessibilityState,
-      busy: loading,
-      checked,
-      disabled: interactionDisabled,
-    }),
-    [accessibilityState, checked, interactionDisabled, loading],
-  );
-
   const switchStyle = useCallback(
     (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
       StyleSheet.flatten([
@@ -93,8 +81,6 @@ export const Switch = memo(function Switch({
   return (
     <Pressable
       {...props}
-      accessibilityRole="switch"
-      accessibilityState={resolvedAccessibilityState}
       disabled={interactionDisabled}
       hitSlop={hitSlop ?? sizeTokens.hitSlop}
       onPress={handlePress}
@@ -104,7 +90,6 @@ export const Switch = memo(function Switch({
         <Animated.View style={thumbAnimatedStyle}>
           {loading ? (
             <Spinner
-              accessible={false}
               color={loadingIndicatorColor}
               size="medium"
               style={styles.loadingIndicator}

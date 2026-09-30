@@ -1,4 +1,4 @@
-import { memo, useId, useMemo } from "react";
+import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -17,20 +17,17 @@ export const AccordionItem = memo(function AccordionItem({
   ...props
 }: AccordionItemProps) {
   const accordion = useAccordionContext();
-  const reactId = useId().replaceAll(":", "");
   const styles = useThemedStyles(themedStyles);
   const resolvedDisabled = accordion.disabled || disabled;
   const open = accordion.expandedValues.includes(value);
 
   const context = useMemo<AccordionItemContextData>(
     () => ({
-      contentId: `accordion-content-${reactId}`,
       disabled: resolvedDisabled,
       open,
-      triggerId: `accordion-trigger-${reactId}`,
       value,
     }),
-    [open, reactId, resolvedDisabled, value],
+    [open, resolvedDisabled, value],
   );
   const itemStyle = useMemo(() => [styles.item, style], [style, styles.item]);
 

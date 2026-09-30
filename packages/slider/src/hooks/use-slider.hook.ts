@@ -1,4 +1,4 @@
-import type { AccessibilityValue, ViewStyle } from "react-native";
+import type { ViewStyle } from "react-native";
 import { useEffect, useMemo, useRef } from "react";
 
 import {
@@ -13,7 +13,6 @@ import type {
 } from "../types/slider-internal.types";
 import {
   formatSliderValue,
-  getKeyboardSliderValue,
   getSliderActiveTrackStyle,
   getSliderBounds,
   getSliderPercentage,
@@ -25,15 +24,12 @@ import {
 import { useSliderInteraction } from "./use-slider-interaction.hook";
 
 export function useSlider({
-  accessibilityState,
-  accessibilityValue,
   defaultValue,
   disabled,
   formatValue,
   marks,
   max,
   min,
-  onKeyDown,
   onLayout,
   onSlidingComplete,
   onSlidingStart,
@@ -58,23 +54,6 @@ export function useSlider({
     [bounds, marks],
   );
 
-  const resolvedAccessibilityState = useMemo(
-    () => ({
-      ...accessibilityState,
-      disabled,
-    }),
-    [accessibilityState, disabled],
-  );
-  const resolvedAccessibilityValue = useMemo<AccessibilityValue>(
-    () => ({
-      ...accessibilityValue,
-      max: bounds.max,
-      min: bounds.min,
-      now: normalizedValue,
-      text: formatSliderValue(normalizedValue, formatValue),
-    }),
-    [accessibilityValue, bounds.max, bounds.min, formatValue, normalizedValue],
-  );
   const positionStyle = useMemo<ViewStyle>(
     () => getSliderPositionStyle(percentage),
     [percentage],
@@ -126,42 +105,6 @@ export function useSlider({
     onSlidingComplete?.(currentValueRef.current);
   });
 
-  const updateFromKey = useEventCallback((key: string) => {
-    if (disabled) return false;
-
-    const nextValue = getKeyboardSliderValue(
-      key,
-      currentValueRef.current,
-      bounds,
-    );
-
-    if (nextValue === undefined) return false;
-
-    currentValueRef.current = nextValue;
-    setValue(nextValue);
-    onSlidingComplete?.(nextValue);
-    return true;
-  });
-
-  const handleKeyDown = useEventCallback<UseSliderResult["onKeyDown"]>(
-    (event) => {
-      onKeyDown?.(event);
-      if (event.isDefaultPrevented()) return;
-
-      if (updateFromKey(event.nativeEvent.key)) {
-        event.preventDefault();
-      }
-    },
-  );
-
-  const handleIncrement = useEventCallback(() => {
-    updateFromKey("ArrowUp");
-  });
-
-  const handleDecrement = useEventCallback(() => {
-    updateFromKey("ArrowDown");
-  });
-
   const { interactionHandlers, trackRef } = useSliderInteraction({
     disabled,
     onEnd: handleSlidingComplete,
@@ -175,15 +118,10 @@ export function useSlider({
   }, [normalizedValue]);
 
   return {
-    accessibilityState: resolvedAccessibilityState,
-    accessibilityValue: resolvedAccessibilityValue,
     activeTrackStyle,
     bounds,
     interactionHandlers,
     marks: markLayouts,
-    onDecrement: handleDecrement,
-    onIncrement: handleIncrement,
-    onKeyDown: handleKeyDown,
     positionStyle,
     trackRef,
     valueLabel,

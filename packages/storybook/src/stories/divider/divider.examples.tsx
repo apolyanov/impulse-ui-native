@@ -23,14 +23,7 @@ export const DividerExampleDefinitions = [
     title: "Horizontal divider",
     description:
       "The default divider separates stacked content and stretches across the available width.",
-    props: [
-      { name: "orientation", value: "horizontal" },
-      {
-        name: "role",
-        value: "separator",
-        description: "Exposes separator semantics by default.",
-      },
-    ],
+    props: [{ name: "orientation", value: "horizontal" }],
     args: {},
   },
   {

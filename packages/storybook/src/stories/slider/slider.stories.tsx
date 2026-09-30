@@ -15,7 +15,6 @@ const meta = {
   title: "Components/Slider",
   component: Slider,
   args: {
-    accessibilityLabel: "Slider",
     defaultValue: 60,
     disabled: false,
     max: 100,
@@ -45,7 +44,7 @@ const meta = {
     },
     step: {
       control: "number",
-      description: "Sets the increment used for snapping and keyboard input.",
+      description: "Sets the increment used for snapping.",
     },
     size: {
       control: "select",
@@ -75,8 +74,7 @@ const meta = {
     },
     onValueChange: {
       control: false,
-      description:
-        "Called whenever gesture, keyboard, or accessibility input changes the value.",
+      description: "Called whenever a gesture changes the value.",
     },
     onSlidingStart: {
       control: false,
@@ -84,8 +82,7 @@ const meta = {
     },
     onSlidingComplete: {
       control: false,
-      description:
-        "Called when a gesture or discrete keyboard adjustment completes.",
+      description: "Called when a gesture completes.",
     },
   },
 } satisfies Meta<typeof Slider>;
@@ -101,7 +98,7 @@ export const Documentation: Story = {
     return <SliderDocumentation />;
   },
   parameters: createStoryDescription(
-    "A complete usage guide for Slider and RangeSlider sizes, variants, marks, state models, gestures, keyboard input, and accessibility.",
+    "A complete usage guide for Slider and RangeSlider sizes, variants, marks, state models, and gestures.",
   ),
 };
 

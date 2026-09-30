@@ -1,6 +1,6 @@
 # @impulse-ui-native/radio
 
-Accessible, token-aware radio controls for React Native and React Native Web.
+Token-aware radio controls for React Native mobile applications.
 
 ## Installation
 
@@ -27,7 +27,6 @@ export function DeliveryMethodRadio() {
 
   return (
     <Radio
-      accessibilityLabel="Standard delivery"
       checked={checked}
       onCheckedChange={setChecked}
       size="medium"
@@ -41,8 +40,3 @@ Use `defaultChecked` for uncontrolled state. Pressing a radio selects it;
 pressing it again does not clear the selection. The component accepts the
 shared `small`, `medium`, and `large` sizes and the `filled`, `outlined`, and
 `soft` selection variants.
-
-The standalone radio does not render a label, so provide `accessibilityLabel`
-unless a surrounding labelled control supplies an accessible name. Mutual
-exclusion, shared values, and keyboard navigation will be provided by the
-planned `RadioGroup` component.

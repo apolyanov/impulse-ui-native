@@ -9,12 +9,9 @@ import type { AvatarProps } from "../../types";
 import { View } from "./view";
 
 export const Avatar = memo(function Avatar({
-  accessibilityLabel,
-  accessible,
   fallback,
   imageProps,
   initials,
-  role,
   size = "medium",
   source,
   status,
@@ -29,8 +26,6 @@ export const Avatar = memo(function Avatar({
     { size, status, statusColor, variant },
     [size, status, statusColor, variant],
   );
-  const resolvedAccessible = accessible ?? Boolean(accessibilityLabel);
-  const resolvedRole = role ?? (resolvedAccessible ? "img" : "none");
   const sourceKey = useMemo(() => JSON.stringify(source), [source]);
 
   const containerStyle = useMemo(
@@ -39,13 +34,7 @@ export const Avatar = memo(function Avatar({
   );
 
   return (
-    <View
-      {...props}
-      accessibilityLabel={accessibilityLabel}
-      accessible={resolvedAccessible}
-      role={resolvedRole}
-      style={containerStyle}
-    >
+    <View {...props} style={containerStyle}>
       <View style={styles.content}>
         {fallback ??
           (initials ? <Text style={styles.initials}>{initials}</Text> : null)}
@@ -59,7 +48,7 @@ export const Avatar = memo(function Avatar({
         ) : null}
       </View>
 
-      {status ? <View accessible={false} style={styles.status} /> : null}
+      {status ? <View style={styles.status} /> : null}
     </View>
   );
 });
@@ -94,7 +83,6 @@ const AvatarImageLayer = memo(function AvatarImageLayer({
     <Image
       resizeMode="cover"
       {...imageProps}
-      accessible={false}
       onError={handleError}
       source={source}
       style={imageStyle}

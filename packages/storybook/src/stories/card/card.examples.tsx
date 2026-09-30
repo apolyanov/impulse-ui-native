@@ -113,17 +113,12 @@ export const CardExampleDefinitions = [
     name: "Pressable",
     title: "Pressable card",
     description:
-      "Use Card.Pressable when the entire surface triggers one action. It defaults to button semantics and provides pressed feedback.",
+      "Use Card.Pressable when the entire surface triggers one action and needs pressed feedback.",
     props: [
       {
         name: "Card.Pressable",
         value: "onPress",
         description: "Makes the complete card surface interactive.",
-      },
-      {
-        name: "accessibilityLabel",
-        value: "Open activity summary",
-        description: "Names the card's single action for assistive technology.",
       },
     ],
     preview: <PressableCardPreview />,
@@ -137,17 +132,11 @@ export const CardExampleDefinitions = [
       {
         name: "disabled",
         value: "true",
-        description: "Blocks interaction and exposes disabled semantics.",
+        description: "Blocks interaction.",
       },
     ],
     preview: (
-      <Card.Pressable
-        width="100%"
-        maxWidth={360}
-        disabled
-        accessibilityLabel="Archived report unavailable"
-        onPress={() => {}}
-      >
+      <Card.Pressable width="100%" maxWidth={360} disabled onPress={() => {}}>
         <Card.Header>
           <Typography.Title4>Archived report</Typography.Title4>
           <Typography.Helper>
@@ -199,7 +188,6 @@ function PressableCardPreview() {
     <Card.Pressable
       width="100%"
       maxWidth={360}
-      accessibilityLabel="Open activity summary"
       onPress={() => setPresses((current) => current + 1)}
     >
       <Card.Header>

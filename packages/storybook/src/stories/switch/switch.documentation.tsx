@@ -7,7 +7,7 @@ export function SwitchDocumentation() {
   return (
     <StoryDocumentationPage
       title="Switch"
-      description="Switches toggle settings that take effect immediately. Their thumb position and colors animate unless the system requests reduced motion."
+      description="Switches toggle settings that take effect immediately. Their thumb position and colors animate between states."
     >
       {SwitchExampleDefinitions.map((example) => (
         <View key={example.name}>
