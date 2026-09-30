@@ -38,6 +38,7 @@ import { createIconTokens } from "./create-icon-tokens";
 import { createPressableTokens } from "./create-pressable-tokens";
 import { createProgressTokens } from "./create-progress-tokens";
 import { createRadioTokens } from "./create-radio-tokens";
+import { createSegmentedControlTokens } from "./create-segmented-control-tokens";
 import { createSelectTokens } from "./create-select-tokens";
 import { createSkeletonTokens } from "./create-skeleton-tokens";
 import { createSliderTokens } from "./create-slider-tokens";
@@ -315,6 +316,7 @@ export function createComponentsTokens(
     controlInput: createControlInputTokens(tokens),
     controlLabel: createControlLabelTokens(tokens),
     select: createSelectTokens(tokens),
+    segmentedControl: createSegmentedControlTokens(tokens),
     datetimePicker: createDatetimePickerTokens(tokens),
     divider: createDividerTokens(tokens),
     timePicker: createTimePickerTokens(tokens),

@@ -20,6 +20,7 @@
       "@impulse-ui-native/portal",
       "@impulse-ui-native/primitives",
       "@impulse-ui-native/radio",
+      "@impulse-ui-native/segmented-control",
       "@impulse-ui-native/select",
       "@impulse-ui-native/skeleton",
       "@impulse-ui-native/stepper",

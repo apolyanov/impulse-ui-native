@@ -19,6 +19,7 @@ import { FlyoutTokens } from "./flyout-tokens.types";
 import { IconTokens } from "./icon-tokens.types";
 import { PressableTokens } from "./pressable-tokens.types";
 import { ProgressTokens } from "./progress-tokens.types";
+import { SegmentedControlTokens } from "./segmented-control-tokens.types";
 import { SelectTokens } from "./select-tokens.types";
 import { SkeletonTokens } from "./skeleton-tokens.types";
 import { SliderTokens } from "./slider-tokens.types";
@@ -118,6 +119,7 @@ export interface ComponentsTokens {
   controlInput: ControlInputTokens;
   controlLabel: ControlLabelTokens;
   select: SelectTokens;
+  segmentedControl: SegmentedControlTokens;
   datetimePicker: DatetimePickerTokens;
   divider: DividerTokens;
   timePicker: TimePickerTokens;

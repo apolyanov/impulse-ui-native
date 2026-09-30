@@ -46,20 +46,21 @@ A component should normally include all of the following before it moves to
 
 ### Form controls
 
-| Component             | Package                         | Status    | Storybook | Follow-up                                                                       |
-| --------------------- | ------------------------------- | --------- | --------- | ------------------------------------------------------------------------------- |
-| Compound `Control`    | `@impulse-ui-native/primitives` | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
-| `Input`               | `@impulse-ui-native/input`      | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
-| `Switch`              | `@impulse-ui-native/switch`     | Available | Yes       | Add labelled field composition and automated interaction/accessibility tests.   |
-| `Slider`              | `@impulse-ui-native/slider`     | Extend    | Yes       | Add automated gesture, keyboard, RTL, and accessibility behavior tests.         |
-| `RangeSlider`         | `@impulse-ui-native/slider`     | Extend    | Yes       | Add automated thumb-collision and assistive-technology behavior tests.          |
-| `Select`              | `@impulse-ui-native/select`     | Extend    | Yes       | Add search, custom option rendering, grouped options, and async states.         |
-| `MultiSelect`         | `@impulse-ui-native/select`     | Extend    | Yes       | Add search, selected-item summaries, large-list behavior, and selection limits. |
-| `DatePicker`          | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add min/max dates, disabled dates, locale, and first-day-of-week controls.      |
-| `DateRangePicker`     | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add range constraints and clearer invalid/incomplete range behavior.            |
-| `DatetimePicker`      | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add timezone and locale guidance plus date/time constraints.                    |
-| `DatetimeRangePicker` | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add range validation and timezone/DST test coverage.                            |
-| `TimePicker`          | `@impulse-ui-native/datetime`   | Extend    | Yes       | Add minute/second intervals, min/max time, and locale examples.                 |
+| Component             | Package                                | Status    | Storybook | Follow-up                                                                       |
+| --------------------- | -------------------------------------- | --------- | --------- | ------------------------------------------------------------------------------- |
+| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
+| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
+| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and automated interaction/accessibility tests.   |
+| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture, keyboard, RTL, and accessibility behavior tests.         |
+| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated thumb-collision and assistive-technology behavior tests.          |
+| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Add automated selection, keyboard, overflow, and accessibility behavior tests.  |
+| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, custom option rendering, grouped options, and async states.         |
+| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selected-item summaries, large-list behavior, and selection limits. |
+| `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add min/max dates, disabled dates, locale, and first-day-of-week controls.      |
+| `DateRangePicker`     | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range constraints and clearer invalid/incomplete range behavior.            |
+| `DatetimePicker`      | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add timezone and locale guidance plus date/time constraints.                    |
+| `DatetimeRangePicker` | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range validation and timezone/DST test coverage.                            |
+| `TimePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add minute/second intervals, min/max time, and locale examples.                 |
 
 ### Feedback, state, and loading
 
@@ -165,7 +166,7 @@ have been discussed.
 | Candidate               | Status    | Suggested scope                                                                                  |
 | ----------------------- | --------- | ------------------------------------------------------------------------------------------------ |
 | Slider / Range Slider   | Extend    | Steps, marks, min/max values, gestures, keyboard input, and accessible value text.               |
-| Segmented Control       | Candidate | Single selection, icons, labels, disabled options, and overflow policy.                          |
+| Segmented Control       | Available | Single selection, icons, labels, disabled options, token-driven variants, and overflow policy.   |
 | Search Input / Combobox | Candidate | Decide whether this extends `Input` and `Select` or becomes a dedicated component.               |
 | Pagination              | Candidate | Compact native controls plus complete web keyboard and screen-reader behavior.                   |
 | Table / Data Grid       | Candidate | Start only after defining responsive behavior, virtualization, sorting, and accessibility scope. |
