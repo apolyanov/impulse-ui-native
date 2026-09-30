@@ -21,33 +21,63 @@ export function createSegmentedControlTokens(
     sizes: {
       small: {
         fontSize: tokens.fontSize.xsm,
-        gap: tokens.space.xxs,
         height: 32,
         hitSlop: 6,
         iconSize: 16,
+        layouts: {
+          inline: {
+            flexDirection: "row",
+            gap: tokens.space.xxs,
+            paddingVertical: tokens.space.none,
+          },
+          stacked: {
+            flexDirection: "column",
+            gap: tokens.space.xxs,
+            paddingVertical: tokens.space.xxs,
+          },
+        },
         minItemWidth: 64,
         paddingHorizontal: tokens.space.xs,
-        stackedPaddingVertical: tokens.space.xxs,
       },
       medium: {
         fontSize: tokens.fontSize.sm,
-        gap: tokens.space.xxs,
         height: 40,
         hitSlop: 2,
         iconSize: 18,
+        layouts: {
+          inline: {
+            flexDirection: "row",
+            gap: tokens.space.xxs,
+            paddingVertical: tokens.space.none,
+          },
+          stacked: {
+            flexDirection: "column",
+            gap: tokens.space.xxs,
+            paddingVertical: tokens.space.xs,
+          },
+        },
         minItemWidth: 80,
         paddingHorizontal: tokens.space.mxs,
-        stackedPaddingVertical: tokens.space.xs,
       },
       large: {
         fontSize: tokens.fontSize.sm,
-        gap: tokens.space.xxs,
         height: 48,
         hitSlop: 0,
         iconSize: 20,
+        layouts: {
+          inline: {
+            flexDirection: "row",
+            gap: tokens.space.xxs,
+            paddingVertical: tokens.space.none,
+          },
+          stacked: {
+            flexDirection: "column",
+            gap: tokens.space.xxs,
+            paddingVertical: 10,
+          },
+        },
         minItemWidth: 96,
         paddingHorizontal: tokens.space.sm,
-        stackedPaddingVertical: 10,
       },
     },
     variants: {

@@ -1,22 +1,32 @@
 import type {
   ComponentSize,
+  SelectionState,
   SelectionVariant,
   SelectionVisualState,
   VisualStateTokens,
 } from "./components.types";
 
+export type SegmentedControlItemLayout = "inline" | "stacked";
+
+export interface SegmentedControlItemLayoutTokens {
+  flexDirection: "column" | "row";
+  gap: number;
+  paddingVertical: number;
+}
+
+export interface SegmentedControlSizeToken {
+  fontSize: number;
+  height: number;
+  hitSlop: number;
+  iconSize: number;
+  layouts: Record<SegmentedControlItemLayout, SegmentedControlItemLayoutTokens>;
+  minItemWidth: number;
+  paddingHorizontal: number;
+}
+
 export type SegmentedControlSizeTokens = Record<
   ComponentSize,
-  {
-    fontSize: number;
-    gap: number;
-    height: number;
-    hitSlop: number;
-    iconSize: number;
-    minItemWidth: number;
-    paddingHorizontal: number;
-    stackedPaddingVertical: number;
-  }
+  SegmentedControlSizeToken
 >;
 
 export interface SegmentedControlAppearanceTokens {
@@ -44,3 +54,19 @@ export interface SegmentedControlTokens {
   sizes: SegmentedControlSizeTokens;
   variants: Record<SelectionVariant, SegmentedControlVariantTokens>;
 }
+
+export interface SegmentedControlItemTokenState extends SelectionState {
+  layout: SegmentedControlItemLayout;
+  size: ComponentSize;
+  variant: SelectionVariant;
+}
+
+export type ResolvedSegmentedControlItemTokens = Omit<
+  SegmentedControlSizeToken,
+  "layouts"
+> &
+  SegmentedControlItemLayoutTokens &
+  SegmentedControlAppearanceTokens & {
+    borderRadius: number;
+    borderWidth: number;
+  };

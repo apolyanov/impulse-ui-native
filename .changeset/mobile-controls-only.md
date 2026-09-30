@@ -14,3 +14,6 @@
 Remove web-only interaction behavior and built-in accessibility semantics from
 the component packages. Controls now target mobile interaction exclusively;
 web and accessibility support will return together in a future major version.
+
+Model segmented-control inline and stacked item layouts as theme tokens and
+resolve layout, size, and selection-state tokens through one theme utility.

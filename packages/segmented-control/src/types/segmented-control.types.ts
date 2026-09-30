@@ -2,7 +2,11 @@ import type { ReactNode } from "react";
 import type { PressableProps, ScrollViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  SegmentedControlItemLayout,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export type SegmentedControlOverflow = "clip" | "scroll";
 
@@ -47,8 +51,8 @@ export interface SegmentedControlRootThemeProps {
 
 export interface SegmentedControlItemThemeProps {
   disabled: boolean;
+  layout: SegmentedControlItemLayout;
   selected: boolean;
   size: ComponentSize;
-  stacked: boolean;
   variant: SelectionVariant;
 }

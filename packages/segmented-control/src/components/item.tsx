@@ -12,7 +12,7 @@ import { useEventCallback } from "@impulse-ui-native/core";
 import { Icon } from "@impulse-ui-native/icon/components/icon";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
 import {
-  getSelectionStateTokens,
+  getSegmentedControlItemTokens,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
@@ -43,20 +43,21 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
   const tokens = useComponentsTokens().segmentedControl;
   const resolvedDisabled = groupDisabled || Boolean(disabled);
   const selected = selectedValue === value;
-  const stacked = Boolean(
-    IconComponent && children !== undefined && children !== null,
-  );
+  const layout =
+    IconComponent && children !== undefined && children !== null
+      ? "stacked"
+      : "inline";
   const sizeTokens = tokens.sizes[size];
   const styles = useThemedStyles(
     themedStyles,
     {
       disabled: resolvedDisabled,
+      layout,
       selected,
       size,
-      stacked,
       variant,
     },
-    [resolvedDisabled, size, selected, stacked, variant],
+    [layout, resolvedDisabled, size, selected, variant],
   );
   const itemStyle = useCallback(
     ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
@@ -101,14 +102,8 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
 });
 
 function themedStyles(theme: AppTheme, props: SegmentedControlItemThemeProps) {
-  const { disabled, selected, size, stacked, variant } = props;
   const tokens = theme.components.segmentedControl;
-  const sizeTokens = tokens.sizes[size];
-  const variantTokens = tokens.variants[variant];
-  const appearanceTokens = getSelectionStateTokens(variantTokens.states, {
-    disabled,
-    selected,
-  });
+  const itemTokens = getSegmentedControlItemTokens(tokens, props);
 
   return StyleSheet.create({
     item: {
@@ -116,25 +111,24 @@ function themedStyles(theme: AppTheme, props: SegmentedControlItemThemeProps) {
       flexBasis: 0,
       flexGrow: 1,
       justifyContent: "center",
-      minWidth: sizeTokens.minItemWidth,
-      paddingHorizontal: sizeTokens.paddingHorizontal,
-      paddingVertical: stacked ? sizeTokens.stackedPaddingVertical : 0,
+      minWidth: itemTokens.minItemWidth,
+      paddingHorizontal: itemTokens.paddingHorizontal,
+      paddingVertical: itemTokens.paddingVertical,
 
-      backgroundColor: appearanceTokens.backgroundColor,
-      borderColor: appearanceTokens.borderColor,
-      borderRadius: tokens.itemBorderRadius,
-      borderWidth: tokens.itemBorderWidth,
+      backgroundColor: itemTokens.backgroundColor,
+      borderColor: itemTokens.borderColor,
+      borderRadius: itemTokens.borderRadius,
+      borderWidth: itemTokens.borderWidth,
     },
     content: {
       alignItems: "center",
-      flexDirection: stacked ? "column" : "row",
-      gap: sizeTokens.gap,
+      flexDirection: itemTokens.flexDirection,
+      gap: itemTokens.gap,
       justifyContent: "center",
     },
     label: {
-      color: appearanceTokens.color,
-      fontFamily: theme.fontFamily.normal[theme.fontWeight.medium],
-      fontSize: sizeTokens.fontSize,
+      color: itemTokens.color,
+      fontSize: itemTokens.fontSize,
       textAlign: "center",
     },
   });
