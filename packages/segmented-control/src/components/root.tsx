@@ -18,7 +18,7 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
   defaultValue,
   disabled = false,
   onValueChange,
-  overflow = "scroll",
+  overflow = "clip",
   showsHorizontalScrollIndicator = false,
   size = "medium",
   style,
@@ -79,7 +79,6 @@ function themedStyles(theme: AppTheme, props: SegmentedControlRootThemeProps) {
     root: {
       flexGrow: 0,
       minHeight: sizeTokens.height,
-      overflow: "hidden",
 
       backgroundColor: tokens.rootBackgroundColor,
       borderColor: tokens.rootBorderColor,
@@ -91,7 +90,6 @@ function themedStyles(theme: AppTheme, props: SegmentedControlRootThemeProps) {
       flexGrow: 1,
       flexDirection: "row",
       gap: tokens.rootGap,
-      minWidth: "100%",
       padding: tokens.rootPadding,
     },
   });
