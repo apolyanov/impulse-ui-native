@@ -4,7 +4,15 @@ This document is the living inventory for ImpulseUI Native. It records what is
 available today, where an existing component needs more work, and which
 components are candidates for future development.
 
-Last reviewed: 2026-09-20
+Last reviewed: 2026-09-30
+
+## Current platform scope
+
+Component development currently targets native iOS and Android. Web-specific
+features, browser interaction models, and React Native Web parity are deferred
+until this policy is revised. Existing web preview tooling may remain available,
+but it does not define component scope or block a component from being marked
+**Available**.
 
 ## How to use this document
 
@@ -21,10 +29,10 @@ A component should normally include all of the following before it moves to
 
 - a public, typed API and package export;
 - light and dark theme tokens where visual styling is involved;
-- accessibility roles, labels, state, focus, and keyboard behavior appropriate
-  to native and web;
+- accessibility roles, labels, state, focus, and assistive-technology behavior
+  appropriate to iOS and Android;
 - controlled and uncontrolled behavior where both models are useful;
-- native and web Storybook examples for important states;
+- native Storybook examples for important states;
 - automated behavior tests for interaction and state changes;
 - package documentation and a migration note for breaking changes.
 
@@ -32,17 +40,17 @@ A component should normally include all of the following before it moves to
 
 ### Foundations and interaction
 
-| Component                      | Package                         | Status    | Storybook | Follow-up                                                             |
-| ------------------------------ | ------------------------------- | --------- | --------- | --------------------------------------------------------------------- |
-| `ThemeProvider`                | `@impulse-ui-native/theme`      | Available | Indirect  | Add a dedicated theme and token gallery.                              |
-| `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Add responsive/web examples if responsive props are introduced.       |
-| `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for edges and themed spacing.                             |
-| `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit text scaling, truncation, selection, and RTL behavior.          |
-| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Document focus-visible and keyboard behavior on web.                  |
-| `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Add icon-leading/icon-trailing examples and accessibility tests.      |
-| `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Require or strongly document accessible labels for icon-only actions. |
-| `Tag`                          | `@impulse-ui-native/primitives` | Available | Yes       | Clarify when to use interactive, closable, and display-only tags.     |
-| `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable icon catalogue and bundle-size guidance.             |
+| Component                      | Package                         | Status    | Storybook | Follow-up                                                                 |
+| ------------------------------ | ------------------------------- | --------- | --------- | ------------------------------------------------------------------------- |
+| `ThemeProvider`                | `@impulse-ui-native/theme`      | Available | Indirect  | Add a dedicated theme and token gallery.                                  |
+| `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Add native responsive-layout examples if responsive props are introduced. |
+| `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for edges and themed spacing.                                 |
+| `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit text scaling, truncation, selection, and RTL behavior.              |
+| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Document native pressed, disabled, and accessibility behavior.            |
+| `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Add icon-leading/icon-trailing examples and accessibility tests.          |
+| `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Require or strongly document accessible labels for icon-only actions.     |
+| `Tag`                          | `@impulse-ui-native/primitives` | Available | Yes       | Clarify when to use interactive, closable, and display-only tags.         |
+| `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable icon catalogue and bundle-size guidance.                 |
 
 ### Form controls
 
@@ -51,9 +59,9 @@ A component should normally include all of the following before it moves to
 | Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
 | `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
 | `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and automated interaction/accessibility tests.   |
-| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture, keyboard, RTL, and accessibility behavior tests.         |
+| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture, RTL, and native accessibility behavior tests.            |
 | `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated thumb-collision and assistive-technology behavior tests.          |
-| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Add automated selection, keyboard, overflow, and accessibility behavior tests.  |
+| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Add automated selection, overflow, and native accessibility behavior tests.     |
 | `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, custom option rendering, grouped options, and async states.         |
 | `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selected-item summaries, large-list behavior, and selection limits. |
 | `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add min/max dates, disabled dates, locale, and first-day-of-week controls.      |
@@ -77,7 +85,7 @@ A component should normally include all of the following before it moves to
 | Component               | Package                      | Status | Storybook | Follow-up                                                                   |
 | ----------------------- | ---------------------------- | ------ | --------- | --------------------------------------------------------------------------- |
 | `Stepper`               | `@impulse-ui-native/stepper` | Extend | Yes       | Add optional/disabled steps, validation hooks, and accessibility semantics. |
-| `StepperTabsNavigation` | `@impulse-ui-native/stepper` | Extend | Yes       | Add overflow/scroll behavior and keyboard navigation.                       |
+| `StepperTabsNavigation` | `@impulse-ui-native/stepper` | Extend | Yes       | Add native overflow, scrolling, and accessibility behavior.                 |
 
 ### Overlays and composition infrastructure
 
@@ -120,11 +128,11 @@ have been discussed.
 
 - [ ] Add an automated test setup for packages. No package-level `*.test.*` or
       `*.spec.*` files were present when this inventory was created.
-- [ ] Add accessibility checks and a manual VoiceOver/TalkBack/keyboard test
+- [ ] Add accessibility checks and a manual VoiceOver/TalkBack test
       matrix for interactive components.
 - [ ] Add direct Storybook coverage for `SafeAreaView`, compound `Control`, the
       standalone data-state views, and theme tokens.
-- [ ] Define supported React Native, Expo, iOS, Android, and web versions in one
+- [ ] Define supported React Native, Expo, iOS, and Android versions in one
       compatibility document.
 - [ ] Add an example form and an example data-backed screen that combine several
       packages and cover realistic integration concerns.
@@ -136,7 +144,7 @@ have been discussed.
 | Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, disabled behavior, and accessible mixed-state semantics. |
 | Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                             |
 | Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, disabled behavior, and accessible radio semantics.                        |
-| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and keyboard navigation on web.                                      |
+| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and native group accessibility.                                      |
 | Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.          |
 | Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                 |
 | Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, disabled state, and accessibility wiring.   |
@@ -156,19 +164,19 @@ have been discussed.
 | Avatar Group            | Candidate | Overlapping group layout, maximum visible items, and overflow count.                                                     |
 | Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction. |
 | List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.                                      |
-| Tabs                    | Candidate | Controlled tabs, keyboard navigation, scrollable tab lists, and lazy panels.                                             |
-| Accordion / Collapsible | Available | Single/multiple expansion, animated height, keyboard behavior, and nested content.                                       |
-| Menu                    | Candidate | Anchored actions, nested sections, destructive items, keyboard navigation, and portals.                                  |
-| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, focus/hover/press triggers, and portal rendering.                                |
+| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, lazy panels, and native accessibility semantics.                                  |
+| Accordion / Collapsible | Available | Single/multiple expansion, animated height, native accessibility behavior, and nested content.                           |
+| Menu                    | Candidate | Anchored actions, nested sections, destructive items, native accessibility, and portals.                                 |
+| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, press/long-press triggers, and portal rendering.                                 |
 
 ### Priority 3: advanced input and data display
 
 | Candidate               | Status    | Suggested scope                                                                                  |
 | ----------------------- | --------- | ------------------------------------------------------------------------------------------------ |
-| Slider / Range Slider   | Extend    | Steps, marks, min/max values, gestures, keyboard input, and accessible value text.               |
+| Slider / Range Slider   | Extend    | Steps, marks, min/max values, gestures, and accessible value text.                               |
 | Segmented Control       | Available | Single selection, icons, labels, disabled options, token-driven variants, and overflow policy.   |
 | Search Input / Combobox | Candidate | Decide whether this extends `Input` and `Select` or becomes a dedicated component.               |
-| Pagination              | Candidate | Compact native controls plus complete web keyboard and screen-reader behavior.                   |
+| Pagination              | Candidate | Compact native controls with VoiceOver/TalkBack labels, state, and touch targets.                |
 | Table / Data Grid       | Candidate | Start only after defining responsive behavior, virtualization, sorting, and accessibility scope. |
 | Carousel                | Candidate | Snapping, pagination indicators, autoplay policy, RTL, and reduced motion.                       |
 | Additional charts       | Candidate | Area, stacked-area, scatter, and sparkline variants after shared chart interaction APIs exist.   |
@@ -179,7 +187,7 @@ These concerns should be addressed as shared systems instead of separately in
 each new component:
 
 - accessibility conventions and reusable test helpers;
-- focus-visible, hover, keyboard, and pointer behavior on web;
+- native VoiceOver/TalkBack behavior and accessibility focus;
 - reduced-motion support for Reanimated components;
 - RTL layout and gesture direction;
 - font scaling and dynamic type;

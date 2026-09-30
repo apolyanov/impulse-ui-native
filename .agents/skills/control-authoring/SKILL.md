@@ -7,6 +7,14 @@ description: Design, implement, review, or document reusable interactive control
 
 Create controls that feel native to the library rather than isolated widgets. Base decisions on the closest existing controls, while checking the intended semantics instead of copying an implementation mechanically.
 
+## Current platform scope
+
+Author controls for native iOS and Android only. Do not implement browser-only
+interaction, DOM behavior, hover/focus-visible states, web keyboard navigation,
+or web-specific examples and tests unless the user explicitly requests them.
+Existing web compatibility may remain when it is incidental, but it is not a
+completion requirement.
+
 ## Start with repository context
 
 1. Follow the `impulse-ui-native-repo` skill for package boundaries, dependency direction, exports, Storybook, and release workflow.
@@ -58,8 +66,8 @@ Write down the control's semantic role, value model, state transitions, and disa
 - Ensure icon-only and otherwise unlabelled controls have an accessible-name path; document when consumers must provide `accessibilityLabel`.
 - Disabled and loading states must block or intentionally constrain interaction, not only change opacity.
 - Keep small visuals usable through tokenized `hitSlop` or an adequately sized press target.
-- Consider focus, keyboard activation/navigation on web, RTL, font scaling, reduced motion, and screen-reader announcements according to the control's semantics.
-- For a group, implement the group's native semantics and keyboard model rather than relying only on individual item roles.
+- Consider native accessibility focus, RTL, font scaling, reduced motion, and VoiceOver/TalkBack announcements according to the control's semantics.
+- For a group, implement the platform-native group semantics rather than relying only on individual item roles.
 
 ## Add theme tokens deliberately
 
@@ -95,7 +103,7 @@ Add the established Storybook trio under `packages/storybook/src/stories/<contro
 - `<control>.examples.tsx` for reusable typed examples;
 - `<control>.documentation.tsx` for the long-form documentation page.
 
-Cover the meaningful matrix: default, supported sizes and variants, disabled/loading/error states, controlled and uncontrolled behavior, empty/selected/mixed states, accessibility-relevant states, and important composition or group behavior. Use examples that work in native and web hosts.
+Cover the meaningful matrix: default, supported sizes and variants, disabled/loading/error states, controlled and uncontrolled behavior, empty/selected/mixed states, accessibility-relevant states, and important composition or group behavior. Use examples designed for the native host.
 
 Update the owning package README with installation, provider/peer requirements, exports, a minimal example, state behavior, and accessibility obligations. Update `docs/component-roadmap.md` for a new control or maturity change. Add a Changeset for a release-worthy public change; a new public control is normally minor.
 
@@ -107,9 +115,9 @@ Use checks proportional to the changed surface:
 2. Typecheck and build the owning package plus directly affected `theme`, `primitives`, `toolkit`, and `storybook` packages.
 3. Run relevant lint checks; remember package lint scripts can modify files.
 4. Run `git diff --check`.
-5. Render the Storybook stories in the relevant native and web hosts when behavior or layout changed. Manually exercise interaction, accessibility state, controlled/uncontrolled behavior, disabled/loading behavior, and light/dark themes.
+5. Render the Storybook stories in the native host when behavior or layout changed. Manually exercise interaction, accessibility state, controlled/uncontrolled behavior, disabled/loading behavior, and light/dark themes on the relevant iOS and Android targets.
 
-Do not describe builds or Storybook checks as unit tests. If automated behavioral tests are warranted, first verify that an appropriate runner and native/web scope exist.
+Do not describe builds or Storybook checks as unit tests. If automated behavioral tests are warranted, first verify that an appropriate runner and native iOS/Android scope exist.
 
 ## Completion gate
 

@@ -9,6 +9,14 @@ Use this skill to avoid rediscovering the repository's architecture and local
 conventions. The references are a maintained map, not a substitute for reading
 the files being changed.
 
+## Current platform scope
+
+Component development currently targets native iOS and Android only. Do not add
+web-specific APIs, interaction behavior, styling, examples, tests, or acceptance
+criteria unless the user explicitly expands the scope. Existing web tooling may
+remain useful as a preview environment, but web parity is deferred and must not
+drive component design or block completion.
+
 ## Before changing code
 
 1. Check the working tree and preserve unrelated or user-owned changes.
@@ -44,7 +52,8 @@ the affected source and manifests when they may have changed.
   `toolkit` when aggregation is intended. Icons are a special case and use
   per-icon subpath exports.
 - Treat Storybook as product documentation: a component normally has a story,
-  examples, and a documentation page usable by both native and web hosts.
+  examples, and a documentation page designed for the native host. Web preview
+  compatibility is optional and must not add web-only requirements.
 - Update the package README and `docs/component-roadmap.md` when public
   capability or status changes. Add a Changeset for release-worthy package
   changes.

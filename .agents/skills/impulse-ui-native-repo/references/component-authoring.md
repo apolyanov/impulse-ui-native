@@ -3,6 +3,14 @@
 Use this reference when adding or changing components, public props, theme
 tokens, or Storybook documentation.
 
+## Platform scope
+
+Design and implement public components for native iOS and Android. Do not add
+web-specific props, DOM behavior, hover/focus-visible styling, browser keyboard
+models, or React Native Web workarounds unless the user explicitly requests web
+scope. Preserve harmless compatibility with the existing web preview when it
+comes for free, but do not treat web parity as an acceptance criterion.
+
 ## Decide package ownership first
 
 - `primitives/src/components/atoms`: broadly reusable token-aware layout,
@@ -90,8 +98,8 @@ Export through the nearest barrel and then the package root. Re-export from
   component. Use `useComponentsTokens` directly only for non-style values,
   token-aware primitive props, or animated worklet styles that cannot be
   created by `useThemedStyles`.
-- Preserve native, Android, iOS, and React Native Web behavior unless the
-  component is explicitly platform-limited.
+- Preserve iOS and Android behavior. Existing React Native Web behavior may be
+  retained when incidental, but new web behavior is out of scope by default.
 
 ## Theme integration
 
@@ -140,7 +148,8 @@ ThemeProvider, OverlayProvider/Host, and PortalProvider/Host as applicable.
 ## Storybook documentation
 
 Stories live in `packages/storybook/src/stories/<component>/` and are discovered
-by both Storybook hosts. The established three-file pattern is:
+by the configured Storybook hosts. The native host is authoritative. The
+established three-file pattern is:
 
 ```text
 <component>.stories.tsx        metadata, controls, and named story exports
@@ -149,9 +158,9 @@ by both Storybook hosts. The established three-file pattern is:
 ```
 
 Use `satisfies Meta<typeof Component>`, `StoryObj<typeof meta>`, shared size and
-variant options, and `createStoryDescription`. Keep examples useful in both
-native and web environments. Cover defaults, sizes, variants, disabled/loading/
-error states, controlled behavior, accessibility-relevant states, and important
+variant options, and `createStoryDescription`. Keep examples useful in the
+native Storybook host. Cover defaults, sizes, variants, disabled/loading/error
+states, controlled behavior, accessibility-relevant states, and important
 composition—not only a happy path.
 
 Update the package README with installation, peer setup, main exports, a minimal
@@ -176,7 +185,7 @@ component is added or its maturity changes.
 - Visual values come from the theme unless intrinsically data-driven.
 - Controlled and uncontrolled behavior does not switch accidentally.
 - Disabled state blocks interaction and exposes accessibility state.
-- Touch targets, labels, focus, keyboard behavior, RTL, font scaling, and
+- Touch targets, labels, native accessibility focus, RTL, font scaling, and
   reduced motion were considered.
-- Native and web stories render with required providers.
+- Native stories render with required providers.
 - README, roadmap, dependency metadata, and Changeset match the change.

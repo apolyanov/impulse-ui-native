@@ -37,7 +37,7 @@ Button and IconButton are appropriate references for low-domain actions. Their p
 - `packages/theme/src/theme/create-checkbox-tokens.ts`
 - `packages/theme/src/theme/create-radio-tokens.ts`
 
-Checkbox demonstrates three-state checked semantics and maps `indeterminate` to accessibility `mixed`. Radio demonstrates a one-way item transition: pressing an unchecked item selects it; pressing it again does not deselect it. Mutual exclusion and keyboard navigation belong to a future group-level abstraction, not the standalone item.
+Checkbox demonstrates three-state checked semantics and maps `indeterminate` to accessibility `mixed`. Radio demonstrates a one-way item transition: pressing an unchecked item selects it; pressing it again does not deselect it. Mutual exclusion and shared native group semantics belong to a future group-level abstraction, not the standalone item.
 
 Both merge consumer styles through the Pressable callback, derive default hit slop from size tokens, preserve `onPress`, and make component-owned accessibility state explicit.
 
@@ -62,7 +62,7 @@ Select separates the generic value model and selection hook from field rendering
 
 DatePicker opens with a temporary copy of the committed selection, mutates the temporary value while the flyout is open, commits on Apply, discards on Cancel/close, and resynchronizes after the close animation. Use this model only when confirmation is part of the intended interaction; immediate-selection controls should not acquire staging accidentally.
 
-Overlay-backed controls may require Gesture Handler, safe-area, theme, overlay, and portal providers. Check both Storybook host configurations before changing provider assumptions.
+Overlay-backed controls may require Gesture Handler, safe-area, theme, overlay, and portal providers. Check the native Storybook host before changing provider assumptions.
 
 ## Theme wiring map
 
@@ -130,9 +130,9 @@ Older controls can omit requirements a new control needs. In particular, verify 
 
 - an icon-only control has a documented accessible-name requirement;
 - loading blocks duplicate activation and exposes appropriate accessibility state;
-- web keyboard and focus behavior match the semantic role;
+- native VoiceOver and TalkBack behavior matches the semantic role;
 - group controls implement group semantics rather than only styling a row of items;
 - theme component overrides work before documenting consumer override support;
-- stories were actually rendered in both relevant hosts.
+- stories were actually rendered in the native host.
 
 Prefer the intended semantic contract when an existing implementation and platform accessibility guidance differ.

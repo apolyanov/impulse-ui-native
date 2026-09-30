@@ -28,7 +28,7 @@ changes it.
 No `*.test.*` or `*.spec.*` files were found outside dependencies during the
 scan. Shared tsup config excludes such files in anticipation of tests, but that
 is not evidence of a configured test runner. When adding behavior tests, first
-establish and document the runner and native/web scope.
+establish and document the runner and native iOS/Android scope.
 
 ## Documentation surfaces
 
@@ -46,8 +46,9 @@ in the site and `docs/component-roadmap.md` when appropriate.
 
 The web preview installs the complete provider tree. Native Storybook relies on
 the Expo application root for most providers and its own preview for backgrounds
-and controls. A provider or decorator change may therefore need coordinated
-updates in `.storybook`, `.rnstorybook`, and the Expo root layout.
+and controls. Native is authoritative for current component work; update the web
+preview only for shared documentation infrastructure or when web scope is
+explicitly requested.
 
 ## Generated and high-volume icon sources
 
