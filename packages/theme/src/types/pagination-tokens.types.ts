@@ -11,6 +11,7 @@ export interface PaginationAppearanceTokens {
   backgroundColor: string;
   borderColor: string;
   color: string;
+  ellipsisColor: string;
 }
 
 export interface PaginationSizeToken {
@@ -25,7 +26,6 @@ export interface PaginationSizeToken {
 export interface PaginationTokens {
   borderRadius: number;
   borderWidth: number;
-  ellipsisColor: string;
   gap: number;
   sizes: Record<ComponentSize, PaginationSizeToken>;
   states: VisualStateTokens<PaginationVisualState, PaginationAppearanceTokens>;

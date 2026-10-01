@@ -6,7 +6,6 @@ export function createPaginationTokens(
   return {
     borderRadius: tokens.radii.md,
     borderWidth: tokens.borderSize.sm,
-    ellipsisColor: tokens.colors.text.tertiary,
     gap: tokens.space.xs,
     sizes: {
       small: {
@@ -39,16 +38,19 @@ export function createPaginationTokens(
         backgroundColor: tokens.colors.surface.elevated.value,
         borderColor: tokens.colors.border.default.value,
         color: tokens.colors.text.primary,
+        ellipsisColor: tokens.colors.text.tertiary,
       },
       current: {
         backgroundColor: tokens.colors.primary.value,
         borderColor: tokens.colors.primary.value,
         color: tokens.colors.primary.contrast,
+        ellipsisColor: tokens.colors.text.tertiary,
       },
       disabled: {
         backgroundColor: tokens.colors.surface.primary.value,
         borderColor: tokens.colors.border.subtle.value,
         color: tokens.colors.text.disabled,
+        ellipsisColor: tokens.colors.text.disabled,
       },
     },
   };

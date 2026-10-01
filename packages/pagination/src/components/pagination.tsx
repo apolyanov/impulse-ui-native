@@ -10,7 +10,11 @@ import {
 import { CaretLeftIcon } from "@impulse-ui-native/icon/icons/caret-left";
 import { CaretRightIcon } from "@impulse-ui-native/icon/icons/caret-right";
 import { Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  getPaginationStateTokens,
+  useComponentsTokens,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { PaginationProps, PaginationThemeProps } from "../types";
 import {
@@ -139,9 +143,10 @@ export const Pagination = memo(function Pagination({
 function themedStyles(theme: AppTheme, props: PaginationThemeProps) {
   const tokens = theme.components.pagination;
   const sizeTokens = tokens.sizes[props.size];
-  const statusTokens = props.disabled
-    ? tokens.states.disabled
-    : tokens.states.default;
+  const statusTokens = getPaginationStateTokens(tokens.states, {
+    current: false,
+    disabled: props.disabled,
+  });
 
   return StyleSheet.create({
     root: {
@@ -175,9 +180,7 @@ function themedStyles(theme: AppTheme, props: PaginationThemeProps) {
       height: sizeTokens.controlSize,
     },
     ellipsisLabel: {
-      color: props.disabled
-        ? tokens.states.disabled.color
-        : tokens.ellipsisColor,
+      color: statusTokens.ellipsisColor,
       fontSize: sizeTokens.fontSize,
       textAlign: "center",
     },
