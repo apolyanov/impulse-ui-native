@@ -1,5 +1,31 @@
 # @impulse-ui-native/storybook
 
+## 5.0.0
+
+### Minor Changes
+
+- 0b4016a: Add a native Carousel with edge and center snapping, neighboring-slide previews, controlled or uncontrolled indices, dots/segments/counter pagination, and default filled navigation buttons that honor reduced motion. Pagination and navigation follow the nearest slide during scrolling.
+
+### Patch Changes
+
+- 0fcbabd: Use the theme primary text color for headings and main content and secondary
+  for supporting typography presets so both stay readable in dark mode. Allow
+  color in custom preset configurations, preserving explicit prop and style overrides.
+  Replace fixed Storybook text colors and paired preview surfaces with theme tokens
+  and use the default dark carousel palette.
+- Updated dependencies [0fcbabd]
+- Updated dependencies [0fcbabd]
+- Updated dependencies [e1a8def]
+- Updated dependencies [0b4016a]
+- Updated dependencies [f618637]
+- Updated dependencies [58a5c7e]
+- Updated dependencies [b5a7c24]
+- Updated dependencies [0fcbabd]
+- Updated dependencies [0fcbabd]
+  - @impulse-ui-native/theme@5.0.0
+  - @impulse-ui-native/primitives@5.0.0
+  - @impulse-ui-native/icon@5.0.0
+
 ## 4.0.0
 
 ### Patch Changes

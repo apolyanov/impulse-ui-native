@@ -1,5 +1,49 @@
 # @impulse-ui-native/primitives
 
+## 5.0.0
+
+### Major Changes
+
+- e1a8def: Remove web-only interaction behavior and built-in accessibility semantics from
+  the component packages. Controls now target mobile interaction exclusively;
+  web and accessibility support will return together in a future major version.
+
+  Model segmented-control inline and stacked item layouts as theme tokens and
+  resolve layout, size, and selection-state tokens through one theme utility.
+
+  Model divider orientation and inset layouts, flyout placement layouts, and
+  slider value-bubble spacing as resolved component theme tokens.
+
+### Minor Changes
+
+- f618637: Add presentation-focused compound List parts and theme tokens. Reuse Divider for explicit separators and shared Pressable behavior for optional row actions.
+
+### Patch Changes
+
+- 0fcbabd: Use the theme primary text color for headings and main content and secondary
+  for supporting typography presets so both stay readable in dark mode. Allow
+  color in custom preset configurations, preserving explicit prop and style overrides.
+  Replace fixed Storybook text colors and paired preview surfaces with theme tokens
+  and use the default dark carousel palette.
+- 0fcbabd: Fix Switch thumb/track and loading visibility, secondary Badge/Tag/Spinner
+  foregrounds, Flyout handles, Slider marks/highlights, Progress tracks, and
+  disabled Carousel indicator distinction. Improve normal Input placeholder
+  foregrounds and use adaptive offline Avatar colors. Improve light primary and feedback
+  foreground/background pairs. Default the shared Icon renderer to theme text
+  while preserving explicit SVG colors, and honor Typography font-family and
+  font-variant configuration and overrides.
+- Updated dependencies [0fcbabd]
+- Updated dependencies [0fcbabd]
+- Updated dependencies [e1a8def]
+- Updated dependencies [0b4016a]
+- Updated dependencies [f618637]
+- Updated dependencies [58a5c7e]
+- Updated dependencies [b5a7c24]
+- Updated dependencies [0fcbabd]
+  - @impulse-ui-native/theme@5.0.0
+  - @impulse-ui-native/icon@5.0.0
+  - @impulse-ui-native/core@5.0.0
+
 ## 4.0.0
 
 ### Major Changes

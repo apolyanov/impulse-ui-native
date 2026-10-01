@@ -1,5 +1,51 @@
 # @impulse-ui-native/toolkit
 
+## 5.0.0
+
+### Minor Changes
+
+- 0b4016a: Add a native Carousel with edge and center snapping, neighboring-slide previews, controlled or uncontrolled indices, dots/segments/counter pagination, and default filled navigation buttons that honor reduced motion. Pagination and navigation follow the nearest slide during scrolling.
+- 58a5c7e: Add native token-driven Pagination with adaptive and compact page-window
+  layouts, controlled and uncontrolled state, and shared Pressable feedback.
+
+### Patch Changes
+
+- Updated dependencies [9ab7bb5]
+- Updated dependencies [666a2bf]
+- Updated dependencies [0fcbabd]
+- Updated dependencies [0fcbabd]
+- Updated dependencies [e1a8def]
+- Updated dependencies [0b4016a]
+- Updated dependencies [f618637]
+- Updated dependencies [58a5c7e]
+- Updated dependencies [b5a7c24]
+- Updated dependencies [0fcbabd]
+- Updated dependencies [0fcbabd]
+  - @impulse-ui-native/segmented-control@5.0.0
+  - @impulse-ui-native/skeleton@5.0.0
+  - @impulse-ui-native/theme@5.0.0
+  - @impulse-ui-native/accordion@5.0.0
+  - @impulse-ui-native/checkbox@5.0.0
+  - @impulse-ui-native/flyout@5.0.0
+  - @impulse-ui-native/form-field@5.0.0
+  - @impulse-ui-native/input@5.0.0
+  - @impulse-ui-native/primitives@5.0.0
+  - @impulse-ui-native/radio@5.0.0
+  - @impulse-ui-native/slider@5.0.0
+  - @impulse-ui-native/switch@5.0.0
+  - @impulse-ui-native/carousel@5.0.0
+  - @impulse-ui-native/pagination@5.0.0
+  - @impulse-ui-native/data-state@5.0.0
+  - @impulse-ui-native/charts@5.0.0
+  - @impulse-ui-native/datetime@5.0.0
+  - @impulse-ui-native/select@5.0.0
+  - @impulse-ui-native/stepper@5.0.0
+  - @impulse-ui-native/core@5.0.0
+  - @impulse-ui-native/echo@5.0.0
+  - @impulse-ui-native/endpoint@5.0.0
+  - @impulse-ui-native/overlay@5.0.0
+  - @impulse-ui-native/portal@5.0.0
+
 ## 4.0.0
 
 ### Patch Changes

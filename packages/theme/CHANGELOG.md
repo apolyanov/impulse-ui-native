@@ -1,5 +1,47 @@
 # @impulse-ui-native/theme
 
+## 5.0.0
+
+### Major Changes
+
+- e1a8def: Remove web-only interaction behavior and built-in accessibility semantics from
+  the component packages. Controls now target mobile interaction exclusively;
+  web and accessibility support will return together in a future major version.
+
+  Model segmented-control inline and stacked item layouts as theme tokens and
+  resolve layout, size, and selection-state tokens through one theme utility.
+
+  Model divider orientation and inset layouts, flyout placement layouts, and
+  slider value-bubble spacing as resolved component theme tokens.
+
+### Minor Changes
+
+- 0fcbabd: Export DarkColors and use it in DarkTheme. Provide dark surfaces, borders,
+  brand and feedback pairs while keeping the neutral scale identical in both
+  schemes. Derive adaptive component defaults from semantic surface, border, and
+  text tokens instead of fixed neutral steps.
+- 0b4016a: Add a native Carousel with edge and center snapping, neighboring-slide previews, controlled or uncontrolled indices, dots/segments/counter pagination, and default filled navigation buttons that honor reduced motion. Pagination and navigation follow the nearest slide during scrolling.
+- f618637: Add presentation-focused compound List parts and theme tokens. Reuse Divider for explicit separators and shared Pressable behavior for optional row actions.
+- 58a5c7e: Add native token-driven Pagination with adaptive and compact page-window
+  layouts, controlled and uncontrolled state, and shared Pressable feedback.
+
+### Patch Changes
+
+- 0fcbabd: Increase dark semantic border contrast so subtle dividers and Card, Accordion,
+  and List borders remain visible on elevated surfaces. Preserve the border tone
+  hierarchy and use surface tokens for disabled fills and neutral progress tracks
+  so stronger borders do not obscure their foregrounds.
+- b5a7c24: Match the primary soft Tag background, border, and foreground to the soft Button
+  palette in both light and dark themes.
+- 0fcbabd: Fix Switch thumb/track and loading visibility, secondary Badge/Tag/Spinner
+  foregrounds, Flyout handles, Slider marks/highlights, Progress tracks, and
+  disabled Carousel indicator distinction. Improve normal Input placeholder
+  foregrounds and use adaptive offline Avatar colors. Improve light primary and feedback
+  foreground/background pairs. Default the shared Icon renderer to theme text
+  while preserving explicit SVG colors, and honor Typography font-family and
+  font-variant configuration and overrides.
+  - @impulse-ui-native/core@5.0.0
+
 ## 4.0.0
 
 ### Major Changes
