@@ -53,7 +53,7 @@ import { createTextareaTokens } from "./create-textarea-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
 
 export const ChartColorTokens: ChartColorPalette = [
-  "#c92a3b",
+  "#F55D6B",
   "#2563eb",
   "#16a34a",
   "#9333ea",
@@ -210,7 +210,7 @@ export const NeutralColorTokens: NeutralColor = {
 
 export const LightColors: ThemeColors = {
   primary: {
-    value: "#c92a3b",
+    value: "#F55D6B",
     contrast: NeutralColorTokens["0"],
   },
 

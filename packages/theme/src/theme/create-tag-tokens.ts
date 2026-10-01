@@ -59,9 +59,9 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
         },
         soft: {
           default: {
-            backgroundColor: tokens.colors.primary.contrast,
-            borderColor: tokens.colors.primary.contrast,
-            color: tokens.colors.primary.value,
+            backgroundColor: tokens.colors.secondary.value,
+            borderColor: tokens.colors.secondary.value,
+            color: tokens.colors.secondary.contrast,
           },
           disabled: {
             backgroundColor: tokens.colors.surface.primary.value,
