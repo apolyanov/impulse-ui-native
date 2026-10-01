@@ -38,3 +38,4 @@ export * from "./textarea-tokens.types";
 export * from "./data-state-tokens.types";
 
 export * from "./list-tokens.types";
+export * from "./carousel-tokens.types";

@@ -1,12 +1,12 @@
 {
-  "name": "@impulse-ui-native/storybook",
+  "name": "@impulse-ui-native/carousel",
   "version": "4.0.0",
-  "description": "Shared Storybook stories and configuration for ImpulseUI Native components.",
+  "description": "Native snapping carousel with centered previews and themed navigation.",
   "keywords": [
     "react-native",
-    "storybook",
+    "carousel",
+    "navigation",
     "components",
-    "documentation",
     "impulse-ui-native"
   ],
   "license": "MIT",
@@ -28,52 +28,34 @@
   ],
   "sideEffects": false,
   "scripts": {
+    "test": "node --experimental-strip-types --test tests/carousel.test.mjs",
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/icon": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*"
   },
   "devDependencies": {
-    "@impulse-ui-native/core": "workspace:*",
-    "@impulse-ui-native/accordion": "workspace:*",
-    "@impulse-ui-native/charts": "workspace:*",
-    "@impulse-ui-native/checkbox": "workspace:*",
-    "@impulse-ui-native/data-state": "workspace:*",
-    "@impulse-ui-native/datetime": "workspace:*",
     "@impulse-ui-native/eslint-config": "workspace:*",
-    "@impulse-ui-native/flyout": "workspace:*",
-    "@impulse-ui-native/form-field": "workspace:*",
-    "@impulse-ui-native/input": "workspace:*",
-    "@impulse-ui-native/overlay": "workspace:*",
-    "@impulse-ui-native/pagination": "workspace:*",
-    "@impulse-ui-native/portal": "workspace:*",
     "@impulse-ui-native/prettier-config": "workspace:*",
-    "@impulse-ui-native/radio": "workspace:*",
-    "@impulse-ui-native/segmented-control": "workspace:*",
-    "@impulse-ui-native/select": "workspace:*",
-    "@impulse-ui-native/skeleton": "workspace:*",
-    "@impulse-ui-native/stepper": "workspace:*",
-    "@impulse-ui-native/switch": "workspace:*",
-    "@impulse-ui-native/slider": "workspace:*",
     "@impulse-ui-native/tsconfig": "workspace:*",
-    "@shopify/react-native-skia": "catalog:",
-    "@storybook/react": "^10.0.0",
     "@types/react": "catalog:react19",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "react": "catalog:react19",
     "react-native": "catalog:",
-    "typescript": "catalog:",
-    "@impulse-ui-native/carousel": "workspace:*"
+    "react-native-svg": "catalog:",
+    "typescript": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.73"
+    "react-native": ">=0.73",
+    "react-native-svg": ">=13.9.0"
   },
   "publishConfig": {
     "access": "public"

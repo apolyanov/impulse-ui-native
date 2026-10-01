@@ -20,6 +20,10 @@ export function App() {
 
 ## Main exports
 
+- `createCarouselTokens` and `CarouselTokens` define Carousel spacing, corners,
+  indicators, touch targets, and semantic colors. Carousel actions reuse the
+  existing default `iconButton` tokens.
+
 - `ThemeProvider` installs the current theme and accepts `light` and `dark` token overrides.
 - `LightTheme` and `DarkTheme` provide the default primitive themes.
 - `useTheme` returns the complete `AppTheme`.

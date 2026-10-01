@@ -7,6 +7,8 @@ The complete Impulse UI Native component library in one package.
 ## Highlights
 
 - React Native components with TypeScript types.
+- `Carousel` with native snapping, centered previews, adaptive pagination, and
+  reduced-motion-aware navigation. See the [Carousel API](../carousel/README.md).
 - One theme system shared by every component.
 - Works with React Native mobile applications.
 - Gesture-driven flyouts and app-wide overlay management.

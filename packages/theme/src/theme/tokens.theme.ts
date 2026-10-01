@@ -1,4 +1,4 @@
-import {
+import type {
   BorderSize,
   ChartColorPalette,
   ComponentsTokens,
@@ -21,6 +21,7 @@ import { createAvatarTokens } from "./create-avatar-tokens";
 import { createBadgeTokens } from "./create-badge-tokens";
 import { createButtonTokens } from "./create-button-tokens";
 import { createCardTokens } from "./create-card-tokens";
+import { createCarouselTokens } from "./create-carousel-tokens";
 import { createCheckboxTokens } from "./create-checkbox-tokens";
 import {
   createControlAddonTokens,
@@ -300,6 +301,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    carousel: createCarouselTokens(tokens),
     accordion: createAccordionTokens(tokens),
     avatar: createAvatarTokens(tokens),
     badge: createBadgeTokens(tokens),

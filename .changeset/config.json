@@ -29,7 +29,8 @@
       "@impulse-ui-native/switch",
       "@impulse-ui-native/slider",
       "@impulse-ui-native/theme",
-      "@impulse-ui-native/toolkit"
+      "@impulse-ui-native/toolkit",
+      "@impulse-ui-native/carousel"
     ]
   ],
   "linked": [],
