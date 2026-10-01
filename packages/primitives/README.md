@@ -95,3 +95,38 @@ Use `Card.Root` for a static surface and `Card.Pressable` when the whole card ha
 `Avatar` supports `filled`, `outlined`, and `soft` display variants. It renders fallback content below its image so initials or a custom fallback remain visible while the image loads or when it fails. Avatar grouping and overflow counts are intentionally handled separately.
 
 Use `Badge` for compact states and metadata. It supports `filled`, `outlined`, and `soft` display variants and semantic tones. Its addons follow Input: use `PrefixIcon` or `Prefix`, `SuffixIcon` or `Suffix`, and optionally `onPressPrefix` or `onPressSuffix`. A custom component takes precedence over its corresponding icon. Use `Tag` when the whole label needs built-in press or close behavior.
+
+## List
+
+List is a presentation-focused compound component, exported through primitives
+and the toolkit. It uses the existing theme provider and adds no runtime peers.
+
+```tsx
+import { Divider, List, Typography } from "@impulse-ui-native/primitives";
+
+<List.Root>
+  <List.Item>
+    <List.Leading>{/* Icon, avatar, or custom content */}</List.Leading>
+    <List.Content>
+      <Typography.Title6>Account</Typography.Title6>
+      <Typography.BodySmall>Personal details</Typography.BodySmall>
+    </List.Content>
+    <List.Trailing>{/* Badge, metadata, or indicator */}</List.Trailing>
+  </List.Item>
+  <Divider inset="both" />
+  <List.Pressable onPress={openPreferences}>
+    <List.Content>
+      <Typography.Body>Preferences</Typography.Body>
+    </List.Content>
+  </List.Pressable>
+</List.Root>;
+```
+
+Root supplies the surface; Item supplies a static row; Pressable supplies the
+same row layout with native press and disabled behavior. Leading and Trailing
+keep custom content at its natural size while Content fills the remaining width.
+All parts accept their underlying primitive props and style overrides. Use
+Typography for titles and descriptions and Divider for explicit separators.
+Parts may also be composed without Root for standalone rows. Selection and
+indicators remain application-owned; no context, selection state, or automatic
+separator insertion is included. Theme defaults live in components.list.

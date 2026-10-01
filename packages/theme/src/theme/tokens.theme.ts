@@ -35,6 +35,7 @@ import { createDividerTokens } from "./create-divider-tokens";
 import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
+import { createListTokens } from "./create-list-tokens";
 import { createPaginationTokens } from "./create-pagination-tokens";
 import { createPressableTokens } from "./create-pressable-tokens";
 import { createProgressTokens } from "./create-progress-tokens";
@@ -304,6 +305,7 @@ export function createComponentsTokens(
     badge: createBadgeTokens(tokens),
     button: createButtonTokens(tokens),
     card: createCardTokens(tokens),
+    list: createListTokens(tokens),
     checkbox: createCheckboxTokens(tokens),
     iconButton: createIconButtonTokens(tokens),
     icon: createIconTokens(),

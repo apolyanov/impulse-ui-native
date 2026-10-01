@@ -4,15 +4,12 @@ This document is the living inventory for ImpulseUI Native. It records what is
 available today, where an existing component needs more work, and which
 components are candidates for future development.
 
-Last reviewed: 2026-09-30
+Last reviewed: 2026-10-01
 
 ## Current platform scope
 
-Component development currently targets native iOS and Android. Web-specific
-features, browser interaction models, React Native Web parity, and built-in
-accessibility semantics are deferred until this policy is revised. Existing web
-preview tooling may remain available, but web and accessibility work do not
-define component scope or block a component from being marked **Available**.
+Component development targets native iOS and Android. Component scope, examples,
+and acceptance criteria should reflect these platforms.
 
 ## How to use this document
 
@@ -49,13 +46,14 @@ A component should normally include all of the following before it moves to
 | `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Add icon sizing, weight, loading, and disabled examples.                  |
 | `Tag`                          | `@impulse-ui-native/primitives` | Available | Yes       | Clarify when to use interactive, closable, and display-only tags.         |
 | `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable icon catalogue and bundle-size guidance.                 |
+| Compound `List`                | `@impulse-ui-native/primitives` | Available | Yes       | Add more native composition examples as usage grows.                      |
 
 ### Form controls
 
 | Component             | Package                                | Status    | Storybook | Follow-up                                                                       |
 | --------------------- | -------------------------------------- | --------- | --------- | ------------------------------------------------------------------------------- |
-| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition, error, addon, loading, and focus stories.            |
-| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Add multiline, prefix/suffix action, keyboard, and validation examples.         |
+| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition, error, addon, and loading stories.                   |
+| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Add multiline, prefix/suffix action, and validation examples.                   |
 | `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and automated interaction tests.                 |
 | `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture and RTL behavior tests.                                   |
 | `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated thumb-collision and range interaction tests.                      |
@@ -88,11 +86,11 @@ A component should normally include all of the following before it moves to
 
 ### Overlays and composition infrastructure
 
-| Component                              | Package                      | Status    | Storybook | Follow-up                                                                     |
-| -------------------------------------- | ---------------------------- | --------- | --------- | ----------------------------------------------------------------------------- |
-| `Portal`, `PortalHost`, `PortalsHost`  | `@impulse-ui-native/portal`  | Available | Yes       | Add nested-provider, host-removal, and ordering tests.                        |
-| `OverlayHost` and overlay registration | `@impulse-ui-native/overlay` | Available | Yes       | Define focus restoration, back-button handling, and stacked-overlay policy.   |
-| `Flyout`                               | `@impulse-ui-native/flyout`  | Extend    | Yes       | Add snap points, scroll coordination, keyboard avoidance, and focus trapping. |
+| Component                              | Package                      | Status    | Storybook | Follow-up                                               |
+| -------------------------------------- | ---------------------------- | --------- | --------- | ------------------------------------------------------- |
+| `Portal`, `PortalHost`, `PortalsHost`  | `@impulse-ui-native/portal`  | Available | Yes       | Add nested-provider, host-removal, and ordering tests.  |
+| `OverlayHost` and overlay registration | `@impulse-ui-native/overlay` | Available | Yes       | Define back-button handling and stacked-overlay policy. |
+| `Flyout`                               | `@impulse-ui-native/flyout`  | Extend    | Yes       | Add snap points and scroll coordination.                |
 
 ### Data visualization
 
@@ -139,32 +137,29 @@ have been discussed.
 | Candidate                    | Status    | Suggested scope                                                                                                                    |
 | ---------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, and disabled behavior.                          |
-| Checkbox Group               | Planned   | Add shared values, labels, descriptions, validation, and group layout behavior.                                                    |
 | Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, and disabled behavior.                                           |
-| Radio Group                  | Planned   | Add mutual exclusion, shared values, labels, descriptions, validation, and group state.                                            |
 | Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior. |
 | Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.        |
 | Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                |
-| Modal / Dialog               | Candidate | Portal-backed modal with focus management, keyboard avoidance, back-button behavior, and size variants.                            |
-| Alert Dialog                 | Candidate | Destructive-action semantics, cancel/confirm actions, and safe initial focus.                                                      |
+| Modal / Dialog               | Candidate | Portal-backed modal with back-button behavior and size variants.                                                                   |
+| Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                        |
 | Toast                        | Candidate | Imperative queue, placements, durations, actions, and reduced motion.                                                              |
 | Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                        |
 | Progress                     | Available | Linear and circular determinate/indeterminate variants with reduced-motion behavior.                                               |
 
 ### Priority 2: composition and navigation
 
-| Candidate               | Status    | Suggested scope                                                                                                          |
-| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Card                    | Available | Compound header, content, footer, media, and pressable surfaces without imposing screen layout.                          |
-| Divider / Separator     | Available | Horizontal and vertical orientation with logical insets and semantic color options.                                      |
-| Avatar                  | Available | Shared visual variants, image, initials, custom fallback, and semantic status.                                           |
-| Avatar Group            | Candidate | Overlapping group layout, maximum visible items, and overflow count.                                                     |
-| Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction. |
-| List / List Item        | Candidate | Leading/trailing content, description, selection, separators, and pressable states.                                      |
-| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                  |
-| Accordion / Collapsible | Available | Single/multiple expansion, animated height, and nested content.                                                          |
-| Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                       |
-| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, press/long-press triggers, and portal rendering.                                 |
+| Candidate               | Status    | Suggested scope                                                                                                                   |
+| ----------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Card                    | Available | Compound header, content, footer, media, and pressable surfaces without imposing screen layout.                                   |
+| Divider / Separator     | Available | Horizontal and vertical orientation with logical insets and semantic color options.                                               |
+| Avatar                  | Available | Shared visual variants, image, initials, custom fallback, and semantic status.                                                    |
+| Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction.          |
+| List / List Item        | Available | Presentation-focused compound rows with leading/content/trailing slots, explicit Divider composition, and optional press actions. |
+| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                           |
+| Accordion / Collapsible | Available | Single/multiple expansion, animated height, and nested content.                                                                   |
+| Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                |
+| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, press/long-press triggers, and portal rendering.                                          |
 
 ### Priority 3: advanced input and data display
 
