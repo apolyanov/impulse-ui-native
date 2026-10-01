@@ -32,7 +32,7 @@ export function createAvatarTokens(tokens: PrimitiveThemeTokens): AvatarTokens {
     statusBorderColor: tokens.colors.surface.elevated.value,
     statusColors: {
       online: tokens.colors.feedback.success.value,
-      offline: tokens.colors.neutral["6"],
+      offline: tokens.colors.text.disabled,
       away: tokens.colors.feedback.warning.value,
       busy: tokens.colors.feedback.error.value,
     },

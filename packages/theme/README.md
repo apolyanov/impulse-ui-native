@@ -26,6 +26,15 @@ export function App() {
 
 - `ThemeProvider` installs the current theme and accepts `light` and `dark` token overrides.
 - `LightTheme` and `DarkTheme` provide the default primitive themes.
+- `LightColors` and `DarkColors` provide the complete semantic palettes. Select
+  `scheme="dark"` on `ThemeProvider` for dark surfaces, light text, and matching
+  component colors without supplying overrides.
+- `NeutralColorTokens` is the same white-to-black scale in both schemes. Use
+  semantic surface, border, and text tokens for colors that should adapt to the
+  active scheme. The `white` and `black` tokens also keep their literal colors.
+- Dark borders use progressively lighter `subtle`, `default`, and `strong` tones
+  that remain visible on primary, secondary, and elevated surfaces. Disabled
+  control fills use surface tokens independently of the border scale.
 - `useTheme` returns the complete `AppTheme`.
 - `useColors`, `useSpace`, `useBorder`, and `useRadii` read focused token groups.
 - `useComponentsTokens` reads component-level tokens.
@@ -78,3 +87,13 @@ callback that receives the resolved primitive theme:
 
 Component overrides are merged with the generated defaults, so unspecified
 tokens retain their theme-derived values.
+
+## Visual token checks
+
+The light primary, warning, and success defaults use deeper shades to keep
+small foreground text distinct from their fills. Secondary foregrounds use
+`secondary.contrast`; background tints use `secondary.value`.
+
+From the repository root, run `node scripts/check-theme-visuals.mjs` to check
+default foreground/background pairs and state indicators in both palettes.
+See `docs/visual-token-audit.md` for package coverage and verification limits.

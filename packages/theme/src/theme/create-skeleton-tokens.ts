@@ -3,7 +3,7 @@ import { PrimitiveThemeTokens, SkeletonTokens } from "../types";
 export function createSkeletonTokens(
   tokens: PrimitiveThemeTokens,
 ): SkeletonTokens {
-  const boneColor = tokens.colors.neutral["5"];
+  const boneColor = tokens.colors.border.default.value;
 
   return {
     bone: {

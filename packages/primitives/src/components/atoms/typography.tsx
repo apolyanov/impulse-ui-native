@@ -2,12 +2,16 @@ import { createPreset } from "../../hocs";
 
 export const Typography = {
   Master: createPreset(
-    (theme) => ({ fontWeight: theme.fontWeight.regular }),
+    (theme) => ({
+      color: theme.colors.text.primary,
+      fontWeight: theme.fontWeight.regular,
+    }),
     "Master",
   ),
 
   DisplayLarge: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.bold,
       fontSize: theme.fontSize.colossal,
       lineHeight: theme.lineHeight.colossal,
@@ -17,6 +21,7 @@ export const Typography = {
 
   DisplayMedium: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.bold,
       fontSize: theme.fontSize.giant,
       lineHeight: theme.lineHeight.giant,
@@ -26,6 +31,7 @@ export const Typography = {
 
   DisplaySmall: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.semiBold,
       fontSize: theme.fontSize.huge,
       lineHeight: theme.lineHeight.huge,
@@ -35,6 +41,7 @@ export const Typography = {
 
   Title1: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.bold,
       fontSize: theme.fontSize.xxxl,
       lineHeight: theme.lineHeight.xxxl,
@@ -44,6 +51,7 @@ export const Typography = {
 
   Title2: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.bold,
       fontSize: theme.fontSize.xxl,
       lineHeight: theme.lineHeight.xxl,
@@ -53,6 +61,7 @@ export const Typography = {
 
   Title3: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.semiBold,
       fontSize: theme.fontSize.xl,
       lineHeight: theme.lineHeight.xl,
@@ -62,6 +71,7 @@ export const Typography = {
 
   Title4: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.semiBold,
       fontSize: theme.fontSize.lg,
       lineHeight: theme.lineHeight.lg,
@@ -71,6 +81,7 @@ export const Typography = {
 
   Title5: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.semiBold,
       fontSize: theme.fontSize.md,
       lineHeight: theme.lineHeight.md,
@@ -80,6 +91,7 @@ export const Typography = {
 
   Title6: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.semiBold,
       fontSize: theme.fontSize.sm,
       lineHeight: theme.lineHeight.sm,
@@ -89,6 +101,7 @@ export const Typography = {
 
   Subtitle1: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.medium,
       fontSize: theme.fontSize.md,
       lineHeight: theme.lineHeight.lg,
@@ -98,6 +111,7 @@ export const Typography = {
 
   Subtitle2: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.sm,
       lineHeight: theme.lineHeight.sm,
@@ -107,6 +121,7 @@ export const Typography = {
 
   BodyLarge: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.md,
       lineHeight: theme.lineHeight.lg,
@@ -116,6 +131,7 @@ export const Typography = {
 
   Body: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.sm,
       lineHeight: theme.lineHeight.sm,
@@ -125,6 +141,7 @@ export const Typography = {
 
   BodySmall: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.xsm,
       lineHeight: theme.lineHeight.xsm,
@@ -134,6 +151,7 @@ export const Typography = {
 
   Caption: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.xs,
       lineHeight: theme.lineHeight.xs,
@@ -143,6 +161,7 @@ export const Typography = {
 
   Label: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.medium,
       fontSize: theme.fontSize.xsm,
       lineHeight: theme.lineHeight.xsm,
@@ -152,6 +171,7 @@ export const Typography = {
 
   Overline: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.semiBold,
       fontSize: theme.fontSize.xs,
       lineHeight: theme.lineHeight.xs,
@@ -163,6 +183,7 @@ export const Typography = {
 
   Helper: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.xsm,
       lineHeight: theme.lineHeight.xsm,
@@ -172,6 +193,7 @@ export const Typography = {
 
   Code: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontFamily: "monospace",
       fontSize: theme.fontSize.xsm,
       lineHeight: theme.lineHeight.xsm,
@@ -181,6 +203,7 @@ export const Typography = {
 
   Quote: createPreset(
     (theme) => ({
+      color: theme.colors.text.primary,
       fontWeight: theme.fontWeight.regular,
       fontSize: theme.fontSize.md,
       lineHeight: theme.lineHeight.lg,
@@ -191,6 +214,7 @@ export const Typography = {
 
   Eyebrow: createPreset(
     (theme) => ({
+      color: theme.colors.text.secondary,
       fontWeight: theme.fontWeight.medium,
       fontSize: theme.fontSize.xs,
       lineHeight: theme.lineHeight.xs,

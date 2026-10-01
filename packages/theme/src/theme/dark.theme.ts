@@ -1,18 +1,18 @@
 import { PrimitiveThemeTokens } from "../types";
 import {
   BorderSizeTokens,
+  DarkColors,
   FontFamilyTokens,
   FontSizeTokens,
   FontWeightTokens,
   LetterSpacingTokens,
-  LightColors,
   LineHeightTokens,
   RadiiTokens,
   SpaceTokens,
 } from "./tokens.theme";
 
 export const DarkTheme: PrimitiveThemeTokens = {
-  colors: LightColors,
+  colors: DarkColors,
   space: SpaceTokens,
   radii: RadiiTokens,
   fontFamily: FontFamilyTokens,

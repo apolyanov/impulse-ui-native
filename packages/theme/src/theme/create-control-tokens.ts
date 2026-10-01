@@ -65,12 +65,12 @@ export function createControlContainerTokens(
           opacity: 1,
         },
         disabled: {
-          backgroundColor: tokens.colors.neutral["2"],
+          backgroundColor: tokens.colors.surface.primary.value,
           borderColor: "transparent",
           opacity: 0.7,
         },
         disabledError: {
-          backgroundColor: tokens.colors.neutral["2"],
+          backgroundColor: tokens.colors.surface.primary.value,
           borderColor: tokens.colors.feedback.error.value,
           opacity: 0.7,
         },
@@ -79,7 +79,7 @@ export function createControlContainerTokens(
       outlined: {
         default: {
           backgroundColor: "transparent",
-          borderColor: tokens.colors.neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           opacity: 1,
         },
         error: {
@@ -89,7 +89,7 @@ export function createControlContainerTokens(
         },
         disabled: {
           backgroundColor: "transparent",
-          borderColor: tokens.colors.neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           opacity: 0.7,
         },
         disabledError: {
@@ -136,7 +136,7 @@ export function createControlInputTokens(
       filled: {
         default: {
           color: tokens.colors.text.primary,
-          placeholderColor: tokens.colors.text.disabled,
+          placeholderColor: tokens.colors.text.tertiary,
         },
         error: {
           color: tokens.colors.text.primary,
@@ -155,7 +155,7 @@ export function createControlInputTokens(
       outlined: {
         default: {
           color: tokens.colors.text.primary,
-          placeholderColor: tokens.colors.text.disabled,
+          placeholderColor: tokens.colors.text.tertiary,
         },
         error: {
           color: tokens.colors.text.primary,

@@ -12,7 +12,7 @@ export function createSpinnerTokens(
     },
     colors: {
       primary: tokens.colors.primary.value,
-      secondary: tokens.colors.secondary.value,
+      secondary: tokens.colors.secondary.contrast,
       neutral: tokens.colors.text.secondary,
       inverse: tokens.colors.text.inverse,
     },

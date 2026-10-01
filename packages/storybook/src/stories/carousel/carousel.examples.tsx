@@ -4,11 +4,11 @@ import type { CarouselProps } from "@impulse-ui-native/carousel";
 import { Carousel } from "@impulse-ui-native/carousel";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Button, View } from "@impulse-ui-native/primitives";
-import { ThemeProvider, useSpace } from "@impulse-ui-native/theme";
+import { DarkTheme, ThemeProvider, useSpace } from "@impulse-ui-native/theme";
 
 import { StoryExample } from "../../components/story-example";
 import { CarouselSlide } from "./carousel-slide";
-import { carouselDarkOverride, carouselSlides } from "./carousel.fixtures";
+import { carouselSlides } from "./carousel.fixtures";
 
 interface CarouselExampleDefinition {
   name: string;
@@ -179,12 +179,10 @@ export const CarouselExample = memo(function CarouselExample({
       elevated={elevated}
     >
       {example.dark ? (
-        <ThemeProvider scheme="dark" theme={carouselDarkOverride}>
+        <ThemeProvider scheme="dark">
           <View
             padding={space.sm}
-            backgroundColor={
-              carouselDarkOverride.dark.colors?.surface?.primary?.value
-            }
+            backgroundColor={DarkTheme.colors.surface.primary.value}
           >
             {content}
           </View>

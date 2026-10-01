@@ -26,7 +26,7 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
       width: "25%",
       height: 6,
       borderRadius: tokens.radii.round,
-      backgroundColor: tokens.colors.surface.primary.value,
+      backgroundColor: tokens.colors.text.tertiary,
     },
 
     placements: {

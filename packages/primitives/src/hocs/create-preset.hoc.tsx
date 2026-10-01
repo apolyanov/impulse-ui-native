@@ -1,25 +1,33 @@
+import type { TextStyle } from "react-native";
 import { memo, useMemo } from "react";
-import { StyleSheet, Text, TextStyle } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
-import {
+import type {
   AppTheme,
   TypographyPresetKey,
   TypographyProps,
-  useStyleProps,
-  useTheme,
 } from "@impulse-ui-native/theme";
+import { useStyleProps, useTheme } from "@impulse-ui-native/theme";
 
-import { TextProps } from "../types";
+import type { TextProps } from "../types";
 
 const numericFontVariant: TextStyle["fontVariant"] = ["tabular-nums"];
 const defaultFontVariant: TextStyle["fontVariant"] = [];
 
 export function createPreset(
-  config: (theme: AppTheme) => TypographyProps,
+  config: (theme: AppTheme) => TypographyProps & Pick<TextProps, "color">,
   key: TypographyPresetKey,
 ) {
   const Component = (props: TextProps) => {
-    const { style, numeric, fontStyle, fontWeight, ...rest } = props;
+    const {
+      style,
+      numeric,
+      fontFamily: customFontFamily,
+      fontVariant: customFontVariant,
+      fontStyle,
+      fontWeight,
+      ...rest
+    } = props;
 
     const theme = useTheme();
     const extractedStyleProps = useStyleProps(props);
@@ -31,18 +39,34 @@ export function createPreset(
       const resolvedFontWeight = fontWeight ?? themedConfig.fontWeight ?? 400;
 
       const fontFamily =
+        customFontFamily ??
+        themedConfig.fontFamily ??
         theme.fontFamily[resolvedFontStyle][resolvedFontWeight];
 
       return StyleSheet.flatten([
+        { color: theme.colors.text.primary },
         themedConfig,
         extractedStyleProps,
         {
           fontFamily,
-          fontVariant: numeric ? numericFontVariant : defaultFontVariant,
+          fontVariant: numeric
+            ? numericFontVariant
+            : (customFontVariant ??
+              themedConfig.fontVariant ??
+              defaultFontVariant),
         },
         style,
       ]);
-    }, [theme, extractedStyleProps, style, numeric, fontStyle, fontWeight]);
+    }, [
+      theme,
+      extractedStyleProps,
+      style,
+      numeric,
+      customFontFamily,
+      customFontVariant,
+      fontStyle,
+      fontWeight,
+    ]);
 
     return <Text {...rest} style={typographyStyle} />;
   };

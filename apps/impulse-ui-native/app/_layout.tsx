@@ -11,8 +11,9 @@ import {
   PortalProvider,
   PortalsHost,
   PortalStore,
-  ThemeProvider,
 } from "@impulse-ui-native/toolkit";
+
+import { StorybookThemeProvider } from "../components/storybook-theme-provider";
 
 const portalStore = new PortalStore();
 const overlayStore = new OverlayStore();
@@ -21,15 +22,15 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <ThemeProvider>
+        <StorybookThemeProvider>
           <OverlayProvider store={overlayStore}>
             <PortalProvider store={portalStore}>
-              <Stack />
+              <Stack screenOptions={{ headerShown: false }} />
               <OverlayHost />
               <PortalsHost />
             </PortalProvider>
           </OverlayProvider>
-        </ThemeProvider>
+        </StorybookThemeProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

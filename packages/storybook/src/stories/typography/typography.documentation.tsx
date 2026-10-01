@@ -10,7 +10,7 @@ export function TypographyDocumentation() {
   return (
     <StoryDocumentationPage
       title="Typography"
-      description="Typography presets provide consistent text hierarchy, spacing, weight, and readability across the interface."
+      description="Headings and main content use text.primary. Subtitles, BodySmall, Caption, Helper, Overline, and Eyebrow use text.secondary. Both adapt to the active theme. Explicit color props and styles override preset colors."
     >
       {TypographyExampleDefinitions.map((example) => (
         <View key={example.name}>

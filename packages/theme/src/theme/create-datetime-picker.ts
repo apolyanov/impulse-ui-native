@@ -18,7 +18,7 @@ export function createDatetimePickerTokens(
         },
         outsideMonth: {
           backgroundColor: "transparent",
-          color: tokens.colors.neutral["5"],
+          color: tokens.colors.text.disabled,
         },
         range: {
           backgroundColor: tokens.colors.secondary.value,

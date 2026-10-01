@@ -16,10 +16,10 @@ export function createCarouselTokens(
         segments: { width: tokens.space.md, height: tokens.space.xxs },
       },
       states: {
-        unselected: { backgroundColor: tokens.colors.neutral["6"] },
+        unselected: { backgroundColor: tokens.colors.border.strong.value },
         selected: { backgroundColor: tokens.colors.primary.value },
         disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
-        disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        disabledSelected: { backgroundColor: tokens.colors.text.secondary },
       },
     },
     counter: {

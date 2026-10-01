@@ -2,6 +2,8 @@ import type { Preview } from "@storybook/react-native";
 import { Platform } from "react-native";
 import { withBackgrounds } from "@storybook/addon-ondevice-backgrounds";
 
+import { StorybookCanvas } from "../components/storybook-canvas";
+
 if (Platform.OS === "web") {
   // @ts-ignore
   global.ProgressTransitionRegister = {};
@@ -10,12 +12,20 @@ if (Platform.OS === "web") {
 }
 
 const preview: Preview = {
-  decorators: [withBackgrounds],
+  decorators: [
+    withBackgrounds,
+    (Story) => (
+      <StorybookCanvas>
+        <Story />
+      </StorybookCanvas>
+    ),
+  ],
 
   parameters: {
     backgrounds: {
-      default: "plain",
+      default: "theme",
       values: [
+        { name: "theme", value: "transparent" },
         { name: "plain", value: "white" },
         { name: "warm", value: "hotpink" },
         { name: "cool", value: "deepskyblue" },

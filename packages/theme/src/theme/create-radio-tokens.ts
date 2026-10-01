@@ -42,12 +42,12 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
         },
         disabledUnselected: {
           backgroundColor: "transparent",
-          borderColor: tokens.colors.neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
         disabledSelected: {
-          backgroundColor: tokens.colors.neutral["3"],
-          borderColor: tokens.colors.neutral["5"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
       },
@@ -64,12 +64,12 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
         },
         disabledUnselected: {
           backgroundColor: "transparent",
-          borderColor: tokens.colors.neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
         disabledSelected: {
-          backgroundColor: tokens.colors.neutral["3"],
-          borderColor: tokens.colors.neutral["5"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
       },
@@ -86,12 +86,12 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
         },
         disabledUnselected: {
           backgroundColor: "transparent",
-          borderColor: tokens.colors.neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
         disabledSelected: {
-          backgroundColor: tokens.colors.neutral["3"],
-          borderColor: tokens.colors.neutral["5"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
       },

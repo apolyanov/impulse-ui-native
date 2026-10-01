@@ -38,7 +38,9 @@ export const StoryExample = memo(function StoryExample({
     >
       <View gap={space.xs}>
         <Typography.Title4>{title}</Typography.Title4>
-        <Typography.Master>{description}</Typography.Master>
+        <Typography.Master color={colors.text.secondary}>
+          {description}
+        </Typography.Master>
       </View>
 
       {props?.length ? (

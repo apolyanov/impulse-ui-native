@@ -3,7 +3,7 @@ import { memo } from "react";
 import { ScrollView } from "react-native";
 
 import { Typography, View } from "@impulse-ui-native/primitives";
-import { useSpace } from "@impulse-ui-native/theme";
+import { useColors, useSpace } from "@impulse-ui-native/theme";
 
 interface StoryDocumentationPageProps extends PropsWithChildren {
   title: string;
@@ -15,6 +15,7 @@ export const StoryDocumentationPage = memo(function StoryDocumentationPage({
   description,
   children,
 }: StoryDocumentationPageProps) {
+  const colors = useColors();
   const space = useSpace();
 
   return (
@@ -24,7 +25,9 @@ export const StoryDocumentationPage = memo(function StoryDocumentationPage({
           <Typography.Title2>{title}</Typography.Title2>
 
           {description ? (
-            <Typography.Master>{description}</Typography.Master>
+            <Typography.Master color={colors.text.secondary}>
+              {description}
+            </Typography.Master>
           ) : null}
         </View>
 

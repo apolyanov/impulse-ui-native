@@ -1,13 +1,14 @@
 import type { ComponentProps } from "react";
-import { memo } from "react";
+import type { PressableStateCallbackType } from "react-native";
+import { memo, useCallback } from "react";
 import { StyleSheet } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
+import { useColors, useThemedStyles } from "@impulse-ui-native/theme";
 
-import {
-  StoryExample,
-  StoryExamplePropDefinition,
-} from "../../components/story-example";
+import type { StoryExamplePropDefinition } from "../../components/story-example";
+import { StoryExample } from "../../components/story-example";
 
 interface PressableExampleDefinition {
   name: string;
@@ -28,8 +29,10 @@ function PressablePreviewLabel({
   children,
   inverted,
 }: PressablePreviewLabelProps) {
+  const colors = useColors();
+
   return (
-    <Typography.Master color={inverted ? "#FFFFFF" : undefined}>
+    <Typography.Master color={inverted ? colors.text.inverse : undefined}>
       {children}
     </Typography.Master>
   );
@@ -45,21 +48,8 @@ const Styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
   },
-  default: {
-    backgroundColor: "#F4F4F5",
-    borderColor: "#D4D4D8",
-  },
-  filled: {
-    backgroundColor: "#18181B",
-    borderColor: "#18181B",
-  },
   outlined: {
     backgroundColor: "transparent",
-    borderColor: "#A1A1AA",
-  },
-  disabled: {
-    backgroundColor: "#E4E4E7",
-    borderColor: "#D4D4D8",
   },
   pressed: {
     transform: [{ scale: 0.98 }],
@@ -89,7 +79,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Default Pressable",
     args: {
-      style: [Styles.base, Styles.default],
+      style: Styles.base,
     },
   },
   {
@@ -113,7 +103,7 @@ export const PressableExampleDefinitions = [
     label: "Filled Pressable",
     inverted: true,
     args: {
-      style: [Styles.base, Styles.filled],
+      style: Styles.base,
     },
   },
   {
@@ -159,7 +149,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Press and Hold",
     args: {
-      style: [Styles.base, Styles.default],
+      style: Styles.base,
       pressedStyle: Styles.pressed,
     },
   },
@@ -184,7 +174,7 @@ export const PressableExampleDefinitions = [
     label: "Disabled Pressable",
     args: {
       disabled: true,
-      style: [Styles.base, Styles.disabled],
+      style: Styles.base,
     },
   },
   {
@@ -208,7 +198,7 @@ export const PressableExampleDefinitions = [
     label: "Shadow Pressable",
     args: {
       shadow: "sm",
-      style: [Styles.base, Styles.default],
+      style: Styles.base,
     },
   },
   {
@@ -231,7 +221,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Full-width Pressable",
     args: {
-      style: [Styles.base, Styles.default, Styles.wide],
+      style: [Styles.base, Styles.wide],
     },
   },
 ] satisfies PressableExampleDefinition[];
@@ -245,6 +235,20 @@ export const PressableExample = memo(function PressableExample({
   example,
   elevated,
 }: PressableExampleProps) {
+  const styles = useThemedStyles(themedStyles, example, [
+    example.name,
+    example.inverted,
+  ]);
+  const pressableStyle = useCallback(
+    (state: PressableStateCallbackType) => [
+      styles.surface,
+      typeof example.args.style === "function"
+        ? example.args.style(state)
+        : example.args.style,
+    ],
+    [styles, example.args],
+  );
+
   return (
     <StoryExample
       title={example.title}
@@ -253,7 +257,7 @@ export const PressableExample = memo(function PressableExample({
       elevated={elevated}
     >
       <View>
-        <Pressable {...example.args}>
+        <Pressable {...example.args} style={pressableStyle}>
           <PressablePreviewLabel inverted={example.inverted}>
             {example.label}
           </PressablePreviewLabel>
@@ -262,3 +266,20 @@ export const PressableExample = memo(function PressableExample({
     </StoryExample>
   );
 });
+
+function themedStyles(theme: AppTheme, example: PressableExampleDefinition) {
+  const colors = theme.colors;
+
+  return StyleSheet.create({
+    surface: {
+      backgroundColor: example.inverted
+        ? colors.surface.inverse.value
+        : example.name === "Outlined"
+          ? "transparent"
+          : colors.surface.primary.value,
+      borderColor: example.inverted
+        ? colors.surface.inverse.value
+        : colors.border.default.value,
+    },
+  });
+}

@@ -33,6 +33,19 @@ pnpm add react-native-safe-area-context react-native-svg
 - `createPreset` creates reusable themed typography presets.
 - Public prop types describe every primitive and control part.
 
+Typography presets update their colors with the active theme:
+
+- `Subtitle1`, `Subtitle2`, `BodySmall`, `Caption`, `Helper`, `Overline`, and
+  `Eyebrow` use `theme.colors.text.secondary` for supporting text.
+- The other presets use `theme.colors.text.primary` for headings and main content.
+
+`createPreset` accepts a theme-based `color` in its configuration and falls back
+to `text.primary` when omitted. Explicit `color` props override the preset color;
+`style.color` takes precedence over both. Use tertiary, disabled, inverse, and
+feedback colors explicitly when the surrounding component or state requires them.
+Preset and explicit `fontFamily` and `fontVariant` values are honored, including
+monospace Code. `numeric` selects tabular numbers; style overrides apply last.
+
 ## Example
 
 ```tsx

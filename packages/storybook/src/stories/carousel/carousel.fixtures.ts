@@ -1,6 +1,3 @@
-import type { DeepPartial } from "@impulse-ui-native/core";
-import type { PrimitiveThemeTokens } from "@impulse-ui-native/theme";
-
 export const carouselSlides = [
   {
     key: "lake",
@@ -28,18 +25,3 @@ export const carouselSlides = [
     uri: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900&q=80",
   },
 ];
-
-export const carouselDarkOverride: { dark: DeepPartial<PrimitiveThemeTokens> } =
-  {
-    dark: {
-      colors: {
-        surface: {
-          primary: { value: "#16191d" },
-          elevated: { value: "#212529" },
-          secondary: { value: "#212529" },
-        },
-        text: { primary: "#ffffff", secondary: "#f1f3f5", tertiary: "#adb5bd" },
-        border: { subtle: { value: "#343a40" }, default: { value: "#495057" } },
-      },
-    },
-  };

@@ -1,48 +1,23 @@
-# ImpulseUI Native Storybook
+# Storybook host
 
-The Expo and React Native Web Storybook host for developing and reviewing ImpulseUI Native components. Native stories are discovered from the workspace packages and rendered with the toolkit theme.
-
-## Development
-
-Install workspace dependencies from the repository root:
-
-```sh
-pnpm install
-```
-
-Start the on-device Storybook:
-
-```sh
-pnpm --filter impulse-ui-native storybook
-```
-
-Open it directly in a simulator or emulator with:
+Run native Storybook from the repository root with:
 
 ```sh
 pnpm --filter impulse-ui-native storybook:ios
 pnpm --filter impulse-ui-native storybook:android
 ```
 
-Because this application uses native modules, use a compatible development build rather than Expo Go.
+Use **Switch to dark** / **Switch to light** above the stories to change the
+Impulse UI theme. Native Storybook keeps the selected scheme while browsing
+stories. The story canvas, themed components, flyouts, and portals use the
+selected palette. Stories that install their own ThemeProvider or supply explicit
+colors keep those overrides.
 
-When native stories are added or renamed, regenerate the Storybook loader:
+In the native Backgrounds panel, select **theme** to follow the active palette.
+Other background choices remain available for checking custom backgrounds.
 
-```sh
-pnpm --filter impulse-ui-native storybook-generate
-```
-
-## Web Storybook
-
-Start the React Native Web Storybook at [http://localhost:6006](http://localhost:6006):
+The web preview uses the same theme toggle:
 
 ```sh
 pnpm --filter impulse-ui-native storybook:web
 ```
-
-Create its static build with:
-
-```sh
-pnpm --filter impulse-ui-native build-storybook
-```
-
-Storybook configuration lives in `.rnstorybook` for native and `.storybook` for web.

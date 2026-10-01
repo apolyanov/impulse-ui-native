@@ -7,7 +7,6 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
   const secondary = tokens.colors.secondary.value;
   const secondaryContrast = tokens.colors.secondary.contrast;
 
-  const neutral = tokens.colors.neutral;
   const disabledColor = tokens.colors.text.disabled;
 
   return {
@@ -48,8 +47,8 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
           color: primaryContrast,
         },
         disabled: {
-          backgroundColor: neutral["5"],
-          borderColor: neutral["5"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.default.value,
           color: disabledColor,
         },
       },
@@ -67,7 +66,7 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
         },
         disabled: {
           backgroundColor: "transparent",
-          borderColor: neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           color: disabledColor,
         },
       },
@@ -84,8 +83,8 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
           color: secondaryContrast,
         },
         disabled: {
-          backgroundColor: neutral["3"],
-          borderColor: neutral["3"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.subtle.value,
           color: disabledColor,
         },
       },

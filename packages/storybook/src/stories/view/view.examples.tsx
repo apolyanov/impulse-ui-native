@@ -1,12 +1,12 @@
 import type { ComponentProps, ReactNode } from "react";
 import { memo } from "react";
 
-import { Typography, View } from "@impulse-ui-native/primitives";
+import type { View } from "@impulse-ui-native/primitives";
+import { Typography } from "@impulse-ui-native/primitives";
 
-import {
-  StoryExample,
-  StoryExamplePropDefinition,
-} from "../../components/story-example";
+import type { StoryExamplePropDefinition } from "../../components/story-example";
+import { StoryExample } from "../../components/story-example";
+import { ViewPreview } from "./view-preview";
 
 interface ViewExampleDefinition {
   name: string;
@@ -19,30 +19,28 @@ interface ViewExampleDefinition {
 
 function PreviewBox({ children }: { children: ReactNode }) {
   return (
-    <View
+    <ViewPreview
       padding={16}
       borderRadius={12}
-      backgroundColor="#F4F4F5"
+      surface="primary"
       borderWidth={1}
-      borderColor="#D4D4D8"
     >
       {children}
-    </View>
+    </ViewPreview>
   );
 }
 
 function PreviewItem({ children }: { children: ReactNode }) {
   return (
-    <View
+    <ViewPreview
       paddingHorizontal={12}
       paddingVertical={8}
       borderRadius={10}
-      backgroundColor="#FFFFFF"
+      surface="elevated"
       borderWidth={1}
-      borderColor="#E4E4E7"
     >
       <Typography.Body>{children}</Typography.Body>
-    </View>
+    </ViewPreview>
   );
 }
 
@@ -84,7 +82,7 @@ export const ViewExampleDefinitions = [
       },
       {
         name: "backgroundColor",
-        value: "#F4F4F5",
+        value: "colors.surface.primary.value",
         description: "Applies a background color to the layout surface.",
       },
       {
@@ -96,12 +94,11 @@ export const ViewExampleDefinitions = [
     args: {
       padding: 16,
       borderRadius: 12,
-      backgroundColor: "#F4F4F5",
     },
     preview: (
-      <View padding={16} borderRadius={12} backgroundColor="#F4F4F5">
+      <ViewPreview padding={16} borderRadius={12} surface="primary">
         <Typography.Body>Content with padding</Typography.Body>
-      </View>
+      </ViewPreview>
     ),
   },
   {
@@ -125,11 +122,11 @@ export const ViewExampleDefinitions = [
       gap: 8,
     },
     preview: (
-      <View gap={8}>
+      <ViewPreview gap={8}>
         <PreviewItem>First item</PreviewItem>
         <PreviewItem>Second item</PreviewItem>
         <PreviewItem>Third item</PreviewItem>
-      </View>
+      </ViewPreview>
     ),
   },
   {
@@ -160,10 +157,10 @@ export const ViewExampleDefinitions = [
       gap: 8,
     },
     preview: (
-      <View flexDirection="row" alignItems="center" gap={8}>
+      <ViewPreview flexDirection="row" alignItems="center" gap={8}>
         <PreviewItem>Label</PreviewItem>
         <PreviewItem>Value</PreviewItem>
-      </View>
+      </ViewPreview>
     ),
   },
   {
@@ -194,18 +191,18 @@ export const ViewExampleDefinitions = [
       alignItems: "center",
     },
     preview: (
-      <View
+      <ViewPreview
         width="100%"
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
         padding={16}
         borderRadius={12}
-        backgroundColor="#F4F4F5"
+        surface="primary"
       >
         <Typography.Body>Balance</Typography.Body>
         <Typography.Title5>$2,480</Typography.Title5>
-      </View>
+      </ViewPreview>
     ),
   },
   {
@@ -236,15 +233,15 @@ export const ViewExampleDefinitions = [
       minHeight: 120,
     },
     preview: (
-      <View
+      <ViewPreview
         alignItems="center"
         justifyContent="center"
         minHeight={120}
         borderRadius={12}
-        backgroundColor="#F4F4F5"
+        surface="primary"
       >
         <Typography.Body>Centered content</Typography.Body>
-      </View>
+      </ViewPreview>
     ),
   },
   {
@@ -255,7 +252,7 @@ export const ViewExampleDefinitions = [
     props: [
       {
         name: "backgroundColor",
-        value: "#FFFFFF",
+        value: "colors.surface.elevated.value",
         description: "Creates a visible surface background.",
       },
       {
@@ -273,23 +270,20 @@ export const ViewExampleDefinitions = [
       padding: 16,
       borderRadius: 16,
       borderWidth: 1,
-      borderColor: "#E4E4E7",
-      backgroundColor: "#FFFFFF",
     },
     preview: (
-      <View
+      <ViewPreview
         gap={8}
         padding={16}
         borderRadius={16}
         borderWidth={1}
-        borderColor="#E4E4E7"
-        backgroundColor="#FFFFFF"
+        surface="elevated"
       >
         <Typography.Title5>Card surface</Typography.Title5>
         <Typography.Body>
           A composed view using background, border, radius, and spacing.
         </Typography.Body>
-      </View>
+      </ViewPreview>
     ),
   },
   {
@@ -310,7 +304,7 @@ export const ViewExampleDefinitions = [
       },
       {
         name: "backgroundColor",
-        value: "#FFFFFF",
+        value: "colors.surface.elevated.value",
         description: "Keeps the elevated surface visually clear.",
       },
     ],
@@ -319,22 +313,21 @@ export const ViewExampleDefinitions = [
       shadowPosition: "bottom",
       padding: 16,
       borderRadius: 16,
-      backgroundColor: "#FFFFFF",
     },
     preview: (
-      <View
+      <ViewPreview
         shadow="sm"
         shadowPosition="bottom"
         gap={8}
         padding={16}
         borderRadius={16}
-        backgroundColor="#FFFFFF"
+        surface="elevated"
       >
         <Typography.Title5>Elevated surface</Typography.Title5>
         <Typography.Body>
           Useful for cards, overlays, and floating content.
         </Typography.Body>
-      </View>
+      </ViewPreview>
     ),
   },
 ] satisfies ViewExampleDefinition[];

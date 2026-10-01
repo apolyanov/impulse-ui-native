@@ -6,6 +6,7 @@ export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
     contrast: string,
     softBackgroundColor = contrast,
     softColor = value,
+    outlinedColor = value,
   ) => ({
     filled: {
       backgroundColor: value,
@@ -14,8 +15,8 @@ export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
     },
     outlined: {
       backgroundColor: "transparent",
-      borderColor: value,
-      color: value,
+      borderColor: outlinedColor,
+      color: outlinedColor,
     },
     soft: {
       backgroundColor: softBackgroundColor,
@@ -67,11 +68,12 @@ export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
         tokens.colors.secondary.contrast,
         tokens.colors.secondary.value,
         tokens.colors.secondary.contrast,
+        tokens.colors.secondary.contrast,
       ),
       neutral: createVariants(
-        tokens.colors.neutral["8"],
-        tokens.colors.white,
-        tokens.colors.neutral["2"],
+        tokens.colors.text.secondary,
+        tokens.colors.text.inverse,
+        tokens.colors.surface.primary.value,
         tokens.colors.text.primary,
       ),
       error: createVariants(

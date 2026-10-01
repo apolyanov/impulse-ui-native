@@ -11,9 +11,10 @@ import {
   PortalProvider,
   PortalsHost,
   PortalStore,
-  ThemeProvider,
   View,
 } from "@impulse-ui-native/toolkit";
+
+import { StorybookThemeProvider } from "../components/storybook-theme-provider";
 
 const portalStore = new PortalStore();
 const overlayStore = new OverlayStore();
@@ -21,7 +22,7 @@ const overlayStore = new OverlayStore();
 const withTheme = (Story: React.ComponentType) => (
   <GestureHandlerRootView style={{ flex: 1 }}>
     <SafeAreaProvider>
-      <ThemeProvider>
+      <StorybookThemeProvider>
         <OverlayProvider store={overlayStore}>
           <PortalProvider store={portalStore}>
             <View flex={1}>
@@ -31,7 +32,7 @@ const withTheme = (Story: React.ComponentType) => (
             <PortalsHost />
           </PortalProvider>
         </OverlayProvider>
-      </ThemeProvider>
+      </StorybookThemeProvider>
     </SafeAreaProvider>
   </GestureHandlerRootView>
 );

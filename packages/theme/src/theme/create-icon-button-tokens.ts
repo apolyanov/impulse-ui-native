@@ -9,7 +9,6 @@ export function createIconButtonTokens(
   const secondary = tokens.colors.secondary.value;
   const secondaryContrast = tokens.colors.secondary.contrast;
 
-  const neutral = tokens.colors.neutral;
   const disabledColor = tokens.colors.text.disabled;
 
   return {
@@ -44,8 +43,8 @@ export function createIconButtonTokens(
           color: primaryContrast,
         },
         disabled: {
-          backgroundColor: neutral["5"],
-          borderColor: neutral["5"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.default.value,
           color: disabledColor,
         },
       },
@@ -63,7 +62,7 @@ export function createIconButtonTokens(
         },
         disabled: {
           backgroundColor: "transparent",
-          borderColor: neutral["5"],
+          borderColor: tokens.colors.border.default.value,
           color: disabledColor,
         },
       },
@@ -80,8 +79,8 @@ export function createIconButtonTokens(
           color: secondaryContrast,
         },
         disabled: {
-          backgroundColor: neutral["3"],
-          borderColor: neutral["3"],
+          backgroundColor: tokens.colors.surface.primary.value,
+          borderColor: tokens.colors.border.subtle.value,
           color: disabledColor,
         },
       },

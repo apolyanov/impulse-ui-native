@@ -23,3 +23,6 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
+
+# Storybook build output
+storybook-static/

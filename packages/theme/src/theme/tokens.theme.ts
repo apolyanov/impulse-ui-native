@@ -53,7 +53,7 @@ import { createTextareaTokens } from "./create-textarea-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
 
 export const ChartColorTokens: ChartColorPalette = [
-  "#f55d6b",
+  "#c92a3b",
   "#2563eb",
   "#16a34a",
   "#9333ea",
@@ -210,18 +210,18 @@ export const NeutralColorTokens: NeutralColor = {
 
 export const LightColors: ThemeColors = {
   primary: {
-    value: "#f55d6b",
+    value: "#c92a3b",
     contrast: NeutralColorTokens["0"],
   },
 
   accent: {
     value: "#FA9EA7",
-    contrast: NeutralColorTokens["0"],
+    contrast: NeutralColorTokens["11"],
   },
 
   secondary: {
     value: "#FEE7E9",
-    contrast: "#f55d6b",
+    contrast: "#c92a3b",
   },
 
   neutral: NeutralColorTokens,
@@ -267,7 +267,7 @@ export const LightColors: ThemeColors = {
       contrast: NeutralColorTokens["11"],
     },
     focus: {
-      value: "#f55d6b",
+      value: "#c92a3b",
       contrast: NeutralColorTokens["0"],
     },
   },
@@ -278,11 +278,11 @@ export const LightColors: ThemeColors = {
       contrast: "#fff5f5",
     },
     warning: {
-      value: "#e67700",
+      value: "#a65300",
       contrast: "#fff4e6",
     },
     success: {
-      value: "#7a9908",
+      value: "#526b00",
       contrast: "#f4fce3",
     },
     info: {
@@ -292,6 +292,95 @@ export const LightColors: ThemeColors = {
   },
 
   overlay: "rgba(0, 0, 0, 0.45)",
+
+  white: NeutralColorTokens["0"],
+  black: NeutralColorTokens["13"],
+};
+
+export const DarkColors: ThemeColors = {
+  primary: {
+    value: "#FA9EA7",
+    contrast: NeutralColorTokens["11"],
+  },
+
+  accent: {
+    value: "#f55d6b",
+    contrast: NeutralColorTokens["11"],
+  },
+
+  secondary: {
+    value: "#3b2027",
+    contrast: "#FA9EA7",
+  },
+
+  neutral: NeutralColorTokens,
+
+  surface: {
+    primary: {
+      value: NeutralColorTokens["11"],
+      contrast: NeutralColorTokens["0"],
+    },
+    secondary: {
+      value: NeutralColorTokens["10"],
+      contrast: NeutralColorTokens["0"],
+    },
+    elevated: {
+      value: NeutralColorTokens["9"],
+      contrast: NeutralColorTokens["0"],
+    },
+    inverse: {
+      value: NeutralColorTokens["0"],
+      contrast: NeutralColorTokens["11"],
+    },
+  },
+
+  text: {
+    primary: NeutralColorTokens["0"],
+    secondary: NeutralColorTokens["2"],
+    tertiary: NeutralColorTokens["6"],
+    inverse: NeutralColorTokens["11"],
+    disabled: NeutralColorTokens["7"],
+  },
+
+  border: {
+    subtle: {
+      value: NeutralColorTokens["7"],
+      contrast: NeutralColorTokens["6"],
+    },
+    default: {
+      value: NeutralColorTokens["6"],
+      contrast: NeutralColorTokens["2"],
+    },
+    strong: {
+      value: NeutralColorTokens["5"],
+      contrast: NeutralColorTokens["0"],
+    },
+    focus: {
+      value: "#FA9EA7",
+      contrast: NeutralColorTokens["11"],
+    },
+  },
+
+  feedback: {
+    error: {
+      value: "#ff8787",
+      contrast: "#3b1515",
+    },
+    warning: {
+      value: "#ffc078",
+      contrast: "#3b250f",
+    },
+    success: {
+      value: "#c0eb75",
+      contrast: "#26320f",
+    },
+    info: {
+      value: "#74c0fc",
+      contrast: "#102a43",
+    },
+  },
+
+  overlay: "rgba(0, 0, 0, 0.65)",
 
   white: NeutralColorTokens["0"],
   black: NeutralColorTokens["13"],
