@@ -13,6 +13,10 @@ comes for free, but do not treat web parity as an acceptance criterion. Built-in
 accessibility semantics are also deferred: do not add accessibility props,
 screen-reader behavior, examples, or tests unless explicitly requested.
 
+Reduced motion is deferred for all components for now. Do not plan or add
+reduced-motion detection, animation alternatives, props, examples, tests, or
+acceptance criteria unless the user explicitly requests that scope.
+
 ## Decide package ownership first
 
 - `primitives/src/components/atoms`: broadly reusable token-aware layout,
@@ -186,7 +190,6 @@ component is added or its maturity changes.
 - Visual values come from the theme unless intrinsically data-driven.
 - Controlled and uncontrolled behavior does not switch accidentally.
 - Disabled state blocks interaction.
-- Touch targets, visible labels, RTL, font scaling, and reduced motion were
-  considered.
+- Touch targets, visible labels, RTL, and font scaling were considered.
 - Native stories render with required providers.
 - README, roadmap, dependency metadata, and Changeset match the change.

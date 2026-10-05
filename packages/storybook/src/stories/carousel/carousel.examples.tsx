@@ -51,13 +51,6 @@ export const CarouselExampleDefinitions: CarouselExampleDefinition[] = [
     args: { pagination: "counter" },
   },
   {
-    name: "ReducedMotion",
-    title: "Reduced motion",
-    description:
-      "Programmatic changes are instant. The system reduced-motion setting is always respected.",
-    args: { reducedMotion: true },
-  },
-  {
     name: "ControlledRejected",
     title: "Controlled request declined",
     description:

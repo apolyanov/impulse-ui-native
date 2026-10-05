@@ -22,7 +22,6 @@ export const Carousel = memo(function Carousel({
   showNavigation = true,
   peek = 0,
   slideAspectRatio = DefaultSlideAspectRatio,
-  reducedMotion = false,
   style,
   ...props
 }: CarouselProps) {
@@ -34,7 +33,6 @@ export const Carousel = memo(function Carousel({
     defaultIndex,
     onIndexChange,
     disabled,
-    reducedMotion,
     stride: layout.stride,
     endInset: layout.endInset,
   });

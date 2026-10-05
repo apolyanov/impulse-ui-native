@@ -19,6 +19,10 @@ drive component design or block completion. Built-in accessibility semantics are
 deferred with web work; do not add accessibility props, screen-reader behavior,
 examples, tests, or acceptance criteria unless explicitly requested.
 
+Reduced motion is deferred for all components for now. Do not plan or add
+reduced-motion detection, animation alternatives, props, examples, tests, or
+acceptance criteria unless the user explicitly requests that scope.
+
 ## Before changing code
 
 1. Check the working tree and preserve unrelated or user-owned changes.

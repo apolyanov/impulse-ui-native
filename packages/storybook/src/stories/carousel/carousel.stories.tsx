@@ -23,7 +23,6 @@ const meta = {
     slideAspectRatio: { control: "number" },
     disabled: { control: "boolean" },
     showNavigation: { control: "boolean" },
-    reducedMotion: { control: "boolean" },
     children: { control: false },
     onIndexChange: { control: false },
   },
@@ -39,7 +38,6 @@ export const Counter: Story = createCarouselStory("Counter");
 export const ControlledRejected: Story =
   createCarouselStory("ControlledRejected");
 export const DynamicSlides: Story = createCarouselStory("DynamicSlides");
-export const ReducedMotion: Story = createCarouselStory("ReducedMotion");
 export const Disabled: Story = createCarouselStory("Disabled");
 export const Controlled: Story = createCarouselStory("Controlled");
 export const DarkOverride: Story = createCarouselStory("DarkOverride");

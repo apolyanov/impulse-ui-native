@@ -69,7 +69,10 @@ Write down the control's semantic role, value model, state transitions, and disa
 - Disabled and loading states must still block or intentionally constrain
   interaction, not only change opacity.
 - Keep small visuals usable through tokenized `hitSlop` or an adequately sized
-  press target. Continue to consider RTL, font scaling, and reduced motion.
+  press target. Continue to consider RTL and font scaling.
+- Reduced motion is deferred for all components for now. Do not plan or add
+  reduced-motion detection, animation alternatives, props, examples, tests, or
+  acceptance criteria unless the user explicitly requests that scope.
 
 ## Add theme tokens deliberately
 

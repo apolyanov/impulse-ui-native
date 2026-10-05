@@ -60,7 +60,6 @@ Exports: `Carousel`, `CarouselProps`, `CarouselPagination`. Also re-exported by
 | `peek`                                     | `0`               | Neighbor preview width at the first and last slides. Middle slides divide the available space equally between both sides. The theme supplies the gap; preview space is bounded to half the viewport. |
 | `slideAspectRatio`                         | `16 / 9`          | Uniform slide sizing. Fill the child surface or compose content within it.                                                                                                                           |
 | `disabled`                                 | `false`           | Blocks swipes, navigation, and indicators. Child content remains consumer-owned.                                                                                                                     |
-| `reducedMotion`                            | `false`           | Makes programmatic changes instant. The system reduced-motion setting is always honored.                                                                                                             |
 
 Root props extend the library's `ViewProps`. No scroll-view implementation props
 or infinite looping are exposed. Children are mounted eagerly: use modest slide
@@ -78,9 +77,6 @@ counts, stable keys and appropriately sized images rather than large data feeds.
 - Invalid indices are clamped for display. Changing the slide count or viewport
   size realigns the viewport; supply a valid index when updating controlled data.
   A clamp caused by removing slides does not emit `onIndexChange`.
-- System reduced motion makes programmatic changes instant.
-  User-driven native dragging remains available. Motion stays disabled until the
-  initial native preference resolves.
 
 ## Theme
 

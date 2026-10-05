@@ -4,7 +4,6 @@ import type {
   ScrollView,
 } from "react-native";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AccessibilityInfo } from "react-native";
 
 import {
   useControllableState,
@@ -25,11 +24,9 @@ export function useCarousel({
   defaultIndex,
   onIndexChange,
   disabled,
-  reducedMotion,
   stride,
   endInset,
 }: CarouselBehaviorOptions) {
-  const [systemReducedMotion, setSystemReducedMotion] = useState(true);
   const [settled, setSettled] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(() =>
     clampIndex(indexProp ?? defaultIndex, count),
@@ -49,7 +46,6 @@ export function useCarousel({
   });
   const index = clampIndex(value, count);
   const displayedIndex = clampIndex(visibleIndex, count);
-  const motionReduced = reducedMotion || systemReducedMotion;
 
   const clearIdle = useEventCallback(() => {
     clearTimeout(timerRef.current);
@@ -57,12 +53,11 @@ export function useCarousel({
   });
   const syncPosition = useEventCallback((animated: boolean) => {
     if (stride > 0 && !draggingRef.current) {
-      const shouldAnimate = animated && !motionReduced;
-      if (!shouldAnimate) setVisibleIndex(index);
+      if (!animated) setVisibleIndex(index);
       scrollRef.current?.scrollTo({
         x: getSnapOffset(index, count, stride, endInset),
         y: 0,
-        animated: shouldAnimate,
+        animated,
       });
     }
   });
@@ -131,7 +126,6 @@ export function useCarousel({
       index,
       displayedIndex,
       scrollRef,
-      motionReduced,
       select,
       syncPosition,
       handleScroll,
@@ -143,7 +137,6 @@ export function useCarousel({
     [
       index,
       displayedIndex,
-      motionReduced,
       select,
       syncPosition,
       handleScroll,
@@ -155,25 +148,7 @@ export function useCarousel({
   );
 
   useEffect(() => {
-    let alive = true;
-    let receivedEvent = false;
-    const motionSubscription = AccessibilityInfo.addEventListener(
-      "reduceMotionChanged",
-      (enabled) => {
-        receivedEvent = true;
-        if (alive) setSystemReducedMotion(enabled);
-      },
-    );
-    void AccessibilityInfo.isReduceMotionEnabled()
-      .then((enabled) => {
-        if (alive && !receivedEvent) setSystemReducedMotion(enabled);
-      })
-      .catch(() => {
-        /* Keep motion disabled if the native setting is unavailable. */
-      });
     return () => {
-      alive = false;
-      motionSubscription.remove();
       clearIdle();
     };
   }, [clearIdle]);
@@ -195,7 +170,6 @@ export function useCarousel({
     stride,
     endInset,
     count,
-    motionReduced,
     disabled,
     settled,
     syncPosition,

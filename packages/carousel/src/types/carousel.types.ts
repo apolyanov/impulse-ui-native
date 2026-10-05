@@ -16,8 +16,6 @@ export interface CarouselProps extends ViewProps {
   /** Visible neighboring-slide preview; the final slide previews its predecessor. */
   peek?: number;
   slideAspectRatio?: number;
-  /** Always honors the system setting; true also forces reduced motion. */
-  reducedMotion?: boolean;
 }
 
 export interface CarouselBehaviorOptions {
@@ -26,7 +24,6 @@ export interface CarouselBehaviorOptions {
   defaultIndex: number;
   onIndexChange?: (index: number) => void;
   disabled: boolean;
-  reducedMotion: boolean;
   stride: number;
   endInset: number;
 }
