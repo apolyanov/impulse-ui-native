@@ -1,5 +1,54 @@
 # @impulse-ui-native/toolkit
 
+## 6.0.0
+
+### Major Changes
+
+- 9556669: Remove Carousel's reducedMotion prop and explicit system reduced-motion detection. Programmatic navigation now uses native animated scrolling without consulting the motion preference. Reanimated-based components retain their existing behavior.
+
+### Minor Changes
+
+- ce02232: Add token-driven compound Toast notifications using OverlayProvider, with top/bottom placements, timed or persistent dismissal, and actions.
+
+  Provide a ready-made Toast component assembled from child-only composable parts, following Input's composition model.
+
+- e4de9ad: Move Card, List, Progress, and their prop types out of primitives into dedicated packages. Import them from their owning packages or the toolkit. Add ready-made Card and List components assembled from their child-only namespaced parts, and use Reanimated for indeterminate Progress.
+
+### Patch Changes
+
+- Updated dependencies [ce02232]
+- Updated dependencies [ce02232]
+- Updated dependencies [9556669]
+- Updated dependencies [e4de9ad]
+  - @impulse-ui-native/toast@6.0.0
+  - @impulse-ui-native/theme@6.0.0
+  - @impulse-ui-native/carousel@6.0.0
+  - @impulse-ui-native/card@6.0.0
+  - @impulse-ui-native/list@6.0.0
+  - @impulse-ui-native/progress@6.0.0
+  - @impulse-ui-native/primitives@6.0.0
+  - @impulse-ui-native/accordion@6.0.0
+  - @impulse-ui-native/charts@6.0.0
+  - @impulse-ui-native/checkbox@6.0.0
+  - @impulse-ui-native/data-state@6.0.0
+  - @impulse-ui-native/datetime@6.0.0
+  - @impulse-ui-native/flyout@6.0.0
+  - @impulse-ui-native/form-field@6.0.0
+  - @impulse-ui-native/input@6.0.0
+  - @impulse-ui-native/pagination@6.0.0
+  - @impulse-ui-native/radio@6.0.0
+  - @impulse-ui-native/segmented-control@6.0.0
+  - @impulse-ui-native/select@6.0.0
+  - @impulse-ui-native/skeleton@6.0.0
+  - @impulse-ui-native/slider@6.0.0
+  - @impulse-ui-native/stepper@6.0.0
+  - @impulse-ui-native/switch@6.0.0
+  - @impulse-ui-native/core@6.0.0
+  - @impulse-ui-native/echo@6.0.0
+  - @impulse-ui-native/endpoint@6.0.0
+  - @impulse-ui-native/overlay@6.0.0
+  - @impulse-ui-native/portal@6.0.0
+
 ## 5.0.0
 
 ### Minor Changes

@@ -1,5 +1,20 @@
 # @impulse-ui-native/carousel
 
+## 6.0.0
+
+### Major Changes
+
+- 9556669: Remove Carousel's reducedMotion prop and explicit system reduced-motion detection. Programmatic navigation now uses native animated scrolling without consulting the motion preference. Reanimated-based components retain their existing behavior.
+
+### Patch Changes
+
+- Updated dependencies [ce02232]
+- Updated dependencies [e4de9ad]
+  - @impulse-ui-native/theme@6.0.0
+  - @impulse-ui-native/primitives@6.0.0
+  - @impulse-ui-native/icon@6.0.0
+  - @impulse-ui-native/core@6.0.0
+
 ## 5.0.0
 
 ### Minor Changes

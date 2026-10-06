@@ -1,5 +1,17 @@
 # @impulse-ui-native/theme
 
+## 6.0.0
+
+### Minor Changes
+
+- ce02232: Add token-driven compound Toast notifications using OverlayProvider, with top/bottom placements, timed or persistent dismissal, and actions.
+
+  Provide a ready-made Toast component assembled from child-only composable parts, following Input's composition model.
+
+### Patch Changes
+
+- @impulse-ui-native/core@6.0.0
+
 ## 5.0.0
 
 ### Major Changes
