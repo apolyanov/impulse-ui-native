@@ -11,7 +11,7 @@ export const componentGroups = [
           "Trigger primary and secondary actions across sizes, variants, and loading states.",
         packageName: "@impulse-ui-native/primitives",
         sourcePath: "primitives/src/components/atoms/button.tsx",
-        tags: ["Interactive", "5 variants"],
+        tags: ["Interactive", "4 variants"],
       },
       {
         name: "IconButton",
@@ -135,7 +135,7 @@ export const componentGroups = [
           "Represent people and entities with images, initials, fallbacks, and presence states.",
         packageName: "@impulse-ui-native/primitives",
         sourcePath: "primitives/src/components/atoms/avatar.tsx",
-        tags: ["Identity", "5 variants"],
+        tags: ["Identity", "3 variants"],
       },
       {
         name: "Card",

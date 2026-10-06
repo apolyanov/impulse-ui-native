@@ -2,7 +2,13 @@ import type { SystemIconName } from "@/lib/icons/system-icon";
 import { componentGroups } from "@/lib/component-catalog";
 import { GithubLogoIcon, ImpulseUINativeLogoIcon } from "@/lib/icons";
 import { SystemIcon } from "@/lib/icons/system-icon";
-import { primitiveTokenGroups, project, semanticTokens } from "@/lib/site-data";
+import {
+  componentTokenNames,
+  primitiveTokenExample,
+  primitiveTokenGroups,
+  project,
+  semanticTokens,
+} from "@/lib/site-data";
 
 import {
   ButtonPlayground,
@@ -24,9 +30,9 @@ const actionBase =
 
 export function HeroSection() {
   const floatingTokens = [
-    ["spacing.md", "left-0 top-md"],
+    ["space.md", "left-0 top-md"],
     ["radii.lg", "right-0 top-xl"],
-    ["colors.primary", "-left-xs bottom-lg"],
+    ["colors.primary.value", "-left-xs bottom-lg"],
     ["fontSize.xl", "-right-xs bottom-md"],
   ] as const;
 
@@ -195,11 +201,11 @@ export function TokensSection() {
     >
       <SectionContainer className="py-xxl">
         <SectionHeading
-          copy="The website consumes the same primitive scale as the native theme instead of maintaining a parallel palette or spacing system."
+          copy="These values come directly from the theme package. AppTheme combines colors, space, radii, borderSize, fontFamily, fontWeight, fontSize, lineHeight, letterSpacing, and generated component tokens."
           eyebrow="Design tokens"
           title="One language for the whole interface."
         />
-        <div className="mt-lg grid gap-sm md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-lg grid gap-sm md:grid-cols-2 lg:grid-cols-3">
           {primitiveTokenGroups.map((group) => (
             <article
               className="rounded-md border border-border-subtle bg-surface-primary p-sm"
@@ -215,7 +221,7 @@ export function TokensSection() {
                     className="flex items-center gap-xs rounded-md border border-border-subtle bg-surface-elevated p-xs"
                     key={token.name}
                   >
-                    {"swatch" in token ? (
+                    {token.swatch !== undefined ? (
                       <i
                         className="size-msm shrink-0 rounded-sm border border-border-subtle"
                         style={{ background: token.swatch }}
@@ -224,7 +230,7 @@ export function TokensSection() {
                     <code className="min-w-0 flex-1 truncate text-[11px] font-semiBold">
                       {token.name}
                     </code>
-                    <code className="text-[10px] text-text-disabled">
+                    <code className="max-w-[50%] break-all text-[10px] text-text-disabled">
                       {token.value}
                     </code>
                   </div>
@@ -246,16 +252,7 @@ export function TokensSection() {
               </span>
             </div>
             <pre className="code-scrollbar overflow-x-auto p-sm font-mono text-caption leading-sm text-white/80">
-              <code>{`export const SpaceTokens = {
-  xxs: 4, xs: 8, mxs: 12,
-  sm: 16, msm: 24, md: 32,
-  lg: 48, xl: 64, xxl: 96,
-}
-
-export const RadiiTokens = {
-  sm: 4, md: 8, lg: 16,
-  xl: 32, xxl: 64, round: 100000,
-}`}</code>
+              <code>{primitiveTokenExample}</code>
             </pre>
           </div>
           <div className="rounded-md border border-border-subtle bg-surface-primary p-sm">
@@ -288,7 +285,7 @@ export function ThemingSection() {
     <section id="theming">
       <SectionContainer className="py-xxl">
         <SectionHeading
-          copy="Primitive values feed semantic roles, then component factories. The preview below intentionally uses the authoritative light theme because the package does not yet define a distinct dark palette."
+          copy="LightTheme and DarkTheme share primitive scales and provide distinct semantic palettes. ThemeProvider defaults to light; set the scheme prop to dark and supply per-scheme theme overrides or component-token overrides. The phone preview shows the light theme."
           eyebrow="Theming"
           title="Adapt the system without faking it."
         />
@@ -305,9 +302,9 @@ export function ThemingSection() {
           <div className="flex flex-col gap-sm">
             <div className="overflow-hidden rounded-md border border-border-subtle bg-surface-elevated">
               <div className="flex items-center justify-between border-b border-border-subtle px-sm py-mxs">
-                <Eyebrow>Semantic tokens</Eyebrow>
+                <Eyebrow>Semantic color examples</Eyebrow>
                 <code className="text-[10px] text-text-disabled">
-                  {semanticTokens.length} values
+                  {semanticTokens.length} light / dark pairs
                 </code>
               </div>
               {semanticTokens.map((token) => (
@@ -317,14 +314,21 @@ export function ThemingSection() {
                 >
                   <i
                     className="size-msm rounded-sm border border-border-subtle"
-                    style={{ background: token.swatch }}
+                    style={{ background: token.value }}
                   />
-                  <code className="min-w-0 flex-1 truncate text-caption font-semiBold">
+                  <code className="min-w-0 flex-1 break-all text-[11px] font-semiBold">
                     {token.name}
                   </code>
-                  <code className="text-[10px] text-text-disabled">
-                    {token.value}
-                  </code>
+                  <div className="shrink-0 text-right text-[10px] text-text-disabled">
+                    <code className="block">Light {token.value}</code>
+                    <code className="mt-xxs flex items-center justify-end gap-xxs">
+                      <i
+                        className="size-xs rounded-sm border border-border-subtle"
+                        style={{ background: token.darkValue }}
+                      />
+                      Dark {token.darkValue}
+                    </code>
+                  </div>
                 </div>
               ))}
             </div>
@@ -334,7 +338,9 @@ export function ThemingSection() {
                 {[
                   "Define primitive values and scales.",
                   "Map them into semantic color roles.",
-                  "Generate component tokens from the theme.",
+                  "Choose light or dark explicitly with scheme.",
+                  "Merge theme.light or theme.dark overrides into that scheme.",
+                  "Generate component tokens, then merge the components object or factory result.",
                   "Render product interfaces from those components.",
                 ].map((item, index) => (
                   <li
@@ -365,12 +371,20 @@ const architectureLayers = [
   [
     "Semantic tokens",
     "Intent-driven roles for surfaces and actions.",
-    ["surface.primary", "text.disabled", "border.focus"],
+    [
+      "colors.surface.primary.value",
+      "colors.text.disabled",
+      "colors.border.focus.value",
+    ],
   ],
   [
     "Component tokens",
     "Factories translate the theme into exact anatomy.",
-    ["button.sizes", "tag.colors", "control.variants"],
+    [
+      "components.button.sizes",
+      "components.tag.colors",
+      "components.controlContainer.variants",
+    ],
   ],
   [
     "UI components",
@@ -409,7 +423,7 @@ export function ArchitectureSection() {
               <div className="mt-sm space-y-xxs">
                 {items.map((item) => (
                   <code
-                    className="block rounded-sm border border-border-subtle bg-surface-elevated px-xs py-xxs text-caption"
+                    className="block break-all rounded-sm border border-border-subtle bg-surface-elevated px-xs py-xxs text-caption"
                     key={item}
                   >
                     {item}
@@ -425,13 +439,7 @@ export function ArchitectureSection() {
           ))}
         </div>
         <div className="mt-msm flex flex-wrap justify-center gap-sm">
-          {[
-            "button",
-            "tag",
-            "controlContainer",
-            "datetimePicker",
-            "skeleton",
-          ].map((token) => (
+          {componentTokenNames.map((token) => (
             <code
               className="whitespace-nowrap rounded-md border border-border-subtle bg-surface-primary px-xs py-xs text-center text-caption font-semiBold"
               key={token}
@@ -447,7 +455,7 @@ export function ArchitectureSection() {
 
 const buttonApi = [
   ["size", '"small" | "medium" | "large"', '"medium"'],
-  ["variant", '"filled" | "outlined" | "soft" | "ghost" | "plain"', '"filled"'],
+  ["variant", '"filled" | "outlined" | "soft" | "ghost"', '"filled"'],
   ["loading", "boolean", "false"],
   ["disabled", "boolean", "false"],
   ["onPress", "PressableProps['onPress']", "–"],

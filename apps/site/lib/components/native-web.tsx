@@ -11,8 +11,16 @@ import { memo } from "react";
 import { SystemIcon } from "@/lib/icons/system-icon";
 import { classNames } from "@/lib/utils/class-names";
 
-export type NativeSize = "small" | "medium" | "large";
-export type NativeVariant = "filled" | "outlined" | "soft" | "ghost" | "plain";
+import type {
+  ActionVariant,
+  ComponentSize,
+  DisplayVariant,
+  FieldVariant,
+} from "../../../../packages/theme/src/types/components.types";
+import type { TagColor } from "../../../../packages/theme/src/types/tag-tokens.types";
+
+export type NativeSize = ComponentSize;
+export type NativeVariant = ActionVariant;
 
 const buttonBase =
   "inline-flex shrink-0 cursor-pointer items-center justify-center gap-xs rounded-md border-sm font-montserrat text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 active:opacity-70 disabled:pointer-events-none disabled:cursor-default";
@@ -25,13 +33,11 @@ const buttonSizes: Record<NativeSize, string> = {
 
 const buttonVariants: Record<NativeVariant, string> = {
   filled:
-    "border-primary bg-primary text-primary-contrast disabled:border-neutral-5 disabled:bg-neutral-5 disabled:text-text-disabled",
+    "border-primary bg-primary text-primary-contrast disabled:border-border-default disabled:bg-surface-primary disabled:text-text-disabled",
   outlined:
-    "border-primary bg-transparent text-primary disabled:border-neutral-5 disabled:text-text-disabled",
-  soft: "border-secondary bg-secondary text-secondary-contrast disabled:border-neutral-3 disabled:bg-neutral-3 disabled:text-text-disabled",
+    "border-primary bg-transparent text-primary disabled:border-border-default disabled:text-text-disabled",
+  soft: "border-secondary bg-secondary text-secondary-contrast disabled:border-border-subtle disabled:bg-surface-primary disabled:text-text-disabled",
   ghost:
-    "border-transparent bg-transparent text-primary disabled:text-text-disabled",
-  plain:
     "border-transparent bg-transparent text-primary disabled:text-text-disabled",
 };
 
@@ -108,59 +114,40 @@ export const WebIconButton = memo(function WebIconButton({
   );
 });
 
-type TagColor =
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
-
-const tagColors: Record<TagColor, Record<NativeVariant, string>> = {
+const tagColors: Record<TagColor, Record<DisplayVariant, string>> = {
   primary: {
     filled: "border-primary bg-primary text-primary-contrast",
     outlined: "border-primary bg-transparent text-primary",
-    soft: "border-primary-contrast bg-primary-contrast text-primary",
-    ghost: "border-transparent bg-transparent text-primary",
-    plain: "border-transparent bg-transparent text-primary",
+    soft: "border-secondary bg-secondary text-secondary-contrast",
   },
   secondary: {
     filled: "border-secondary bg-secondary text-secondary-contrast",
-    outlined: "border-secondary bg-transparent text-secondary",
-    soft: "border-secondary-contrast bg-secondary-contrast text-secondary",
-    ghost: "border-transparent bg-transparent text-secondary-contrast",
-    plain: "border-transparent bg-transparent text-secondary-contrast",
+    outlined:
+      "border-secondary-contrast bg-transparent text-secondary-contrast",
+    soft: "border-secondary bg-secondary text-secondary-contrast",
   },
   error: {
     filled:
       "border-feedback-error bg-feedback-error text-feedback-error-contrast",
     outlined: "border-feedback-error bg-transparent text-feedback-error",
     soft: "border-feedback-error-contrast bg-feedback-error-contrast text-feedback-error",
-    ghost: "border-transparent bg-transparent text-feedback-error",
-    plain: "border-transparent bg-transparent text-feedback-error",
   },
   warning: {
     filled:
       "border-feedback-warning bg-feedback-warning text-feedback-warning-contrast",
     outlined: "border-feedback-warning bg-transparent text-feedback-warning",
     soft: "border-feedback-warning-contrast bg-feedback-warning-contrast text-feedback-warning",
-    ghost: "border-transparent bg-transparent text-feedback-warning",
-    plain: "border-transparent bg-transparent text-feedback-warning",
   },
   success: {
     filled:
       "border-feedback-success bg-feedback-success text-feedback-success-contrast",
     outlined: "border-feedback-success bg-transparent text-feedback-success",
     soft: "border-feedback-success-contrast bg-feedback-success-contrast text-feedback-success",
-    ghost: "border-transparent bg-transparent text-feedback-success",
-    plain: "border-transparent bg-transparent text-feedback-success",
   },
   info: {
     filled: "border-feedback-info bg-feedback-info text-feedback-info-contrast",
     outlined: "border-feedback-info bg-transparent text-feedback-info",
     soft: "border-feedback-info-contrast bg-feedback-info-contrast text-feedback-info",
-    ghost: "border-transparent bg-transparent text-feedback-info",
-    plain: "border-transparent bg-transparent text-feedback-info",
   },
 };
 
@@ -180,7 +167,7 @@ export function WebTag({
 }: {
   children: ReactNode;
   color?: TagColor;
-  variant?: NativeVariant;
+  variant?: DisplayVariant;
   size?: NativeSize;
   disabled?: boolean;
   closable?: boolean;
@@ -192,7 +179,11 @@ export function WebTag({
         tagSizes[size],
         tagColors[color][variant],
         disabled &&
-          "border-neutral-6 bg-neutral-4 text-text-disabled opacity-70",
+          (variant === "outlined"
+            ? "border-border-strong bg-transparent text-text-disabled"
+            : variant === "soft"
+              ? "border-border-subtle bg-surface-primary text-text-disabled"
+              : "border-border-strong bg-surface-primary text-text-disabled"),
       )}
     >
       {children}
@@ -209,12 +200,9 @@ const controlSizes: Record<NativeSize, string> = {
   large: "h-component-large text-sm",
 };
 
-const controlVariants: Record<NativeVariant, string> = {
+const controlVariants: Record<FieldVariant, string> = {
   filled: "border-transparent bg-surface-secondary",
-  outlined: "border-neutral-5 bg-transparent",
-  soft: "border-transparent bg-accent text-accent-contrast",
-  ghost: "border-transparent bg-transparent",
-  plain: "border-transparent bg-transparent",
+  outlined: "border-border-default bg-transparent",
 };
 
 export function WebControl({
@@ -232,7 +220,7 @@ export function WebControl({
   error?: string;
   disabled?: boolean;
   size?: NativeSize;
-  variant?: NativeVariant;
+  variant?: FieldVariant;
   prefix?: ReactNode;
   suffix?: ReactNode;
   children: ReactNode;
@@ -257,7 +245,10 @@ export function WebControl({
           controlSizes[size],
           controlVariants[variant],
           error && "border-feedback-error",
-          disabled && "border-neutral-5 bg-neutral-2 opacity-70",
+          disabled &&
+            (variant === "filled"
+              ? "border-transparent bg-surface-primary opacity-70"
+              : "border-border-default bg-transparent opacity-70"),
         )}
       >
         {prefix ? (
@@ -289,7 +280,7 @@ export function WebInput({
   label?: string;
   error?: string;
   size?: NativeSize;
-  variant?: NativeVariant;
+  variant?: FieldVariant;
   prefixIcon?: SystemIconName;
   suffixIcon?: SystemIconName;
 }) {

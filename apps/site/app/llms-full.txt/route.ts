@@ -1,6 +1,10 @@
 import { componentGroups } from "@/lib/component-catalog";
 import { absoluteUrl, seo } from "@/lib/seo";
-import { project } from "@/lib/site-data";
+import {
+  componentTokenNames,
+  primitiveTokenExample,
+  project,
+} from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
 
@@ -51,6 +55,20 @@ export function App() {
 ${fence}
 
 Individual packages may be installed independently when the complete toolkit is unnecessary.
+
+## Theme API and token structure
+
+AppTheme extends PrimitiveThemeTokens with components. PrimitiveThemeTokens contains colors, space, radii, borderSize, fontFamily, fontWeight, fontSize, lineHeight, and letterSpacing. ThemeColors uses { value, contrast } pairs for primary, accent, secondary, surface roles, border roles, and feedback roles. Text colors, neutral colors, overlay, white, and black are strings. For example, use colors.surface.primary.value and colors.border.focus.value; colors.text.primary is already a string.
+
+LightTheme and DarkTheme are primitive themes with distinct semantic color palettes and shared numeric scales. ThemeProvider accepts scheme: "light" | "dark" (default "light"). It does not select a scheme automatically. Its theme prop accepts deep partial overrides under light and dark. Its components prop accepts a deep partial token object or a function of the merged primitive theme. The provider regenerates component tokens from that merged theme, then merges component overrides.
+
+fontFamily.normal and fontFamily.italic map numeric weights 100?900 to Montserrat font names. Load those fonts in the native host. ComponentSize is "small" | "medium" | "large"; component-specific dimensions live in component tokens rather than the primitive spacing scale.
+
+The generated component token keys are: ${componentTokenNames.join(", ")}.
+
+${fence}ts
+${primitiveTokenExample}
+${fence}
 
 ## Major package areas
 

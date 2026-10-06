@@ -1,3 +1,9 @@
+import {
+  createComponentsTokens,
+  DarkTheme,
+  LightTheme,
+} from "@/lib/theme-tokens";
+
 import toolkitPackage from "../../../packages/toolkit/package.json";
 
 export const project = {
@@ -26,60 +32,136 @@ export const packageCommands = {
   bun: `bun add ${project.packageName}`,
 } as const;
 
-export const primitiveTokenGroups = [
+function scaleTokens(prefix: string, scale: Record<string, number>) {
+  return Object.entries(scale).map(([key, value]) => ({
+    name: `${prefix}.${key}`,
+    value: String(value),
+  }));
+}
+
+export const primitiveTokenGroups: readonly {
+  title: string;
+  description: string;
+  tokens: readonly { name: string; value: string; swatch?: string }[];
+}[] = [
   {
-    title: "Color",
-    description: "Semantic roles backed by the native palette.",
-    tokens: [
-      { name: "colors.primary.value", value: "#f55d6b", swatch: "#f55d6b" },
-      { name: "colors.accent.value", value: "#FA9EA7", swatch: "#FA9EA7" },
-      { name: "colors.secondary.value", value: "#FEE7E9", swatch: "#FEE7E9" },
-      { name: "colors.surface.primary", value: "#f1f3f5", swatch: "#f1f3f5" },
-      { name: "colors.surface.elevated", value: "#ffffff", swatch: "#ffffff" },
-    ],
+    title: "Neutral color",
+    description: "The neutral palette shared by light and dark themes.",
+    tokens: Object.entries(LightTheme.colors.neutral).map(([key, value]) => ({
+      name: `colors.neutral.${key}`,
+      value,
+      swatch: value,
+    })),
   },
   {
     title: "Space",
-    description: "The shared layout rhythm in logical pixels.",
-    tokens: [
-      { name: "space.xxs", value: "4" },
-      { name: "space.xs", value: "8" },
-      { name: "space.mxs", value: "12" },
-      { name: "space.sm", value: "16" },
-      { name: "space.msm", value: "24" },
-      { name: "space.md", value: "32" },
-    ],
+    description: "The complete spacing scale in logical pixels.",
+    tokens: scaleTokens("space", LightTheme.space),
   },
   {
     title: "Radii",
-    description: "Consistent shape from controls to flyouts.",
-    tokens: [
-      { name: "radii.sm", value: "4" },
-      { name: "radii.md", value: "8" },
-      { name: "radii.lg", value: "16" },
-      { name: "radii.xl", value: "32" },
-      { name: "radii.round", value: "100000" },
-    ],
+    description: "The complete corner-radius scale in logical pixels.",
+    tokens: scaleTokens("radii", LightTheme.radii),
   },
   {
-    title: "Type",
-    description: "Montserrat scales shared by every package.",
+    title: "Font size",
+    description: "The complete Montserrat size scale in logical pixels.",
+    tokens: scaleTokens("fontSize", LightTheme.fontSize),
+  },
+  {
+    title: "Line height",
+    description: "Line heights paired with the typography scale.",
+    tokens: scaleTokens("lineHeight", LightTheme.lineHeight),
+  },
+  {
+    title: "Font weight",
+    description: "Named weights from thin through black.",
+    tokens: scaleTokens("fontWeight", LightTheme.fontWeight),
+  },
+  {
+    title: "Letter spacing",
+    description: "Tracking values in logical pixels.",
+    tokens: scaleTokens("letterSpacing", LightTheme.letterSpacing),
+  },
+  {
+    title: "Border size",
+    description: "The complete border-width scale in logical pixels.",
+    tokens: scaleTokens("borderSize", LightTheme.borderSize),
+  },
+  {
+    title: "Font family",
+    description:
+      "Normal and italic Montserrat families are keyed by weights 100?900. Examples at weight 400:",
     tokens: [
-      { name: "fontSize.xs", value: "12" },
-      { name: "fontSize.xsm", value: "14" },
-      { name: "fontSize.sm", value: "16" },
-      { name: "fontSize.xl", value: "24" },
-      { name: "fontSize.colossal", value: "56" },
+      {
+        name: "fontFamily.normal[400]",
+        value: LightTheme.fontFamily.normal[400],
+      },
+      {
+        name: "fontFamily.italic[400]",
+        value: LightTheme.fontFamily.italic[400],
+      },
     ],
   },
-] as const;
+];
 
 export const semanticTokens = [
-  { name: "colors.surface.primary", value: "#f1f3f5", swatch: "#f1f3f5" },
-  { name: "colors.surface.secondary", value: "#ffffff", swatch: "#ffffff" },
-  { name: "colors.text.primary", value: "#16191d", swatch: "#16191d" },
-  { name: "colors.text.secondary", value: "#212529", swatch: "#212529" },
-  { name: "colors.text.disabled", value: "#868e96", swatch: "#868e96" },
-  { name: "colors.border.subtle", value: "#e9ecef", swatch: "#e9ecef" },
-  { name: "colors.border.focus", value: "#f55d6b", swatch: "#f55d6b" },
-] as const;
+  {
+    name: "colors.primary.value",
+    value: LightTheme.colors.primary.value,
+    darkValue: DarkTheme.colors.primary.value,
+  },
+  {
+    name: "colors.accent.contrast",
+    value: LightTheme.colors.accent.contrast,
+    darkValue: DarkTheme.colors.accent.contrast,
+  },
+  {
+    name: "colors.secondary.contrast",
+    value: LightTheme.colors.secondary.contrast,
+    darkValue: DarkTheme.colors.secondary.contrast,
+  },
+  {
+    name: "colors.surface.primary.value",
+    value: LightTheme.colors.surface.primary.value,
+    darkValue: DarkTheme.colors.surface.primary.value,
+  },
+  {
+    name: "colors.surface.secondary.value",
+    value: LightTheme.colors.surface.secondary.value,
+    darkValue: DarkTheme.colors.surface.secondary.value,
+  },
+  {
+    name: "colors.text.primary",
+    value: LightTheme.colors.text.primary,
+    darkValue: DarkTheme.colors.text.primary,
+  },
+  {
+    name: "colors.text.disabled",
+    value: LightTheme.colors.text.disabled,
+    darkValue: DarkTheme.colors.text.disabled,
+  },
+  {
+    name: "colors.border.focus.value",
+    value: LightTheme.colors.border.focus.value,
+    darkValue: DarkTheme.colors.border.focus.value,
+  },
+  {
+    name: "colors.feedback.warning.value",
+    value: LightTheme.colors.feedback.warning.value,
+    darkValue: DarkTheme.colors.feedback.warning.value,
+  },
+  {
+    name: "colors.feedback.success.value",
+    value: LightTheme.colors.feedback.success.value,
+    darkValue: DarkTheme.colors.feedback.success.value,
+  },
+];
+
+export const componentTokenNames = Object.keys(
+  createComponentsTokens(LightTheme),
+);
+
+export const primitiveTokenExample = `export const SpaceTokens = ${JSON.stringify(LightTheme.space, null, 2)};
+
+export const RadiiTokens = ${JSON.stringify(LightTheme.radii, null, 2)};`;

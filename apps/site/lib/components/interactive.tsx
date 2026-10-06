@@ -116,7 +116,7 @@ export function Navigation() {
           label="Toggle navigation"
           onClick={() => setOpen((current) => !current)}
           size="small"
-          variant="plain"
+          variant="ghost"
         />
       </SectionContainer>
       {open ? (
@@ -169,7 +169,7 @@ export function InstallBox() {
             key={item}
             onClick={() => setManager(item)}
             size="small"
-            variant={manager === item ? "filled" : "plain"}
+            variant={manager === item ? "filled" : "ghost"}
           >
             {item}
           </WebButton>
@@ -215,7 +215,7 @@ export function InstallBox() {
   );
 }
 
-const variants = ["filled", "outlined", "soft", "ghost", "plain"] as const;
+const variants = ["filled", "outlined", "soft", "ghost"] as const;
 const sizes = ["small", "medium", "large"] as const;
 const states = ["default", "loading", "disabled"] as const;
 
