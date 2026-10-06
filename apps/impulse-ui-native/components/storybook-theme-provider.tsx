@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 import { memo, useCallback, useState } from "react";
 
 import type { ColorScheme } from "@impulse-ui-native/toolkit";
@@ -6,9 +6,14 @@ import { ThemeProvider } from "@impulse-ui-native/toolkit";
 
 import { StorybookThemeFrame } from "./storybook-theme-frame";
 
+interface StorybookThemeProviderProps extends PropsWithChildren {
+  overlays?: ReactNode;
+}
+
 export const StorybookThemeProvider = memo(function StorybookThemeProvider({
   children,
-}: PropsWithChildren) {
+  overlays,
+}: StorybookThemeProviderProps) {
   const [scheme, setScheme] = useState<ColorScheme>("light");
 
   const toggleScheme = useCallback(() => {
@@ -17,7 +22,11 @@ export const StorybookThemeProvider = memo(function StorybookThemeProvider({
 
   return (
     <ThemeProvider scheme={scheme}>
-      <StorybookThemeFrame scheme={scheme} onToggleScheme={toggleScheme}>
+      <StorybookThemeFrame
+        scheme={scheme}
+        onToggleScheme={toggleScheme}
+        overlays={overlays}
+      >
         {children}
       </StorybookThemeFrame>
     </ThemeProvider>

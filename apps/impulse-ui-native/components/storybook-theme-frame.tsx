@@ -1,17 +1,20 @@
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 import { memo } from "react";
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import type { ColorScheme } from "@impulse-ui-native/toolkit";
 import { Button, Typography, useTheme, View } from "@impulse-ui-native/toolkit";
 
 interface StorybookThemeFrameProps extends PropsWithChildren {
+  overlays?: ReactNode;
   scheme: ColorScheme;
   onToggleScheme: () => void;
 }
 
 export const StorybookThemeFrame = memo(function StorybookThemeFrame({
   children,
+  overlays,
   scheme,
   onToggleScheme,
 }: StorybookThemeFrameProps) {
@@ -39,6 +42,9 @@ export const StorybookThemeFrame = memo(function StorybookThemeFrame({
         </View>
       </SafeAreaView>
       <View flex={1}>{children}</View>
+      <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
+        {overlays}
+      </View>
     </View>
   );
 });

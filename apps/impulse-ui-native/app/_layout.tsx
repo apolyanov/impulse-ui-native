@@ -22,15 +22,20 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <StorybookThemeProvider>
-          <OverlayProvider store={overlayStore}>
-            <PortalProvider store={portalStore}>
+        <OverlayProvider store={overlayStore}>
+          <PortalProvider store={portalStore}>
+            <StorybookThemeProvider
+              overlays={
+                <>
+                  <OverlayHost />
+                  <PortalsHost />
+                </>
+              }
+            >
               <Stack screenOptions={{ headerShown: false }} />
-              <OverlayHost />
-              <PortalsHost />
-            </PortalProvider>
-          </OverlayProvider>
-        </StorybookThemeProvider>
+            </StorybookThemeProvider>
+          </PortalProvider>
+        </OverlayProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

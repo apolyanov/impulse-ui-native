@@ -22,17 +22,22 @@ const overlayStore = new OverlayStore();
 const withTheme = (Story: React.ComponentType) => (
   <GestureHandlerRootView style={{ flex: 1 }}>
     <SafeAreaProvider>
-      <StorybookThemeProvider>
-        <OverlayProvider store={overlayStore}>
-          <PortalProvider store={portalStore}>
+      <OverlayProvider store={overlayStore}>
+        <PortalProvider store={portalStore}>
+          <StorybookThemeProvider
+            overlays={
+              <>
+                <OverlayHost />
+                <PortalsHost />
+              </>
+            }
+          >
             <View flex={1}>
               <Story />
             </View>
-            <OverlayHost />
-            <PortalsHost />
-          </PortalProvider>
-        </OverlayProvider>
-      </StorybookThemeProvider>
+          </StorybookThemeProvider>
+        </PortalProvider>
+      </OverlayProvider>
     </SafeAreaProvider>
   </GestureHandlerRootView>
 );
