@@ -23,6 +23,7 @@ export const SliderThumbControl = memo(function SliderThumbControl({
     size,
     variant,
   ]);
+
   const thumbStyles = useMemo(
     () => [styles.container, positionStyle],
     [positionStyle, styles.container],
@@ -39,7 +40,7 @@ export const SliderThumbControl = memo(function SliderThumbControl({
       ) : null}
 
       <View pointerEvents="none" shadow="sm" style={styles.thumb}>
-        {variant === "outlined" ? null : <View style={styles.thumbHighlight} />}
+        {variant !== "outlined" ? <View style={styles.thumbHighlight} /> : null}
       </View>
     </View>
   );

@@ -95,6 +95,7 @@ export const SpinnerExample = memo(function SpinnerExample({
   const colors = useColors();
   const radii = useRadii();
   const space = useSpace();
+
   const inverse = example.args.tone === "inverse";
 
   return (

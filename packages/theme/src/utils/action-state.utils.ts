@@ -10,6 +10,9 @@ export function getActionStateTokens<Tokens>(
 ): Tokens {
   const { disabled = false, loading = false } = state;
 
-  if (disabled) return tokens.disabled;
+  if (disabled) {
+    return tokens.disabled;
+  }
+
   return loading ? tokens.loading : tokens.default;
 }

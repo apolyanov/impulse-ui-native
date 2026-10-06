@@ -24,6 +24,7 @@ export const SliderTrack = memo(function SliderTrack({
   const hasStartMark = marks.some((mark) => mark.endpoint === "start");
   const hasEndMark = marks.some((mark) => mark.endpoint === "end");
   const layout: SliderTrackLayout = showValueBubble ? "valueBubble" : "default";
+
   const styles = useThemedStyles(
     themedStyles,
     {
@@ -36,6 +37,7 @@ export const SliderTrack = memo(function SliderTrack({
     },
     [disabled, hasEndMark, hasStartMark, layout, size, variant],
   );
+
   const activeTrackStyles = useMemo(
     () => [styles.activeTrack, activeTrackStyle],
     [activeTrackStyle, styles.activeTrack],

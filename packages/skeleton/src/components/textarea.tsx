@@ -12,6 +12,7 @@ export const Textarea = memo(function Textarea({
   ...props
 }: SkeletonTextareaProps) {
   const tokens = useComponentsTokens();
+
   const controlTokens = tokens.controlContainer;
   const sizeTokens = tokens.textarea.sizes[size];
   const normalizedRows = normalizeSkeletonCount(rows, 3);

@@ -17,7 +17,9 @@ export const CarouselViewport = memo(function CarouselViewport({
 }: CarouselViewportProps) {
   const { slides, width, slideWidth, slideHeight, snapOffsets, onLayout } =
     layout;
+
   const styles = useThemedStyles(themedStyles, { slideHeight }, [slideHeight]);
+
   const handleContentSize = useEventCallback(() =>
     controller.syncPosition(false),
   );

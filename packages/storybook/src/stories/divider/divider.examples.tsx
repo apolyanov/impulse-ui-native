@@ -103,6 +103,7 @@ export const DividerExample = memo(function DividerExample({
 }: DividerExampleProps) {
   const colors = useColors();
   const space = useSpace();
+
   const inverse = example.args.tone === "inverse";
   const vertical = example.args.orientation === "vertical";
 

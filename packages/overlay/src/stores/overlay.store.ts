@@ -69,6 +69,7 @@ export class OverlayStore {
 
   private emitChange() {
     this.snapshot = Array.from(this.entries.values());
+
     this.listeners.forEach((listener) => listener());
   }
 

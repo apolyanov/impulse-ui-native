@@ -127,6 +127,7 @@ export function useDatetimeRangePicker({
     (side: RangeSide, time: TimePickerValue | null) => {
       if (side === "start") {
         onChangeStartTime(time);
+
         return;
       }
 

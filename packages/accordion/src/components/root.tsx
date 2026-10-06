@@ -37,6 +37,7 @@ export const AccordionRoot = memo(function AccordionRoot({
         (onValueChange as AccordionMultipleRootProps["onValueChange"])?.([
           ...nextValues,
         ]);
+
         return;
       }
 
@@ -45,6 +46,7 @@ export const AccordionRoot = memo(function AccordionRoot({
       );
     },
   );
+
   const normalizedValue = useMemo(
     () => (value === undefined ? undefined : normalizeAccordionValue(value)),
     [value],
@@ -53,6 +55,7 @@ export const AccordionRoot = memo(function AccordionRoot({
     () => normalizeAccordionValue(defaultValue),
     [defaultValue],
   );
+
   const [expandedValues, setExpandedValues] = useControllableState<
     readonly string[]
   >({

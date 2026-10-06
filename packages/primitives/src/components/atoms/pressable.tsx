@@ -27,7 +27,9 @@ export const Pressable = memo(
   ) {
     const colors = useColors();
     const tokens = useComponentsTokens();
+
     const pressableTokens = tokens.pressable;
+
     const extractedStyleProps = useStyleProps(props);
 
     const pressableStyles = useCallback(

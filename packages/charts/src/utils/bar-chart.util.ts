@@ -106,12 +106,15 @@ export function createBarChartScaleModel<X extends ChartXValue>(
     .paddingOuter(categoryPadding / 2);
   const xDomain = xBandScale.domain();
   const bandwidth = xDomain.length === 0 ? 0 : xBandScale.bandwidth();
+
   const xStartScale: LineChartScale<X> = (value) => xBandScale(value);
+
   const xScale: LineChartScale<X> = (value) => {
     const start = xBandScale(value);
 
     return start === undefined ? undefined : start + bandwidth / 2;
   };
+
   const values = props.data.reduce<number[]>((result, point) => {
     if (point.y !== null && Number.isFinite(point.y)) {
       result.push(point.y);
@@ -129,6 +132,7 @@ export function createBarChartScaleModel<X extends ChartXValue>(
   }
 
   const resolvedYDomain = d3YScale.domain() as [number, number];
+
   const yScale: LineChartScale<number> = (value) => d3YScale(value);
 
   return {

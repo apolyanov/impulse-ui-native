@@ -35,6 +35,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
   } = props;
 
   const tokens = useComponentsTokens();
+
   const timePickerTokens = tokens.timePicker;
 
   const selectedHours = value?.hours ?? DefaultTimePickerValue.hours;

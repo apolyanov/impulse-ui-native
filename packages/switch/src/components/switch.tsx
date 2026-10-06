@@ -34,7 +34,9 @@ export const Switch = memo(function Switch({
     defaultProp: defaultChecked,
     onChange: onCheckedChange,
   });
+
   const interactionDisabled = disabled === true || loading;
+
   const {
     animationDuration,
     borderWidth,

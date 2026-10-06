@@ -14,6 +14,7 @@ export const Option = memo(function Option(props: OptionProps) {
   const { label, selected, ...rest } = props;
 
   const tokens = useComponentsTokens();
+
   const optionTokens = tokens.select.option;
   const appearanceTokens = getSelectionItemStateTokens(optionTokens.states, {
     selected,

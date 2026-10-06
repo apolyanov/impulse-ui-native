@@ -52,7 +52,9 @@ export function createLineChartModel<X extends ChartXValue>(
   }
 
   const resolvedYDomain = d3YScale.domain() as [number, number];
+
   const yScale: LineChartScale<number> = (value) => d3YScale(value);
+
   const coordinates = createLineChartCoordinates(
     props.data,
     xModel.scale,

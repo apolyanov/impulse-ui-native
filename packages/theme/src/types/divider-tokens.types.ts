@@ -6,6 +6,7 @@ export type DividerTone =
   | "inverse";
 
 export type DividerTokenOrientation = "horizontal" | "vertical";
+
 export type DividerTokenInset = "none" | "start" | "end" | "both";
 
 export interface DividerLayoutTokens {

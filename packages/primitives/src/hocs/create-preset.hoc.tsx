@@ -30,6 +30,7 @@ export function createPreset(
     } = props;
 
     const theme = useTheme();
+
     const extractedStyleProps = useStyleProps(props);
 
     const typographyStyle = useMemo(() => {

@@ -23,6 +23,7 @@ export const CarouselIndicator = memo(function CarouselIndicator({
     disabled,
     variant,
   ]);
+
   const handlePress = useEventCallback(() => onSelect(index));
 
   return (

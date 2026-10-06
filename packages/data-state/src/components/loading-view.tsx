@@ -24,6 +24,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
   } = props;
 
   const tokens = useComponentsTokens();
+
   const loadingTokens = tokens.dataState.loading;
 
   const [shouldMountLoader, setShouldMountLoader] = useState(loading);

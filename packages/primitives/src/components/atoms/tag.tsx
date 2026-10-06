@@ -25,7 +25,9 @@ export const Tag = memo(function Tag({
   onPress,
 }: TagProps) {
   const tokens = useComponentsTokens();
+
   const tagTokens = tokens.tag;
+
   const styles = useThemedStyles(
     themedStyles,
     {

@@ -19,7 +19,9 @@ export const AccordionContent = memo(function AccordionContent({
   ...props
 }: AccordionContentProps) {
   const item = useAccordionItemContext();
+
   const tokens = useComponentsTokens().accordion;
+
   const styles = useThemedStyles(themedStyles);
   const { contentStyle, setContentHeight } = useAccordionContentAnimation({
     duration: tokens.animationDuration,

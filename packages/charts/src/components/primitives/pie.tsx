@@ -23,6 +23,7 @@ export const Pie = memo(function Pie(props: PieProps) {
     strokeWidth = PieDefaultStrokeWidth,
     visible = true,
   } = props;
+
   const slices = useMemo(
     () =>
       coordinates.map((coordinate) => ({

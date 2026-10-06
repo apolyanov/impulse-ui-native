@@ -14,6 +14,7 @@ export const View = memo(
     const { style, shadow, shadowPosition, ...rest } = props;
 
     const colors = useColors();
+
     const extractedStyleProps = useStyleProps(props);
 
     const viewStyle = useMemo(() => {

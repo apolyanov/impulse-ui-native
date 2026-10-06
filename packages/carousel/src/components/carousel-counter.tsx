@@ -33,5 +33,6 @@ function themedStyles(
     theme.components.carousel.counter.states,
     props,
   );
+
   return StyleSheet.create({ label: { color: appearance.color } });
 }

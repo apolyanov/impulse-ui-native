@@ -9,6 +9,7 @@ export const StepperTabsNavigation = memo(
   forwardRef<StepperRef, StepperNavigationProps>(
     function StepperTabsNavigation(props, ref) {
       const tokens = useComponentsTokens();
+
       const navigationTokens = tokens.stepper.navigation;
 
       return (

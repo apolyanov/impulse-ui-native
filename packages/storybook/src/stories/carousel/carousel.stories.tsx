@@ -27,7 +27,9 @@ const meta = {
     onIndexChange: { control: false },
   },
 } satisfies Meta<typeof Carousel>;
+
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Documentation: Story = { render: () => <CarouselDocumentation /> };
@@ -48,7 +50,11 @@ export const ContentOnly: Story = createCarouselStory("ContentOnly");
 
 function createCarouselStory(name: string): Story {
   const example = CarouselExampleDefinitions.find((item) => item.name === name);
-  if (!example) throw new Error(`Carousel story ${name} was not found.`);
+
+  if (!example) {
+    throw new Error(`Carousel story ${name} was not found.`);
+  }
+
   return {
     args: example.args,
     render: (args) => <CarouselExample example={{ ...example, args }} />,

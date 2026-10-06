@@ -22,6 +22,7 @@ export const Calendar = memo(function Calendar(props: CalendarProps) {
   const { visible, value, onPress } = props;
 
   const tokens = useComponentsTokens();
+
   const calendarTokens = tokens.datetimePicker.calendar;
 
   const visibleMonth = visible.getMonth();

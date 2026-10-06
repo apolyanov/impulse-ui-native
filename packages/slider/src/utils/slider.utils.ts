@@ -84,7 +84,9 @@ export function getValueFromPosition(
   width: number,
   bounds: SliderBounds,
 ): number {
-  if (width <= 0) return bounds.min;
+  if (width <= 0) {
+    return bounds.min;
+  }
 
   const logicalPosition = I18nManager.isRTL ? width - position : position;
   const ratio = Math.min(Math.max(logicalPosition / width, 0), 1);
@@ -133,7 +135,9 @@ export function normalizeSliderMarks(
   marks: readonly number[] | undefined,
   bounds: SliderBounds,
 ): number[] {
-  if (!marks) return [];
+  if (!marks) {
+    return [];
+  }
 
   return Array.from(
     new Set(
@@ -153,5 +157,6 @@ export function formatSliderValue(
 
 function getDecimalPlaces(value: number): number {
   const [, decimals = ""] = String(value).split(".");
+
   return decimals.length;
 }

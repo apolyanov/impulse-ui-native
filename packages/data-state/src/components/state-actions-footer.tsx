@@ -9,6 +9,7 @@ export const StateActionsFooter = memo(function StateActionsFooter(
   props: StateActionsFooterProps,
 ) {
   const tokens = useComponentsTokens();
+
   const actionsFooterTokens = tokens.dataState.actionsFooter;
   const {
     onPressPrimaryAction,

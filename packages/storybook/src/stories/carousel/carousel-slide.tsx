@@ -13,7 +13,9 @@ export const CarouselSlide = memo(function CarouselSlide({
   uri: string;
 }) {
   const styles = useThemedStyles(themedStyles);
+
   const source = useMemo(() => ({ uri }), [uri]);
+
   return (
     <ImageBackground source={source} resizeMode="cover" style={styles.image}>
       <View style={styles.caption}>

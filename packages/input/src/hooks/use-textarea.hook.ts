@@ -39,6 +39,7 @@ export function useTextarea({
     defaultProp: defaultValue,
     onChange: onChangeText,
   });
+
   const [contentHeight, setContentHeight] = useState(0);
 
   const normalizedMinRows = normalizeTextareaRows(minRows, 3);

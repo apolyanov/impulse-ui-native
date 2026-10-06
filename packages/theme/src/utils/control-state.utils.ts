@@ -10,6 +10,9 @@ export function getControlStateTokens<Tokens>(
 ): Tokens {
   const { disabled = false, focused = false } = state;
 
-  if (disabled) return tokens.disabled;
+  if (disabled) {
+    return tokens.disabled;
+  }
+
   return focused ? tokens.focused : tokens.default;
 }

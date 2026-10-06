@@ -10,6 +10,7 @@ import { LoadingView } from "./loading-view";
 
 export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
   const tokens = useComponentsTokens();
+
   const dataStateTokens = tokens.dataState;
   const {
     error,

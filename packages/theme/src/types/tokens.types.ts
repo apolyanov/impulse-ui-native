@@ -44,6 +44,7 @@ export type SpaceSizesKey =
   | "lg"
   | "xl"
   | "xxl";
+
 export type Space = Record<SpaceSizesKey, number>;
 
 export type TypographyKey =
@@ -60,7 +61,9 @@ export type TypographyKey =
   | "massive"
   | "giant"
   | "colossal";
+
 export type FontSize = Record<TypographyKey, number>;
+
 export type LineHeight = Record<TypographyKey, number>;
 
 export type FontWeightKeys =
@@ -90,12 +93,15 @@ export type LetterSpacingKey =
   | "wider"
   | "widest"
   | "ultraWide";
+
 export type LetterSpacings = Record<LetterSpacingKey, number>;
 
 export type BorderSizeKey = "sm" | "md" | "lg" | "xl" | "xxl";
+
 export type BorderSize = Record<BorderSizeKey, number>;
 
 export type RadiusKey = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "round";
+
 export type Radii = Record<RadiusKey, number>;
 
 export type RadiusDrawnKey =
@@ -105,9 +111,11 @@ export type RadiusDrawnKey =
   | "drawn4"
   | "drawn5"
   | "drawn6";
+
 export type RadiiDrawn = Record<RadiusDrawnKey, string>;
 
 export type RadiusBlobKey = "blob1" | "blob2" | "blob3" | "blob4" | "blob5";
+
 export type RadiiBlob = Record<RadiusBlobKey, string>;
 
 export type RadiusConditionalKey =
@@ -117,6 +125,7 @@ export type RadiusConditionalKey =
   | "conditional4"
   | "conditional5"
   | "conditional6";
+
 export type RadiiConditional = Record<RadiusConditionalKey, string>;
 
 export type NeutralColorKey =

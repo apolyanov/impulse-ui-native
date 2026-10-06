@@ -27,7 +27,9 @@ export const BadgeAddon = memo(function BadgeAddon({
 }: BadgeAddonProps) {
   const Container = useMemo(() => (onPress ? Pressable : View), [onPress]);
   const content = useMemo(() => {
-    if (Content) return <Content />;
+    if (Content) {
+      return <Content />;
+    }
 
     if (IconComponent) {
       return <Icon color={color} icon={IconComponent} size={iconSize} />;
@@ -36,7 +38,9 @@ export const BadgeAddon = memo(function BadgeAddon({
     return null;
   }, [color, Content, iconSize, IconComponent]);
 
-  if (!content) return null;
+  if (!content) {
+    return null;
+  }
 
   return (
     <Container hitSlop={hitSlop} onPress={onPress}>

@@ -5,12 +5,16 @@ export function isObject<Target>(value: Target | undefined) {
 }
 
 export function merge<Target>(target: Target, source?: DeepPartial<Target>) {
-  if (!source) return target;
+  if (!source) {
+    return target;
+  }
 
   const result = { ...target };
 
   for (const key in source) {
-    if (!Object.prototype.hasOwnProperty.call(source, key)) continue;
+    if (!Object.prototype.hasOwnProperty.call(source, key)) {
+      continue;
+    }
 
     const sourceValue = source[key];
     const targetValue = target[key];

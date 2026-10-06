@@ -12,6 +12,7 @@ export const MultiBarChart = memo(function MultiBarChart<
   X extends ChartXValue = string,
 >(props: MultiBarChartProps<X>) {
   const theme = useTheme();
+
   const { ref, size } = useChartCanvas();
 
   return (

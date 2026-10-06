@@ -28,9 +28,11 @@ export const Textarea = memo(function Textarea({
   ...props
 }: TextareaProps) {
   const componentsTokens = useComponentsTokens();
+
   const controlContainerTokens = componentsTokens.controlContainer;
   const textareaTokens = componentsTokens.textarea;
   const sizeTokens = textareaTokens.sizes[size];
+
   const styles = useThemedStyles(
     textareaStyles,
     { disabled, error: Boolean(error), size },
@@ -57,6 +59,7 @@ export const Textarea = memo(function Textarea({
     () => [styles.input, style],
     [style, styles.input],
   );
+
   const counterLabel =
     maxLength === undefined
       ? `${textarea.characterCount}`

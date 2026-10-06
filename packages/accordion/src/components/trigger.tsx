@@ -34,8 +34,10 @@ export const AccordionTrigger = memo(function AccordionTrigger({
 }: AccordionTriggerProps) {
   const { toggleItem } = useAccordionContext();
   const item = useAccordionItemContext();
+
   const tokens = useComponentsTokens().accordion;
   const resolvedDisabled = item.disabled || disabled === true;
+
   const indicatorStyle = useAccordionIndicatorAnimation({
     duration: tokens.animationDuration,
     open: item.open,
@@ -43,6 +45,7 @@ export const AccordionTrigger = memo(function AccordionTrigger({
   const styles = useThemedStyles(themedStyles, { disabled: resolvedDisabled }, [
     resolvedDisabled,
   ]);
+
   const triggerStyle = useCallback(
     ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
       styles.trigger,
@@ -72,17 +75,18 @@ export const AccordionTrigger = memo(function AccordionTrigger({
         )}
       </View>
 
-      {hideIndicator ? null : (
+      {!hideIndicator ? (
         <Animated.View pointerEvents="none" style={indicatorStyle}>
-          {indicator ?? (
+          {indicator}
+          {indicator === null || indicator === undefined ? (
             <Icon
               color={styles.icon.color}
               icon={CaretDownIcon}
               size={tokens.iconSize}
             />
-          )}
+          ) : null}
         </Animated.View>
-      )}
+      ) : null}
     </Pressable>
   );
 });

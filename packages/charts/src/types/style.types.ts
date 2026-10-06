@@ -1,6 +1,7 @@
 import { FontWeight } from "@shopify/react-native-skia";
 
 export type ChartStrokeCap = "butt" | "round" | "square";
+
 export type ChartStrokeJoin = "bevel" | "miter" | "round";
 
 export interface ChartStrokeStyle {

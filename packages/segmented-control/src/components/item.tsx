@@ -40,6 +40,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     size,
     variant,
   } = useSegmentedControlContext();
+
   const tokens = useComponentsTokens().segmentedControl;
   const resolvedDisabled = groupDisabled || Boolean(disabled);
   const selected = selectedValue === value;
@@ -48,6 +49,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
       ? "stacked"
       : "inline";
   const sizeTokens = tokens.sizes[size];
+
   const styles = useThemedStyles(
     themedStyles,
     {
@@ -59,6 +61,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     },
     [layout, resolvedDisabled, size, selected, variant],
   );
+
   const itemStyle = useCallback(
     ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
       styles.item,

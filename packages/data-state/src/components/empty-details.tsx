@@ -9,6 +9,7 @@ import { StateActionsFooter } from "./state-actions-footer";
 
 export const EmptyDetails = memo(function EmptyDetails(props: StateViewProps) {
   const tokens = useComponentsTokens();
+
   const detailsTokens = tokens.dataState.details;
 
   return (

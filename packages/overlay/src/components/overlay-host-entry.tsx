@@ -12,6 +12,7 @@ export const OverlayHostEntry = memo(function OverlayHostEntry(
   props: OverlayHostEntryProps,
 ) {
   const { entry, layer } = props;
+
   const { store } = useOverlayContext();
 
   const handleCloseFinished = useCallback(() => {

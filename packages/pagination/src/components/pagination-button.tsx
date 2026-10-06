@@ -35,6 +35,7 @@ export const PaginationButton = memo(function PaginationButton({
   targetPage,
 }: PaginationButtonProps) {
   const tokens = useComponentsTokens().pagination;
+
   const styles = useThemedStyles(themedStyles, { current, disabled, size }, [
     current,
     disabled,

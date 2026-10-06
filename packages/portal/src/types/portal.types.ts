@@ -3,8 +3,11 @@ import { ReactNode } from "react";
 import { PortalStore } from "../stores";
 
 export type PortalID = string;
+
 export type Listener = () => void;
+
 export type HostName = string;
+
 export type PortalEntry = [PortalID, ReactNode];
 
 export interface PortalProviderProps {

@@ -38,6 +38,7 @@ export const Checkbox = memo(function Checkbox({
   ...props
 }: CheckboxProps) {
   const tokens = useComponentsTokens();
+
   const [checked, setChecked] = useControllableState<CheckboxState>({
     prop: checkedProp,
     defaultProp: defaultChecked,

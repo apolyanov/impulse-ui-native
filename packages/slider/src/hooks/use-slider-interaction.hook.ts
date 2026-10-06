@@ -32,6 +32,7 @@ export function useSliderInteraction({
 
   const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
     trackWidthRef.current = event.nativeEvent.layout.width;
+
     measureTrack();
     onLayout?.(event);
   });

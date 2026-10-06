@@ -33,6 +33,7 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
   } = props;
 
   const tokens = useComponentsTokens();
+
   const datePickerTokens = tokens.datetimePicker.datePickerFlyout;
 
   return (

@@ -36,6 +36,7 @@ export const DatetimePickerFlyout = memo(function DateRangePickerFlyout(
   } = props;
 
   const tokens = useComponentsTokens();
+
   const datetimePickerTokens = tokens.datetimePicker.datetimePickerFlyout;
 
   const timeValue = useMemo<TimePickerValue | null>(() => {

@@ -29,6 +29,7 @@ export const BarChartBody = memo(function BarChartBodyComponent<
     xAxis,
     yAxis,
   } = props;
+
   const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
   const { coordinates, xScale, xTicks, yScale, yTicks } = useBarChart({
     categoryPadding,

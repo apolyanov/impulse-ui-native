@@ -13,7 +13,9 @@ export function createRequest<TData, TError, TVariables extends BaseVariables>(
         params: variables.params,
         paramsSerializer: ParamsSerializer,
       });
+
       config.onSuccess?.(response);
+
       return response;
     } catch (error) {
       config.onError?.(error as TError);

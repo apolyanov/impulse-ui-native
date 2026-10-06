@@ -45,7 +45,9 @@ export const getShadowStyle = (
 ): ViewStyle => {
   const token = ShadowScale[level];
 
-  if (level === "none") return {};
+  if (level === "none") {
+    return {};
+  }
 
   if (Platform.OS === "android") {
     return {
@@ -55,9 +57,17 @@ export const getShadowStyle = (
 
   let offsetY = 0;
 
-  if (position === "bottom") offsetY = token.radius / 2;
-  if (position === "top") offsetY = -token.radius / 2;
-  if (position === "around") offsetY = 0;
+  if (position === "bottom") {
+    offsetY = token.radius / 2;
+  }
+
+  if (position === "top") {
+    offsetY = -token.radius / 2;
+  }
+
+  if (position === "around") {
+    offsetY = 0;
+  }
 
   return {
     shadowColor: colors.black,

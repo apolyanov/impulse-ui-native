@@ -51,6 +51,7 @@ export const Flyout = memo(function Flyout(
   const screenHeight = windowDimensions.height;
   const maxHeight = screenHeight * flyoutTokens.maxHeightRatio;
   const zIndex = flyoutTokens.zIndexBase + layer;
+
   const styles = useThemedStyles(themedStyles, { maxHeight, placement }, [
     maxHeight,
     placement,

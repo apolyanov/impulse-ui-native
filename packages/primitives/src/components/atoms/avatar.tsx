@@ -26,6 +26,7 @@ export const Avatar = memo(function Avatar({
     { size, status, statusColor, variant },
     [size, status, statusColor, variant],
   );
+
   const sourceKey = useMemo(() => JSON.stringify(source), [source]);
 
   const containerStyle = useMemo(
@@ -36,8 +37,10 @@ export const Avatar = memo(function Avatar({
   return (
     <View {...props} style={containerStyle}>
       <View style={styles.content}>
-        {fallback ??
-          (initials ? <Text style={styles.initials}>{initials}</Text> : null)}
+        {fallback}
+        {(fallback === null || fallback === undefined) && initials ? (
+          <Text style={styles.initials}>{initials}</Text>
+        ) : null}
 
         {source ? (
           <AvatarImageLayer
@@ -77,7 +80,9 @@ const AvatarImageLayer = memo(function AvatarImageLayer({
     [imageProps?.style],
   );
 
-  if (hasError) return null;
+  if (hasError) {
+    return null;
+  }
 
   return (
     <Image

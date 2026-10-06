@@ -29,8 +29,10 @@ export const BadgeRoot = memo(function BadgeRoot({
   ...props
 }: BadgeProps) {
   const tokens = useComponentsTokens();
+
   const badgeTokens = tokens.badge;
   const sizeTokens = badgeTokens.sizes[size];
+
   const extractedStyleProps = useStyleProps(props);
   const styles = useThemedStyles(
     themedStyles,
@@ -42,6 +44,7 @@ export const BadgeRoot = memo(function BadgeRoot({
     () => [styles.container, extractedStyleProps, style],
     [extractedStyleProps, style, styles.container],
   );
+
   const affixColor =
     typeof styles.label.color === "string" ? styles.label.color : undefined;
 

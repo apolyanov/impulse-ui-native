@@ -40,6 +40,9 @@ export interface ControlAddonProps extends ViewProps {
 }
 
 export interface ControlInputProps extends TextInputProps {}
+
 export interface ControlPlaceholderProps extends TextProps {}
+
 export interface ControlValueProps extends TextProps {}
+
 export interface ControlLoaderProps extends SpinnerProps {}

@@ -53,6 +53,7 @@ export const PortalExampleDefinitions = [
 
 function PortalPreview({ hostName }: { hostName: string }) {
   const colors = useColors();
+
   const [store] = useState(() => new PortalStore());
 
   return (

@@ -44,10 +44,12 @@ export function useRangeSlider({
 }: UseRangeSliderOptions): UseRangeSliderResult {
   const activeThumbRef = useRef<SliderThumb>("start");
   const currentValueRef = useRef<SliderValue>(defaultValue);
+
   const bounds = useMemo(
     () => getSliderBounds(min, max, step),
     [max, min, step],
   );
+
   const [value, setValue] = useControllableState<SliderValue>({
     prop: valueProp,
     defaultProp: normalizeRangeValue(
@@ -57,12 +59,15 @@ export function useRangeSlider({
     ),
     onChange: onValueChange,
   });
+
   const normalizedValue = useMemo(
     () => normalizeRangeValue(value, bounds, minStepsBetweenThumbs),
     [bounds, minStepsBetweenThumbs, value],
   );
+
   const startPercentage = getSliderPercentage(normalizedValue[0], bounds);
   const endPercentage = getSliderPercentage(normalizedValue[1], bounds);
+
   const normalizedMarks = useMemo(
     () => normalizeSliderMarks(marks, bounds),
     [bounds, marks],
@@ -103,14 +108,18 @@ export function useRangeSlider({
 
   const commitRange = useEventCallback((nextValue: SliderValue) => {
     currentValueRef.current = nextValue;
+
     setValue(nextValue);
   });
 
   const updateThumbFromPosition = useEventCallback(
     (thumb: SliderThumb, position: number, width: number) => {
-      if (disabled) return;
+      if (disabled) {
+        return;
+      }
 
       const positionValue = getValueFromPosition(position, width, bounds);
+
       commitRange(
         updateRangeThumb(
           currentValueRef.current,
@@ -129,6 +138,7 @@ export function useRangeSlider({
       const thumb = getClosestThumb(positionValue, currentValueRef.current);
 
       activeThumbRef.current = thumb;
+
       onSlidingStart?.(currentValueRef.current);
       updateThumbFromPosition(thumb, position, width);
     },
@@ -151,6 +161,7 @@ export function useRangeSlider({
     onMove: handleSlidingMove,
     onStart: handleSlidingStart,
   });
+
   const startThumb = useMemo<RangeSliderThumbBehavior>(
     () => ({
       positionStyle: startPositionStyle,

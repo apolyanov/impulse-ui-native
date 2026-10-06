@@ -31,6 +31,7 @@ export function useCarousel({
   const [visibleIndex, setVisibleIndex] = useState(() =>
     clampIndex(indexProp ?? defaultIndex, count),
   );
+
   const scrollRef = useRef<ScrollView>(null);
   const offsetRef = useRef(0);
   const draggingRef = useRef(false);
@@ -39,21 +40,28 @@ export function useCarousel({
   const lastStrideRef = useRef(0);
   const lastEndInsetRef = useRef(0);
   const lastSettledRef = useRef(0);
+
   const [value, setValue] = useControllableState({
     prop: indexProp,
     defaultProp: clampIndex(defaultIndex, count),
     onChange: onIndexChange,
   });
+
   const index = clampIndex(value, count);
   const displayedIndex = clampIndex(visibleIndex, count);
 
   const clearIdle = useEventCallback(() => {
     clearTimeout(timerRef.current);
+
     timerRef.current = undefined;
   });
+
   const syncPosition = useEventCallback((animated: boolean) => {
     if (stride > 0 && !draggingRef.current) {
-      if (!animated) setVisibleIndex(index);
+      if (!animated) {
+        setVisibleIndex(index);
+      }
+
       scrollRef.current?.scrollTo({
         x: getSnapOffset(index, count, stride, endInset),
         y: 0,
@@ -61,59 +69,87 @@ export function useCarousel({
       });
     }
   });
+
   const select = useEventCallback((next: number) => {
-    if (disabled || count < 2) return;
+    if (disabled || count < 2) {
+      return;
+    }
+
     clearIdle();
+
     draggingRef.current = false;
     userScrollRef.current = false;
+
     const nextIndex = clampIndex(next, count);
+
     setValue(nextIndex);
+
     // An arrow can return to the committed slide before a swipe has settled.
-    if (nextIndex === index) syncPosition(true);
+    if (nextIndex === index) {
+      syncPosition(true);
+    }
   });
+
   const finishScroll = useEventCallback(() => {
     clearIdle();
+
     draggingRef.current = false;
+
     if (userScrollRef.current) {
       userScrollRef.current = false;
-      if (!disabled)
+
+      if (!disabled) {
         setValue(indexFromOffset(offsetRef.current, stride, count, endInset));
+      }
+
       // Also resync controlled values when the parent declines a swipe request.
       setSettled((revision) => revision + 1);
     }
   });
+
   const handleBeginDrag = useEventCallback(() => {
     clearIdle();
+
     draggingRef.current = true;
     userScrollRef.current = true;
   });
+
   const handleScroll = useEventCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       offsetRef.current = event.nativeEvent.contentOffset.x;
+
       // Track the nearest slide during both swipes and programmatic animations.
       setVisibleIndex(
         indexFromOffset(offsetRef.current, stride, count, endInset),
       );
+
       if (userScrollRef.current && !draggingRef.current) {
         clearIdle();
+
         timerRef.current = setTimeout(finishScroll, ScrollIdleDelay);
       }
     },
   );
+
   const handleEndDrag = useEventCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       offsetRef.current = event.nativeEvent.contentOffset.x;
       draggingRef.current = false;
+
       clearIdle();
+
       timerRef.current = setTimeout(finishScroll, ScrollIdleDelay);
     },
   );
+
   const handleMomentumBegin = useEventCallback(() => {
     clearIdle();
   });
+
   const handleMomentumEnd = useEventCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       offsetRef.current = event.nativeEvent.contentOffset.x;
+
       setVisibleIndex(
         indexFromOffset(offsetRef.current, stride, count, endInset),
       );
@@ -156,14 +192,19 @@ export function useCarousel({
   useEffect(() => {
     if (disabled) {
       clearIdle();
+
       draggingRef.current = false;
       userScrollRef.current = false;
     }
+
     const resized =
       lastStrideRef.current !== stride || lastEndInsetRef.current !== endInset;
+
     lastStrideRef.current = stride;
     lastEndInsetRef.current = endInset;
+
     syncPosition(!resized && lastSettledRef.current === settled);
+
     lastSettledRef.current = settled;
   }, [
     index,

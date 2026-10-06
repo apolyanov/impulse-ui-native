@@ -12,6 +12,7 @@ export const BarChart = memo(function BarChart<X extends ChartXValue = string>(
   props: BarChartProps<X>,
 ) {
   const theme = useTheme();
+
   const { ref, size } = useChartCanvas();
 
   return (

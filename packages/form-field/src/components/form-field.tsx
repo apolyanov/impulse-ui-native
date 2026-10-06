@@ -22,9 +22,11 @@ export const FormField = memo(function FormField({
   ...props
 }: FormFieldProps) {
   const generatedId = useId();
+
   const fieldId = nativeID ?? `form-field-${generatedId}`;
   const controlId = `${fieldId}-control`;
   const invalid = Boolean(error);
+
   const styles = useThemedStyles(formFieldStyles, { disabled }, [disabled]);
 
   const controlProps = useMemo<FormFieldControlProps>(

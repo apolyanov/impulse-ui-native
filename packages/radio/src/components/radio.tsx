@@ -31,6 +31,7 @@ export const Radio = memo(function Radio({
   ...props
 }: RadioProps) {
   const tokens = useComponentsTokens();
+
   const [checked, setChecked] = useControllableState<boolean>({
     prop: checkedProp,
     defaultProp: defaultChecked,

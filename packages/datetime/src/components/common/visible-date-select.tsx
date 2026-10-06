@@ -36,6 +36,7 @@ export const VisibleDateSelect = memo(function VisibleDateSelect(
     (month: number | undefined) => {
       if (month !== undefined && month !== props.value.getMonth()) {
         const newDate = new Date(props.value);
+
         newDate.setMonth(month);
 
         props.onChange(newDate);
@@ -48,6 +49,7 @@ export const VisibleDateSelect = memo(function VisibleDateSelect(
     (year: number | undefined) => {
       if (year !== undefined && year !== props.value.getFullYear()) {
         const newDate = new Date(props.value);
+
         newDate.setFullYear(year);
 
         props.onChange(newDate);

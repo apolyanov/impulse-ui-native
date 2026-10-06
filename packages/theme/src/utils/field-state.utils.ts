@@ -6,6 +6,9 @@ export function getFieldStateTokens<Tokens>(
 ): Tokens {
   const { disabled = false, error = false } = state;
 
-  if (disabled) return error ? tokens.disabledError : tokens.disabled;
+  if (disabled) {
+    return error ? tokens.disabledError : tokens.disabled;
+  }
+
   return error ? tokens.error : tokens.default;
 }

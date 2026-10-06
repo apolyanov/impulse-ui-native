@@ -7,6 +7,7 @@ import { PortalHost } from "./portal-host";
 
 export const PortalsHost = memo(function PortalsHost(props: PortalsHostProps) {
   const hostName = props.name ?? RootPortalsHostName;
+
   const portals = useHostPortals(hostName);
 
   return portals.map(([id]) => <PortalHost key={id} id={id} name={hostName} />);

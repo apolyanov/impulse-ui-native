@@ -5,6 +5,7 @@ import { AppTheme } from "@impulse-ui-native/theme";
 import { ChartRect } from "./common.types";
 
 export type LabelHorizontalAlignment = "left" | "center" | "right";
+
 export type LabelVerticalAlignment = "top" | "center" | "bottom";
 
 export interface LabelProps {

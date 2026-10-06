@@ -44,7 +44,9 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
   Value extends PrimitiveValue,
 >(props: SelectFlyoutProps<Value>) {
   const { options, isSelected, onSelect, ...rest } = props;
+
   const tokens = useComponentsTokens();
+
   const selectTokens = tokens.select;
 
   const renderItem = useCallback(

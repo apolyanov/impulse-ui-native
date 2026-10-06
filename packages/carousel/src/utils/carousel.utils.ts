@@ -13,18 +13,27 @@ export function indexFromOffset(
   count: number,
   endInset = 0,
 ): number {
-  if (stride <= 0 || count < 2 || !Number.isFinite(offset)) return 0;
+  if (stride <= 0 || count < 2 || !Number.isFinite(offset)) {
+    return 0;
+  }
+
   let lower = 0;
   let upper = count - 1;
+
   while (lower < upper) {
     const middle = Math.floor((lower + upper) / 2);
     const midpoint =
       (getSnapOffset(middle, count, stride, endInset) +
         getSnapOffset(middle + 1, count, stride, endInset)) /
       2;
-    if (offset < midpoint) upper = middle;
-    else lower = middle + 1;
+
+    if (offset < midpoint) {
+      upper = middle;
+    } else {
+      lower = middle + 1;
+    }
   }
+
   return lower;
 }
 
@@ -35,6 +44,7 @@ export function getSnapOffset(
   endInset: number,
 ): number {
   const inset = index === 0 ? 0 : index === count - 1 ? endInset : endInset / 2;
+
   return Math.max(0, index * stride - inset);
 }
 
@@ -54,6 +64,7 @@ export function getSlideWidth(
   gap: number,
 ): number {
   const preview = Number.isFinite(peek) ? Math.max(0, peek) : 0;
+
   // Always leave room for a slide, even with an oversized preview request.
   return Math.max(
     1,

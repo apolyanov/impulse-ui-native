@@ -33,6 +33,7 @@ export const MultiBarChartBody = memo(function MultiBarChartBodyComponent<
     xAxis,
     yAxis,
   } = props;
+
   const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
   const {
     series: seriesModels,
@@ -48,6 +49,7 @@ export const MultiBarChartBody = memo(function MultiBarChartBodyComponent<
     xAxis,
     yAxis,
   });
+
   const drawableSeries = useMemo(
     () =>
       seriesModels.map((currentSeries, index) =>

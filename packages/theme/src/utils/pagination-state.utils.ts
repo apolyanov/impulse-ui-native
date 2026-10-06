@@ -10,6 +10,9 @@ export function getPaginationStateTokens<Tokens>(
 ): Tokens {
   const { current, disabled = false } = state;
 
-  if (disabled) return tokens.disabled;
+  if (disabled) {
+    return tokens.disabled;
+  }
+
   return current ? tokens.current : tokens.default;
 }

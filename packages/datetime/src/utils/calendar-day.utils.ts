@@ -119,6 +119,7 @@ export function getCalendarDayState({
     isCurrentMonth: isDateInMonth(date, visible),
   };
 }
+
 export function createCalendarRange(
   date: Date,
   previousRange?: TimeRange,

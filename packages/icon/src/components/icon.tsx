@@ -10,7 +10,9 @@ export const Icon = memo(function Icon({
   ...props
 }: IconProps) {
   const Icon = icon;
+
   const theme = useTheme();
+
   const iconTokens = theme.components.icon;
   const color = props.color ?? props.fill ?? theme.colors.text.primary;
 

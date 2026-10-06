@@ -25,6 +25,7 @@ export const Divider = memo(function Divider({
     { color, inset, orientation, tone },
     [color, inset, orientation, tone],
   );
+
   const dividerStyle = useMemo(
     () => [styles.divider, extractedStyleProps, style],
     [extractedStyleProps, style, styles.divider],

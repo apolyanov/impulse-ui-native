@@ -239,6 +239,7 @@ export const PressableExample = memo(function PressableExample({
     example.name,
     example.inverted,
   ]);
+
   const pressableStyle = useCallback(
     (state: PressableStateCallbackType) => [
       styles.surface,

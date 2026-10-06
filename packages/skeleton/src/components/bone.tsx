@@ -17,8 +17,11 @@ export const Bone = memo(function Bone(
   props: PropsWithChildren<SkeletonBoneProps>,
 ) {
   const { style: styleProp, ...rest } = props;
+
   const tokens = useComponentsTokens();
+
   const boneTokens = tokens.skeleton.bone;
+
   const opacity = useSharedValue(boneTokens.initialOpacity);
   const extractedStyleProps = useStyleProps(props);
 
@@ -29,6 +32,7 @@ export const Bone = memo(function Bone(
       opacity: opacity.value,
     };
   });
+
   const animatedStyle = useMemo(
     () => [extractedStyleProps, styleProp, style],
     [extractedStyleProps, style, styleProp],

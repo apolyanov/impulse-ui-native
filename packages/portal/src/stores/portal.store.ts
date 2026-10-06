@@ -24,6 +24,7 @@ export class PortalStore {
         listeners.set(id, listener);
       } else {
         const newListeners = new Map();
+
         newListeners.set(id, listener);
 
         this.portalsListeners.set(name, newListeners);
@@ -58,6 +59,7 @@ export class PortalStore {
 
     if (!portals || portals.size === 0) {
       this.hostSnapshots.delete(name);
+
       return;
     }
 

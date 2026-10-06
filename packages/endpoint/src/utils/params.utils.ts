@@ -9,7 +9,9 @@ export const ParamsSerializer: AxiosRequestConfig["paramsSerializer"] = {
     for (const key in params) {
       const value = params[key];
 
-      if (value === null || value === undefined) continue;
+      if (value === null || value === undefined) {
+        continue;
+      }
 
       if (Array.isArray(value) && value.length > 0) {
         searchParams.set(key, value.map(String).join(","));

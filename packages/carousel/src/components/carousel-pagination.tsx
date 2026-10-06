@@ -18,14 +18,19 @@ export const CarouselPagination = memo(function CarouselPagination({
   onSelect,
 }: CarouselPaginationProps) {
   const [width, setWidth] = useState(0);
+
   const tokens = useComponentsTokens().carousel;
+
   const styles = useThemedStyles(themedStyles);
+
   const indices = useMemo(
     () => Array.from({ length: count }, (_, position) => position),
     [count],
   );
+
   const showCounter =
     variant === "counter" || count * tokens.indicator.targetSize > width;
+
   const handleLayout = useEventCallback((event: LayoutChangeEvent) =>
     setWidth(event.nativeEvent.layout.width),
   );

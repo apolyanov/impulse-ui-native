@@ -53,6 +53,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   } = props;
 
   const tokens = useComponentsTokens();
+
   const flyoutTokens = getFlyoutTokens(tokens.flyout, { placement });
   const handleHeight = flyoutTokens.handleContainer.height;
 
@@ -81,6 +82,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
         event.nativeEvent.layout.height + safeAreaInset + handleHeight;
 
       translateY.value = placement === "top" ? -height : height;
+
       setMeasuredHeight(height);
     },
     [handleHeight, measuredHeight, placement, safeAreaInset, translateY],
@@ -93,6 +95,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
       }
 
       isClosing.current = false;
+
       setMounted(false);
       setMeasuredHeight(null);
       onCloseFinished?.(id);
@@ -107,6 +110,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
     isClosing.current = true;
     transitionId.current += 1;
+
     setIsTouchable(false);
     onClose?.(id);
 
@@ -137,6 +141,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
         .onUpdate((event) => {
           if (placement === "bottom") {
             translateY.value = Math.max(0, event.translationY);
+
             return;
           }
 
@@ -156,6 +161,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
           if (shouldClose) {
             scheduleOnRN(close);
+
             return;
           }
 
@@ -182,13 +188,16 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     }
 
     transitionId.current += 1;
+
     setIsTouchable(false);
+
     isClosing.current = false;
     didOpen.current = false;
 
     if (!mounted) {
       setMounted(true);
       setMeasuredHeight(null);
+
       translateY.value = placement === "top" ? -screenHeight : screenHeight;
       opacity.value = 0;
     }
@@ -227,6 +236,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
     if (didOpen.current) {
       close();
+
       return;
     }
 

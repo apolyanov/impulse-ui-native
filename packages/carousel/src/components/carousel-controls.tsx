@@ -20,10 +20,14 @@ export const CarouselControls = memo(function CarouselControls({
   onSelect,
 }: CarouselControlsProps) {
   const styles = useThemedStyles(themedStyles);
+
   const previous = useEventCallback(() => onSelect(index - 1));
+
   const next = useEventCallback(() => onSelect(index + 1));
 
-  if (count === 0 || (!showNavigation && pagination === "none")) return null;
+  if (count === 0 || (!showNavigation && pagination === "none")) {
+    return null;
+  }
 
   return (
     <View style={styles.root}>

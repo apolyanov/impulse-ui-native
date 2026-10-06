@@ -15,6 +15,7 @@ export const SafeAreaView = memo(function SafeAreaView(
   props: SafeAreaViewProps,
 ) {
   const { edges, mode = "padding", style, ...rest } = props;
+
   const insets = useSafeAreaInsets();
 
   const flatenedStyle = useMemo(() => {

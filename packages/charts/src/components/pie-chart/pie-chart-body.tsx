@@ -22,6 +22,7 @@ export const PieChartBody = memo(function PieChartBody(
     slice,
     startAngle,
   } = props;
+
   const layout = useChartLayout(size, insets);
   const { coordinates } = usePieChart({
     data,

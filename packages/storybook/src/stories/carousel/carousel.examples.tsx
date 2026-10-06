@@ -126,12 +126,16 @@ export const CarouselExample = memo(function CarouselExample({
   elevated?: boolean;
 }) {
   const space = useSpace();
+
   const [index, setIndex] = useState(example.args.index ?? 1);
   const [limited, setLimited] = useState(false);
+
   const nextExternal = useEventCallback(() =>
     setIndex((current) => (current + 1) % 5),
   );
+
   const toggleCount = useEventCallback(() => setLimited((current) => !current));
+
   const count =
     example.dynamic && limited ? 3 : (example.count ?? carouselSlides.length);
   const content = (
@@ -145,7 +149,11 @@ export const CarouselExample = memo(function CarouselExample({
       >
         {Array.from({ length: count }, (_, position) => {
           const slide = carouselSlides[position % carouselSlides.length];
-          if (!slide) return null;
+
+          if (!slide) {
+            return null;
+          }
+
           return (
             <CarouselSlide
               key={`${slide.key}-${position}`}
@@ -165,6 +173,7 @@ export const CarouselExample = memo(function CarouselExample({
       ) : null}
     </View>
   );
+
   return (
     <StoryExample
       title={example.title}

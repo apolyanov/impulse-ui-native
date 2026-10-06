@@ -23,12 +23,15 @@ export const SliderLabels = memo(function SliderLabels({
     disabled,
     variant,
   ]);
+
   const markLabelStyles = useMemo(
     () => marks.map((mark) => [styles.markLabel, mark.position]),
     [marks, styles.markLabel],
   );
 
-  if (!showMinMax && (!showMarkLabels || marks.length === 0)) return null;
+  if (!showMinMax && (!showMarkLabels || marks.length === 0)) {
+    return null;
+  }
 
   return (
     <>

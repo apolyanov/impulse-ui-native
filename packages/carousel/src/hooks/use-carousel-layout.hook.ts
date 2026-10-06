@@ -17,8 +17,11 @@ export function useCarouselLayout({
   slideAspectRatio,
 }: CarouselLayoutOptions): CarouselLayout {
   const [width, setWidth] = useState(0);
+
   const tokens = useComponentsTokens().carousel;
+
   const slides = useMemo(() => Children.toArray(children), [children]);
+
   const slideWidth = getSlideWidth(
     width,
     slides.length > 1 ? peek : 0,
@@ -31,13 +34,16 @@ export function useCarouselLayout({
   const slideHeight = width > 0 ? slideWidth / ratio : 0;
   const stride = width > 0 ? slideWidth + tokens.slideGap : 0;
   const endInset = Math.max(0, width - slideWidth);
+
   const snapOffsets = useMemo(
     () => getSnapOffsets(slides.length, stride, endInset),
     [slides.length, stride, endInset],
   );
+
   const onLayout = useEventCallback((event: LayoutChangeEvent) =>
     setWidth(event.nativeEvent.layout.width),
   );
+
   return useMemo(
     () => ({
       slides,

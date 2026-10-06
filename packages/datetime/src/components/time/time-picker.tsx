@@ -43,6 +43,7 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
   });
 
   const [tempTime, setTempTime] = useState<TimePickerValue | null>(selected);
+
   const { isOpen, isClosed, finishClose, open, close } = useIsOpen();
 
   const onPressOpen = useCallback(() => {

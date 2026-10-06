@@ -38,17 +38,21 @@ export function useSlider({
   value: valueProp,
 }: UseSliderOptions): UseSliderResult {
   const currentValueRef = useRef(defaultValue);
+
   const bounds = useMemo(
     () => getSliderBounds(min, max, step),
     [max, min, step],
   );
+
   const [value, setValue] = useControllableState<number>({
     prop: valueProp,
     defaultProp: normalizeSliderValue(defaultValue, bounds),
     onChange: onValueChange,
   });
+
   const normalizedValue = normalizeSliderValue(value, bounds);
   const percentage = getSliderPercentage(normalizedValue, bounds);
+
   const normalizedMarks = useMemo(
     () => normalizeSliderMarks(marks, bounds),
     [bounds, marks],
@@ -82,14 +86,19 @@ export function useSlider({
       }),
     [bounds, formatValue, normalizedMarks, normalizedValue],
   );
+
   const valueLabel = formatSliderValue(normalizedValue, formatValue);
 
   const updateFromPosition = useEventCallback(
     (position: number, width: number) => {
-      if (disabled) return;
+      if (disabled) {
+        return;
+      }
 
       const nextValue = getValueFromPosition(position, width, bounds);
+
       currentValueRef.current = nextValue;
+
       setValue(nextValue);
     },
   );

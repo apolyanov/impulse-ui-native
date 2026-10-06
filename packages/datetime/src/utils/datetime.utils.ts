@@ -51,12 +51,14 @@ export function getMonthCalendarMatrix(year: number, month: number) {
   const mondayOffset = firstDayWeekday === 0 ? -6 : 1 - firstDayWeekday;
 
   const gridStartDate = new Date(firstDayOfMonth);
+
   gridStartDate.setDate(firstDayOfMonth.getDate() + mondayOffset);
 
   const lastDayWeekday = lastDayOfMonth.getDay();
   const sundayOffset = lastDayWeekday === 0 ? 0 : 7 - lastDayWeekday;
 
   const gridEndDate = new Date(lastDayOfMonth);
+
   gridEndDate.setDate(lastDayOfMonth.getDate() + sundayOffset);
 
   const weeks: Date[][] = [];

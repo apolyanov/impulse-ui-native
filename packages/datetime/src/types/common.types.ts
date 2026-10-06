@@ -13,8 +13,11 @@ export interface TimePickerValue {
   minutes: number;
   seconds: number;
 }
+
 export type RangeSide = "start" | "end";
+
 export type TimeFormat = "12h" | "24h";
+
 export type PickerColumnType = "hour" | "minute" | "second";
 
 export interface TimeRange {

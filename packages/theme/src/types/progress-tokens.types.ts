@@ -2,6 +2,7 @@ import type { ComponentSize } from "./components.types";
 import type { SpinnerTone } from "./spinner-tokens.types";
 
 export type ProgressVariant = "linear" | "circular";
+
 export type ProgressTone = SpinnerTone;
 
 export interface ProgressSizeTokens {

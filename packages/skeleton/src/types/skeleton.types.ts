@@ -35,13 +35,21 @@ export interface SkeletonSizedProps extends SkeletonBoneProps {
 }
 
 export type SkeletonAvatarProps = SkeletonSizedProps;
+
 export type SkeletonBadgeProps = SkeletonSizedProps;
+
 export type SkeletonButtonProps = SkeletonSizedProps;
+
 export type SkeletonCheckboxProps = SkeletonSizedProps;
+
 export type SkeletonControlProps = SkeletonSizedProps;
+
 export type SkeletonIconButtonProps = SkeletonSizedProps;
+
 export type SkeletonRadioProps = SkeletonSizedProps;
+
 export type SkeletonSliderProps = SkeletonSizedProps;
+
 export type SkeletonSwitchProps = SkeletonSizedProps;
 
 export interface SkeletonDividerProps extends SkeletonBoneProps {

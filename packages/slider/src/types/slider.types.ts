@@ -3,6 +3,7 @@ import type { ViewProps } from "react-native";
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 
 export type SliderValue = readonly [number, number];
+
 export type SliderThumb = "start" | "end";
 
 interface SliderCommonProps extends ViewProps {

@@ -22,6 +22,7 @@ export const MultiPieChartBody = memo(function MultiPieChartBody(
     size,
     startAngle,
   } = props;
+
   const layout = useChartLayout(size, insets);
   const { series: seriesModels } = useMultiPieChart({
     endAngle,

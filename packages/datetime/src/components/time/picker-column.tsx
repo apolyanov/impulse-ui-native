@@ -33,8 +33,11 @@ export const PickerColumn = memo(function PickerColumn(
 
   const listRef = useRef<FlatList<number>>(null);
   const currentIndexRef = useRef(initialScrollIndex);
+
   const tokens = useComponentsTokens();
+
   const columnTokens = tokens.timePicker.column;
+
   const styles = useThemedStyles(themedStyles);
 
   const keyExtractor = useCallback((item: number, index: number) => {

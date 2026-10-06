@@ -26,7 +26,9 @@ export const Carousel = memo(function Carousel({
   ...props
 }: CarouselProps) {
   const layout = useCarouselLayout({ children, peek, slideAspectRatio });
+
   const count = layout.slides.length;
+
   const controller = useCarousel({
     count,
     index,
@@ -37,6 +39,7 @@ export const Carousel = memo(function Carousel({
     endInset: layout.endInset,
   });
   const styles = useThemedStyles(themedStyles);
+
   const rootStyle = useMemo(() => [styles.root, style], [styles.root, style]);
 
   return (

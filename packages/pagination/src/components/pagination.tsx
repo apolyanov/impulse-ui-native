@@ -40,14 +40,19 @@ export const Pagination = memo(function Pagination({
   ...props
 }: PaginationProps) {
   const tokens = useComponentsTokens().pagination;
+
   const [availableWidth, setAvailableWidth] = useState<number>();
+
   const normalizedPageCount = normalizePageCount(pageCount);
+
   const [page, setPage] = useControllableState<number>({
     prop: pageProp,
     defaultProp: clampPage(defaultPage, normalizedPageCount),
     onChange: onPageChange,
   });
+
   const resolvedPage = clampPage(page, normalizedPageCount);
+
   const styles = useThemedStyles(themedStyles, { disabled, size }, [
     disabled,
     size,
@@ -80,6 +85,7 @@ export const Pagination = memo(function Pagination({
       setPage(clampPage(nextPage, normalizedPageCount));
     }
   });
+
   const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
     setAvailableWidth(event.nativeEvent.layout.width);
     onLayout?.(event);

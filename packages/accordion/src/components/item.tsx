@@ -17,7 +17,9 @@ export const AccordionItem = memo(function AccordionItem({
   ...props
 }: AccordionItemProps) {
   const accordion = useAccordionContext();
+
   const styles = useThemedStyles(themedStyles);
+
   const resolvedDisabled = accordion.disabled || disabled;
   const open = accordion.expandedValues.includes(value);
 

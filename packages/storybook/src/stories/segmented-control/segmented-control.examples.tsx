@@ -186,6 +186,7 @@ export const SegmentedControlExample = memo(function SegmentedControlExample({
   example,
 }: SegmentedControlExampleProps) {
   const [controlledValue, setControlledValue] = useState("week");
+
   const items = example.items ?? defaultItems;
 
   const control = example.controlled ? (
