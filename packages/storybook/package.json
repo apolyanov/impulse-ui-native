@@ -36,7 +36,10 @@
   "dependencies": {
     "@impulse-ui-native/icon": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
-    "@impulse-ui-native/theme": "workspace:*"
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/card": "workspace:*",
+    "@impulse-ui-native/list": "workspace:*",
+    "@impulse-ui-native/progress": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/core": "workspace:*",

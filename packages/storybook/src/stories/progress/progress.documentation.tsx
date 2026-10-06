@@ -10,7 +10,7 @@ export function ProgressDocumentation() {
   return (
     <StoryDocumentationPage
       title="Progress"
-      description="Progress communicates the completion of an operation. Provide value for determinate progress or omit it for an indeterminate animation. Values are clamped to the configured range."
+      description="Import Progress from @impulse-ui-native/progress. Provide value for determinate progress or omit it for a Reanimated indeterminate animation. Values are clamped to the configured range."
     >
       {ProgressExampleDefinitions.map((example) => (
         <View key={example.name}>

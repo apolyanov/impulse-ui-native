@@ -1,13 +1,12 @@
 import type { ComponentProps } from "react";
 import { memo } from "react";
 
-import { Progress, View } from "@impulse-ui-native/primitives";
+import { View } from "@impulse-ui-native/primitives";
+import { Progress } from "@impulse-ui-native/progress";
 import { useColors, useRadii, useSpace } from "@impulse-ui-native/theme";
 
-import {
-  StoryExample,
-  StoryExamplePropDefinition,
-} from "../../components/story-example";
+import type { StoryExamplePropDefinition } from "../../components/story-example";
+import { StoryExample } from "../../components/story-example";
 
 interface ProgressExampleDefinition {
   name: string;
@@ -163,6 +162,7 @@ export const ProgressExample = memo(function ProgressExample({
   const colors = useColors();
   const radii = useRadii();
   const space = useSpace();
+
   const circular = example.args.variant === "circular";
   const inverse = example.args.tone === "inverse";
 

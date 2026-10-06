@@ -31,7 +31,10 @@
       "@impulse-ui-native/theme",
       "@impulse-ui-native/toolkit",
       "@impulse-ui-native/carousel",
-      "@impulse-ui-native/toast"
+      "@impulse-ui-native/toast",
+      "@impulse-ui-native/card",
+      "@impulse-ui-native/list",
+      "@impulse-ui-native/progress"
     ]
   ],
   "linked": [],

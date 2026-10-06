@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Progress } from "@impulse-ui-native/primitives";
+import { Progress } from "@impulse-ui-native/progress";
 import {
   ComponentSizeOptions,
   createStoryDescription,

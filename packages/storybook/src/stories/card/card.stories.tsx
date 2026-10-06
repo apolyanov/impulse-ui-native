@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Card } from "@impulse-ui-native/primitives";
+import { Card } from "@impulse-ui-native/card";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
 
 import { CardDocumentation } from "./card.documentation";
@@ -8,8 +8,8 @@ import { CardExample, CardExampleDefinitions } from "./card.examples";
 
 const meta = {
   title: "Components/Card",
-  component: Card.Root,
-} satisfies Meta<typeof Card.Root>;
+  component: Card,
+} satisfies Meta<typeof Card>;
 
 export default meta;
 
@@ -25,6 +25,7 @@ export const Documentation: Story = {
 };
 
 export const Basic: Story = createCardStory("Basic");
+export const ReadyMade: Story = createCardStory("ReadyMade");
 export const Media: Story = createCardStory("Media");
 export const Pressable: Story = createCardStory("Pressable");
 export const Disabled: Story = createCardStory("Disabled");

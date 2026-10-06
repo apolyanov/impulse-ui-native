@@ -1,18 +1,12 @@
 import type { ReactNode } from "react";
-import { memo, useState } from "react";
+import { memo } from "react";
 
-import {
-  Button,
-  Card,
-  Tag,
-  Typography,
-  View,
-} from "@impulse-ui-native/primitives";
+import { Card } from "@impulse-ui-native/card";
+import { Button, Tag, Typography, View } from "@impulse-ui-native/primitives";
 
-import {
-  StoryExample,
-  StoryExamplePropDefinition,
-} from "../../components/story-example";
+import type { StoryExamplePropDefinition } from "../../components/story-example";
+import { StoryExample } from "../../components/story-example";
+import { PressableCardPreview } from "./pressable-card-preview";
 
 interface CardExampleDefinition {
   name: string;
@@ -23,6 +17,23 @@ interface CardExampleDefinition {
 }
 
 export const CardExampleDefinitions = [
+  {
+    name: "ReadyMade",
+    title: "Ready-made card",
+    description:
+      "Card assembles its namespaced parts from header, media, footer, and children props.",
+    props: [],
+    preview: (
+      <Card
+        width="100%"
+        maxWidth={360}
+        header={<Typography.Title4>Workspace summary</Typography.Title4>}
+        footer={<Tag label="On track" color="success" size="small" />}
+      >
+        <Typography.Body>Twelve tasks are complete.</Typography.Body>
+      </Card>
+    ),
+  },
   {
     name: "Basic",
     title: "Basic card",
@@ -135,16 +146,7 @@ export const CardExampleDefinitions = [
         description: "Blocks interaction.",
       },
     ],
-    preview: (
-      <Card.Pressable width="100%" maxWidth={360} disabled onPress={() => {}}>
-        <Card.Header>
-          <Typography.Title4>Archived report</Typography.Title4>
-          <Typography.Helper>
-            This report is temporarily unavailable.
-          </Typography.Helper>
-        </Card.Header>
-      </Card.Pressable>
-    ),
+    preview: <PressableCardPreview disabled />,
   },
   {
     name: "Horizontal",
@@ -180,28 +182,6 @@ export const CardExampleDefinitions = [
     ),
   },
 ] satisfies CardExampleDefinition[];
-
-function PressableCardPreview() {
-  const [presses, setPresses] = useState(0);
-
-  return (
-    <Card.Pressable
-      width="100%"
-      maxWidth={360}
-      onPress={() => setPresses((current) => current + 1)}
-    >
-      <Card.Header>
-        <Typography.Title4>Activity summary</Typography.Title4>
-        <Typography.Helper>Pressed {presses} times</Typography.Helper>
-      </Card.Header>
-      <Card.Content>
-        <Typography.Body>
-          Press anywhere on this surface to activate its single action.
-        </Typography.Body>
-      </Card.Content>
-    </Card.Pressable>
-  );
-}
 
 interface CardExampleProps {
   example: CardExampleDefinition;

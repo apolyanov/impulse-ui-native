@@ -1,16 +1,21 @@
 import { memo, useCallback, useMemo, useState } from "react";
 
-import { Divider, List, Typography, View } from "@impulse-ui-native/primitives";
+import { List } from "@impulse-ui-native/list";
+import { Divider, Typography, View } from "@impulse-ui-native/primitives";
 import { useColors } from "@impulse-ui-native/theme";
 
 export const ListExample = memo(function ListExample() {
   const colors = useColors();
+
   const [selected, setSelected] = useState(false);
+
   const selectionStyle = useMemo(
     () => (selected ? { backgroundColor: colors.secondary.value } : undefined),
     [selected, colors.secondary.value],
   );
+
   const handlePress = useCallback(() => setSelected((value) => !value), []);
+
   return (
     <View width="100%" maxWidth={420} gap="sm">
       <List.Root>

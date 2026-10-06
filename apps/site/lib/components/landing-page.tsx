@@ -252,8 +252,8 @@ const componentGroups = [
         name: "Card",
         description:
           "Group related content in compound static or pressable themed surfaces.",
-        packageName: "@impulse-ui-native/primitives",
-        sourcePath: "primitives/src/components/card/card.tsx",
+        packageName: "@impulse-ui-native/card",
+        sourcePath: "card/src/components/card.tsx",
         tags: ["Compound", "Composable"],
       },
       {
@@ -306,8 +306,8 @@ const componentGroups = [
         name: "Progress",
         description:
           "Show determinate or indeterminate progress with linear and circular variants.",
-        packageName: "@impulse-ui-native/primitives",
-        sourcePath: "primitives/src/components/atoms/progress.tsx",
+        packageName: "@impulse-ui-native/progress",
+        sourcePath: "progress/src/components/progress.tsx",
         tags: ["Loading", "Accessible"],
       },
       {

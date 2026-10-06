@@ -47,6 +47,13 @@ compatibility decisions.
 
 ### Components
 
+- `card`: ready-made Card and child-only Root, Pressable, Header, Content,
+  Footer, and Media parts, built on primitives.
+- `list`: ready-made List item rendering and child-only Root, Item, Pressable,
+  Leading, Content, and Trailing parts, built on primitives.
+- `progress`: linear/circular determinate progress and Reanimated indeterminate
+  loops. Card, List, Progress, and their prop types are owned by these dedicated
+  packages, not primitives; toolkit aggregates them.
 - `input`: themed native text input built from compound `Control` parts.
 - `select`: single and multi-select controls rendered through Flyout; uses
   FlashList for options.

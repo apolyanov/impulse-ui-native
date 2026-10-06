@@ -7,6 +7,5 @@ export { Button } from "./button";
 export { Divider } from "./divider";
 export { IconButton } from "./icon-button";
 export { Pressable } from "./pressable";
-export { Progress } from "./progress";
 export { Spinner } from "./spinner";
 export { Tag } from "./tag";

@@ -7,7 +7,7 @@ export function CardDocumentation() {
   return (
     <StoryDocumentationPage
       title="Card"
-      description="Card is a compound surface for grouping related content. Root, Header, Content, Footer, and Media provide styling defaults while retaining normal View composition; Pressable is reserved for cards with one clear surface-level action."
+      description="Import Card from @impulse-ui-native/card. Card assembles header, media, footer, and children props from its namespaced parts. For custom layouts, Root, Header, Content, Footer, and Media render supplied children; Pressable is reserved for cards with one clear surface-level action."
     >
       {CardExampleDefinitions.map((example) => (
         <View key={example.name}>

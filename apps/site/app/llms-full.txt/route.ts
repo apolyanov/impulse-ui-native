@@ -51,7 +51,8 @@ Individual packages may be installed independently when the complete toolkit is 
 
 - Toolkit: aggregated public exports for the component system.
 - Theme: primitive, semantic, and component-level tokens.
-- Primitives: shared foundations plus Button, IconButton, Avatar, Badge, Card, Divider, Progress, Spinner, and Tag.
+- Card, List, and Progress: dedicated packages with toolkit exports.
+- Primitives: shared foundations plus Button, IconButton, Avatar, Badge, Divider, Spinner, and Tag.
 - Icon: typed icons and standard small, medium, and large icon sizing.
 - Accordion: animated single- and multi-section disclosure with keyboard navigation.
 - Checkbox, Radio, and Switch: accessible selection controls with shared sizes and visual variants.

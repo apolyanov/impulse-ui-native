@@ -252,3 +252,5 @@ The source, package-specific guides, Storybook examples, and issue tracker are a
 ## License
 
 Impulse UI Native is released under the [MIT license](./LICENSE).
+
+Card, List, and Progress are aggregated from `@impulse-ui-native/card`, `@impulse-ui-native/list`, and `@impulse-ui-native/progress`. Their namespaced composition APIs remain available alongside the ready-made Card and List components.
