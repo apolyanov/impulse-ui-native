@@ -42,6 +42,24 @@ the affected source and manifests when they may have changed.
 
 ## Core decisions
 
+- Never add ESLint configuration files, including when creating packages or
+  encountering a missing config during verification. Use existing lint tooling
+  where available and report unavailable lint checks without creating a config.
+- Follow Input's composition model: child-only composable parts render supplied
+  children and own their styling and behavior. Build the public convenience
+  component from those parts, assembling default icons, text, and actions there.
+  Do not embed automatic fallback content inside child-only composable parts.
+- Render conditional JSX with `condition ? <Component /> : null`. Do not use
+  `&&`, `||`, or `??` to conditionally render components, or put `null` in the
+  true branch. For custom content with a default component, render the custom
+  content directly and render the default separately with a nullish check and
+  a ternary ending in `null`; preserve `0`, empty strings, and `false` as supplied
+  content. This rule applies to rendering, not ordinary prop/value defaults.
+- Always use `react-native-reanimated` for component animations, including
+  animation hooks. Use shared values and animated styles/props instead of React
+  Native's `Animated` or `LayoutAnimation`. Declare required runtime peers in
+  the owning package, use the installed Worklets API for callbacks into React
+  state and lifecycle handlers, and cancel animations on cleanup.
 - Keep public features in the narrowest package that owns their behavior. The
   toolkit aggregates public packages; it is not the implementation layer.
 - Keep generic layout and interaction building blocks in `primitives`. Do not

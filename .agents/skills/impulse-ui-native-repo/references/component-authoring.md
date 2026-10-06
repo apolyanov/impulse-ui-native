@@ -67,6 +67,10 @@ Export through the nearest barrel and then the package root. Re-export from
 
 ## Component implementation pattern
 
+- Use `condition ? <Component /> : null` for conditional JSX, with the component
+  in the true branch. Do not conditionally render with `&&`, `||`, or `??`.
+  Render custom content directly and show the default with a separate nullish
+  check and a ternary ending in `null`, preserving supplied falsy content.
 - Keep each React component in its own file. Do not define multiple components
   in one module, including private implementation children.
 - A compound `Parent.Child` public API is allowed when the parts form a
@@ -98,6 +102,11 @@ Export through the nearest barrel and then the package root. Re-export from
 - Use `useEventCallback` for stable handlers that need current values.
 - Follow the repository's `hook-ordering` skill when writing React components.
 - Use React Native `StyleSheet` and token-aware style hooks for library code.
+- Always use `react-native-reanimated` for component animations and animation
+  hooks. Drive animated styles/props with shared values, cancel animations on
+  cleanup, and use the installed Worklets API for callbacks into React state
+  and lifecycle handlers. Do not use React Native's `Animated` or
+  `LayoutAnimation` for component animations.
 - Build token-dependent React Native styles with `useThemedStyles` and a
   module-level `themedStyles(theme, props)` factory in the component file. This
   style factory is the sole exception to the rule against functions outside a
@@ -136,6 +145,11 @@ Reuse only the size/variant axes that make semantic sense. Do not force every
 component to implement every visual variant.
 
 ## Compound components and providers
+
+Follow Input's composition model. Composable parts render their supplied
+children and own their styling and behavior. The public convenience component
+assembles the default icons, text, content, and actions from those parts. Do not
+embed automatic fallback content in child-only composable parts.
 
 Use compound components when parts need to share state and composition matters,
 as with `Control` and `Skeleton`. Keep internal parts private unless direct

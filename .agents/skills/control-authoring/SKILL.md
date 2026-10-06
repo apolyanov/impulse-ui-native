@@ -49,6 +49,15 @@ Write down the control's semantic role, value model, state transitions, and disa
 
 ## Implement against library conventions
 
+- Follow Input's composition model: reusable compound parts render their supplied
+  children and own only their styling and behavior. Assemble default icons,
+  labels, content, and actions in the public convenience component, built from
+  those parts; do not hide default content inside child-only composable parts.
+- Use `condition ? <Component /> : null` for conditional JSX. Keep default
+  content in the convenience component, rather than `children ?? <Component />`
+  inside child-only composable parts.
+- Always use `react-native-reanimated` for component animations and animation
+  hooks. Follow the repository skill's animation and runtime dependency guidance.
 - Keep public prop contracts in the package `types` directory and export them through the nearest barrel and package root.
 - Keep exactly one React component implementation per file, including private child components. When a compound API improves composition, implement each part in its own file and assemble it as `Parent.Child` through a barrel or dedicated composition module.
 - Do not declare helper functions alongside a component. The sole exception is the `themedStyles` function used by `useThemedStyles`, which may remain at module scope in the component file. Keep callbacks and render-specific functions inside the component; move every other reusable pure function to a focused file in the owning package's `utils` directory.
@@ -90,7 +99,7 @@ Model tokens by responsibility: shared geometry and inactive/disabled values at 
 
 ## Complete the public surface
 
-For a dedicated package, follow the neighboring package shape and include source barrels, manifest, TypeScript/tsup/ESLint configuration, README, license, and changelog as required by the repository. Then:
+For a dedicated package, follow the neighboring package shape and include source barrels, manifest, TypeScript/tsup configuration, README, license, and changelog as required by the repository. Never add ESLint configuration files. Then:
 
 - declare every directly imported workspace package in `dependencies`;
 - declare host-provided native/runtime libraries in `peerDependencies` and compatible development dependencies;
