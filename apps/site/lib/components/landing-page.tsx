@@ -146,7 +146,7 @@ export function ComponentsSection() {
   return (
     <section id="components">
       <SectionContainer className="py-xxl">
-        <div className="flex flex-wrap items-end justify-between gap-sm">
+        <div className="flex flex-col items-start gap-sm">
           <SectionHeading
             copy="Browse the library by purpose, capability, and package. Native behavior stays in native Storybook, while this catalog gives every component a clear place in the system."
             eyebrow="Components"
