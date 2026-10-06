@@ -290,12 +290,12 @@ export function ThemingSection() {
           title="Adapt the system without faking it."
         />
         <div className="mt-lg grid gap-sm lg:grid-cols-2">
-          <div className="rounded-lg border border-border-subtle bg-surface-elevated p-xs md:p-sm">
+          <div className="flex flex-col rounded-lg border border-border-subtle bg-surface-elevated p-xs md:p-sm">
             <div className="mb-sm flex items-center justify-between">
               <Eyebrow>Theme preview</Eyebrow>
               <WebTag variant="outlined">LightTheme</WebTag>
             </div>
-            <div className="flex justify-center rounded-md bg-surface-primary p-sm">
+            <div className="flex flex-1 items-center justify-center rounded-md bg-surface-primary p-sm">
               <PhonePreview />
             </div>
           </div>
