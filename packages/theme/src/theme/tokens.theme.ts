@@ -51,6 +51,7 @@ import { createSwitchTokens } from "./create-switch-tokens";
 import { createTagTokens } from "./create-tag-tokens";
 import { createTextareaTokens } from "./create-textarea-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
+import { createToastTokens } from "./create-toast-tokens";
 
 export const ChartColorTokens: ChartColorPalette = [
   "#F55D6B",
@@ -390,6 +391,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    toast: createToastTokens(tokens),
     carousel: createCarouselTokens(tokens),
     accordion: createAccordionTokens(tokens),
     avatar: createAvatarTokens(tokens),

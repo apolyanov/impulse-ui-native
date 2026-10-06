@@ -29,3 +29,5 @@ export * from "@impulse-ui-native/datetime";
 // Utilities
 export * from "@impulse-ui-native/echo";
 export * from "@impulse-ui-native/endpoint";
+
+export * from "@impulse-ui-native/toast";

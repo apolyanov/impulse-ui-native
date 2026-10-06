@@ -30,7 +30,8 @@
       "@impulse-ui-native/slider",
       "@impulse-ui-native/theme",
       "@impulse-ui-native/toolkit",
-      "@impulse-ui-native/carousel"
+      "@impulse-ui-native/carousel",
+      "@impulse-ui-native/toast"
     ]
   ],
   "linked": [],

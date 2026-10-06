@@ -12,6 +12,8 @@ The complete Impulse UI Native component library in one package.
 - One theme system shared by every component.
 - Works with React Native mobile applications.
 - Gesture-driven flyouts and app-wide overlay management.
+- Compound `Toast` notifications with top/bottom placement, actions, and
+  timed dismissal. See the [Toast API](../toast/README.md).
 - Single- and multi-select controls, date/time pickers, charts, skeletons, and data states.
 - Modular internals: applications with a narrow use case can install an individual `@impulse-ui-native/*` package instead.
 

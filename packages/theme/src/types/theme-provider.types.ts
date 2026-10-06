@@ -3,6 +3,7 @@ import type { CarouselTokens } from "./carousel-tokens.types";
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { ListTokens } from "./list-tokens.types";
 import type { RadioTokens } from "./radio-tokens.types";
+import type { ToastTokens } from "./toast-tokens.types";
 import { AccordionTokens } from "./accordion-tokens.types";
 import { AvatarTokens } from "./avatar-tokens.types";
 import { ButtonTokens, IconButtonTokens } from "./buttons-tokens.types";
@@ -104,6 +105,7 @@ export interface ComponentsThemes {
 }
 
 export interface ComponentsTokens {
+  toast: ToastTokens;
   carousel: CarouselTokens;
   list: ListTokens;
   accordion: AccordionTokens;

@@ -69,7 +69,8 @@
     "react": "catalog:react19",
     "react-native": "catalog:",
     "typescript": "catalog:",
-    "@impulse-ui-native/carousel": "workspace:*"
+    "@impulse-ui-native/carousel": "workspace:*",
+    "@impulse-ui-native/toast": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

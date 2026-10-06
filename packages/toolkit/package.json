@@ -57,7 +57,8 @@
     "@impulse-ui-native/select": "workspace:*",
     "@impulse-ui-native/portal": "workspace:*",
     "@impulse-ui-native/datetime": "workspace:*",
-    "@impulse-ui-native/carousel": "workspace:*"
+    "@impulse-ui-native/carousel": "workspace:*",
+    "@impulse-ui-native/toast": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",
