@@ -1,0 +1,345 @@
+import type { SystemIconName } from "@/lib/icons/system-icon";
+
+export const componentGroups = [
+  {
+    name: "Actions",
+    icon: "zap",
+    components: [
+      {
+        name: "Button",
+        description:
+          "Trigger primary and secondary actions across sizes, variants, and loading states.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/button.tsx",
+        tags: ["Interactive", "5 variants"],
+      },
+      {
+        name: "IconButton",
+        description:
+          "Present compact, accessible actions when an icon communicates the intent.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/icon-button.tsx",
+        tags: ["Interactive", "Accessible"],
+      },
+    ],
+  },
+  {
+    name: "Inputs",
+    icon: "type",
+    components: [
+      {
+        name: "Input",
+        description:
+          "Collect typed text with themed labels, validation, and supporting content.",
+        packageName: "@impulse-ui-native/input",
+        sourcePath: "input/src/components/input.tsx",
+        tags: ["Interactive", "Validated"],
+      },
+      {
+        name: "Textarea",
+        description:
+          "Collect longer text with character counting and bounded auto-grow behavior.",
+        packageName: "@impulse-ui-native/input",
+        sourcePath: "input/src/components/textarea.tsx",
+        tags: ["Interactive", "Multiline"],
+      },
+      {
+        name: "Checkbox",
+        description:
+          "Toggle checked, unchecked, and indeterminate states with accessible semantics.",
+        packageName: "@impulse-ui-native/checkbox",
+        sourcePath: "checkbox/src/components/checkbox.tsx",
+        tags: ["Interactive", "3 states"],
+      },
+      {
+        name: "Radio",
+        description:
+          "Present an accessible single-choice control across shared sizes and variants.",
+        packageName: "@impulse-ui-native/radio",
+        sourcePath: "radio/src/components/radio.tsx",
+        tags: ["Interactive", "Accessible"],
+      },
+      {
+        name: "Switch",
+        description:
+          "Toggle settings with animated state changes and disabled or loading behavior.",
+        packageName: "@impulse-ui-native/switch",
+        sourcePath: "switch/src/components/switch.tsx",
+        tags: ["Interactive", "Animated"],
+      },
+      {
+        name: "Select",
+        description:
+          "Choose one or many values through a themed control and native flyout.",
+        packageName: "@impulse-ui-native/select",
+        sourcePath: "select/src/components/select.tsx",
+        tags: ["Interactive", "Flyout"],
+      },
+      {
+        name: "Slider",
+        description:
+          "Select a numeric value with configurable steps, marks, and value bubbles.",
+        packageName: "@impulse-ui-native/slider",
+        sourcePath: "slider/src/components/slider.tsx",
+        tags: ["Interactive", "Numeric"],
+      },
+      {
+        name: "RangeSlider",
+        description:
+          "Choose lower and upper numeric bounds with two thumbs and configurable spacing.",
+        packageName: "@impulse-ui-native/slider",
+        sourcePath: "slider/src/components/range-slider.tsx",
+        tags: ["Interactive", "Range"],
+      },
+      {
+        name: "SegmentedControl",
+        description:
+          "Choose one option from a composable group of labeled or icon segments.",
+        packageName: "@impulse-ui-native/segmented-control",
+        sourcePath: "segmented-control/src/components/segmented-control.ts",
+        tags: ["Interactive", "Composable"],
+      },
+      {
+        name: "FormField",
+        description:
+          "Compose labels, descriptions, required state, and validation around custom controls.",
+        packageName: "@impulse-ui-native/form-field",
+        sourcePath: "form-field/src/components/form-field.tsx",
+        tags: ["Accessible", "Validated"],
+      },
+      {
+        name: "DateTimePicker",
+        description:
+          "Select dates with calendar navigation and configurable date constraints.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath: "datetime/src/components/datetime/datetime-picker.tsx",
+        tags: ["Interactive", "Calendar"],
+      },
+      {
+        name: "TimePicker",
+        description:
+          "Select hours and minutes using native-friendly scrolling controls.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath: "datetime/src/components/time/time-picker.tsx",
+        tags: ["Interactive", "Time"],
+      },
+    ],
+  },
+  {
+    name: "Content",
+    icon: "box",
+    components: [
+      {
+        name: "Avatar",
+        description:
+          "Represent people and entities with images, initials, fallbacks, and presence states.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/avatar.tsx",
+        tags: ["Identity", "5 variants"],
+      },
+      {
+        name: "Card",
+        description:
+          "Group media, headers, content, and footers using Card or composable static and pressable parts.",
+        packageName: "@impulse-ui-native/card",
+        sourcePath: "card/src/components/card.tsx",
+        tags: ["Compound", "Composable"],
+      },
+      {
+        name: "List",
+        description:
+          "Render static or pressable rows with leading and trailing content using List or composable parts.",
+        packageName: "@impulse-ui-native/list",
+        sourcePath: "list/src/components/list.tsx",
+        tags: ["Compound", "Composable"],
+      },
+      {
+        name: "Carousel",
+        description:
+          "Browse horizontal slides with snapping, optional peeking, controls, and pagination.",
+        packageName: "@impulse-ui-native/carousel",
+        sourcePath: "carousel/src/components/carousel.tsx",
+        tags: ["Interactive", "Gallery"],
+      },
+      {
+        name: "Divider",
+        description:
+          "Separate content horizontally or vertically with logical insets and semantic colors.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/divider.tsx",
+        tags: ["Layout", "Accessible"],
+      },
+      {
+        name: "Accordion",
+        description:
+          "Reveal collapsible sections with single or multiple expansion and keyboard navigation.",
+        packageName: "@impulse-ui-native/accordion",
+        sourcePath: "accordion/src/components/accordion.ts",
+        tags: ["Compound", "Animated"],
+      },
+    ],
+  },
+  {
+    name: "Feedback",
+    icon: "bell",
+    components: [
+      {
+        name: "Toast",
+        description:
+          "Show timed notifications with semantic tones, optional actions, and composable Toast parts.",
+        packageName: "@impulse-ui-native/toast",
+        sourcePath: "toast/src/components/toast.tsx",
+        tags: ["Feedback", "Composable"],
+      },
+      {
+        name: "Tag",
+        description:
+          "Label status and categories with semantic colors and optional dismissal.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/tag.tsx",
+        tags: ["Display", "Closable"],
+      },
+      {
+        name: "Badge",
+        description:
+          "Display compact semantic states and metadata with optional leading or trailing content.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/badge/root.tsx",
+        tags: ["Display", "Semantic"],
+      },
+      {
+        name: "Spinner",
+        description:
+          "Communicate indeterminate work with token-aware sizes and semantic colors.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/spinner.tsx",
+        tags: ["Loading", "Indeterminate"],
+      },
+      {
+        name: "Progress",
+        description:
+          "Show determinate or indeterminate progress with linear and circular variants.",
+        packageName: "@impulse-ui-native/progress",
+        sourcePath: "progress/src/components/progress.tsx",
+        tags: ["Loading", "Accessible"],
+      },
+      {
+        name: "Skeleton",
+        description:
+          "Communicate loading layouts with animated bones, text, and shape presets.",
+        packageName: "@impulse-ui-native/skeleton",
+        sourcePath: "skeleton/src/components/skeleton.tsx",
+        tags: ["Animated", "Loading"],
+      },
+      {
+        name: "DataState",
+        description:
+          "Explain empty, error, and completed states with composable actions.",
+        packageName: "@impulse-ui-native/data-state",
+        sourcePath: "data-state/src/components/data-view.tsx",
+        tags: ["Feedback", "Composable"],
+      },
+    ],
+  },
+  {
+    name: "Navigation",
+    icon: "arrow",
+    components: [
+      {
+        name: "Pagination",
+        description:
+          "Navigate pages with a responsive page window or compact previous and next controls.",
+        packageName: "@impulse-ui-native/pagination",
+        sourcePath: "pagination/src/components/pagination.tsx",
+        tags: ["Interactive", "Responsive"],
+      },
+      {
+        name: "Stepper",
+        description:
+          "Guide multi-step flows with controlled steps, tab navigation, and shared navigation methods.",
+        packageName: "@impulse-ui-native/stepper",
+        sourcePath: "stepper/src/components/stepper.tsx",
+        tags: ["Interactive", "Workflow"],
+      },
+    ],
+  },
+  {
+    name: "Overlays",
+    icon: "layers",
+    components: [
+      {
+        name: "Flyout",
+        description:
+          "Present top or bottom sheets with a backdrop, drag handle, safe-area padding, and gesture dismissal.",
+        packageName: "@impulse-ui-native/flyout",
+        sourcePath: "flyout/src/components/flyout.tsx",
+        tags: ["Overlay", "Animated"],
+      },
+    ],
+  },
+  {
+    name: "Charts",
+    icon: "layers",
+    components: [
+      {
+        name: "LineChart",
+        description:
+          "Show a continuous trend across numeric, date, or categorical values.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/line-chart/line-chart.tsx",
+        tags: ["Skia", "Cartesian"],
+      },
+      {
+        name: "MultiLineChart",
+        description:
+          "Compare multiple series against the same axes, domain, and grid.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath:
+          "charts/src/components/multi-line-chart/multi-line-chart.tsx",
+        tags: ["Skia", "Multi-series"],
+      },
+      {
+        name: "BarChart",
+        description:
+          "Compare categorical values, including positive and negative measurements.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/bar-chart/bar-chart.tsx",
+        tags: ["Skia", "Cartesian"],
+      },
+      {
+        name: "MultiBarChart",
+        description:
+          "Compare grouped series across categories with configurable spacing.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/multi-bar-chart/multi-bar-chart.tsx",
+        tags: ["Skia", "Grouped"],
+      },
+      {
+        name: "PieChart",
+        description:
+          "Communicate proportions as a token-colored pie or donut chart.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/pie-chart/pie-chart.tsx",
+        tags: ["Skia", "Radial"],
+      },
+      {
+        name: "MultiPieChart",
+        description:
+          "Display independently normalized data as concentric proportional rings.",
+        packageName: "@impulse-ui-native/charts",
+        sourcePath: "charts/src/components/multi-pie-chart/multi-pie-chart.tsx",
+        tags: ["Skia", "Concentric"],
+      },
+    ],
+  },
+] as const satisfies readonly {
+  name: string;
+  icon: SystemIconName;
+  components: readonly {
+    name: string;
+    description: string;
+    packageName: string;
+    sourcePath: string;
+    tags: readonly string[];
+  }[];
+}[];

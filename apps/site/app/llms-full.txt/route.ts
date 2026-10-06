@@ -1,9 +1,14 @@
+import { componentGroups } from "@/lib/component-catalog";
 import { absoluteUrl, seo } from "@/lib/seo";
 import { project } from "@/lib/site-data";
 
 export const dynamic = "force-dynamic";
 
 export function GET() {
+  const componentNames = componentGroups
+    .flatMap((group) => group.components.map((component) => component.name))
+    .join(", ");
+
   const fence = "```";
   const content = `# ${seo.shortTitle}: expanded project context
 
@@ -51,7 +56,14 @@ Individual packages may be installed independently when the complete toolkit is 
 
 - Toolkit: aggregated public exports for the component system.
 - Theme: primitive, semantic, and component-level tokens.
-- Card, List, and Progress: dedicated packages with toolkit exports.
+- Card and List: dedicated packages with ready-made components and composable namespaced parts.
+- Progress: determinate and indeterminate linear or circular progress.
+- Toast: timed overlay notifications with semantic tones, actions, and composable namespaced parts.
+- Carousel: horizontal slides with snapping, controls, and pagination.
+- Slider: single-value and range selection with configurable steps and marks.
+- SegmentedControl: composable single-choice segments with labels and icons.
+- Pagination: responsive page navigation with a compact layout.
+- Stepper: controlled multi-step content and shared navigation methods.
 - Primitives: shared foundations plus Button, IconButton, Avatar, Badge, Divider, Spinner, and Tag.
 - Icon: typed icons and standard small, medium, and large icon sizing.
 - Accordion: animated single- and multi-section disclosure with keyboard navigation.
@@ -72,7 +84,7 @@ Select uses the shared Control primitives for its trigger. Opening it mounts a S
 ## Documentation surfaces
 
 - [Public website](${absoluteUrl("/")}): Marketing overview and browsable component catalog.
-- [Component catalog](${absoluteUrl("/#components")}): Purpose, capability, package, and source information for Button, IconButton, Input, Textarea, Checkbox, Radio, Switch, Select, FormField, DateTimePicker, TimePicker, Avatar, Card, Divider, Accordion, Tag, Badge, Spinner, Progress, Skeleton, DataState, LineChart, MultiLineChart, BarChart, MultiBarChart, PieChart, and MultiPieChart.
+- [Component catalog](${absoluteUrl("/#components")}): Purpose, capability, package, and source information for ${componentNames}.
 - [Token reference](${absoluteUrl("/#tokens")}): Color, spacing, radii, typography, and semantic token examples.
 - [Theme overview](${absoluteUrl("/#theming")}): Token layering and theme composition.
 - [Source repository](${seo.repository}): Monorepo containing apps, packages, Storybook stories, and implementation source.
