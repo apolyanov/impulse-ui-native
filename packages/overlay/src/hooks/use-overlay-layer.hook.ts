@@ -2,13 +2,14 @@ import type { ComponentType } from "react";
 import { useMemo } from "react";
 
 import type { OverlayComponentProps, OverlayID } from "../types";
+import { OverlayOrder } from "../types";
 import { useOverlays } from "./use-overlays.hook";
 
 /** Index within the registered component type; -1 if absent. */
 export function useOverlayLayer(
   id: OverlayID,
   Component?: ComponentType<OverlayComponentProps>,
-  order: "oldest-first" | "newest-first" = "oldest-first",
+  order: OverlayOrder = OverlayOrder.OldestFirst,
 ) {
   const overlays = useOverlays();
 
@@ -23,6 +24,8 @@ export function useOverlayLayer(
       return -1;
     }
 
-    return order === "newest-first" ? entries.length - index - 1 : index;
+    return order === OverlayOrder.NewestFirst
+      ? entries.length - index - 1
+      : index;
   }, [overlays, id, Component, order]);
 }

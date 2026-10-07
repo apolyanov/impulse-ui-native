@@ -9,7 +9,7 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
-import { useOverlayLayer } from "@impulse-ui-native/overlay";
+import { OverlayOrder, useOverlayLayer } from "@impulse-ui-native/overlay";
 import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ToastRootProps } from "../types";
@@ -32,7 +32,7 @@ export const ToastRoot = memo(function ToastRoot(props: ToastRootProps) {
   const tokens = useComponentsTokens().toast;
 
   const lifecycle = useToastLifecycle(props, duration);
-  const toastLayer = useOverlayLayer(id, undefined, "newest-first");
+  const toastLayer = useOverlayLayer(id, undefined, OverlayOrder.NewestFirst);
   const styles = useThemedStyles(themedStyles);
   const { progress } = lifecycle;
   const edgeOffset = tokens.edgeOffset;

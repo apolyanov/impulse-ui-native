@@ -8,7 +8,7 @@ Typed, app-wide overlay registration and rendering for Impulse UI Native.
 - `OverlayProvider` makes a store available to the component tree.
 - `OverlayHost` renders the active overlay stack.
 - `useOverlayContext` provides access to the current store.
-- `useOverlayLayer(id, Component?, order?)` returns the entry's opening-order index among entries with the same registered component. Omit `Component` to infer it from the ID. The default `"oldest-first"` order gives newer entries higher indices; `"newest-first"` gives the newest entry index zero. A missing ID returns `-1`. Closing entries remain counted until removed.
+- `useOverlayLayer(id, Component?, order?)` returns the entry's opening-order index among entries with the same registered component. Omit `Component` to infer it from the ID. The default `OverlayOrder.OldestFirst` order gives newer entries higher indices; `OverlayOrder.NewestFirst` gives the newest entry index zero. A missing ID returns `-1`. Closing entries remain counted until removed.
 
 ## Usage
 

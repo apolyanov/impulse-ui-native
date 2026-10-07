@@ -4,6 +4,11 @@ import type { OverlayStore } from "../stores";
 
 export type OverlayID = string;
 
+export enum OverlayOrder {
+  OldestFirst = "oldest-first",
+  NewestFirst = "newest-first",
+}
+
 export type OverlayLifecycleCallback = (id: OverlayID) => void;
 
 export type OverlayListener = () => void;
