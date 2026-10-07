@@ -41,3 +41,4 @@ export * from "./list-tokens.types";
 export * from "./carousel-tokens.types";
 
 export * from "./toast-tokens.types";
+export * from "./popover-tokens.types";

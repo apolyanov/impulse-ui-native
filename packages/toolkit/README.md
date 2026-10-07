@@ -14,6 +14,8 @@ The complete Impulse UI Native component library in one package.
 - Gesture-driven flyouts and app-wide overlay management.
 - Compound `Toast` notifications with top/bottom placement, actions, and
   timed dismissal. See the [Toast API](../toast/README.md).
+- `Tooltip` and compound `Popover` with native anchors, safe-area collision
+  handling, and Portal rendering. See the [Popover API](../popover/README.md).
 - Single- and multi-select controls, date/time pickers, charts, skeletons, and data states.
 - Modular internals: applications with a narrow use case can install an individual `@impulse-ui-native/*` package instead.
 

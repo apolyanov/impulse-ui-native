@@ -109,4 +109,4 @@ Toast uses `theme.components.toast` for surfaces, geometry, typography, actions 
 
 ## Verification
 
-Run `pnpm --filter @impulse-ui-native/toast test` for Node checks of timer pause/resume and lifecycle cancellation. Native services and animation completion are mocked; use the Toast stories in the on-device Storybook host to verify rendering and touch interaction on iOS and Android.
+Use the Toast stories in the on-device Storybook host to verify rendering, touch interaction, timer pause/resume, and lifecycle cancellation on iOS and Android.

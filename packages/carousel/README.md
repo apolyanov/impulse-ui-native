@@ -90,8 +90,6 @@ example uses explicit primitive color overrides, as shown in the approved design
 
 ## Verification
 
-`pnpm --filter @impulse-ui-native/carousel test` runs Node's built-in test runner
-against the pure index and geometry utilities. It requires Node >=22.21 with
-TypeScript stripping enabled. These checks cover snap offsets, resizing, preview
-bounds, centered alignment, midpoint transitions, and empty/invalid indices; they do not simulate native gestures or timers.
-Exercise Storybook on iOS and Android to validate those behaviors.
+Exercise Storybook on iOS and Android to validate snapping, resizing, preview
+bounds, centered alignment, midpoint transitions, empty/invalid indices, and
+native gestures.

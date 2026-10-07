@@ -7,3 +7,4 @@ export * from "./create-segmented-control-tokens";
 export * from "./create-carousel-tokens";
 
 export * from "./create-toast-tokens";
+export * from "./create-popover-tokens";

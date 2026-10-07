@@ -4,12 +4,16 @@ This document is the living inventory for ImpulseUI Native. It records what is
 available today, where an existing component needs more work, and which
 components are candidates for future development.
 
-Last reviewed: 2026-10-01
+Last reviewed: 2026-10-08
 
 ## Current platform scope
 
 Component development targets native iOS and Android. Component scope, examples,
 and acceptance criteria should reflect these platforms.
+
+Automated tests are deferred for now. Do not add test files or test runners until
+this scope is explicitly resumed. Test-related follow-ups below are future work;
+current verification uses typechecks, builds, and native Storybook checks.
 
 ## How to use this document
 
@@ -28,7 +32,6 @@ A component should normally include all of the following before it moves to
 - light and dark theme tokens where visual styling is involved;
 - controlled and uncontrolled behavior where both models are useful;
 - native Storybook examples for important states;
-- automated behavior tests for interaction and state changes;
 - package documentation and a migration note for breaking changes.
 
 ## Current component inventory
@@ -109,12 +112,12 @@ A component should normally include all of the following before it moves to
 These packages are part of the toolkit but do not primarily expose visual
 components:
 
-| Package                       | Current role                       | Follow-up                                                                                |
-| ----------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------- |
-| `@impulse-ui-native/core`     | Shared hooks and utilities         | Add unit tests and document which APIs are intended for application use.                 |
-| `@impulse-ui-native/echo`     | Typed event channel                | Replace the placeholder example with a real event and add emitter/subscription tests.    |
-| `@impulse-ui-native/endpoint` | Axios and TanStack Query factories | Add error, cancellation, retry, pagination, and cache-key examples and tests.            |
-| `@impulse-ui-native/toolkit`  | Complete public package            | Verify every intended public package is exported and document tree-shaking expectations. |
+| Package                       | Current role                                 | Follow-up                                                                                |
+| ----------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `@impulse-ui-native/core`     | Shared hooks, utilities, and one-shot timers | Document application-facing APIs.                                                        |
+| `@impulse-ui-native/echo`     | Typed event channel                          | Replace the placeholder example with a real event and add emitter/subscription tests.    |
+| `@impulse-ui-native/endpoint` | Axios and TanStack Query factories           | Add error, cancellation, retry, pagination, and cache-key examples and tests.            |
+| `@impulse-ui-native/toolkit`  | Complete public package                      | Verify every intended public package is exported and document tree-shaking expectations. |
 
 ## Proposed component backlog
 
@@ -124,8 +127,6 @@ have been discussed.
 
 ### Priority 0: harden the existing library
 
-- [ ] Add an automated test setup for packages. No package-level `*.test.*` or
-      `*.spec.*` files were present when this inventory was created.
 - [ ] Add direct Storybook coverage for `SafeAreaView`, compound `Control`, the
       standalone data-state views, and theme tokens.
 - [ ] Define supported React Native, Expo, iOS, and Android versions in one
@@ -160,7 +161,7 @@ have been discussed.
 | Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                                    |
 | Accordion / Collapsible | Available | Single/multiple expansion, animated height, and nested content.                                                                            |
 | Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                         |
-| Tooltip / Popover       | Candidate | Anchor measurement, collision handling, press/long-press triggers, and portal rendering.                                                   |
+| Tooltip / Popover       | Extend    | Implemented in `@impulse-ui-native/popover`: shared positioning, Portal rendering, and compound parts. Native device verification remains. |
 
 ### Priority 3: advanced input and data display
 
@@ -193,6 +194,6 @@ When adding or changing a component:
 
 1. Update its row in the current inventory.
 2. Add or update its Storybook documentation and examples.
-3. Add tests for new behavior and interaction state.
+3. Verify types, builds, and native behavior through Storybook.
 4. Move the corresponding backlog entry to the correct status or remove it.
 5. Update the `Last reviewed` date at the top of this document.

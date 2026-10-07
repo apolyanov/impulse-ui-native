@@ -20,6 +20,9 @@ export function App() {
 
 ## Main exports
 
+- `createPopoverTokens` and `PopoverTokens` define shared Tooltip/Popover
+  geometry, typography, and elevated/inverse surfaces through `components.popover`.
+
 - `createCarouselTokens` and `CarouselTokens` define Carousel spacing, corners,
   indicators, touch targets, and semantic colors. Carousel actions reuse the
   existing default `iconButton` tokens.

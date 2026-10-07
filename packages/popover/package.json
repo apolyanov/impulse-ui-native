@@ -1,0 +1,62 @@
+{
+  "name": "@impulse-ui-native/popover",
+  "version": "6.1.0",
+  "description": "Portal-rendered tooltips and compound anchored popovers for ImpulseUI Native.",
+  "keywords": [
+    "react-native",
+    "popover",
+    "tooltip",
+    "components"
+  ],
+  "license": "MIT",
+  "source": "src/index.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.mts",
+  "react-native": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "react-native": "./src/index.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup --config tsup.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "pnpm exec eslint . --fix",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/portal": "workspace:*"
+  },
+  "devDependencies": {
+    "@impulse-ui-native/eslint-config": "workspace:*",
+    "@impulse-ui-native/prettier-config": "workspace:*",
+    "@impulse-ui-native/tsconfig": "workspace:*",
+    "@types/react": "catalog:react19",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "react": "catalog:react19",
+    "react-native": "catalog:",
+    "react-native-safe-area-context": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-safe-area-context": ">=5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": "@impulse-ui-native/prettier-config"
+}

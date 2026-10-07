@@ -42,6 +42,7 @@
     "@impulse-ui-native/progress": "workspace:*"
   },
   "devDependencies": {
+    "@impulse-ui-native/popover": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/accordion": "workspace:*",
     "@impulse-ui-native/charts": "workspace:*",

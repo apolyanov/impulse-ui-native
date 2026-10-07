@@ -38,6 +38,7 @@ import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
 import { createListTokens } from "./create-list-tokens";
 import { createPaginationTokens } from "./create-pagination-tokens";
+import { createPopoverTokens } from "./create-popover-tokens";
 import { createPressableTokens } from "./create-pressable-tokens";
 import { createProgressTokens } from "./create-progress-tokens";
 import { createRadioTokens } from "./create-radio-tokens";
@@ -392,6 +393,7 @@ export function createComponentsTokens(
 ): ComponentsTokens {
   return {
     toast: createToastTokens(tokens),
+    popover: createPopoverTokens(tokens),
     carousel: createCarouselTokens(tokens),
     accordion: createAccordionTokens(tokens),
     avatar: createAvatarTokens(tokens),

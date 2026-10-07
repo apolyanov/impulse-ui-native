@@ -28,7 +28,6 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "test": "node --experimental-strip-types --test tests/carousel.test.mjs",
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",

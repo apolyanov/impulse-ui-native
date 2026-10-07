@@ -6,12 +6,11 @@ import {
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
-import { useEventCallback } from "@impulse-ui-native/core";
+import { useEventCallback, useTimer } from "@impulse-ui-native/core";
 import { useOverlayContext } from "@impulse-ui-native/overlay";
 
 import type { ToastRootProps } from "../types";
 import { EnterDuration, ExitDuration } from "../constants/toast.constants";
-import { useToastTimer } from "./use-toast-timer.hook";
 
 export function useToastLifecycle(props: ToastRootProps, duration: number) {
   const {
@@ -71,7 +70,12 @@ export function useToastLifecycle(props: ToastRootProps, duration: number) {
     },
   );
 
-  useToastTimer(entered && open && !finished, duration, close);
+  useTimer({
+    enabled: entered && open && !finished,
+    duration,
+    callback: close,
+    pauseOnBackground: true,
+  });
 
   useEffect(() => {
     if (finished) {
