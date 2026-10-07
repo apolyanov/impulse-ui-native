@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/select",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Select and option picker components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
