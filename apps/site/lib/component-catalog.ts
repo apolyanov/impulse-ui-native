@@ -268,6 +268,22 @@ export const componentGroups = [
     icon: "layers",
     components: [
       {
+        name: "Popover",
+        description:
+          "Present compact actions and choices beside a trigger with composable parts and automatic placement.",
+        packageName: "@impulse-ui-native/popover",
+        sourcePath: "popover/src/components/popover.tsx",
+        tags: ["Compound", "Anchored"],
+      },
+      {
+        name: "Tooltip",
+        description:
+          "Show a brief hint on long-press with an inverse surface and timed dismissal.",
+        packageName: "@impulse-ui-native/popover",
+        sourcePath: "popover/src/components/tooltip.tsx",
+        tags: ["Long-press", "Timed"],
+      },
+      {
         name: "Flyout",
         description:
           "Present top or bottom sheets with a backdrop, drag handle, safe-area padding, and gesture dismissal.",

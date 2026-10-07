@@ -74,9 +74,11 @@ ${fence}
 
 - Toolkit: aggregated public exports for the component system.
 - Theme: primitive, semantic, and component-level tokens.
+- Core: shared state and event hooks, one-shot timers, and Android hardware Back subscriptions.
 - Card and List: dedicated packages with ready-made components and composable namespaced parts.
 - Progress: determinate and indeterminate linear or circular progress.
 - Toast: timed overlay notifications with semantic tones, actions, and composable namespaced parts.
+- Popover and Tooltip: compact anchored content rendered through Portal with theme tokens and safe-area collision handling.
 - Carousel: horizontal slides with snapping, controls, and pagination.
 - Slider: single-value and range selection with configurable steps and marks.
 - SegmentedControl: composable single-choice segments with labels and icons.
@@ -94,6 +96,41 @@ ${fence}
 - Charts: Skia-rendered line, multi-line, bar, grouped-bar, pie, and concentric-pie visualizations.
 - Skeleton and DataState: loading, empty, and feedback states.
 - Portal and Layers: overlay placement and z-index infrastructure.
+
+## Popover and Tooltip behavior
+
+Popover and Tooltip are exported from @impulse-ui-native/popover and the toolkit. Popover.Root owns controlled or uncontrolled open state. Compose Popover.Trigger, Popover.Content, Popover.Title, Popover.Description, and Popover.Close; each part renders supplied children. The convenience Popover accepts trigger, triggerProps, contentProps, and children.
+
+${fence}tsx
+import { Popover, Tooltip, Typography } from "${project.packageName}";
+
+<Popover.Root placement="bottom">
+  <Popover.Trigger>
+    <Typography.Label>Visibility</Typography.Label>
+  </Popover.Trigger>
+  <Popover.Content>
+    <Popover.Title>Project visibility</Popover.Title>
+    <Popover.Description>Choose who can view this project.</Popover.Description>
+    <Popover.Close>
+      <Typography.Label>Done</Typography.Label>
+    </Popover.Close>
+  </Popover.Content>
+</Popover.Root>;
+
+<Tooltip content="Syncs when you’re online">
+  <Typography.Label>Auto-sync info</Typography.Label>
+</Tooltip>;
+${fence}
+
+Install SafeAreaProvider, ThemeProvider, and PortalProvider at the app root. Create the PortalStore once outside render and render PortalsHost last inside a full-screen native View under the same providers. Content carries popover context into its portal. A custom portalName must match the host name. Other app-local providers around the anchor must also wrap the host or be placed inside Content.
+
+Popover defaults to a press trigger, bottom placement, and an elevated surface. Tooltip defaults to long-press, top placement, an inverse surface, and dismissal after 3000ms; duration={0} persists until dismissal. Placements are top, bottom, left, and right, with physical left/right. Positioning flips or shifts within safe-area and host bounds while tracking the anchor. Outside taps are consumed without a scrim, and Android Back dismisses. Popover content sizes naturally without internal scrolling; use a sheet, dialog, or screen for larger content. Customize shared geometry, typography, fill, and borders through components.popover tokens.
+
+## Shared core hooks
+
+useTimer({ duration, callback, enabled, pauseOnBackground }) runs the latest callback once after the duration. Non-positive or non-finite durations disable it. enabled defaults to true, and pauseOnBackground defaults to false. Callback changes preserve the countdown; disabling or unmounting cancels it. Re-enabling or changing the duration/background policy starts a fresh countdown. Background pausing resumes the remaining duration, and a completed timer stays finished until restarted. Toast uses background pausing; Tooltip uses the default policy.
+
+useBackHandler(callback, enabled = true) subscribes to Android hardware Back with the latest callback and removes the listener when disabled or unmounted. Return true to consume the press or false to let other handlers and the native default continue. Popover reuses this hook for dismissal.
 
 ## Select and Flyout behavior
 

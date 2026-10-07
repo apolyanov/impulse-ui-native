@@ -22,6 +22,7 @@ ImpulseUI Native is an MIT-licensed TypeScript component system for React Native
 
 ## Notes
 
+- Popover and Tooltip provide compact anchored content with Portal rendering; see the expanded context for composition, providers, and shared core hooks.
 - Prefer the npm registry for the latest published stable version.
 - Prefer package source and Storybook stories for exact component behavior and props.
 - Native behaviors such as Flyouts, gestures, portals, and pickers are most accurately represented in the Expo Storybook app.
