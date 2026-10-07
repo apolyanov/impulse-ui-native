@@ -8,6 +8,8 @@ export function createToastTokens(tokens: PrimitiveThemeTokens): ToastTokens {
     borderRadius: tokens.radii.lg,
     padding: tokens.space.sm,
     gap: tokens.space.xs,
+    stackLimit: 5,
+    stackScaleStep: 0.04,
     contentGap: tokens.space.xxs,
     edgeOffset: tokens.space.sm,
     topOffset: tokens.space.xs,

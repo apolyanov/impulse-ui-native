@@ -9,6 +9,8 @@ export interface ToastTokens {
   borderRadius: number;
   padding: number;
   gap: number;
+  stackLimit: number;
+  stackScaleStep: number;
   contentGap: number;
   edgeOffset: number;
   topOffset: number;

@@ -101,7 +101,7 @@ The timer starts after entry animation finishes, pauses when the app leaves the 
 
 onOpen and onOpenFinished run during entry; onClose runs on dismissal, and onCloseFinished lets OverlayHost remove the entry after exit. Automatic dismissal calls the existing OverlayStore.close(id). Duration, foreground/background timer handling, and animation are component-owned. Unmounting cancels animation, timer and app-state subscriptions.
 
-Toasts fade and translate by the theme edge offset. Top toasts sit 8 px below the top safe-area inset, using the toast topOffset token; bottom and side gaps use the 16 px edgeOffset token. Placements and IDs should remain stable for an entry's lifetime. Root is designed for imperative OverlayStore registration; use the returned controller to dismiss it.
+Toasts fade and translate by the theme edge offset. Top toasts sit 8 px below the top safe-area inset, using the toast topOffset token; bottom and side gaps use the 16 px edgeOffset token. The newest toast is full size at the screen edge. Older toasts stack downward at both placements by the existing `gap` token and shrink by `stackScaleStep` (4%) per level. Changes to stack depth animate position and scale together over 220 ms, including moving forward when newer entries are removed. `stackLimit` defaults to five visual levels: scales are 100%, 96%, 92%, 88%, and 84%. All further toasts share the fifth level's scale and offset, behind newer entries; the limit does not discard or queue toasts. Component identity is the registered `Component`, including wrappers. Placements and IDs should remain stable for an entry's lifetime. Root is designed for imperative OverlayStore registration; use the returned controller to dismiss it.
 
 ## Theme
 
