@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/segmented-control",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "Segmented controls for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

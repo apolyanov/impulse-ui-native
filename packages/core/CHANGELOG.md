@@ -1,5 +1,12 @@
 # @impulse-ui-native/core
 
+## 6.2.0
+
+### Minor Changes
+
+- 5552924: Add a shared useBackHandler hook with optional enablement, latest callbacks, and subscription cleanup. Reuse it for Popover's Android Back dismissal.
+- 5552924: Add a shared one-shot useTimer hook with cancellation and optional native background pausing. Reuse it for Toast and Tooltip dismissal, and prevent completed timers from restarting on foregrounding.
+
 ## 6.1.0
 
 ## 6.0.0

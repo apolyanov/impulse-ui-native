@@ -1,5 +1,21 @@
 # @impulse-ui-native/toast
 
+## 6.2.0
+
+### Patch Changes
+
+- 48403d8: Export OverlayOrder and use its enum members for overlay layer ordering instead of string literals. Update Toast to use OverlayOrder.NewestFirst.
+- 5552924: Add a shared one-shot useTimer hook with cancellation and optional native background pausing. Reuse it for Toast and Tooltip dismissal, and prevent completed timers from restarting on foregrounding.
+- Updated dependencies [5552924]
+- Updated dependencies [48403d8]
+- Updated dependencies [5552924]
+- Updated dependencies [5552924]
+  - @impulse-ui-native/theme@6.2.0
+  - @impulse-ui-native/overlay@6.2.0
+  - @impulse-ui-native/core@6.2.0
+  - @impulse-ui-native/icon@6.2.0
+  - @impulse-ui-native/primitives@6.2.0
+
 ## 6.1.0
 
 ### Patch Changes

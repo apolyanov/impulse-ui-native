@@ -1,5 +1,17 @@
 # @impulse-ui-native/theme
 
+## 6.2.0
+
+### Minor Changes
+
+- 5552924: Add token-driven Tooltip and compound Popover components with Portal rendering, anchor measurement, safe-area collision handling, and native press/long-press triggers.
+
+### Patch Changes
+
+- Updated dependencies [5552924]
+- Updated dependencies [5552924]
+  - @impulse-ui-native/core@6.2.0
+
 ## 6.1.0
 
 ### Minor Changes

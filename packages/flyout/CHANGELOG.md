@@ -1,5 +1,15 @@
 # @impulse-ui-native/flyout
 
+## 6.2.0
+
+### Patch Changes
+
+- Updated dependencies [5552924]
+- Updated dependencies [48403d8]
+  - @impulse-ui-native/theme@6.2.0
+  - @impulse-ui-native/overlay@6.2.0
+  - @impulse-ui-native/primitives@6.2.0
+
 ## 6.1.0
 
 ### Patch Changes

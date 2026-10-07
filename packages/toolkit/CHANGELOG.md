@@ -1,5 +1,47 @@
 # @impulse-ui-native/toolkit
 
+## 6.2.0
+
+### Minor Changes
+
+- 5552924: Add token-driven Tooltip and compound Popover components with Portal rendering, anchor measurement, safe-area collision handling, and native press/long-press triggers.
+
+### Patch Changes
+
+- Updated dependencies [5552924]
+- Updated dependencies [48403d8]
+- Updated dependencies [5552924]
+- Updated dependencies [5552924]
+  - @impulse-ui-native/popover@6.2.0
+  - @impulse-ui-native/theme@6.2.0
+  - @impulse-ui-native/overlay@6.2.0
+  - @impulse-ui-native/toast@6.2.0
+  - @impulse-ui-native/core@6.2.0
+  - @impulse-ui-native/accordion@6.2.0
+  - @impulse-ui-native/card@6.2.0
+  - @impulse-ui-native/carousel@6.2.0
+  - @impulse-ui-native/charts@6.2.0
+  - @impulse-ui-native/checkbox@6.2.0
+  - @impulse-ui-native/data-state@6.2.0
+  - @impulse-ui-native/datetime@6.2.0
+  - @impulse-ui-native/flyout@6.2.0
+  - @impulse-ui-native/form-field@6.2.0
+  - @impulse-ui-native/input@6.2.0
+  - @impulse-ui-native/list@6.2.0
+  - @impulse-ui-native/pagination@6.2.0
+  - @impulse-ui-native/primitives@6.2.0
+  - @impulse-ui-native/progress@6.2.0
+  - @impulse-ui-native/radio@6.2.0
+  - @impulse-ui-native/segmented-control@6.2.0
+  - @impulse-ui-native/select@6.2.0
+  - @impulse-ui-native/skeleton@6.2.0
+  - @impulse-ui-native/slider@6.2.0
+  - @impulse-ui-native/stepper@6.2.0
+  - @impulse-ui-native/switch@6.2.0
+  - @impulse-ui-native/echo@6.2.0
+  - @impulse-ui-native/endpoint@6.2.0
+  - @impulse-ui-native/portal@6.2.0
+
 ## 6.1.0
 
 ### Patch Changes

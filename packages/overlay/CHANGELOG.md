@@ -1,5 +1,11 @@
 # @impulse-ui-native/overlay
 
+## 6.2.0
+
+### Minor Changes
+
+- 48403d8: Export OverlayOrder and use its enum members for overlay layer ordering instead of string literals. Update Toast to use OverlayOrder.NewestFirst.
+
 ## 6.1.0
 
 ### Minor Changes

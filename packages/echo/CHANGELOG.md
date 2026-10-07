@@ -1,5 +1,13 @@
 # @impulse-ui-native/echo
 
+## 6.2.0
+
+### Patch Changes
+
+- Updated dependencies [5552924]
+- Updated dependencies [5552924]
+  - @impulse-ui-native/core@6.2.0
+
 ## 6.1.0
 
 ### Patch Changes
