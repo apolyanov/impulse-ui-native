@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { XIcon } from "@impulse-ui-native/icon/icons/x";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 

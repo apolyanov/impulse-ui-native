@@ -11,6 +11,11 @@
   ],
   "license": "MIT",
   "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "react-native": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
     "./components/icon": {
       "types": "./dist/components/icon.d.mts",
       "react-native": "./dist/components/icon.js",

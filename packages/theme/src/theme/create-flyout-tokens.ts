@@ -9,7 +9,7 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
 
     maxHeightRatio: 0.7,
 
-    overlayColor: tokens.colors.black,
+    overlayColor: tokens.colors.text.tertiary,
     overlayVisibleOpacity: 0.4,
 
     backgroundColor: tokens.colors.surface.secondary.value,
@@ -26,7 +26,7 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
       width: "25%",
       height: 6,
       borderRadius: tokens.radii.round,
-      backgroundColor: tokens.colors.text.tertiary,
+      backgroundColor: tokens.colors.border.default.value,
     },
 
     placements: {

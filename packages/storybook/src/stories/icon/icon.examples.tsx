@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { memo } from "react";
 
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { HeartIcon } from "@impulse-ui-native/icon/icons/heart";
 import { SparkleIcon } from "@impulse-ui-native/icon/icons/sparkle";
 import { View } from "@impulse-ui-native/primitives";

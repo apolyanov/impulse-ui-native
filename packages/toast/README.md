@@ -69,7 +69,7 @@ Supply a stable `undoActionProps` object with your `onPress` handler.
 Composable parts render the children you supply. They do not create fallback icons or content. Use `Toast.Root` when you want to assemble the whole notification yourself:
 
 ```tsx
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { XIcon } from "@impulse-ui-native/icon/icons/x";
 
 <Toast.Root id="custom" duration={0}>

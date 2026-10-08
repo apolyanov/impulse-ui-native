@@ -14,6 +14,7 @@ path is verified or fixed.
 ## Toolkit and icons
 
 `@impulse-ui-native/toolkit` does not re-export `@impulse-ui-native/icon`.
+Import the shared `Icon` renderer and its types from `@impulse-ui-native/icon`.
 Named icons use per-icon package exports such as:
 
 ```ts

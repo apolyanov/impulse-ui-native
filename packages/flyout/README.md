@@ -33,4 +33,7 @@ import { Flyout } from "@impulse-ui-native/flyout";
 
 The overlay closes the sheet when pressed. A drag past half the measured sheet height, or a sufficiently fast swipe toward the edge, closes it as well.
 
+The backdrop uses the theme's tertiary text color: dark in light mode and muted
+gray in dark mode, at 40% opacity. The drag handle uses a neutral border color.
+
 For app-wide imperative sheets, register `Flyout` through an `OverlayStore` and mount `OverlayHost` inside the matching `OverlayProvider`.

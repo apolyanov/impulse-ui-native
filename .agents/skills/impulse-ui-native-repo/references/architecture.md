@@ -75,8 +75,9 @@ compatibility decisions.
 - `storybook`: shared story helpers plus all component stories and
   documentation screens. Story source is excluded from its public build.
 
-The toolkit does not re-export the icon package. Icons are intentionally
-imported from the icon package's explicit subpaths.
+The toolkit does not re-export the icon package. Import the shared `Icon`
+renderer and its types from `@impulse-ui-native/icon`, and named icons from
+per-icon subpaths such as `@impulse-ui-native/icon/icons/heart`.
 
 ## Dependency direction
 
@@ -112,8 +113,10 @@ Most packages follow this contract:
 - workspace dependencies use `workspace:*` and shared externals use the pnpm
   catalog.
 
-The icon package is exceptional: it exposes only `./components/icon`,
-`./icons/*`, and `./types`, all from built output, to support per-icon imports.
+The icon package exposes its shared `Icon` renderer and types from the package
+root, while named icons use `./icons/*` subpaths to support per-icon imports.
+The `./components/icon` and `./types` subpaths remain available for compatibility.
+All icon package entrypoints resolve to built output.
 
 ## Application responsibilities
 

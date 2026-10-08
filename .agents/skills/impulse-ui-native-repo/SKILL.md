@@ -74,7 +74,8 @@ the affected source and manifests when they may have changed.
   `useControllableState` where both modes are supported.
 - Add public exports deliberately through local barrels, the package root, and
   `toolkit` when aggregation is intended. Icons are a special case and use
-  per-icon subpath exports.
+  a root export for the shared renderer and types, and per-icon subpath exports
+  for named icons.
 - Treat Storybook as product documentation: a component normally has a story,
   examples, and a documentation page designed for the native host. Web preview
   compatibility is optional and must not add web-only requirements.

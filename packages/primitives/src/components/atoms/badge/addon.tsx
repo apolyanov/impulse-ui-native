@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import { memo, useMemo } from "react";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 
 import type { PressableCoreProps } from "../../../types";
 import { Pressable } from "../pressable";

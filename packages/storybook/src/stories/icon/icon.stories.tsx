@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { HeartIcon } from "@impulse-ui-native/icon/icons/heart";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
 

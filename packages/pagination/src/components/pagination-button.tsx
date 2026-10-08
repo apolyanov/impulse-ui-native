@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 import type { IconProps } from "@impulse-ui-native/icon/types";
 import type { AppTheme, ComponentSize } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { Pressable, Typography } from "@impulse-ui-native/primitives";
 import {
   getPaginationStateTokens,

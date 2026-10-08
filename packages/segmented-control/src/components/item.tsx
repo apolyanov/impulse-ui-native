@@ -9,7 +9,7 @@ import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
 import {
   getSegmentedControlItemTokens,

@@ -225,7 +225,7 @@ Theme overrides are deep partials. Hooks including `useTheme`, `useColors`, `use
 Import icons through per-icon entrypoints from `@impulse-ui-native/icon`:
 
 ```tsx
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { HeartIcon } from "@impulse-ui-native/icon/icons/heart";
 
 <Icon icon={HeartIcon} variant="duotone" size="large" color="#6d5dfc" />;

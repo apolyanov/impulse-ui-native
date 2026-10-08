@@ -9,7 +9,7 @@ import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useControllableState } from "@impulse-ui-native/core";
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { CheckIcon } from "@impulse-ui-native/icon/icons/check";
 import { MinusIcon } from "@impulse-ui-native/icon/icons/minus";
 import { Pressable } from "@impulse-ui-native/primitives";

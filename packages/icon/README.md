@@ -19,7 +19,7 @@ pnpm add @impulse-ui-native/icon react-native-svg
 ## Usage
 
 ```tsx
-import { Icon } from "@impulse-ui-native/icon/components/icon";
+import { Icon } from "@impulse-ui-native/icon";
 import { HeartIcon } from "@impulse-ui-native/icon/icons/heart";
 
 <Icon icon={HeartIcon} variant="duotone" size="large" color="#6d5dfc" />;

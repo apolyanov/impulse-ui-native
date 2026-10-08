@@ -15,6 +15,11 @@ rmSync("dist", { force: true, recursive: true });
 export default defineConfig([
   {
     ...commonOptions,
+    entry: ["src/index.ts"],
+    outDir: "dist",
+  },
+  {
+    ...commonOptions,
     entry: ["src/components/*.ts", "src/components/*.tsx"],
     outDir: "dist/components",
   },
