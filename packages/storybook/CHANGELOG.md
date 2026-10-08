@@ -1,5 +1,18 @@
 # @impulse-ui-native/storybook
 
+## 6.3.0
+
+### Patch Changes
+
+- Updated dependencies [9f7f2a2]
+- Updated dependencies [9f7f2a2]
+  - @impulse-ui-native/theme@6.3.0
+  - @impulse-ui-native/icon@6.3.0
+  - @impulse-ui-native/card@6.3.0
+  - @impulse-ui-native/list@6.3.0
+  - @impulse-ui-native/primitives@6.3.0
+  - @impulse-ui-native/progress@6.3.0
+
 ## 6.2.0
 
 ### Minor Changes

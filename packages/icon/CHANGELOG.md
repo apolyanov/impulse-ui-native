@@ -1,5 +1,16 @@
 # @impulse-ui-native/icon
 
+## 6.3.0
+
+### Minor Changes
+
+- 9f7f2a2: Expose Icon and its types from the package root while preserving existing component, type, and per-icon subpath imports.
+
+### Patch Changes
+
+- Updated dependencies [9f7f2a2]
+  - @impulse-ui-native/theme@6.3.0
+
 ## 6.2.0
 
 ### Patch Changes
