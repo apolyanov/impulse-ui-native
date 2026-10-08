@@ -8,7 +8,6 @@ import { useStyleProps, useThemedStyles } from "@impulse-ui-native/theme";
 import type { PopoverContentProps } from "../types";
 import type { PopoverSurfaceStyleProps } from "../types/popover.types";
 import { usePopoverSurface } from "../hooks/use-popover-surface.hook";
-import { getArrowStyle } from "../utils/popover-position.utils";
 
 export const PopoverSurfaceView = memo(function PopoverSurfaceView({
   children,
@@ -43,9 +42,6 @@ export const PopoverSurfaceView = memo(function PopoverSurfaceView({
         onLayout={handleLayout}
       >
         {children}
-        {styleProps.ready && styleProps.position?.showArrow ? (
-          <View pointerEvents="none" style={styles.arrow} />
-        ) : null}
       </View>
     </View>
   );
@@ -78,19 +74,6 @@ function themedStyles(
       paddingHorizontal: appearance.paddingHorizontal,
       paddingVertical: appearance.paddingVertical,
       gap: tokens.gap,
-    },
-
-    arrow: {
-      position: "absolute",
-      ...(position
-        ? getArrowStyle(
-            position,
-            tokens.arrowSize,
-            appearance.value,
-            appearance.borderWidth,
-            appearance.borderColor,
-          )
-        : {}),
     },
   });
 }

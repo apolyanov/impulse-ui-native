@@ -70,8 +70,6 @@ export interface PopoverPosition {
   x: number;
   y: number;
   placement: PopoverPlacement;
-  arrowOffset: number;
-  showArrow: boolean;
 }
 
 export interface PopoverPositionOptions {
@@ -82,7 +80,6 @@ export interface PopoverPositionOptions {
 
   placement: PopoverPlacement;
   gap: number;
-  arrowInset: number;
 }
 
 export interface PopoverSurfaceStyleProps {

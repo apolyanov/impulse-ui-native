@@ -2,11 +2,13 @@ import type { ComponentProps } from "react";
 import { memo } from "react";
 
 import { StoryExample } from "../../components/story-example";
+import { PopoverPlacementPreview } from "./popover-placement-preview";
 import { PopoverPreview } from "./popover-preview";
 
 interface PopoverExampleDefinition {
   name: string;
   description: string;
+  preview?: "placement";
   props: ComponentProps<typeof PopoverPreview>;
 }
 
@@ -43,18 +45,37 @@ export const PopoverExampleDefinitions: PopoverExampleDefinition[] = [
   },
   {
     name: "Top",
-    description: "Prefer top, flipping when the opposite side has more room.",
+    description:
+      "A compact popover above a centered trigger with room on every side.",
+    preview: "placement",
     props: { placement: "top" },
   },
   {
+    name: "Bottom",
+    description:
+      "A compact popover below a centered trigger with room on every side.",
+    preview: "placement",
+    props: { placement: "bottom" },
+  },
+  {
     name: "Left",
-    description: "Prefer the physical left side, respecting safe-area bounds.",
+    description:
+      "A compact popover to the physical left of a centered trigger.",
+    preview: "placement",
     props: { placement: "left" },
+  },
+  {
+    name: "Right",
+    description:
+      "A compact popover to the physical right of a centered trigger.",
+    preview: "placement",
+    props: { placement: "right" },
   },
   {
     name: "RightEdge",
     description:
-      "A right-edge anchor forces a left flip or horizontal shift; the arrow stays aligned.",
+      "A right-edge anchor forces a left flip or horizontal shift to keep the panel within safe-area bounds.",
+    preview: "placement",
     props: { placement: "right", edge: true },
   },
 ];
@@ -70,7 +91,11 @@ export const PopoverExample = memo(function PopoverExample({
       description={example.description}
       elevated
     >
-      <PopoverPreview {...example.props} />
+      {example.preview === "placement" ? (
+        <PopoverPlacementPreview {...example.props} />
+      ) : (
+        <PopoverPreview {...example.props} />
+      )}
     </StoryExample>
   );
 });

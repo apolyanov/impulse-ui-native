@@ -57,7 +57,7 @@ The convenience form assembles Trigger and Content:
 - `surface` selects elevated (default) or inverse appearance for Popover. Tooltip uses inverse. Override `components.popover` on ThemeProvider for shared geometry, typography, and surface styling.
 - Elevated content defaults to 320dp wide; inverse hints size to their content. Both are constrained to the available host width. Content spacing and width can be customized with primitive style props or `style`.
 - Anchors and host bounds are measured on opening and polled every 100ms while open, following scrolling and layout changes. Only one measurement is in flight; slow native callbacks are allowed to finish. Closed overlays have no measurement timer. Content stays hidden until measured and when its anchor is outside the usable host bounds.
-- Collision handling flips to the opposite side when it has more space, then shifts into safe-area bounds. The arrow tracks the anchor and hides if a constrained panel cannot point accurately. Extremely large content can overlap the anchor after clamping.
+- Popover and Tooltip use rounded panels without arrows. Collision handling flips to the opposite side when it has more space, then shifts into safe-area bounds. Extremely large content can overlap the anchor after clamping.
 
 ## Exports and verification
 

@@ -4,6 +4,7 @@ export interface PopoverTokens {
   zIndexBase: number;
   gap: number;
   edgeOffset: number;
+  /** @deprecated Popover and Tooltip no longer render arrows. This token is ignored. */
   arrowSize: number;
   maxWidth: number;
   actionMinSize: number;

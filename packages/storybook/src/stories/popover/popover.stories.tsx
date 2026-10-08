@@ -4,6 +4,7 @@ import { Popover } from "@impulse-ui-native/popover";
 import { Typography } from "@impulse-ui-native/primitives";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
 
+import { PopoverPlacementPreview } from "./popover-placement-preview";
 import { PopoverPreview } from "./popover-preview";
 import { PopoverDocumentation } from "./popover.documentation";
 import { PopoverExample, PopoverExampleDefinitions } from "./popover.examples";
@@ -70,7 +71,9 @@ export const Disabled: Story = createPopoverStory("Disabled");
 export const Tooltip: Story = createPopoverStory("Tooltip");
 export const LongPress: Story = createPopoverStory("LongPress");
 export const Top: Story = createPopoverStory("Top");
+export const Bottom: Story = createPopoverStory("Bottom");
 export const Left: Story = createPopoverStory("Left");
+export const Right: Story = createPopoverStory("Right");
 export const RightEdge: Story = createPopoverStory("RightEdge");
 
 function createPopoverStory(name: string): Story {
@@ -82,6 +85,10 @@ function createPopoverStory(name: string): Story {
 
   return {
     render: function renderExample() {
+      if (example.preview === "placement") {
+        return <PopoverPlacementPreview {...example.props} initiallyOpen />;
+      }
+
       return <PopoverExample example={example} />;
     },
 

@@ -1,5 +1,3 @@
-import type { ViewStyle } from "react-native";
-
 import type {
   PopoverPlacement,
   PopoverPosition,
@@ -29,7 +27,6 @@ export function getPopoverPosition({
   height,
   placement: preferred,
   gap,
-  arrowInset,
 }: PopoverPositionOptions): PopoverPosition {
   const right = bounds.x + bounds.width;
   const bottom = bounds.y + bounds.height;
@@ -70,81 +67,5 @@ export function getPopoverPosition({
     bottom - height,
   );
 
-  const edgeLength = vertical ? width : height;
-  const inset = Math.min(arrowInset, edgeLength / 2);
-  const offset = vertical ? centerX - x : centerY - y;
-  const facing =
-    placement === "top"
-      ? y + height <= anchor.y
-      : placement === "bottom"
-        ? y >= anchor.y + anchor.height
-        : placement === "left"
-          ? x + width <= anchor.x
-          : x >= anchor.x + anchor.width;
-
-  return {
-    x,
-    y,
-    placement,
-    arrowOffset: clamp(offset, inset, edgeLength - inset),
-    showArrow: facing && offset >= inset && offset <= edgeLength - inset,
-  };
-}
-
-export function getArrowStyle(
-  position: PopoverPosition,
-  size: number,
-  color: string,
-  borderWidth: number,
-  borderColor: string,
-): ViewStyle {
-  const side = size * Math.SQRT2;
-  const offset = position.arrowOffset - borderWidth - side / 2;
-  const edge = -(side + borderWidth) / 2;
-
-  // The inner half covers the panel's border; only the outward edges are outlined.
-  const shared: ViewStyle = {
-    width: side,
-    height: side,
-    backgroundColor: color,
-    borderColor,
-    transform: [{ rotate: "45deg" }],
-    ...(position.placement === "top" || position.placement === "bottom"
-      ? { left: offset }
-      : { top: offset }),
-  };
-
-  switch (position.placement) {
-    case "top":
-      return {
-        ...shared,
-        bottom: edge,
-        borderBottomWidth: borderWidth,
-        borderRightWidth: borderWidth,
-      };
-
-    case "bottom":
-      return {
-        ...shared,
-        top: edge,
-        borderTopWidth: borderWidth,
-        borderLeftWidth: borderWidth,
-      };
-
-    case "left":
-      return {
-        ...shared,
-        right: edge,
-        borderTopWidth: borderWidth,
-        borderRightWidth: borderWidth,
-      };
-
-    case "right":
-      return {
-        ...shared,
-        left: edge,
-        borderBottomWidth: borderWidth,
-        borderLeftWidth: borderWidth,
-      };
-  }
+  return { x, y, placement };
 }

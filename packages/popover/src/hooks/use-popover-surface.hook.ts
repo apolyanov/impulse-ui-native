@@ -28,11 +28,9 @@ export function usePopoverSurface(onLayout: PopoverContentProps["onLayout"]) {
             ...size,
             placement,
             gap: tokens.gap,
-            arrowInset:
-              tokens.surfaces[surface].borderRadius + tokens.arrowSize,
           })
         : null,
-    [measurement, bounds, size, placement, surface, tokens],
+    [measurement, bounds, size, placement, tokens.gap],
   );
 
   const ready = visible && size.width > 0 && size.height > 0;
