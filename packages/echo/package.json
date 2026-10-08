@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/echo",
-  "version": "6.3.0",
+  "version": "6.3.1",
   "description": "Feedback and notification components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

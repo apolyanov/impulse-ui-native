@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/theme",
-  "version": "6.3.0",
+  "version": "6.3.1",
   "description": "Theme tokens, providers, and styling utilities for ImpulseUI Native.",
   "keywords": [
     "react-native",

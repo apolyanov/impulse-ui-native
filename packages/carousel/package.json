@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/carousel",
-  "version": "6.3.0",
+  "version": "6.3.1",
   "description": "Native snapping carousel with centered previews and themed navigation.",
   "keywords": [
     "react-native",

@@ -1,5 +1,12 @@
 # @impulse-ui-native/theme
 
+## 6.3.1
+
+### Patch Changes
+
+- 09c3cf2: Remove arrows from Popover and Tooltip panels and simplify their positioning geometry. Deprecate the ignored arrowSize theme token while retaining it for compatibility with existing themes.
+  - @impulse-ui-native/core@6.3.1
+
 ## 6.3.0
 
 ### Patch Changes

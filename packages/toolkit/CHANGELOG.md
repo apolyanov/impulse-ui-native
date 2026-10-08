@@ -1,5 +1,40 @@
 # @impulse-ui-native/toolkit
 
+## 6.3.1
+
+### Patch Changes
+
+- Updated dependencies [09c3cf2]
+  - @impulse-ui-native/popover@6.3.1
+  - @impulse-ui-native/theme@6.3.1
+  - @impulse-ui-native/accordion@6.3.1
+  - @impulse-ui-native/card@6.3.1
+  - @impulse-ui-native/carousel@6.3.1
+  - @impulse-ui-native/charts@6.3.1
+  - @impulse-ui-native/checkbox@6.3.1
+  - @impulse-ui-native/data-state@6.3.1
+  - @impulse-ui-native/datetime@6.3.1
+  - @impulse-ui-native/flyout@6.3.1
+  - @impulse-ui-native/form-field@6.3.1
+  - @impulse-ui-native/input@6.3.1
+  - @impulse-ui-native/list@6.3.1
+  - @impulse-ui-native/pagination@6.3.1
+  - @impulse-ui-native/primitives@6.3.1
+  - @impulse-ui-native/progress@6.3.1
+  - @impulse-ui-native/radio@6.3.1
+  - @impulse-ui-native/segmented-control@6.3.1
+  - @impulse-ui-native/select@6.3.1
+  - @impulse-ui-native/skeleton@6.3.1
+  - @impulse-ui-native/slider@6.3.1
+  - @impulse-ui-native/stepper@6.3.1
+  - @impulse-ui-native/switch@6.3.1
+  - @impulse-ui-native/toast@6.3.1
+  - @impulse-ui-native/core@6.3.1
+  - @impulse-ui-native/echo@6.3.1
+  - @impulse-ui-native/endpoint@6.3.1
+  - @impulse-ui-native/overlay@6.3.1
+  - @impulse-ui-native/portal@6.3.1
+
 ## 6.3.0
 
 ### Patch Changes
