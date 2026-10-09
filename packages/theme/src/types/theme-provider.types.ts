@@ -5,6 +5,7 @@ import type { ListTokens } from "./list-tokens.types";
 import type { ModalTokens } from "./modal-tokens.types";
 import type { PopoverTokens } from "./popover-tokens.types";
 import type { RadioTokens } from "./radio-tokens.types";
+import type { TabsTokens } from "./tabs-tokens.types";
 import type { ToastTokens } from "./toast-tokens.types";
 import { AccordionTokens } from "./accordion-tokens.types";
 import { AvatarTokens } from "./avatar-tokens.types";
@@ -132,6 +133,7 @@ export interface ComponentsTokens {
   controlLabel: ControlLabelTokens;
   select: SelectTokens;
   segmentedControl: SegmentedControlTokens;
+  tabs: TabsTokens;
   datetimePicker: DatetimePickerTokens;
   divider: DividerTokens;
   timePicker: TimePickerTokens;

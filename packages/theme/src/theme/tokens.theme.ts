@@ -50,6 +50,7 @@ import { createSliderTokens } from "./create-slider-tokens";
 import { createSpinnerTokens } from "./create-spinner-tokens";
 import { createStepperTokens } from "./create-stepper-tokens";
 import { createSwitchTokens } from "./create-switch-tokens";
+import { createTabsTokens } from "./create-tabs-tokens";
 import { createTagTokens } from "./create-tag-tokens";
 import { createTextareaTokens } from "./create-textarea-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
@@ -418,6 +419,7 @@ export function createComponentsTokens(
     controlLabel: createControlLabelTokens(tokens),
     select: createSelectTokens(tokens),
     segmentedControl: createSegmentedControlTokens(tokens),
+    tabs: createTabsTokens(tokens),
     datetimePicker: createDatetimePickerTokens(tokens),
     divider: createDividerTokens(tokens),
     timePicker: createTimePickerTokens(tokens),

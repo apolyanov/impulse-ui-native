@@ -81,12 +81,13 @@ A component should normally include all of the following before it moves to
 
 ### Navigation and workflow
 
-| Component               | Package                         | Status    | Storybook | Follow-up                                                                      |
-| ----------------------- | ------------------------------- | --------- | --------- | ------------------------------------------------------------------------------ |
-| `Pagination`            | `@impulse-ui-native/pagination` | Available | Yes       | Add automated page-window and navigation-boundary tests.                       |
-| `Carousel`              | `@impulse-ui-native/carousel`   | Extend    | Yes       | Validate gestures, centered previews, and controlled state on iOS and Android. |
-| `Stepper`               | `@impulse-ui-native/stepper`    | Extend    | Yes       | Add optional/disabled steps and validation hooks.                              |
-| `StepperTabsNavigation` | `@impulse-ui-native/stepper`    | Extend    | Yes       | Add native overflow and scrolling behavior.                                    |
+| Component               | Package                         | Status    | Storybook | Follow-up                                                                                  |
+| ----------------------- | ------------------------------- | --------- | --------- | ------------------------------------------------------------------------------------------ |
+| `Pagination`            | `@impulse-ui-native/pagination` | Available | Yes       | Add automated page-window and navigation-boundary tests.                                   |
+| `Tabs`                  | `@impulse-ui-native/tabs`       | Available | Yes       | Add native interaction coverage for selection, scrolling, and conditional panel lifecycle. |
+| `Carousel`              | `@impulse-ui-native/carousel`   | Extend    | Yes       | Validate gestures, centered previews, and controlled state on iOS and Android.             |
+| `Stepper`               | `@impulse-ui-native/stepper`    | Extend    | Yes       | Add optional/disabled steps and validation hooks.                                          |
+| `StepperTabsNavigation` | `@impulse-ui-native/stepper`    | Extend    | Yes       | Add native overflow and scrolling behavior.                                                |
 
 ### Overlays and composition infrastructure
 
@@ -158,7 +159,6 @@ have been discussed.
 | Avatar                  | Available | Shared visual variants, image, initials, custom fallback, and semantic status.                                                                                                                |
 | Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction.                                                                      |
 | List / List Item        | Available | Dedicated list package with ready-made item rendering, child-only compound rows, explicit Divider composition, and optional press actions.                                                    |
-| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                                                                                       |
 | Accordion / Collapsible | Available | Single/multiple expansion, animated height, nested content, and explicit animated indicator composition.                                                                                      |
 | Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                                                                            |
 | Tooltip / Popover       | Extend    | Implemented in `@impulse-ui-native/popover`: shared positioning, Portal rendering, compound parts, and convenience header/title/close/footer composition. Native device verification remains. |

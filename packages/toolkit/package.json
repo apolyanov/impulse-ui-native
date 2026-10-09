@@ -63,7 +63,8 @@
     "@impulse-ui-native/card": "workspace:*",
     "@impulse-ui-native/list": "workspace:*",
     "@impulse-ui-native/progress": "workspace:*",
-    "@impulse-ui-native/modal": "workspace:*"
+    "@impulse-ui-native/modal": "workspace:*",
+    "@impulse-ui-native/tabs": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",

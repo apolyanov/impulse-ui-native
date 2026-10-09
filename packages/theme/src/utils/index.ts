@@ -11,3 +11,4 @@ export * from "./selection-state.utils";
 export * from "./segmented-control-state.utils";
 export * from "./slider-tokens.utils";
 export * from "./style.utils";
+export * from "./tabs-state.utils";

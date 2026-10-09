@@ -75,7 +75,8 @@
     "typescript": "catalog:",
     "@impulse-ui-native/carousel": "workspace:*",
     "@impulse-ui-native/toast": "workspace:*",
-    "@impulse-ui-native/modal": "workspace:*"
+    "@impulse-ui-native/modal": "workspace:*",
+    "@impulse-ui-native/tabs": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",
