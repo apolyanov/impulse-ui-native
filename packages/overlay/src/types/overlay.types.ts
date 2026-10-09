@@ -1,6 +1,10 @@
 import type { ComponentType, ElementType, ReactNode } from "react";
 
 import type { OverlayStore } from "../stores";
+import type {
+  OverlayLifecycleStatus,
+  OverlayStatusCallback,
+} from "./overlay-lifecycle.types";
 
 export type OverlayID = string;
 
@@ -34,6 +38,7 @@ export interface OverlayComponentProps {
   onOpenFinished?: OverlayLifecycleCallback;
   onClose?: OverlayLifecycleCallback;
   onCloseFinished?: OverlayLifecycleCallback;
+  onStatusChange?: OverlayStatusCallback;
 }
 
 export type OverlayOpenArguments<Props extends object> = [Props] extends [never]
@@ -56,6 +61,7 @@ export interface OverlayRegistrationProps<Props extends object = never> {
   onOpenFinished?: OverlayLifecycleCallback;
   onClose?: OverlayLifecycleCallback;
   onCloseFinished?: OverlayLifecycleCallback;
+  onStatusChange?: OverlayStatusCallback;
 }
 
 export type OpenOverlay<Props extends object> = (
@@ -70,6 +76,7 @@ export interface OverlayController<Props extends object> {
 export interface OverlayEntry {
   id: OverlayID;
   open: boolean;
+  status?: OverlayLifecycleStatus;
   Component: ComponentType<OverlayComponentProps>;
   Content: ElementType;
   contentProps?: object;
@@ -78,4 +85,5 @@ export interface OverlayEntry {
   onOpenFinished?: OverlayLifecycleCallback;
   onClose?: OverlayLifecycleCallback;
   onCloseFinished?: OverlayLifecycleCallback;
+  onStatusChange?: OverlayStatusCallback;
 }

@@ -50,5 +50,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "prettier": "@impulse-ui-native/prettier-config"
+  "prettier": "@impulse-ui-native/prettier-config",
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*"
+  }
 }

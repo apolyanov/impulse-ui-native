@@ -2,6 +2,7 @@ import type {
   OverlayController,
   OverlayEntry,
   OverlayID,
+  OverlayLifecycleStatus,
   OverlayListener,
   OverlayOpenArguments,
   OverlayRegistrationProps,
@@ -47,6 +48,18 @@ export class OverlayStore {
       ...entry,
       open: false,
     });
+
+    this.emitChange();
+  }
+
+  setStatus(id: OverlayID, status: OverlayLifecycleStatus) {
+    const entry = this.entries.get(id);
+
+    if (!entry || entry.status === status) {
+      return;
+    }
+
+    this.entries.set(id, { ...entry, status });
 
     this.emitChange();
   }
@@ -115,6 +128,7 @@ export class OverlayStore {
       onOpenFinished: registration.onOpenFinished,
       onClose: registration.onClose,
       onCloseFinished: registration.onCloseFinished,
+      onStatusChange: registration.onStatusChange,
     };
   }
 

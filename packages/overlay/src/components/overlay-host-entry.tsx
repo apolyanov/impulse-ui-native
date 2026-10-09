@@ -1,6 +1,8 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 
-import type { OverlayEntry } from "../types";
+import { useEventCallback } from "@impulse-ui-native/core";
+
+import type { OverlayEntry, OverlayLifecycleStatus } from "../types";
 import { useOverlayContext } from "../hooks";
 
 interface OverlayHostEntryProps {
@@ -8,21 +10,27 @@ interface OverlayHostEntryProps {
   layer: number;
 }
 
-export const OverlayHostEntry = memo(function OverlayHostEntry(
-  props: OverlayHostEntryProps,
-) {
-  const { entry, layer } = props;
-
+export const OverlayHostEntry = memo(function OverlayHostEntry({
+  entry,
+  layer,
+}: OverlayHostEntryProps) {
   const { store } = useOverlayContext();
 
-  const handleCloseFinished = useCallback(() => {
+  const handleStatusChange = useEventCallback(
+    (id: string, status: OverlayLifecycleStatus) => {
+      store.setStatus(id, status);
+      entry.onStatusChange?.(id, status);
+    },
+  );
+
+  const handleCloseFinished = useEventCallback(() => {
     // Store cleanup is host-owned and must run even if the consumer callback throws.
     try {
       entry.onCloseFinished?.(entry.id);
     } finally {
       store.remove(entry.id);
     }
-  }, [entry.id, entry.onCloseFinished, store]);
+  });
 
   return (
     <entry.Component
@@ -34,6 +42,7 @@ export const OverlayHostEntry = memo(function OverlayHostEntry(
       onOpenFinished={entry.onOpenFinished}
       onClose={entry.onClose}
       onCloseFinished={handleCloseFinished}
+      onStatusChange={handleStatusChange}
     >
       <entry.Content {...entry.contentProps} />
     </entry.Component>

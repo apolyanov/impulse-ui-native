@@ -1186,6 +1186,10 @@ importers:
         version: 6.0.3
 
   packages/overlay:
+    dependencies:
+      '@impulse-ui-native/core':
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       '@impulse-ui-native/eslint-config':
         specifier: workspace:*
