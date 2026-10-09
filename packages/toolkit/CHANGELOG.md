@@ -1,5 +1,46 @@
 # @impulse-ui-native/toolkit
 
+## 8.1.0
+
+### Minor Changes
+
+- be262a8: Add token-aware underline Tabs with a flat items API, controlled and uncontrolled selection, disabled tabs, scrollable lists, and conditional active-panel rendering.
+
+### Patch Changes
+
+- Updated dependencies [be262a8]
+  - @impulse-ui-native/tabs@8.1.0
+  - @impulse-ui-native/theme@8.1.0
+  - @impulse-ui-native/accordion@8.1.0
+  - @impulse-ui-native/card@8.1.0
+  - @impulse-ui-native/carousel@8.1.0
+  - @impulse-ui-native/charts@8.1.0
+  - @impulse-ui-native/checkbox@8.1.0
+  - @impulse-ui-native/data-state@8.1.0
+  - @impulse-ui-native/datetime@8.1.0
+  - @impulse-ui-native/flyout@8.1.0
+  - @impulse-ui-native/form-field@8.1.0
+  - @impulse-ui-native/input@8.1.0
+  - @impulse-ui-native/list@8.1.0
+  - @impulse-ui-native/modal@8.1.0
+  - @impulse-ui-native/pagination@8.1.0
+  - @impulse-ui-native/popover@8.1.0
+  - @impulse-ui-native/primitives@8.1.0
+  - @impulse-ui-native/progress@8.1.0
+  - @impulse-ui-native/radio@8.1.0
+  - @impulse-ui-native/segmented-control@8.1.0
+  - @impulse-ui-native/select@8.1.0
+  - @impulse-ui-native/skeleton@8.1.0
+  - @impulse-ui-native/slider@8.1.0
+  - @impulse-ui-native/stepper@8.1.0
+  - @impulse-ui-native/switch@8.1.0
+  - @impulse-ui-native/toast@8.1.0
+  - @impulse-ui-native/core@8.1.0
+  - @impulse-ui-native/echo@8.1.0
+  - @impulse-ui-native/endpoint@8.1.0
+  - @impulse-ui-native/overlay@8.1.0
+  - @impulse-ui-native/portal@8.1.0
+
 ## 8.0.0
 
 ### Patch Changes

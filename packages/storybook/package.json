@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/storybook",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "Shared Storybook stories and configuration for ImpulseUI Native components.",
   "keywords": [
     "react-native",

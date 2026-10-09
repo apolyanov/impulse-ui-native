@@ -1,5 +1,15 @@
 # @impulse-ui-native/theme
 
+## 8.1.0
+
+### Minor Changes
+
+- be262a8: Add token-aware underline Tabs with a flat items API, controlled and uncontrolled selection, disabled tabs, scrollable lists, and conditional active-panel rendering.
+
+### Patch Changes
+
+- @impulse-ui-native/core@8.1.0
+
 ## 8.0.0
 
 ### Patch Changes
