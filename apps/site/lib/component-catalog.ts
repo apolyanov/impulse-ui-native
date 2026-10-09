@@ -2,6 +2,68 @@ import type { SystemIconName } from "@/lib/icons/system-icon";
 
 export const componentGroups = [
   {
+    name: "Foundations",
+    icon: "code",
+    components: [
+      {
+        name: "ThemeProvider",
+        description:
+          "Apply light or dark themes with primitive and component-token overrides.",
+        packageName: "@impulse-ui-native/theme",
+        sourcePath: "theme/src/providers/theme.provider.tsx",
+        tags: ["Theming", "Tokens"],
+      },
+      {
+        name: "View",
+        description:
+          "Compose native layouts with token-aware spacing, surfaces, borders, and dimensions.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/view.tsx",
+        tags: ["Layout", "Tokens"],
+      },
+      {
+        name: "SafeAreaView",
+        description:
+          "Apply native safe-area edges alongside themed layout and spacing.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/safe-area-view.tsx",
+        tags: ["Layout", "Safe area"],
+      },
+      {
+        name: "Typography",
+        description:
+          "Render text through shared Montserrat presets, weights, and semantic colors.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/typography.tsx",
+        tags: ["Text", "Tokens"],
+      },
+      {
+        name: "Pressable",
+        description:
+          "Build native actions with shared pressed and disabled feedback.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/atoms/pressable.tsx",
+        tags: ["Interactive", "Foundation"],
+      },
+      {
+        name: "Control",
+        description:
+          "Compose field labels, addons, values, loaders, and errors from child-only parts.",
+        packageName: "@impulse-ui-native/primitives",
+        sourcePath: "primitives/src/components/controls/control.tsx",
+        tags: ["Compound", "Fields"],
+      },
+      {
+        name: "Icon",
+        description:
+          "Render typed icon glyphs and named wrappers from the separate icon package.",
+        packageName: "@impulse-ui-native/icon",
+        sourcePath: "icon/src/components/icon.tsx",
+        tags: ["Icons", "SVG"],
+      },
+    ],
+  },
+  {
     name: "Actions",
     icon: "zap",
     components: [
@@ -16,10 +78,10 @@ export const componentGroups = [
       {
         name: "IconButton",
         description:
-          "Present compact, accessible actions when an icon communicates the intent.",
+          "Present compact actions across shared sizes, variants, and loading states.",
         packageName: "@impulse-ui-native/primitives",
         sourcePath: "primitives/src/components/atoms/icon-button.tsx",
-        tags: ["Interactive", "Accessible"],
+        tags: ["Interactive", "Icon action"],
       },
     ],
   },
@@ -46,7 +108,7 @@ export const componentGroups = [
       {
         name: "Checkbox",
         description:
-          "Toggle checked, unchecked, and indeterminate states with accessible semantics.",
+          "Toggle checked, unchecked, and indeterminate states across shared sizes and variants.",
         packageName: "@impulse-ui-native/checkbox",
         sourcePath: "checkbox/src/components/checkbox.tsx",
         tags: ["Interactive", "3 states"],
@@ -54,10 +116,10 @@ export const componentGroups = [
       {
         name: "Radio",
         description:
-          "Present an accessible single-choice control across shared sizes and variants.",
+          "Present a single-choice control with caller-managed group selection.",
         packageName: "@impulse-ui-native/radio",
         sourcePath: "radio/src/components/radio.tsx",
-        tags: ["Interactive", "Accessible"],
+        tags: ["Interactive", "Selection"],
       },
       {
         name: "Switch",
@@ -70,10 +132,18 @@ export const componentGroups = [
       {
         name: "Select",
         description:
-          "Choose one or many values through a themed control and native flyout.",
+          "Choose one value through a themed control and native flyout.",
         packageName: "@impulse-ui-native/select",
         sourcePath: "select/src/components/select.tsx",
         tags: ["Interactive", "Flyout"],
+      },
+      {
+        name: "MultiSelect",
+        description:
+          "Choose multiple values with disabled options and a native flyout.",
+        packageName: "@impulse-ui-native/select",
+        sourcePath: "select/src/components/multi-select.tsx",
+        tags: ["Interactive", "Multiple values"],
       },
       {
         name: "Slider",
@@ -105,20 +175,43 @@ export const componentGroups = [
           "Compose labels, descriptions, required state, and validation around custom controls.",
         packageName: "@impulse-ui-native/form-field",
         sourcePath: "form-field/src/components/form-field.tsx",
-        tags: ["Accessible", "Validated"],
+        tags: ["Composable", "Validated"],
       },
       {
-        name: "DateTimePicker",
+        name: "DatePicker",
         description:
-          "Select dates with calendar navigation and configurable date constraints.",
+          "Select a calendar date with clear/apply actions and quick-date choices.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath: "datetime/src/components/date/date-picker.tsx",
+        tags: ["Interactive", "Calendar"],
+      },
+      {
+        name: "DateRangePicker",
+        description: "Select start and end calendar dates in a native flyout.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath: "datetime/src/components/date/date-range-picker.tsx",
+        tags: ["Calendar", "Range"],
+      },
+      {
+        name: "DatetimePicker",
+        description: "Select a date together with hours, minutes, and seconds.",
         packageName: "@impulse-ui-native/datetime",
         sourcePath: "datetime/src/components/datetime/datetime-picker.tsx",
-        tags: ["Interactive", "Calendar"],
+        tags: ["Calendar", "Time"],
+      },
+      {
+        name: "DatetimeRangePicker",
+        description:
+          "Select a start and end date-time with staged apply/cancel actions.",
+        packageName: "@impulse-ui-native/datetime",
+        sourcePath:
+          "datetime/src/components/datetime/datetime-range-picker.tsx",
+        tags: ["Time", "Range"],
       },
       {
         name: "TimePicker",
         description:
-          "Select hours and minutes using native-friendly scrolling controls.",
+          "Select hours, minutes, and seconds using native scrolling columns.",
         packageName: "@impulse-ui-native/datetime",
         sourcePath: "datetime/src/components/time/time-picker.tsx",
         tags: ["Interactive", "Time"],
@@ -167,12 +260,12 @@ export const componentGroups = [
           "Separate content horizontally or vertically with logical insets and semantic colors.",
         packageName: "@impulse-ui-native/primitives",
         sourcePath: "primitives/src/components/atoms/divider.tsx",
-        tags: ["Layout", "Accessible"],
+        tags: ["Layout", "Logical insets"],
       },
       {
         name: "Accordion",
         description:
-          "Reveal collapsible sections with single or multiple expansion and keyboard navigation.",
+          "Reveal collapsible sections with single or multiple expansion and animated content height.",
         packageName: "@impulse-ui-native/accordion",
         sourcePath: "accordion/src/components/accordion.ts",
         tags: ["Compound", "Animated"],
@@ -221,7 +314,7 @@ export const componentGroups = [
           "Show determinate or indeterminate progress with linear and circular variants.",
         packageName: "@impulse-ui-native/progress",
         sourcePath: "progress/src/components/progress.tsx",
-        tags: ["Loading", "Accessible"],
+        tags: ["Loading", "Animated"],
       },
       {
         name: "Skeleton",
@@ -232,9 +325,9 @@ export const componentGroups = [
         tags: ["Animated", "Loading"],
       },
       {
-        name: "DataState",
+        name: "DataView",
         description:
-          "Explain empty, error, and completed states with composable actions.",
+          "Coordinate loading, error, empty, and content states with supplied views and actions.",
         packageName: "@impulse-ui-native/data-state",
         sourcePath: "data-state/src/components/data-view.tsx",
         tags: ["Feedback", "Composable"],
@@ -254,9 +347,17 @@ export const componentGroups = [
         tags: ["Interactive", "Responsive"],
       },
       {
+        name: "Tabs",
+        description:
+          "Switch sections with a flat items API, scrollable underline tabs, and only the active panel mounted.",
+        packageName: "@impulse-ui-native/tabs",
+        sourcePath: "tabs/src/components/tabs.tsx",
+        tags: ["Interactive", "Conditional panels"],
+      },
+      {
         name: "Stepper",
         description:
-          "Guide multi-step flows with controlled steps, tab navigation, and shared navigation methods.",
+          "Guide multi-step content with controlled selection and shared next, previous, and goto methods.",
         packageName: "@impulse-ui-native/stepper",
         sourcePath: "stepper/src/components/stepper.tsx",
         tags: ["Interactive", "Workflow"],
@@ -267,6 +368,14 @@ export const componentGroups = [
     name: "Overlays",
     icon: "layers",
     components: [
+      {
+        name: "Modal",
+        description:
+          "Compose dialogs and confirmation actions with header/footer parts, backdrop dismissal, and Android Back handling.",
+        packageName: "@impulse-ui-native/modal",
+        sourcePath: "modal/src/components/modal.tsx",
+        tags: ["Compound", "Dialog"],
+      },
       {
         name: "Popover",
         description:
@@ -290,6 +399,28 @@ export const componentGroups = [
         packageName: "@impulse-ui-native/flyout",
         sourcePath: "flyout/src/components/flyout.tsx",
         tags: ["Overlay", "Animated"],
+      },
+    ],
+  },
+  {
+    name: "Infrastructure",
+    icon: "layers",
+    components: [
+      {
+        name: "Portal",
+        description:
+          "Render content in named hosts with a shared provider and portal store.",
+        packageName: "@impulse-ui-native/portal",
+        sourcePath: "portal/src/components/portal.tsx",
+        tags: ["Composition", "Hosts"],
+      },
+      {
+        name: "OverlayHost",
+        description:
+          "Coordinate registered overlays and observe their shared lifecycle.",
+        packageName: "@impulse-ui-native/overlay",
+        sourcePath: "overlay/src/components/overlay-host.tsx",
+        tags: ["Overlays", "Lifecycle"],
       },
     ],
   },

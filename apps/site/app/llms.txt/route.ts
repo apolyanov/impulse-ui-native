@@ -7,7 +7,7 @@ export function GET() {
 
 > ${seo.description}
 
-ImpulseUI Native is an MIT-licensed TypeScript component system for React Native. It provides composable controls, design tokens, native interaction patterns, and Storybook examples for iOS, Android, and React Native Web.
+ImpulseUI Native is an MIT-licensed TypeScript component system for React Native. It provides composable controls, design tokens, native interaction patterns, and Storybook examples for iOS and Android. Browser previews are available, but web component parity, built-in accessibility semantics, and reduced-motion support are deferred.
 
 ## Primary resources
 

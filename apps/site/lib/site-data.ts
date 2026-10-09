@@ -10,6 +10,7 @@ export const project = {
   name: "ImpulseUI Native",
   shortName: "ImpulseUI",
   version: toolkitPackage.version,
+  lastReviewed: "2026-10-10",
   license: "MIT",
   packageName: toolkitPackage.name,
   repository: "https://github.com/apolyanov/impulse-ui-native",

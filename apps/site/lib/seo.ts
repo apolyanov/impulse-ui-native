@@ -8,9 +8,9 @@ export const seo = {
   title: "ImpulseUI Native - Open-source React Native UI system",
   shortTitle: "ImpulseUI Native",
   description:
-    "A token-driven, composable React Native UI system for building consistent interfaces across iOS, Android, and the web.",
+    "A token-driven, composable React Native UI system for building consistent interfaces on iOS and Android.",
   socialDescription:
-    "Accessible React Native components, shared design tokens, native Flyouts, pickers, controls, and Storybook documentation.",
+    "React Native components, shared design tokens, native dialogs, Flyouts, tabs, pickers, and Storybook documentation.",
   locale: "en_US",
   language: "en",
   themeColor: "#f55d6b",

@@ -107,7 +107,7 @@ const features: {
   {
     icon: "box",
     title: "React Native",
-    copy: "Built for iOS, Android, and web.",
+    copy: "Built for native iOS and Android.",
   },
   {
     icon: "palette",
@@ -148,7 +148,7 @@ export function ComponentsSection() {
       <SectionContainer className="py-xxl">
         <div className="flex flex-col items-start gap-sm">
           <SectionHeading
-            copy="Browse the library by purpose, capability, and package. Native behavior stays in native Storybook, while this catalog gives every component a clear place in the system."
+            copy="Browse exported component families by purpose, capability, and package. Use native Storybook for interactions and the roadmap for remaining API and device-validation work."
             eyebrow="Components"
             title="Know what is available."
           />
@@ -159,6 +159,15 @@ export function ComponentsSection() {
             Browse package source
             <SystemIcon className="size-sm" name="arrow" />
           </a>
+          <div className="flex flex-wrap items-center gap-sm text-caption text-text-secondary">
+            <span>Catalog reviewed {project.lastReviewed}</span>
+            <a
+              className="text-primary hover:underline"
+              href={`${project.repository}/blob/main/docs/component-roadmap.md`}
+            >
+              View the roadmap
+            </a>
+          </div>
         </div>
         <div className="mt-lg space-y-lg">
           {componentGroups.map((group) => (
@@ -259,7 +268,7 @@ export function TokensSection() {
             <Eyebrow>Why tokens matter</Eyebrow>
             <ul className="mt-sm space-y-mxs">
               {[
-                "A shared visual contract across native and web.",
+                "A shared visual contract across iOS and Android.",
                 "Typed primitives instead of scattered magic numbers.",
                 "Component factories can evolve without product rewrites.",
                 "Theme intent stays visible in every class and prop.",

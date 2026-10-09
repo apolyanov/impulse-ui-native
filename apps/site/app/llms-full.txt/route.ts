@@ -25,7 +25,9 @@ export function GET() {
 - Repository: ${seo.repository}
 - License: ${project.license}
 - Primary languages: TypeScript, React, and React Native
-- Supported surfaces: iOS, Android, and React Native Web
+- Component development targets: iOS and Android
+- Catalog last reviewed: ${project.lastReviewed}
+- Browser previews are available; web component parity, built-in accessibility semantics, and reduced-motion support are deferred.
 
 ## Purpose
 
@@ -82,20 +84,22 @@ ${fence}
 - Carousel: horizontal slides with snapping, controls, and pagination.
 - Slider: single-value and range selection with configurable steps and marks.
 - SegmentedControl: composable single-choice segments with labels and icons.
+- Tabs: a flat items API with controlled/uncontrolled selection, scrollable underline tabs, and conditional active panels. Switching tabs unmounts the old panel and resets local state; there is no prerendering or lazy-loading mode.
 - Pagination: responsive page navigation with a compact layout.
-- Stepper: controlled multi-step content and shared navigation methods.
+- Stepper: controlled multi-step content and shared navigation methods. StepperTabsNavigation currently renders placeholder bars; labelled press navigation is not implemented.
 - Primitives: shared foundations plus Button, IconButton, Avatar, Badge, Divider, Spinner, and Tag.
 - Icon: typed icons and standard small, medium, and large icon sizing.
-- Accordion: animated single- and multi-section disclosure with keyboard navigation.
-- Checkbox, Radio, and Switch: accessible selection controls with shared sizes and visual variants.
+- Accordion: animated single- and multi-section disclosure.
+- Checkbox, Radio, and Switch: native selection controls with shared sizes and visual variants.
+- Modal: compound dialogs with local Portal or global OverlayHost usage, header/footer composition, lifecycle callbacks, and backdrop/Android Back dismissal. Compose confirmation actions in the footer.
 - FormField: labels, descriptions, required state, and validation composition for custom controls.
 - Select: single- and multi-select controls whose options open in a Flyout.
 - Flyout: portal-based top or bottom sheets with an overlay, drag handle, title, safe-area handling, and gesture-driven dismissal.
 - Input: themed single-line and multiline text controls, including Textarea auto-grow and character counting.
 - Datetime: date and time selection components.
 - Charts: Skia-rendered line, multi-line, bar, grouped-bar, pie, and concentric-pie visualizations.
-- Skeleton and DataState: loading, empty, and feedback states.
-- Portal and Layers: overlay placement and z-index infrastructure.
+- Skeleton and DataView: loading placeholders and coordinated loading, empty, error, and content states. LoadingView, EmptyView, and ErrorView are also exported independently.
+- Portal and OverlayHost: named-host content placement and registered-overlay lifecycle infrastructure.
 
 ## Popover and Tooltip behavior
 

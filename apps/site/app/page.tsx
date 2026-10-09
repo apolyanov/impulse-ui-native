@@ -27,7 +27,7 @@ const structuredData = [
     codeRepository: seo.repository,
     license: "https://opensource.org/license/mit",
     programmingLanguage: ["TypeScript", "React", "React Native"],
-    runtimePlatform: ["iOS", "Android", "Web"],
+    runtimePlatform: ["iOS", "Android"],
   },
 ];
 
