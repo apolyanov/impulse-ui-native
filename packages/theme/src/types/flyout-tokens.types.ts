@@ -26,6 +26,9 @@ export interface FlyoutPlacementTokens {
 export interface FlyoutTitleTokens {
   paddingVertical: number;
   paddingHorizontal: number;
+  color: string;
+  fontSize: number;
+  lineHeight: number;
 }
 
 export interface FlyoutTokens {

@@ -15,6 +15,8 @@ export interface ToastTokens {
   edgeOffset: number;
   topOffset: number;
   iconSize: number;
+  closeIconSize: number;
+  closeColor: string;
   iconContainerSize: number;
   actionMinSize: number;
   titleColor: string;

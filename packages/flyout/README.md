@@ -66,7 +66,7 @@ with horizontal padding and a maximum height of 70% of the window by default.
 Root accepts native `style`; the presentation parts accept primitive style props.
 
 The backdrop uses the theme's tertiary text color: dark in light mode and muted
-gray in dark mode, at 40% opacity. The drag handle uses a neutral border color.
+gray in dark mode, at 40% opacity. The drag handle uses a neutral border color. The sheet uses the elevated surface shared by Modal, Toast, and Popover without a border, with 16-point exposed corners and horizontal padding. Flyout.Title uses 20/28 typography, matching Modal.Title. Customize title color/fontSize/lineHeight through components.flyout tokens.
 
 For app-wide imperative sheets, register `Flyout` through an `OverlayStore` and mount `OverlayHost` inside the matching `OverlayProvider`.
 

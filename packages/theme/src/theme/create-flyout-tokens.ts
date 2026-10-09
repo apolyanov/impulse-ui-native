@@ -1,7 +1,7 @@
-import { FlyoutTokens, PrimitiveThemeTokens } from "../types";
+import type { FlyoutTokens, PrimitiveThemeTokens } from "../types";
 
 export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
-  const borderRadius = tokens.radii.xl;
+  const borderRadius = tokens.radii.lg;
   const handleContainerHeight = 32;
 
   return {
@@ -12,14 +12,17 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
     overlayColor: tokens.colors.text.tertiary,
     overlayVisibleOpacity: 0.4,
 
-    backgroundColor: tokens.colors.surface.secondary.value,
-    contentPaddingHorizontal: tokens.space.md,
+    backgroundColor: tokens.colors.surface.elevated.value,
+    contentPaddingHorizontal: tokens.space.sm,
 
     hiddenOpacity: 0,
 
     title: {
-      paddingVertical: tokens.space.msm,
-      paddingHorizontal: tokens.space.md,
+      paddingVertical: tokens.space.sm,
+      paddingHorizontal: tokens.space.sm,
+      color: tokens.colors.text.primary,
+      fontSize: tokens.fontSize.lg,
+      lineHeight: tokens.lineHeight.lg,
     },
 
     handle: {

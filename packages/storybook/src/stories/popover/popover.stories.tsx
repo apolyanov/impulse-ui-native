@@ -26,6 +26,21 @@ export const Documentation: Story = {
 
 export const Default: Story = createPopoverStory("Default");
 
+export const LongTitle: Story = {
+  render: function renderLongTitle() {
+    return (
+      <Popover
+        trigger={<Typography.Label>Open long title</Typography.Label>}
+        title="Review project visibility and workspace permissions"
+      >
+        <Popover.Description>
+          The title wraps beside the close button on compact screens.
+        </Popover.Description>
+      </Popover>
+    );
+  },
+};
+
 export const Uncontrolled: Story = {
   render: function renderUncontrolled() {
     return (

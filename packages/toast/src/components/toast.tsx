@@ -46,8 +46,8 @@ export const ToastComponent = memo(function ToastComponent({
         <Toast.Close>
           <Icon
             icon={XIcon}
-            size={tokens.iconSize}
-            color={tokens.descriptionColor}
+            size={tokens.closeIconSize}
+            color={tokens.closeColor}
           />
         </Toast.Close>
       ) : null}

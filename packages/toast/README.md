@@ -78,7 +78,7 @@ import { XIcon } from "@impulse-ui-native/icon/icons/x";
     <Toast.Description>Choose your own content and actions.</Toast.Description>
   </Toast.Content>
   <Toast.Close>
-    <Icon icon={XIcon} size={24} />
+    <Icon icon={XIcon} size={18} />
   </Toast.Close>
 </Toast.Root>;
 ```
@@ -105,7 +105,7 @@ Toasts fade and translate by the theme edge offset. Top toasts sit 8 px below th
 
 ## Theme
 
-Toast uses `theme.components.toast` for surfaces, geometry, typography, actions and semantic icon colors. Override those tokens through ThemeProvider's components prop, including a factory that derives custom values from the active light/dark theme. No additional toast provider or host is needed.
+Toast uses `theme.components.toast` for surfaces, geometry, typography, actions and semantic icon colors. Override those tokens through ThemeProvider's components prop, including a factory that derives custom values from the active light/dark theme. The default close icon uses closeIconSize (18) and closeColor (text.tertiary), matching Modal and Popover. Semantic icons retain their independent iconSize (24) and feedback colors. No additional toast provider or host is needed.
 
 ## Verification
 

@@ -14,6 +14,8 @@ export function createToastTokens(tokens: PrimitiveThemeTokens): ToastTokens {
     edgeOffset: tokens.space.sm,
     topOffset: tokens.space.xs,
     iconSize: 24,
+    closeIconSize: 18,
+    closeColor: tokens.colors.text.tertiary,
     iconContainerSize: tokens.space.md,
     actionMinSize: tokens.space.md,
     titleColor: tokens.colors.text.primary,

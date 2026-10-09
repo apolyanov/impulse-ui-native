@@ -21,6 +21,7 @@ export const PopoverTitle = memo(function PopoverTitle(
       }
       fontSize={tokens.titleFontSize}
       lineHeight={tokens.titleLineHeight}
+      flexShrink={1}
       {...props}
     />
   );
