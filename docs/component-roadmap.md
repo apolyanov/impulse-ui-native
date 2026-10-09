@@ -145,7 +145,6 @@ have been discussed.
 | Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                                                           |
 | Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                                                                   |
 | Modal / Dialog               | Available | Compound modal with Provider context, local Portal and global OverlayHost usage, lifecycle callbacks, automatic header close, backdrop and Android back dismissal, and size variants. |
-| Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                                                                           |
 | Toast                        | Available | OverlayProvider-backed compound toasts with top/bottom placement, five scaled stack levels, durations and actions.                                                                    |
 | Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                                                           |
 | Progress                     | Available | Dedicated progress package with linear and circular determinate/indeterminate variants and Reanimated loops.                                                                          |
@@ -160,7 +159,6 @@ have been discussed.
 | Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction.                                                                      |
 | List / List Item        | Available | Dedicated list package with ready-made item rendering, child-only compound rows, explicit Divider composition, and optional press actions.                                                    |
 | Accordion / Collapsible | Available | Single/multiple expansion, animated height, nested content, and explicit animated indicator composition.                                                                                      |
-| Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                                                                            |
 | Tooltip / Popover       | Extend    | Implemented in `@impulse-ui-native/popover`: shared positioning, Portal rendering, compound parts, and convenience header/title/close/footer composition. Native device verification remains. |
 
 ### Priority 3: advanced input and data display
