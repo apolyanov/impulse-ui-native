@@ -52,7 +52,7 @@
     "react-native-worklets": "catalog:"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
+    "@babel/core": "^7.29.6",
     "@babel/plugin-transform-class-static-block": "^7.27.1",
     "@babel/preset-env": "^7.25.4",
     "@chromatic-com/storybook": "^4.0.0",
@@ -69,6 +69,6 @@
     "cross-env": "^10.0.0",
     "storybook": "^10.0.0",
     "typescript": "catalog:",
-    "vite": "^7.1.12"
+    "vite": "^7.3.5"
   }
 }
