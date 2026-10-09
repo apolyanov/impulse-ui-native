@@ -9,12 +9,12 @@ import {
 import { View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import type { AccordionContextData } from "../contexts";
 import type {
   AccordionMultipleRootProps,
   AccordionRootProps,
   AccordionSingleRootProps,
 } from "../types";
+import type { AccordionContextData } from "../types/accordion-context.types";
 import { AccordionProvider } from "../contexts";
 import { normalizeAccordionValue } from "../utils";
 

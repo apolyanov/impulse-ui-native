@@ -1,18 +1,16 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import { AppTheme, useThemedStyles } from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import { ControlErrorLabelProps } from "../../types";
+import type { ControlErrorLabelProps } from "../../types";
 import { Typography } from "../atoms";
-import { useControlContext } from "./provider";
 
 export const ControlError = memo(function ControlError(
   props: ControlErrorLabelProps,
 ) {
-  const { style, ...rest } = props;
-
-  const { error } = useControlContext();
+  const { children, style, ...rest } = props;
 
   const styles = useThemedStyles(themedStyles);
 
@@ -21,13 +19,9 @@ export const ControlError = memo(function ControlError(
     [styles.error, style],
   );
 
-  if (!Boolean(error)) {
-    return null;
-  }
-
   return (
     <Typography.Caption {...rest} style={errorStyle}>
-      {error}
+      {children}
     </Typography.Caption>
   );
 });

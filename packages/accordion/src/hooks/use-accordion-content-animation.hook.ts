@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 
-import type { AccordionAnimationOptions } from "./accordion-animation.types";
+import type { AccordionAnimationOptions } from "../types/accordion-animation.types";
 import { useAccordionAnimationProgress } from "./use-accordion-animation-progress.hook";
 
 export function useAccordionContentAnimation({
@@ -18,7 +18,7 @@ export function useAccordionContentAnimation({
 
   const setContentHeight = useCallback(
     (height: number) => {
-      measuredHeight.value = height;
+      measuredHeight.set(height);
     },
     [measuredHeight],
   );

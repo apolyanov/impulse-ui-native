@@ -17,6 +17,7 @@ import {
 } from "@impulse-ui-native/theme";
 
 import type { FlyoutRootProps } from "../types";
+import type { FlyoutPlacementThemeProps } from "../types/flyout-theme.types";
 import { useFlyoutLifecycle } from "../hooks";
 
 export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
@@ -129,11 +130,7 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
   );
 });
 
-interface FlyoutThemeProps {
-  placement: "top" | "bottom";
-}
-
-function themedStyles(theme: AppTheme, props: FlyoutThemeProps) {
+function themedStyles(theme: AppTheme, props: FlyoutPlacementThemeProps) {
   const { placement } = props;
   const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
 

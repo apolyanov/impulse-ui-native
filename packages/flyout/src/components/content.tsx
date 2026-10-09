@@ -6,6 +6,7 @@ import { View } from "@impulse-ui-native/primitives";
 import { useStyleProps, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { FlyoutContentProps } from "../types";
+import type { FlyoutContentThemeProps } from "../types/flyout-theme.types";
 
 export const FlyoutContent = memo(function FlyoutContent({
   style,
@@ -23,7 +24,7 @@ export const FlyoutContent = memo(function FlyoutContent({
   return <View {...props} style={contentStyle} />;
 });
 
-function themedStyles(theme: AppTheme, { height }: { height: number }) {
+function themedStyles(theme: AppTheme, { height }: FlyoutContentThemeProps) {
   const tokens = theme.components.flyout;
 
   return StyleSheet.create({

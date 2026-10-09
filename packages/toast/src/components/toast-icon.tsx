@@ -1,11 +1,12 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import type { AppTheme, ToastTone } from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ToastIconProps } from "../types";
+import type { ToastIconThemeProps } from "../types/toast-theme.types";
 import { useToastContext } from "../hooks/use-toast-context.hook";
 
 export const ToastIcon = memo(function ToastIcon({
@@ -26,7 +27,7 @@ export const ToastIcon = memo(function ToastIcon({
   );
 });
 
-function themedStyles(theme: AppTheme, { tone }: { tone: ToastTone }) {
+function themedStyles(theme: AppTheme, { tone }: ToastIconThemeProps) {
   const tokens = theme.components.toast;
 
   return StyleSheet.create({

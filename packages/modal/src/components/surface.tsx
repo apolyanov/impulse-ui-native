@@ -1,11 +1,12 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import type { AppTheme, ComponentSize } from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
 import { useStyleProps, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ModalSurfaceProps } from "../types";
+import type { ModalSurfaceThemeProps } from "../types/modal-theme.types";
 
 export const ModalSurface = memo(function ModalSurface({
   size = "medium",
@@ -23,7 +24,7 @@ export const ModalSurface = memo(function ModalSurface({
   return <View {...props} style={rootStyle} />;
 });
 
-function themedStyles(theme: AppTheme, { size }: { size: ComponentSize }) {
+function themedStyles(theme: AppTheme, { size }: ModalSurfaceThemeProps) {
   const tokens = theme.components.modal;
 
   return StyleSheet.create({

@@ -8,6 +8,7 @@ import { Pressable, Typography } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ToastActionProps } from "../types";
+import type { ToastActionThemeProps } from "../types/toast-theme.types";
 import { useToastContext } from "../hooks/use-toast-context.hook";
 
 export const ToastAction = memo(function ToastAction({
@@ -59,10 +60,7 @@ export const ToastAction = memo(function ToastAction({
   );
 });
 
-function themedStyles(
-  theme: AppTheme,
-  { blocked }: { blocked: boolean | undefined },
-) {
+function themedStyles(theme: AppTheme, { blocked }: ToastActionThemeProps) {
   const tokens = theme.components.toast;
 
   return StyleSheet.create({

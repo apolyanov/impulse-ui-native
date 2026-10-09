@@ -5,11 +5,11 @@ import type { AppTheme } from "@impulse-ui-native/theme";
 import { useControllableState } from "@impulse-ui-native/core";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import type { SegmentedControlContextData } from "../contexts";
 import type {
   SegmentedControlRootProps,
   SegmentedControlRootThemeProps,
 } from "../types";
+import type { SegmentedControlContextData } from "../types/segmented-control-context.types";
 import { SegmentedControlProvider } from "../contexts";
 
 export const SegmentedControlRoot = memo(function SegmentedControlRoot({

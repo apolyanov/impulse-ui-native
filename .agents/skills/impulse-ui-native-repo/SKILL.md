@@ -32,6 +32,8 @@ acceptance criteria unless the user explicitly requests that scope.
    ownership and dependency direction.
 4. For component or theme work, also read
    [references/component-authoring.md](references/component-authoring.md).
+   For a public `Parent.Child` composition API, also follow
+   [compound-component-authoring](../compound-component-authoring/SKILL.md).
 5. For commands, Storybook, apps, changesets, or releases, read
    [references/workflows.md](references/workflows.md).
 6. Check [references/known-caveats.md](references/known-caveats.md) when the

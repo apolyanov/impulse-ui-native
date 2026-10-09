@@ -92,7 +92,9 @@ export const Textarea = memo(function Textarea({
         </Control.Container>
         {hasFooter ? (
           <View style={styles.footer}>
-            <Control.Error style={styles.error} />
+            {error ? (
+              <Control.Error style={styles.error}>{error}</Control.Error>
+            ) : null}
             {showCharacterCount ? (
               <Typography.Caption style={styles.counter}>
                 {counterLabel}

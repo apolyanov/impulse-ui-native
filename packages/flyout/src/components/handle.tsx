@@ -11,6 +11,7 @@ import {
 } from "@impulse-ui-native/theme";
 
 import type { FlyoutHandleProps } from "../types";
+import type { FlyoutPlacementThemeProps } from "../types/flyout-theme.types";
 
 export const FlyoutHandle = memo(function FlyoutHandle({
   placement = "bottom",
@@ -34,7 +35,7 @@ export const FlyoutHandle = memo(function FlyoutHandle({
 
 function themedStyles(
   theme: AppTheme,
-  { placement }: { placement: "top" | "bottom" },
+  { placement }: FlyoutPlacementThemeProps,
 ) {
   const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
   const handleTokens = flyoutTokens.handle;

@@ -1,17 +1,13 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import {
-  AppTheme,
-  ComponentSize,
-  FieldVariant,
-  getFieldStateTokens,
-  useThemedStyles,
-} from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { getFieldStateTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
-import { ControlPlaceholderProps } from "../../types";
+import type { ControlPlaceholderProps } from "../../types";
+import type { ControlFieldThemeProps } from "../../types/control-theme.types";
+import { useControlContext } from "../../hooks/use-control-context.hook";
 import { Typography } from "../atoms";
-import { useControlContext } from "./provider";
 
 export const ControlPlaceholder = memo(function ControlPlaceholder(
   props: ControlPlaceholderProps,
@@ -43,17 +39,7 @@ export const ControlPlaceholder = memo(function ControlPlaceholder(
 
 function themedStyles(
   theme: AppTheme,
-  {
-    size,
-    variant,
-    disabled,
-    error,
-  }: {
-    size: ComponentSize;
-    variant: FieldVariant;
-    disabled?: boolean;
-    error?: string;
-  },
+  { size, variant, disabled, error }: ControlFieldThemeProps,
 ) {
   const controlInputTokens = theme.components.controlInput;
   const sizeTokens = controlInputTokens.sizes[size];

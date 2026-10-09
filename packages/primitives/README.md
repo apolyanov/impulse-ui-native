@@ -93,6 +93,29 @@ export function ProfileSummary() {
 
 Use the compound `Control` when building a custom field that should share the same label, addon, error, size, and variant behavior as `Input` and `Select`.
 
+`Control.Addon` and `Control.Error` render supplied children. Addons own spacing
+and optional press behavior, including group/local disabling; the parent chooses
+and renders icons or custom content. Error owns error-label styling; the parent
+chooses the text and whether to render the slot. `Input`, `Select`, date/time
+pickers, `Textarea`, and `FormField` assemble these children explicitly.
+
+For direct composition, migrate `icon` and `Content` props to addon children and
+supply error text instead of relying on `Control.Provider.error` to render it:
+
+```tsx
+<>
+  <Control.Addon onPress={onPressPrefix}>
+    <Icon icon={PrefixIcon} color={addonColor} />
+  </Control.Addon>
+  {error ? <Control.Error>{error}</Control.Error> : null}
+</>
+```
+
+Resolve `addonColor` from
+`getFieldStateTokens(theme.components.controlAddon.variants[variant], { disabled, error: Boolean(error) }).iconColor`
+using the current theme. The provider's error value continues to drive field
+appearance, but does not inject label content.
+
 `Button` and `IconButton` replace their content with a loading indicator when `loading` is true. Loading controls block interaction until loading ends.
 
 `Spinner` defaults to the primary theme tone and medium size. Use `tone="inverse"` on inverse surfaces, or provide `color` when the indicator must match contextual content.

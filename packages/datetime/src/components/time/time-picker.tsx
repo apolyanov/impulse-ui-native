@@ -1,18 +1,17 @@
 import { memo, useCallback, useEffect, useId, useState } from "react";
 
 import { useControllableState, useIsOpen } from "@impulse-ui-native/core";
+import { Icon } from "@impulse-ui-native/icon";
 import { ClockIcon } from "@impulse-ui-native/icon/icons/clock";
 import { Control, Pressable } from "@impulse-ui-native/primitives";
+import {
+  getFieldStateTokens,
+  useComponentsTokens,
+} from "@impulse-ui-native/theme";
 
-import { DatetimePickerCommonProps, TimePickerValue } from "../../types";
+import type { TimePickerProps, TimePickerValue } from "../../types";
 import { formatTimepickerValue } from "../../utils";
 import { TimePickerFlyout } from "./time-picker.flyout";
-
-interface TimePickerProps extends DatetimePickerCommonProps {
-  value?: TimePickerValue | null;
-  defaultValue?: TimePickerValue | null;
-  onChange?: (value: TimePickerValue | null) => void;
-}
 
 export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
   const {
@@ -34,6 +33,12 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
     onPressSuffix: onSuffixPress,
   } = props;
 
+  const addonTokens = useComponentsTokens().controlAddon;
+  const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
+    disabled,
+    error: Boolean(error),
+  }).iconColor;
+
   const id = useId();
 
   const [selected, setSelected] = useControllableState<TimePickerValue | null>({
@@ -54,7 +59,7 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
   const onPressApply = useCallback(() => {
     setSelected(tempTime);
     close();
-  }, [tempTime, close]);
+  }, [tempTime, close, setSelected]);
 
   const onPressClear = useCallback(() => {
     setTempTime(null);
@@ -86,11 +91,10 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
         <Control.Label>{label}</Control.Label>
         <Pressable onPress={onPressOpen}>
           <Control.Container>
-            <Control.Addon
-              icon={PrefixIcon}
-              Content={Prefix}
-              onPress={onPrefixPress}
-            />
+            <Control.Addon onPress={onPrefixPress}>
+              {Prefix ? <Prefix /> : null}
+              {!Prefix ? <Icon color={addonColor} icon={PrefixIcon} /> : null}
+            </Control.Addon>
 
             {selected === null && placeholder ? (
               <Control.Placeholder>{placeholder}</Control.Placeholder>
@@ -114,14 +118,17 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
               onPressCancel={close}
             />
 
-            <Control.Addon
-              icon={SuffixIcon}
-              Content={Suffix}
-              onPress={onSuffixPress}
-            />
+            {Suffix || SuffixIcon ? (
+              <Control.Addon onPress={onSuffixPress}>
+                {Suffix ? <Suffix /> : null}
+                {!Suffix && SuffixIcon ? (
+                  <Icon color={addonColor} icon={SuffixIcon} />
+                ) : null}
+              </Control.Addon>
+            ) : null}
           </Control.Container>
         </Pressable>
-        <Control.Error />
+        {error ? <Control.Error>{error}</Control.Error> : null}
       </Control.Root>
     </Control.Provider>
   );

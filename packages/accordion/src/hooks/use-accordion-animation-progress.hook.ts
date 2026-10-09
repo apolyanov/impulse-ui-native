@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import { Easing, useSharedValue, withTiming } from "react-native-reanimated";
+import {
+  cancelAnimation,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 
-import type { AccordionAnimationOptions } from "./accordion-animation.types";
-
-const accordionEasing = Easing.out(Easing.cubic);
+import type { AccordionAnimationOptions } from "../types/accordion-animation.types";
+import { AccordionEasing } from "../constants/accordion-animation.constants";
 
 export function useAccordionAnimationProgress({
   duration,
@@ -14,8 +17,10 @@ export function useAccordionAnimationProgress({
   useEffect(() => {
     progress.value = withTiming(open ? 1 : 0, {
       duration,
-      easing: accordionEasing,
+      easing: AccordionEasing,
     });
+
+    return () => cancelAnimation(progress);
   }, [duration, open, progress]);
 
   return progress;

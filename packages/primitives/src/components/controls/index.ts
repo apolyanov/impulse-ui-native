@@ -1,2 +1,2 @@
 export { Control } from "./control";
-export { useControlContext } from "./provider";
+export { useControlContext } from "../../hooks/use-control-context.hook";

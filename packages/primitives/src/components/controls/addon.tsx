@@ -1,103 +1,49 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import { Icon } from "@impulse-ui-native/icon";
-import {
-  AppTheme,
-  FieldVariant,
-  getFieldStateTokens,
-  useComponentsTokens,
-  useThemedStyles,
-} from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
-import { ControlAddonProps } from "../../types";
+import type { ControlAddonProps } from "../../types";
+import { useControlContext } from "../../hooks/use-control-context.hook";
 import { Pressable, View } from "../atoms";
-import { useControlContext } from "./provider";
 
-export const ControlAddon = memo(function ControlAddon(
-  props: ControlAddonProps,
-) {
-  const { icon: AddonIcon, onPress, Content, style, ...rest } = props;
+export const ControlAddon = memo(function ControlAddon({
+  children,
+  disabled = false,
+  hitSlop,
+  onPress,
+  style,
+  ...props
+}: ControlAddonProps) {
+  const { disabled: groupDisabled } = useControlContext();
+  const tokens = useComponentsTokens().controlAddon;
+  const styles = useThemedStyles(themedStyles);
 
-  const { variant, disabled, error } = useControlContext();
-
-  const tokens = useComponentsTokens();
-
-  const styles = useThemedStyles(
-    themedStyles,
-    {
-      variant,
-      disabled,
-      error,
-    },
-    [variant, disabled, error],
-  );
-
-  const Container = useMemo(() => {
-    if (onPress) {
-      return Pressable;
-    }
-
-    return View;
-  }, [onPress]);
-
-  const children = useMemo(() => {
-    if (Content) {
-      return <Content />;
-    }
-
-    if (AddonIcon) {
-      return <Icon color={styles.icon.color} icon={AddonIcon} />;
-    }
-
-    return null;
-  }, [AddonIcon, Content, styles.icon.color]);
-
+  const resolvedDisabled = Boolean(groupDisabled) || disabled;
+  const Container = onPress ? Pressable : View;
   const containerStyle = useMemo(
     () => [styles.container, style],
     [styles.container, style],
   );
 
-  if (!children) {
-    return null;
-  }
-
   return (
     <Container
-      {...rest}
-      style={containerStyle}
-      hitSlop={tokens.controlAddon.hitSlop}
+      {...props}
+      disabled={resolvedDisabled}
+      hitSlop={hitSlop ?? tokens.hitSlop}
       onPress={onPress}
-      disabled={disabled}
+      style={containerStyle}
     >
       {children}
     </Container>
   );
 });
 
-function themedStyles(
-  theme: AppTheme,
-  props: {
-    variant: FieldVariant;
-    disabled?: boolean;
-    error?: string;
-  },
-) {
-  const { variant, disabled, error } = props;
-
-  const controlAddonTokens = theme.components.controlAddon;
-  const appearanceTokens = getFieldStateTokens(
-    controlAddonTokens.variants[variant],
-    { disabled, error: Boolean(error) },
-  );
-
+function themedStyles(theme: AppTheme) {
   return StyleSheet.create({
     container: {
-      marginHorizontal: controlAddonTokens.marginHorizontal,
-    },
-
-    icon: {
-      color: appearanceTokens.iconColor,
+      marginHorizontal: theme.components.controlAddon.marginHorizontal,
     },
   });
 }

@@ -9,8 +9,10 @@ import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { AccordionContentProps } from "../types";
-import { useAccordionItemContext } from "../contexts";
-import { useAccordionContentAnimation } from "../hooks";
+import {
+  useAccordionContentAnimation,
+  useAccordionItemContext,
+} from "../hooks";
 
 export const AccordionContent = memo(function AccordionContent({
   children,

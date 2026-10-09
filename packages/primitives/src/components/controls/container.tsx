@@ -1,17 +1,13 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import {
-  AppTheme,
-  ComponentSize,
-  FieldVariant,
-  getFieldStateTokens,
-  useThemedStyles,
-} from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { getFieldStateTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
-import { ControlContainerProps } from "../../types";
+import type { ControlContainerProps } from "../../types";
+import type { ControlFieldThemeProps } from "../../types/control-theme.types";
+import { useControlContext } from "../../hooks/use-control-context.hook";
 import { View } from "../atoms/view";
-import { useControlContext } from "./provider";
 
 export const ControlContainer = memo(function ControlContainer(
   props: ControlContainerProps,
@@ -41,17 +37,7 @@ export const ControlContainer = memo(function ControlContainer(
 
 function themedStyles(
   theme: AppTheme,
-  {
-    size,
-    variant,
-    disabled,
-    error,
-  }: {
-    size: ComponentSize;
-    variant: FieldVariant;
-    disabled?: boolean;
-    error?: string;
-  },
+  { size, variant, disabled, error }: ControlFieldThemeProps,
 ) {
   const controlContainerTokens = theme.components.controlContainer;
   const sizeTokens = controlContainerTokens.sizes[size];

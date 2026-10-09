@@ -1,11 +1,11 @@
-import { ComponentType } from "react";
-import { TextInputProps, TextProps, ViewProps } from "react-native";
+import type { ComponentType } from "react";
+import type { TextInputProps, TextProps, ViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import { ComponentSize, FieldVariant } from "@impulse-ui-native/theme";
+import type { ComponentSize, FieldVariant } from "@impulse-ui-native/theme";
 
+import type { PressableCoreProps } from "./button.types";
 import type { SpinnerProps } from "./spinner.types";
-import { PressableCoreProps } from "./button.types";
 
 export interface ControlComponentCommonProps {
   placeholder?: string;
@@ -25,24 +25,24 @@ export interface ControlComponentProps {
   disabled: boolean | undefined;
 }
 
-export interface ControlContextData extends ControlComponentProps {}
+export type ControlContextData = ControlComponentProps;
 
-export interface ControlContainerProps extends ViewProps {}
+export type ControlContainerProps = ViewProps;
 
-export interface ControlLabelProps extends TextProps {}
+export type ControlLabelProps = TextProps;
 
-export interface ControlErrorLabelProps extends TextProps {}
+export type ControlErrorLabelProps = TextProps;
 
 export interface ControlAddonProps extends ViewProps {
-  icon: IconProps["icon"] | undefined;
-  onPress: PressableCoreProps["onPress"] | undefined;
-  Content: ComponentType<any> | undefined;
+  disabled?: boolean;
+  hitSlop?: PressableCoreProps["hitSlop"];
+  onPress?: PressableCoreProps["onPress"];
 }
 
-export interface ControlInputProps extends TextInputProps {}
+export type ControlInputProps = TextInputProps;
 
-export interface ControlPlaceholderProps extends TextProps {}
+export type ControlPlaceholderProps = TextProps;
 
-export interface ControlValueProps extends TextProps {}
+export type ControlValueProps = TextProps;
 
-export interface ControlLoaderProps extends SpinnerProps {}
+export type ControlLoaderProps = SpinnerProps;

@@ -6,28 +6,22 @@ import type {
 } from "react-native";
 import { memo, useCallback } from "react";
 import { StyleSheet } from "react-native";
-import Animated from "react-native-reanimated";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
-import { Icon } from "@impulse-ui-native/icon";
-import { CaretDownIcon } from "@impulse-ui-native/icon/icons/caret-down";
-import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
+import { Pressable, Typography } from "@impulse-ui-native/primitives";
 import {
   getControlStateTokens,
-  useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
 import type { AccordionTriggerProps } from "../types";
-import { useAccordionContext, useAccordionItemContext } from "../contexts";
-import { useAccordionIndicatorAnimation } from "../hooks";
+import type { AccordionTriggerThemeProps } from "../types/accordion-theme.types";
+import { useAccordionContext, useAccordionItemContext } from "../hooks";
 
 export const AccordionTrigger = memo(function AccordionTrigger({
   children,
   disabled,
-  hideIndicator = false,
-  indicator,
   onPress,
   style,
   ...props
@@ -35,13 +29,8 @@ export const AccordionTrigger = memo(function AccordionTrigger({
   const { toggleItem } = useAccordionContext();
   const item = useAccordionItemContext();
 
-  const tokens = useComponentsTokens().accordion;
   const resolvedDisabled = item.disabled || disabled === true;
 
-  const indicatorStyle = useAccordionIndicatorAnimation({
-    duration: tokens.animationDuration,
-    open: item.open,
-  });
   const styles = useThemedStyles(themedStyles, { disabled: resolvedDisabled }, [
     resolvedDisabled,
   ]);
@@ -56,6 +45,10 @@ export const AccordionTrigger = memo(function AccordionTrigger({
   );
 
   const handlePress = useEventCallback((event: GestureResponderEvent) => {
+    if (resolvedDisabled) {
+      return;
+    }
+
     toggleItem(item.value);
     onPress?.(event);
   });
@@ -67,33 +60,14 @@ export const AccordionTrigger = memo(function AccordionTrigger({
       onPress={handlePress}
       style={triggerStyle}
     >
-      <View flex={1} pointerEvents="none">
-        {typeof children === "string" || typeof children === "number" ? (
-          <Typography.Label style={styles.title}>{children}</Typography.Label>
-        ) : (
-          children
-        )}
-      </View>
-
-      {!hideIndicator ? (
-        <Animated.View pointerEvents="none" style={indicatorStyle}>
-          {indicator}
-          {indicator === null || indicator === undefined ? (
-            <Icon
-              color={styles.icon.color}
-              icon={CaretDownIcon}
-              size={tokens.iconSize}
-            />
-          ) : null}
-        </Animated.View>
-      ) : null}
+      {typeof children === "string" || typeof children === "number" ? (
+        <Typography.Label style={styles.title}>{children}</Typography.Label>
+      ) : (
+        children
+      )}
     </Pressable>
   );
 });
-
-interface AccordionTriggerThemeProps {
-  disabled: boolean;
-}
 
 function themedStyles(theme: AppTheme, props: AccordionTriggerThemeProps) {
   const { disabled } = props;
@@ -105,10 +79,8 @@ function themedStyles(theme: AppTheme, props: AccordionTriggerThemeProps) {
 
   return StyleSheet.create({
     title: {
+      flex: 1,
       color: appearanceTokens.titleColor,
-    },
-    icon: {
-      color: appearanceTokens.iconColor,
     },
     trigger: {
       alignItems: "center",

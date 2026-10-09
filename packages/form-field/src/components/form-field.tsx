@@ -58,7 +58,7 @@ export const FormField = memo(function FormField({
           </Typography.Caption>
         ) : null}
         {children(renderProps)}
-        <Control.Error />
+        {error ? <Control.Error>{error}</Control.Error> : null}
       </Control.Root>
     </Control.Provider>
   );

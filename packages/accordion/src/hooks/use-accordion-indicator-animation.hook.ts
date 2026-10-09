@@ -1,6 +1,6 @@
 import { useAnimatedStyle } from "react-native-reanimated";
 
-import type { AccordionAnimationOptions } from "./accordion-animation.types";
+import type { AccordionAnimationOptions } from "../types/accordion-animation.types";
 import { useAccordionAnimationProgress } from "./use-accordion-animation-progress.hook";
 
 export function useAccordionIndicatorAnimation({

@@ -1,21 +1,17 @@
 import { memo, useMemo } from "react";
 import { StyleSheet, TextInput } from "react-native";
 
-import {
-  AppTheme,
-  ComponentSize,
-  FieldVariant,
-  getFieldStateTokens,
-  useThemedStyles,
-} from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { getFieldStateTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
-import { ControlInputProps } from "../../types";
-import { useControlContext } from "./provider";
+import type { ControlInputProps } from "../../types";
+import type { ControlFieldThemeProps } from "../../types/control-theme.types";
+import { useControlContext } from "../../hooks/use-control-context.hook";
 
 export const ControlInput = memo(function ControlInput(
   props: ControlInputProps,
 ) {
-  const { onPress, style, ...rest } = props;
+  const { onPress: _onPress, style, ...rest } = props;
 
   const { size, variant, disabled, error } = useControlContext();
 
@@ -47,17 +43,7 @@ export const ControlInput = memo(function ControlInput(
 
 function themedStyles(
   theme: AppTheme,
-  {
-    size,
-    variant,
-    disabled,
-    error,
-  }: {
-    size: ComponentSize;
-    variant: FieldVariant;
-    disabled?: boolean;
-    error?: string;
-  },
+  { size, variant, disabled, error }: ControlFieldThemeProps,
 ) {
   const controlInputTokens = theme.components.controlInput;
   const sizeTokens = controlInputTokens.sizes[size];

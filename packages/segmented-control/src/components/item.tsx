@@ -21,7 +21,7 @@ import type {
   SegmentedControlItemProps,
   SegmentedControlItemThemeProps,
 } from "../types";
-import { useSegmentedControlContext } from "../contexts";
+import { useSegmentedControlContext } from "../hooks";
 
 export const SegmentedControlItem = memo(function SegmentedControlItem({
   children,

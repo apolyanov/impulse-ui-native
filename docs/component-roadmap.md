@@ -55,7 +55,7 @@ A component should normally include all of the following before it moves to
 
 | Component             | Package                                | Status    | Storybook | Follow-up                                                                       |
 | --------------------- | -------------------------------------- | --------- | --------- | ------------------------------------------------------------------------------- |
-| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition, error, addon, and loading stories.                   |
+| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Child-only addon/error slots; add dedicated composition and loading stories.    |
 | `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Add multiline, prefix/suffix action, and validation examples.                   |
 | `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and automated interaction tests.                 |
 | `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Add automated gesture and RTL behavior tests.                                   |
@@ -136,31 +136,31 @@ have been discussed.
 
 ### Priority 1: essential controls and feedback
 
-| Candidate                    | Status    | Suggested scope                                                                                                                             |
-| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, and disabled behavior.                                   |
-| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, and disabled behavior.                                                    |
-| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.          |
-| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                 |
-| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                         |
+| Candidate                    | Status    | Suggested scope                                                                                                                                                                       |
+| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, and disabled behavior.                                                                             |
+| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, and disabled behavior.                                                                                              |
+| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.                                                    |
+| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                                                           |
+| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                                                                   |
 | Modal / Dialog               | Available | Compound modal with Provider context, local Portal and global OverlayHost usage, lifecycle callbacks, automatic header close, backdrop and Android back dismissal, and size variants. |
-| Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                                 |
-| Toast                        | Available | OverlayProvider-backed compound toasts with top/bottom placement, five scaled stack levels, durations and actions.                          |
-| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                 |
-| Progress                     | Available | Dedicated progress package with linear and circular determinate/indeterminate variants and Reanimated loops.                                |
+| Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                                                                           |
+| Toast                        | Available | OverlayProvider-backed compound toasts with top/bottom placement, five scaled stack levels, durations and actions.                                                                    |
+| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                                                           |
+| Progress                     | Available | Dedicated progress package with linear and circular determinate/indeterminate variants and Reanimated loops.                                                                          |
 
 ### Priority 2: composition and navigation
 
-| Candidate               | Status    | Suggested scope                                                                                                                            |
-| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Card                    | Available | Dedicated card package with ready-made Card and child-only header, content, footer, media, and pressable surfaces.                         |
-| Divider / Separator     | Available | Horizontal and vertical orientation with logical insets and semantic color options.                                                        |
-| Avatar                  | Available | Shared visual variants, image, initials, custom fallback, and semantic status.                                                             |
-| Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction.                   |
-| List / List Item        | Available | Dedicated list package with ready-made item rendering, child-only compound rows, explicit Divider composition, and optional press actions. |
-| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                                    |
-| Accordion / Collapsible | Available | Single/multiple expansion, animated height, and nested content.                                                                            |
-| Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                         |
+| Candidate               | Status    | Suggested scope                                                                                                                                                                               |
+| ----------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Card                    | Available | Dedicated card package with ready-made Card and child-only header, content, footer, media, and pressable surfaces.                                                                            |
+| Divider / Separator     | Available | Horizontal and vertical orientation with logical insets and semantic color options.                                                                                                           |
+| Avatar                  | Available | Shared visual variants, image, initials, custom fallback, and semantic status.                                                                                                                |
+| Badge                   | Available | Semantic labels with control-style variants and Input-style prefix/suffix addons; use `Tag` for whole-label interaction.                                                                      |
+| List / List Item        | Available | Dedicated list package with ready-made item rendering, child-only compound rows, explicit Divider composition, and optional press actions.                                                    |
+| Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                                                                                       |
+| Accordion / Collapsible | Available | Single/multiple expansion, animated height, nested content, and explicit animated indicator composition.                                                                                      |
+| Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                                                                            |
 | Tooltip / Popover       | Extend    | Implemented in `@impulse-ui-native/popover`: shared positioning, Portal rendering, compound parts, and convenience header/title/close/footer composition. Native device verification remains. |
 
 ### Priority 3: advanced input and data display

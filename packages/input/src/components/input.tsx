@@ -1,11 +1,16 @@
 import { memo, useState } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
+import { Icon } from "@impulse-ui-native/icon";
 import { EyeIcon } from "@impulse-ui-native/icon/icons/eye";
 import { EyeSlashIcon } from "@impulse-ui-native/icon/icons/eye-slash";
 import { Control } from "@impulse-ui-native/primitives";
+import {
+  getFieldStateTokens,
+  useComponentsTokens,
+} from "@impulse-ui-native/theme";
 
-import { InputProps } from "../types";
+import type { InputProps } from "../types";
 
 export const Input = memo(function Input(props: InputProps) {
   const {
@@ -24,6 +29,12 @@ export const Input = memo(function Input(props: InputProps) {
     onPressSuffix,
     ...rest
   } = props;
+
+  const addonTokens = useComponentsTokens().controlAddon;
+  const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
+    disabled,
+    error: Boolean(error),
+  }).iconColor;
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -51,23 +62,29 @@ export const Input = memo(function Input(props: InputProps) {
       <Control.Root>
         <Control.Label>{label}</Control.Label>
         <Control.Container style={containerStyle}>
-          <Control.Addon
-            icon={PrefixIcon}
-            Content={Prefix}
-            onPress={onPressPrefix}
-          />
+          {Prefix || PrefixIcon ? (
+            <Control.Addon onPress={onPressPrefix}>
+              {Prefix ? <Prefix /> : null}
+              {!Prefix && PrefixIcon ? (
+                <Icon color={addonColor} icon={PrefixIcon} />
+              ) : null}
+            </Control.Addon>
+          ) : null}
           <Control.Input
             secureTextEntry={props.secureTextEntry && !showPassword}
             style={style}
             {...rest}
           />
-          <Control.Addon
-            icon={SuffixInternalIcon}
-            Content={Suffix}
-            onPress={internalOnSuffixPress}
-          />
+          {Suffix || SuffixInternalIcon ? (
+            <Control.Addon onPress={internalOnSuffixPress}>
+              {Suffix ? <Suffix /> : null}
+              {!Suffix && SuffixInternalIcon ? (
+                <Icon color={addonColor} icon={SuffixInternalIcon} />
+              ) : null}
+            </Control.Addon>
+          ) : null}
         </Control.Container>
-        <Control.Error />
+        {error ? <Control.Error>{error}</Control.Error> : null}
       </Control.Root>
     </Control.Provider>
   );

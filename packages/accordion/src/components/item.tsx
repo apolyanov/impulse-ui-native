@@ -5,9 +5,10 @@ import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import type { AccordionItemContextData } from "../contexts";
 import type { AccordionItemProps } from "../types";
-import { AccordionItemProvider, useAccordionContext } from "../contexts";
+import type { AccordionItemContextData } from "../types/accordion-context.types";
+import { AccordionItemProvider } from "../contexts";
+import { useAccordionContext } from "../hooks";
 
 export const AccordionItem = memo(function AccordionItem({
   children,

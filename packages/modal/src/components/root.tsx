@@ -7,6 +7,7 @@ import type { AppTheme } from "@impulse-ui-native/theme";
 import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ModalRootProps } from "../types";
+import type { ModalRootThemeProps } from "../types/modal-theme.types";
 import { useModalContext } from "../hooks/use-modal-context.hook";
 import { ModalSurface } from "./surface";
 
@@ -72,16 +73,7 @@ export const ModalRoot = memo(function ModalRoot({
   ) : null;
 });
 
-function themedStyles(
-  theme: AppTheme,
-  {
-    insets,
-    layer,
-  }: {
-    insets: { top: number; right: number; bottom: number; left: number };
-    layer: number;
-  },
-) {
+function themedStyles(theme: AppTheme, { insets, layer }: ModalRootThemeProps) {
   const tokens = theme.components.modal;
 
   return StyleSheet.create({

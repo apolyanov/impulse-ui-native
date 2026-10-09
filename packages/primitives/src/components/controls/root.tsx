@@ -1,19 +1,16 @@
 import { memo, useMemo } from "react";
-import { StyleSheet } from "react-native";
 
-import { ViewProps } from "../../types";
+import type { ViewProps } from "../../types";
+import { ControlRootStyles } from "../../constants/control-root.constants";
 import { View } from "../atoms";
 
 export const ControlRoot = memo(function ControlRoot(props: ViewProps) {
   const { style, ...rest } = props;
 
-  const containerStyle = useMemo(() => [styles.container, style], [style]);
+  const containerStyle = useMemo(
+    () => [ControlRootStyles.container, style],
+    [style],
+  );
 
   return <View {...rest} style={containerStyle} />;
-});
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-  },
 });

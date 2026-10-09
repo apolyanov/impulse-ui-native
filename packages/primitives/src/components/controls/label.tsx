@@ -1,15 +1,13 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 
-import {
-  AppTheme,
-  getFieldStateTokens,
-  useThemedStyles,
-} from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { getFieldStateTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
-import { ControlLabelProps } from "../../types";
+import type { ControlLabelProps } from "../../types";
+import type { ControlStateThemeProps } from "../../types/control-theme.types";
+import { useControlContext } from "../../hooks/use-control-context.hook";
 import { Typography } from "../atoms";
-import { useControlContext } from "./provider";
 
 export const ControlLabel = memo(function ControlLabel(
   props: ControlLabelProps,
@@ -43,13 +41,7 @@ export const ControlLabel = memo(function ControlLabel(
   );
 });
 
-function themedStyles(
-  theme: AppTheme,
-  props: {
-    disabled?: boolean;
-    error?: string;
-  },
-) {
+function themedStyles(theme: AppTheme, props: ControlStateThemeProps) {
   const { disabled, error } = props;
 
   const controlLabelTokens = theme.components.controlLabel;

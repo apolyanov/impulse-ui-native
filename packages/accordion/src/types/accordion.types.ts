@@ -36,8 +36,10 @@ export interface AccordionTriggerProps extends Omit<
   "children"
 > {
   children?: ReactNode;
-  hideIndicator?: boolean;
-  indicator?: ReactNode;
+}
+
+export interface AccordionIndicatorProps extends ViewProps {
+  children?: ReactNode;
 }
 
 export interface AccordionContentProps extends ViewProps {

@@ -7,6 +7,7 @@ import { useSpace } from "@impulse-ui-native/theme";
 
 import type { StoryExamplePropDefinition } from "../../components/story-example";
 import { StoryExample } from "../../components/story-example";
+import { AccordionExampleTrigger } from "./accordion-example-trigger";
 
 interface AccordionExampleDefinition {
   args: ComponentProps<typeof Accordion.Root>;
@@ -107,7 +108,9 @@ function StandardItems() {
   return (
     <>
       <Accordion.Item value="shipping">
-        <Accordion.Trigger>How long does shipping take?</Accordion.Trigger>
+        <AccordionExampleTrigger>
+          How long does shipping take?
+        </AccordionExampleTrigger>
         <Accordion.Content>
           <Typography.Body>
             Standard shipping normally arrives in three to five business days.
@@ -116,7 +119,9 @@ function StandardItems() {
       </Accordion.Item>
 
       <Accordion.Item value="returns">
-        <Accordion.Trigger>Can I return an order?</Accordion.Trigger>
+        <AccordionExampleTrigger>
+          Can I return an order?
+        </AccordionExampleTrigger>
         <Accordion.Content>
           <Typography.Body>
             Unused items can be returned within thirty days of delivery.
@@ -125,7 +130,9 @@ function StandardItems() {
       </Accordion.Item>
 
       <Accordion.Item disabled value="support">
-        <Accordion.Trigger>Priority support</Accordion.Trigger>
+        <AccordionExampleTrigger disabled>
+          Priority support
+        </AccordionExampleTrigger>
         <Accordion.Content>
           <Typography.Body>
             Priority support is available on selected plans.
@@ -141,7 +148,7 @@ function NestedItems() {
 
   return (
     <Accordion.Item value="account">
-      <Accordion.Trigger>Account settings</Accordion.Trigger>
+      <AccordionExampleTrigger>Account settings</AccordionExampleTrigger>
       <Accordion.Content>
         <View marginBottom={space.xs}>
           <Typography.Body>Choose a section to learn more.</Typography.Body>
@@ -149,7 +156,7 @@ function NestedItems() {
 
         <Accordion.Root>
           <Accordion.Item value="profile">
-            <Accordion.Trigger>Profile</Accordion.Trigger>
+            <AccordionExampleTrigger>Profile</AccordionExampleTrigger>
             <Accordion.Content>
               <Typography.Body>
                 Update your display name and profile details.
@@ -157,7 +164,7 @@ function NestedItems() {
             </Accordion.Content>
           </Accordion.Item>
           <Accordion.Item value="security">
-            <Accordion.Trigger>Security</Accordion.Trigger>
+            <AccordionExampleTrigger>Security</AccordionExampleTrigger>
             <Accordion.Content>
               <Typography.Body>
                 Manage passwords and active sessions.

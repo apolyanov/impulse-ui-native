@@ -1,13 +1,18 @@
-import { createContext, memo, PropsWithChildren, useContext } from "react";
+import type { PropsWithChildren } from "react";
+import { memo, useMemo } from "react";
 
-import { ControlContextData } from "../../types";
-
-const ControlContext = createContext<ControlContextData | undefined>(undefined);
+import type { ControlContextData } from "../../types";
+import { ControlContext } from "../../contexts/control.context";
 
 export const ControlProvider = memo(function ControlProvider(
   props: PropsWithChildren<ControlContextData>,
 ) {
-  const { children, ...context } = props;
+  const { children, disabled, error, size, variant } = props;
+
+  const context = useMemo<ControlContextData>(
+    () => ({ disabled, error, size, variant }),
+    [disabled, error, size, variant],
+  );
 
   return (
     <ControlContext.Provider value={context}>
@@ -15,13 +20,3 @@ export const ControlProvider = memo(function ControlProvider(
     </ControlContext.Provider>
   );
 });
-
-export function useControlContext() {
-  const context = useContext(ControlContext);
-
-  if (!context) {
-    throw new Error("useControlContext must be used within ControlProvider");
-  }
-
-  return context;
-}
