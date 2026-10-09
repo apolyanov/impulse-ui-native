@@ -29,20 +29,24 @@ export const Default: Story = createPopoverStory("Default");
 export const Uncontrolled: Story = {
   render: function renderUncontrolled() {
     return (
-      <Popover trigger={<Typography.Label>Project details</Typography.Label>}>
-        <Popover.Title>Project details</Popover.Title>
+      <Popover
+        trigger={<Typography.Label>Project details</Typography.Label>}
+        title="Project details"
+        footer={
+          <Popover.Close>
+            <Typography.Label>Done</Typography.Label>
+          </Popover.Close>
+        }
+      >
         <Popover.Description>
           Open state is owned by the popover.
         </Popover.Description>
-        <Popover.Close>
-          <Typography.Label>Close</Typography.Label>
-        </Popover.Close>
       </Popover>
     );
   },
 
   parameters: createStoryDescription(
-    "The convenience component assembles Trigger and Content and owns its uncontrolled state.",
+    "The convenience component assembles the trigger, title header with a neutral X, content, and footer while owning its uncontrolled state.",
   ),
 };
 

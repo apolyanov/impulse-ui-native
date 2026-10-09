@@ -37,14 +37,18 @@ import { Typography } from "@impulse-ui-native/primitives";
 
 All compound parts render supplied children. `Popover.Content` owns Portal rendering and carries popover context to the host, so `Title`, `Description`, and `Close` work there. Other app-local React providers around an anchor do not automatically move with it; put those providers above the host or inside Content.
 
-The convenience form assembles Trigger and Content:
+The convenience form composes Trigger, Content, Header, Title, Close, and Footer:
 
 ```tsx
-<Popover trigger={<Typography.Label>Details</Typography.Label>}>
-  <Popover.Title>Project details</Popover.Title>
+<Popover
+  trigger={<Typography.Label>Details</Typography.Label>}
+  title="Project details"
+>
   <Popover.Description>Updated just now.</Popover.Description>
 </Popover>
 ```
+
+A truthy header replaces the generated title. The header includes a neutral X close icon by default; hideClose omits it. A truthy footer renders Popover.Footer with trailing, wrapping actions. Header and Footer are child-only View parts available for compound composition. Pass body content as children; triggerProps and contentProps continue to customize the trigger and positioned panel. On the inverse surface, the close icon uses its contrast color.
 
 ## Contract
 

@@ -28,12 +28,18 @@ export interface PopoverTriggerProps
 }
 
 export type PopoverContentProps = ViewProps;
+export type PopoverHeaderProps = ViewProps;
+export type PopoverFooterProps = ViewProps;
 export type PopoverTitleProps = TextProps;
 export type PopoverDescriptionProps = TextProps;
 export type PopoverCloseProps = Omit<PressableCoreProps, "children"> &
   PropsWithChildren;
 
 export interface PopoverProps extends PopoverRootProps {
+  title?: ReactNode;
+  header?: ReactNode;
+  footer?: ReactNode;
+  hideClose?: boolean;
   trigger: ReactNode;
   triggerProps?: PopoverTriggerProps;
   contentProps?: PopoverContentProps;

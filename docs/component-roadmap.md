@@ -161,7 +161,7 @@ have been discussed.
 | Tabs                    | Candidate | Controlled tabs, scrollable tab lists, and lazy panels.                                                                                    |
 | Accordion / Collapsible | Available | Single/multiple expansion, animated height, and nested content.                                                                            |
 | Menu                    | Candidate | Anchored actions, nested sections, destructive items, and portals.                                                                         |
-| Tooltip / Popover       | Extend    | Implemented in `@impulse-ui-native/popover`: shared positioning, Portal rendering, and compound parts. Native device verification remains. |
+| Tooltip / Popover       | Extend    | Implemented in `@impulse-ui-native/popover`: shared positioning, Portal rendering, compound parts, and convenience header/title/close/footer composition. Native device verification remains. |
 
 ### Priority 3: advanced input and data display
 

@@ -1291,6 +1291,9 @@ importers:
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core
+      '@impulse-ui-native/icon':
+        specifier: workspace:*
+        version: link:../icon
       '@impulse-ui-native/portal':
         specifier: workspace:*
         version: link:../portal
