@@ -1,5 +1,7 @@
 # @impulse-ui-native/core
 
+## 8.0.0
+
 ## 7.0.1
 
 ## 7.0.0

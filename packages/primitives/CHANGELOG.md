@@ -1,5 +1,28 @@
 # @impulse-ui-native/primitives
 
+## 8.0.0
+
+### Major Changes
+
+- f67c73d: Make Control.Addon, Control.Error, and Accordion.Trigger render supplied content.
+  Direct Control consumers must replace Addon's icon/Content props with children
+  and explicitly supply Error's text. Direct Accordion consumers must replace
+  Trigger's indicator/hideIndicator props with an optional Accordion.Indicator
+  containing their chosen icon or custom content. Indicator preserves expanded-state
+  rotation without generating a default chevron.
+
+  Update ready-made fields to assemble addon icons, loading content, and errors
+  explicitly while preserving their convenience props and appearance. Separate
+  context consumer hooks, context/theme/prop types, and static styles into focused
+  files, stabilize Control.Provider's context value, and clean up accordion
+  animations when their parts unmount.
+
+### Patch Changes
+
+- @impulse-ui-native/core@8.0.0
+- @impulse-ui-native/icon@8.0.0
+- @impulse-ui-native/theme@8.0.0
+
 ## 7.0.1
 
 ### Patch Changes
