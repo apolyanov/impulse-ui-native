@@ -1,5 +1,3 @@
-import type { ColorPair } from "./theme-provider.types";
-
 export interface PopoverTokens {
   zIndexBase: number;
   gap: number;
@@ -16,14 +14,18 @@ export interface PopoverTokens {
   titleColor: string;
   descriptionColor: string;
 
-  surfaces: Record<
-    "elevated" | "inverse",
-    ColorPair & {
-      borderColor: string;
-      borderWidth: number;
-      borderRadius: number;
-      paddingHorizontal: number;
-      paddingVertical: number;
-    }
-  >;
+  backgroundColor: string;
+  borderColor: string;
+  borderWidth: number;
+  borderRadius: number;
+  paddingHorizontal: number;
+  paddingVertical: number;
+
+  tooltip: {
+    backgroundColor: string;
+    color: string;
+    borderRadius: number;
+    paddingHorizontal: number;
+    paddingVertical: number;
+  };
 }

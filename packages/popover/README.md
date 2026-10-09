@@ -35,7 +35,7 @@ import { Typography } from "@impulse-ui-native/primitives";
 </Tooltip>;
 ```
 
-All compound parts render supplied children. `Popover.Content` owns Portal rendering and carries popover context to the host, so `Title`, `Description`, and `Close` work there. Other app-local React providers around an anchor do not automatically move with it; put those providers above the host or inside Content.
+All compound parts render supplied children. `Popover.Content` owns Portal rendering and carries popover context to the host, so `Close` can dismiss there. Header, Footer, Title, and Description use independent theme styling. Other app-local React providers around an anchor do not automatically move with it; put those providers above the host or inside Content.
 
 The convenience form composes Trigger, Content, Header, Title, Close, and Footer:
 
@@ -48,7 +48,7 @@ The convenience form composes Trigger, Content, Header, Title, Close, and Footer
 </Popover>
 ```
 
-A truthy header replaces the generated title. The header includes a neutral X close icon by default; hideClose omits it. A truthy footer renders Popover.Footer with trailing, wrapping actions. Header and Footer are child-only View parts available for compound composition. Pass body content as children; triggerProps and contentProps continue to customize the trigger and positioned panel. On the inverse surface, the close icon uses its contrast color. Titles can wrap beside the close control instead of pushing it outside the header.
+A truthy header replaces the generated title. The header includes a neutral X close icon by default; hideClose omits it. A truthy footer renders Popover.Footer with trailing, wrapping actions. Header and Footer are child-only View parts available for compound composition. Pass body content as children; triggerProps and contentProps continue to customize the trigger and positioned panel. Titles can wrap beside the close control instead of pushing it outside the header.
 
 ## Contract
 
@@ -58,11 +58,20 @@ A truthy header replaces the generated title. The header includes a neutral X cl
 - Root `disabled` suppresses the overlay and blocks trigger changes. Trigger/Close `disabled` or `loading` blocks that part's interaction. Supply a single Trigger and Content per Root; use non-interactive visual children inside Trigger rather than nesting another pressable.
 - Outside taps and Android Back request dismissal. Outside taps are consumed; there is no dim scrim. Content sizes naturally without internal scrolling. Keep popovers compact; use a sheet, dialog, or screen for larger content. Keyboard avoidance and nested overlay coordination are outside this initial API.
 - Tooltip `duration` defaults to 3000ms from opening; zero persists until dismissal. Timers clean up on close/unmount. Supply strings/numbers for token-styled text or a React node for custom content.
-- `surface` selects elevated (default) or inverse appearance for Popover. Tooltip uses inverse. Override `components.popover` on ThemeProvider for shared geometry, typography, and surface styling.
-- Elevated content defaults to 320dp wide; inverse hints size to their content. Both are constrained to the available host width. Content spacing and width can be customized with primitive style props or `style`.
+- Popover uses one flat secondary surface with a subtle border and no default shadow. Override `components.popover` on ThemeProvider for geometry, typography, and panel styling. Tooltip owns its compact inverse styling through `components.popover.tooltip`, without a surface variant in Root or context.
+- Popover content defaults to 320dp wide; Tooltip sizes to its content. Both are constrained to the available host width. Content spacing and width can be customized with primitive style props or `style`.
 - Anchors and host bounds are measured on opening and polled every 100ms while open, following scrolling and layout changes. Only one measurement is in flight; slow native callbacks are allowed to finish. Closed overlays have no measurement timer. Content stays hidden until measured and when its anchor is outside the usable host bounds.
 - Popover and Tooltip use rounded panels without arrows. Collision handling flips to the opposite side when it has more space, then shifts into safe-area bounds. Extremely large content can overlap the anchor after clamping.
 
 ## Exports and verification
 
-`Popover`, `Tooltip`, and their prop/placement/surface types are available directly or through `@impulse-ui-native/toolkit`. Storybook covers composition, controlled state, disabled triggers, long-press, and edge placements. Use the on-device Storybook host to verify rendering and interaction on iOS and Android.
+`Popover`, `Tooltip`, and their prop and placement types are available directly or through `@impulse-ui-native/toolkit`. Storybook covers composition, controlled state, disabled triggers, long-press, and edge placements. Use the on-device Storybook host to verify rendering and interaction on iOS and Android.
+
+## Surface migration
+
+The surface prop and PopoverSurface type have been removed. Move former
+components.popover.surfaces.elevated customizations to the flat panel tokens
+(backgroundColor, borderColor, borderWidth, borderRadius, paddingHorizontal,
+and paddingVertical). Move inverse hint styling to components.popover.tooltip;
+its text color is named color. Customize Popover.Content directly for custom
+panel styling.

@@ -2,7 +2,7 @@ import { memo } from "react";
 
 import { Icon } from "@impulse-ui-native/icon";
 import { XIcon } from "@impulse-ui-native/icon/icons/x";
-import { useColors, useComponentsTokens } from "@impulse-ui-native/theme";
+import { useColors } from "@impulse-ui-native/theme";
 
 import type { PopoverProps } from "../types";
 import { PopoverClose } from "./popover-close";
@@ -21,15 +21,13 @@ export const PopoverComponent = memo(function Popover({
   title,
   footer,
   hideClose = false,
-  surface = "elevated",
   children,
   ...props
 }: PopoverProps) {
   const colors = useColors();
-  const tokens = useComponentsTokens().popover;
 
   return (
-    <PopoverRoot {...props} surface={surface}>
+    <PopoverRoot {...props}>
       <PopoverTrigger {...triggerProps}>{trigger}</PopoverTrigger>
       <PopoverContent {...contentProps}>
         {header || title || !hideClose ? (
@@ -38,15 +36,7 @@ export const PopoverComponent = memo(function Popover({
             {!header && title ? <PopoverTitle>{title}</PopoverTitle> : null}
             {!hideClose ? (
               <PopoverClose marginLeft="auto">
-                <Icon
-                  icon={XIcon}
-                  size="small"
-                  color={
-                    surface === "inverse"
-                      ? tokens.surfaces.inverse.contrast
-                      : colors.text.tertiary
-                  }
-                />
+                <Icon icon={XIcon} size="small" color={colors.text.tertiary} />
               </PopoverClose>
             ) : null}
           </PopoverHeader>

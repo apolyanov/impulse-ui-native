@@ -1,10 +1,13 @@
 import { memo } from "react";
+import { StyleSheet } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import {
   useControllableState,
   useEventCallback,
   useTimer,
 } from "@impulse-ui-native/core";
+import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { TooltipProps } from "../types";
 import { TooltipDuration } from "../constants/popover.constants";
@@ -31,6 +34,8 @@ export const Tooltip = memo(function Tooltip({
     onChange: onOpenChange,
   });
 
+  const styles = useThemedStyles(themedStyles);
+
   const dismiss = useEventCallback(() => setOpen(false));
 
   useTimer({ enabled: open && !disabled, duration, callback: dismiss });
@@ -42,14 +47,15 @@ export const Tooltip = memo(function Tooltip({
       onOpenChange={setOpen}
       disabled={disabled}
       placement={placement}
-      surface="inverse"
     >
       <PopoverTrigger trigger="longPress" {...triggerProps}>
         {children}
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent shadow="sm" style={styles.content}>
         {typeof content === "string" || typeof content === "number" ? (
-          <PopoverDescription>{content}</PopoverDescription>
+          <PopoverDescription style={styles.description}>
+            {content}
+          </PopoverDescription>
         ) : (
           content
         )}
@@ -57,3 +63,22 @@ export const Tooltip = memo(function Tooltip({
     </PopoverRoot>
   );
 });
+
+function themedStyles(theme: AppTheme) {
+  const tokens = theme.components.popover.tooltip;
+
+  return StyleSheet.create({
+    content: {
+      width: "auto",
+      backgroundColor: tokens.backgroundColor,
+      borderColor: tokens.backgroundColor,
+      borderWidth: 0,
+      borderRadius: tokens.borderRadius,
+      paddingHorizontal: tokens.paddingHorizontal,
+      paddingVertical: tokens.paddingVertical,
+    },
+    description: {
+      color: tokens.color,
+    },
+  });
+}

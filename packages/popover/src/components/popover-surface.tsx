@@ -35,7 +35,6 @@ export const PopoverSurfaceView = memo(function PopoverSurfaceView({
     >
       <Pressable style={StyleSheet.absoluteFill} onPress={close} />
       <View
-        shadow="sm"
         {...props}
         pointerEvents={styleProps.ready ? "auto" : "none"}
         style={panelStyle}
@@ -49,10 +48,9 @@ export const PopoverSurfaceView = memo(function PopoverSurfaceView({
 
 function themedStyles(
   theme: AppTheme,
-  { surface, bounds, host, position, ready }: PopoverSurfaceStyleProps,
+  { bounds, host, position, ready }: PopoverSurfaceStyleProps,
 ) {
   const tokens = theme.components.popover;
-  const appearance = tokens.surfaces[surface];
 
   return StyleSheet.create({
     host: { ...StyleSheet.absoluteFill, zIndex: tokens.zIndexBase },
@@ -66,13 +64,13 @@ function themedStyles(
     },
 
     panel: {
-      width: surface === "elevated" ? tokens.maxWidth : undefined,
-      backgroundColor: appearance.value,
-      borderColor: appearance.borderColor,
-      borderWidth: appearance.borderWidth,
-      borderRadius: appearance.borderRadius,
-      paddingHorizontal: appearance.paddingHorizontal,
-      paddingVertical: appearance.paddingVertical,
+      width: tokens.maxWidth,
+      backgroundColor: tokens.backgroundColor,
+      borderColor: tokens.borderColor,
+      borderWidth: tokens.borderWidth,
+      borderRadius: tokens.borderRadius,
+      paddingHorizontal: tokens.paddingHorizontal,
+      paddingVertical: tokens.paddingVertical,
       gap: tokens.gap,
     },
   });

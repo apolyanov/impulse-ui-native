@@ -8,7 +8,6 @@ import type {
 } from "@impulse-ui-native/primitives";
 
 export type PopoverPlacement = "top" | "bottom" | "left" | "right";
-export type PopoverSurface = "elevated" | "inverse";
 
 export interface PopoverRootProps extends PropsWithChildren {
   open?: boolean;
@@ -18,7 +17,6 @@ export interface PopoverRootProps extends PropsWithChildren {
   disabled?: boolean;
 
   placement?: PopoverPlacement;
-  surface?: PopoverSurface;
   portalName?: string;
 }
 
@@ -45,7 +43,7 @@ export interface PopoverProps extends PopoverRootProps {
   contentProps?: PopoverContentProps;
 }
 
-export interface TooltipProps extends Omit<PopoverRootProps, "surface"> {
+export interface TooltipProps extends PopoverRootProps {
   content: ReactNode;
   triggerProps?: PopoverTriggerProps;
 
@@ -61,7 +59,6 @@ export interface PopoverContextValue {
 
   anchorRef: RefObject<NativeView | null>;
   placement: PopoverPlacement;
-  surface: PopoverSurface;
   portalName?: string;
 }
 
@@ -89,7 +86,6 @@ export interface PopoverPositionOptions {
 }
 
 export interface PopoverSurfaceStyleProps {
-  surface: PopoverSurface;
   bounds: PopoverRect;
   host?: PopoverRect;
   position: PopoverPosition | null;

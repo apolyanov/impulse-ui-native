@@ -18,24 +18,19 @@ export function createPopoverTokens(
     titleColor: tokens.colors.text.primary,
     descriptionColor: tokens.colors.text.secondary,
 
-    surfaces: {
-      elevated: {
-        ...tokens.colors.surface.elevated,
-        borderColor: tokens.colors.border.subtle.value,
-        borderWidth: tokens.borderSize.sm,
-        borderRadius: tokens.radii.lg,
-        paddingHorizontal: tokens.space.sm,
-        paddingVertical: tokens.space.sm,
-      },
+    backgroundColor: tokens.colors.surface.secondary.value,
+    borderColor: tokens.colors.border.subtle.value,
+    borderWidth: tokens.borderSize.sm,
+    borderRadius: tokens.radii.lg,
+    paddingHorizontal: tokens.space.sm,
+    paddingVertical: tokens.space.sm,
 
-      inverse: {
-        ...tokens.colors.surface.inverse,
-        borderColor: tokens.colors.surface.inverse.value,
-        borderWidth: 0,
-        borderRadius: tokens.radii.md,
-        paddingHorizontal: tokens.space.mxs,
-        paddingVertical: tokens.space.xs,
-      },
+    tooltip: {
+      backgroundColor: tokens.colors.surface.inverse.value,
+      color: tokens.colors.surface.inverse.contrast,
+      borderRadius: tokens.radii.md,
+      paddingHorizontal: tokens.space.mxs,
+      paddingVertical: tokens.space.xs,
     },
   };
 }

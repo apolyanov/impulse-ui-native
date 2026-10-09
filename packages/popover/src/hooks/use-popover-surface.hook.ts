@@ -11,7 +11,7 @@ import { usePopoverContext } from "./use-popover-context.hook";
 import { usePopoverPosition } from "./use-popover-position.hook";
 
 export function usePopoverSurface(onLayout: PopoverContentProps["onLayout"]) {
-  const { surface, placement, setOpen } = usePopoverContext();
+  const { placement, setOpen } = usePopoverContext();
 
   const [size, setSize] = useState({ width: 0, height: 0 });
   const hostRef = useRef<View>(null);
@@ -35,8 +35,8 @@ export function usePopoverSurface(onLayout: PopoverContentProps["onLayout"]) {
 
   const ready = visible && size.width > 0 && size.height > 0;
   const styleProps = useMemo<PopoverSurfaceStyleProps>(
-    () => ({ surface, bounds, host: measurement?.host, position, ready }),
-    [surface, bounds, measurement?.host, position, ready],
+    () => ({ bounds, host: measurement?.host, position, ready }),
+    [bounds, measurement?.host, position, ready],
   );
 
   const close = useEventCallback(() => setOpen(false));

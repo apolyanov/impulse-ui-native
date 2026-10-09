@@ -1,6 +1,5 @@
 export type {
   PopoverPlacement,
-  PopoverSurface,
   PopoverRootProps,
   PopoverTriggerProps,
   PopoverContentProps,

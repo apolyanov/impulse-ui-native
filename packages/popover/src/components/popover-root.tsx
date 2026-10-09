@@ -13,7 +13,6 @@ export const PopoverRoot = memo(function PopoverRoot({
   onOpenChange,
   disabled = false,
   placement = "bottom",
-  surface = "elevated",
   portalName,
 }: PopoverRootProps) {
   const anchorRef = useRef<View>(null);
@@ -31,10 +30,9 @@ export const PopoverRoot = memo(function PopoverRoot({
       setOpen,
       anchorRef,
       placement,
-      surface,
       portalName,
     }),
-    [open, disabled, setOpen, placement, surface, portalName],
+    [open, disabled, setOpen, placement, portalName],
   );
 
   return (
