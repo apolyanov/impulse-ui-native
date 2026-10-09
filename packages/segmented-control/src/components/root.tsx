@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useControllableState } from "@impulse-ui-native/core";
@@ -56,17 +56,19 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
 
   return (
     <SegmentedControlProvider value={context}>
-      <ScrollView
-        {...props}
-        contentContainerStyle={resolvedContentContainerStyle}
-        directionalLockEnabled
-        horizontal
-        scrollEnabled={overflow === "scroll"}
-        showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
-        style={rootStyle}
-      >
-        {children}
-      </ScrollView>
+      <View style={rootStyle}>
+        <ScrollView
+          {...props}
+          contentContainerStyle={resolvedContentContainerStyle}
+          directionalLockEnabled
+          horizontal
+          scrollEnabled={overflow === "scroll"}
+          showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
+          style={styles.scroll}
+        >
+          {children}
+        </ScrollView>
+      </View>
     </SegmentedControlProvider>
   );
 });
@@ -79,11 +81,17 @@ function themedStyles(theme: AppTheme, props: SegmentedControlRootThemeProps) {
     root: {
       flexGrow: 0,
       minHeight: sizeTokens.height,
+      overflow: "hidden",
 
       backgroundColor: tokens.rootBackgroundColor,
       borderColor: tokens.rootBorderColor,
       borderRadius: tokens.borderRadius,
       borderWidth: tokens.borderWidth,
+    },
+    scroll: {
+      flexGrow: 1,
+      flexShrink: 1,
+      minHeight: Math.max(0, sizeTokens.height - tokens.borderWidth * 2),
     },
     content: {
       alignItems: "stretch",

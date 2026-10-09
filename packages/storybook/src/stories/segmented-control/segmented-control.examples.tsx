@@ -162,7 +162,7 @@ export const SegmentedControlExampleDefinitions = [
     name: "Overflow",
     title: "Scrollable overflow",
     description:
-      "The default scroll policy preserves readable targets when the group is narrower than its items.",
+      "Scroll to the end to inspect the selected Chart item's full trailing edge inside the group border.",
     props: [
       {
         name: "overflow",
@@ -170,7 +170,7 @@ export const SegmentedControlExampleDefinitions = [
         description: "Allows horizontal scrolling instead of shrinking items.",
       },
     ],
-    args: { defaultValue: "list", overflow: "scroll" },
+    args: { defaultValue: "chart", overflow: "scroll" },
     items: iconItems,
     width: 240,
   },
