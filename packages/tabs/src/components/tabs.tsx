@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from "react";
+import { memo, useMemo } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -6,7 +6,7 @@ import { useControllableState } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
-import type { TabsItem, TabsProps } from "../types";
+import type { TabsProps } from "../types";
 import { TabButton } from "./tab-button";
 
 export const Tabs = memo(function Tabs({
@@ -21,32 +21,46 @@ export const Tabs = memo(function Tabs({
   value,
   ...props
 }: TabsProps) {
-  const [selectedValue, setSelectedValue] = useControllableState<string>({
-    prop: value,
-    defaultProp: defaultValue ?? items.find((item) => !item.disabled)?.value,
-    onChange: onValueChange,
-  });
+  const initialValue = useMemo(
+    () => defaultValue ?? items.find((item) => !item.disabled)?.value,
+    [defaultValue, items],
+  );
+  const stateOptions = useMemo(
+    () => ({ prop: value, defaultProp: initialValue, onChange: onValueChange }),
+    [initialValue, onValueChange, value],
+  );
+
+  const [selectedValue, setSelectedValue] =
+    useControllableState<string>(stateOptions);
   const styles = useThemedStyles(themedStyles);
 
-  const selectedItem = items.find((item) => item.value === selectedValue);
-  const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
-
-  const selectValue = useCallback(
-    (nextValue: string) => setSelectedValue(nextValue),
-    [setSelectedValue],
+  const selectedItem = useMemo(
+    () => items.find((item) => item.value === selectedValue),
+    [items, selectedValue],
   );
-  const renderTab = useCallback(
-    (item: TabsItem) => (
-      <TabButton
-        key={item.value}
-        item={item}
-        disabled={disabled || Boolean(item.disabled)}
-        selected={item.value === selectedValue}
-        size={size}
-        onSelect={selectValue}
-      />
-    ),
-    [disabled, selectedValue, selectValue, size],
+  const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
+  const tabButtons = useMemo(
+    () =>
+      items.map((item) => (
+        <TabButton
+          key={item.value}
+          item={item}
+          disabled={disabled || Boolean(item.disabled)}
+          selected={item.value === selectedValue}
+          size={size}
+          onSelect={setSelectedValue}
+        />
+      )),
+    [disabled, items, selectedValue, setSelectedValue, size],
+  );
+  const activePanel = useMemo(
+    () =>
+      selectedItem ? (
+        <View key={selectedItem.value} style={panelStyle}>
+          {selectedItem.content}
+        </View>
+      ) : null,
+    [panelStyle, selectedItem],
   );
 
   return (
@@ -60,14 +74,10 @@ export const Tabs = memo(function Tabs({
           style={styles.scroll}
           contentContainerStyle={styles.content}
         >
-          {items.map(renderTab)}
+          {tabButtons}
         </ScrollView>
       </View>
-      {selectedItem ? (
-        <View key={selectedItem.value} style={panelStyle}>
-          {selectedItem.content}
-        </View>
-      ) : null}
+      {activePanel}
     </View>
   );
 });
