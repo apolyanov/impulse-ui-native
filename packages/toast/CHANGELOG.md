@@ -1,5 +1,33 @@
 # @impulse-ui-native/toast
 
+## 7.0.0
+
+### Patch Changes
+
+- 4005900: Migrate Flyout and Toast to the shared overlay lifecycle while retaining their
+  component-owned animations, measurement, gestures, and duration timers. Flyout
+  requires Reanimated 4 and enables dragging after entry completes.
+- 9398849: Align Flyout with the elevated overlay surface, 16-point exposed
+  corners and padding, and 20/28 title typography used by Modal. Add theme tokens
+  for the title typography. The sheet remains borderless.
+
+  Use an 18-point tertiary close icon in Toast, matching Modal and Popover, with
+  dedicated closeIconSize and closeColor tokens independent of semantic icons.
+
+  Allow Popover titles to wrap beside the close control, with a compact long-title
+  Storybook example.
+
+- Updated dependencies [7d5a077]
+- Updated dependencies [d20d471]
+- Updated dependencies [9398849]
+- Updated dependencies [2a7db15]
+- Updated dependencies [51a7e4d]
+  - @impulse-ui-native/theme@7.0.0
+  - @impulse-ui-native/overlay@7.0.0
+  - @impulse-ui-native/icon@7.0.0
+  - @impulse-ui-native/primitives@7.0.0
+  - @impulse-ui-native/core@7.0.0
+
 ## 6.3.1
 
 ### Patch Changes

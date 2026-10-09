@@ -1,5 +1,17 @@
 # @impulse-ui-native/overlay
 
+## 7.0.0
+
+### Minor Changes
+
+- 51a7e4d: Add a provider-independent useOverlayLifecycle hook with lifecycle status,
+  readiness, guarded transition completion, and lifecycle notifications. Track
+  hosted status through onStatusChange and expose useOverlayStatus for observers.
+
+### Patch Changes
+
+- @impulse-ui-native/core@7.0.0
+
 ## 6.3.1
 
 ## 6.3.0

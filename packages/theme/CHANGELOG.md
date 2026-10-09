@@ -1,5 +1,42 @@
 # @impulse-ui-native/theme
 
+## 7.0.0
+
+### Major Changes
+
+- 2a7db15: Remove Popover's surface prop, exported PopoverSurface type, and surface context
+  logic. Use a single flat secondary panel without a default shadow. Title and
+  Description consume their own theme colors without context.
+
+  Flatten components.popover.surfaces.elevated into the panel tokens, using
+  backgroundColor for the former value field. Move inverse hint styling into
+  components.popover.tooltip, with color for its text. Tooltip retains its compact
+  inverse presentation and sizes naturally through its own content styles.
+
+### Minor Changes
+
+- 7d5a077: Add Modal's OverlayComponentProps lifecycle for local Portal usage and global
+  OverlayHost registration. Root handles safe-area positioning, backdrop and Android
+  back dismissal, layered rendering, and cancelable entry/exit animations. Preserve
+  independent presentation parts and non-scrollable content, and add hosted title
+  composition and interactive documentation.
+- d20d471: Add presentation-only Modal parts with a styled Root, Header, Content, Footer,
+  Title, and Description. Include a convenience composition and token-driven
+  small/medium/large sizes. Dialog behavior remains deferred.
+- 9398849: Align Flyout with the elevated overlay surface, 16-point exposed
+  corners and padding, and 20/28 title typography used by Modal. Add theme tokens
+  for the title typography. The sheet remains borderless.
+
+  Use an 18-point tertiary close icon in Toast, matching Modal and Popover, with
+  dedicated closeIconSize and closeColor tokens independent of semantic icons.
+
+  Allow Popover titles to wrap beside the close control, with a compact long-title
+  Storybook example.
+
+### Patch Changes
+
+- @impulse-ui-native/core@7.0.0
+
 ## 6.3.1
 
 ### Patch Changes

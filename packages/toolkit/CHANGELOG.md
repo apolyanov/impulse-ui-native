@@ -1,5 +1,63 @@
 # @impulse-ui-native/toolkit
 
+## 7.0.0
+
+### Minor Changes
+
+- 7d5a077: Add Modal's OverlayComponentProps lifecycle for local Portal usage and global
+  OverlayHost registration. Root handles safe-area positioning, backdrop and Android
+  back dismissal, layered rendering, and cancelable entry/exit animations. Preserve
+  independent presentation parts and non-scrollable content, and add hosted title
+  composition and interactive documentation.
+- d20d471: Add presentation-only Modal parts with a styled Root, Header, Content, Footer,
+  Title, and Description. Include a convenience composition and token-driven
+  small/medium/large sizes. Dialog behavior remains deferred.
+- 51a7e4d: Add a provider-independent useOverlayLifecycle hook with lifecycle status,
+  readiness, guarded transition completion, and lifecycle notifications. Track
+  hosted status through onStatusChange and expose useOverlayStatus for observers.
+
+### Patch Changes
+
+- Updated dependencies [cea3a04]
+- Updated dependencies [8e6ef63]
+- Updated dependencies [7d5a077]
+- Updated dependencies [d20d471]
+- Updated dependencies [4005900]
+- Updated dependencies [9398849]
+- Updated dependencies [bf78005]
+- Updated dependencies [2a7db15]
+- Updated dependencies [51a7e4d]
+  - @impulse-ui-native/flyout@7.0.0
+  - @impulse-ui-native/modal@7.0.0
+  - @impulse-ui-native/theme@7.0.0
+  - @impulse-ui-native/toast@7.0.0
+  - @impulse-ui-native/popover@7.0.0
+  - @impulse-ui-native/overlay@7.0.0
+  - @impulse-ui-native/datetime@7.0.0
+  - @impulse-ui-native/select@7.0.0
+  - @impulse-ui-native/accordion@7.0.0
+  - @impulse-ui-native/card@7.0.0
+  - @impulse-ui-native/carousel@7.0.0
+  - @impulse-ui-native/charts@7.0.0
+  - @impulse-ui-native/checkbox@7.0.0
+  - @impulse-ui-native/data-state@7.0.0
+  - @impulse-ui-native/form-field@7.0.0
+  - @impulse-ui-native/input@7.0.0
+  - @impulse-ui-native/list@7.0.0
+  - @impulse-ui-native/pagination@7.0.0
+  - @impulse-ui-native/primitives@7.0.0
+  - @impulse-ui-native/progress@7.0.0
+  - @impulse-ui-native/radio@7.0.0
+  - @impulse-ui-native/segmented-control@7.0.0
+  - @impulse-ui-native/skeleton@7.0.0
+  - @impulse-ui-native/slider@7.0.0
+  - @impulse-ui-native/stepper@7.0.0
+  - @impulse-ui-native/switch@7.0.0
+  - @impulse-ui-native/core@7.0.0
+  - @impulse-ui-native/echo@7.0.0
+  - @impulse-ui-native/endpoint@7.0.0
+  - @impulse-ui-native/portal@7.0.0
+
 ## 6.3.1
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # @impulse-ui-native/select
 
+## 7.0.0
+
+### Patch Changes
+
+- Updated dependencies [cea3a04]
+- Updated dependencies [7d5a077]
+- Updated dependencies [d20d471]
+- Updated dependencies [4005900]
+- Updated dependencies [9398849]
+- Updated dependencies [2a7db15]
+  - @impulse-ui-native/flyout@7.0.0
+  - @impulse-ui-native/theme@7.0.0
+  - @impulse-ui-native/icon@7.0.0
+  - @impulse-ui-native/input@7.0.0
+  - @impulse-ui-native/primitives@7.0.0
+  - @impulse-ui-native/core@7.0.0
+  - @impulse-ui-native/portal@7.0.0
+
 ## 6.3.1
 
 ### Patch Changes
