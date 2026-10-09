@@ -7,37 +7,20 @@ import type { AppTheme } from "@impulse-ui-native/theme";
 import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ModalRootProps } from "../types";
-import { useModalLifecycle } from "../hooks/use-modal-lifecycle.hook";
+import { useModalContext } from "../hooks/use-modal-context.hook";
 import { ModalSurface } from "./surface";
 
 export const ModalRoot = memo(function ModalRoot({
-  id,
-  open = false,
-  layer = 0,
-  onOpen,
-  onOpenFinished,
-  onStatusChange,
-  onClose,
-  onCloseFinished,
   children,
   ...props
 }: ModalRootProps) {
+  const { mounted, interactive, progress, close, layer } = useModalContext();
   const insets = useSafeAreaInsets();
   const tokens = useComponentsTokens().modal;
   const styles = useThemedStyles(themedStyles, { insets, layer }, [
     insets,
     layer,
   ]);
-
-  const { mounted, interactive, progress, close } = useModalLifecycle({
-    id,
-    open,
-    onOpen,
-    onOpenFinished,
-    onStatusChange,
-    onClose,
-    onCloseFinished,
-  });
 
   const overlayStyle = useAnimatedStyle(() => ({ opacity: progress.value }));
   const surfaceStyle = useAnimatedStyle(() => ({

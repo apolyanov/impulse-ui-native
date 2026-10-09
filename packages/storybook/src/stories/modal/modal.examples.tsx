@@ -19,7 +19,7 @@ export const ModalExampleDefinitions = [
     name: "Composition",
     title: "Compound local modal",
     description:
-      "Keep Portal mounted around Root. Root owns the lifecycle; its visual parts render supplied children without context or providers.",
+      "Keep Portal mounted around Provider and Root. Provider owns the lifecycle and shares context with Root and Close; visual parts render supplied children.",
     preview: <ModalPreview compound />,
   },
   {

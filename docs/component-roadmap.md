@@ -143,7 +143,7 @@ have been discussed.
 | Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.          |
 | Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                 |
 | Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                         |
-| Modal / Dialog               | Available | Compound modal with local Portal and global OverlayHost usage, lifecycle callbacks, backdrop and Android back dismissal, and size variants. |
+| Modal / Dialog               | Available | Compound modal with Provider context, local Portal and global OverlayHost usage, lifecycle callbacks, automatic header close, backdrop and Android back dismissal, and size variants. |
 | Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                                 |
 | Toast                        | Available | OverlayProvider-backed compound toasts with top/bottom placement, five scaled stack levels, durations and actions.                          |
 | Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                 |
