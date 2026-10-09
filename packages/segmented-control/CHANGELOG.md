@@ -1,5 +1,15 @@
 # @impulse-ui-native/segmented-control
 
+## 7.0.1
+
+### Patch Changes
+
+- 7292823: Move the segmented control frame outside the scroll viewport so the last segment remains fully visible at the end of horizontal scrolling.
+  - @impulse-ui-native/core@7.0.1
+  - @impulse-ui-native/icon@7.0.1
+  - @impulse-ui-native/primitives@7.0.1
+  - @impulse-ui-native/theme@7.0.1
+
 ## 7.0.0
 
 ### Patch Changes

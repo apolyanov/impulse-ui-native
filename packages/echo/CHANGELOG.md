@@ -1,5 +1,11 @@
 # @impulse-ui-native/echo
 
+## 7.0.1
+
+### Patch Changes
+
+- @impulse-ui-native/core@7.0.1
+
 ## 7.0.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/form-field",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Form-field composition for Impulse UI Native controls.",
   "keywords": [
     "react-native",
