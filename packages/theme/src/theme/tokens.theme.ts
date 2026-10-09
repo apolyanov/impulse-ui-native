@@ -37,6 +37,7 @@ import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
 import { createListTokens } from "./create-list-tokens";
+import { createModalTokens } from "./create-modal-tokens";
 import { createPaginationTokens } from "./create-pagination-tokens";
 import { createPopoverTokens } from "./create-popover-tokens";
 import { createPressableTokens } from "./create-pressable-tokens";
@@ -392,6 +393,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    modal: createModalTokens(tokens),
     toast: createToastTokens(tokens),
     popover: createPopoverTokens(tokens),
     carousel: createCarouselTokens(tokens),

@@ -35,7 +35,8 @@
       "@impulse-ui-native/card",
       "@impulse-ui-native/list",
       "@impulse-ui-native/progress",
-      "@impulse-ui-native/popover"
+      "@impulse-ui-native/popover",
+      "@impulse-ui-native/modal"
     ]
   ],
   "linked": [],

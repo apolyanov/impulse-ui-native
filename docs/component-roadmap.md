@@ -136,18 +136,18 @@ have been discussed.
 
 ### Priority 1: essential controls and feedback
 
-| Candidate                    | Status    | Suggested scope                                                                                                                                                       |
-| ---------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, and disabled behavior.                                                             |
-| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, and disabled behavior.                                                                              |
-| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior.                                    |
-| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.                                           |
-| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                                                   |
-| Modal / Dialog               | Candidate | Portal-backed modal with back-button behavior and size variants.                                                                   |
-| Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                                                           |
-| Toast                        | Available | OverlayProvider-backed compound toasts with top/bottom placement, five scaled stack levels, durations and actions.                                                    |
-| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                                                           |
-| Progress                     | Available | Dedicated progress package with linear and circular determinate/indeterminate variants and Reanimated loops.                                                          |
+| Candidate                    | Status    | Suggested scope                                                                                                                    |
+| ---------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Checkbox                     | Available | Controlled and uncontrolled state, indeterminate state, shared sizes and variants, and disabled behavior.                          |
+| Radio                        | Available | Controlled and uncontrolled selection, shared sizes and variants, and disabled behavior.                                           |
+| Switch                       | Available | Controlled and uncontrolled state, token-driven variants and sizes, reduced-motion-aware animation, and disabled/loading behavior. |
+| Textarea                     | Available | Multiline controlled and uncontrolled text entry with character count, validation feedback, and bounded auto-grow behavior.        |
+| Form Field                   | Available | Render-prop composition for shared labels, descriptions, required markers, validation feedback, and disabled state.                |
+| Modal / Dialog               | Planned   | Presentation parts and size variants in the modal package; Portal, state, and dismissal behavior remain planned.                   |
+| Alert Dialog                 | Candidate | Destructive-action confirmation and cancel/confirm actions.                                                                        |
+| Toast                        | Available | OverlayProvider-backed compound toasts with top/bottom placement, five scaled stack levels, durations and actions.                 |
+| Spinner / Activity Indicator | Available | Token-aware sizes and semantic colors for buttons, controls, and standalone loading states.                                        |
+| Progress                     | Available | Dedicated progress package with linear and circular determinate/indeterminate variants and Reanimated loops.                       |
 
 ### Priority 2: composition and navigation
 
