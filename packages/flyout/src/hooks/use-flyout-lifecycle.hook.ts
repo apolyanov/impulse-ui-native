@@ -1,151 +1,122 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { LayoutChangeEvent } from "react-native";
+import type { LayoutChangeEvent } from "react-native";
+import { useEffect, useMemo, useState } from "react";
 import { Gesture } from "react-native-gesture-handler";
 import {
-  Easing,
+  cancelAnimation,
   useSharedValue,
   withSpring,
   withTiming,
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
+import type {
+  OverlayLifecycleProps,
+  OverlayTransitionHandler,
+} from "@impulse-ui-native/overlay";
+import { useEventCallback } from "@impulse-ui-native/core";
+import { useOverlayLifecycle } from "@impulse-ui-native/overlay";
 import { getFlyoutTokens, useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { FlyoutProps } from "../types";
+import {
+  EnterAnimationConfig,
+  ExitAnimationConfig,
+} from "../constants/flyout.constants";
 
-const EnterAnimationConfig = {
-  damping: 50,
-  stiffness: 300,
-  mass: 1,
-  overshootClamping: true,
-};
-
-const ExitAnimationConfig = {
-  duration: 150,
-  easing: Easing.in(Easing.quad),
-};
-
-interface UseFlyoutLifecycleProps {
-  id: FlyoutProps["id"];
-  open: FlyoutProps["open"];
+interface UseFlyoutLifecycleProps extends OverlayLifecycleProps {
   placement: NonNullable<FlyoutProps["placement"]>;
   screenHeight: number;
   safeAreaInset: number;
   overlayVisibleOpacity: number;
-  onClose: FlyoutProps["onClose"];
-  onCloseFinished: FlyoutProps["onCloseFinished"];
-  onOpen: FlyoutProps["onOpen"];
-  onOpenFinished: FlyoutProps["onOpenFinished"];
 }
 
 export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
-  const {
-    id,
-    open,
-    placement,
-    screenHeight,
-    safeAreaInset,
-    overlayVisibleOpacity,
-    onClose,
-    onCloseFinished,
-    onOpen,
-    onOpenFinished,
-  } = props;
+  const { placement, screenHeight, safeAreaInset, overlayVisibleOpacity } =
+    props;
+  const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
 
   const tokens = useComponentsTokens();
-
   const flyoutTokens = getFlyoutTokens(tokens.flyout, { placement });
   const handleHeight = flyoutTokens.handleContainer.height;
-
-  const [mounted, setMounted] = useState(open);
-  const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
-  const [isTouchable, setIsTouchable] = useState(false);
-
-  const didOpen = useRef(false);
-  const isClosing = useRef(false);
-  const transitionId = useRef(0);
 
   const translateY = useSharedValue(
     placement === "top" ? -screenHeight : screenHeight,
   );
   const opacity = useSharedValue(0);
-
   const hasMeasured = measuredHeight !== null;
 
-  const onLayout = useCallback(
-    (event: LayoutChangeEvent) => {
-      if (measuredHeight !== null) {
+  const enter = useEventCallback<OverlayTransitionHandler>(
+    (transitionId, complete) => {
+      translateY.set(
+        withSpring(0, EnterAnimationConfig, (finished) => {
+          if (finished) {
+            scheduleOnRN(complete, transitionId);
+          }
+        }),
+      );
+      opacity.set(withSpring(overlayVisibleOpacity, EnterAnimationConfig));
+    },
+  );
+  const exit = useEventCallback<OverlayTransitionHandler>(
+    (transitionId, complete) => {
+      if (measuredHeight === null) {
+        complete(transitionId);
+
         return;
       }
 
-      const height =
-        event.nativeEvent.layout.height + safeAreaInset + handleHeight;
-
-      translateY.value = placement === "top" ? -height : height;
-
-      setMeasuredHeight(height);
+      const target = placement === "top" ? -measuredHeight : measuredHeight;
+      translateY.set(
+        withTiming(target, ExitAnimationConfig, (finished) => {
+          if (finished) {
+            scheduleOnRN(complete, transitionId);
+          }
+        }),
+      );
+      opacity.set(withTiming(0, ExitAnimationConfig));
     },
-    [handleHeight, measuredHeight, placement, safeAreaInset, translateY],
   );
 
-  const finishClosing = useCallback(
-    (finishedTransitionId: number) => {
-      if (!isClosing.current || transitionId.current !== finishedTransitionId) {
-        return;
-      }
-
-      isClosing.current = false;
-
-      setMounted(false);
-      setMeasuredHeight(null);
-      onCloseFinished?.(id);
-    },
-    [id, onCloseFinished],
+  const options = useMemo(
+    () => ({ ready: hasMeasured, onEnter: enter, onExit: exit }),
+    [hasMeasured, enter, exit],
   );
+  const finishClose = useEventCallback((id: string) => {
+    setMeasuredHeight(null);
+    translateY.set(placement === "top" ? -screenHeight : screenHeight);
+    opacity.set(0);
 
-  const close = useCallback(() => {
-    if (measuredHeight === null || isClosing.current) {
+    props.onCloseFinished?.(id);
+  });
+  const lifecycleProps = useMemo(
+    () => ({ ...props, onCloseFinished: finishClose }),
+    [props, finishClose],
+  );
+  const lifecycle = useOverlayLifecycle(lifecycleProps, options);
+  const { close, status, mounted, interactive } = lifecycle;
+
+  const onLayout = useEventCallback((event: LayoutChangeEvent) => {
+    if (!mounted || measuredHeight !== null) {
       return;
     }
 
-    isClosing.current = true;
-    transitionId.current += 1;
+    const height =
+      event.nativeEvent.layout.height + safeAreaInset + handleHeight;
+    translateY.set(placement === "top" ? -height : height);
 
-    setIsTouchable(false);
-    onClose?.(id);
-
-    const target = placement === "top" ? -measuredHeight : measuredHeight;
-    const closingTransitionId = transitionId.current;
-
-    translateY.value = withTiming(target, ExitAnimationConfig, (finished) => {
-      if (finished) {
-        scheduleOnRN(finishClosing, closingTransitionId);
-      }
-    });
-    opacity.value = withTiming(0, ExitAnimationConfig);
-    didOpen.current = false;
-  }, [
-    finishClosing,
-    id,
-    measuredHeight,
-    onClose,
-    opacity,
-    placement,
-    translateY,
-  ]);
+    setMeasuredHeight(height);
+  });
 
   const dragGesture = useMemo(
     () =>
       Gesture.Pan()
-        .enabled(hasMeasured)
+        .enabled(status === "open" && hasMeasured)
         .onUpdate((event) => {
-          if (placement === "bottom") {
-            translateY.value = Math.max(0, event.translationY);
-
-            return;
-          }
-
-          translateY.value = Math.min(0, event.translationY);
+          translateY.set(
+            placement === "bottom"
+              ? Math.max(0, event.translationY)
+              : Math.min(0, event.translationY),
+          );
         })
         .onEnd((event) => {
           if (measuredHeight === null) {
@@ -165,102 +136,44 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
             return;
           }
 
-          translateY.value = withSpring(0, EnterAnimationConfig);
-          opacity.value = withSpring(
-            overlayVisibleOpacity,
-            EnterAnimationConfig,
-          );
+          translateY.set(withSpring(0, EnterAnimationConfig));
+          opacity.set(withSpring(overlayVisibleOpacity, EnterAnimationConfig));
         }),
     [
-      close,
+      status,
       hasMeasured,
       measuredHeight,
+      placement,
+      close,
+      translateY,
       opacity,
       overlayVisibleOpacity,
-      placement,
-      translateY,
     ],
   );
 
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    transitionId.current += 1;
-
-    setIsTouchable(false);
-
-    isClosing.current = false;
-    didOpen.current = false;
-
-    if (!mounted) {
-      setMounted(true);
-      setMeasuredHeight(null);
-
-      translateY.value = placement === "top" ? -screenHeight : screenHeight;
-      opacity.value = 0;
-    }
-  }, [mounted, open, opacity, placement, screenHeight, translateY]);
-
-  useEffect(() => {
-    if (!open || measuredHeight === null || didOpen.current) {
-      return;
-    }
-
-    setIsTouchable(true);
-    onOpen?.(id);
-
-    translateY.value = withSpring(0, EnterAnimationConfig, (finished) => {
-      if (finished && onOpenFinished) {
-        scheduleOnRN(onOpenFinished, id);
-      }
-    });
-    opacity.value = withSpring(overlayVisibleOpacity, EnterAnimationConfig);
-    didOpen.current = true;
-  }, [
-    id,
-    measuredHeight,
-    onOpen,
-    onOpenFinished,
-    opacity,
-    open,
-    overlayVisibleOpacity,
-    translateY,
-  ]);
-
-  useEffect(() => {
-    if (open || !mounted || isClosing.current) {
-      return;
-    }
-
-    if (didOpen.current) {
-      close();
-
-      return;
-    }
-
-    setMounted(false);
-    setMeasuredHeight(null);
-  }, [close, mounted, open]);
+  useEffect(
+    () => () => {
+      cancelAnimation(translateY);
+      cancelAnimation(opacity);
+    },
+    [translateY, opacity],
+  );
 
   return useMemo(
     () => ({
-      close,
+      ...lifecycle,
       dragGesture,
       hasMeasured,
-      isTouchable,
-      mounted,
+      isTouchable: interactive,
       onLayout,
       opacity,
       translateY,
     }),
     [
-      close,
+      lifecycle,
       dragGesture,
       hasMeasured,
-      isTouchable,
-      mounted,
+      interactive,
       onLayout,
       opacity,
       translateY,

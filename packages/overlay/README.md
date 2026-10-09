@@ -79,6 +79,10 @@ becomes true. Exit handlers must also handle dismissal before readiness, usually
 by completing immediately when nothing has appeared. Reopening during exit starts
 a fresh transition and prevents the old completion from closing the new one.
 
+Modal, Flyout, and Toast use this shared hook. Their animation, gestures, and
+Toast's duration timer remain component-owned. Flyout enables drag gestures once
+entry completes so gestures cannot interrupt the entry completion notification.
+
 ## Observing hosted status
 
 OverlayHost forwards component status reports into OverlayStore. The store

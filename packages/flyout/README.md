@@ -69,3 +69,7 @@ The backdrop uses the theme's tertiary text color: dark in light mode and muted
 gray in dark mode, at 40% opacity. The drag handle uses a neutral border color.
 
 For app-wide imperative sheets, register `Flyout` through an `OverlayStore` and mount `OverlayHost` inside the matching `OverlayProvider`.
+
+Root uses the shared useOverlayLifecycle hook. Observe the preparation, entry,
+open, and exit stages through onStatusChange(id, status). Dragging is enabled
+after entry completes. Entry preparation includes the initial layout measurement.

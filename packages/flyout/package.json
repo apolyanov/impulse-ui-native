@@ -36,7 +36,8 @@
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/overlay": "workspace:*",
-    "@impulse-ui-native/primitives": "workspace:*"
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",
@@ -56,7 +57,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.73",
-    "react-native-reanimated": ">=3.6.0",
+    "react-native-reanimated": ">=4.0.0",
     "react-native-gesture-handler": ">=2.0.0",
     "react-native-worklets": ">=0.5",
     "react-native-safe-area-context": ">=5.0.0"

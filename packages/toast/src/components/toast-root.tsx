@@ -85,7 +85,7 @@ export const ToastRoot = memo(function ToastRoot(props: ToastRootProps) {
     return () => cancelAnimation(animatedDepth);
   }, [animatedDepth, stackDepth]);
 
-  if (lifecycle.finished) {
+  if (!lifecycle.mounted) {
     return null;
   }
 

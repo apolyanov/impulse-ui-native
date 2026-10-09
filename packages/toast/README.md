@@ -110,3 +110,7 @@ Toast uses `theme.components.toast` for surfaces, geometry, typography, actions 
 ## Verification
 
 Use the Toast stories in the on-device Storybook host to verify rendering, touch interaction, timer pause/resume, and lifecycle cancellation on iOS and Android.
+
+Toast uses the shared useOverlayLifecycle hook from the overlay package.
+onStatusChange(id, status) reports opening, open, closing, and closed.
+The duration timer starts when status reaches open.

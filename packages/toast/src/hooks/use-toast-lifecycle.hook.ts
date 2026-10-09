@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo } from "react";
 import {
   cancelAnimation,
   useSharedValue,
@@ -6,159 +6,64 @@ import {
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
+import type { OverlayTransitionHandler } from "@impulse-ui-native/overlay";
 import { useEventCallback, useTimer } from "@impulse-ui-native/core";
-import { useOverlayContext } from "@impulse-ui-native/overlay";
+import {
+  useOverlayContext,
+  useOverlayLifecycle,
+} from "@impulse-ui-native/overlay";
 
 import type { ToastRootProps } from "../types";
 import { EnterDuration, ExitDuration } from "../constants/toast.constants";
 
 export function useToastLifecycle(props: ToastRootProps, duration: number) {
-  const {
-    id,
-    open = true,
-    onOpen,
-    onOpenFinished,
-    onClose,
-    onCloseFinished,
-  } = props;
-
+  const { id, open = true } = props;
   const { store } = useOverlayContext();
-
-  const [entered, setEntered] = useState(false);
-  const [finished, setFinished] = useState(false);
-
-  const opened = useRef(false);
-  const closing = useRef(false);
-  const settled = useRef(false);
-  const transitionId = useRef(0);
 
   const progress = useSharedValue(0);
 
-  const close = useEventCallback(() => store.close(id));
-
-  const notifyOpen = useEventCallback(() => onOpen?.(id));
-
-  const notifyEntered = useEventCallback(() => onOpenFinished?.(id));
-
-  const notifyClose = useEventCallback(() => onClose?.(id));
-
-  const finishClose = useEventCallback(() => {
-    if (settled.current) {
-      return;
-    }
-
-    settled.current = true;
-
-    setFinished(true);
-
-    onCloseFinished?.(id);
-  });
-
-  const finishTransition = useEventCallback(
-    (completedTransitionId: number, entering: boolean) => {
-      if (transitionId.current !== completedTransitionId || settled.current) {
-        return;
-      }
-
-      if (entering) {
-        setEntered(true);
-
-        notifyEntered();
-      } else {
-        finishClose();
-      }
+  const enter = useEventCallback<OverlayTransitionHandler>(
+    (transitionId, complete) => {
+      progress.set(
+        withTiming(1, { duration: EnterDuration }, (finished) => {
+          if (finished) {
+            scheduleOnRN(complete, transitionId);
+          }
+        }),
+      );
+    },
+  );
+  const exit = useEventCallback<OverlayTransitionHandler>(
+    (transitionId, complete) => {
+      progress.set(
+        withTiming(0, { duration: ExitDuration }, (finished) => {
+          if (finished) {
+            scheduleOnRN(complete, transitionId);
+          }
+        }),
+      );
     },
   );
 
+  const options = useMemo(
+    () => ({ onEnter: enter, onExit: exit }),
+    [enter, exit],
+  );
+  const lifecycleProps = useMemo(() => ({ ...props, open }), [props, open]);
+  const lifecycle = useOverlayLifecycle(lifecycleProps, options);
+  const close = useEventCallback(() => store.close(id));
+
   useTimer({
-    enabled: entered && open && !finished,
+    enabled: lifecycle.status === "open" && open,
     duration,
     callback: close,
     pauseOnBackground: true,
   });
 
-  useEffect(() => {
-    if (finished) {
-      return;
-    }
+  useEffect(() => () => cancelAnimation(progress), [progress]);
 
-    const currentTransitionId = ++transitionId.current;
-
-    if (!open) {
-      const firstClose = !closing.current;
-
-      closing.current = true;
-
-      if (!opened.current) {
-        try {
-          if (firstClose) {
-            notifyClose();
-          }
-        } finally {
-          finishClose();
-        }
-
-        return;
-      }
-
-      try {
-        if (firstClose) {
-          notifyClose();
-        }
-      } finally {
-        progress.value = withTiming(
-          0,
-          { duration: ExitDuration },
-          (completed) => {
-            if (completed) {
-              scheduleOnRN(finishTransition, currentTransitionId, false);
-            }
-          },
-        );
-      }
-
-      return () => {
-        transitionId.current += 1;
-
-        cancelAnimation(progress);
-      };
-    }
-
-    const firstOpen = !opened.current;
-
-    opened.current = true;
-
-    try {
-      if (firstOpen) {
-        notifyOpen();
-      }
-    } finally {
-      progress.value = withTiming(
-        1,
-        { duration: EnterDuration },
-        (completed) => {
-          if (completed) {
-            scheduleOnRN(finishTransition, currentTransitionId, true);
-          }
-        },
-      );
-    }
-
-    return () => {
-      transitionId.current += 1;
-
-      cancelAnimation(progress);
-    };
-  }, [
-    finishClose,
-    finishTransition,
-    finished,
-    notifyClose,
-    notifyEntered,
-    notifyOpen,
-    open,
-    progress,
-  ]);
-
-  return { progress, close, finished, interactive: open && !finished };
+  return useMemo(
+    () => ({ ...lifecycle, progress, close }),
+    [lifecycle, progress, close],
+  );
 }

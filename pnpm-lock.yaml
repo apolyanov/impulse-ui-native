@@ -947,6 +947,9 @@ importers:
 
   packages/flyout:
     dependencies:
+      '@impulse-ui-native/core':
+        specifier: workspace:*
+        version: link:../core
       '@impulse-ui-native/overlay':
         specifier: workspace:*
         version: link:../overlay

@@ -33,6 +33,7 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
     onClose,
     onOpen,
     onOpenFinished,
+    onStatusChange,
   } = props;
 
   const theme = useTheme();
@@ -68,6 +69,7 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
     onCloseFinished,
     onOpen,
     onOpenFinished,
+    onStatusChange,
   });
 
   const animatedStyle = useAnimatedStyle(() => {
