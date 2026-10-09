@@ -26,6 +26,8 @@ export const Documentation: Story = {
 
 export const Bottom: Story = createFlyoutStory("Bottom");
 export const Top: Story = createFlyoutStory("Top");
+export const CompoundBottom: Story = createFlyoutStory("CompoundBottom");
+export const CompoundTop: Story = createFlyoutStory("CompoundTop");
 
 function createFlyoutStory(name: string): Story {
   const example = FlyoutExampleDefinitions.find((item) => item.name === name);

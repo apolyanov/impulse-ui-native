@@ -1,25 +1,32 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
 import {
-  AppTheme,
   getFlyoutTokens,
+  useStyleProps,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
-interface FlyoutHandleProps {
-  placement: "top" | "bottom";
-}
+import type { FlyoutHandleProps } from "../types";
 
-export const FlyoutHandle = memo(function FlyoutHandle(
-  props: FlyoutHandleProps,
-) {
-  const styles = useThemedStyles(themedStyles, props, [props.placement]);
+export const FlyoutHandle = memo(function FlyoutHandle({
+  placement = "bottom",
+  style,
+  ...props
+}: FlyoutHandleProps) {
+  const extractedStyleProps = useStyleProps(props);
+  const styles = useThemedStyles(themedStyles, { placement }, [placement]);
+
+  const handleStyle = useMemo(
+    () => [styles.flyoutHandleContainer, extractedStyleProps, style],
+    [styles.flyoutHandleContainer, extractedStyleProps, style],
+  );
 
   return (
-    <Animated.View style={styles.flyoutHandleContainer}>
+    <Animated.View {...props} style={handleStyle}>
       <View style={styles.flyoutHandle} />
     </Animated.View>
   );

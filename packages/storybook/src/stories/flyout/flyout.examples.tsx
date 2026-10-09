@@ -1,13 +1,8 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 
-import { Flyout } from "@impulse-ui-native/flyout";
-import { Portal } from "@impulse-ui-native/portal";
-import { Button, Typography, View } from "@impulse-ui-native/primitives";
-
-import {
-  StoryExample,
-  StoryExamplePropDefinition,
-} from "../../components/story-example";
+import type { StoryExamplePropDefinition } from "../../components/story-example";
+import { StoryExample } from "../../components/story-example";
+import { FlyoutPreview } from "./flyout-preview";
 
 interface FlyoutExampleDefinition {
   name: string;
@@ -15,9 +10,28 @@ interface FlyoutExampleDefinition {
   description: string;
   props: StoryExamplePropDefinition[];
   placement: "top" | "bottom";
+  compound?: boolean;
 }
 
 export const FlyoutExampleDefinitions = [
+  {
+    name: "CompoundBottom",
+    title: "Compound bottom flyout",
+    description:
+      "Root owns the sheet lifecycle; Header, Title, Content, and Handle define the supplied presentation.",
+    props: [],
+    placement: "bottom",
+    compound: true,
+  },
+  {
+    name: "CompoundTop",
+    title: "Compound top flyout",
+    description:
+      "Pass the top placement to Root and Handle. Keep the Portal mounted around Root.",
+    props: [],
+    placement: "top",
+    compound: true,
+  },
   {
     name: "Bottom",
     title: "Bottom flyout",
@@ -53,36 +67,6 @@ export const FlyoutExampleDefinitions = [
   },
 ] satisfies FlyoutExampleDefinition[];
 
-function FlyoutPreview({ placement }: { placement: "top" | "bottom" }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <View>
-      <Button onPress={() => setOpen(true)}>
-        {`Open ${placement} flyout`}
-      </Button>
-      <Portal id={`${placement}-story-flyout-portal`}>
-        <Flyout
-          id={`${placement}-story-flyout`}
-          title="Storybook flyout"
-          placement={placement}
-          open={open}
-          onClose={() => setOpen(false)}
-        >
-          <View gap={12} paddingBottom={16}>
-            <Typography.Body>
-              Press the overlay or drag the sheet toward the edge to close it.
-            </Typography.Body>
-            <Button variant="outlined" onPress={() => setOpen(false)}>
-              Close
-            </Button>
-          </View>
-        </Flyout>
-      </Portal>
-    </View>
-  );
-}
-
 interface FlyoutExampleProps {
   example: FlyoutExampleDefinition;
   elevated?: boolean;
@@ -99,7 +83,10 @@ export const FlyoutExample = memo(function FlyoutExample({
       props={example.props}
       elevated={elevated}
     >
-      <FlyoutPreview placement={example.placement} />
+      <FlyoutPreview
+        placement={example.placement}
+        compound={example.compound}
+      />
     </StoryExample>
   );
 });

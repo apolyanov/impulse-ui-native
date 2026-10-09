@@ -90,11 +90,11 @@ A component should normally include all of the following before it moves to
 
 ### Overlays and composition infrastructure
 
-| Component                              | Package                      | Status    | Storybook | Follow-up                                               |
-| -------------------------------------- | ---------------------------- | --------- | --------- | ------------------------------------------------------- |
-| `Portal`, `PortalHost`, `PortalsHost`  | `@impulse-ui-native/portal`  | Available | Yes       | Add nested-provider, host-removal, and ordering tests.  |
-| `OverlayHost` and overlay registration | `@impulse-ui-native/overlay` | Available | Yes       | Define back-button handling and stacked-overlay policy. |
-| `Flyout`                               | `@impulse-ui-native/flyout`  | Extend    | Yes       | Add snap points and scroll coordination.                |
+| Component                              | Package                      | Status    | Storybook | Follow-up                                                                                              |
+| -------------------------------------- | ---------------------------- | --------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| `Portal`, `PortalHost`, `PortalsHost`  | `@impulse-ui-native/portal`  | Available | Yes       | Add nested-provider, host-removal, and ordering tests.                                                 |
+| `OverlayHost` and overlay registration | `@impulse-ui-native/overlay` | Available | Yes       | Define back-button handling and stacked-overlay policy.                                                |
+| `Flyout`                               | `@impulse-ui-native/flyout`  | Extend    | Yes       | Compound Root, Header, Title, Content, and Handle; snap points and scroll coordination remain planned. |
 
 ### Data visualization
 
