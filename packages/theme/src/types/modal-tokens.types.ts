@@ -1,6 +1,12 @@
 import type { ComponentSize } from "./components.types";
 
 export interface ModalTokens {
+  zIndexBase: number;
+  overlayColor: string;
+  overlayVisibleOpacity: number;
+  viewportPadding: number;
+  closedScale: number;
+
   backgroundColor: string;
   borderColor: string;
   borderWidth: number;

@@ -6,9 +6,11 @@ import { createStoryDescription } from "@impulse-ui-native/storybook";
 import { ModalDocumentation } from "./modal.documentation";
 import { ModalExample, ModalExampleDefinitions } from "./modal.examples";
 
-const meta = { title: "Components/Modal", component: Modal } satisfies Meta<
-  typeof Modal
->;
+const meta = {
+  title: "Components/Modal",
+  component: Modal,
+  args: { id: "storybook-modal" },
+} satisfies Meta<typeof Modal>;
 
 export default meta;
 
@@ -19,12 +21,13 @@ export const Documentation: Story = {
     return <ModalDocumentation />;
   },
   parameters: createStoryDescription(
-    "Presentation-only modal surfaces and compound composition.",
+    "Local and global modals, compound composition, and supported sizes.",
   ),
 };
 
 export const Composition: Story = createModalStory("Composition");
 export const ReadyMade: Story = createModalStory("ReadyMade");
+export const Registered: Story = createModalStory("Registered");
 export const Small: Story = createModalStory("small");
 export const Medium: Story = createModalStory("medium");
 export const Large: Story = createModalStory("large");

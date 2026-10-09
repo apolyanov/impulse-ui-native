@@ -257,4 +257,4 @@ Impulse UI Native is released under the [MIT license](./LICENSE).
 
 Card, List, and Progress are aggregated from `@impulse-ui-native/card`, `@impulse-ui-native/list`, and `@impulse-ui-native/progress`. Their namespaced composition APIs remain available alongside the ready-made Card and List components.
 
-Modal is aggregated from `@impulse-ui-native/modal`. It currently supplies inline presentation through Root, Header, Content, Footer, Title, and Description, with a convenience Modal composition. Dialog behavior is deferred.
+Modal is aggregated from `@impulse-ui-native/modal`. It supplies Root, Header, Content, Footer, Title, and Description, with a convenience Modal composition supporting controlled local Portal usage and global OverlayHost registration.

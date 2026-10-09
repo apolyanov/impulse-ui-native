@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/modal",
   "version": "6.3.1",
-  "description": "Presentation-only compound dialog surfaces for ImpulseUI Native.",
+  "description": "Compound modal dialogs with local and OverlayHost lifecycle support.",
   "keywords": [
     "react-native",
     "modal",
@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
-    "@impulse-ui-native/primitives": "workspace:*"
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/overlay": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",
@@ -45,11 +47,17 @@
     "prettier": "catalog:",
     "react": "catalog:react19",
     "react-native": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-safe-area-context": "catalog:",
+    "react-native-worklets": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.73"
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=4",
+    "react-native-safe-area-context": ">=5.0.0",
+    "react-native-worklets": ">=0.5"
   },
   "publishConfig": {
     "access": "public"

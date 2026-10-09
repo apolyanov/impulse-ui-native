@@ -6,8 +6,8 @@ import { ModalExample, ModalExampleDefinitions } from "./modal.examples";
 export function ModalDocumentation() {
   return (
     <StoryDocumentationPage
-      title="Modal presentation"
-      description="Import Modal from @impulse-ui-native/modal. Root is the main surface; Header, Content, Footer, Title, and Description render supplied children. This first stage provides inline presentation only. State, portals, backdrops, and dismissal are deferred."
+      title="Modal"
+      description="Modal supports controlled local usage inside an always-mounted Portal and global registration through OverlayHost. Root owns the backdrop, safe-area positioning, Android back dismissal, and lifecycle animations. Header, Content, Footer, Title, and Description remain independent visual parts; Content does not scroll."
     >
       {ModalExampleDefinitions.map((example) => (
         <View key={example.name}>

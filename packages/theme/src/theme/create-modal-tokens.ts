@@ -2,6 +2,11 @@ import type { ModalTokens, PrimitiveThemeTokens } from "../types";
 
 export function createModalTokens(tokens: PrimitiveThemeTokens): ModalTokens {
   return {
+    zIndexBase: 100,
+    overlayColor: tokens.colors.text.tertiary,
+    overlayVisibleOpacity: 0.4,
+    viewportPadding: tokens.space.sm,
+    closedScale: 0.96,
     backgroundColor: tokens.colors.surface.elevated.value,
     borderColor: tokens.colors.border.subtle.value,
     borderWidth: tokens.borderSize.sm,
