@@ -1,5 +1,23 @@
 # @impulse-ui-native/select
 
+## 8.3.0
+
+### Minor Changes
+
+- a4b32bf: Add native FlatList and useFlatListInitialScroll, a small hook providing initialScrollIndex and accurate fixed-row getItemLayout. Use themed fixed-height, single-line Select options to reveal the opening selection. Reuse the hook in TimePicker and export it through the toolkit.
+
+### Patch Changes
+
+- Updated dependencies [a4b32bf]
+  - @impulse-ui-native/flat-list@8.3.0
+  - @impulse-ui-native/theme@8.3.0
+  - @impulse-ui-native/flyout@8.3.0
+  - @impulse-ui-native/icon@8.3.0
+  - @impulse-ui-native/input@8.3.0
+  - @impulse-ui-native/primitives@8.3.0
+  - @impulse-ui-native/core@8.3.0
+  - @impulse-ui-native/portal@8.3.0
+
 ## 8.2.0
 
 ### Patch Changes

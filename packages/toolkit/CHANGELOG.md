@@ -1,5 +1,50 @@
 # @impulse-ui-native/toolkit
 
+## 8.3.0
+
+### Minor Changes
+
+- a4b32bf: Add native FlatList and useFlatListInitialScroll, a small hook providing initialScrollIndex and accurate fixed-row getItemLayout. Use themed fixed-height, single-line Select options to reveal the opening selection. Reuse the hook in TimePicker and export it through the toolkit.
+- eea73db: Add a shared native ScrollView initial-scroll hook and reveal the initially selected item in scrollable Tabs and SegmentedControl. Measure actual item positions, preserve consumer callbacks and explicit offsets, and allow opting out with initialScrollToSelected.
+
+### Patch Changes
+
+- Updated dependencies [a4b32bf]
+- Updated dependencies [eea73db]
+  - @impulse-ui-native/flat-list@8.3.0
+  - @impulse-ui-native/select@8.3.0
+  - @impulse-ui-native/theme@8.3.0
+  - @impulse-ui-native/datetime@8.3.0
+  - @impulse-ui-native/scroll-view@8.3.0
+  - @impulse-ui-native/tabs@8.3.0
+  - @impulse-ui-native/segmented-control@8.3.0
+  - @impulse-ui-native/accordion@8.3.0
+  - @impulse-ui-native/card@8.3.0
+  - @impulse-ui-native/carousel@8.3.0
+  - @impulse-ui-native/charts@8.3.0
+  - @impulse-ui-native/checkbox@8.3.0
+  - @impulse-ui-native/data-state@8.3.0
+  - @impulse-ui-native/flyout@8.3.0
+  - @impulse-ui-native/form-field@8.3.0
+  - @impulse-ui-native/input@8.3.0
+  - @impulse-ui-native/list@8.3.0
+  - @impulse-ui-native/modal@8.3.0
+  - @impulse-ui-native/pagination@8.3.0
+  - @impulse-ui-native/popover@8.3.0
+  - @impulse-ui-native/primitives@8.3.0
+  - @impulse-ui-native/progress@8.3.0
+  - @impulse-ui-native/radio@8.3.0
+  - @impulse-ui-native/skeleton@8.3.0
+  - @impulse-ui-native/slider@8.3.0
+  - @impulse-ui-native/stepper@8.3.0
+  - @impulse-ui-native/switch@8.3.0
+  - @impulse-ui-native/toast@8.3.0
+  - @impulse-ui-native/core@8.3.0
+  - @impulse-ui-native/echo@8.3.0
+  - @impulse-ui-native/endpoint@8.3.0
+  - @impulse-ui-native/overlay@8.3.0
+  - @impulse-ui-native/portal@8.3.0
+
 ## 8.2.0
 
 ### Patch Changes

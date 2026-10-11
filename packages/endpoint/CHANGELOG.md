@@ -1,5 +1,7 @@
 # @impulse-ui-native/endpoint
 
+## 8.3.0
+
 ## 8.2.0
 
 ## 8.1.0

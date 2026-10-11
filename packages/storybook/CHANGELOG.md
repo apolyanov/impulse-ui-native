@@ -1,5 +1,19 @@
 # @impulse-ui-native/storybook
 
+## 8.3.0
+
+### Patch Changes
+
+- a4b32bf: Add native FlatList and useFlatListInitialScroll, a small hook providing initialScrollIndex and accurate fixed-row getItemLayout. Use themed fixed-height, single-line Select options to reveal the opening selection. Reuse the hook in TimePicker and export it through the toolkit.
+- Updated dependencies [a4b32bf]
+  - @impulse-ui-native/flat-list@8.3.0
+  - @impulse-ui-native/theme@8.3.0
+  - @impulse-ui-native/card@8.3.0
+  - @impulse-ui-native/icon@8.3.0
+  - @impulse-ui-native/list@8.3.0
+  - @impulse-ui-native/primitives@8.3.0
+  - @impulse-ui-native/progress@8.3.0
+
 ## 8.2.0
 
 ### Patch Changes

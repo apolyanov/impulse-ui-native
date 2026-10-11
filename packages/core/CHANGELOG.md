@@ -1,5 +1,7 @@
 # @impulse-ui-native/core
 
+## 8.3.0
+
 ## 8.2.0
 
 ### Patch Changes
