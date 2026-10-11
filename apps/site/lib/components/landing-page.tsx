@@ -18,7 +18,6 @@ import {
 } from "./interactive";
 import {
   ComponentCard,
-  Eyebrow,
   SectionContainer,
   SectionHeading,
 } from "./marketing-primitives";
@@ -149,7 +148,6 @@ export function ComponentsSection() {
         <div className="flex flex-col items-start gap-sm">
           <SectionHeading
             copy="Browse exported component families by purpose, capability, and package. Use native Storybook for interactions and the roadmap for remaining API and device-validation work."
-            eyebrow="Components"
             title="Know what is available."
           />
           <a
@@ -211,7 +209,6 @@ export function TokensSection() {
       <SectionContainer className="py-xxl">
         <SectionHeading
           copy="These values come directly from the theme package. AppTheme combines colors, space, radii, borderSize, fontFamily, fontWeight, fontSize, lineHeight, letterSpacing, and generated component tokens."
-          eyebrow="Design tokens"
           title="One language for the whole interface."
         />
         <div className="mt-lg grid gap-sm md:grid-cols-2 lg:grid-cols-3">
@@ -265,8 +262,7 @@ export function TokensSection() {
             </pre>
           </div>
           <div className="rounded-md border border-border-subtle bg-surface-primary p-sm">
-            <Eyebrow>Why tokens matter</Eyebrow>
-            <ul className="mt-sm space-y-mxs">
+            <ul className="space-y-mxs">
               {[
                 "A shared visual contract across iOS and Android.",
                 "Typed primitives instead of scattered magic numbers.",
@@ -295,13 +291,11 @@ export function ThemingSection() {
       <SectionContainer className="py-xxl">
         <SectionHeading
           copy="LightTheme and DarkTheme share primitive scales and provide distinct semantic palettes. ThemeProvider defaults to light; set the scheme prop to dark and supply per-scheme theme overrides or component-token overrides. The phone preview shows the light theme."
-          eyebrow="Theming"
           title="Adapt the system without faking it."
         />
         <div className="mt-lg grid gap-sm lg:grid-cols-2">
           <div className="flex flex-col rounded-lg border border-border-subtle bg-surface-elevated p-xs md:p-sm">
-            <div className="mb-sm flex items-center justify-between">
-              <Eyebrow>Theme preview</Eyebrow>
+            <div className="mb-sm flex items-center justify-end">
               <WebTag variant="outlined">LightTheme</WebTag>
             </div>
             <div className="flex flex-1 items-center justify-center rounded-md bg-surface-primary p-sm">
@@ -310,8 +304,7 @@ export function ThemingSection() {
           </div>
           <div className="flex flex-col gap-sm">
             <div className="overflow-hidden rounded-md border border-border-subtle bg-surface-elevated">
-              <div className="flex items-center justify-between border-b border-border-subtle px-sm py-mxs">
-                <Eyebrow>Semantic color examples</Eyebrow>
+              <div className="flex items-center justify-end border-b border-border-subtle px-sm py-mxs">
                 <code className="text-[10px] text-text-disabled">
                   {semanticTokens.length} light / dark pairs
                 </code>
@@ -342,8 +335,7 @@ export function ThemingSection() {
               ))}
             </div>
             <div className="rounded-md border border-border-subtle bg-surface-elevated p-sm">
-              <Eyebrow>How it composes</Eyebrow>
-              <ol className="mt-sm space-y-mxs">
+              <ol className="space-y-mxs">
                 {[
                   "Define primitive values and scales.",
                   "Map them into semantic color roles.",
@@ -413,7 +405,6 @@ export function ArchitectureSection() {
       <SectionContainer className="py-xxl">
         <SectionHeading
           copy="A traceable pipeline from raw values to shipping interfaces. Every layer remains replaceable, testable, and documented."
-          eyebrow="Architecture"
           title="From tokens to product UI."
         />
         <div className="mt-lg grid gap-sm lg:grid-cols-5">
@@ -422,10 +413,7 @@ export function ArchitectureSection() {
               className="relative rounded-md border border-border-subtle bg-surface-primary p-sm"
               key={title}
             >
-              <p className="text-overline uppercase text-primary">
-                Layer {index + 1}
-              </p>
-              <h3 className="mt-xs text-title-6">{title}</h3>
+              <h3 className="text-title-6">{title}</h3>
               <p className="mt-xs min-h-xl text-body-small text-text-secondary">
                 {copy}
               </p>
@@ -493,10 +481,7 @@ export function DeveloperExperienceSection() {
   return (
     <section>
       <SectionContainer className="py-xxl">
-        <SectionHeading
-          eyebrow="Developer experience"
-          title="Built for everyday product work."
-        />
+        <SectionHeading title="Built for everyday product work." />
         <div className="mt-lg grid gap-sm lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-sm">
             {cards.map(([icon, title, copy]) => (
@@ -583,7 +568,6 @@ export function ContributeSection() {
         <div>
           <SectionHeading
             copy="ImpulseUI Native is shaped in the open. Explore the source, report issues, suggest improvements, and contribute new ideas."
-            eyebrow="Contribute"
             title="Build it with us."
           />
           <div className="mt-msm flex flex-wrap gap-xs">
@@ -639,8 +623,7 @@ export function DocsAndFooter() {
         id="docs"
       >
         <SectionContainer className="py-xxl">
-          <WebTag variant="outlined">Documentation</WebTag>
-          <h2 className="mx-auto mt-sm max-w-4xl text-display-medium font-extraBold tracking-[-0.03em] md:text-colossal">
+          <h2 className="mx-auto max-w-4xl text-display-medium font-extraBold tracking-[-0.03em] md:text-colossal">
             Build interfaces that{" "}
             <span className="text-primary">stay coherent.</span>
           </h2>

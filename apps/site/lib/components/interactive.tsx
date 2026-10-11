@@ -174,9 +174,6 @@ export function InstallBox() {
             {item}
           </WebButton>
         ))}
-        <span className="ml-auto hidden pr-xs text-overline uppercase text-text-disabled sm:block">
-          Quick start
-        </span>
       </div>
       <div className="mx-xs flex min-w-0 items-center gap-xs rounded-md bg-surface-inverse px-xs py-mxs text-caption text-surface-inverse-contrast sm:px-sm">
         <span className="font-mono text-primary">$</span>
@@ -228,9 +225,6 @@ export function ButtonPlayground() {
     <div className="mt-lg overflow-hidden rounded-lg border border-border-subtle bg-surface-elevated">
       <div className="flex flex-wrap items-center justify-between gap-xs border-b border-border-subtle p-sm">
         <div>
-          <p className="text-overline uppercase text-text-disabled">
-            Playground
-          </p>
           <h3 className="text-title-6">Button</h3>
         </div>
         <code className="text-caption text-text-secondary">

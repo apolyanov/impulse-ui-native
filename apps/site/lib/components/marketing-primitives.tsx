@@ -1,5 +1,5 @@
 import type { SystemIconName } from "@/lib/icons/system-icon";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 import { SystemIcon } from "@/lib/icons/system-icon";
 import { classNames } from "@/lib/utils/class-names";
 
@@ -18,23 +18,16 @@ export function SectionContainer({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="text-overline uppercase text-primary">{children}</p>;
-}
-
 export function SectionHeading({
-  eyebrow,
   title,
   copy,
 }: {
-  eyebrow: string;
   title: string;
   copy?: string;
 }) {
   return (
     <div className="max-w-3xl">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-xs text-title-1 font-extraBold tracking-[-0.03em] md:text-display-medium">
+      <h2 className="text-title-1 font-extraBold tracking-[-0.03em] md:text-display-medium">
         {title}
       </h2>
       {copy ? (
