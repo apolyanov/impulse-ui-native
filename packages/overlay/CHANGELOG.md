@@ -1,5 +1,12 @@
 # @impulse-ui-native/overlay
 
+## 8.2.0
+
+### Patch Changes
+
+- Updated dependencies [0cd457e]
+  - @impulse-ui-native/core@8.2.0
+
 ## 8.1.0
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @impulse-ui-native/list
 
+## 8.2.0
+
+### Patch Changes
+
+- Updated dependencies [0cd457e]
+  - @impulse-ui-native/theme@8.2.0
+  - @impulse-ui-native/primitives@8.2.0
+
 ## 8.1.0
 
 ### Patch Changes

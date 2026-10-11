@@ -1,5 +1,19 @@
 # @impulse-ui-native/slider
 
+## 8.2.0
+
+### Patch Changes
+
+- 0cd457e: Expose shared shadows, the code font, chart palette and geometry, Slider detail
+  dimensions, overlay animation timing, and Toast action weight through the active
+  theme. Preserve explicit visual prop overrides and existing runtime defaults.
+  Keep chart stroke layout aligned with its themed rendering width, preserve arrays
+  when merging theme palettes, and theme shared Storybook preview styling.
+- Updated dependencies [0cd457e]
+  - @impulse-ui-native/theme@8.2.0
+  - @impulse-ui-native/primitives@8.2.0
+  - @impulse-ui-native/core@8.2.0
+
 ## 8.1.0
 
 ### Patch Changes

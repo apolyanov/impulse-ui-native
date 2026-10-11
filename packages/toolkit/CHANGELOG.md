@@ -1,5 +1,42 @@
 # @impulse-ui-native/toolkit
 
+## 8.2.0
+
+### Patch Changes
+
+- Updated dependencies [0cd457e]
+  - @impulse-ui-native/theme@8.2.0
+  - @impulse-ui-native/charts@8.2.0
+  - @impulse-ui-native/primitives@8.2.0
+  - @impulse-ui-native/slider@8.2.0
+  - @impulse-ui-native/modal@8.2.0
+  - @impulse-ui-native/toast@8.2.0
+  - @impulse-ui-native/flyout@8.2.0
+  - @impulse-ui-native/core@8.2.0
+  - @impulse-ui-native/accordion@8.2.0
+  - @impulse-ui-native/card@8.2.0
+  - @impulse-ui-native/carousel@8.2.0
+  - @impulse-ui-native/checkbox@8.2.0
+  - @impulse-ui-native/data-state@8.2.0
+  - @impulse-ui-native/datetime@8.2.0
+  - @impulse-ui-native/form-field@8.2.0
+  - @impulse-ui-native/input@8.2.0
+  - @impulse-ui-native/list@8.2.0
+  - @impulse-ui-native/pagination@8.2.0
+  - @impulse-ui-native/popover@8.2.0
+  - @impulse-ui-native/progress@8.2.0
+  - @impulse-ui-native/radio@8.2.0
+  - @impulse-ui-native/segmented-control@8.2.0
+  - @impulse-ui-native/select@8.2.0
+  - @impulse-ui-native/skeleton@8.2.0
+  - @impulse-ui-native/stepper@8.2.0
+  - @impulse-ui-native/switch@8.2.0
+  - @impulse-ui-native/tabs@8.2.0
+  - @impulse-ui-native/echo@8.2.0
+  - @impulse-ui-native/overlay@8.2.0
+  - @impulse-ui-native/endpoint@8.2.0
+  - @impulse-ui-native/portal@8.2.0
+
 ## 8.1.0
 
 ### Minor Changes

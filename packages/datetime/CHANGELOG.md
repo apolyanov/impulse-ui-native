@@ -1,5 +1,18 @@
 # @impulse-ui-native/datetime
 
+## 8.2.0
+
+### Patch Changes
+
+- Updated dependencies [0cd457e]
+  - @impulse-ui-native/theme@8.2.0
+  - @impulse-ui-native/primitives@8.2.0
+  - @impulse-ui-native/flyout@8.2.0
+  - @impulse-ui-native/core@8.2.0
+  - @impulse-ui-native/icon@8.2.0
+  - @impulse-ui-native/select@8.2.0
+  - @impulse-ui-native/portal@8.2.0
+
 ## 8.1.0
 
 ### Patch Changes
