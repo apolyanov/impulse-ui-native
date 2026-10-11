@@ -9,7 +9,9 @@ export function merge<Target>(target: Target, source?: DeepPartial<Target>) {
     return target;
   }
 
-  const result = { ...target };
+  const result = (
+    Array.isArray(target) ? [...target] : { ...target }
+  ) as Target;
 
   for (const key in source) {
     if (!Object.prototype.hasOwnProperty.call(source, key)) {

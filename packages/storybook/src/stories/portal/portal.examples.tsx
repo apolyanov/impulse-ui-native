@@ -7,7 +7,7 @@ import {
   PortalStore,
 } from "@impulse-ui-native/portal";
 import { Typography, View } from "@impulse-ui-native/primitives";
-import { useColors } from "@impulse-ui-native/theme";
+import { useTheme } from "@impulse-ui-native/theme";
 
 import type { StoryExamplePropDefinition } from "../../components/story-example";
 import { StoryExample } from "../../components/story-example";
@@ -52,7 +52,7 @@ export const PortalExampleDefinitions = [
 ] satisfies PortalExampleDefinition[];
 
 function PortalPreview({ hostName }: { hostName: string }) {
-  const colors = useColors();
+  const { colors, space, radii, borderSize } = useTheme();
 
   const [store] = useState(() => new PortalStore());
 
@@ -60,8 +60,8 @@ function PortalPreview({ hostName }: { hostName: string }) {
     <PortalProvider store={store}>
       <Portal id={`${hostName}-status-message`} name={hostName}>
         <View
-          padding={12}
-          borderRadius={10}
+          padding={space.mxs}
+          borderRadius={radii.md}
           backgroundColor={colors.surface.secondary.value}
         >
           <Typography.Body>
@@ -72,10 +72,10 @@ function PortalPreview({ hostName }: { hostName: string }) {
 
       <View
         minHeight={64}
-        padding={8}
-        borderWidth={1}
+        padding={space.xs}
+        borderWidth={borderSize.sm}
         borderColor={colors.border.default.value}
-        borderRadius={12}
+        borderRadius={radii.md}
       >
         <PortalsHost name={hostName} />
       </View>

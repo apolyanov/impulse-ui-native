@@ -1,15 +1,12 @@
 import type { ReactNode } from "react";
 import { memo } from "react";
 
-import { Icon } from "@impulse-ui-native/icon";
-import { HeartIcon } from "@impulse-ui-native/icon/icons/heart";
-import { SparkleIcon } from "@impulse-ui-native/icon/icons/sparkle";
-import { View } from "@impulse-ui-native/primitives";
-
 import {
   StoryExample,
   StoryExamplePropDefinition,
 } from "../../components/story-example";
+import { IconRendererPreview } from "./icon-renderer-preview";
+import { IconVariantsPreview } from "./icon-variants-preview";
 
 interface IconExampleDefinition {
   name: string;
@@ -18,15 +15,6 @@ interface IconExampleDefinition {
   props: StoryExamplePropDefinition[];
   preview: ReactNode;
 }
-
-const variants = [
-  "bold",
-  "duotone",
-  "fill",
-  "light",
-  "regular",
-  "thin",
-] as const;
 
 export const IconExampleDefinitions = [
   {
@@ -46,9 +34,7 @@ export const IconExampleDefinitions = [
         description: "Maps to the large semantic icon size.",
       },
     ],
-    preview: (
-      <Icon icon={SparkleIcon} size="large" variant="duotone" color="#6D5DFC" />
-    ),
+    preview: <IconRendererPreview />,
   },
   {
     name: "Variants",
@@ -62,19 +48,7 @@ export const IconExampleDefinitions = [
         description: "Chooses the generated SVG weight.",
       },
     ],
-    preview: (
-      <View flexDirection="row" flexWrap="wrap" gap={16}>
-        {variants.map((variant) => (
-          <HeartIcon
-            key={variant}
-            variant={variant}
-            width={28}
-            height={28}
-            color="#6D5DFC"
-          />
-        ))}
-      </View>
-    ),
+    preview: <IconVariantsPreview />,
   },
 ] satisfies IconExampleDefinition[];
 

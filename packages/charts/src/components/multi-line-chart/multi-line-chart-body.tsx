@@ -3,7 +3,6 @@ import { Group } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
-import { CartesianChartDefaultInsets } from "../../constants";
 import { useChartLayout, useMultiLineChart } from "../../hooks";
 import { ChartXValue, MultiLineChartBodyProps } from "../../types";
 import { createDrawableMultiLineChartSeries } from "../../utils";
@@ -24,7 +23,7 @@ export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
     yAxis,
   } = props;
 
-  const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
+  const layout = useChartLayout(size, insets, theme.components.charts.insets);
 
   const {
     series: seriesModels,
@@ -43,9 +42,14 @@ export const MultiLineChartBody = memo(function MultiLineChartBodyComponent<
   const drawableSeries = useMemo(
     () =>
       seriesModels.map((currentSeries, index) =>
-        createDrawableMultiLineChartSeries(currentSeries, index, layout.plot),
+        createDrawableMultiLineChartSeries(
+          currentSeries,
+          index,
+          layout.plot,
+          theme.components.charts,
+        ),
       ),
-    [layout.plot, seriesModels],
+    [layout.plot, seriesModels, theme.components.charts],
   );
 
   const isGridStyle = grid !== undefined;

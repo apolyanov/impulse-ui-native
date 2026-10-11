@@ -1,4 +1,6 @@
-export const AxisDefaultWidth = 1;
+import { DefaultChartsTokens } from "./charts.constants";
+
+export const AxisDefaultWidth = DefaultChartsTokens.axis.width;
 export const AxisDefaultOpacity = 1;
-export const AxisDefaultTickLength = 4;
-export const AxisDefaultLabelGap = 4;
+export const AxisDefaultTickLength = DefaultChartsTokens.axis.tickLength;
+export const AxisDefaultLabelGap = DefaultChartsTokens.axis.labelGap;

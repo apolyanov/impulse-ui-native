@@ -1,7 +1,9 @@
 import { extent } from "d3-array";
 import { scaleBand, scaleLinear } from "d3-scale";
 
-import { BarChartDefaultCategoryPadding } from "../constants/bar-chart.constants";
+import type { ChartsTokens } from "@impulse-ui-native/theme";
+
+import { DefaultChartsTokens } from "../constants/charts.constants";
 import {
   LineChartDefaultNumericDomain,
   LineChartDefaultTickCount,
@@ -30,8 +32,9 @@ export interface BarChartScaleModel<X extends ChartXValue> {
 
 export function createBarChartModel<X extends ChartXValue>(
   props: UseBarChartProps<X>,
+  tokens: ChartsTokens = DefaultChartsTokens,
 ): UseBarChartResult<X> {
-  const model = createBarChartScaleModel(props);
+  const model = createBarChartScaleModel(props, tokens);
 
   return {
     xDomain: model.xDomain,
@@ -88,12 +91,13 @@ export function createBarChartCoordinates<X extends ChartXValue>(
 
 export function createBarChartScaleModel<X extends ChartXValue>(
   props: UseBarChartProps<X>,
+  tokens: ChartsTokens = DefaultChartsTokens,
 ): BarChartScaleModel<X> {
   const xTickCount = getTickCount(props.xAxis?.tickCount);
   const yTickCount = getTickCount(props.yAxis?.tickCount);
   const categoryPadding = normalizeBarChartPadding(
     props.categoryPadding,
-    BarChartDefaultCategoryPadding,
+    tokens.bar.categoryPadding,
   );
   const xBandScale = scaleBand<X>()
     .domain(

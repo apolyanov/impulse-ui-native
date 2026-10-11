@@ -10,6 +10,8 @@ export type ShadowIntensity = {
   elevation: number;
 };
 
+export type ShadowScaleTokens = Record<ShadowLevel, ShadowIntensity>;
+
 export type ShadowProps = {
   shadow?: ShadowLevel;
   shadowPosition?: ShadowPosition;

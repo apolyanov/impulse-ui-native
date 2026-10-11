@@ -100,3 +100,50 @@ small foreground text distinct from their fills. Secondary foregrounds use
 From the repository root, run `node scripts/check-theme-visuals.mjs` to check
 default foreground/background pairs and state indicators in both palettes.
 See `docs/visual-token-audit.md` for package coverage and verification limits.
+
+## Shared visual customization
+
+`theme.light` and `theme.dark` support `shadows` (radius, opacity, and Android
+elevation by semantic level) and `codeFontFamily`. Component defaults are
+configurable through `components.charts`, `components.slider`, and the overlay
+motion tokens.
+
+```tsx
+<ThemeProvider
+  theme={{
+    light: {
+      shadows: { sm: { radius: 6, opacity: 0.16, elevation: 3 } },
+      codeFontFamily: "MyCodeFont",
+    },
+    dark: {
+      shadows: { sm: { radius: 6, opacity: 0.24, elevation: 3 } },
+      codeFontFamily: "MyCodeFont",
+    },
+  }}
+  components={(theme) => ({
+    charts: {
+      insets: { left: theme.space.lg },
+      line: { width: theme.borderSize.lg },
+    },
+    slider: {
+      markLabelWidth: 64,
+      thumbHighlightSize: 6,
+      valueBubbleMinWidth: 48,
+    },
+    modal: { enterDuration: 220, exitDuration: 180 },
+    toast: { enterDuration: 220, exitDuration: 180, stackDuration: 260 },
+    flyout: { enterSpring: { damping: 45 }, exitDuration: 180 },
+  })}
+>
+  {/* application */}
+</ThemeProvider>
+```
+
+`createChartsTokens` and `ChartsTokens` define the chart palette, Cartesian
+insets, axis/grid/line widths, axis tick length and label gap, bar padding ratios,
+and pie ring padding. The palette defaults to `ChartColorTokens`; override
+`components.charts.palette` to customize series colors. Explicit component and
+series props continue to take precedence.
+
+`getShadowStyle` accepts the active shadow scale as its fourth argument. Omitting
+it retains the exported default `ShadowScale` for existing utility callers.

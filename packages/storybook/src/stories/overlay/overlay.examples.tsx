@@ -3,6 +3,7 @@ import { memo, useEffect, useMemo } from "react";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { useOverlayContext } from "@impulse-ui-native/overlay";
 import { Button, Typography, View } from "@impulse-ui-native/primitives";
+import { useSpace } from "@impulse-ui-native/theme";
 
 import {
   StoryExample,
@@ -17,8 +18,9 @@ interface ProfileFlyoutProps {
 const ProfileFlyoutID = "storybook-profile";
 
 function ProfileFlyoutContent({ name, onClose }: ProfileFlyoutProps) {
+  const space = useSpace();
   return (
-    <View gap={12} paddingBottom={16}>
+    <View gap={space.mxs} paddingBottom={space.sm}>
       <Typography.Body>
         This flyout was opened imperatively for {name}.
       </Typography.Body>

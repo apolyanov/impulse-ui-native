@@ -1,13 +1,17 @@
 import type { ReactNode } from "react";
 import { memo } from "react";
 
-import { Typography, View } from "@impulse-ui-native/primitives";
-import { Skeleton } from "@impulse-ui-native/skeleton";
+import { View } from "@impulse-ui-native/primitives";
 
 import {
   StoryExample,
   StoryExamplePropDefinition,
 } from "../../components/story-example";
+import { SkeletonActionsAndChoicesPreview } from "./skeleton-actions-and-choices-preview";
+import { SkeletonCardPreview } from "./skeleton-card-preview";
+import { SkeletonFieldsPreview } from "./skeleton-fields-preview";
+import { SkeletonNavigationAndFeedbackPreview } from "./skeleton-navigation-and-feedback-preview";
+import { SkeletonProfilePreview } from "./skeleton-profile-preview";
 
 interface SkeletonExampleDefinition {
   name: string;
@@ -30,18 +34,7 @@ export const SkeletonExampleDefinitions = [
         description: "Groups placeholders with themed layout props.",
       },
     ],
-    preview: (
-      <Skeleton.Container flexDirection="row" alignItems="center" gap={12}>
-        <Skeleton.Avatar size="large" />
-        <Skeleton.Container flex={1} gap={8}>
-          <Skeleton.Text
-            text="Account holder name"
-            Component={Typography.Body}
-          />
-          <Skeleton.Bone width="60%" height={12} borderRadius={6} />
-        </Skeleton.Container>
-      </Skeleton.Container>
-    ),
+    preview: <SkeletonProfilePreview />,
   },
   {
     name: "Card",
@@ -60,16 +53,7 @@ export const SkeletonExampleDefinitions = [
         description: "Represents compact metadata or status content.",
       },
     ],
-    preview: (
-      <Skeleton.Container gap={12}>
-        <Skeleton.Bone width="100%" height={120} borderRadius={12} />
-        <Skeleton.Text
-          text="Loading card title"
-          Component={Typography.Title5}
-        />
-        <Skeleton.Tag size="small" width={88} />
-      </Skeleton.Container>
-    ),
+    preview: <SkeletonCardPreview />,
   },
   {
     name: "ActionsAndChoices",
@@ -83,22 +67,7 @@ export const SkeletonExampleDefinitions = [
         description: "Matches the corresponding component size tokens.",
       },
     ],
-    preview: (
-      <Skeleton.Container gap={12}>
-        <Skeleton.Container flexDirection="row" alignItems="center" gap={8}>
-          <Skeleton.Avatar />
-          <Skeleton.Badge width={72} />
-          <Skeleton.Tag size="medium" width={80} />
-        </Skeleton.Container>
-        <Skeleton.Container flexDirection="row" alignItems="center" gap={8}>
-          <Skeleton.Button width={112} />
-          <Skeleton.IconButton />
-          <Skeleton.Checkbox />
-          <Skeleton.Radio />
-          <Skeleton.Switch />
-        </Skeleton.Container>
-      </Skeleton.Container>
-    ),
+    preview: <SkeletonActionsAndChoicesPreview />,
   },
   {
     name: "Fields",
@@ -112,14 +81,7 @@ export const SkeletonExampleDefinitions = [
         description: "Sets the Textarea placeholder's visible row count.",
       },
     ],
-    preview: (
-      <Skeleton.Container gap={12}>
-        <Skeleton.Control size="small" />
-        <Skeleton.Control size="medium" />
-        <Skeleton.Control size="large" />
-        <Skeleton.Textarea rows={4} />
-      </Skeleton.Container>
-    ),
+    preview: <SkeletonFieldsPreview />,
   },
   {
     name: "NavigationAndFeedback",
@@ -134,18 +96,7 @@ export const SkeletonExampleDefinitions = [
           "Controls the reserved width for SegmentedControl and Pagination.",
       },
     ],
-    preview: (
-      <Skeleton.Container gap={16}>
-        <Skeleton.Progress />
-        <Skeleton.Container flexDirection="row" alignItems="center" gap={12}>
-          <Skeleton.Progress variant="circular" />
-          <Skeleton.Slider width={200} />
-        </Skeleton.Container>
-        <Skeleton.SegmentedControl itemCount={3} />
-        <Skeleton.Pagination itemCount={5} />
-        <Skeleton.Divider />
-      </Skeleton.Container>
-    ),
+    preview: <SkeletonNavigationAndFeedbackPreview />,
   },
 ] satisfies SkeletonExampleDefinition[];
 

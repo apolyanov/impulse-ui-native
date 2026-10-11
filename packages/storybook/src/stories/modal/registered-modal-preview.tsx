@@ -6,11 +6,13 @@ import {
   useOverlayStatus,
 } from "@impulse-ui-native/overlay";
 import { Button, Typography, View } from "@impulse-ui-native/primitives";
+import { useSpace } from "@impulse-ui-native/theme";
 
 import type { RegisteredModalContentProps } from "./registered-modal-content";
 import { RegisteredModalContent } from "./registered-modal-content";
 
 export const RegisteredModalPreview = memo(function RegisteredModalPreview() {
+  const space = useSpace();
   const id = useId();
   const { store } = useOverlayContext();
   const status = useOverlayStatus(id);
@@ -36,7 +38,7 @@ export const RegisteredModalPreview = memo(function RegisteredModalPreview() {
   useEffect(() => () => store.remove(id), [id, store]);
 
   return (
-    <View gap={8}>
+    <View gap={space.xs}>
       <Button onPress={show}>Open registered modal</Button>
       <Typography.Helper>{`Lifecycle: ${status}`}</Typography.Helper>
     </View>

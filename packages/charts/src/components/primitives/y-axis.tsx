@@ -7,12 +7,7 @@ import {
 
 import { memo } from "@impulse-ui-native/core";
 
-import {
-  AxisDefaultLabelGap,
-  AxisDefaultOpacity,
-  AxisDefaultTickLength,
-  AxisDefaultWidth,
-} from "../../constants";
+import { AxisDefaultOpacity } from "../../constants";
 import { YAxisProps } from "../../types";
 import { createYAxisLayout, formatAxisTick } from "../../utils";
 import { Label } from "./label";
@@ -30,11 +25,12 @@ export const YAxis = memo(function YAxis(props: YAxisProps) {
     tickVisible = true,
   } = props;
 
+  const tokens = theme.components.charts.axis;
   const line = options?.line;
   const tick = options?.tick;
   const label = options?.label;
-  const tickLength = tick?.length ?? AxisDefaultTickLength;
-  const labelGap = label?.gap ?? AxisDefaultLabelGap;
+  const tickLength = tick?.length ?? tokens.tickLength;
+  const labelGap = label?.gap ?? tokens.labelGap;
   const fontSize = label?.fontSize ?? theme.fontSize.xs;
 
   const layout = useMemo(
@@ -59,7 +55,7 @@ export const YAxis = memo(function YAxis(props: YAxisProps) {
           p2={layout.line.end}
           color={line?.color ?? theme.colors.border.default.value}
           opacity={line?.opacity ?? AxisDefaultOpacity}
-          strokeWidth={line?.width ?? AxisDefaultWidth}
+          strokeWidth={line?.width ?? tokens.width}
         >
           {line?.dash?.length ? (
             <DashPathEffect intervals={[...line.dash]} />
@@ -75,7 +71,7 @@ export const YAxis = memo(function YAxis(props: YAxisProps) {
               p2={tick.end}
               color={options?.tick?.color ?? theme.colors.border.default.value}
               opacity={options?.tick?.opacity ?? AxisDefaultOpacity}
-              strokeWidth={options?.tick?.width ?? AxisDefaultWidth}
+              strokeWidth={options?.tick?.width ?? tokens.width}
             >
               {options?.tick?.dash?.length ? (
                 <DashPathEffect intervals={[...options.tick.dash]} />

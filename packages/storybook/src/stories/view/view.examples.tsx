@@ -20,10 +20,10 @@ interface ViewExampleDefinition {
 function PreviewBox({ children }: { children: ReactNode }) {
   return (
     <ViewPreview
-      padding={16}
-      borderRadius={12}
+      padding="sm"
+      borderRadius="md"
       surface="primary"
-      borderWidth={1}
+      borderWidth="sm"
     >
       {children}
     </ViewPreview>
@@ -33,11 +33,11 @@ function PreviewBox({ children }: { children: ReactNode }) {
 function PreviewItem({ children }: { children: ReactNode }) {
   return (
     <ViewPreview
-      paddingHorizontal={12}
-      paddingVertical={8}
-      borderRadius={10}
+      paddingHorizontal="mxs"
+      paddingVertical="xs"
+      borderRadius="md"
       surface="elevated"
-      borderWidth={1}
+      borderWidth="sm"
     >
       <Typography.Body>{children}</Typography.Body>
     </ViewPreview>

@@ -194,7 +194,7 @@ export const Typography = {
   Code: createPreset(
     (theme) => ({
       color: theme.colors.text.primary,
-      fontFamily: "monospace",
+      fontFamily: theme.codeFontFamily,
       fontSize: theme.fontSize.xsm,
       lineHeight: theme.lineHeight.xsm,
     }),

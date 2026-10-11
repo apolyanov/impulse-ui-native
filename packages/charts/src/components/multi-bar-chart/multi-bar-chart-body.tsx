@@ -4,7 +4,6 @@ import { Group } from "@shopify/react-native-skia";
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
 
-import { CartesianChartDefaultInsets } from "../../constants";
 import { useChartLayout, useMultiBarChart } from "../../hooks";
 import { ChartSize, ChartXValue, MultiBarChartProps } from "../../types";
 import { createDrawableMultiBarChartSeries } from "../../utils";
@@ -34,28 +33,35 @@ export const MultiBarChartBody = memo(function MultiBarChartBodyComponent<
     yAxis,
   } = props;
 
-  const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
+  const layout = useChartLayout(size, insets, theme.components.charts.insets);
   const {
     series: seriesModels,
     xScale,
     xTicks,
     yScale,
     yTicks,
-  } = useMultiBarChart({
-    categoryPadding,
-    plot: layout.plot,
-    series,
-    seriesPadding,
-    xAxis,
-    yAxis,
-  });
+  } = useMultiBarChart(
+    {
+      categoryPadding,
+      plot: layout.plot,
+      series,
+      seriesPadding,
+      xAxis,
+      yAxis,
+    },
+    theme.components.charts,
+  );
 
   const drawableSeries = useMemo(
     () =>
       seriesModels.map((currentSeries, index) =>
-        createDrawableMultiBarChartSeries(currentSeries, index),
+        createDrawableMultiBarChartSeries(
+          currentSeries,
+          index,
+          theme.components.charts,
+        ),
       ),
-    [seriesModels],
+    [seriesModels, theme.components.charts],
   );
 
   return (

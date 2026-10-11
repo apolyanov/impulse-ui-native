@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Pressable, Typography } from "@impulse-ui-native/primitives";
-import { useThemedStyles } from "@impulse-ui-native/theme";
+import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ToastActionProps } from "../types";
 import type { ToastActionThemeProps } from "../types/toast-theme.types";
@@ -21,6 +21,7 @@ export const ToastAction = memo(function ToastAction({
   ...props
 }: ToastActionProps) {
   const { interactive, close } = useToastContext();
+  const tokens = useComponentsTokens().toast;
 
   const blocked = disabled === true || loading === true || !interactive;
 
@@ -52,7 +53,12 @@ export const ToastAction = memo(function ToastAction({
       style={actionStyle}
     >
       {typeof children === "string" ? (
-        <Typography.Label style={styles.label}>{children}</Typography.Label>
+        <Typography.Label
+          fontWeight={tokens.actionFontWeight}
+          style={styles.label}
+        >
+          {children}
+        </Typography.Label>
       ) : (
         children
       )}
@@ -73,7 +79,6 @@ function themedStyles(theme: AppTheme, { blocked }: ToastActionThemeProps) {
     },
     label: {
       color: blocked ? tokens.disabledColor : tokens.actionColor,
-      fontWeight: "600",
     },
   });
 }

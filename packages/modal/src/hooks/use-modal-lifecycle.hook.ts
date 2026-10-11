@@ -9,17 +9,18 @@ import { scheduleOnRN } from "react-native-worklets";
 import type { OverlayTransitionHandler } from "@impulse-ui-native/overlay";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { useOverlayLifecycle } from "@impulse-ui-native/overlay";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { ModalLifecycleProps } from "../types";
-import { EnterDuration, ExitDuration } from "../constants/modal.constants";
 
 export function useModalLifecycle(props: ModalLifecycleProps) {
+  const tokens = useComponentsTokens().modal;
   const progress = useSharedValue(0);
 
   const enter = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
       progress.set(
-        withTiming(1, { duration: EnterDuration }, (finished) => {
+        withTiming(1, { duration: tokens.enterDuration }, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }
@@ -30,7 +31,7 @@ export function useModalLifecycle(props: ModalLifecycleProps) {
   const exit = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
       progress.set(
-        withTiming(0, { duration: ExitDuration }, (finished) => {
+        withTiming(0, { duration: tokens.exitDuration }, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }

@@ -9,6 +9,7 @@ import { useColors, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { StoryExamplePropDefinition } from "../../components/story-example";
 import { StoryExample } from "../../components/story-example";
+import { PressablePreviewStyles } from "./pressable-preview.constants";
 
 interface PressableExampleDefinition {
   name: string;
@@ -38,27 +39,6 @@ function PressablePreviewLabel({
   );
 }
 
-const Styles = StyleSheet.create({
-  base: {
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: 48,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderRadius: 12,
-    borderWidth: 1,
-  },
-  outlined: {
-    backgroundColor: "transparent",
-  },
-  pressed: {
-    transform: [{ scale: 0.98 }],
-  },
-  wide: {
-    width: "100%",
-  },
-});
-
 export const PressableExampleDefinitions = [
   {
     name: "Default",
@@ -78,9 +58,7 @@ export const PressableExampleDefinitions = [
       },
     ],
     label: "Default Pressable",
-    args: {
-      style: Styles.base,
-    },
+    args: {},
   },
   {
     name: "Filled",
@@ -102,9 +80,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Filled Pressable",
     inverted: true,
-    args: {
-      style: Styles.base,
-    },
+    args: {},
   },
   {
     name: "Outlined",
@@ -126,7 +102,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Outlined Pressable",
     args: {
-      style: [Styles.base, Styles.outlined],
+      style: [PressablePreviewStyles.outlined],
     },
   },
   {
@@ -149,8 +125,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Press and Hold",
     args: {
-      style: Styles.base,
-      pressedStyle: Styles.pressed,
+      pressedStyle: PressablePreviewStyles.pressed,
     },
   },
   {
@@ -174,7 +149,6 @@ export const PressableExampleDefinitions = [
     label: "Disabled Pressable",
     args: {
       disabled: true,
-      style: Styles.base,
     },
   },
   {
@@ -198,7 +172,6 @@ export const PressableExampleDefinitions = [
     label: "Shadow Pressable",
     args: {
       shadow: "sm",
-      style: Styles.base,
     },
   },
   {
@@ -221,7 +194,7 @@ export const PressableExampleDefinitions = [
     ],
     label: "Full-width Pressable",
     args: {
-      style: [Styles.base, Styles.wide],
+      style: [PressablePreviewStyles.wide],
     },
   },
 ] satisfies PressableExampleDefinition[];
@@ -242,6 +215,7 @@ export const PressableExample = memo(function PressableExample({
 
   const pressableStyle = useCallback(
     (state: PressableStateCallbackType) => [
+      styles.base,
       styles.surface,
       typeof example.args.style === "function"
         ? example.args.style(state)
@@ -272,6 +246,15 @@ function themedStyles(theme: AppTheme, example: PressableExampleDefinition) {
   const colors = theme.colors;
 
   return StyleSheet.create({
+    base: {
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: theme.components.button.sizes.large.height,
+      paddingHorizontal: theme.space.sm,
+      paddingVertical: theme.space.mxs,
+      borderRadius: theme.radii.md,
+      borderWidth: theme.borderSize.sm,
+    },
     surface: {
       backgroundColor: example.inverted
         ? colors.surface.inverse.value

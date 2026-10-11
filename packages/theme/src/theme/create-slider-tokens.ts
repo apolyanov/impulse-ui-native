@@ -10,6 +10,9 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
     valueBubblePaddingVertical: tokens.space.xxs,
     valueBubbleGap: tokens.space.xxs,
     labelGap: tokens.space.xxs,
+    markLabelWidth: tokens.space.lg,
+    thumbHighlightSize: tokens.space.xxs,
+    valueBubbleMinWidth: 40,
     layouts: {
       default: {
         reservedVerticalSpace: 0,

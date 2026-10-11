@@ -1,4 +1,5 @@
 import { memo } from "@impulse-ui-native/core";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { useChartLayout, useMultiPieChart } from "../../hooks";
 import { ChartSize, MultiPieChartProps } from "../../types";
@@ -23,17 +24,21 @@ export const MultiPieChartBody = memo(function MultiPieChartBody(
     startAngle,
   } = props;
 
+  const tokens = useComponentsTokens().charts;
   const layout = useChartLayout(size, insets);
-  const { series: seriesModels } = useMultiPieChart({
-    endAngle,
-    innerRadius,
-    outerRadius,
-    padAngle,
-    plot: layout.plot,
-    ringPadding,
-    series,
-    startAngle,
-  });
+  const { series: seriesModels } = useMultiPieChart(
+    {
+      endAngle,
+      innerRadius,
+      outerRadius,
+      padAngle,
+      plot: layout.plot,
+      ringPadding,
+      series,
+      startAngle,
+    },
+    tokens,
+  );
 
   return (
     <>

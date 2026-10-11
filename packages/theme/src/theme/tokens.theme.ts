@@ -1,6 +1,5 @@
 import type {
   BorderSize,
-  ChartColorPalette,
   ComponentsTokens,
   FontFamily,
   FontSize,
@@ -22,6 +21,7 @@ import { createBadgeTokens } from "./create-badge-tokens";
 import { createButtonTokens } from "./create-button-tokens";
 import { createCardTokens } from "./create-card-tokens";
 import { createCarouselTokens } from "./create-carousel-tokens";
+import { createChartsTokens } from "./create-charts-tokens";
 import { createCheckboxTokens } from "./create-checkbox-tokens";
 import {
   createControlAddonTokens,
@@ -56,23 +56,9 @@ import { createTextareaTokens } from "./create-textarea-tokens";
 import { createTimePickerTokens } from "./create-time-picker-tokens";
 import { createToastTokens } from "./create-toast-tokens";
 
-export const ChartColorTokens: ChartColorPalette = [
-  "#F55D6B",
-  "#2563eb",
-  "#16a34a",
-  "#9333ea",
-  "#ea580c",
-  "#0891b2",
-  "#db2777",
-  "#65a30d",
-  "#4f46e5",
-  "#0d9488",
-  "#ca8a04",
-  "#c026d3",
-  "#0284c7",
-  "#7c3aed",
-  "#9f5f3f",
-];
+export const CodeFontFamilyToken = "monospace";
+
+export { ChartColorTokens } from "./chart-color-tokens";
 
 export const SpaceTokens: Space = {
   none: 0,
@@ -394,6 +380,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    charts: createChartsTokens(tokens),
     modal: createModalTokens(tokens),
     toast: createToastTokens(tokens),
     popover: createPopoverTokens(tokens),

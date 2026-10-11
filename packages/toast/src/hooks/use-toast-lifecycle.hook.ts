@@ -12,20 +12,21 @@ import {
   useOverlayContext,
   useOverlayLifecycle,
 } from "@impulse-ui-native/overlay";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { ToastRootProps } from "../types";
-import { EnterDuration, ExitDuration } from "../constants/toast.constants";
 
 export function useToastLifecycle(props: ToastRootProps, duration: number) {
   const { id, open = true } = props;
   const { store } = useOverlayContext();
+  const tokens = useComponentsTokens().toast;
 
   const progress = useSharedValue(0);
 
   const enter = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
       progress.set(
-        withTiming(1, { duration: EnterDuration }, (finished) => {
+        withTiming(1, { duration: tokens.enterDuration }, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }
@@ -36,7 +37,7 @@ export function useToastLifecycle(props: ToastRootProps, duration: number) {
   const exit = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
       progress.set(
-        withTiming(0, { duration: ExitDuration }, (finished) => {
+        withTiming(0, { duration: tokens.exitDuration }, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }

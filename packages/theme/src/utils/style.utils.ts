@@ -4,6 +4,7 @@ import { ShadowScale, StylePropsSet } from "../constants";
 import {
   ShadowLevel,
   ShadowPosition,
+  ShadowScaleTokens,
   StylePropKey,
   StyleProps,
   ThemeColors,
@@ -42,8 +43,9 @@ export const getShadowStyle = (
   level: ShadowLevel = "none",
   position: ShadowPosition = "bottom",
   colors: ThemeColors,
+  shadows: ShadowScaleTokens = ShadowScale,
 ): ViewStyle => {
-  const token = ShadowScale[level];
+  const token = shadows[level];
 
   if (level === "none") {
     return {};

@@ -13,7 +13,7 @@ import { OverlayOrder, useOverlayLayer } from "@impulse-ui-native/overlay";
 import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ToastRootProps } from "../types";
-import { DefaultDuration, StackDuration } from "../constants/toast.constants";
+import { DefaultDuration } from "../constants/toast.constants";
 import { ToastContext } from "../contexts/toast.context";
 import { useToastLifecycle } from "../hooks/use-toast-lifecycle.hook";
 
@@ -80,10 +80,12 @@ export const ToastRoot = memo(function ToastRoot(props: ToastRootProps) {
   );
 
   useEffect(() => {
-    animatedDepth.value = withTiming(stackDepth, { duration: StackDuration });
+    animatedDepth.value = withTiming(stackDepth, {
+      duration: tokens.stackDuration,
+    });
 
     return () => cancelAnimation(animatedDepth);
-  }, [animatedDepth, stackDepth]);
+  }, [animatedDepth, stackDepth, tokens.stackDuration]);
 
   if (!lifecycle.mounted) {
     return null;

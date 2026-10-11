@@ -3,7 +3,6 @@ import { Group } from "@shopify/react-native-skia";
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
 
-import { CartesianChartDefaultInsets } from "../../constants";
 import { useBarChart, useChartLayout } from "../../hooks";
 import { BarChartProps, ChartSize, ChartXValue } from "../../types";
 import { ChartAxes } from "../chart-axes";
@@ -30,14 +29,17 @@ export const BarChartBody = memo(function BarChartBodyComponent<
     yAxis,
   } = props;
 
-  const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
-  const { coordinates, xScale, xTicks, yScale, yTicks } = useBarChart({
-    categoryPadding,
-    data,
-    plot: layout.plot,
-    xAxis,
-    yAxis,
-  });
+  const layout = useChartLayout(size, insets, theme.components.charts.insets);
+  const { coordinates, xScale, xTicks, yScale, yTicks } = useBarChart(
+    {
+      categoryPadding,
+      data,
+      plot: layout.plot,
+      xAxis,
+      yAxis,
+    },
+    theme.components.charts,
+  );
 
   return (
     <>

@@ -6,6 +6,7 @@ import {
   StepperTabsNavigation,
   useStepperContext,
 } from "@impulse-ui-native/stepper";
+import { useSpace } from "@impulse-ui-native/theme";
 
 import {
   StoryExample,
@@ -21,10 +22,11 @@ interface StepperExampleDefinition {
 }
 
 function DetailsStep() {
+  const space = useSpace();
   const stepper = useStepperContext();
 
   return (
-    <View gap={12}>
+    <View gap={space.mxs}>
       <Typography.Body>Enter the details for this flow.</Typography.Body>
       <Button onPress={stepper.next}>Continue</Button>
     </View>
@@ -32,10 +34,11 @@ function DetailsStep() {
 }
 
 function ReviewStep() {
+  const space = useSpace();
   const stepper = useStepperContext();
 
   return (
-    <View gap={12}>
+    <View gap={space.mxs}>
       <Typography.Body>
         Review the information before finishing.
       </Typography.Body>
@@ -92,10 +95,11 @@ interface StepperPreviewProps {
 }
 
 function StepperPreview({ showTabs }: StepperPreviewProps) {
+  const space = useSpace();
   const [current, setCurrent] = useState(0);
 
   return (
-    <View gap={16}>
+    <View gap={space.sm}>
       {showTabs ? (
         <StepperTabsNavigation current={current} items={steps} />
       ) : null}

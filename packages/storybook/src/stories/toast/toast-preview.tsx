@@ -10,6 +10,7 @@ import {
 } from "@impulse-ui-native/overlay";
 import { Portal } from "@impulse-ui-native/portal";
 import { Button, View } from "@impulse-ui-native/primitives";
+import { useSpace } from "@impulse-ui-native/theme";
 
 import { ToastStoryContent } from "./toast-story-content";
 import { ToastStoryOverlay } from "./toast-story-overlay";
@@ -26,6 +27,7 @@ export const ToastPreview = memo(function ToastPreview({
   duration?: number;
   disabled?: boolean;
 }) {
+  const space = useSpace();
   const [store] = useState(() => new OverlayStore());
 
   const configuration = useMemo(
@@ -71,7 +73,7 @@ export const ToastPreview = memo(function ToastPreview({
 
   return (
     <>
-      <View gap={8}>
+      <View gap={space.xs}>
         <Button onPress={show}>Show toast</Button>
         <Button variant="outlined" onPress={showSeveral}>
           Open five toasts

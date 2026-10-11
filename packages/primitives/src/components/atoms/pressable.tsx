@@ -10,9 +10,9 @@ import {
 
 import {
   getShadowStyle,
-  useColors,
   useComponentsTokens,
   useStyleProps,
+  useTheme,
 } from "@impulse-ui-native/theme";
 
 import { PressableCoreProps } from "../../types";
@@ -25,7 +25,7 @@ export const Pressable = memo(
     { children, disabled, pressedStyle, style, ...props },
     ref,
   ) {
-    const colors = useColors();
+    const { colors, shadows } = useTheme();
     const tokens = useComponentsTokens();
 
     const pressableTokens = tokens.pressable;
@@ -50,7 +50,7 @@ export const Pressable = memo(
                 ? pressableTokens.pressedOpacity
                 : 1,
           },
-          getShadowStyle(props.shadow, props.shadowPosition, colors),
+          getShadowStyle(props.shadow, props.shadowPosition, colors, shadows),
           extractedStyleProps,
           overrideStyle,
           state.pressed ? pressedStyle : undefined,
@@ -64,6 +64,7 @@ export const Pressable = memo(
         props.shadow,
         props.shadowPosition,
         colors,
+        shadows,
         pressableTokens.disabledOpacity,
         pressableTokens.pressedOpacity,
       ],

@@ -3,6 +3,7 @@ import { memo, useCallback, useMemo, useState } from "react";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
 import { Button, Typography, View } from "@impulse-ui-native/primitives";
+import { useSpace } from "@impulse-ui-native/theme";
 
 interface FlyoutPreviewProps {
   placement: "top" | "bottom";
@@ -13,6 +14,7 @@ export const FlyoutPreview = memo(function FlyoutPreview({
   placement,
   compound,
 }: FlyoutPreviewProps) {
+  const space = useSpace();
   const [open, setOpen] = useState(false);
 
   const show = useCallback(() => setOpen(true), []);
@@ -20,7 +22,7 @@ export const FlyoutPreview = memo(function FlyoutPreview({
 
   const content = useMemo(
     () => (
-      <View gap={12} paddingBottom={16}>
+      <View gap={space.mxs} paddingBottom={space.sm}>
         <Typography.Body>
           Press the overlay or drag the sheet toward the edge to close it.
         </Typography.Body>

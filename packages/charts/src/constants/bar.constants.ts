@@ -1,6 +1,6 @@
-import { ChartColorTokens } from "@impulse-ui-native/theme";
+import { DefaultChartsTokens } from "./charts.constants";
 
-export const BarDefaultColor = ChartColorTokens[0];
-export const BarDefaultColors = ChartColorTokens;
+export const BarDefaultColor = DefaultChartsTokens.palette[0];
+export const BarDefaultColors = DefaultChartsTokens.palette;
 export const BarDefaultOpacity = 1;
 export const BarDefaultRadius = 0;

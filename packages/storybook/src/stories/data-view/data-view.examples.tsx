@@ -4,6 +4,7 @@ import { memo } from "react";
 import { DataView } from "@impulse-ui-native/data-state";
 import { Typography, View } from "@impulse-ui-native/primitives";
 import { Skeleton } from "@impulse-ui-native/skeleton";
+import { useSpace } from "@impulse-ui-native/theme";
 
 import {
   StoryExample,
@@ -98,8 +99,9 @@ export const DataViewExampleDefinitions = [
 ] satisfies DataViewExampleDefinition[];
 
 function Loader() {
+  const space = useSpace();
   return (
-    <Skeleton.Container minHeight={96} gap={12} justifyContent="center">
+    <Skeleton.Container minHeight={96} gap={space.mxs} justifyContent="center">
       <Skeleton.Text
         text="Three projects are ready."
         Component={Typography.Body}

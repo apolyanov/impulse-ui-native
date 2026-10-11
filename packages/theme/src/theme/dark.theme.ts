@@ -1,6 +1,8 @@
+import { ShadowScale } from "../constants";
 import { PrimitiveThemeTokens } from "../types";
 import {
   BorderSizeTokens,
+  CodeFontFamilyToken,
   DarkColors,
   FontFamilyTokens,
   FontSizeTokens,
@@ -12,6 +14,8 @@ import {
 } from "./tokens.theme";
 
 export const DarkTheme: PrimitiveThemeTokens = {
+  shadows: ShadowScale,
+  codeFontFamily: CodeFontFamilyToken,
   colors: DarkColors,
   space: SpaceTokens,
   radii: RadiiTokens,

@@ -2,14 +2,13 @@ import { useMemo } from "react";
 import { DashPathEffect, Path } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import {
   LineDefaultCap,
-  LineDefaultColor,
   LineDefaultCurve,
   LineDefaultJoin,
   LineDefaultOpacity,
-  LineDefaultWidth,
 } from "../../constants";
 import { ChartXValue, LineProps } from "../../types";
 import { createLinePath } from "../../utils";
@@ -17,16 +16,18 @@ import { createLinePath } from "../../utils";
 export const Line = memo(function Line<X extends ChartXValue = number>(
   props: LineProps<X>,
 ) {
+  const tokens = useComponentsTokens().charts;
+
   const {
     cap = LineDefaultCap,
-    color = LineDefaultColor,
+    color = tokens.palette[0],
     coordinates,
     curve = LineDefaultCurve,
     dash,
     join = LineDefaultJoin,
     opacity = LineDefaultOpacity,
     visible = true,
-    width = LineDefaultWidth,
+    width = tokens.line.width,
   } = props;
 
   const path = useMemo(

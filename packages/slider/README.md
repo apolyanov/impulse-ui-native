@@ -61,3 +61,9 @@ Use `defaultValue` for uncontrolled state. Values are clamped to `min` and `max`
 `filled`, `outlined`, and `soft` are the supported visual variants. `small`, `medium`, and `large` adjust the track, thumb, marks, and hit slop together. Pass `marks` to render explicit positions; enable `showMarkLabels`, `showMinMax`, and `showValueBubble` only when the extra value context is useful.
 
 Drag or press the track to change the value. Use `formatValue` to customize visible value text, including units or localized formatting.
+
+## Additional theme geometry
+
+Customize `components.slider.markLabelWidth`, `thumbHighlightSize`, and
+`valueBubbleMinWidth` through `ThemeProvider`. Defaults remain 48, 4, and 40.
+Mark-label centering follows half of the configured width.

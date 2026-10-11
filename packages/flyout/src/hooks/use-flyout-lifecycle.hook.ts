@@ -18,10 +18,6 @@ import { useOverlayLifecycle } from "@impulse-ui-native/overlay";
 import { getFlyoutTokens, useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { FlyoutProps } from "../types";
-import {
-  EnterAnimationConfig,
-  ExitAnimationConfig,
-} from "../constants/flyout.constants";
 
 interface UseFlyoutLifecycleProps extends OverlayLifecycleProps {
   placement: NonNullable<FlyoutProps["placement"]>;
@@ -37,6 +33,11 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
   const tokens = useComponentsTokens();
   const flyoutTokens = getFlyoutTokens(tokens.flyout, { placement });
+  const enterSpring = tokens.flyout.enterSpring;
+  const exitAnimationConfig = useMemo(
+    () => ({ duration: tokens.flyout.exitDuration }),
+    [tokens.flyout.exitDuration],
+  );
   const handleHeight = flyoutTokens.handleContainer.height;
 
   const translateY = useSharedValue(
@@ -48,13 +49,13 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   const enter = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
       translateY.set(
-        withSpring(0, EnterAnimationConfig, (finished) => {
+        withSpring(0, enterSpring, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }
         }),
       );
-      opacity.set(withSpring(overlayVisibleOpacity, EnterAnimationConfig));
+      opacity.set(withSpring(overlayVisibleOpacity, enterSpring));
     },
   );
   const exit = useEventCallback<OverlayTransitionHandler>(
@@ -67,13 +68,13 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
       const target = placement === "top" ? -measuredHeight : measuredHeight;
       translateY.set(
-        withTiming(target, ExitAnimationConfig, (finished) => {
+        withTiming(target, exitAnimationConfig, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }
         }),
       );
-      opacity.set(withTiming(0, ExitAnimationConfig));
+      opacity.set(withTiming(0, exitAnimationConfig));
     },
   );
 
@@ -136,8 +137,8 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
             return;
           }
 
-          translateY.set(withSpring(0, EnterAnimationConfig));
-          opacity.set(withSpring(overlayVisibleOpacity, EnterAnimationConfig));
+          translateY.set(withSpring(0, enterSpring));
+          opacity.set(withSpring(overlayVisibleOpacity, enterSpring));
         }),
     [
       status,
@@ -148,6 +149,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
       translateY,
       opacity,
       overlayVisibleOpacity,
+      enterSpring,
     ],
   );
 

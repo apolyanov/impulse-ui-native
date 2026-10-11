@@ -1,4 +1,6 @@
-import { MultiPieDefaultRingPadding } from "../constants";
+import type { ChartsTokens } from "@impulse-ui-native/theme";
+
+import { DefaultChartsTokens } from "../constants/charts.constants";
 import {
   MultiPieChartSeriesModel,
   UseMultiPieChartProps,
@@ -8,6 +10,7 @@ import { createPieChartModel, createPieChartRadii } from "./pie-chart.util";
 
 export function createMultiPieChartModel(
   props: UseMultiPieChartProps,
+  tokens: ChartsTokens = DefaultChartsTokens,
 ): UseMultiPieChartResult {
   const { innerRadius, outerRadius } = createPieChartRadii(
     props.plot,
@@ -20,7 +23,7 @@ export function createMultiPieChartModel(
     ringCount <= 1
       ? 0
       : Math.min(
-          normalizeRingPadding(props.ringPadding),
+          normalizeRingPadding(props.ringPadding, tokens.pie.ringPadding),
           radialSpan / (ringCount - 1),
         );
   const availableWidth = Math.max(
@@ -66,11 +69,12 @@ export function createMultiPieChartModel(
   return { series };
 }
 
-function normalizeRingPadding(value: number | undefined): number {
+function normalizeRingPadding(
+  value: number | undefined,
+  fallback: number,
+): number {
   const padding =
-    value === undefined || !Number.isFinite(value)
-      ? MultiPieDefaultRingPadding
-      : value;
+    value === undefined || !Number.isFinite(value) ? fallback : value;
 
   return Math.max(0, padding);
 }

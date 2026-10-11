@@ -37,7 +37,8 @@ export function createPreset(
       const themedConfig = config(theme);
 
       const resolvedFontStyle = fontStyle ?? themedConfig.fontStyle ?? "normal";
-      const resolvedFontWeight = fontWeight ?? themedConfig.fontWeight ?? 400;
+      const resolvedFontWeight =
+        fontWeight ?? themedConfig.fontWeight ?? theme.fontWeight.regular;
 
       const fontFamily =
         customFontFamily ??

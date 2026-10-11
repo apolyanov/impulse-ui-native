@@ -1,8 +1,5 @@
 import type { ChartInsets } from "../types";
+import { DefaultChartsTokens } from "./charts.constants";
 
-export const CartesianChartDefaultInsets: ChartInsets = {
-  top: 32,
-  right: 32,
-  bottom: 32,
-  left: 32,
-};
+export const CartesianChartDefaultInsets: ChartInsets =
+  DefaultChartsTokens.insets;

@@ -55,12 +55,13 @@ export function resolveGridLineOptions(
   options: boolean | ChartGridLineOptions | undefined,
   defaultVisible: boolean,
   defaultColor: string,
+  defaultWidth = GridDefaultWidth,
 ): ResolvedGridLineOptions {
   if (typeof options === "boolean") {
     return {
       visible: options,
       color: defaultColor,
-      width: GridDefaultWidth,
+      width: defaultWidth,
       opacity: GridDefaultOpacity,
     };
   }
@@ -68,7 +69,7 @@ export function resolveGridLineOptions(
   return {
     visible: isGridLineVisible(options, defaultVisible),
     color: options?.color ?? defaultColor,
-    width: options?.width ?? GridDefaultWidth,
+    width: options?.width ?? defaultWidth,
     opacity: options?.opacity ?? GridDefaultOpacity,
     dash: options?.dash,
   };

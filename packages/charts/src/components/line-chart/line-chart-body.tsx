@@ -4,7 +4,6 @@ import { Group } from "@shopify/react-native-skia";
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
 
-import { CartesianChartDefaultInsets, LineDefaultWidth } from "../../constants";
 import { useChartLayout, useLineChart } from "../../hooks";
 import { ChartSize, ChartXValue, LineChartProps } from "../../types";
 import { createInsetRect, fitLineCoordinatesToRect } from "../../utils";
@@ -31,7 +30,7 @@ export const LineChartBody = memo(function LineChartBodyComponent<
     yAxis,
   } = props;
 
-  const layout = useChartLayout(size, insets, CartesianChartDefaultInsets);
+  const layout = useChartLayout(size, insets, theme.components.charts.insets);
 
   const { coordinates, xScale, xTicks, yScale, yTicks } = useLineChart({
     data,
@@ -42,8 +41,12 @@ export const LineChartBody = memo(function LineChartBodyComponent<
   });
 
   const linePlot = useMemo(
-    () => createInsetRect(layout.plot, (line?.width ?? LineDefaultWidth) / 2),
-    [layout.plot, line?.width],
+    () =>
+      createInsetRect(
+        layout.plot,
+        (line?.width ?? theme.components.charts.line.width) / 2,
+      ),
+    [layout.plot, line?.width, theme.components.charts.line.width],
   );
 
   const lineCoordinates = useMemo(

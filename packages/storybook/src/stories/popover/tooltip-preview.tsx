@@ -14,7 +14,7 @@ export const TooltipPreview = memo(function TooltipPreview({
   disabled?: boolean;
   initiallyOpen?: boolean;
 }) {
-  const { colors, space, radii, borderSize } = useTheme();
+  const { colors, space, radii, borderSize, components } = useTheme();
 
   const triggerProps = useMemo<PopoverTriggerProps>(
     () => ({
@@ -58,7 +58,11 @@ export const TooltipPreview = memo(function TooltipPreview({
           duration={initiallyOpen ? 0 : undefined}
           triggerProps={triggerProps}
         >
-          <InfoIcon width={24} height={24} color={colors.text.tertiary} />
+          <InfoIcon
+            width={components.icon.sizes.medium}
+            height={components.icon.sizes.medium}
+            color={colors.text.tertiary}
+          />
         </Tooltip>
         <Switch defaultChecked size="small" disabled={disabled} />
       </View>

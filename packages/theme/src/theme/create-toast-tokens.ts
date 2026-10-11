@@ -2,6 +2,10 @@ import type { PrimitiveThemeTokens, ToastTokens } from "../types";
 
 export function createToastTokens(tokens: PrimitiveThemeTokens): ToastTokens {
   return {
+    enterDuration: 180,
+    exitDuration: 150,
+    stackDuration: 220,
+    actionFontWeight: tokens.fontWeight.semiBold,
     backgroundColor: tokens.colors.surface.elevated.value,
     borderColor: tokens.colors.border.subtle.value,
     borderWidth: tokens.borderSize.sm,

@@ -114,3 +114,10 @@ Use the Toast stories in the on-device Storybook host to verify rendering, touch
 Toast uses the shared useOverlayLifecycle hook from the overlay package.
 onStatusChange(id, status) reports opening, open, closing, and closed.
 The duration timer starts when status reaches open.
+
+## Theme motion and action typography
+
+`components.toast.enterDuration`, `exitDuration`, and `stackDuration` configure
+the transitions (180 ms, 150 ms, and 220 ms by default).
+`actionFontWeight` defaults to the primitive theme semi-bold weight. The
+`duration` prop still controls auto-dismiss independently of animation timing.

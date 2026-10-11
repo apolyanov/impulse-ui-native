@@ -1,8 +1,13 @@
 import type { ColorPair } from "./theme-provider.types";
+import type { FontWeightValue } from "./tokens.types";
 
 export type ToastTone = "success" | "info" | "warning" | "error";
 
 export interface ToastTokens {
+  enterDuration: number;
+  exitDuration: number;
+  stackDuration: number;
+  actionFontWeight: FontWeightValue;
   backgroundColor: string;
   borderColor: string;
   borderWidth: number;

@@ -142,3 +142,8 @@ scroll, and keyboard avoidance is not built in.
 
 Provider uses the shared useOverlayLifecycle hook from the overlay package. Observe
 local status with onStatusChange(id, status), or hosted status with useOverlayStatus(id).
+
+## Theme motion
+
+`components.modal.enterDuration` and `exitDuration` control the fade/scale
+transition timing. Defaults remain 180 ms and 150 ms.

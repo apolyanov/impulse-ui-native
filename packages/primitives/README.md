@@ -129,3 +129,10 @@ Use `Badge` for compact states and metadata. It supports `filled`, `outlined`, a
 ## Dedicated component packages
 
 Card, List, Progress, and their prop types are exported from `@impulse-ui-native/card`, `@impulse-ui-native/list`, and `@impulse-ui-native/progress`, respectively. They remain available through `@impulse-ui-native/toolkit`. Migrate direct primitives imports to their owning packages.
+
+## Shared shadow and code-font defaults
+
+`View` and `Pressable` resolve semantic shadow levels from the active
+`theme.shadows` scale, including Android elevation. Explicit shadow style props
+and style overrides still take precedence. Configure `theme.codeFontFamily`
+to change `Typography.Code` globally; its default remains `monospace`.

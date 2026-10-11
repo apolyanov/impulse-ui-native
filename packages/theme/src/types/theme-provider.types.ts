@@ -1,10 +1,12 @@
 import type { BadgeTokens } from "./badge-tokens.types";
 import type { CarouselTokens } from "./carousel-tokens.types";
+import type { ChartsTokens } from "./charts-tokens.types";
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { ListTokens } from "./list-tokens.types";
 import type { ModalTokens } from "./modal-tokens.types";
 import type { PopoverTokens } from "./popover-tokens.types";
 import type { RadioTokens } from "./radio-tokens.types";
+import type { ShadowScaleTokens } from "./shadow.types";
 import type { TabsTokens } from "./tabs-tokens.types";
 import type { ToastTokens } from "./toast-tokens.types";
 import { AccordionTokens } from "./accordion-tokens.types";
@@ -108,6 +110,7 @@ export interface ComponentsThemes {
 }
 
 export interface ComponentsTokens {
+  charts: ChartsTokens;
   modal: ModalTokens;
   popover: PopoverTokens;
   toast: ToastTokens;
@@ -148,6 +151,8 @@ export interface ComponentsTokens {
 }
 
 export interface PrimitiveThemeTokens {
+  shadows: ShadowScaleTokens;
+  codeFontFamily: string;
   colors: ThemeColors;
   space: Space;
   radii: Radii;

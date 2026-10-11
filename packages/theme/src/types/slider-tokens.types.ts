@@ -52,6 +52,9 @@ export interface SliderTokens {
   valueBubblePaddingVertical: number;
   valueBubbleGap: number;
   labelGap: number;
+  markLabelWidth: number;
+  thumbHighlightSize: number;
+  valueBubbleMinWidth: number;
   layouts: Record<SliderTrackLayout, SliderTrackLayoutTokens>;
   sizes: SliderSizeTokens;
   variants: SliderVariantTokens;

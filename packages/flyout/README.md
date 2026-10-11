@@ -73,3 +73,9 @@ For app-wide imperative sheets, register `Flyout` through an `OverlayStore` and 
 Root uses the shared useOverlayLifecycle hook. Observe the preparation, entry,
 open, and exit stages through onStatusChange(id, status). Dragging is enabled
 after entry completes. Entry preparation includes the initial layout measurement.
+
+## Theme motion
+
+`components.flyout.enterSpring` contains `damping`, `stiffness`, and `mass`
+(defaults 50, 300, and 1). `exitDuration` defaults to 150 ms. The enter spring
+also controls the return animation after a drag that does not dismiss the sheet.

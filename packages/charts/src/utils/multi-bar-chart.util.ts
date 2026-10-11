@@ -1,7 +1,8 @@
 import { scaleBand } from "d3-scale";
 
-import { MultiBarChartDefaultSeriesPadding } from "../constants/bar-chart.constants";
-import { BarDefaultColor, BarDefaultColors } from "../constants/bar.constants";
+import type { ChartsTokens } from "@impulse-ui-native/theme";
+
+import { DefaultChartsTokens } from "../constants/charts.constants";
 import {
   ChartXValue,
   MultiBarChartSeriesModel,
@@ -16,23 +17,24 @@ import {
 
 export function createMultiBarChartModel<X extends ChartXValue>(
   props: UseMultiBarChartProps<X>,
+  tokens: ChartsTokens = DefaultChartsTokens,
 ): UseMultiBarChartResult<X> {
   const data = props.series.flatMap((series) => series.data);
-  const model = createBarChartScaleModel({
-    data,
-    plot: props.plot,
-    xAxis: props.xAxis,
-    yAxis: props.yAxis,
-    categoryPadding: props.categoryPadding,
-  });
+  const model = createBarChartScaleModel(
+    {
+      data,
+      plot: props.plot,
+      xAxis: props.xAxis,
+      yAxis: props.yAxis,
+      categoryPadding: props.categoryPadding,
+    },
+    tokens,
+  );
   const seriesScale = scaleBand<number>()
     .domain(props.series.map((_, index) => index))
     .range([0, model.bandwidth])
     .paddingInner(
-      normalizeBarChartPadding(
-        props.seriesPadding,
-        MultiBarChartDefaultSeriesPadding,
-      ),
+      normalizeBarChartPadding(props.seriesPadding, tokens.bar.seriesPadding),
     );
   const seriesBandwidth = seriesScale.bandwidth();
   const series: MultiBarChartSeriesModel<X>[] = props.series.map(
@@ -64,6 +66,7 @@ export function createMultiBarChartModel<X extends ChartXValue>(
 export function createDrawableMultiBarChartSeries<X extends ChartXValue>(
   series: MultiBarChartSeriesModel<X>,
   index: number,
+  tokens: ChartsTokens = DefaultChartsTokens,
 ): MultiBarChartSeriesModel<X> {
   return {
     ...series,
@@ -71,8 +74,8 @@ export function createDrawableMultiBarChartSeries<X extends ChartXValue>(
       ...series.bar,
       color:
         series.bar?.color ??
-        BarDefaultColors[index % BarDefaultColors.length] ??
-        BarDefaultColor,
+        tokens.palette[index % tokens.palette.length] ??
+        tokens.palette[0],
     },
   };
 }

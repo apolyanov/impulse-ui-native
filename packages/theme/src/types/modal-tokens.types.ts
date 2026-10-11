@@ -1,6 +1,8 @@
 import type { ComponentSize } from "./components.types";
 
 export interface ModalTokens {
+  enterDuration: number;
+  exitDuration: number;
   zIndexBase: number;
   overlayColor: string;
   overlayVisibleOpacity: number;

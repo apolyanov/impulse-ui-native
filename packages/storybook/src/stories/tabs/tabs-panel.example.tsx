@@ -2,7 +2,12 @@ import { memo, useState } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Button, Typography, View } from "@impulse-ui-native/primitives";
-import { useColors, useRadii, useSpace } from "@impulse-ui-native/theme";
+import {
+  useBorder,
+  useColors,
+  useRadii,
+  useSpace,
+} from "@impulse-ui-native/theme";
 
 export const TabsPanelExample = memo(function TabsPanelExample({
   title,
@@ -11,6 +16,7 @@ export const TabsPanelExample = memo(function TabsPanelExample({
 }) {
   const [count, setCount] = useState(0);
   const colors = useColors();
+  const borderSize = useBorder();
   const radii = useRadii();
   const space = useSpace();
 
@@ -20,7 +26,7 @@ export const TabsPanelExample = memo(function TabsPanelExample({
     <View
       backgroundColor={colors.surface.secondary.value}
       borderColor={colors.border.subtle.value}
-      borderWidth={1}
+      borderWidth={borderSize.sm}
       borderRadius={radii.lg}
       padding={space.msm}
       gap={space.sm}

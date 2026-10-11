@@ -83,15 +83,15 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
       backgroundColor: appearanceTokens.thumbBackgroundColor,
     },
     thumbHighlight: {
-      width: 4,
-      height: 4,
+      width: tokens.thumbHighlightSize,
+      height: tokens.thumbHighlightSize,
       borderRadius: tokens.thumbBorderRadius,
       backgroundColor: appearanceTokens.thumbHighlightColor,
     },
     valueBubble: {
       position: "absolute",
       bottom: thumbOuterSize + tokens.valueBubbleGap,
-      minWidth: 40,
+      minWidth: tokens.valueBubbleMinWidth,
       alignItems: "center",
       paddingHorizontal: tokens.valueBubblePaddingHorizontal,
       paddingVertical: tokens.valueBubblePaddingVertical,

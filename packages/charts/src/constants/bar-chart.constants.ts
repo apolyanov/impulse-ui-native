@@ -1,2 +1,6 @@
-export const BarChartDefaultCategoryPadding = 0.2;
-export const MultiBarChartDefaultSeriesPadding = 0.1;
+import { DefaultChartsTokens } from "./charts.constants";
+
+export const BarChartDefaultCategoryPadding =
+  DefaultChartsTokens.bar.categoryPadding;
+export const MultiBarChartDefaultSeriesPadding =
+  DefaultChartsTokens.bar.seriesPadding;

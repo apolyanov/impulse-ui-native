@@ -32,6 +32,8 @@ export interface FlyoutTitleTokens {
 }
 
 export interface FlyoutTokens {
+  enterSpring: { damping: number; stiffness: number; mass: number };
+  exitDuration: number;
   zIndexBase: number;
 
   maxHeightRatio: number;

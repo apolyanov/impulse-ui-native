@@ -87,8 +87,8 @@ function themedStyles(theme: AppTheme, props: SliderLabelsThemeProps) {
     },
     markLabel: {
       position: "absolute",
-      width: 48,
-      marginStart: -24,
+      width: tokens.markLabelWidth,
+      marginStart: -tokens.markLabelWidth / 2,
       textAlign: "center",
       color: appearanceTokens.labelColor,
     },

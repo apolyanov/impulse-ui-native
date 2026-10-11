@@ -39,7 +39,7 @@ export const PopoverPreview = memo(function PopoverPreview({
   const [privateSelected, setPrivateSelected] = useState(true);
   const [committedPrivate, setCommittedPrivate] = useState(true);
 
-  const { colors, space, radii, borderSize } = useTheme();
+  const { colors, space, radii, borderSize, components } = useTheme();
   const styles = useThemedStyles(themedStyles);
 
   const selectPrivate = useEventCallback(() => setPrivateSelected(true));
@@ -92,8 +92,8 @@ export const PopoverPreview = memo(function PopoverPreview({
           <PopoverSettingsRow
             icon={
               <FolderSimpleIcon
-                width={20}
-                height={20}
+                width={components.icon.sizes.medium}
+                height={components.icon.sizes.medium}
                 color={colors.text.tertiary}
               />
             }
@@ -102,7 +102,11 @@ export const PopoverPreview = memo(function PopoverPreview({
           />
           <PopoverSettingsRow
             icon={
-              <EyeIcon width={20} height={20} color={colors.text.tertiary} />
+              <EyeIcon
+                width={components.icon.sizes.medium}
+                height={components.icon.sizes.medium}
+                color={colors.text.tertiary}
+              />
             }
             label="Visibility"
           >
@@ -117,8 +121,8 @@ export const PopoverPreview = memo(function PopoverPreview({
                 style={styles.trigger}
               >
                 <EyeIcon
-                  width={18}
-                  height={18}
+                  width={components.icon.sizes.small}
+                  height={components.icon.sizes.small}
                   color={colors.secondary.contrast}
                 />
                 <Typography.Label color={colors.secondary.contrast}>
@@ -140,8 +144,8 @@ export const PopoverPreview = memo(function PopoverPreview({
                   <Popover.Title>Project visibility</Popover.Title>
                   <Popover.Close style={styles.close}>
                     <XIcon
-                      width={18}
-                      height={18}
+                      width={components.icon.sizes.small}
+                      height={components.icon.sizes.small}
                       color={colors.text.tertiary}
                     />
                   </Popover.Close>
@@ -169,13 +173,21 @@ export const PopoverPreview = memo(function PopoverPreview({
           </PopoverSettingsRow>
           <PopoverSettingsRow
             icon={
-              <UsersIcon width={20} height={20} color={colors.text.tertiary} />
+              <UsersIcon
+                width={components.icon.sizes.medium}
+                height={components.icon.sizes.medium}
+                color={colors.text.tertiary}
+              />
             }
             label="Members"
           />
           <PopoverSettingsRow
             icon={
-              <GearIcon width={20} height={20} color={colors.text.tertiary} />
+              <GearIcon
+                width={components.icon.sizes.medium}
+                height={components.icon.sizes.medium}
+                color={colors.text.tertiary}
+              />
             }
             label="Advanced"
             last

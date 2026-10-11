@@ -22,8 +22,13 @@ export const Grid = memo(function Grid<X extends ChartXValue = number>(
         options?.x,
         GridDefaultXVisible,
         theme.colors.border.subtle.value,
+        theme.components.charts.grid.width,
       ),
-    [options?.x, theme.colors.border.subtle.value],
+    [
+      options?.x,
+      theme.colors.border.subtle.value,
+      theme.components.charts.grid.width,
+    ],
   );
 
   const yStyle = useMemo(
@@ -32,8 +37,13 @@ export const Grid = memo(function Grid<X extends ChartXValue = number>(
         options?.y,
         GridDefaultYVisible,
         theme.colors.border.subtle.value,
+        theme.components.charts.grid.width,
       ),
-    [options?.y, theme.colors.border.subtle.value],
+    [
+      options?.y,
+      theme.colors.border.subtle.value,
+      theme.components.charts.grid.width,
+    ],
   );
 
   const xPath = useMemo(

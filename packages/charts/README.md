@@ -119,3 +119,24 @@ import { MultiPieChart } from "@impulse-ui-native/charts";
 ## Native prerequisite
 
 Chart APIs require `@shopify/react-native-skia` version 2 or newer.
+
+## Theme customization
+
+Chart components resolve defaults from `theme.components.charts`: `palette`,
+`insets`, `axis.width`, `axis.tickLength`, `axis.labelGap`, `grid.width`,
+`line.width`, `bar.categoryPadding`, `bar.seriesPadding`, and `pie.ringPadding`.
+Set these with the `ThemeProvider` components prop. Explicit chart/series colors,
+stroke widths, insets, and spacing options take precedence. Stroke insets and
+rendering use the same resolved line width.
+
+The palette has fifteen entries, matching `ChartColorTokens`. For example,
+`components={{ charts: { palette: myChartPalette } }}` configures it globally.
+The standalone `Bar`, `Line`, and `Pie` primitives now resolve their visual
+defaults through the theme provider too.
+
+Pure model utilities and `useBarChart`, `useMultiBarChart`, and
+`useMultiPieChart` accept an optional second `ChartsTokens` argument.
+`createDrawableMultiLineChartSeries` accepts tokens as its fourth argument, and
+`createDrawableMultiBarChartSeries` as its third. Pass
+`theme.components.charts` when using these APIs directly; omission preserves
+`DefaultChartsTokens` and does not require a provider for the pure hooks.

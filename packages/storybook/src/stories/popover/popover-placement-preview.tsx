@@ -47,10 +47,16 @@ export const PopoverPlacementPreview = memo(function PopoverPlacementPreview({
   );
 });
 
-function themedStyles({ colors, space, radii, borderSize }: AppTheme) {
+function themedStyles({
+  colors,
+  space,
+  radii,
+  borderSize,
+  components,
+}: AppTheme) {
   return StyleSheet.create({
     trigger: {
-      minHeight: 40,
+      minHeight: components.button.sizes.medium.height,
       alignItems: "center",
       justifyContent: "center",
       paddingHorizontal: space.xs,

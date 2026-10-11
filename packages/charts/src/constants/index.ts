@@ -1,4 +1,5 @@
 export * from "./axis.constants";
+export * from "./charts.constants";
 export * from "./bar.constants";
 export * from "./bar-chart.constants";
 export * from "./chart-layout.constants";

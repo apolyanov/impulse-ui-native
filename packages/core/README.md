@@ -63,3 +63,6 @@ useTimer({
 ```
 
 `enabled` defaults to true and `pauseOnBackground` defaults to false. Non-positive or non-finite durations disable the timer. Changing the callback preserves the countdown and executes the latest handler. Disabling or unmounting cancels it; re-enabling or changing the duration/background policy starts a fresh countdown. With background pausing enabled, time spent inactive does not count toward the duration. A completed timer remains finished until restarted by one of those changes.
+
+`merge` preserves array values as arrays when applying deep partial overrides,
+including indexed overrides inside nested theme palettes.
