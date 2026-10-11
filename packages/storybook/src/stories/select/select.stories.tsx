@@ -7,6 +7,7 @@ import {
   FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
+import { SelectInitialScrollExample } from "./select-initial-scroll-example";
 import { SelectDocumentation } from "./select.documentation";
 import {
   SelectExample,
@@ -65,6 +66,12 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const InitialScroll: Story = {
+  render: function renderInitialScroll() {
+    return <SelectInitialScrollExample />;
+  },
+};
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

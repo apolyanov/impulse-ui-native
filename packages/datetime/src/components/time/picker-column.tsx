@@ -4,9 +4,14 @@ import type {
   NativeSyntheticEvent,
 } from "react-native";
 import { memo, useCallback, useEffect, useRef } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme, FontWeightValue } from "@impulse-ui-native/theme";
+import {
+  FlatList,
+  FlatListRef,
+  useFlatListInitialScroll,
+} from "@impulse-ui-native/flat-list";
 import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
 import {
   getSelectionItemStateTokens,
@@ -31,7 +36,7 @@ export const PickerColumn = memo(function PickerColumn(
 ) {
   const { data, label, value, initialScrollIndex = 0, onChange } = props;
 
-  const listRef = useRef<FlatList<number>>(null);
+  const listRef = useRef<FlatListRef<number>>(null);
   const currentIndexRef = useRef(initialScrollIndex);
 
   const tokens = useComponentsTokens();
@@ -40,20 +45,14 @@ export const PickerColumn = memo(function PickerColumn(
 
   const styles = useThemedStyles(themedStyles);
 
+  const initialScroll = useFlatListInitialScroll<number>({
+    itemSize: columnTokens.itemHeight,
+    initialScrollIndex,
+  });
+
   const keyExtractor = useCallback((item: number, index: number) => {
     return `${item}-${index}`;
   }, []);
-
-  const getItemLayout = useCallback(
-    (_: ArrayLike<number> | null | undefined, index: number) => {
-      return {
-        length: columnTokens.itemHeight,
-        offset: columnTokens.itemHeight * index,
-        index,
-      };
-    },
-    [columnTokens.itemHeight],
-  );
 
   const scrollToIndex = useCallback((index: number, animated: boolean) => {
     currentIndexRef.current = index;
@@ -110,15 +109,6 @@ export const PickerColumn = memo(function PickerColumn(
     [columnTokens.itemHeight, data, onChange, value],
   );
 
-  const onScrollToIndexFailed = useCallback(() => {
-    requestAnimationFrame(() => {
-      listRef.current?.scrollToOffset({
-        offset: initialScrollIndex * columnTokens.itemHeight,
-        animated: false,
-      });
-    });
-  }, [columnTokens.itemHeight, initialScrollIndex]);
-
   useEffect(() => {
     if (value === undefined) {
       return;
@@ -151,19 +141,17 @@ export const PickerColumn = memo(function PickerColumn(
         overflow="hidden"
       >
         <FlatList
+          {...initialScroll}
           ref={listRef}
           data={data}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
-          getItemLayout={getItemLayout}
           snapToInterval={columnTokens.itemHeight}
           snapToAlignment="start"
           decelerationRate="fast"
-          initialScrollIndex={initialScrollIndex}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.contentContainer}
           onMomentumScrollEnd={onMomentumScrollEnd}
-          onScrollToIndexFailed={onScrollToIndexFailed}
           removeClippedSubviews
           windowSize={3}
           initialNumToRender={7}

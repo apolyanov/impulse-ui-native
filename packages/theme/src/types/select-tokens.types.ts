@@ -9,6 +9,7 @@ export interface SelectOptionAppearanceTokens {
 }
 
 export interface SelectOptionTokens {
+  height: number;
   padding: number;
   states: VisualStateTokens<
     SelectionItemVisualState,

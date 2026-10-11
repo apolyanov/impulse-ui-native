@@ -7,6 +7,7 @@ The complete Impulse UI Native component library in one package.
 ## Highlights
 
 - React Native components with TypeScript types.
+- Native `FlatList` and a small initial-positioning hook for known row sizes. See the [FlatList API](../flat-list/README.md).
 - `Carousel` with native snapping, centered previews, adaptive pagination, and
   navigation buttons. See the [Carousel API](../carousel/README.md).
 - One theme system shared by every component.
@@ -38,13 +39,13 @@ pnpm add @impulse-ui-native/toolkit
 Install its native peers:
 
 ```sh
-pnpm add @shopify/flash-list @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
+pnpm add @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
 ```
 
 In an Expo application, use:
 
 ```sh
-npx expo install @shopify/flash-list @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
+npx expo install @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
 npm install @impulse-ui-native/toolkit
 ```
 

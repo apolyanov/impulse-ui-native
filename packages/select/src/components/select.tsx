@@ -11,8 +11,15 @@ import { SelectFlyout } from "./select.flyout";
 function SelectComponent<Value extends PrimitiveValue>(
   props: SelectProps<Value>,
 ) {
-  const { options, value, defaultValue, onChange, placeholder, ...rest } =
-    props;
+  const {
+    options,
+    value,
+    defaultValue,
+    onChange,
+    placeholder,
+    initialScrollToSelected,
+    ...rest
+  } = props;
 
   const id = useId();
 
@@ -46,6 +53,7 @@ function SelectComponent<Value extends PrimitiveValue>(
         title="Options"
         open={isOpen}
         options={options}
+        initialScrollToSelected={initialScrollToSelected}
         isSelected={isSelected}
         onCloseFinished={close}
         onSelect={handleOnSelect}

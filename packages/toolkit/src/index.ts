@@ -3,6 +3,7 @@ export * from "@impulse-ui-native/core";
 export * from "@impulse-ui-native/theme";
 
 // Layout & containers
+export * from "@impulse-ui-native/flat-list";
 export * from "@impulse-ui-native/overlay";
 export * from "@impulse-ui-native/pagination";
 export * from "@impulse-ui-native/carousel";

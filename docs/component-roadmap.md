@@ -55,6 +55,7 @@ an implemented component unavailable.
 | ------------------------- | ------------------------------- | --------- | --------- | --------------------------------------------------------------------------------- |
 | `Card` and compound parts | `@impulse-ui-native/card`       | Available | Yes       | Expand native media and pressable-card composition examples.                      |
 | `List` and compound parts | `@impulse-ui-native/list`       | Available | Yes       | Add realistic native row composition as usage grows.                              |
+| `FlatList`                | `@impulse-ui-native/flat-list`  | Extend    | Yes       | Validate native initial positioning and fixed-row sizing on iOS/Android.          |
 | `Avatar`                  | `@impulse-ui-native/primitives` | Available | Yes       | Validate image, initials, custom fallback, and status layouts under font scaling. |
 | `Badge`                   | `@impulse-ui-native/primitives` | Available | Yes       | Document prefix/suffix composition and the distinction from interactive `Tag`.    |
 | `Tag`                     | `@impulse-ui-native/primitives` | Available | Yes       | Clarify whole-label actions, close actions, and display-only usage.               |

@@ -5,7 +5,7 @@ Single- and multi-value select controls that present their options in a themed f
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/select @shopify/flash-list react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
+pnpm add @impulse-ui-native/select react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
 ```
 
 Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. The simplest application setup is to use `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `PortalsHost` inside a `PortalProvider` at the application root.
@@ -54,3 +54,5 @@ export function DepartmentField() {
 ```
 
 Both controls support controlled `value` and uncontrolled `defaultValue` usage. Values are limited to strings, numbers, `null`, and `undefined`; multi-select stores an array of those values.
+
+On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default). The same height is supplied to native `getItemLayout`, so native `initialScrollIndex` handles positioning. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.

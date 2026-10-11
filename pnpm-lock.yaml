@@ -824,6 +824,9 @@ importers:
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core
+      '@impulse-ui-native/flat-list':
+        specifier: workspace:*
+        version: link:../flat-list
       '@impulse-ui-native/flyout':
         specifier: workspace:*
         version: link:../flyout
@@ -852,9 +855,6 @@ importers:
       '@impulse-ui-native/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@shopify/flash-list':
-        specifier: 'catalog:'
-        version: 2.0.2(@babel/runtime@7.29.2)(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
       '@types/react':
         specifier: catalog:react19
         version: 19.2.14
@@ -929,6 +929,36 @@ importers:
       axios:
         specifier: 'catalog:'
         version: 1.13.2
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.4(jiti@2.7.0)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.8.3
+      react:
+        specifier: catalog:react19
+        version: 19.2.3
+      react-native:
+        specifier: 'catalog:'
+        version: 0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3)
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+
+  packages/flat-list:
+    devDependencies:
+      '@impulse-ui-native/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@impulse-ui-native/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@impulse-ui-native/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@types/react':
+        specifier: catalog:react19
+        version: 19.2.14
       eslint:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.7.0)
@@ -1545,6 +1575,9 @@ importers:
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core
+      '@impulse-ui-native/flat-list':
+        specifier: workspace:*
+        version: link:../flat-list
       '@impulse-ui-native/flyout':
         specifier: workspace:*
         version: link:../flyout
@@ -1573,9 +1606,6 @@ importers:
       '@impulse-ui-native/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@shopify/flash-list':
-        specifier: 'catalog:'
-        version: 2.0.2(@babel/runtime@7.29.2)(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
       '@types/react':
         specifier: catalog:react19
         version: 19.2.14
@@ -1720,6 +1750,9 @@ importers:
       '@impulse-ui-native/card':
         specifier: workspace:*
         version: link:../card
+      '@impulse-ui-native/flat-list':
+        specifier: workspace:*
+        version: link:../flat-list
       '@impulse-ui-native/icon':
         specifier: workspace:*
         version: link:../icon
@@ -2052,6 +2085,9 @@ importers:
       '@impulse-ui-native/endpoint':
         specifier: workspace:*
         version: link:../endpoint
+      '@impulse-ui-native/flat-list':
+        specifier: workspace:*
+        version: link:../flat-list
       '@impulse-ui-native/flyout':
         specifier: workspace:*
         version: link:../flyout
@@ -2115,9 +2151,6 @@ importers:
       '@impulse-ui-native/toast':
         specifier: workspace:*
         version: link:../toast
-      '@shopify/flash-list':
-        specifier: '>=2'
-        version: 2.0.2(@babel/runtime@7.29.2)(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)
       '@shopify/react-native-skia':
         specifier: '>=2'
         version: 2.6.2(react-native-reanimated@4.5.1(react-native-worklets@0.10.1(@babel/core@7.29.0)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.0)(@react-native-community/cli@13.6.9)(@react-native/metro-config@0.86.2(@babel/core@7.29.0))(@types/react@19.2.14)(react@19.2.3))(react@19.2.3)

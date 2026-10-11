@@ -7,6 +7,7 @@ export function createSelectTokens(tokens: PrimitiveThemeTokens): SelectTokens {
     multiValueMarginHorizontal: tokens.space.xxs,
 
     option: {
+      height: 56,
       padding: tokens.space.sm,
       states: {
         default: {

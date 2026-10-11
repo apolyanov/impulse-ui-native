@@ -37,7 +37,8 @@
       "@impulse-ui-native/progress",
       "@impulse-ui-native/popover",
       "@impulse-ui-native/modal",
-      "@impulse-ui-native/tabs"
+      "@impulse-ui-native/tabs",
+      "@impulse-ui-native/flat-list"
     ]
   ],
   "linked": [],

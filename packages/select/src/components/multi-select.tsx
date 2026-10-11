@@ -41,8 +41,15 @@ const SelectedTag = memo(SelectedTagComponent) as <
 function MultiSelectComponent<Value extends PrimitiveValue>(
   props: MultiSelectProps<Value>,
 ) {
-  const { options, value, defaultValue, onChange, placeholder, ...rest } =
-    props;
+  const {
+    options,
+    value,
+    defaultValue,
+    onChange,
+    placeholder,
+    initialScrollToSelected,
+    ...rest
+  } = props;
 
   const tokens = useComponentsTokens();
 
@@ -91,6 +98,7 @@ function MultiSelectComponent<Value extends PrimitiveValue>(
         title="Options"
         open={isOpen}
         options={options}
+        initialScrollToSelected={initialScrollToSelected}
         isSelected={isSelected}
         onCloseFinished={close}
         onSelect={select}

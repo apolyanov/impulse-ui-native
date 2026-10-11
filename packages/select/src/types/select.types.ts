@@ -20,6 +20,8 @@ export type SelectOption<Value> = {
 export interface CommonSelectProps<Value>
   extends Partial<ControlComponentProps>, ControlComponentCommonProps {
   loading?: boolean;
+  /** Reveal the selection on each opening. Defaults to true. */
+  initialScrollToSelected?: boolean;
   onChange?: (value: Value | undefined) => void;
 }
 
@@ -46,6 +48,7 @@ export interface SelectFlyoutProps<
   Value extends PrimitiveValue,
 > extends FlyoutProps {
   options: SelectOption<Value>[];
+  initialScrollToSelected?: boolean;
   isSelected: (value: Value) => boolean;
   onSelect: (value: Value) => void;
 }

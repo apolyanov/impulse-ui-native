@@ -23,12 +23,15 @@ export const Option = memo(function Option(props: OptionProps) {
   return (
     <Pressable {...rest}>
       <View
+        height={optionTokens.height}
         padding={optionTokens.padding}
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
       >
-        <Typography.Body>{label}</Typography.Body>
+        <Typography.Body flex={1} numberOfLines={1} ellipsizeMode="tail">
+          {label}
+        </Typography.Body>
 
         <Icon
           icon={CheckIcon}
