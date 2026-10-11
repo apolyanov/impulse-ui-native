@@ -21,6 +21,8 @@ export const TabButton = memo(function TabButton({
   selected,
   size,
   onSelect,
+  initialScrollRef,
+  onLayout,
 }: TabButtonProps) {
   const tokens = useComponentsTokens().tabs;
   const styles = useThemedStyles(themedStyles, { disabled, selected, size }, [
@@ -39,6 +41,8 @@ export const TabButton = memo(function TabButton({
 
   return (
     <Pressable
+      ref={initialScrollRef}
+      onLayout={onLayout}
       disabled={disabled}
       hitSlop={tokens.sizes[size].hitSlop}
       onPress={handlePress}

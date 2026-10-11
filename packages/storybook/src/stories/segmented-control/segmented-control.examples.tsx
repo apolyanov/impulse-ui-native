@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 
 import type { SegmentedControlItemProps } from "@impulse-ui-native/segmented-control";
 import { CalendarBlankIcon } from "@impulse-ui-native/icon/icons/calendar-blank";
@@ -28,6 +28,7 @@ interface SegmentedControlExampleDefinition {
   props: StoryExamplePropDefinition[];
   title: string;
   width?: number;
+  nested?: boolean;
 }
 
 const defaultItems: SegmentedControlExampleItem[] = [
@@ -162,7 +163,7 @@ export const SegmentedControlExampleDefinitions = [
     name: "Overflow",
     title: "Scrollable overflow",
     description:
-      "Scroll to the end to inspect the selected Chart item's full trailing edge inside the group border.",
+      "The initially selected Chart item is revealed automatically, including its trailing edge inside the group border.",
     props: [
       {
         name: "overflow",
@@ -173,6 +174,56 @@ export const SegmentedControlExampleDefinitions = [
     args: { defaultValue: "chart", overflow: "scroll" },
     items: iconItems,
     width: 240,
+  },
+  {
+    name: "InitialSelectedControlled",
+    title: "Controlled initial selection",
+    description:
+      "The controlled Chart value starts in view. Later selection changes do not scroll again.",
+    props: [],
+    args: { value: "chart", overflow: "scroll" },
+    controlled: true,
+    items: iconItems,
+    width: 240,
+  },
+  {
+    name: "InitialScrollDisabled",
+    title: "Keep the starting position",
+    description:
+      "Chart remains selected while initial positioning is disabled.",
+    props: [],
+    args: {
+      defaultValue: "chart",
+      overflow: "scroll",
+      initialScrollToSelected: false,
+    },
+    items: iconItems,
+    width: 240,
+  },
+  {
+    name: "ExplicitOffset",
+    title: "Explicit native starting offset",
+    description:
+      "An explicit contentOffset takes precedence over revealing Chart.",
+    props: [],
+    args: {
+      defaultValue: "chart",
+      overflow: "scroll",
+      contentOffset: { x: 0, y: 0 },
+    },
+    items: iconItems,
+    width: 240,
+  },
+  {
+    name: "NestedInitialSelected",
+    title: "Items inside native wrappers",
+    description:
+      "Chart is revealed even when each item is nested inside a layout wrapper.",
+    props: [],
+    args: { defaultValue: "chart", overflow: "scroll" },
+    items: iconItems,
+    width: 240,
+    nested: true,
   },
 ] satisfies SegmentedControlExampleDefinition[];
 
@@ -185,29 +236,40 @@ export const SegmentedControlExample = memo(function SegmentedControlExample({
   elevated,
   example,
 }: SegmentedControlExampleProps) {
-  const [controlledValue, setControlledValue] = useState("week");
+  const [controlledValue, setControlledValue] = useState(
+    example.args.value ?? "week",
+  );
 
   const items = example.items ?? defaultItems;
+
+  const children = useMemo(
+    () =>
+      items.map((item) =>
+        example.nested ? (
+          <View key={item.value} flexDirection="row" flexShrink={0}>
+            <SegmentedControl.Item {...item} />
+          </View>
+        ) : (
+          <SegmentedControl.Item key={item.value} {...item} />
+        ),
+      ),
+    [example.nested, items],
+  );
 
   const control = example.controlled ? (
     <SegmentedControl.Root
       disabled={example.args.disabled}
       overflow={example.args.overflow}
+      initialScrollToSelected={example.args.initialScrollToSelected}
       size={example.args.size}
       variant={example.args.variant}
       value={controlledValue}
       onValueChange={setControlledValue}
     >
-      {items.map((item) => (
-        <SegmentedControl.Item key={item.value} {...item} />
-      ))}
+      {children}
     </SegmentedControl.Root>
   ) : (
-    <SegmentedControl.Root {...example.args}>
-      {items.map((item) => (
-        <SegmentedControl.Item key={item.value} {...item} />
-      ))}
-    </SegmentedControl.Root>
+    <SegmentedControl.Root {...example.args}>{children}</SegmentedControl.Root>
   );
 
   return (

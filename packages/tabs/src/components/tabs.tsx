@@ -1,9 +1,13 @@
-import { memo, useMemo } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { memo, useMemo, useRef } from "react";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useControllableState } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
+import {
+  ScrollView,
+  useScrollViewInitialScroll,
+} from "@impulse-ui-native/scroll-view";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { TabsProps } from "../types";
@@ -13,6 +17,7 @@ export const Tabs = memo(function Tabs({
   items,
   defaultValue,
   disabled = false,
+  initialScrollToSelected = true,
   onValueChange,
   overflow = "scroll",
   panelStyle,
@@ -32,6 +37,11 @@ export const Tabs = memo(function Tabs({
 
   const [selectedValue, setSelectedValue] =
     useControllableState<string>(stateOptions);
+  const initialSelectedValue = useRef(selectedValue).current;
+  const initialScroll = useScrollViewInitialScroll({
+    horizontal: true,
+    enabled: overflow === "scroll" && initialScrollToSelected,
+  });
   const styles = useThemedStyles(themedStyles);
 
   const selectedItem = useMemo(
@@ -49,9 +59,28 @@ export const Tabs = memo(function Tabs({
           selected={item.value === selectedValue}
           size={size}
           onSelect={setSelectedValue}
+          initialScrollRef={
+            item.value === initialSelectedValue
+              ? initialScroll.targetRef
+              : undefined
+          }
+          onLayout={
+            item.value === initialSelectedValue
+              ? initialScroll.onTargetLayout
+              : undefined
+          }
         />
       )),
-    [disabled, items, selectedValue, setSelectedValue, size],
+    [
+      disabled,
+      items,
+      selectedValue,
+      setSelectedValue,
+      size,
+      initialSelectedValue,
+      initialScroll.targetRef,
+      initialScroll.onTargetLayout,
+    ],
   );
   const activePanel = useMemo(
     () =>
@@ -67,6 +96,10 @@ export const Tabs = memo(function Tabs({
     <View {...props} style={rootStyle}>
       <View style={styles.list}>
         <ScrollView
+          ref={initialScroll.scrollViewRef}
+          onLayout={initialScroll.onLayout}
+          onContentSizeChange={initialScroll.onContentSizeChange}
+          onScrollBeginDrag={initialScroll.onScrollBeginDrag}
           horizontal
           directionalLockEnabled
           scrollEnabled={overflow === "scroll"}

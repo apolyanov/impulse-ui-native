@@ -1,5 +1,6 @@
 import type {
   GestureResponderEvent,
+  LayoutChangeEvent,
   PressableStateCallbackType,
   StyleProp,
   ViewStyle,
@@ -29,6 +30,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
   hitSlop,
   Icon: IconComponent,
   onPress,
+  onLayout,
   style,
   value,
   ...props
@@ -39,6 +41,9 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     selectedValue,
     size,
     variant,
+    initialSelectedValue,
+    initialScrollRef,
+    onInitialItemLayout,
   } = useSegmentedControlContext();
 
   const tokens = useComponentsTokens().segmentedControl;
@@ -75,9 +80,19 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     onPress?.(event);
   });
 
+  const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
+    if (value === initialSelectedValue) {
+      onInitialItemLayout();
+    }
+
+    onLayout?.(event);
+  });
+
   return (
     <Pressable
       {...props}
+      ref={value === initialSelectedValue ? initialScrollRef : undefined}
+      onLayout={handleLayout}
       disabled={resolvedDisabled}
       hitSlop={hitSlop ?? sizeTokens.hitSlop}
       onPress={handlePress}

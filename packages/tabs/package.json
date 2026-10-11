@@ -36,7 +36,8 @@
   "dependencies": {
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
-    "@impulse-ui-native/theme": "workspace:*"
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/scroll-view": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",

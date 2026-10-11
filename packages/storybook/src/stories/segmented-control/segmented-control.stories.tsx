@@ -55,6 +55,7 @@ const meta = {
       control: false,
       description: "Called with the next selected value.",
     },
+    initialScrollToSelected: { control: "boolean" },
   },
 } satisfies Meta<typeof SegmentedControl.Root>;
 
@@ -87,6 +88,17 @@ export const DisabledGroup: Story =
   createSegmentedControlStory("DisabledGroup");
 export const Controlled: Story = createSegmentedControlStory("Controlled");
 export const Overflow: Story = createSegmentedControlStory("Overflow");
+export const InitialSelectedControlled: Story = createSegmentedControlStory(
+  "InitialSelectedControlled",
+);
+export const InitialScrollDisabled: Story = createSegmentedControlStory(
+  "InitialScrollDisabled",
+);
+export const ExplicitOffset: Story =
+  createSegmentedControlStory("ExplicitOffset");
+export const NestedInitialSelected: Story = createSegmentedControlStory(
+  "NestedInitialSelected",
+);
 
 function createSegmentedControlStory(name: string): Story {
   const example = SegmentedControlExampleDefinitions.find(

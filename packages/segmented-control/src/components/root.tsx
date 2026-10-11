@@ -1,8 +1,12 @@
-import { memo, useCallback, useMemo } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { memo, useCallback, useMemo, useRef } from "react";
+import { StyleSheet, View } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { useControllableState } from "@impulse-ui-native/core";
+import {
+  ScrollView,
+  useScrollViewInitialScroll,
+} from "@impulse-ui-native/scroll-view";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type {
@@ -17,6 +21,10 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
   contentContainerStyle,
   defaultValue,
   disabled = false,
+  initialScrollToSelected = true,
+  onLayout,
+  onContentSizeChange,
+  onScrollBeginDrag,
   onValueChange,
   overflow = "clip",
   showsHorizontalScrollIndicator = false,
@@ -30,6 +38,15 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
     prop: value,
     defaultProp: defaultValue,
     onChange: onValueChange,
+  });
+  const initialSelectedValue = useRef(selectedValue).current;
+  const initialScroll = useScrollViewInitialScroll({
+    horizontal: true,
+    enabled: overflow === "scroll" && initialScrollToSelected,
+    contentOffset: props.contentOffset,
+    onLayout,
+    onContentSizeChange,
+    onScrollBeginDrag,
   });
   const styles = useThemedStyles(themedStyles, { size }, [size]);
 
@@ -45,8 +62,20 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
       selectedValue,
       size,
       variant,
+      initialSelectedValue,
+      initialScrollRef: initialScroll.targetRef,
+      onInitialItemLayout: initialScroll.onTargetLayout,
     }),
-    [disabled, selectValue, selectedValue, size, variant],
+    [
+      disabled,
+      selectValue,
+      selectedValue,
+      size,
+      variant,
+      initialSelectedValue,
+      initialScroll.targetRef,
+      initialScroll.onTargetLayout,
+    ],
   );
   const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
   const resolvedContentContainerStyle = useMemo(
@@ -59,6 +88,10 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
       <View style={rootStyle}>
         <ScrollView
           {...props}
+          ref={initialScroll.scrollViewRef}
+          onLayout={initialScroll.onLayout}
+          onContentSizeChange={initialScroll.onContentSizeChange}
+          onScrollBeginDrag={initialScroll.onScrollBeginDrag}
           contentContainerStyle={resolvedContentContainerStyle}
           directionalLockEnabled
           horizontal

@@ -28,6 +28,7 @@ const meta = {
     },
     onValueChange: { control: false },
     disabled: { control: "boolean" },
+    initialScrollToSelected: { control: "boolean" },
     size: { control: "select", options: ComponentSizeOptions },
     overflow: { control: "select", options: ["scroll", "clip"] },
     panelStyle: { control: false },
@@ -49,6 +50,13 @@ export const Documentation: Story = {
 
 export const Default: Story = createTabsStory("Default");
 export const Scrollable: Story = createTabsStory("Scrollable");
+export const InitialSelected: Story = createTabsStory("InitialSelected");
+export const InitialSelectedControlled: Story = createTabsStory(
+  "InitialSelectedControlled",
+);
+export const InitialScrollDisabled: Story = createTabsStory(
+  "InitialScrollDisabled",
+);
 export const Clipped: Story = createTabsStory("Clipped");
 export const Small: Story = createTabsStory("Small");
 export const Large: Story = createTabsStory("Large");

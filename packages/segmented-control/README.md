@@ -46,5 +46,14 @@ The root accepts the shared `small`, `medium`, and `large` sizes and the
 `filled`, `outlined`, and `soft` selection variants. Set `disabled` on the root
 to disable the whole group or on an item to disable only that option.
 
-`overflow="scroll"` is the default and preserves readable item widths in narrow
-containers. Use `overflow="clip"` only when the layout guarantees enough room.
+`overflow="clip"` is the default. Use `overflow="scroll"` for narrow containers.
+In scroll mode, `initialScrollToSelected` defaults to `true` and reveals the
+initially selected item after native layout. Actual item widths, gaps, padding,
+and nested native wrappers are measured. Set it to `false` to keep the starting
+position. An explicit native `contentOffset` takes precedence, and native layout,
+content-size, and drag callbacks are preserved.
+
+Later selection changes do not scroll again. Remount the root for a fresh initial
+position. A user drag cancels pending positioning. Custom zoom, content insets,
+and snapping are outside the initial-scroll helper's scope; use
+`initialScrollToSelected={false}` when managing those offsets yourself.

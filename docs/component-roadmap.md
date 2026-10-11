@@ -56,6 +56,7 @@ an implemented component unavailable.
 | `Card` and compound parts | `@impulse-ui-native/card`       | Available | Yes       | Expand native media and pressable-card composition examples.                      |
 | `List` and compound parts | `@impulse-ui-native/list`       | Available | Yes       | Add realistic native row composition as usage grows.                              |
 | `FlatList`                | `@impulse-ui-native/flat-list`  | Extend    | Yes       | Validate native initial positioning and fixed-row sizing on iOS/Android.          |
+| `ScrollView`              | `@impulse-ui-native/scroll-view` | Extend    | Via Tabs/SegmentedControl | Validate measured initial reveal, nested items, and RTL on iOS/Android. |
 | `Avatar`                  | `@impulse-ui-native/primitives` | Available | Yes       | Validate image, initials, custom fallback, and status layouts under font scaling. |
 | `Badge`                   | `@impulse-ui-native/primitives` | Available | Yes       | Document prefix/suffix composition and the distinction from interactive `Tag`.    |
 | `Tag`                     | `@impulse-ui-native/primitives` | Available | Yes       | Clarify whole-label actions, close actions, and display-only usage.               |
@@ -75,7 +76,7 @@ an implemented component unavailable.
 | `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and native loading-state examples.                        |
 | `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate existing steps, marks, value bubbles, gestures, and RTL positioning on devices. |
 | `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate thumb interaction, clamping, and minimum step spacing on devices.               |
-| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Validate controlled selection, disabled options, and scroll/clip overflow on devices.    |
+| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Validate measured initial selected-item reveal, controlled selection, disabled options, and scroll/clip overflow on devices.    |
 | `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, grouped/custom option rendering, and clearer async option states.            |
 | `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selection limits, selected-item summaries, and large-list guidance.          |
 | `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date constraints, disabled dates, locale, and first-day-of-week controls.            |
@@ -102,7 +103,7 @@ an implemented component unavailable.
 | Component                           | Package                         | Status    | Storybook     | Follow-up                                                                                                                                                                     |
 | ----------------------------------- | ------------------------------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Pagination`                        | `@impulse-ui-native/pagination` | Available | Yes           | Validate compact controls and the adaptive page window on narrow native layouts.                                                                                              |
-| `Tabs`                              | `@impulse-ui-native/tabs`       | Available | Yes           | Validate native scrolling, controlled selection, and conditional panel mount/reset behavior. Only the active panel is mounted; there is no prerendering or lazy-loading mode. |
+| `Tabs`                              | `@impulse-ui-native/tabs`       | Available | Yes           | Validate measured initial selected-tab reveal, controlled selection, and conditional panel mount/reset behavior. Only the active panel is mounted; there is no prerendering or lazy-loading mode. |
 | `Carousel` and `CarouselPagination` | `@impulse-ui-native/carousel`   | Extend    | Yes           | Validate native snapping, resizing, peeking, and controlled realignment. Autoplay and explicit RTL support are deferred; reduced-motion support is not implemented.           |
 | `Stepper`                           | `@impulse-ui-native/stepper`    | Extend    | Yes           | Define optional/disabled steps and validation hooks; document invalid/empty current-step behavior.                                                                            |
 | `StepperTabsNavigation`             | `@impulse-ui-native/stepper`    | Extend    | Via `Stepper` | Currently renders equal-width placeholder bars. Implement labels, active-step styling, press navigation, and the advertised ref contract before adding scrolling.             |

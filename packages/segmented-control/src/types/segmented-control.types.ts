@@ -16,6 +16,8 @@ interface SegmentedControlRootCommonProps extends Omit<
 > {
   children?: ReactNode;
   disabled?: boolean;
+  /** Reveal the initially selected item in scroll mode. Defaults to true. */
+  initialScrollToSelected?: boolean;
   onValueChange?: (value: string) => void;
   overflow?: SegmentedControlOverflow;
   size?: ComponentSize;

@@ -17,6 +17,8 @@ interface TabsCommonProps extends Omit<ViewProps, "children" | "overflow"> {
   items: readonly TabsItem[];
   disabled?: boolean;
   onValueChange?: (value: string) => void;
+  /** Reveal the initially selected tab in scroll mode. Defaults to true. */
+  initialScrollToSelected?: boolean;
   overflow?: TabsOverflow;
   panelStyle?: StyleProp<ViewStyle>;
   size?: ComponentSize;

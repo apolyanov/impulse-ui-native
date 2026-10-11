@@ -38,7 +38,8 @@
       "@impulse-ui-native/popover",
       "@impulse-ui-native/modal",
       "@impulse-ui-native/tabs",
-      "@impulse-ui-native/flat-list"
+      "@impulse-ui-native/flat-list",
+      "@impulse-ui-native/scroll-view"
     ]
   ],
   "linked": [],

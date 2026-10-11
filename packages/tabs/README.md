@@ -47,6 +47,7 @@ import { Tabs } from "@impulse-ui-native/tabs";
 - `disabled`: prevents all tab presses while keeping the selected panel visible.
 - `size`: `small`, `medium` (default), or `large`.
 - `overflow`: `scroll` (default) or `clip`. Tabs have content-width labels; scrolling uses a horizontal native ScrollView.
+- `initialScrollToSelected`: defaults to `true`. In scroll mode, reveal the initially selected tab after native layout, using its measured width. Set to `false` to keep the starting position. Later selection changes do not scroll again; remount Tabs for a fresh initial position. A user drag cancels pending positioning.
 - `panelStyle`: styles the active panel container. Root primitive `ViewProps` are forwarded, except `children`; the `overflow` prop controls the tab list instead of the root View.
 
 String and number labels use the default token-aware typography. Custom React nodes own their label styling. Panels are supplied content; card chrome and padding belong to the consumer.

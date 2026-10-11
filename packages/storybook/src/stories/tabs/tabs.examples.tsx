@@ -22,6 +22,7 @@ export interface TabsExampleDefinition {
     | "overflow"
     | "panelStyle"
     | "style"
+    | "initialScrollToSelected"
   >;
   controlled?: boolean;
   many?: boolean;
@@ -49,6 +50,35 @@ export const TabsExampleDefinitions: TabsExampleDefinition[] = [
     title: "Small tabs",
     description: "Small geometry and typography with expanded press targets.",
     args: { size: "small" },
+  },
+  {
+    name: "InitialSelected",
+    title: "Initially selected trailing tab",
+    description:
+      "History is revealed using its measured position. Later selection changes leave the scroll position alone.",
+    args: { defaultValue: "history", style: { maxWidth: 240 } },
+    many: true,
+  },
+  {
+    name: "InitialSelectedControlled",
+    title: "Controlled initial selection",
+    description:
+      "The controlled initial value is revealed just like an uncontrolled defaultValue.",
+    args: { value: "history", style: { maxWidth: 240 } },
+    many: true,
+    controlled: true,
+  },
+  {
+    name: "InitialScrollDisabled",
+    title: "Keep the starting position",
+    description:
+      "History stays selected while initialScrollToSelected=false leaves the list at the start.",
+    args: {
+      defaultValue: "history",
+      initialScrollToSelected: false,
+      style: { maxWidth: 240 },
+    },
+    many: true,
   },
   {
     name: "Clipped",
@@ -182,6 +212,7 @@ export const TabsExample = memo(function TabsExample({
           <Tabs
             items={items}
             value={value}
+            initialScrollToSelected={example.args.initialScrollToSelected}
             onValueChange={setValue}
             disabled={example.args.disabled}
             overflow={example.args.overflow}
@@ -193,6 +224,7 @@ export const TabsExample = memo(function TabsExample({
           <Tabs
             items={items}
             defaultValue={example.args.defaultValue}
+            initialScrollToSelected={example.args.initialScrollToSelected}
             disabled={example.args.disabled}
             overflow={example.args.overflow}
             panelStyle={example.args.panelStyle}
