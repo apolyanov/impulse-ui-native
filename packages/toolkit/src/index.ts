@@ -39,3 +39,5 @@ export * from "@impulse-ui-native/list";
 export * from "@impulse-ui-native/progress";
 export * from "@impulse-ui-native/popover";
 export * from "@impulse-ui-native/modal";
+
+export * from "@impulse-ui-native/color-picker";

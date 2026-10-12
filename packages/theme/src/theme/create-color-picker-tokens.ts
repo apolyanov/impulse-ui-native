@@ -1,0 +1,77 @@
+import type { ColorPickerTokens, PrimitiveThemeTokens } from "../types";
+
+export function createColorPickerTokens(
+  tokens: PrimitiveThemeTokens,
+): ColorPickerTokens {
+  const { colors, space, radii, borderSize } = tokens;
+
+  return {
+    gap: space.sm,
+    rowGap: space.sm,
+    sliderLabelGap: space.xxs,
+    presetsLabelGap: space.xs,
+    presetsGap: space.xs,
+    presetLabelGap: space.xxs,
+    alphaFieldFlex: 0.6,
+    padding: space.sm,
+    borderRadius: radii.lg,
+    spectrumBorderRadius: radii.md,
+    previewBorderRadius: radii.md,
+    swatchBorderRadius: radii.round,
+    swatchRingPadding: space.xxs,
+    swatchRingBorderWidth: borderSize.md,
+    borderWidth: borderSize.sm,
+    borderColor: colors.border.default.value,
+    backgroundColor: colors.surface.elevated.value,
+    labelColor: colors.text.primary,
+    selectedBorderColor: colors.border.focus.value,
+    indicatorColor: colors.white,
+    indicatorBorderRadius: radii.round,
+    indicatorBorderWidth: borderSize.md,
+    indicatorShadowOffsetX: 0,
+    indicatorShadowOffsetY: 1,
+    indicatorShadowBlurRadius: space.xxs,
+    indicatorShadowColor: colors.black,
+    checkerLightColor: colors.neutral["0"],
+    checkerDarkColor: colors.neutral["4"],
+    checkerSize: space.xs,
+    disabledOpacity: 0.5,
+    presets: [
+      { label: "Primary", color: colors.primary.value },
+      { label: "Accent", color: colors.accent.value },
+      { label: "Secondary", color: colors.secondary.value },
+      { label: "Error", color: colors.feedback.error.value },
+      { label: "Warning", color: colors.feedback.warning.value },
+      { label: "Success", color: colors.feedback.success.value },
+      { label: "Info", color: colors.feedback.info.value },
+      { label: "White", color: colors.white },
+      { label: "Black", color: colors.black },
+    ],
+    sizes: {
+      small: {
+        spectrumHeight: 144,
+        indicatorSize: 20,
+        previewSize: 32,
+        swatchSize: 24,
+        swatchCheckSize: 12,
+        swatchTargetSize: 44,
+      },
+      medium: {
+        spectrumHeight: 192,
+        indicatorSize: 24,
+        previewSize: 40,
+        swatchSize: 32,
+        swatchCheckSize: 16,
+        swatchTargetSize: 44,
+      },
+      large: {
+        spectrumHeight: 240,
+        indicatorSize: 28,
+        previewSize: 48,
+        swatchSize: 40,
+        swatchCheckSize: 20,
+        swatchTargetSize: 48,
+      },
+    },
+  };
+}

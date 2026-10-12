@@ -2,6 +2,7 @@ import type { BadgeTokens } from "./badge-tokens.types";
 import type { CarouselTokens } from "./carousel-tokens.types";
 import type { ChartsTokens } from "./charts-tokens.types";
 import type { CheckboxTokens } from "./checkbox-tokens.types";
+import type { ColorPickerTokens } from "./color-picker-tokens.types";
 import type { ListTokens } from "./list-tokens.types";
 import type { ModalTokens } from "./modal-tokens.types";
 import type { PopoverTokens } from "./popover-tokens.types";
@@ -110,6 +111,7 @@ export interface ComponentsThemes {
 }
 
 export interface ComponentsTokens {
+  colorPicker: ColorPickerTokens;
   charts: ChartsTokens;
   modal: ModalTokens;
   popover: PopoverTokens;

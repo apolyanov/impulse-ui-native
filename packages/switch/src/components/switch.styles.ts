@@ -1,4 +1,4 @@
-import { I18nManager, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 
@@ -32,8 +32,7 @@ export function switchStyles(theme: AppTheme, props: SwitchThemeProps) {
       position: "absolute",
       alignItems: "center",
       justifyContent: "center",
-      left: I18nManager.isRTL ? undefined : thumbInset,
-      right: I18nManager.isRTL ? thumbInset : undefined,
+      left: thumbInset,
 
       width: sizeTokens.thumbSize,
       height: sizeTokens.thumbSize,

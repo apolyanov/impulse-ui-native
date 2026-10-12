@@ -1,9 +1,4 @@
-import type {
-  LayoutRectangle,
-  PlatformOSType,
-  ScrollView,
-  View,
-} from "react-native";
+import type { LayoutRectangle, ScrollView, View } from "react-native";
 
 export interface ScrollViewMeasurement {
   scrollView: ScrollView;
@@ -16,6 +11,4 @@ export interface ScrollViewRevealOptions {
   viewportSize: number;
   contentSize: number;
   horizontal: boolean;
-  isRTL: boolean;
-  platform: PlatformOSType;
 }

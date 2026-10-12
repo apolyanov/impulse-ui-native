@@ -32,6 +32,7 @@ export const Slider = memo(function Slider({
   size = "medium",
   step = DefaultStep,
   style,
+  trackContent,
   value,
   variant = "filled",
   ...props
@@ -61,6 +62,7 @@ export const Slider = memo(function Slider({
         showValueBubble={showValueBubble}
         size={size}
         trackRef={slider.trackRef}
+        trackContent={trackContent}
         variant={variant}
       >
         <SliderThumbControl

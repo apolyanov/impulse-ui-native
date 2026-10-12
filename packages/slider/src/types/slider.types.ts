@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { ViewProps } from "react-native";
 
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
@@ -21,6 +22,8 @@ interface SliderCommonProps extends ViewProps {
 }
 
 export interface SliderProps extends SliderCommonProps {
+  /** Replaces the numeric track fill with supplied content. */
+  trackContent?: ReactNode;
   defaultValue?: number;
   onSlidingComplete?: (value: number) => void;
   onSlidingStart?: (value: number) => void;

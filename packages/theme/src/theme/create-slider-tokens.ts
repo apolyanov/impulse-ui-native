@@ -2,6 +2,7 @@ import type { PrimitiveThemeTokens, SliderTokens } from "../types";
 
 export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
   return {
+    interactionMinHeight: 44,
     trackBorderRadius: tokens.radii.round,
     thumbBorderRadius: tokens.radii.round,
     valueBubbleBorderRadius: tokens.radii.md,

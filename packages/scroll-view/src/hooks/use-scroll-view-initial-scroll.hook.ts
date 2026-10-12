@@ -6,7 +6,6 @@ import type {
   View,
 } from "react-native";
 import { useRef } from "react";
-import { I18nManager, Platform } from "react-native";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 
@@ -55,8 +54,6 @@ export function useScrollViewInitialScroll({
         viewportSize: viewportSizeRef.current,
         contentSize: contentSizeRef.current,
         horizontal: Boolean(horizontal),
-        isRTL: I18nManager.isRTL,
-        platform: Platform.OS,
       });
 
       completedRef.current = true;

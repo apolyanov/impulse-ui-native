@@ -1,5 +1,4 @@
 import { useEffect, useMemo } from "react";
-import { I18nManager } from "react-native";
 import {
   Easing,
   interpolateColor,
@@ -34,7 +33,6 @@ export function useSwitchAnimation({
     sizeTokens.thumbSize -
     sizeTokens.trackPadding * 2 -
     borderWidth * 2;
-  const direction = I18nManager.isRTL ? -1 : 1;
 
   const trackStyle = useAnimatedStyle(
     () => ({
@@ -61,11 +59,11 @@ export function useSwitchAnimation({
       ),
       transform: [
         {
-          translateX: progress.value * thumbTravel * direction,
+          translateX: progress.value * thumbTravel,
         },
       ],
     }),
-    [colors, direction, thumbTravel],
+    [colors, thumbTravel],
   );
 
   useEffect(() => {

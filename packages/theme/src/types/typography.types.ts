@@ -17,7 +17,6 @@ export interface TypographyProps {
   textTransform?: TextStyle["textTransform"];
   includeFontPadding?: TextStyle["includeFontPadding"]; // Android only
   textAlignVertical?: TextStyle["textAlignVertical"]; // Android only
-  writingDirection?: TextStyle["writingDirection"];
 }
 
 export type TypographyPresetKey =

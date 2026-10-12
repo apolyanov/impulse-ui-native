@@ -67,3 +67,7 @@ Drag or press the track to change the value. Use `formatValue` to customize visi
 Customize `components.slider.markLabelWidth`, `thumbHighlightSize`, and
 `valueBubbleMinWidth` through `ThemeProvider`. Defaults remain 48, 4, and 40.
 Mark-label centering follows half of the configured width.
+
+## Custom tracks
+
+Slider accepts trackContent for gradient or other custom track visuals. It renders the supplied content inside the clipped track and omits the numeric active fill. Touch handling, thumb, and callbacks remain unchanged. The theme token components.slider.interactionMinHeight defaults to 44 for native touch targets.

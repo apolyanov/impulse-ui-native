@@ -38,7 +38,7 @@ export const DividerExampleDefinitions = [
     name: "InsetStart",
     title: "Start inset",
     description:
-      "Inset the logical start edge to align a divider with text beside leading content. Horizontal insets respect RTL layout.",
+      "Inset the start edge to align a divider with text beside leading content.",
     props: [{ name: "inset", value: "start" }],
     args: { inset: "start" },
   },

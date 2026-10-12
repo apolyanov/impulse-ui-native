@@ -1,6 +1,6 @@
 import type { LayoutChangeEvent } from "react-native";
 import { memo, useMemo, useState } from "react";
-import { I18nManager, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import {
@@ -91,8 +91,6 @@ export const Pagination = memo(function Pagination({
     onLayout?.(event);
   });
 
-  const PreviousIcon = I18nManager.isRTL ? CaretRightIcon : CaretLeftIcon;
-  const NextIcon = I18nManager.isRTL ? CaretLeftIcon : CaretRightIcon;
   const previousDisabled = disabled || resolvedPage === 1;
   const nextDisabled = disabled || resolvedPage === normalizedPageCount;
   const showCompact = compact || windowLayout === "compact";
@@ -101,7 +99,7 @@ export const Pagination = memo(function Pagination({
     <View {...props} onLayout={handleLayout} style={rootStyle}>
       <PaginationButton
         disabled={previousDisabled}
-        Icon={PreviousIcon}
+        Icon={CaretLeftIcon}
         onSelect={selectPage}
         size={size}
         targetPage={resolvedPage - 1}
@@ -137,7 +135,7 @@ export const Pagination = memo(function Pagination({
 
       <PaginationButton
         disabled={nextDisabled}
-        Icon={NextIcon}
+        Icon={CaretRightIcon}
         onSelect={selectPage}
         size={size}
         targetPage={resolvedPage + 1}

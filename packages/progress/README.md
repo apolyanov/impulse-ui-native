@@ -20,6 +20,6 @@ import { Progress } from "@impulse-ui-native/progress";
 
 Progress defaults to a medium linear indicator with the primary tone. Provide `value` for determinate progress or omit it for indeterminate progress. Values are clamped between `min` and `max`, defaulting to 0 and 100. Invalid bounds fall back to a finite range; non-finite values render at the range minimum. Sizes, semantic colors, geometry, and animation duration come from `theme.components.progress`. Override indicator and track colors through `color` and `trackColor`.
 
-Indeterminate linear motion respects RTL. Reanimated loops cancel on unmount and restart when duration changes. Native View props, styles, and linear `onLayout` callbacks are preserved.
+Indeterminate linear motion travels from left to right. Reanimated loops cancel on unmount and restart when duration changes. Native View props, styles, and linear `onLayout` callbacks are preserved.
 
 `Progress` and `ProgressProps` are also exported by `@impulse-ui-native/toolkit`. Migrate imports from primitives to this package or the toolkit. Use the native Progress stories to inspect both variants, ranges, sizes, tones, and indeterminate states.

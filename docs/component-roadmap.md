@@ -4,7 +4,7 @@ This document records the public component families in ImpulseUI Native, their
 current scope, and the work still needed. Compound parts and lower-level helpers
 are documented in their owning packages.
 
-Last reviewed: 2026-10-10
+Last reviewed: 2026-10-12
 
 ## Current platform scope
 
@@ -43,7 +43,7 @@ an implemented component unavailable.
 | `ThemeProvider`                | `@impulse-ui-native/theme`      | Available | Indirect  | Add a dedicated token gallery, including primitive and component overrides.                                  |
 | `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Keep native layout and spacing examples current.                                                             |
 | `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for safe-area edges and themed spacing.                                                          |
-| `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit font scaling, truncation, selection, and RTL behavior on devices.                                      |
+| `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit font scaling, truncation and selection on devices.                                                     |
 | `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Document inherited native pressed and disabled feedback.                                                     |
 | `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Expand native examples for action content and loading transitions.                                           |
 | `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Validate existing size, variant, loading, and disabled examples on devices.                                  |
@@ -51,39 +51,40 @@ an implemented component unavailable.
 
 ### Content and composition
 
-| Component                 | Package                         | Status    | Storybook | Follow-up                                                                         |
-| ------------------------- | ------------------------------- | --------- | --------- | --------------------------------------------------------------------------------- |
-| `Card` and compound parts | `@impulse-ui-native/card`       | Available | Yes       | Expand native media and pressable-card composition examples.                      |
-| `List` and compound parts | `@impulse-ui-native/list`       | Available | Yes       | Add realistic native row composition as usage grows.                              |
-| `FlatList`                | `@impulse-ui-native/flat-list`  | Extend    | Yes       | Validate native initial positioning and fixed-row sizing on iOS/Android.          |
-| `ScrollView`              | `@impulse-ui-native/scroll-view` | Extend    | Via Tabs/SegmentedControl | Validate measured initial reveal, nested items, and RTL on iOS/Android. |
-| `Avatar`                  | `@impulse-ui-native/primitives` | Available | Yes       | Validate image, initials, custom fallback, and status layouts under font scaling. |
-| `Badge`                   | `@impulse-ui-native/primitives` | Available | Yes       | Document prefix/suffix composition and the distinction from interactive `Tag`.    |
-| `Tag`                     | `@impulse-ui-native/primitives` | Available | Yes       | Clarify whole-label actions, close actions, and display-only usage.               |
-| `Divider`                 | `@impulse-ui-native/primitives` | Available | Yes       | Validate horizontal/vertical orientation and logical insets in RTL layouts.       |
-| `Accordion`               | `@impulse-ui-native/accordion`  | Available | Yes       | Validate nested content and dynamic-height transitions on devices.                |
+| Component                 | Package                          | Status    | Storybook                 | Follow-up                                                                         |
+| ------------------------- | -------------------------------- | --------- | ------------------------- | --------------------------------------------------------------------------------- |
+| `Card` and compound parts | `@impulse-ui-native/card`        | Available | Yes                       | Expand native media and pressable-card composition examples.                      |
+| `List` and compound parts | `@impulse-ui-native/list`        | Available | Yes                       | Add realistic native row composition as usage grows.                              |
+| `FlatList`                | `@impulse-ui-native/flat-list`   | Extend    | Yes                       | Validate native initial positioning and fixed-row sizing on iOS/Android.          |
+| `ScrollView`              | `@impulse-ui-native/scroll-view` | Extend    | Via Tabs/SegmentedControl | Validate measured initial reveal and nested items on iOS/Android.                 |
+| `Avatar`                  | `@impulse-ui-native/primitives`  | Available | Yes                       | Validate image, initials, custom fallback, and status layouts under font scaling. |
+| `Badge`                   | `@impulse-ui-native/primitives`  | Available | Yes                       | Document prefix/suffix composition and the distinction from interactive `Tag`.    |
+| `Tag`                     | `@impulse-ui-native/primitives`  | Available | Yes                       | Clarify whole-label actions, close actions, and display-only usage.               |
+| `Divider`                 | `@impulse-ui-native/primitives`  | Available | Yes                       | Validate horizontal/vertical orientation and content insets.                      |
+| `Accordion`               | `@impulse-ui-native/accordion`   | Available | Yes                       | Validate nested content and dynamic-height transitions on devices.                |
 
 ### Form controls
 
-| Component             | Package                                | Status    | Storybook | Follow-up                                                                                |
-| --------------------- | -------------------------------------- | --------- | --------- | ---------------------------------------------------------------------------------------- |
-| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition and loading stories for its child-only parts.                  |
-| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Expand addon-action and form integration examples; use `Textarea` for longer text.       |
-| `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.       |
-| `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.           |
-| `Checkbox`            | `@impulse-ui-native/checkbox`          | Available | Yes       | Document checked, unchecked, and indeterminate field composition.                        |
-| `Radio`               | `@impulse-ui-native/radio`             | Available | Yes       | Document caller-managed mutual exclusion for groups of standalone radios.                |
-| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and native loading-state examples.                        |
-| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate existing steps, marks, value bubbles, gestures, and RTL positioning on devices. |
-| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate thumb interaction, clamping, and minimum step spacing on devices.               |
-| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Validate measured initial selected-item reveal, controlled selection, disabled options, and scroll/clip overflow on devices.    |
-| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, grouped/custom option rendering, and clearer async option states.            |
-| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selection limits, selected-item summaries, and large-list guidance.          |
-| `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date constraints, disabled dates, locale, and first-day-of-week controls.            |
-| `DateRangePicker`     | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range constraints and clearer incomplete/invalid range behavior.                     |
-| `DatetimePicker`      | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date/time constraints and locale/timezone guidance.                                  |
-| `DatetimeRangePicker` | `@impulse-ui-native/datetime`          | Extend    | Yes       | Define range validation and timezone/DST behavior.                                       |
-| `TimePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add interval, min/max time, and locale controls for hours/minutes/seconds.               |
+| Component             | Package                                | Status    | Storybook | Follow-up                                                                                                                    |
+| --------------------- | -------------------------------------- | --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Add dedicated composition and loading stories for its child-only parts.                                                      |
+| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Expand addon-action and form integration examples; use `Textarea` for longer text.                                           |
+| `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.                                           |
+| `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.                                               |
+| `Checkbox`            | `@impulse-ui-native/checkbox`          | Available | Yes       | Document checked, unchecked, and indeterminate field composition.                                                            |
+| `ColorPicker`         | `@impulse-ui-native/color-picker`      | Available | Yes       | Validate native spectrum/slider dragging, keyboard input, staging and font scaling on iOS/Android.                           |
+| `Radio`               | `@impulse-ui-native/radio`             | Available | Yes       | Document caller-managed mutual exclusion for groups of standalone radios.                                                    |
+| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and native loading-state examples.                                                            |
+| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate existing steps, marks, value bubbles, gestures, and thumb positioning on devices.                                   |
+| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate thumb interaction, clamping, and minimum step spacing on devices.                                                   |
+| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Validate measured initial selected-item reveal, controlled selection, disabled options, and scroll/clip overflow on devices. |
+| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, grouped/custom option rendering, and clearer async option states.                                                |
+| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selection limits, selected-item summaries, and large-list guidance.                                              |
+| `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date constraints, disabled dates, locale, and first-day-of-week controls.                                                |
+| `DateRangePicker`     | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range constraints and clearer incomplete/invalid range behavior.                                                         |
+| `DatetimePicker`      | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date/time constraints and locale/timezone guidance.                                                                      |
+| `DatetimeRangePicker` | `@impulse-ui-native/datetime`          | Extend    | Yes       | Define range validation and timezone/DST behavior.                                                                           |
+| `TimePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add interval, min/max time, and locale controls for hours/minutes/seconds.                                                   |
 
 ### Feedback, state, and loading
 
@@ -100,13 +101,13 @@ an implemented component unavailable.
 
 ### Navigation and workflow
 
-| Component                           | Package                         | Status    | Storybook     | Follow-up                                                                                                                                                                     |
-| ----------------------------------- | ------------------------------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Pagination`                        | `@impulse-ui-native/pagination` | Available | Yes           | Validate compact controls and the adaptive page window on narrow native layouts.                                                                                              |
+| Component                           | Package                         | Status    | Storybook     | Follow-up                                                                                                                                                                                         |
+| ----------------------------------- | ------------------------------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Pagination`                        | `@impulse-ui-native/pagination` | Available | Yes           | Validate compact controls and the adaptive page window on narrow native layouts.                                                                                                                  |
 | `Tabs`                              | `@impulse-ui-native/tabs`       | Available | Yes           | Validate measured initial selected-tab reveal, controlled selection, and conditional panel mount/reset behavior. Only the active panel is mounted; there is no prerendering or lazy-loading mode. |
-| `Carousel` and `CarouselPagination` | `@impulse-ui-native/carousel`   | Extend    | Yes           | Validate native snapping, resizing, peeking, and controlled realignment. Autoplay and explicit RTL support are deferred; reduced-motion support is not implemented.           |
-| `Stepper`                           | `@impulse-ui-native/stepper`    | Extend    | Yes           | Define optional/disabled steps and validation hooks; document invalid/empty current-step behavior.                                                                            |
-| `StepperTabsNavigation`             | `@impulse-ui-native/stepper`    | Extend    | Via `Stepper` | Currently renders equal-width placeholder bars. Implement labels, active-step styling, press navigation, and the advertised ref contract before adding scrolling.             |
+| `Carousel` and `CarouselPagination` | `@impulse-ui-native/carousel`   | Extend    | Yes           | Validate native snapping, resizing, peeking, and controlled realignment. Autoplay is deferred; reduced-motion support is not implemented.                                                         |
+| `Stepper`                           | `@impulse-ui-native/stepper`    | Extend    | Yes           | Define optional/disabled steps and validation hooks; document invalid/empty current-step behavior.                                                                                                |
+| `StepperTabsNavigation`             | `@impulse-ui-native/stepper`    | Extend    | Via `Stepper` | Currently renders equal-width placeholder bars. Implement labels, active-step styling, press navigation, and the advertised ref contract before adding scrolling.                                 |
 
 ### Overlays and composition infrastructure
 
@@ -172,7 +173,6 @@ in candidate tables. No new component is currently marked **Planned**.
 
 ## Cross-component work
 
-- RTL layout, logical insets, and native gesture direction.
 - Font scaling and dynamic type.
 - Controlled/uncontrolled state conventions and selection lifecycles.
 - Ref forwarding and imperative APIs where useful.

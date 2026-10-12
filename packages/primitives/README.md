@@ -120,7 +120,7 @@ appearance, but does not inject label content.
 
 `Spinner` defaults to the primary theme tone and medium size. Use `tone="inverse"` on inverse surfaces, or provide `color` when the indicator must match contextual content.
 
-`Divider` defaults to a subtle horizontal separator. Use logical start/end insets to preserve RTL alignment, switch to vertical orientation inside a container with a defined height, and use `color` only when the semantic tones do not fit the surrounding surface.
+`Divider` defaults to a subtle horizontal separator. Use start/end insets to align it with surrounding content, switch to vertical orientation inside a container with a defined height, and use `color` only when the semantic tones do not fit the surrounding surface.
 
 `Avatar` supports `filled`, `outlined`, and `soft` display variants. It renders fallback content below its image so initials or a custom fallback remain visible while the image loads or when it fails. Avatar grouping and overflow counts are intentionally handled separately.
 

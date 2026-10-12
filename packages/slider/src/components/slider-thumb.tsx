@@ -60,16 +60,20 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
     disabled,
   });
   const thumbOuterSize = sizeTokens.thumbSize;
+  const interactionHeight = Math.max(
+    thumbOuterSize,
+    tokens.interactionMinHeight,
+  );
 
   return StyleSheet.create({
     container: {
       position: "absolute",
-      bottom: 0,
+      bottom: (interactionHeight - thumbOuterSize) / 2,
       alignItems: "center",
       justifyContent: "center",
       width: thumbOuterSize,
       height: thumbOuterSize,
-      marginStart: -thumbOuterSize / 2,
+      marginLeft: -thumbOuterSize / 2,
       borderRadius: tokens.thumbBorderRadius,
     },
     thumb: {

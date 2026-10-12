@@ -1,5 +1,4 @@
 import type { ViewStyle } from "react-native";
-import { I18nManager } from "react-native";
 
 import type { SliderThumb, SliderValue } from "../types";
 
@@ -65,7 +64,7 @@ export function getSliderPercentage(
 
 export function getSliderPositionStyle(percentage: number): ViewStyle {
   return {
-    [I18nManager.isRTL ? "right" : "left"]: `${percentage}%`,
+    left: `${percentage}%`,
   };
 }
 
@@ -88,8 +87,7 @@ export function getValueFromPosition(
     return bounds.min;
   }
 
-  const logicalPosition = I18nManager.isRTL ? width - position : position;
-  const ratio = Math.min(Math.max(logicalPosition / width, 0), 1);
+  const ratio = Math.min(Math.max(position / width, 0), 1);
 
   return normalizeSliderValue(
     bounds.min + ratio * (bounds.max - bounds.min),

@@ -55,7 +55,6 @@ const StylePropsRecord: Record<keyof StyleProps, number> = {
   textTransform: 0,
   includeFontPadding: 0,
   textAlignVertical: 0,
-  writingDirection: 0,
   flex: 0,
   flexGrow: 0,
   flexShrink: 0,

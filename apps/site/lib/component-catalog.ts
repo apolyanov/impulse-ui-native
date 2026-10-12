@@ -162,6 +162,14 @@ export const componentGroups = [
         tags: ["Interactive", "Range"],
       },
       {
+        name: "ColorPicker",
+        description:
+          "Choose spectrum colors with hex/RGB entry, opacity, theme presets, and composable Apply/Cancel actions.",
+        packageName: "@impulse-ui-native/color-picker",
+        sourcePath: "color-picker/src/components/color-picker.tsx",
+        tags: ["Interactive", "Composable"],
+      },
+      {
         name: "SegmentedControl",
         description:
           "Choose one option from a composable group of labeled or icon segments.",

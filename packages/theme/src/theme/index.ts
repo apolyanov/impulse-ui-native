@@ -11,3 +11,5 @@ export * from "./create-carousel-tokens";
 export * from "./create-toast-tokens";
 export * from "./create-popover-tokens";
 export * from "./create-modal-tokens";
+
+export * from "./create-color-picker-tokens";

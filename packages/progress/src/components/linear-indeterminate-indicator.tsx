@@ -1,5 +1,4 @@
 import { memo, useMemo } from "react";
-import { I18nManager } from "react-native";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
 
 import type { LinearIndeterminateIndicatorProps } from "../types/progress-internal.types";
@@ -17,13 +16,11 @@ export const LinearIndeterminateIndicator = memo(
     const progress = useIndeterminateProgressAnimation(animationDuration);
 
     const indicatorWidth = trackWidth * ratio;
-    const direction = I18nManager.isRTL;
     const animatedStyle = useAnimatedStyle(() => ({
       transform: [
         {
-          translateX: direction
-            ? trackWidth - progress.value * (trackWidth + indicatorWidth)
-            : -indicatorWidth + progress.value * (trackWidth + indicatorWidth),
+          translateX:
+            -indicatorWidth + progress.value * (trackWidth + indicatorWidth),
         },
       ],
     }));

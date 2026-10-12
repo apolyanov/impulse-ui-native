@@ -5,12 +5,9 @@ export function getRevealOffset(
   viewport: number,
   content: number,
   initialOffset: number,
-  fromEnd = false,
 ): number {
   if (size > viewport) {
-    const offset = fromEnd ? start + size - viewport : start;
-
-    return Math.max(0, Math.min(offset, content - viewport));
+    return Math.max(0, Math.min(start, content - viewport));
   }
 
   const offset =

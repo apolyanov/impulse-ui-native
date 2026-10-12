@@ -39,7 +39,8 @@
       "@impulse-ui-native/modal",
       "@impulse-ui-native/tabs",
       "@impulse-ui-native/flat-list",
-      "@impulse-ui-native/scroll-view"
+      "@impulse-ui-native/scroll-view",
+      "@impulse-ui-native/color-picker"
     ]
   ],
   "linked": [],

@@ -204,6 +204,6 @@ component is added or its maturity changes.
 - Visual values come from the theme unless intrinsically data-driven.
 - Controlled and uncontrolled behavior does not switch accidentally.
 - Disabled state blocks interaction.
-- Touch targets, visible labels, RTL, and font scaling were considered.
+- Touch targets, visible labels, and font scaling were considered.
 - Native stories render with required providers.
 - README, roadmap, dependency metadata, and Changeset match the change.

@@ -44,6 +44,7 @@ export type SliderVariantTokens = Record<
 >;
 
 export interface SliderTokens {
+  interactionMinHeight: number;
   trackBorderRadius: number;
   thumbBorderRadius: number;
   valueBubbleBorderRadius: number;

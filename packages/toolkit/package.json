@@ -66,7 +66,8 @@
     "@impulse-ui-native/modal": "workspace:*",
     "@impulse-ui-native/tabs": "workspace:*",
     "@impulse-ui-native/flat-list": "workspace:*",
-    "@impulse-ui-native/scroll-view": "workspace:*"
+    "@impulse-ui-native/scroll-view": "workspace:*",
+    "@impulse-ui-native/color-picker": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",

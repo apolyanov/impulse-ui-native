@@ -23,6 +23,7 @@ import { createCardTokens } from "./create-card-tokens";
 import { createCarouselTokens } from "./create-carousel-tokens";
 import { createChartsTokens } from "./create-charts-tokens";
 import { createCheckboxTokens } from "./create-checkbox-tokens";
+import { createColorPickerTokens } from "./create-color-picker-tokens";
 import {
   createControlAddonTokens,
   createControlContainerTokens,
@@ -380,6 +381,7 @@ export function createComponentsTokens(
   tokens: PrimitiveThemeTokens,
 ): ComponentsTokens {
   return {
+    colorPicker: createColorPickerTokens(tokens),
     charts: createChartsTokens(tokens),
     modal: createModalTokens(tokens),
     toast: createToastTokens(tokens),

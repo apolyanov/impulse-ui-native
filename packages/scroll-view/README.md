@@ -51,7 +51,7 @@ function Options({ items, selectedValue }) {
 
 The hook waits for viewport, content, and target layout, then measures the target relative to the native ScrollView with `measureLayout`. This uses layout coordinates rather than the current visual scroll position. Nested native wrappers, padding, gaps, and variable item sizes are included. Attach `targetRef` to one native View or a component forwarding its native View ref. Compose `onTargetLayout` with any existing item layout callback.
 
-It scrolls only far enough to reveal the target, without animation. Already visible items retain the initial position; oversized items align at their leading edge. Horizontal RTL uses the native iOS/Android offset conventions. The default axis is vertical; pass `horizontal: true` to the hook and ScrollView for horizontal content.
+It scrolls only far enough to reveal the target, without animation. Already visible items retain the initial position; oversized items align at their leading edge. The default axis is vertical; pass `horizontal: true` to the hook and ScrollView for horizontal content.
 
 Pass `enabled: false` to skip positioning. Pass native `contentOffset` to both the hook and ScrollView to preserve an explicit starting position. Existing `onLayout`, `onContentSizeChange`, and `onScrollBeginDrag` callbacks can be passed to the hook; its returned handlers invoke them with the original arguments. Other native props remain available because `ScrollView` is the native component.
 

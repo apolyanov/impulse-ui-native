@@ -50,6 +50,7 @@ export interface UseSliderInteractionResult {
 }
 
 export interface SliderTrackProps extends SliderInteractionHandlers {
+  trackContent?: ReactNode;
   activeTrackStyle: ViewStyle;
   children: ReactNode;
   disabled: boolean;

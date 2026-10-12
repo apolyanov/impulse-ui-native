@@ -18,6 +18,7 @@ export const SliderTrack = memo(function SliderTrack({
   showValueBubble,
   size,
   trackRef,
+  trackContent,
   variant,
   ...interactionHandlers
 }: SliderTrackProps) {
@@ -59,7 +60,10 @@ export const SliderTrack = memo(function SliderTrack({
       style={styles.interactionArea}
     >
       <View pointerEvents="none" style={styles.track}>
-        <View style={activeTrackStyles} />
+        {trackContent}
+        {trackContent === null || trackContent === undefined ? (
+          <View style={activeTrackStyles} />
+        ) : null}
       </View>
 
       {marks.map((mark, index) => (
@@ -89,16 +93,21 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
     variant,
   });
   const thumbOuterSize = tokens.thumbSize;
+  const interactionHeight = Math.max(
+    thumbOuterSize,
+    theme.components.slider.interactionMinHeight,
+  );
+  const trackBottom = (interactionHeight - tokens.trackHeight) / 2;
 
   return StyleSheet.create({
     interactionArea: {
-      height: thumbOuterSize + tokens.reservedVerticalSpace,
+      height: interactionHeight + tokens.reservedVerticalSpace,
       justifyContent: "flex-end",
       overflow: "visible",
     },
     track: {
       position: "absolute",
-      bottom: (thumbOuterSize - tokens.trackHeight) / 2,
+      bottom: trackBottom,
       width: "100%",
       height: tokens.trackHeight,
       borderRadius: tokens.trackBorderRadius,
@@ -116,10 +125,10 @@ function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
     },
     mark: {
       position: "absolute",
-      bottom: (thumbOuterSize - tokens.markSize) / 2,
+      bottom: (interactionHeight - tokens.markSize) / 2,
       width: tokens.markSize,
       height: tokens.markSize,
-      marginStart: -tokens.markSize / 2,
+      marginLeft: -tokens.markSize / 2,
       borderRadius: tokens.trackBorderRadius,
       backgroundColor: tokens.markColor,
     },

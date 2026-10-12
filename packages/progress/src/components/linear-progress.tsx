@@ -1,6 +1,6 @@
 import type { LayoutChangeEvent } from "react-native";
 import { memo, useCallback, useMemo, useState } from "react";
-import { I18nManager, View } from "react-native";
+import { View } from "react-native";
 
 import type { LinearProgressProps } from "../types/progress-internal.types";
 import { ProgressTrackStyles as styles } from "../constants/progress.constants";
@@ -44,9 +44,7 @@ export const LinearProgress = memo(function LinearProgress({
 
   const determinateIndicatorStyle = useMemo(
     () => ({
-      alignSelf: I18nManager.isRTL
-        ? ("flex-end" as const)
-        : ("flex-start" as const),
+      alignSelf: "flex-start" as const,
       backgroundColor: indicatorColor,
       borderRadius,
       height: trackHeight,
