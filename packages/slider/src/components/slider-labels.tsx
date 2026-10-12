@@ -9,6 +9,7 @@ import {
 } from "@impulse-ui-native/theme";
 
 import type { SliderLabelsProps } from "../types/slider-internal.types";
+import type { SliderLabelsThemeProps } from "../types/slider-theme.types";
 
 export const SliderLabels = memo(function SliderLabels({
   disabled,
@@ -58,11 +59,6 @@ export const SliderLabels = memo(function SliderLabels({
     </>
   );
 });
-
-interface SliderLabelsThemeProps {
-  disabled: boolean;
-  variant: SliderLabelsProps["variant"];
-}
 
 function themedStyles(theme: AppTheme, props: SliderLabelsThemeProps) {
   const tokens = theme.components.slider;

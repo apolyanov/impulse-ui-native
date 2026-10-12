@@ -43,7 +43,7 @@ export const ColorPickerChannelInput = memo(function ColorPickerChannelInput({
       onChangeText={input.onChangeText}
       onBlur={input.onCommit}
       onSubmitEditing={input.onCommit}
-      error={input.invalid ? "Use 0?255" : undefined}
+      error={input.invalid ? "Use 0-255" : undefined}
     />
   );
 });

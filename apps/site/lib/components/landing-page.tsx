@@ -194,6 +194,37 @@ export function ComponentsSection() {
             </section>
           ))}
         </div>
+        <aside className="mt-lg rounded-md border border-border-subtle bg-surface-elevated p-sm md:p-md">
+          <h3 className="text-title-5 font-bold">
+            Sliders and color selection
+          </h3>
+          <p className="mt-xs max-w-3xl text-body-small text-text-secondary">
+            Slider thumbs and the color spectrum indicator follow touch
+            continuously on the native UI thread. Sliders emit changed steps,
+            and spectrum edits limit React updates while preserving the final
+            selection. Choose immediate color updates or confirm edits with
+            Apply and Cancel.
+          </p>
+          <p className="mt-sm max-w-3xl text-body-small text-text-secondary">
+            Complete Gesture Handler, Reanimated, and Worklets setup, then
+            render these controls inside GestureHandlerRootView and
+            ThemeProvider. ColorPicker also requires react-native-svg.
+          </p>
+          <div className="mt-sm flex flex-wrap gap-sm text-xsm font-semiBold text-primary">
+            <a
+              className="hover:underline"
+              href={`${project.repository}/blob/main/packages/slider/README.md`}
+            >
+              Slider setup and usage
+            </a>
+            <a
+              className="hover:underline"
+              href={`${project.repository}/blob/main/packages/color-picker/README.md`}
+            >
+              ColorPicker setup and composition
+            </a>
+          </div>
+        </aside>
         <ButtonPlayground />
       </SectionContainer>
     </section>

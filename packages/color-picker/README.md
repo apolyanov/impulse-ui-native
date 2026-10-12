@@ -31,7 +31,7 @@ export function BrandColor() {
 
 Use defaultValue for uncontrolled selection. Without an initial value, the theme primary color is used. Both modes use onChange. Immediate mode is the default; confirm mode stages edits, commits on Apply, and restores the committed color on Cancel. External controlled value changes invalidate the draft. The picker stays inline after Apply or Cancel; modal/sheet dismissal belongs to its owner.
 
-Values accept RGB, RGBA, RRGGBB, or RRGGBBAA hex strings, with an optional #. Changes emit uppercase #RRGGBB for opaque colors and #RRGGBBAA for transparent colors. CSS names, rgb(), and theme paths are not accepted. Invalid incoming values fall back to theme primary. Invalid or incomplete typed values retain the last valid selection; blur/submission shows an error. Valid fields update the current selection as you type, so Apply uses the latest valid edit. RGB channels accept integers 0?255, and opacity accepts percentages 0?100. Hue is retained when editing achromatic colors.
+Values accept RGB, RGBA, RRGGBB, or RRGGBBAA hex strings, with an optional #. Changes emit uppercase #RRGGBB for opaque colors and #RRGGBBAA for transparent colors. CSS names, rgb(), and theme paths are not accepted. Invalid incoming values fall back to theme primary. Invalid or incomplete typed values retain the last valid selection; blur/submission shows an error. Valid fields update the current selection as you type, so Apply uses the latest valid edit. RGB channels accept integers 0-255, and opacity accepts percentages 0-100. Hue is retained when editing achromatic colors.
 
 showAlpha={false} hides opacity controls; it preserves existing alpha and still allows alpha in hex input. Pass showPresets={false} to hide the preset palette and its label. It defaults to true. Supply presets with { label, color, disabled? } entries to customize the palette; presets={[]} also hides it. Default preset colors resolve from the current theme, while the selected custom hex color stays unchanged across theme switches. Sizes are small, medium, and large. Disabled roots block every interactive part.
 
@@ -68,6 +68,18 @@ Internal spacing has independent tokens: rowGap, sliderLabelGap, presetsLabelGap
 </ThemeProvider>
 ```
 
-Touches that start in the enabled spectrum activate a native pan gesture on touch-down and stay with the panel until release, blocking parent scrolling while selecting saturation and brightness. Dragging beyond the panel clamps selection to its edges. Disabled spectra leave scrolling available.
+Touches that start in the enabled spectrum activate a native pan gesture on touch-down and stay with the panel until release, blocking parent scrolling while selecting saturation and brightness. Dragging beyond the panel clamps selection to its edges. The spectrum indicator
+updates on the UI thread at the native gesture rate. Spectrum color updates are
+limited to approximately 60 Hz, with the final selection always flushed on
+release or interruption. Hue and alpha thumbs also move continuously on the UI thread, while their
+emitted values follow the configured slider steps;
+unchanged slider steps and repeated colors skip redundant updates. Disabled spectra leave scrolling available.
+
+The color preview, spectrum hue background, and opacity gradient share UI-thread
+color state with the gestures. They update without waiting for React renders or
+`onChange`. During a drag, React-rendered hex/RGB fields and preset selection
+keep their previous snapshot; releasing publishes the final normalized color.
+Immediate-mode `onChange` still emits live values. Apply, Cancel, and gesture
+completion reconcile the visual color to the accepted selection.
 
 Native device verification of dragging, keyboard entry, font scaling, and nested scrolling remains necessary; package checks are not interaction tests.

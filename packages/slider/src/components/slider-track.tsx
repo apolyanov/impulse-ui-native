@@ -1,5 +1,7 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
+import { GestureDetector } from "react-native-gesture-handler";
+import Animated from "react-native-reanimated";
 
 import type { AppTheme, SliderTrackLayout } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
@@ -9,6 +11,7 @@ import {
 } from "@impulse-ui-native/theme";
 
 import type { SliderTrackProps } from "../types/slider-internal.types";
+import type { SliderTrackThemeProps } from "../types/slider-theme.types";
 
 export const SliderTrack = memo(function SliderTrack({
   activeTrackStyle,
@@ -17,7 +20,7 @@ export const SliderTrack = memo(function SliderTrack({
   marks,
   showValueBubble,
   size,
-  trackRef,
+  gesture,
   trackContent,
   variant,
   ...interactionHandlers
@@ -54,35 +57,32 @@ export const SliderTrack = memo(function SliderTrack({
   );
 
   return (
-    <View
-      {...interactionHandlers}
-      ref={trackRef}
-      style={styles.interactionArea}
-    >
-      <View pointerEvents="none" style={styles.track}>
-        {trackContent}
-        {trackContent === null || trackContent === undefined ? (
-          <View style={activeTrackStyles} />
-        ) : null}
+    <GestureDetector gesture={gesture}>
+      <View
+        {...interactionHandlers}
+        collapsable={false}
+        style={styles.interactionArea}
+      >
+        <View pointerEvents="none" style={styles.track}>
+          {trackContent}
+          {trackContent === null || trackContent === undefined ? (
+            <Animated.View style={activeTrackStyles} />
+          ) : null}
+        </View>
+
+        {marks.map((mark, index) => (
+          <View
+            key={mark.value}
+            pointerEvents="none"
+            style={markStyles[index]}
+          />
+        ))}
+
+        {children}
       </View>
-
-      {marks.map((mark, index) => (
-        <View key={mark.value} pointerEvents="none" style={markStyles[index]} />
-      ))}
-
-      {children}
-    </View>
+    </GestureDetector>
   );
 });
-
-interface SliderTrackThemeProps {
-  disabled: boolean;
-  hasEndMark: boolean;
-  hasStartMark: boolean;
-  layout: SliderTrackLayout;
-  size: SliderTrackProps["size"];
-  variant: SliderTrackProps["variant"];
-}
 
 function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
   const { disabled, hasEndMark, hasStartMark, layout, size, variant } = props;

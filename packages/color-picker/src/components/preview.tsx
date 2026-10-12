@@ -8,16 +8,15 @@ import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ColorPickerSizeThemeProps } from "../types";
 import { useColorPickerContext } from "../hooks/use-color-picker-context.hook";
-import { ColorGradient } from "./gradient";
+import { ColorMotionSurface } from "./motion-surface";
 
 export const ColorPickerPreview = memo(function ColorPickerPreview({
   style,
   children,
   ...props
 }: ViewProps) {
-  const { value, size } = useColorPickerContext();
+  const { motion, size } = useColorPickerContext();
   const styles = useThemedStyles(themedStyles, { size }, [size]);
-  const colors = useMemo(() => [value, value], [value]);
   const previewStyle = useMemo(
     () => [styles.root, style],
     [styles.root, style],
@@ -25,7 +24,7 @@ export const ColorPickerPreview = memo(function ColorPickerPreview({
 
   return (
     <View {...props} style={previewStyle}>
-      <ColorGradient colors={colors} checkerboard />
+      <ColorMotionSurface rgba={motion.rgba} />
       <View style={styles.content}>{children}</View>
     </View>
   );

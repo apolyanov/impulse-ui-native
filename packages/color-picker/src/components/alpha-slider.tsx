@@ -1,21 +1,21 @@
 import { memo, useMemo } from "react";
 
+import { useEventCallback } from "@impulse-ui-native/core";
 import { Slider } from "@impulse-ui-native/slider";
 
 import { useColorPickerContext } from "../hooks/use-color-picker-context.hook";
-import { rgbaToHex } from "../utils/color.utils";
-import { ColorGradient } from "./gradient";
+import { ColorMotionGradient } from "./motion-gradient";
 
 export const ColorPickerAlphaSlider = memo(function ColorPickerAlphaSlider() {
-  const { rgba, hsva, disabled, size, setAlpha } = useColorPickerContext();
-  const colors = useMemo(
-    () => [rgbaToHex({ ...rgba, a: 0 }), rgbaToHex({ ...rgba, a: 1 })],
-    [rgba],
-  );
+  const { hsva, disabled, size, gesture, motion } = useColorPickerContext();
   const trackContent = useMemo(
-    () => <ColorGradient colors={colors} checkerboard />,
-    [colors],
+    () => <ColorMotionGradient rgba={motion.rgba} />,
+    [motion.rgba],
   );
+  const handleComplete = useEventCallback((value: number) => {
+    gesture.setAlpha(value);
+    motion.finish();
+  });
 
   return (
     <Slider
@@ -23,7 +23,9 @@ export const ColorPickerAlphaSlider = memo(function ColorPickerAlphaSlider() {
       max={1}
       step={0.01}
       value={hsva.a}
-      onValueChange={setAlpha}
+      onValueChange={gesture.setAlpha}
+      onValueChangeWorklet={motion.setAlpha}
+      onSlidingComplete={handleComplete}
       disabled={disabled}
       size={size}
       variant="outlined"

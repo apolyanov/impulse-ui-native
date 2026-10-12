@@ -22,6 +22,8 @@ interface SliderCommonProps extends ViewProps {
 }
 
 export interface SliderProps extends SliderCommonProps {
+  /** UI-thread worklet receiving continuous drag values before step snapping. */
+  onValueChangeWorklet?: (value: number) => void;
   /** Replaces the numeric track fill with supplied content. */
   trackContent?: ReactNode;
   defaultValue?: number;

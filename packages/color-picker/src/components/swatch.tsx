@@ -11,8 +11,8 @@ import { Pressable, View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type {
-  ColorPickerSizeThemeProps,
   ColorPickerSwatchProps,
+  ColorPickerSwatchThemeProps,
 } from "../types";
 import { useColorPickerContext } from "../hooks/use-color-picker-context.hook";
 import { parseHexColor, rgbaToHex } from "../utils/color.utils";
@@ -77,7 +77,7 @@ export const ColorPickerSwatch = memo(function ColorPickerSwatch({
 
 function themedStyles(
   theme: AppTheme,
-  { size, selected }: ColorPickerSizeThemeProps & { selected: boolean },
+  { size, selected }: ColorPickerSwatchThemeProps,
 ) {
   const tokens = theme.components.colorPicker;
   const sizeTokens = tokens.sizes[size];

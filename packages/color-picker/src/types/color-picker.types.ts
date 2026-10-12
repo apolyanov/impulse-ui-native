@@ -10,12 +10,7 @@ import type {
   ComponentSize,
 } from "@impulse-ui-native/theme";
 
-import type {
-  ColorChannel,
-  ColorPickerCommitMode,
-  HsvaColor,
-  RgbaColor,
-} from "./color.types";
+import type { ColorChannel, ColorPickerCommitMode } from "./color.types";
 
 export interface ColorPickerRootProps extends ViewProps {
   /** Hex: RGB, RGBA, RRGGBB, or RRGGBBAA, with an optional #. */
@@ -50,10 +45,6 @@ export interface ColorPickerAlphaInputProps {
   label?: string;
 }
 
-export interface ColorPickerPresetEntryProps {
-  preset: ColorPickerPreset;
-}
-
 export interface ColorPickerSwatchProps extends Omit<
   PressableCoreProps,
   "loading" | "children"
@@ -63,31 +54,3 @@ export interface ColorPickerSwatchProps extends Omit<
 }
 
 export type ColorPickerActionProps = PropsWithChildren<ButtonProps>;
-
-export interface ColorPickerContextData {
-  resetKey: number;
-  value: string;
-  rgba: RgbaColor;
-  hsva: HsvaColor;
-  disabled: boolean;
-  size: ComponentSize;
-  commitMode: ColorPickerCommitMode;
-  setColor: (color: string) => boolean;
-  setHue: (hue: number) => void;
-  setAlpha: (alpha: number) => void;
-  setSpectrum: (saturation: number, brightness: number) => void;
-  setChannel: (channel: ColorChannel, value: number) => void;
-  apply: () => void;
-  cancel: () => void;
-}
-
-export interface ColorPickerDraft {
-  commitMode: ColorPickerCommitMode;
-  base: string;
-  hsva: HsvaColor;
-}
-
-export interface ColorPickerSizeThemeProps {
-  size: ComponentSize;
-  disabled?: boolean;
-}

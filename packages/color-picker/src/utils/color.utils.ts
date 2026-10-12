@@ -6,6 +6,8 @@ export function clampColorValue(
   min: number,
   max: number,
 ): number {
+  "worklet";
+
   return Math.min(max, Math.max(min, Number.isFinite(value) ? value : min));
 }
 
@@ -29,6 +31,8 @@ export function parseHexColor(value: string): RgbaColor | undefined {
 }
 
 export function rgbaToHex(color: RgbaColor): string {
+  "worklet";
+
   const channels = [color.r, color.g, color.b];
 
   if (color.a < 1) {
@@ -75,7 +79,16 @@ export function rgbaToHsva(color: RgbaColor): HsvaColor {
   };
 }
 
+export function rgbaToNativeColor(color: RgbaColor, opaque = false): string {
+  "worklet";
+
+  // Let Reanimated process the color once; preprocessed ARGB rotates alpha into RGB.
+  return rgbaToHex(opaque ? { ...color, a: 1 } : color);
+}
+
 export function hsvaToRgba(color: HsvaColor): RgbaColor {
+  "worklet";
+
   const h = ((color.h % 360) + 360) % 360;
   const s = clampColorValue(color.s, 0, 1);
   const v = clampColorValue(color.v, 0, 1);
@@ -101,6 +114,8 @@ export function hsvaToRgba(color: HsvaColor): RgbaColor {
 }
 
 export function hsvaToHex(color: HsvaColor): string {
+  "worklet";
+
   return rgbaToHex(hsvaToRgba(color));
 }
 

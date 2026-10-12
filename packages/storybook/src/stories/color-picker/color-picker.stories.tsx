@@ -7,6 +7,7 @@ import {
 } from "@impulse-ui-native/storybook";
 
 import { ColorPickerCompositionExample } from "./color-picker-composition.example";
+import { ColorPickerPerformanceExample } from "./color-picker-performance.example";
 import { ColorPickerScrollExample } from "./color-picker-scroll.example";
 import { ColorPickerDocumentation } from "./color-picker.documentation";
 import { ColorPickerExample } from "./color-picker.examples";
@@ -69,6 +70,12 @@ export const Composition: Story = {
 export const NestedScrolling: Story = {
   render: function renderNestedScrolling() {
     return <ColorPickerScrollExample />;
+  },
+};
+
+export const FrameTiming: Story = {
+  render: function renderFrameTiming() {
+    return <ColorPickerPerformanceExample />;
   },
 };
 

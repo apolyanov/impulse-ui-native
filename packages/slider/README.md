@@ -5,10 +5,12 @@ Token-aware slider and range slider controls for React Native mobile application
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/slider
+pnpm add @impulse-ui-native/slider react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
-Render sliders inside `ThemeProvider` from `@impulse-ui-native/theme`.
+Complete Gesture Handler and Reanimated native setup. Render sliders inside
+`GestureHandlerRootView` and `ThemeProvider` from `@impulse-ui-native/theme`.
+Requires Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5.
 
 ## Main exports
 
@@ -60,7 +62,17 @@ Use `defaultValue` for uncontrolled state. Values are clamped to `min` and `max`
 
 `filled`, `outlined`, and `soft` are the supported visual variants. `small`, `medium`, and `large` adjust the track, thumb, marks, and hit slop together. Pass `marks` to render explicit positions; enable `showMarkLabels`, `showMinMax`, and `showValueBubble` only when the extra value context is useful.
 
-Drag or press the track to change the value. Use `formatValue` to customize visible value text, including units or localized formatting.
+Drag or press the track to change the value. Native gestures update the thumb and
+active fill continuously on the UI thread, independently of the step grid.
+`onValueChange` emits changed, snapped values;
+`onSlidingComplete` receives the final selection on release or interruption.
+Controlled sliders track the gesture locally and reconcile to the supplied
+`value` after interaction ends. Uncontrolled sliders settle to the normalized
+selection on release. Range thumbs move continuously while respecting their
+minimum gap. Enabled sliders keep touches that start on the
+track, including inside a scrolling container.
+
+Use `formatValue` to customize visible value text, including units or localized formatting.
 
 ## Additional theme geometry
 
@@ -69,5 +81,9 @@ Customize `components.slider.markLabelWidth`, `thumbHighlightSize`, and
 Mark-label centering follows half of the configured width.
 
 ## Custom tracks
+
+Pass `onValueChangeWorklet` to connect continuous drag positions to other
+Reanimated visuals. The callback must be a worklet and runs on the UI thread
+before step snapping; keep React state updates in `onValueChange`.
 
 Slider accepts trackContent for gradient or other custom track visuals. It renders the supplied content inside the clipped track and omits the numeric active fill. Touch handling, thumb, and callbacks remain unchanged. The theme token components.slider.interactionMinHeight defaults to 44 for native touch targets.

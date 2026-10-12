@@ -56,13 +56,13 @@ export const RangeSlider = memo(function RangeSlider({
   return (
     <View {...props} style={style}>
       <SliderTrack
-        {...slider.interactionHandlers}
+        gesture={slider.gesture}
+        onLayout={slider.handleLayout}
         activeTrackStyle={slider.activeTrackStyle}
         disabled={disabled}
         marks={slider.marks}
         showValueBubble={showValueBubble}
         size={size}
-        trackRef={slider.trackRef}
         variant={variant}
       >
         <SliderThumbControl
@@ -85,7 +85,7 @@ export const RangeSlider = memo(function RangeSlider({
 
       <SliderLabels
         disabled={disabled}
-        marks={slider.marks}
+        marks={slider.labelMarks}
         maxLabel={formatSliderValue(slider.bounds.max, formatValue)}
         minLabel={formatSliderValue(slider.bounds.min, formatValue)}
         showMarkLabels={showMarkLabels}

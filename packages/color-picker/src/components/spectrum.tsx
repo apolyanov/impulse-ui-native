@@ -1,42 +1,46 @@
-import type { ViewStyle } from "react-native";
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
 import { GestureDetector } from "react-native-gesture-handler";
+import Animated, { useAnimatedStyle } from "react-native-reanimated";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ColorPickerSizeThemeProps } from "../types";
-import { OpaqueBlack, OpaqueWhite } from "../constants/color.constants";
+import { OpaqueBlack } from "../constants/color.constants";
+import { SaturationStops } from "../constants/motion.constants";
 import { useColorPickerContext } from "../hooks/use-color-picker-context.hook";
 import { useSpectrumInteraction } from "../hooks/use-spectrum-interaction.hook";
 import { hsvaToHex } from "../utils/color.utils";
 import { ColorGradient } from "./gradient";
 
 export const ColorPickerSpectrum = memo(function ColorPickerSpectrum() {
-  const { hsva, size, disabled, setSpectrum } = useColorPickerContext();
+  const { hsva, size, disabled, gesture, motion } = useColorPickerContext();
   const interaction = useSpectrumInteraction({
     disabled,
-    onChange: setSpectrum,
+    onChange: gesture.setSpectrum,
+    onChangeWorklet: motion.setSpectrum,
+    onComplete: motion.finish,
+    saturation: hsva.s,
+    brightness: hsva.v,
   });
   const styles = useThemedStyles(themedStyles, { size, disabled }, [
     size,
     disabled,
   ]);
-  const hueColor = hsvaToHex({ h: hsva.h, s: 1, v: 1, a: 1 });
-  const saturationColors = useMemo(() => [OpaqueWhite, hueColor], [hueColor]);
-  const brightnessColors = useMemo(() => [OpaqueBlack + "00", OpaqueBlack], []);
-  const positionStyle = useMemo<ViewStyle>(
-    () => ({
-      left: `${hsva.s * 100}%`,
-      top: `${(1 - hsva.v) * 100}%`,
-    }),
-    [hsva.s, hsva.v],
+  const hue = motion.hue;
+  const hueStyle = useAnimatedStyle(() => ({
+    backgroundColor: hsvaToHex({ h: hue.get(), s: 1, v: 1, a: 1 }),
+  }));
+  const surfaceStyle = useMemo(
+    () => [styles.surface, hueStyle],
+    [styles.surface, hueStyle],
   );
+  const brightnessColors = useMemo(() => [OpaqueBlack + "00", OpaqueBlack], []);
   const indicatorStyle = useMemo(
-    () => [styles.indicator, positionStyle],
-    [styles.indicator, positionStyle],
+    () => [styles.indicator, interaction.indicatorStyle],
+    [styles.indicator, interaction.indicatorStyle],
   );
 
   return (
@@ -46,13 +50,13 @@ export const ColorPickerSpectrum = memo(function ColorPickerSpectrum() {
         onLayout={interaction.handleLayout}
         style={styles.root}
       >
-        <View pointerEvents="none" style={styles.surface}>
-          <ColorGradient colors={saturationColors} />
+        <Animated.View pointerEvents="none" style={surfaceStyle}>
+          <ColorGradient colors={SaturationStops} />
           <View style={styles.overlay}>
             <ColorGradient colors={brightnessColors} vertical />
           </View>
-        </View>
-        <View pointerEvents="none" style={indicatorStyle} />
+        </Animated.View>
+        <Animated.View pointerEvents="none" style={indicatorStyle} />
       </View>
     </GestureDetector>
   );
@@ -80,6 +84,8 @@ function themedStyles(
     overlay: { ...StyleSheet.flatten(StyleSheet.absoluteFill) },
     indicator: {
       position: "absolute",
+      left: 0,
+      top: 0,
       width: indicatorSize,
       height: indicatorSize,
       marginLeft: -indicatorSize / 2,

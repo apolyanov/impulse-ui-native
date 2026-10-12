@@ -1,5 +1,5 @@
-import type { ViewStyle } from "react-native";
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 
 import {
   useControllableState,
@@ -7,21 +7,19 @@ import {
 } from "@impulse-ui-native/core";
 
 import type {
-  SliderMarkLayout,
   UseSliderOptions,
   UseSliderResult,
 } from "../types/slider-internal.types";
 import {
   formatSliderValue,
-  getSliderActiveTrackStyle,
+  getContinuousValueFromPosition,
   getSliderBounds,
   getSliderPercentage,
-  getSliderPositionStyle,
   getValueFromPosition,
-  normalizeSliderMarks,
   normalizeSliderValue,
 } from "../utils";
 import { useSliderInteraction } from "./use-slider-interaction.hook";
+import { useSliderMarks } from "./use-slider-marks.hook";
 
 export function useSlider({
   defaultValue,
@@ -34,9 +32,12 @@ export function useSlider({
   onSlidingComplete,
   onSlidingStart,
   onValueChange,
+  onValueChangeWorklet,
   step,
   value: valueProp,
 }: UseSliderOptions): UseSliderResult {
+  const [interactionRevision, setInteractionRevision] = useState(0);
+  const slidingRef = useRef(false);
   const currentValueRef = useRef(defaultValue);
 
   const bounds = useMemo(
@@ -51,42 +52,31 @@ export function useSlider({
   });
 
   const normalizedValue = normalizeSliderValue(value, bounds);
-  const percentage = getSliderPercentage(normalizedValue, bounds);
+  const displayValue = useSharedValue(normalizedValue);
+  const steppedValue = useSharedValue(normalizedValue);
+  const trackWidth = useSharedValue(0);
 
-  const normalizedMarks = useMemo(
-    () => normalizeSliderMarks(marks, bounds),
-    [bounds, marks],
-  );
+  const { labelMarks, marks: markLayouts } = useSliderMarks({
+    bounds,
+    marks,
+    formatValue,
+    startValue: bounds.min,
+    endValue: normalizedValue,
+  });
 
-  const positionStyle = useMemo<ViewStyle>(
-    () => getSliderPositionStyle(percentage),
-    [percentage],
-  );
-  const activeTrackStyle = useMemo<ViewStyle>(
-    () => getSliderActiveTrackStyle(0, percentage),
-    [percentage],
-  );
-  const markLayouts = useMemo<readonly SliderMarkLayout[]>(
-    () =>
-      normalizedMarks.map((mark) => {
-        const markPercentage = getSliderPercentage(mark, bounds);
-
-        return {
-          active: mark <= normalizedValue,
-          endpoint:
-            mark === bounds.min
-              ? "start"
-              : mark === bounds.max
-                ? "end"
-                : undefined,
-          label: formatSliderValue(mark, formatValue),
-          position: getSliderPositionStyle(markPercentage),
-          value: mark,
-        };
-      }),
-    [bounds, formatValue, normalizedMarks, normalizedValue],
-  );
-
+  const positionStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        translateX:
+          (getSliderPercentage(displayValue.get(), bounds) / 100) *
+          trackWidth.get(),
+      },
+    ],
+  }));
+  const activeTrackStyle = useAnimatedStyle(() => ({
+    left: "0%",
+    width: `${getSliderPercentage(displayValue.get(), bounds)}%`,
+  }));
   const valueLabel = formatSliderValue(normalizedValue, formatValue);
 
   const updateFromPosition = useEventCallback(
@@ -97,42 +87,88 @@ export function useSlider({
 
       const nextValue = getValueFromPosition(position, width, bounds);
 
+      if (nextValue === currentValueRef.current) {
+        return;
+      }
+
       currentValueRef.current = nextValue;
 
-      setValue(nextValue);
+      if (valueProp !== undefined) {
+        onValueChange?.(nextValue);
+      } else {
+        setValue(nextValue);
+      }
     },
   );
 
   const handleSlidingStart = useEventCallback(
     (position: number, width: number) => {
+      slidingRef.current = true;
+
       onSlidingStart?.(currentValueRef.current);
       updateFromPosition(position, width);
     },
   );
 
   const handleSlidingComplete = useEventCallback(() => {
+    slidingRef.current = false;
+    setInteractionRevision((revision) => revision + 1);
+
     onSlidingComplete?.(currentValueRef.current);
   });
 
-  const { interactionHandlers, trackRef } = useSliderInteraction({
+  const updateDisplayPosition = useCallback(
+    (position: number, width: number): boolean => {
+      "worklet";
+
+      const continuousValue = getContinuousValueFromPosition(
+        position,
+        width,
+        bounds,
+      );
+      displayValue.set(continuousValue);
+
+      onValueChangeWorklet?.(continuousValue);
+
+      const nextValue = normalizeSliderValue(continuousValue, bounds);
+
+      if (nextValue === steppedValue.get()) {
+        return false;
+      }
+
+      steppedValue.set(nextValue);
+
+      return true;
+    },
+    [bounds, displayValue, onValueChangeWorklet, steppedValue],
+  );
+
+  const { gesture, handleLayout } = useSliderInteraction({
     disabled,
+    width: trackWidth,
     onEnd: handleSlidingComplete,
     onLayout,
     onMove: updateFromPosition,
+    onPosition: updateDisplayPosition,
     onStart: handleSlidingStart,
   });
 
   useEffect(() => {
-    currentValueRef.current = normalizedValue;
-  }, [normalizedValue]);
+    if (!slidingRef.current) {
+      currentValueRef.current = normalizedValue;
+      displayValue.set(normalizedValue);
+      steppedValue.set(normalizedValue);
+    }
+  }, [displayValue, interactionRevision, normalizedValue, steppedValue]);
 
   return {
     activeTrackStyle,
     bounds,
-    interactionHandlers,
+    gesture,
+    handleLayout,
+    labelMarks,
     marks: markLayouts,
     positionStyle,
-    trackRef,
     valueLabel,
   };
 }

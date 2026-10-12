@@ -1,5 +1,5 @@
-import type { ViewStyle } from "react-native";
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 
 import {
   useControllableState,
@@ -9,23 +9,23 @@ import {
 import type { SliderThumb, SliderValue } from "../types";
 import type {
   RangeSliderThumbBehavior,
-  SliderMarkLayout,
   UseRangeSliderOptions,
   UseRangeSliderResult,
 } from "../types/slider-internal.types";
 import {
   formatSliderValue,
   getClosestThumb,
-  getSliderActiveTrackStyle,
+  getContinuousValueFromPosition,
   getSliderBounds,
   getSliderPercentage,
-  getSliderPositionStyle,
   getValueFromPosition,
   normalizeRangeValue,
-  normalizeSliderMarks,
+  normalizeSliderValue,
+  updateRangeDisplayThumb,
   updateRangeThumb,
 } from "../utils";
 import { useSliderInteraction } from "./use-slider-interaction.hook";
+import { useSliderMarks } from "./use-slider-marks.hook";
 
 export function useRangeSlider({
   defaultValue,
@@ -42,6 +42,8 @@ export function useRangeSlider({
   step,
   value: valueProp,
 }: UseRangeSliderOptions): UseRangeSliderResult {
+  const [interactionRevision, setInteractionRevision] = useState(0);
+  const slidingRef = useRef(false);
   const activeThumbRef = useRef<SliderThumb>("start");
   const currentValueRef = useRef<SliderValue>(defaultValue);
 
@@ -65,48 +67,52 @@ export function useRangeSlider({
     [bounds, minStepsBetweenThumbs, value],
   );
 
-  const startPercentage = getSliderPercentage(normalizedValue[0], bounds);
-  const endPercentage = getSliderPercentage(normalizedValue[1], bounds);
+  const displayValue = useSharedValue<SliderValue>(normalizedValue);
+  const steppedValue = useSharedValue<SliderValue>(normalizedValue);
+  const trackWidth = useSharedValue(0);
+  const activeThumb = useSharedValue<SliderThumb>("start");
 
-  const normalizedMarks = useMemo(
-    () => normalizeSliderMarks(marks, bounds),
-    [bounds, marks],
-  );
+  const { labelMarks, marks: markLayouts } = useSliderMarks({
+    bounds,
+    marks,
+    formatValue,
+    startValue: normalizedValue[0],
+    endValue: normalizedValue[1],
+  });
 
-  const startPositionStyle = useMemo<ViewStyle>(
-    () => getSliderPositionStyle(startPercentage),
-    [startPercentage],
-  );
-  const endPositionStyle = useMemo<ViewStyle>(
-    () => getSliderPositionStyle(endPercentage),
-    [endPercentage],
-  );
-  const activeTrackStyle = useMemo<ViewStyle>(
-    () => getSliderActiveTrackStyle(startPercentage, endPercentage),
-    [endPercentage, startPercentage],
-  );
-  const markLayouts = useMemo<readonly SliderMarkLayout[]>(
-    () =>
-      normalizedMarks.map((mark) => {
-        const percentage = getSliderPercentage(mark, bounds);
+  const startPositionStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        translateX:
+          (getSliderPercentage(displayValue.get()[0], bounds) / 100) *
+          trackWidth.get(),
+      },
+    ],
+  }));
+  const endPositionStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        translateX:
+          (getSliderPercentage(displayValue.get()[1], bounds) / 100) *
+          trackWidth.get(),
+      },
+    ],
+  }));
+  const activeTrackStyle = useAnimatedStyle(() => {
+    const range = displayValue.get();
+    const start = getSliderPercentage(range[0], bounds);
+    const end = getSliderPercentage(range[1], bounds);
 
-        return {
-          active: mark >= normalizedValue[0] && mark <= normalizedValue[1],
-          endpoint:
-            mark === bounds.min
-              ? "start"
-              : mark === bounds.max
-                ? "end"
-                : undefined,
-          label: formatSliderValue(mark, formatValue),
-          position: getSliderPositionStyle(percentage),
-          value: mark,
-        };
-      }),
-    [bounds, formatValue, normalizedMarks, normalizedValue],
-  );
-
+    return { left: `${start}%`, width: `${end - start}%` };
+  });
   const commitRange = useEventCallback((nextValue: SliderValue) => {
+    if (
+      nextValue[0] === currentValueRef.current[0] &&
+      nextValue[1] === currentValueRef.current[1]
+    ) {
+      return;
+    }
+
     currentValueRef.current = nextValue;
 
     setValue(nextValue);
@@ -134,10 +140,15 @@ export function useRangeSlider({
 
   const handleSlidingStart = useEventCallback(
     (position: number, width: number) => {
-      const positionValue = getValueFromPosition(position, width, bounds);
+      const positionValue = getContinuousValueFromPosition(
+        position,
+        width,
+        bounds,
+      );
       const thumb = getClosestThumb(positionValue, currentValueRef.current);
 
       activeThumbRef.current = thumb;
+      slidingRef.current = true;
 
       onSlidingStart?.(currentValueRef.current);
       updateThumbFromPosition(thumb, position, width);
@@ -151,14 +162,67 @@ export function useRangeSlider({
   );
 
   const handleSlidingComplete = useEventCallback(() => {
+    slidingRef.current = false;
+    setInteractionRevision((revision) => revision + 1);
+
     onSlidingComplete?.(currentValueRef.current);
   });
 
-  const { interactionHandlers, trackRef } = useSliderInteraction({
+  const updateDisplayPosition = useCallback(
+    (position: number, width: number, starting: boolean): boolean => {
+      "worklet";
+
+      const range = displayValue.get();
+      const positionValue = getContinuousValueFromPosition(
+        position,
+        width,
+        bounds,
+      );
+
+      if (starting) {
+        activeThumb.set(getClosestThumb(positionValue, range));
+      }
+
+      displayValue.set(
+        updateRangeDisplayThumb(
+          range,
+          activeThumb.get(),
+          positionValue,
+          bounds,
+          minStepsBetweenThumbs,
+        ),
+      );
+
+      const previousValue = steppedValue.get();
+      const nextValue = updateRangeThumb(
+        previousValue,
+        activeThumb.get(),
+        normalizeSliderValue(positionValue, bounds),
+        bounds,
+        minStepsBetweenThumbs,
+      );
+
+      if (
+        nextValue[0] === previousValue[0] &&
+        nextValue[1] === previousValue[1]
+      ) {
+        return false;
+      }
+
+      steppedValue.set(nextValue);
+
+      return true;
+    },
+    [activeThumb, bounds, displayValue, minStepsBetweenThumbs, steppedValue],
+  );
+
+  const { gesture, handleLayout } = useSliderInteraction({
     disabled,
+    width: trackWidth,
     onEnd: handleSlidingComplete,
     onLayout,
     onMove: handleSlidingMove,
+    onPosition: updateDisplayPosition,
     onStart: handleSlidingStart,
   });
 
@@ -178,16 +242,21 @@ export function useRangeSlider({
   );
 
   useEffect(() => {
-    currentValueRef.current = normalizedValue;
-  }, [normalizedValue]);
+    if (!slidingRef.current) {
+      currentValueRef.current = normalizedValue;
+      displayValue.set(normalizedValue);
+      steppedValue.set(normalizedValue);
+    }
+  }, [displayValue, interactionRevision, normalizedValue, steppedValue]);
 
   return {
     activeTrackStyle,
     bounds,
     endThumb,
-    interactionHandlers,
+    gesture,
+    handleLayout,
+    labelMarks,
     marks: markLayouts,
     startThumb,
-    trackRef,
   };
 }

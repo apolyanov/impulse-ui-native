@@ -1,5 +1,6 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
+import Animated from "react-native-reanimated";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { Typography, View } from "@impulse-ui-native/primitives";
@@ -9,6 +10,7 @@ import {
 } from "@impulse-ui-native/theme";
 
 import type { SliderThumbProps } from "../types/slider-internal.types";
+import type { SliderThumbThemeProps } from "../types/slider-theme.types";
 
 export const SliderThumbControl = memo(function SliderThumbControl({
   disabled,
@@ -30,7 +32,7 @@ export const SliderThumbControl = memo(function SliderThumbControl({
   );
 
   return (
-    <View pointerEvents="none" style={thumbStyles}>
+    <Animated.View pointerEvents="none" style={thumbStyles}>
       {showValueBubble ? (
         <View pointerEvents="none" style={styles.valueBubble}>
           <Typography.Caption style={styles.valueBubbleText}>
@@ -42,15 +44,9 @@ export const SliderThumbControl = memo(function SliderThumbControl({
       <View pointerEvents="none" shadow="sm" style={styles.thumb}>
         {variant !== "outlined" ? <View style={styles.thumbHighlight} /> : null}
       </View>
-    </View>
+    </Animated.View>
   );
 });
-
-interface SliderThumbThemeProps {
-  disabled: boolean;
-  size: SliderThumbProps["size"];
-  variant: SliderThumbProps["variant"];
-}
 
 function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
   const { disabled, size, variant } = props;
@@ -68,6 +64,7 @@ function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
   return StyleSheet.create({
     container: {
       position: "absolute",
+      left: 0,
       bottom: (interactionHeight - thumbOuterSize) / 2,
       alignItems: "center",
       justifyContent: "center",

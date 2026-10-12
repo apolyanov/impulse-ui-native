@@ -82,7 +82,8 @@ ${fence}
 - Toast: timed overlay notifications with semantic tones, actions, and composable namespaced parts.
 - Popover and Tooltip: compact anchored content rendered through Portal with theme tokens and safe-area collision handling.
 - Carousel: horizontal slides with snapping, controls, and pagination.
-- Slider: single-value and range selection with configurable steps and marks.
+- Slider: single-value and range selection with native UI-thread drag feedback, configurable steps, marks, value bubbles, and minimum range gaps.
+- ColorPicker: composable spectrum, hue, and alpha controls with hex/RGB entry, presets, and immediate or confirmed color edits.
 - SegmentedControl: composable single-choice segments with labels and icons.
 - Tabs: a flat items API with controlled/uncontrolled selection, scrollable underline tabs, and conditional active panels. Switching tabs unmounts the old panel and resets local state; there is no prerendering or lazy-loading mode.
 - Pagination: responsive page navigation with a compact layout.
@@ -100,6 +101,19 @@ ${fence}
 - Charts: Skia-rendered line, multi-line, bar, grouped-bar, pie, and concentric-pie visualizations.
 - Skeleton and DataView: loading placeholders and coordinated loading, empty, error, and content states. LoadingView, EmptyView, and ErrorView are also exported independently.
 - Portal and OverlayHost: named-host content placement and registered-overlay lifecycle infrastructure.
+
+## Slider and ColorPicker behavior
+
+Slider and RangeSlider are exported from @impulse-ui-native/slider and the toolkit. Use value/onValueChange for controlled state or defaultValue for uncontrolled state. Values are clamped to min/max and snapped to step. RangeSlider keeps values ordered and enforces minStepsBetweenThumbs, including when bounds do not align with the step grid. Fractional and scientific-notation steps are supported. Native gestures move thumbs and active fill continuously on the UI thread, independently of the step grid; values and callbacks remain normalized. onValueChange emits changed snapped values; onSlidingComplete receives the final selection on release or interruption. Controlled sliders reconcile to the supplied value after interaction ends. Custom trackContent replaces Slider's numeric fill with supplied visuals.
+
+ColorPicker is exported from @impulse-ui-native/color-picker and the toolkit. Use value/onChange or defaultValue. Immediate mode commits edits as they occur; commitMode="confirm" stages edits until Apply and discards them on Cancel. External controlled value changes invalidate staged edits. Values accept RGB, RGBA, RRGGBB, or RRGGBBAA hex strings with an optional # and emit uppercase #RRGGBB or #RRGGBBAA. Invalid text retains the last valid color. showAlpha={false} hides opacity controls while preserving alpha. showPresets={false} hides the preset palette and its label.
+
+Compose ColorPicker.Root with Spectrum, HueSlider, AlphaSlider, Preview, HexInput, ChannelInput, AlphaInput, Swatch, Apply, and Cancel. Root owns shared state; actions and swatches render supplied children. The spectrum indicator updates on the UI thread while React color updates are limited to approximately 60 Hz; the final selection is always flushed on release or interruption. Enabled spectrum and slider gestures keep touches that start on the control, including inside scrolling containers. Disabled controls leave scrolling available.
+
+Standalone slider installs require react-native-gesture-handler >=2, react-native-reanimated >=4, and react-native-worklets >=0.5. ColorPicker additionally requires react-native-svg >=13.9. Complete native Gesture Handler and Reanimated/Worklets setup and wrap controls in GestureHandlerRootView and ThemeProvider. These controls are inline and do not require overlay providers. Verify native interaction and smoothness in iOS and Android Storybook.
+
+- [Slider guide](${seo.repository}/blob/main/packages/slider/README.md): Installation, controlled/uncontrolled values, range constraints, marks, and custom tracks.
+- [ColorPicker guide](${seo.repository}/blob/main/packages/color-picker/README.md): Installation, value formats, commit modes, presets, and composition.
 
 ## Popover and Tooltip behavior
 

@@ -21,6 +21,14 @@ export const ColorPickerDocumentation = memo(
           emits only on Apply. Invalid text never replaces the last valid
           selection.
         </Typography.Master>
+        <Typography.Master>
+          The spectrum indicator and slider thumbs move continuously on the UI
+          thread. Slider values still follow their configured steps. Spectrum
+          color updates are limited to approximately 60 Hz and always include
+          the final selection on release. The preview stays live during
+          dragging; hex/RGB fields and preset selection refresh when the gesture
+          ends.
+        </Typography.Master>
         {ColorPickerExampleDefinitions.map((example) => (
           <View key={example.name}>
             <ColorPickerExample example={example} elevated />

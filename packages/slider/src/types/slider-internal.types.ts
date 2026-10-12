@@ -1,69 +1,56 @@
-import type { ReactNode, RefObject } from "react";
-import type {
-  GestureResponderEvent,
-  LayoutChangeEvent,
-  View,
-  ViewStyle,
-} from "react-native";
+import type { ReactNode } from "react";
+import type { LayoutChangeEvent, ViewStyle } from "react-native";
+import type { PanGesture } from "react-native-gesture-handler";
+import type { AnimatedStyle, SharedValue } from "react-native-reanimated";
 
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
 
-import type { SliderBounds } from "../utils";
+import type {
+  SliderMarkDefinition,
+  SliderMarkLayout,
+} from "./slider-marks.types";
+import type { SliderBounds } from "./slider-value.types";
 import type {
   RangeSliderProps,
   SliderProps,
   SliderValue,
 } from "./slider.types";
 
-export interface SliderMarkLayout {
-  active: boolean;
-  endpoint?: "start" | "end";
-  label: string;
-  position: ViewStyle;
-  value: number;
-}
-
 export interface SliderInteractionHandlers {
   onLayout: (event: LayoutChangeEvent) => void;
-  onMoveShouldSetResponder: () => boolean;
-  onMoveShouldSetResponderCapture: () => boolean;
-  onResponderGrant: (event: GestureResponderEvent) => void;
-  onResponderMove: (event: GestureResponderEvent) => void;
-  onResponderRelease: () => void;
-  onResponderTerminate: () => void;
-  onResponderTerminationRequest: () => boolean;
-  onStartShouldSetResponder: () => boolean;
-  onStartShouldSetResponderCapture: () => boolean;
 }
 
 export interface UseSliderInteractionOptions {
   disabled: boolean;
+  width: SharedValue<number>;
   onEnd: () => void;
   onLayout?: SliderProps["onLayout"];
   onMove: (position: number, width: number) => void;
+  /** UI-thread worklet; returns whether the snapped value changed. */
+  onPosition: (position: number, width: number, starting: boolean) => boolean;
   onStart: (position: number, width: number) => void;
 }
 
 export interface UseSliderInteractionResult {
-  interactionHandlers: SliderInteractionHandlers;
-  trackRef: RefObject<View | null>;
+  gesture: PanGesture;
+  handleLayout: (event: LayoutChangeEvent) => void;
 }
 
 export interface SliderTrackProps extends SliderInteractionHandlers {
+  gesture: PanGesture;
   trackContent?: ReactNode;
-  activeTrackStyle: ViewStyle;
+  activeTrackStyle: AnimatedStyle<ViewStyle>;
   children: ReactNode;
   disabled: boolean;
   marks: readonly SliderMarkLayout[];
   showValueBubble: boolean;
   size: ComponentSize;
-  trackRef: RefObject<View | null>;
   variant: SelectionVariant;
 }
 
 export interface SliderThumbProps {
   disabled: boolean;
-  positionStyle: ViewStyle;
+  positionStyle: AnimatedStyle<ViewStyle>;
   showValueBubble: boolean;
   size: ComponentSize;
   valueLabel: string;
@@ -72,7 +59,7 @@ export interface SliderThumbProps {
 
 export interface SliderLabelsProps {
   disabled: boolean;
-  marks: readonly SliderMarkLayout[];
+  marks: readonly SliderMarkDefinition[];
   maxLabel: string;
   minLabel: string;
   showMarkLabels: boolean;
@@ -81,6 +68,7 @@ export interface SliderLabelsProps {
 }
 
 export interface UseSliderOptions {
+  onValueChangeWorklet?: SliderProps["onValueChangeWorklet"];
   defaultValue: number;
   disabled: boolean;
   formatValue?: SliderProps["formatValue"];
@@ -96,12 +84,13 @@ export interface UseSliderOptions {
 }
 
 export interface UseSliderResult {
-  activeTrackStyle: ViewStyle;
+  activeTrackStyle: AnimatedStyle<ViewStyle>;
   bounds: SliderBounds;
-  interactionHandlers: SliderInteractionHandlers;
+  gesture: PanGesture;
+  handleLayout: (event: LayoutChangeEvent) => void;
+  labelMarks: readonly SliderMarkDefinition[];
   marks: readonly SliderMarkLayout[];
-  positionStyle: ViewStyle;
-  trackRef: RefObject<View | null>;
+  positionStyle: AnimatedStyle<ViewStyle>;
   valueLabel: string;
 }
 
@@ -122,16 +111,17 @@ export interface UseRangeSliderOptions {
 }
 
 export interface RangeSliderThumbBehavior {
-  positionStyle: ViewStyle;
+  positionStyle: AnimatedStyle<ViewStyle>;
   valueLabel: string;
 }
 
 export interface UseRangeSliderResult {
-  activeTrackStyle: ViewStyle;
+  activeTrackStyle: AnimatedStyle<ViewStyle>;
   bounds: SliderBounds;
   endThumb: RangeSliderThumbBehavior;
-  interactionHandlers: SliderInteractionHandlers;
+  gesture: PanGesture;
+  handleLayout: (event: LayoutChangeEvent) => void;
+  labelMarks: readonly SliderMarkDefinition[];
   marks: readonly SliderMarkLayout[];
   startThumb: RangeSliderThumbBehavior;
-  trackRef: RefObject<View | null>;
 }

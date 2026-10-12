@@ -148,26 +148,26 @@ export const componentGroups = [
       {
         name: "Slider",
         description:
-          "Select a numeric value with configurable steps, marks, and value bubbles.",
+          "Select numeric values with native drag feedback, precise steps, marks, and value bubbles.",
         packageName: "@impulse-ui-native/slider",
         sourcePath: "slider/src/components/slider.tsx",
-        tags: ["Interactive", "Numeric"],
+        tags: ["Native gestures", "Numeric"],
       },
       {
         name: "RangeSlider",
         description:
-          "Choose lower and upper numeric bounds with two thumbs and configurable spacing.",
+          "Drag two thumbs to choose numeric bounds with configurable steps and enforced minimum spacing.",
         packageName: "@impulse-ui-native/slider",
         sourcePath: "slider/src/components/range-slider.tsx",
-        tags: ["Interactive", "Range"],
+        tags: ["Native gestures", "Range"],
       },
       {
         name: "ColorPicker",
         description:
-          "Choose spectrum colors with hex/RGB entry, opacity, theme presets, and composable Apply/Cancel actions.",
+          "Choose colors with native spectrum and slider gestures, hex/RGB entry, opacity, presets, and optional Apply/Cancel actions.",
         packageName: "@impulse-ui-native/color-picker",
         sourcePath: "color-picker/src/components/color-picker.tsx",
-        tags: ["Interactive", "Composable"],
+        tags: ["Native gestures", "Composable"],
       },
       {
         name: "SegmentedControl",

@@ -1,14 +1,12 @@
-import type {
-  GestureResponderEvent,
-  LayoutChangeEvent,
-  View,
-} from "react-native";
-import { useCallback, useMemo, useRef } from "react";
+import type { LayoutChangeEvent } from "react-native";
+import { useMemo } from "react";
+import { Gesture } from "react-native-gesture-handler";
+import { useSharedValue } from "react-native-reanimated";
+import { scheduleOnRN } from "react-native-worklets";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 
 import type {
-  SliderInteractionHandlers,
   UseSliderInteractionOptions,
   UseSliderInteractionResult,
 } from "../types/slider-internal.types";
@@ -18,73 +16,66 @@ export function useSliderInteraction({
   onEnd,
   onLayout,
   onMove,
+  onPosition,
   onStart,
+  width,
 }: UseSliderInteractionOptions): UseSliderInteractionResult {
-  const trackRef = useRef<View | null>(null);
-  const trackWidthRef = useRef(0);
-  const trackPageXRef = useRef(0);
-
-  const measureTrack = useEventCallback(() => {
-    trackRef.current?.measureInWindow((x) => {
-      trackPageXRef.current = x;
-    });
-  });
+  const active = useSharedValue(false);
 
   const handleLayout = useEventCallback((event: LayoutChangeEvent) => {
-    trackWidthRef.current = event.nativeEvent.layout.width;
+    width.set(event.nativeEvent.layout.width);
 
-    measureTrack();
     onLayout?.(event);
   });
 
-  const handleResponderGrant = useEventCallback(
-    (event: GestureResponderEvent) => {
-      measureTrack();
-      onStart(
-        event.nativeEvent.pageX - trackPageXRef.current,
-        trackWidthRef.current,
-      );
-    },
+  const gesture = useMemo(
+    () =>
+      Gesture.Pan()
+        .enabled(!disabled)
+        .manualActivation(true)
+        .shouldCancelWhenOutside(false)
+        .onTouchesDown((_event, manager) => {
+          "worklet";
+
+          if (width.get() > 0) {
+            manager.activate();
+          } else {
+            manager.fail();
+          }
+        })
+        .onStart((event) => {
+          "worklet";
+
+          active.set(true);
+          onPosition(event.x, width.get(), true);
+
+          scheduleOnRN(onStart, event.x, width.get());
+        })
+        .onUpdate((event) => {
+          "worklet";
+
+          if (onPosition(event.x, width.get(), false)) {
+            scheduleOnRN(onMove, event.x, width.get());
+          }
+        })
+        .onEnd((event, success) => {
+          "worklet";
+
+          if (success && onPosition(event.x, width.get(), false)) {
+            scheduleOnRN(onMove, event.x, width.get());
+          }
+        })
+        .onFinalize(() => {
+          "worklet";
+
+          if (active.get()) {
+            active.set(false);
+
+            scheduleOnRN(onEnd);
+          }
+        }),
+    [active, disabled, onEnd, onMove, onPosition, onStart, width],
   );
 
-  const handleResponderMove = useEventCallback(
-    (event: GestureResponderEvent) => {
-      onMove(
-        event.nativeEvent.pageX - trackPageXRef.current,
-        trackWidthRef.current,
-      );
-    },
-  );
-
-  const handleStartShouldSetResponder = useCallback(
-    () => !disabled,
-    [disabled],
-  );
-
-  const handleResponderTerminationRequest = useCallback(() => false, []);
-
-  const interactionHandlers = useMemo<SliderInteractionHandlers>(
-    () => ({
-      onLayout: handleLayout,
-      onMoveShouldSetResponder: handleStartShouldSetResponder,
-      onMoveShouldSetResponderCapture: handleStartShouldSetResponder,
-      onResponderGrant: handleResponderGrant,
-      onResponderMove: handleResponderMove,
-      onResponderRelease: onEnd,
-      onResponderTerminate: onEnd,
-      onResponderTerminationRequest: handleResponderTerminationRequest,
-      onStartShouldSetResponder: handleStartShouldSetResponder,
-      onStartShouldSetResponderCapture: handleStartShouldSetResponder,
-    }),
-    [
-      handleLayout,
-      handleResponderGrant,
-      handleResponderMove,
-      handleResponderTerminationRequest,
-      handleStartShouldSetResponder,
-      onEnd,
-    ],
-  );
-
-  return { interactionHandlers, trackRef };
+  return { gesture, handleLayout };
 }

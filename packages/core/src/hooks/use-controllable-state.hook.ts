@@ -1,4 +1,5 @@
-import { SetStateAction, useCallback, useRef, useState } from "react";
+import type { SetStateAction } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 import { resolverStateSetter } from "../utils";
 
@@ -45,15 +46,15 @@ export function useControllableState<Value>({
   const isControlledRef = useRef(isControlled);
   const onChangeRef = useRef(onChange);
 
-  valueRef.current = value;
-  isControlledRef.current = isControlled;
-  onChangeRef.current = onChange;
-
   const setValue = useCallback((nextValue: SetStateAction<Value>) => {
     const setter = resolverStateSetter(nextValue);
     const computedValue = setter(valueRef.current as Value);
 
     if (computedValue !== valueRef.current) {
+      // Consecutive updates can arrive before React renders (for example, a drag
+      // followed by release). Resolve each update against the latest request.
+      valueRef.current = computedValue;
+
       if (!isControlledRef.current) {
         setUncontrolledProp(computedValue);
       }
@@ -61,6 +62,12 @@ export function useControllableState<Value>({
       onChangeRef.current?.(computedValue);
     }
   }, []);
+
+  useLayoutEffect(() => {
+    valueRef.current = value;
+    isControlledRef.current = isControlled;
+    onChangeRef.current = onChange;
+  });
 
   return [value, setValue];
 }

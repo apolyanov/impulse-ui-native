@@ -26,6 +26,7 @@ export const Slider = memo(function Slider({
   onSlidingComplete,
   onSlidingStart,
   onValueChange,
+  onValueChangeWorklet,
   showMarkLabels = false,
   showMinMax = false,
   showValueBubble = false,
@@ -48,6 +49,7 @@ export const Slider = memo(function Slider({
     onSlidingComplete,
     onSlidingStart,
     onValueChange,
+    onValueChangeWorklet,
     step,
     value,
   });
@@ -55,13 +57,13 @@ export const Slider = memo(function Slider({
   return (
     <View {...props} style={style}>
       <SliderTrack
-        {...slider.interactionHandlers}
+        gesture={slider.gesture}
+        onLayout={slider.handleLayout}
         activeTrackStyle={slider.activeTrackStyle}
         disabled={disabled}
         marks={slider.marks}
         showValueBubble={showValueBubble}
         size={size}
-        trackRef={slider.trackRef}
         trackContent={trackContent}
         variant={variant}
       >
@@ -77,7 +79,7 @@ export const Slider = memo(function Slider({
 
       <SliderLabels
         disabled={disabled}
-        marks={slider.marks}
+        marks={slider.labelMarks}
         maxLabel={formatSliderValue(slider.bounds.max, formatValue)}
         minLabel={formatSliderValue(slider.bounds.min, formatValue)}
         showMarkLabels={showMarkLabels}
