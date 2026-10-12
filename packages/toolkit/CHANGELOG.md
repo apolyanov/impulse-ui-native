@@ -1,5 +1,57 @@
 # @impulse-ui-native/toolkit
 
+## 9.0.0
+
+### Minor Changes
+
+- 91eba29: Add a modular native ColorPicker with saturation/brightness spectrum, hue and alpha sliders, hex/RGB/opacity entry, theme presets, controlled/uncontrolled selection, and staged Apply/Cancel behavior. Add component tokens and toolkit exports. Slider now accepts custom track content and uses a tokenized minimum interaction height.
+
+  Render gradient transparency with explicit stop opacity. Activate spectrum drags on touch-down with Gesture Handler on the UI thread so parent native scrolling cannot interrupt color selection. The color picker requires Gesture Handler, Reanimated, Worklets, and GestureHandlerRootView.
+
+  Allow customizing the preset palette heading through presetsLabel, defaulting to "Theme colors", and hiding the entire preset section with showPresets={false}.
+
+  Expose dedicated color-picker tokens for internal spacing, field proportions, surface radii, swatch rings and checkmark sizes, and spectrum indicator borders and shadows. Preserve the default appearance while allowing independent customization.
+
+### Patch Changes
+
+- Updated dependencies [91eba29]
+- Updated dependencies [91eba29]
+- Updated dependencies [cf6e434]
+  - @impulse-ui-native/color-picker@9.0.0
+  - @impulse-ui-native/theme@9.0.0
+  - @impulse-ui-native/slider@9.0.0
+  - @impulse-ui-native/switch@9.0.0
+  - @impulse-ui-native/progress@9.0.0
+  - @impulse-ui-native/pagination@9.0.0
+  - @impulse-ui-native/scroll-view@9.0.0
+  - @impulse-ui-native/primitives@9.0.0
+  - @impulse-ui-native/core@9.0.0
+  - @impulse-ui-native/accordion@9.0.0
+  - @impulse-ui-native/card@9.0.0
+  - @impulse-ui-native/carousel@9.0.0
+  - @impulse-ui-native/charts@9.0.0
+  - @impulse-ui-native/checkbox@9.0.0
+  - @impulse-ui-native/data-state@9.0.0
+  - @impulse-ui-native/datetime@9.0.0
+  - @impulse-ui-native/flyout@9.0.0
+  - @impulse-ui-native/form-field@9.0.0
+  - @impulse-ui-native/input@9.0.0
+  - @impulse-ui-native/list@9.0.0
+  - @impulse-ui-native/modal@9.0.0
+  - @impulse-ui-native/popover@9.0.0
+  - @impulse-ui-native/radio@9.0.0
+  - @impulse-ui-native/segmented-control@9.0.0
+  - @impulse-ui-native/select@9.0.0
+  - @impulse-ui-native/skeleton@9.0.0
+  - @impulse-ui-native/stepper@9.0.0
+  - @impulse-ui-native/tabs@9.0.0
+  - @impulse-ui-native/toast@9.0.0
+  - @impulse-ui-native/echo@9.0.0
+  - @impulse-ui-native/overlay@9.0.0
+  - @impulse-ui-native/endpoint@9.0.0
+  - @impulse-ui-native/portal@9.0.0
+  - @impulse-ui-native/flat-list@9.0.0
+
 ## 8.3.0
 
 ### Minor Changes

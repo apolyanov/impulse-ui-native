@@ -1,5 +1,18 @@
 # @impulse-ui-native/modal
 
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [91eba29]
+- Updated dependencies [91eba29]
+- Updated dependencies [cf6e434]
+  - @impulse-ui-native/theme@9.0.0
+  - @impulse-ui-native/primitives@9.0.0
+  - @impulse-ui-native/core@9.0.0
+  - @impulse-ui-native/icon@9.0.0
+  - @impulse-ui-native/overlay@9.0.0
+
 ## 8.3.0
 
 ### Patch Changes
