@@ -25,7 +25,7 @@ import { WebTag } from "./native-web";
 import { PhonePreview } from "./previews";
 
 const actionBase =
-  "inline-flex h-component-large items-center justify-center gap-xs rounded-md border-sm px-sm text-xsm font-semiBold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2";
+  "inline-flex min-h-11 w-full items-center justify-center gap-xs rounded-md border-sm px-sm py-xs text-xsm font-semiBold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 sm:h-component-large sm:w-auto";
 
 export function HeroSection() {
   const floatingTokens = [
@@ -39,9 +39,9 @@ export function HeroSection() {
     <header className="relative overflow-hidden">
       <div className="dot-grid absolute inset-0 opacity-60" />
       <div className="hero-glow absolute left-1/2 top-xl size-[min(72vw,760px)] -translate-x-1/2 rounded-round" />
-      <SectionContainer className="relative grid gap-xl py-xl lg:grid-cols-2 lg:items-center lg:py-xxl">
+      <SectionContainer className="relative grid grid-cols-1 gap-xl py-xl lg:grid-cols-2 lg:items-center lg:py-xxl">
         <div className="min-w-0">
-          <h1 className="text-display-small font-extraBold tracking-[-0.04em] md:text-colossal md:leading-colossal">
+          <h1 className="text-title-1 font-extraBold tracking-[-0.04em] sm:text-display-small md:text-colossal md:leading-colossal">
             Open-source UI for{" "}
             <span className="text-primary">native momentum.</span>
           </h1>
@@ -180,7 +180,7 @@ export function ComponentsSection() {
                 </span>
                 <span className="h-px flex-1 bg-border-subtle" />
               </div>
-              <div className="grid gap-sm md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-sm md:grid-cols-2 lg:grid-cols-3">
                 {group.components.map((component) => (
                   <ComponentCard
                     {...component}
@@ -242,7 +242,7 @@ export function TokensSection() {
           copy="These values come directly from the theme package. AppTheme combines colors, space, radii, borderSize, fontFamily, fontWeight, fontSize, lineHeight, letterSpacing, and generated component tokens."
           title="One language for the whole interface."
         />
-        <div className="mt-lg grid gap-sm md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-lg grid grid-cols-1 gap-sm md:grid-cols-2 lg:grid-cols-3">
           {primitiveTokenGroups.map((group) => (
             <article
               className="rounded-md border border-border-subtle bg-surface-primary p-sm"
@@ -276,7 +276,7 @@ export function TokensSection() {
             </article>
           ))}
         </div>
-        <div className="mt-sm grid gap-sm lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-sm grid grid-cols-1 gap-sm lg:grid-cols-[1.1fr_0.9fr]">
           <div className="overflow-hidden rounded-md bg-surface-inverse text-surface-inverse-contrast">
             <div className="flex items-center justify-between border-b border-white/10 px-sm py-mxs">
               <div className="flex gap-xxs">
@@ -324,7 +324,7 @@ export function ThemingSection() {
           copy="LightTheme and DarkTheme share primitive scales and provide distinct semantic palettes. ThemeProvider defaults to light; set the scheme prop to dark and supply per-scheme theme overrides or component-token overrides. The phone preview shows the light theme."
           title="Adapt the system without faking it."
         />
-        <div className="mt-lg grid gap-sm lg:grid-cols-2">
+        <div className="mt-lg grid grid-cols-1 gap-sm lg:grid-cols-2">
           <div className="flex flex-col rounded-lg border border-border-subtle bg-surface-elevated p-xs md:p-sm">
             <div className="mb-sm flex items-center justify-end">
               <WebTag variant="outlined">LightTheme</WebTag>
@@ -438,7 +438,7 @@ export function ArchitectureSection() {
           copy="A traceable pipeline from raw values to shipping interfaces. Every layer remains replaceable, testable, and documented."
           title="From tokens to product UI."
         />
-        <div className="mt-lg grid gap-sm lg:grid-cols-5">
+        <div className="mt-lg grid grid-cols-1 gap-sm lg:grid-cols-5">
           {architectureLayers.map(([title, copy, items], index) => (
             <article
               className="relative rounded-md border border-border-subtle bg-surface-primary p-sm"
@@ -513,7 +513,7 @@ export function DeveloperExperienceSection() {
     <section>
       <SectionContainer className="py-xxl">
         <SectionHeading title="Built for everyday product work." />
-        <div className="mt-lg grid gap-sm lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-lg grid grid-cols-1 gap-sm lg:grid-cols-[0.9fr_1.1fr]">
           <div className="space-y-sm">
             {cards.map(([icon, title, copy]) => (
               <article
@@ -542,23 +542,24 @@ export function DeveloperExperienceSection() {
                 <PackageVersion prefix="Actual v" suffix=" API" />
               </span>
             </div>
-            <div className="grid grid-cols-[0.8fr_1.8fr_0.7fr] border-b border-border-subtle bg-surface-primary px-sm py-xs text-[10px] font-semiBold uppercase text-text-disabled">
+            <div className="hidden grid-cols-[0.8fr_1.8fr_0.7fr] gap-xs border-b border-border-subtle bg-surface-primary px-sm py-xs text-[10px] font-semiBold uppercase text-text-disabled sm:grid">
               <span>Prop</span>
               <span>Type</span>
               <span>Default</span>
             </div>
             {buttonApi.map(([name, type, defaultValue]) => (
               <div
-                className="grid grid-cols-[0.8fr_1.8fr_0.7fr] items-center border-b border-border-subtle px-sm py-xs last:border-0"
+                className="grid min-w-0 grid-cols-1 gap-xs border-b border-border-subtle px-sm py-sm last:border-0 sm:grid-cols-[0.8fr_1.8fr_0.7fr] sm:items-center sm:py-xs"
                 key={name}
               >
                 <code className="text-caption font-bold text-primary">
                   {name}
                 </code>
-                <code className="truncate text-[10px] text-text-secondary">
+                <code className="min-w-0 break-words text-caption text-text-secondary sm:text-[10px]">
                   {type}
                 </code>
                 <code className="text-[10px] text-text-disabled">
+                  <span className="sm:hidden">Default: </span>
                   {defaultValue}
                 </code>
               </div>
@@ -595,7 +596,7 @@ export function ContributeSection() {
       className="border-y border-border-subtle bg-surface-elevated"
       id="contribute"
     >
-      <SectionContainer className="grid gap-lg py-xxl lg:grid-cols-[0.85fr_1.15fr]">
+      <SectionContainer className="grid grid-cols-1 gap-lg py-xxl lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <SectionHeading
             copy="ImpulseUI Native is shaped in the open. Explore the source, report issues, suggest improvements, and contribute new ideas."
@@ -616,7 +617,7 @@ export function ContributeSection() {
             </a>
           </div>
         </div>
-        <div className="grid gap-xs sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-xs sm:grid-cols-2">
           {cards.map(([icon, title, copy]) => (
             <a
               className="group rounded-md border border-border-subtle bg-surface-primary p-sm transition-colors hover:border-primary"
@@ -654,7 +655,7 @@ export function DocsAndFooter() {
         id="docs"
       >
         <SectionContainer className="py-xxl">
-          <h2 className="mx-auto max-w-4xl text-display-medium font-extraBold tracking-[-0.03em] md:text-colossal">
+          <h2 className="mx-auto max-w-4xl text-title-1 font-extraBold tracking-[-0.03em] sm:text-display-medium md:text-colossal">
             Build interfaces that{" "}
             <span className="text-primary">stay coherent.</span>
           </h2>
@@ -686,7 +687,7 @@ export function DocsAndFooter() {
         </SectionContainer>
       </section>
       <footer className="border-t border-border-subtle bg-surface-elevated">
-        <SectionContainer className="grid gap-lg py-xl lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <SectionContainer className="grid grid-cols-1 gap-lg py-xl lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-xs">
               <ImpulseUINativeLogoIcon className="size-md text-primary" />
@@ -715,7 +716,7 @@ export function DocsAndFooter() {
                 {items.map((item) => (
                   <li key={item}>
                     <a
-                      className="text-body-small transition-colors hover:text-primary"
+                      className="inline-flex min-h-11 items-center text-body-small transition-colors hover:text-primary"
                       href={
                         item === "License"
                           ? project.licenseUrl

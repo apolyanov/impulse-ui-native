@@ -337,10 +337,10 @@ export function SegmentedControl<T extends string>({
       <p className="mb-xs text-overline uppercase text-text-disabled">
         {label}
       </p>
-      <div className="flex flex-wrap gap-xxs">
+      <div className="grid grid-cols-2 gap-xxs sm:flex sm:flex-wrap">
         {options.map((option) => (
           <WebButton
-            className="capitalize"
+            className="min-h-11 min-w-0 capitalize"
             key={option}
             onClick={() => onChange(option)}
             size="small"

@@ -27,7 +27,7 @@ export function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl">
-      <h2 className="text-title-1 font-extraBold tracking-[-0.03em] md:text-display-medium">
+      <h2 className="text-title-3 font-extraBold tracking-[-0.03em] sm:text-title-1 md:text-display-medium">
         {title}
       </h2>
       {copy ? (
@@ -86,7 +86,7 @@ export function ComponentCard({
         </code>
         <a
           aria-label={`View ${name} source`}
-          className="flex size-component-small shrink-0 items-center justify-center rounded-sm text-text-disabled hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus"
+          className="flex size-11 shrink-0 items-center justify-center rounded-sm text-text-disabled hover:bg-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus"
           href={sourceHref}
         >
           <SystemIcon className="size-sm" name="arrow" />

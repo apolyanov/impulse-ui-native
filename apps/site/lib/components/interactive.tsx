@@ -111,22 +111,26 @@ export function Navigation() {
         </div>
         <WebIconButton
           aria-expanded={open}
-          className="lg:hidden"
+          aria-controls="mobile-navigation"
+          className="min-h-11 min-w-11 lg:hidden"
           icon={open ? "x" : "menu"}
-          label="Toggle navigation"
+          label={open ? "Close navigation" : "Open navigation"}
           onClick={() => setOpen((current) => !current)}
           size="small"
           variant="ghost"
         />
       </SectionContainer>
       {open ? (
-        <div className="border-t border-border-subtle bg-surface-secondary lg:hidden">
+        <div
+          id="mobile-navigation"
+          className="max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-border-subtle bg-surface-secondary pb-[env(safe-area-inset-bottom)] lg:hidden"
+        >
           <SectionContainer className="py-sm">
             <ul className="flex flex-col gap-xxs">
               {navigationLinks.map((link) => (
                 <li key={link.label}>
                   <a
-                    className="block rounded-md px-xs py-xs text-body-small font-semiBold hover:bg-secondary"
+                    className="flex min-h-11 items-center rounded-md px-xs py-xs text-body-small font-semiBold hover:bg-secondary"
                     href={link.href}
                     onClick={() => setOpen(false)}
                   >
@@ -165,7 +169,7 @@ export function InstallBox() {
       <div className="grid grid-cols-4 items-center gap-xxs p-xs sm:flex">
         {(Object.keys(packageCommands) as PackageManager[]).map((item) => (
           <WebButton
-            className="min-w-0 px-xxs font-mono sm:px-mxs"
+            className="min-h-11 min-w-0 px-xxs font-mono sm:px-mxs"
             key={item}
             onClick={() => setManager(item)}
             size="small"
@@ -177,12 +181,12 @@ export function InstallBox() {
       </div>
       <div className="mx-xs flex min-w-0 items-center gap-xs rounded-md bg-surface-inverse px-xs py-mxs text-caption text-surface-inverse-contrast sm:px-sm">
         <span className="font-mono text-primary">$</span>
-        <code className="min-w-0 flex-1 truncate">
+        <code className="min-w-0 flex-1 break-all">
           {packageCommands[manager]}
         </code>
         <button
           aria-label="Copy install command"
-          className="flex shrink-0 items-center gap-xxs rounded-sm p-xxs font-semiBold hover:bg-white/10 sm:px-xs"
+          className="flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-xxs rounded-sm p-xxs font-semiBold hover:bg-white/10 sm:px-xs"
           onClick={copy}
         >
           <SystemIcon className="size-sm" name={copied ? "check" : "copy"} />
