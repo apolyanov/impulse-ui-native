@@ -37,7 +37,11 @@ try {
 
   const result = spawnSync(
     process.execPath,
-    ["--test", join(output, "models.mjs")],
+    [
+      "--test",
+      join(output, "models.mjs"),
+      join(root, "scripts/charts-gesture-tests.mjs"),
+    ],
     { stdio: "inherit" },
   );
 

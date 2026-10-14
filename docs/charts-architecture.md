@@ -380,13 +380,14 @@ selection; hidden selected values stop rendering until made visible again.
 `onTouchesDown` worklet schedules selection from the first changed touch's
 local X/Y coordinates before activating on the UI thread. Taps do not wait for
 the pan's ACTIVE transition. Activation claims the touch before a parent scroll
-gesture begins. Native local X/Y coordinates are
+gesture begins. Pointer-down, pointer-move, and pointer-up drive selection independently of
+pan recognition. Native local X/Y coordinates are
 scheduled onto the React Native thread with `scheduleOnRN`; selection state
 and hit testing remain there. Gestures stay active outside the canvas and use
 one pointer. Disabled or zero-size charts do not activate.
 
 `updateChartGestureState` records whether the gesture hit a mark or exceeded
-the eight-pixel tap slop. Drag misses preserve selection. Successful release
+the eight-pixel tap slop. Drag misses preserve selection. Pointer-up
 flushes a drag's final native position without clearing on a miss; an empty
 tap clears selection. Touch-down also snapshots whether the hit belongs to
 the current selected target group; a completed tap on that group dismisses it.
@@ -494,7 +495,7 @@ models, layouts, appearance defaults, hit testing, category grouping, stacking,
 pie proportions, and clipping geometry. It does not run native components or
 mock the Skia renderer.
 
-At the documentation update on 2026-10-14, all 31 chart tests, chart typecheck and
+At the documentation update on 2026-10-14, all 35 chart tests, chart typecheck and
 build, and theme/Storybook typechecks passed. Package lint is unavailable because
 ESLint 9 cannot find a flat configuration; no new ESLint configuration was
 introduced. Native visual acceptance remains pending.

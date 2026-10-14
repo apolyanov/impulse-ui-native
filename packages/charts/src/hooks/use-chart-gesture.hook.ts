@@ -59,18 +59,21 @@ export function useChartGesture({
       selectAt(point, targets, plot, false),
     );
   });
-  const end = useEventCallback((point: ChartPoint, success: boolean) => {
+  const end = useEventCallback((point: ChartPoint) => {
     const current = state.current;
 
-    if (!current || !success) {
+    if (!current) {
       return;
     }
 
     const next = updateChartGestureState(current, point, false);
+    const shouldDismiss = dismissOnTap.current;
+    state.current = null;
+    dismissOnTap.current = false;
 
     if (next.dragged) {
       selectAt(point, targets, plot, false);
-    } else if (dismissOnTap.current) {
+    } else if (shouldDismiss) {
       clearSelection();
     } else if (!next.hasHit) {
       selectAt(current.origin, targets, plot, true);
@@ -101,15 +104,28 @@ export function useChartGesture({
           // Claim native touch ownership before a parent scroll can activate.
           manager.activate();
         })
-        .onUpdate((event) => {
+        .onTouchesMove((event) => {
           "worklet";
 
-          scheduleOnRN(move, { x: event.x, y: event.y });
+          const touch = event.changedTouches[0];
+
+          if (touch) {
+            scheduleOnRN(move, { x: touch.x, y: touch.y });
+          }
         })
-        .onEnd((event, success) => {
+        .onTouchesUp((event) => {
           "worklet";
 
-          scheduleOnRN(end, { x: event.x, y: event.y }, success);
+          const touch = event.changedTouches[0];
+
+          if (touch) {
+            scheduleOnRN(end, { x: touch.x, y: touch.y });
+          }
+        })
+        .onTouchesCancelled(() => {
+          "worklet";
+
+          scheduleOnRN(cancel);
         })
         .onFinalize(() => {
           "worklet";
