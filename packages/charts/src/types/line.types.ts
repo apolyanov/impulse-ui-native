@@ -1,3 +1,5 @@
+import type { AppTheme } from "@impulse-ui-native/theme";
+
 import {
   ChartXValue,
   LineChartCoordinate,
@@ -8,4 +10,5 @@ export interface LineProps<
   X extends ChartXValue = number,
 > extends LineChartLineOptions {
   coordinates: readonly LineChartCoordinate<X>[];
+  theme: AppTheme;
 }

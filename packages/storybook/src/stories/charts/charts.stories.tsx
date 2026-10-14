@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LineChart } from "@impulse-ui-native/charts";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
 
+import { ChartsConsistencyExample } from "./charts-consistency.example";
 import { ChartsDocumentation } from "./charts.documentation";
 import { ChartExample, ChartExampleDefinitions } from "./charts.examples";
 
@@ -24,12 +25,30 @@ export const Documentation: Story = {
   },
 };
 
+export const ConsistencyLight: Story = {
+  render: function renderConsistencyLight() {
+    return <ChartsConsistencyExample scheme="light" />;
+  },
+};
+
+export const ConsistencyDark: Story = {
+  render: function renderConsistencyDark() {
+    return <ChartsConsistencyExample scheme="dark" />;
+  },
+};
+
 export const Line: Story = createChartStory("Line");
 export const MultiLine: Story = createChartStory("MultiLine");
 export const Bar: Story = createChartStory("Bar");
 export const MultiBar: Story = createChartStory("MultiBar");
 export const Pie: Story = createChartStory("Pie");
 export const MultiPie: Story = createChartStory("MultiPie");
+export const Selection: Story = createChartStory("Selection");
+export const StackedHorizontal: Story = createChartStory("StackedHorizontal");
+export const Time: Story = createChartStory("Time");
+export const Single: Story = createChartStory("Single");
+export const NoGrid: Story = createChartStory("NoGrid");
+export const Empty: Story = createChartStory("Empty");
 
 function createChartStory(name: string): Story {
   const example = ChartExampleDefinitions.find((item) => item.name === name);

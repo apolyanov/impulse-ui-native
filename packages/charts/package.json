@@ -31,18 +31,17 @@
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore",
+    "test": "node ../../scripts/charts-tests.mjs"
   },
   "dependencies": {
     "@impulse-ui-native/primitives": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "d3-array": "catalog:",
-    "d3-interpolate": "catalog:",
     "d3-scale": "catalog:",
     "d3-shape": "catalog:",
-    "d3-time": "catalog:",
-    "d3-time-format": "catalog:"
+    "@impulse-ui-native/card": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",
@@ -50,17 +49,15 @@
     "@impulse-ui-native/tsconfig": "workspace:*",
     "@shopify/react-native-skia": "catalog:",
     "@types/d3-array": "^3.2.2",
-    "@types/d3-interpolate": "^3.0.4",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-shape": "^3.1.8",
-    "@types/d3-time": "^3.0.4",
-    "@types/d3-time-format": "^4.0.3",
     "@types/react": "catalog:react19",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "react": "catalog:react19",
     "react-native": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "@types/node": "catalog:"
   },
   "peerDependencies": {
     "@shopify/react-native-skia": ">=2",

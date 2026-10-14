@@ -1,12 +1,4 @@
-import { SkTypefaceFontProvider } from "@shopify/react-native-skia";
-
-import {
-  ChartInsets,
-  ChartScaleType,
-  ChartXAxisOptions,
-  ChartYAxisOptions,
-} from "./common.types";
-import { ChartGridOptions } from "./grid.types";
+import { ChartCartesianProps, ChartScaleType } from "./common.types";
 import {
   ChartStrokeCap,
   ChartStrokeJoin,
@@ -38,13 +30,10 @@ export interface LineChartLineOptions extends ChartStrokeStyle {
   join?: ChartStrokeJoin;
 }
 
-export interface LineChartCommonProps<X extends ChartXValue = number> {
-  fontManager?: SkTypefaceFontProvider;
-  grid?: ChartGridOptions;
+export interface LineChartCommonProps<
+  X extends ChartXValue = number,
+> extends ChartCartesianProps<X> {
   xScaleType?: ChartScaleType;
-  xAxis?: ChartXAxisOptions<X>;
-  yAxis?: ChartYAxisOptions;
-  insets?: Partial<ChartInsets>;
 }
 
 export interface LineChartProps<

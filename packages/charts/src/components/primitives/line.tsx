@@ -1,8 +1,12 @@
 import { useMemo } from "react";
-import { DashPathEffect, Path } from "@shopify/react-native-skia";
+import {
+  Circle,
+  DashPathEffect,
+  Group,
+  Path,
+} from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import {
   LineDefaultCap,
@@ -12,11 +16,12 @@ import {
 } from "../../constants";
 import { ChartXValue, LineProps } from "../../types";
 import { createLinePath } from "../../utils";
+import { getIsolatedLineCoordinates } from "../../utils/line-coordinates.util";
 
 export const Line = memo(function Line<X extends ChartXValue = number>(
   props: LineProps<X>,
 ) {
-  const tokens = useComponentsTokens().charts;
+  const tokens = props.theme.components.charts;
 
   const {
     cap = LineDefaultCap,
@@ -31,25 +36,44 @@ export const Line = memo(function Line<X extends ChartXValue = number>(
   } = props;
 
   const path = useMemo(
-    () => createLinePath(coordinates, curve),
-    [coordinates, curve],
+    () => (visible ? createLinePath(coordinates, curve) : null),
+    [coordinates, curve, visible],
   );
 
-  if (!visible || !path) {
+  const isolated = useMemo(
+    () => (visible ? getIsolatedLineCoordinates(coordinates) : []),
+    [coordinates, visible],
+  );
+
+  if (!visible) {
     return null;
   }
 
   return (
-    <Path
-      path={path}
-      color={color}
-      opacity={opacity}
-      strokeWidth={width}
-      style="stroke"
-      strokeCap={cap}
-      strokeJoin={join}
-    >
-      {dash?.length ? <DashPathEffect intervals={[...dash]} /> : null}
-    </Path>
+    <Group>
+      {path ? (
+        <Path
+          path={path}
+          color={color}
+          opacity={opacity}
+          strokeWidth={width}
+          style="stroke"
+          strokeCap={cap}
+          strokeJoin={join}
+        >
+          {dash?.length ? <DashPathEffect intervals={[...dash]} /> : null}
+        </Path>
+      ) : null}
+      {isolated.map((coordinate) => (
+        <Circle
+          key={coordinate.index}
+          cx={coordinate.x!}
+          cy={coordinate.y!}
+          r={Math.max(0, width / 2)}
+          color={color}
+          opacity={opacity}
+        />
+      ))}
+    </Group>
   );
 });

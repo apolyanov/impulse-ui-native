@@ -5,6 +5,7 @@ import type { ChartsTokens } from "@impulse-ui-native/theme";
 import { DefaultChartsTokens } from "../constants/charts.constants";
 import { UseMultiPieChartProps, UseMultiPieChartResult } from "../types";
 import { createMultiPieChartModel } from "../utils";
+import { normalizeChartNumber } from "../utils/chart-number.util";
 
 export function useMultiPieChart(
   props: UseMultiPieChartProps,
@@ -16,26 +17,27 @@ export function useMultiPieChart(
     outerRadius,
     padAngle,
     plot,
-    ringPadding,
     series,
     startAngle,
   } = props;
 
+  const ringPadding = normalizeChartNumber(
+    props.ringPadding,
+    tokens.pie.ringPadding,
+  );
+
   return useMemo(
     () =>
-      createMultiPieChartModel(
-        {
-          endAngle,
-          innerRadius,
-          outerRadius,
-          padAngle,
-          plot,
-          ringPadding,
-          series,
-          startAngle,
-        },
-        tokens,
-      ),
+      createMultiPieChartModel({
+        endAngle,
+        innerRadius,
+        outerRadius,
+        padAngle,
+        plot,
+        ringPadding,
+        series,
+        startAngle,
+      }),
     [
       endAngle,
       innerRadius,
@@ -45,7 +47,6 @@ export function useMultiPieChart(
       ringPadding,
       series,
       startAngle,
-      tokens,
     ],
   );
 }

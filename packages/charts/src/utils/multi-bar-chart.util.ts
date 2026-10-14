@@ -2,6 +2,7 @@ import { scaleBand } from "d3-scale";
 
 import type { ChartsTokens } from "@impulse-ui-native/theme";
 
+import type { BarChartStackOffsets } from "../types/bar-stack.types";
 import { DefaultChartsTokens } from "../constants/charts.constants";
 import {
   ChartXValue,
@@ -14,19 +15,27 @@ import {
   createBarChartScaleModel,
   normalizeBarChartPadding,
 } from "./bar-chart.util";
+import {
+  createStackedBarCoordinates,
+  createStackedBarDomainData,
+} from "./bar-stack.util";
+import { getChartColor } from "./chart-color.util";
 
 export function createMultiBarChartModel<X extends ChartXValue>(
   props: UseMultiBarChartProps<X>,
   tokens: ChartsTokens = DefaultChartsTokens,
 ): UseMultiBarChartResult<X> {
   const data = props.series.flatMap((series) => series.data);
+  const domainData =
+    props.mode === "stacked" ? createStackedBarDomainData(data) : data;
   const model = createBarChartScaleModel(
     {
-      data,
+      data: domainData,
       plot: props.plot,
       xAxis: props.xAxis,
       yAxis: props.yAxis,
       categoryPadding: props.categoryPadding,
+      orientation: props.orientation,
     },
     tokens,
   );
@@ -37,17 +46,27 @@ export function createMultiBarChartModel<X extends ChartXValue>(
       normalizeBarChartPadding(props.seriesPadding, tokens.bar.seriesPadding),
     );
   const seriesBandwidth = seriesScale.bandwidth();
+  const stackOffsets: BarChartStackOffsets = new Map();
   const series: MultiBarChartSeriesModel<X>[] = props.series.map(
     (currentSeries, index) => ({
       ...currentSeries,
-      coordinates: createBarChartCoordinates(
-        currentSeries.data,
-        model.xStartScale,
-        model.yScale,
-        model.baseline,
-        seriesBandwidth,
-        seriesScale(index) ?? 0,
-      ),
+      coordinates:
+        props.mode === "stacked"
+          ? createStackedBarCoordinates(
+              currentSeries.data,
+              model,
+              stackOffsets,
+              props.orientation,
+            )
+          : createBarChartCoordinates(
+              currentSeries.data,
+              model.xStartScale,
+              model.yScale,
+              model.baseline,
+              seriesBandwidth,
+              seriesScale(index) ?? 0,
+              props.orientation,
+            ),
     }),
   );
 
@@ -65,17 +84,14 @@ export function createMultiBarChartModel<X extends ChartXValue>(
 
 export function createDrawableMultiBarChartSeries<X extends ChartXValue>(
   series: MultiBarChartSeriesModel<X>,
-  index: number,
+  _index: number,
   tokens: ChartsTokens = DefaultChartsTokens,
 ): MultiBarChartSeriesModel<X> {
   return {
     ...series,
     bar: {
       ...series.bar,
-      color:
-        series.bar?.color ??
-        tokens.palette[index % tokens.palette.length] ??
-        tokens.palette[0],
+      color: series.bar?.color ?? getChartColor(series.id, tokens.palette),
     },
   };
 }

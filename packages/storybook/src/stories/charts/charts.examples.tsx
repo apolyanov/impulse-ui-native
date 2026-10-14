@@ -15,6 +15,7 @@ import {
   StoryExample,
   StoryExamplePropDefinition,
 } from "../../components/story-example";
+import { ChartsSelectionExample } from "./charts-selection.example";
 
 interface ChartExampleDefinition {
   name: string;
@@ -75,6 +76,109 @@ const pieData = [
 ];
 
 export const ChartExampleDefinitions = [
+  {
+    name: "Selection",
+    title: "Controlled selection and legends",
+    description:
+      "Tap or drag to select a category and compare overlapping series in the shared tooltip. Tap legend entries to toggle series.",
+    props: [
+      {
+        name: "selection / hiddenIds",
+        value: "controlled",
+        description:
+          "Selection and visibility can be controlled or left to the chart.",
+      },
+    ],
+    preview: <ChartsSelectionExample />,
+  },
+  {
+    name: "StackedHorizontal",
+    title: "Horizontal stacked bars",
+    description:
+      "Positive and negative values stack independently around zero. Category axis options remain on xAxis; numeric options remain on yAxis.",
+    props: [
+      {
+        name: "mode / orientation",
+        value: '"stacked" / "horizontal"',
+        description:
+          "Combines horizontal orientation with diverging stacked series.",
+      },
+    ],
+    preview: (
+      <MultiBarChart
+        series={multiBarSeries}
+        mode="stacked"
+        orientation="horizontal"
+        interactive
+        legend
+      />
+    ),
+  },
+  {
+    name: "Time",
+    title: "Date scale with a missing measurement",
+    description:
+      "Date data automatically uses a time scale. Null measurements split the line instead of connecting across the gap.",
+    props: [
+      {
+        name: "xAxis.format",
+        value: "date formatter",
+        description: "Formats date ticks without changing their scale.",
+      },
+    ],
+    preview: (
+      <LineChart
+        data={[
+          { x: new Date(2026, 0, 1), y: 4 },
+          { x: new Date(2026, 0, 2), y: 9 },
+          { x: new Date(2026, 0, 3), y: null },
+          { x: new Date(2026, 0, 4), y: 6 },
+          { x: new Date(2026, 0, 5), y: 8 },
+        ]}
+        xAxis={{ format: (date) => `${date.getMonth() + 1}/${date.getDate()}` }}
+        interactive
+      />
+    ),
+  },
+  {
+    name: "Single",
+    title: "Single point and constant domains",
+    description:
+      "A single measurement receives an expanded domain and remains selectable.",
+    props: [],
+    preview: (
+      <LineChart data={[{ x: 5, y: 10 }]} line={{ width: 8 }} interactive />
+    ),
+  },
+  {
+    name: "NoGrid",
+    title: "Disabled grid with visible axes",
+    description:
+      "Grid visibility does not change axis lines or ticks. Axis options control those independently.",
+    props: [
+      {
+        name: "grid",
+        value: "{ x: false, y: false }",
+        description: "Disables both sets of grid lines.",
+      },
+    ],
+    preview: <BarChart data={barData} grid={{ x: false, y: false }} />,
+  },
+  {
+    name: "Empty",
+    title: "Empty chart",
+    description:
+      "Empty and all-null data produce no marks. Supply emptyContent to explain the state in your application.",
+    props: [
+      {
+        name: "emptyContent",
+        value: "ReactNode",
+        description:
+          "Renders centered over the canvas when there are no drawable targets.",
+      },
+    ],
+    preview: <LineChart data={[]} />,
+  },
   {
     name: "Line",
     title: "Line chart",
@@ -151,6 +255,8 @@ export const ChartExampleDefinitions = [
         outerRadius={0.9}
         padAngle={2}
         slice={{ cornerRadius: 4 }}
+        interactive
+        legend
       />
     ),
   },
@@ -182,6 +288,8 @@ export const ChartExampleDefinitions = [
         innerRadius={0.2}
         outerRadius={0.9}
         ringPadding={4}
+        interactive
+        legend
       />
     ),
   },

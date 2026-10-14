@@ -20,6 +20,8 @@ import {
   getLabelTextAlign,
   getLabelY,
 } from "../../utils";
+import { normalizeChartNumber } from "../../utils/chart-number.util";
+import { resolveChartLabelTokens } from "../../utils/chart-theme.util";
 
 export const Label = memo(function Label(props: LabelProps) {
   const {
@@ -38,6 +40,17 @@ export const Label = memo(function Label(props: LabelProps) {
     verticalAlign = LabelDefaultVerticalAlignment,
   } = props;
 
+  const typography = resolveChartLabelTokens(theme);
+  const resolvedColor = color ?? typography.color;
+  const resolvedFontSize = normalizeChartNumber(
+    fontSize,
+    typography.fontSize,
+    1,
+  );
+  const resolvedFontFamily = fontFamily ?? typography.fontFamily;
+  const resolvedFontWeight = fontWeight ?? typography.fontWeight;
+  const resolvedMaxLines = Math.floor(normalizeChartNumber(maxLines, 1, 1));
+
   const paragraph = useMemo(() => {
     const fontFeatures: SkTextFontFeatures[] = [];
 
@@ -46,23 +59,17 @@ export const Label = memo(function Label(props: LabelProps) {
     }
 
     const textStyle: SkTextStyle = {
-      color: Skia.Color(color ?? theme.colors.text.secondary),
-      fontSize: fontSize ?? theme.fontSize.xs,
+      color: Skia.Color(resolvedColor),
+      fontSize: resolvedFontSize,
       fontFeatures,
+      fontFamilies: [resolvedFontFamily],
+      fontStyle: { weight: resolvedFontWeight },
     };
-
-    if (fontFamily) {
-      textStyle.fontFamilies = [fontFamily];
-    }
-
-    if (fontWeight !== undefined) {
-      textStyle.fontStyle = { weight: fontWeight };
-    }
 
     const result = createParagraphBuilder({
       paragraphStyle: {
         ellipsis: "\u2026",
-        maxLines: Math.max(1, Math.floor(maxLines)),
+        maxLines: resolvedMaxLines,
         textAlign: getLabelTextAlign(horizontalAlign),
       },
       typefaceProvider: fontManager,
@@ -72,22 +79,20 @@ export const Label = memo(function Label(props: LabelProps) {
       .pop()
       .build();
 
-    result.layout(rect.width);
+    result.layout(normalizeChartNumber(rect.width, 0));
 
     return result;
   }, [
-    color,
+    resolvedColor,
     fontManager,
-    fontFamily,
-    fontSize,
-    fontWeight,
+    resolvedFontFamily,
+    resolvedFontSize,
+    resolvedFontWeight,
     horizontalAlign,
     rect.width,
     text,
-    theme.colors.text.secondary,
-    theme.fontSize.xs,
     tnum,
-    maxLines,
+    resolvedMaxLines,
   ]);
 
   const rotationProps = useMemo(

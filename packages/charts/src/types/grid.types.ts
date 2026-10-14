@@ -21,12 +21,15 @@ export interface ResolvedGridLineOptions {
   dash?: readonly number[];
 }
 
-export interface GridProps<X extends ChartXValue = number> {
+export interface GridProps<
+  X extends ChartXValue = number,
+  Y extends ChartXValue = number,
+> {
   options?: ChartGridOptions;
   plot: ChartRect;
   theme: AppTheme;
   xTicks: readonly X[];
   xScale: LineChartScale<X>;
-  yTicks: readonly number[];
-  yScale: LineChartScale<number>;
+  yTicks: readonly Y[];
+  yScale: LineChartScale<Y>;
 }

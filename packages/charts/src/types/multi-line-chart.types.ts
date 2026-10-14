@@ -11,6 +11,7 @@ import {
 
 export interface MultiLineChartSeries<X extends ChartXValue = number> {
   id: string;
+  label?: string;
   data: readonly LineChartPoint<X>[];
   line?: LineChartLineOptions;
 }

@@ -5,8 +5,8 @@ import {
   UseMultiLineChartProps,
   UseMultiLineChartResult,
 } from "../types";
-import { createLineChartCoordinates } from "../utils";
-import { useLineChart } from "./use-line-chart.hook";
+import { createLineChartCoordinates } from "../utils/line-chart.util";
+import { useLineChartScale } from "./use-line-chart-scale.hook";
 
 export function useMultiLineChart<X extends ChartXValue = number>(
   props: UseMultiLineChartProps<X>,
@@ -18,13 +18,8 @@ export function useMultiLineChart<X extends ChartXValue = number>(
     [series],
   );
 
-  const { xDomain, xScale, xTicks, yDomain, yScale, yTicks } = useLineChart({
-    data,
-    plot,
-    xAxis,
-    xScaleType,
-    yAxis,
-  });
+  const { xDomain, xScale, xTicks, yDomain, yScale, yTicks } =
+    useLineChartScale({ data, plot, xAxis, xScaleType, yAxis });
 
   const seriesModels = useMemo(
     () =>

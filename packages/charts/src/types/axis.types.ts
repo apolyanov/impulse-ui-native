@@ -33,7 +33,9 @@ export interface CreateAxisLayoutProps<Value> {
   labelGap: number;
 }
 
-export interface CreateYAxisLayoutProps extends CreateAxisLayoutProps<number> {
+export interface CreateYAxisLayoutProps<
+  Value = number,
+> extends CreateAxisLayoutProps<Value> {
   fontSize: number;
 }
 
@@ -53,4 +55,4 @@ export interface XAxisProps<
   X extends ChartXValue = number,
 > extends AxisProps<X> {}
 
-export interface YAxisProps extends AxisProps<number> {}
+export interface YAxisProps<Value = number> extends AxisProps<Value> {}

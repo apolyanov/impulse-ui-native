@@ -11,9 +11,10 @@ import {
   resolveGridLineOptions,
 } from "../../utils";
 
-export const Grid = memo(function Grid<X extends ChartXValue = number>(
-  props: GridProps<X>,
-) {
+export const Grid = memo(function Grid<
+  X extends ChartXValue = number,
+  Y extends ChartXValue = number,
+>(props: GridProps<X, Y>) {
   const { options, plot, theme, xScale, xTicks, yScale, yTicks } = props;
 
   const xStyle = useMemo(
@@ -47,13 +48,15 @@ export const Grid = memo(function Grid<X extends ChartXValue = number>(
   );
 
   const xPath = useMemo(
-    () => createVerticalGridPath(xTicks, xScale, plot),
-    [plot, xScale, xTicks],
+    () =>
+      xStyle.visible ? createVerticalGridPath(xTicks, xScale, plot) : null,
+    [plot, xScale, xTicks, xStyle.visible],
   );
 
   const yPath = useMemo(
-    () => createHorizontalGridPath(yTicks, yScale, plot),
-    [plot, yScale, yTicks],
+    () =>
+      yStyle.visible ? createHorizontalGridPath(yTicks, yScale, plot) : null,
+    [plot, yScale, yTicks, yStyle.visible],
   );
 
   return (

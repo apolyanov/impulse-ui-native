@@ -1,5 +1,5 @@
+import type { ChartCartesianScaleModel } from "./chart-scale.types";
 import {
-  ChartNumericDomain,
   ChartRect,
   ChartScaleType,
   ChartXAxisOptions,
@@ -20,14 +20,10 @@ export interface UseLineChartProps<X extends ChartXValue = number> {
   yAxis?: ChartYAxisOptions;
 }
 
-export interface UseLineChartResult<X extends ChartXValue = number> {
-  xDomain: readonly X[];
-  yDomain: ChartNumericDomain;
-  xTicks: readonly X[];
-  yTicks: readonly number[];
+export interface UseLineChartResult<
+  X extends ChartXValue = number,
+> extends ChartCartesianScaleModel<X> {
   coordinates: readonly LineChartCoordinate<X>[];
-  xScale: LineChartScale<X>;
-  yScale: LineChartScale<number>;
 }
 
 export interface LineChartXScaleModel<X extends ChartXValue> {

@@ -1,12 +1,7 @@
-import { SkTypefaceFontProvider } from "@shopify/react-native-skia";
-
-import {
-  ChartInsets,
-  ChartXAxisOptions,
-  ChartYAxisOptions,
-} from "./common.types";
-import { ChartGridOptions } from "./grid.types";
+import { ChartCartesianProps } from "./common.types";
 import { ChartXValue } from "./line-chart.types";
+
+export type BarChartOrientation = "vertical" | "horizontal";
 
 export interface BarChartPoint<X extends ChartXValue = string> {
   x: X;
@@ -29,13 +24,11 @@ export interface BarChartBarOptions {
   radius?: number;
 }
 
-export interface BarChartCommonProps<X extends ChartXValue = string> {
-  fontManager?: SkTypefaceFontProvider;
-  grid?: ChartGridOptions;
-  xAxis?: ChartXAxisOptions<X>;
-  yAxis?: ChartYAxisOptions;
-  insets?: Partial<ChartInsets>;
+export interface BarChartCommonProps<
+  X extends ChartXValue = string,
+> extends ChartCartesianProps<X> {
   categoryPadding?: number;
+  orientation?: BarChartOrientation;
 }
 
 export interface BarChartProps<

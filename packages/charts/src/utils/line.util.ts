@@ -7,13 +7,21 @@ import {
   LineChartCoordinate,
   LineChartCurve,
 } from "../types";
+import {
+  isDrawableLineCoordinate,
+  isIsolatedLineCoordinate,
+} from "./line-coordinates.util";
 
 export function createLinePath<X extends ChartXValue>(
   coordinates: readonly LineChartCoordinate<X>[],
   curve: LineChartCurve,
 ): SkPath | null {
   const pathData = createD3Line<LineChartCoordinate<X>>()
-    .defined((coordinate) => coordinate.x !== null && coordinate.y !== null)
+    .defined(
+      (coordinate, index) =>
+        isDrawableLineCoordinate(coordinate) &&
+        !isIsolatedLineCoordinate(coordinates, index),
+    )
     .x((coordinate) => coordinate.x!)
     .y((coordinate) => coordinate.y!)
     .curve(curve === "monotone" ? curveMonotoneX : curveLinear)(coordinates);

@@ -10,7 +10,13 @@ export interface UseMultiBarChartProps<
   X extends ChartXValue = string,
 > extends Pick<
   MultiBarChartProps<X>,
-  "categoryPadding" | "series" | "seriesPadding" | "xAxis" | "yAxis"
+  | "categoryPadding"
+  | "series"
+  | "seriesPadding"
+  | "xAxis"
+  | "yAxis"
+  | "orientation"
+  | "mode"
 > {
   plot: ChartRect;
 }

@@ -19,7 +19,16 @@ const DegreesToRadians = Math.PI / 180;
 
 export function createPieChartModel(props: UsePieChartProps): PieChartModel {
   const data = props.data.filter(isValidPieChartPoint);
-  const total = data.reduce((sum, datum) => sum + datum.value, 0);
+  const indices = new Map(props.data.map((datum, index) => [datum, index]));
+  const maximumValue = data.reduce(
+    (maximum, datum) => Math.max(maximum, datum.value),
+    0,
+  );
+  const normalizedTotal = data.reduce(
+    (sum, datum) => sum + datum.value / maximumValue,
+    0,
+  );
+  const total = Math.min(Number.MAX_VALUE, normalizedTotal * maximumValue);
   const { center, innerRadius, outerRadius } = createPieChartRadii(
     props.plot,
     props.innerRadius,
@@ -41,14 +50,14 @@ export function createPieChartModel(props: UsePieChartProps): PieChartModel {
     degreesToRadians(normalizeAngle(props.padAngle, PieDefaultPadAngle)),
   );
   const arcs = pie<PieChartPoint>()
-    .value((datum) => datum.value)
+    .value((datum) => datum.value / maximumValue)
     .sort(null)
     .startAngle(startAngle)
     .endAngle(endAngle)
     .padAngle(padAngle)(data);
   const coordinates: PieChartCoordinate[] = arcs.map((currentArc) => ({
     datum: currentArc.data,
-    index: currentArc.index,
+    index: indices.get(currentArc.data)!,
     center,
     startAngle: currentArc.startAngle,
     endAngle: currentArc.endAngle,

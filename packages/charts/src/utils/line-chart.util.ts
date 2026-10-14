@@ -1,10 +1,7 @@
 import { extent } from "d3-array";
-import { scaleLinear, scalePoint, scaleTime } from "d3-scale";
+import { scalePoint, scaleTime } from "d3-scale";
 
-import {
-  LineChartDefaultNumericDomain,
-  LineChartDefaultTickCount,
-} from "../constants";
+import { LineChartDefaultNumericDomain } from "../constants/line-chart.constants";
 import {
   ChartNumericDomain,
   ChartXValue,
@@ -15,12 +12,19 @@ import {
   UseLineChartProps,
   UseLineChartResult,
 } from "../types";
+import { isFiniteChartCoordinate } from "./chart-number.util";
+import { createChartNumericScale } from "./chart-scale.util";
+import { getChartTickCount, selectChartTicks } from "./chart-ticks.util";
+import {
+  isValidChartXValue,
+  normalizeNumericDomain,
+} from "./numeric-domain.util";
 
-export function createLineChartModel<X extends ChartXValue>(
+export function createLineChartScaleModel<X extends ChartXValue>(
   props: UseLineChartProps<X>,
-): UseLineChartResult<X> {
-  const xTickCount = getTickCount(props.xAxis?.tickCount);
-  const yTickCount = getTickCount(props.yAxis?.tickCount);
+): Omit<UseLineChartResult<X>, "coordinates"> {
+  const xTickCount = getChartTickCount(props.xAxis?.tickCount);
+  const yTickCount = getChartTickCount(props.yAxis?.tickCount);
   const xRange: ChartNumericDomain = [
     props.plot.x,
     props.plot.x + props.plot.width,
@@ -30,46 +34,70 @@ export function createLineChartModel<X extends ChartXValue>(
     props.plot.y,
   ];
 
+  const xValues = props.data.map((point) => point.x);
   const xModel = createXScale(
-    props.data.map((point) => point.x),
-    props.xScaleType ?? "linear",
+    xValues,
+    props.xScaleType ?? inferChartScaleType(xValues),
     xRange,
     xTickCount,
   );
 
   const yValues = props.data.reduce<number[]>((values, point) => {
-    if (point.y !== null && Number.isFinite(point.y)) {
+    if (
+      point.y !== null &&
+      Number.isFinite(point.y) &&
+      Number.isFinite(xModel.scale(point.x))
+    ) {
       values.push(point.y);
     }
 
     return values;
   }, []);
-  const yDomain = props.yAxis?.domain ?? getNumericDomain(yValues);
-  const d3YScale = scaleLinear().domain(yDomain).range(yRange);
-
-  if (!props.yAxis?.domain && yTickCount > 0) {
-    d3YScale.nice(yTickCount);
-  }
-
-  const resolvedYDomain = d3YScale.domain() as [number, number];
-
-  const yScale: LineChartScale<number> = (value) => d3YScale(value);
-
-  const coordinates = createLineChartCoordinates(
-    props.data,
-    xModel.scale,
-    yScale,
+  const yDomain = normalizeNumericDomain(
+    props.yAxis?.domain ?? getNumericDomain(yValues),
+  );
+  const numeric = createChartNumericScale(
+    yDomain,
+    yRange,
+    yTickCount,
+    !props.yAxis?.domain,
   );
 
   return {
     xDomain: xModel.domain,
-    yDomain: resolvedYDomain,
+    yDomain: numeric.domain,
     xTicks: xModel.ticks,
-    yTicks: d3YScale.ticks(yTickCount),
-    coordinates,
+    yTicks: numeric.ticks,
     xScale: xModel.scale,
-    yScale,
+    yScale: numeric.scale,
   };
+}
+
+export function createLineChartModel<X extends ChartXValue>(
+  props: UseLineChartProps<X>,
+): UseLineChartResult<X> {
+  const model = createLineChartScaleModel(props);
+
+  return {
+    ...model,
+    coordinates: createLineChartCoordinates(
+      props.data,
+      model.xScale,
+      model.yScale,
+    ),
+  };
+}
+
+export function inferChartScaleType(
+  values: readonly ChartXValue[],
+): "linear" | "point" | "time" {
+  const first = values.find(isValidChartXValue);
+
+  if (typeof first === "string") {
+    return "point";
+  }
+
+  return first instanceof Date ? "time" : "linear";
 }
 
 export function createLineChartCoordinates<X extends ChartXValue>(
@@ -84,8 +112,8 @@ export function createLineChartCoordinates<X extends ChartXValue>(
     return {
       datum,
       index,
-      x: isFiniteCoordinate(x) ? x : null,
-      y: isFiniteCoordinate(y) ? y : null,
+      x: isFiniteChartCoordinate(x) ? x : null,
+      y: isFiniteChartCoordinate(y) ? y : null,
     };
   });
 }
@@ -97,12 +125,14 @@ function createXScale<X extends ChartXValue>(
   tickCount: number,
 ): LineChartXScaleModel<X> {
   if (scaleType === "point") {
-    const d3Scale = scalePoint<X>().domain(values).range(range);
+    const d3Scale = scalePoint<X>()
+      .domain(values.filter(isValidChartXValue))
+      .range(range);
     const domain = d3Scale.domain();
 
     return {
       domain,
-      ticks: selectPointTicks(domain, tickCount),
+      ticks: selectChartTicks(domain, tickCount),
       scale: (value) => d3Scale(value),
     };
   }
@@ -115,7 +145,12 @@ function createXScale<X extends ChartXValue>(
     const [minimum, maximum] = extent(dates);
     const domain =
       minimum && maximum
-        ? ([minimum, maximum] as const)
+        ? minimum.getTime() === maximum.getTime()
+          ? ([
+              new Date(minimum.getTime() - 1),
+              new Date(maximum.getTime() + 1),
+            ] as const)
+          : ([minimum, maximum] as const)
         : ([new Date(0), new Date(1)] as const);
     const d3Scale = scaleTime().domain(domain).range(range);
 
@@ -137,58 +172,27 @@ function createXScale<X extends ChartXValue>(
     (value): value is Extract<X, number> =>
       typeof value === "number" && Number.isFinite(value),
   );
-  const d3Scale = scaleLinear().domain(getNumericDomain(numbers)).range(range);
-
-  if (tickCount > 0) {
-    d3Scale.nice(tickCount);
-  }
+  const numeric = createChartNumericScale(
+    getNumericDomain(numbers),
+    range,
+    tickCount,
+    true,
+  );
 
   return {
-    domain: d3Scale.domain() as X[],
-    ticks: d3Scale.ticks(tickCount) as X[],
+    domain: [...numeric.domain] as X[],
+    ticks: numeric.ticks as readonly X[],
     scale: (value) =>
-      typeof value === "number" && Number.isFinite(value)
-        ? d3Scale(value)
-        : undefined,
+      typeof value === "number" ? numeric.scale(value) : undefined,
   };
 }
 
 function getNumericDomain(values: readonly number[]): ChartNumericDomain {
   const [minimum, maximum] = extent(values);
 
-  return minimum === undefined || maximum === undefined
-    ? LineChartDefaultNumericDomain
-    : [minimum, maximum];
-}
-
-function getTickCount(tickCount: number | undefined): number {
-  return tickCount === undefined || !Number.isFinite(tickCount)
-    ? LineChartDefaultTickCount
-    : Math.max(0, Math.floor(tickCount));
-}
-
-function selectPointTicks<X>(values: readonly X[], tickCount: number): X[] {
-  if (tickCount <= 0 || values.length === 0) {
-    return [];
-  }
-
-  if (values.length <= tickCount) {
-    return [...values];
-  }
-
-  if (tickCount === 1) {
-    return [values[0]!];
-  }
-
-  const lastIndex = values.length - 1;
-
-  return Array.from({ length: tickCount }, (_, index) => {
-    const valueIndex = Math.round((index * lastIndex) / (tickCount - 1));
-
-    return values[valueIndex]!;
-  });
-}
-
-function isFiniteCoordinate(value: number | undefined): value is number {
-  return value !== undefined && Number.isFinite(value);
+  return normalizeNumericDomain(
+    minimum === undefined || maximum === undefined
+      ? LineChartDefaultNumericDomain
+      : [minimum, maximum],
+  );
 }

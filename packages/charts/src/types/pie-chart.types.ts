@@ -1,9 +1,10 @@
-import { ChartInsets, ChartPoint } from "./common.types";
+import { ChartContainerProps, ChartPoint } from "./common.types";
 
 export interface PieChartPoint {
   id: string;
   value: number;
   color?: string;
+  label?: string;
 }
 
 export interface PieChartCoordinate {
@@ -27,8 +28,7 @@ export interface PieChartSliceOptions {
   strokeWidth?: number;
 }
 
-export interface PieChartCommonProps {
-  insets?: Partial<ChartInsets>;
+export interface PieChartCommonProps extends ChartContainerProps {
   innerRadius?: number;
   outerRadius?: number;
   padAngle?: number;

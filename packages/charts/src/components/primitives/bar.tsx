@@ -1,7 +1,6 @@
 import { Group, RoundedRect } from "@shopify/react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { BarDefaultOpacity, BarDefaultRadius } from "../../constants";
 import { BarProps, ChartXValue } from "../../types";
@@ -9,13 +8,13 @@ import { BarProps, ChartXValue } from "../../types";
 export const Bar = memo(function Bar<X extends ChartXValue = string>(
   props: BarProps<X>,
 ) {
-  const tokens = useComponentsTokens().charts;
+  const tokens = props.theme.components.charts;
 
   const {
     color = tokens.palette[0],
     coordinates,
     opacity = BarDefaultOpacity,
-    radius = BarDefaultRadius,
+    radius = tokens.bar.radius ?? BarDefaultRadius,
     visible = true,
   } = props;
 

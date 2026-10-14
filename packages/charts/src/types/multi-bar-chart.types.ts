@@ -8,6 +8,7 @@ import { ChartXValue } from "./line-chart.types";
 
 export interface MultiBarChartSeries<X extends ChartXValue = string> {
   id: string;
+  label?: string;
   data: readonly BarChartPoint<X>[];
   bar?: BarChartBarOptions;
 }
@@ -23,4 +24,5 @@ export interface MultiBarChartProps<
 > extends BarChartCommonProps<X> {
   series: readonly MultiBarChartSeries<X>[];
   seriesPadding?: number;
+  mode?: "grouped" | "stacked";
 }

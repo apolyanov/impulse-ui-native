@@ -1,15 +1,14 @@
 import { extent } from "d3-array";
-import { scaleBand, scaleLinear } from "d3-scale";
+import { scaleBand } from "d3-scale";
 
 import type { ChartsTokens } from "@impulse-ui-native/theme";
 
+import type { BarChartScaleModel } from "../types/chart-scale.types";
 import { DefaultChartsTokens } from "../constants/charts.constants";
-import {
-  LineChartDefaultNumericDomain,
-  LineChartDefaultTickCount,
-} from "../constants/line-chart.constants";
+import { LineChartDefaultNumericDomain } from "../constants/line-chart.constants";
 import {
   BarChartCoordinate,
+  BarChartOrientation,
   BarChartPoint,
   ChartNumericDomain,
   ChartXValue,
@@ -17,18 +16,19 @@ import {
   UseBarChartProps,
   UseBarChartResult,
 } from "../types";
+import { createBarChartRectangle } from "./bar-geometry.util";
+import {
+  isFiniteChartCoordinate,
+  normalizeChartNumber,
+} from "./chart-number.util";
+import { createChartNumericScale } from "./chart-scale.util";
+import { getChartTickCount, selectChartTicks } from "./chart-ticks.util";
+import {
+  isValidChartXValue,
+  normalizeNumericDomain,
+} from "./numeric-domain.util";
 
-export interface BarChartScaleModel<X extends ChartXValue> {
-  xDomain: readonly X[];
-  yDomain: ChartNumericDomain;
-  xTicks: readonly X[];
-  yTicks: readonly number[];
-  xScale: LineChartScale<X>;
-  xStartScale: LineChartScale<X>;
-  yScale: LineChartScale<number>;
-  bandwidth: number;
-  baseline: number;
-}
+export type { BarChartScaleModel } from "../types/chart-scale.types";
 
 export function createBarChartModel<X extends ChartXValue>(
   props: UseBarChartProps<X>,
@@ -50,6 +50,8 @@ export function createBarChartModel<X extends ChartXValue>(
       model.yScale,
       model.baseline,
       model.bandwidth,
+      0,
+      props.orientation,
     ),
   };
 }
@@ -61,10 +63,11 @@ export function createBarChartCoordinates<X extends ChartXValue>(
   baseline: number,
   width: number,
   offset = 0,
+  orientation: BarChartOrientation = "vertical",
 ): BarChartCoordinate<X>[] {
   const baselineY = yScale(baseline);
 
-  if (!isFiniteCoordinate(baselineY) || width <= 0) {
+  if (!isFiniteChartCoordinate(baselineY) || width <= 0) {
     return [];
   }
 
@@ -72,18 +75,21 @@ export function createBarChartCoordinates<X extends ChartXValue>(
     const x = xStartScale(datum.x);
     const valueY = datum.y === null ? undefined : yScale(datum.y);
 
-    if (!isFiniteCoordinate(x) || !isFiniteCoordinate(valueY)) {
+    if (!isFiniteChartCoordinate(x) || !isFiniteChartCoordinate(valueY)) {
       return coordinates;
     }
 
-    coordinates.push({
-      datum,
-      index,
-      x: x + offset,
-      y: Math.min(valueY, baselineY),
-      width,
-      height: Math.abs(baselineY - valueY),
-    });
+    coordinates.push(
+      createBarChartRectangle(
+        datum,
+        index,
+        x + offset,
+        baselineY,
+        valueY,
+        width,
+        orientation,
+      ),
+    );
 
     return coordinates;
   }, []);
@@ -93,8 +99,8 @@ export function createBarChartScaleModel<X extends ChartXValue>(
   props: UseBarChartProps<X>,
   tokens: ChartsTokens = DefaultChartsTokens,
 ): BarChartScaleModel<X> {
-  const xTickCount = getTickCount(props.xAxis?.tickCount);
-  const yTickCount = getTickCount(props.yAxis?.tickCount);
+  const xTickCount = getChartTickCount(props.xAxis?.tickCount);
+  const yTickCount = getChartTickCount(props.yAxis?.tickCount);
   const categoryPadding = normalizeBarChartPadding(
     props.categoryPadding,
     tokens.bar.categoryPadding,
@@ -103,9 +109,13 @@ export function createBarChartScaleModel<X extends ChartXValue>(
     .domain(
       props.data
         .map((point) => point.x)
-        .filter((value) => isValidXValue(value)),
+        .filter((value) => isValidChartXValue(value)),
     )
-    .range([props.plot.x, props.plot.x + props.plot.width])
+    .range(
+      props.orientation === "horizontal"
+        ? [props.plot.y, props.plot.y + props.plot.height]
+        : [props.plot.x, props.plot.x + props.plot.width],
+    )
     .paddingInner(categoryPadding)
     .paddingOuter(categoryPadding / 2);
   const xDomain = xBandScale.domain();
@@ -120,35 +130,38 @@ export function createBarChartScaleModel<X extends ChartXValue>(
   };
 
   const values = props.data.reduce<number[]>((result, point) => {
-    if (point.y !== null && Number.isFinite(point.y)) {
+    if (
+      point.y !== null &&
+      Number.isFinite(point.y) &&
+      isValidChartXValue(point.x)
+    ) {
       result.push(point.y);
     }
 
     return result;
   }, []);
-  const yDomain = props.yAxis?.domain ?? getBarNumericDomain(values);
-  const d3YScale = scaleLinear()
-    .domain(yDomain)
-    .range([props.plot.y + props.plot.height, props.plot.y]);
-
-  if (!props.yAxis?.domain && yTickCount > 0) {
-    d3YScale.nice(yTickCount);
-  }
-
-  const resolvedYDomain = d3YScale.domain() as [number, number];
-
-  const yScale: LineChartScale<number> = (value) => d3YScale(value);
+  const yDomain = normalizeNumericDomain(
+    props.yAxis?.domain ?? getBarNumericDomain(values),
+  );
+  const numeric = createChartNumericScale(
+    yDomain,
+    props.orientation === "horizontal"
+      ? [props.plot.x, props.plot.x + props.plot.width]
+      : [props.plot.y + props.plot.height, props.plot.y],
+    yTickCount,
+    !props.yAxis?.domain,
+  );
 
   return {
     xDomain,
-    yDomain: resolvedYDomain,
-    xTicks: selectTicks(xDomain, xTickCount),
-    yTicks: d3YScale.ticks(yTickCount),
+    yDomain: numeric.domain,
+    xTicks: selectChartTicks(xDomain, xTickCount),
+    yTicks: numeric.ticks,
     xScale,
     xStartScale,
-    yScale,
+    yScale: numeric.scale,
     bandwidth,
-    baseline: getBaseline(resolvedYDomain),
+    baseline: getBaseline(numeric.domain),
   };
 }
 
@@ -179,49 +192,9 @@ function getBaseline(domain: ChartNumericDomain): number {
   return 0;
 }
 
-function getTickCount(tickCount: number | undefined): number {
-  return tickCount === undefined || !Number.isFinite(tickCount)
-    ? LineChartDefaultTickCount
-    : Math.max(0, Math.floor(tickCount));
-}
-
 export function normalizeBarChartPadding(
   value: number | undefined,
   fallback: number,
 ): number {
-  const padding =
-    value === undefined || !Number.isFinite(value) ? fallback : value;
-
-  return Math.min(1, Math.max(0, padding));
-}
-
-function selectTicks<X>(values: readonly X[], tickCount: number): X[] {
-  if (tickCount <= 0 || values.length === 0) {
-    return [];
-  }
-
-  if (values.length <= tickCount) {
-    return [...values];
-  }
-
-  if (tickCount === 1) {
-    return [values[0]!];
-  }
-
-  const lastIndex = values.length - 1;
-
-  return Array.from(
-    { length: tickCount },
-    (_, index) => values[Math.round((index * lastIndex) / (tickCount - 1))]!,
-  );
-}
-
-function isFiniteCoordinate(value: number | undefined): value is number {
-  return value !== undefined && Number.isFinite(value);
-}
-
-function isValidXValue<X extends ChartXValue>(value: X): boolean {
-  return value instanceof Date
-    ? Number.isFinite(value.getTime())
-    : typeof value === "string" || Number.isFinite(value);
+  return normalizeChartNumber(value, fallback, 0, 1);
 }

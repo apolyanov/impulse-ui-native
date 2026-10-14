@@ -1,24 +1,42 @@
 import { ChartInsets, ChartLayout, ChartRect, ChartSize } from "../types";
+import { normalizeChartNumber } from "./chart-number.util";
 
 export function createChartLayout(
   size: ChartSize,
   insets: Partial<ChartInsets> = {},
   defaultInsets: Partial<ChartInsets> = {},
 ): ChartLayout {
-  const resolvedInsets: ChartInsets = {
-    top: insets.top ?? defaultInsets.top ?? 0,
-    right: insets.right ?? defaultInsets.right ?? 0,
-    bottom: insets.bottom ?? defaultInsets.bottom ?? 0,
-    left: insets.left ?? defaultInsets.left ?? 0,
+  const resolvedSize = {
+    width: normalizeChartNumber(size.width, 0),
+    height: normalizeChartNumber(size.height, 0),
   };
+  const resolvedInsets: ChartInsets = {
+    top: normalizeChartNumber(insets.top, defaultInsets.top ?? 0),
+    right: normalizeChartNumber(insets.right, defaultInsets.right ?? 0),
+    bottom: normalizeChartNumber(insets.bottom, defaultInsets.bottom ?? 0),
+    left: normalizeChartNumber(insets.left, defaultInsets.left ?? 0),
+  };
+
+  const horizontalRatio = Math.min(
+    1,
+    resolvedSize.width / (resolvedInsets.left + resolvedInsets.right || 1),
+  );
+  const verticalRatio = Math.min(
+    1,
+    resolvedSize.height / (resolvedInsets.top + resolvedInsets.bottom || 1),
+  );
+  resolvedInsets.left *= horizontalRatio;
+  resolvedInsets.right *= horizontalRatio;
+  resolvedInsets.top *= verticalRatio;
+  resolvedInsets.bottom *= verticalRatio;
 
   const plotWidth = Math.max(
     0,
-    size.width - resolvedInsets.left - resolvedInsets.right,
+    resolvedSize.width - resolvedInsets.left - resolvedInsets.right,
   );
   const plotHeight = Math.max(
     0,
-    size.height - resolvedInsets.top - resolvedInsets.bottom,
+    resolvedSize.height - resolvedInsets.top - resolvedInsets.bottom,
   );
 
   const plot = {
@@ -29,7 +47,7 @@ export function createChartLayout(
   };
 
   return {
-    size,
+    size: resolvedSize,
     insets: resolvedInsets,
     plot,
     xAxis: {
@@ -57,5 +75,26 @@ export function createInsetRect(rect: ChartRect, amount: number): ChartRect {
     y: rect.y + verticalInset,
     width: Math.max(0, rect.width - horizontalInset * 2),
     height: Math.max(0, rect.height - verticalInset * 2),
+  };
+}
+
+/** Keep stroke centers on the scale while allowing endpoint caps to extend. */
+export function createChartStrokeClip(
+  plot: ChartRect,
+  width: number,
+  size: ChartSize,
+): ChartRect {
+  const padding = Number.isFinite(width) ? Math.max(0, width / 2) : 0;
+  const x = Math.max(0, plot.x - padding);
+  const y = Math.max(0, plot.y - padding);
+
+  return {
+    x,
+    y,
+    width: Math.max(0, Math.min(size.width, plot.x + plot.width + padding) - x),
+    height: Math.max(
+      0,
+      Math.min(size.height, plot.y + plot.height + padding) - y,
+    ),
   };
 }

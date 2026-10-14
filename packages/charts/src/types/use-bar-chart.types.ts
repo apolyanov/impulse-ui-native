@@ -1,11 +1,15 @@
-import { BarChartCoordinate, BarChartPoint } from "./bar-chart.types";
+import type { ChartCartesianScaleModel } from "./chart-scale.types";
 import {
-  ChartNumericDomain,
+  BarChartCoordinate,
+  BarChartOrientation,
+  BarChartPoint,
+} from "./bar-chart.types";
+import {
   ChartRect,
   ChartXAxisOptions,
   ChartYAxisOptions,
 } from "./common.types";
-import { ChartXValue, LineChartScale } from "./line-chart.types";
+import { ChartXValue } from "./line-chart.types";
 
 export interface UseBarChartProps<X extends ChartXValue = string> {
   data: readonly BarChartPoint<X>[];
@@ -13,15 +17,12 @@ export interface UseBarChartProps<X extends ChartXValue = string> {
   xAxis?: ChartXAxisOptions<X>;
   yAxis?: ChartYAxisOptions;
   categoryPadding?: number;
+  orientation?: BarChartOrientation;
 }
 
-export interface UseBarChartResult<X extends ChartXValue = string> {
-  xDomain: readonly X[];
-  yDomain: ChartNumericDomain;
-  xTicks: readonly X[];
-  yTicks: readonly number[];
+export interface UseBarChartResult<
+  X extends ChartXValue = string,
+> extends ChartCartesianScaleModel<X> {
   coordinates: readonly BarChartCoordinate<X>[];
-  xScale: LineChartScale<X>;
-  yScale: LineChartScale<number>;
   bandwidth: number;
 }

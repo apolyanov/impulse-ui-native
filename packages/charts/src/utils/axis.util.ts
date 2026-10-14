@@ -6,6 +6,7 @@ import {
   CreateYAxisLayoutProps,
   LineChartScale,
 } from "../types";
+import { formatChartXValue } from "./chart-format.util";
 
 export function createAxisTicks<Value>(
   values: readonly Value[],
@@ -43,9 +44,9 @@ export function createXAxisLayout<Value>(
   };
 }
 
-export function createYAxisLayout(
-  props: CreateYAxisLayoutProps,
-): AxisLayout<number> {
+export function createYAxisLayout<Value = number>(
+  props: CreateYAxisLayoutProps<Value>,
+): AxisLayout<Value> {
   const ticks = createAxisTicks(props.values, props.scale);
   const axisX = props.plot.x;
   const labelWidth = props.region.width - props.tickLength - props.labelGap;
@@ -116,5 +117,9 @@ export function formatAxisTick<Value>(
   value: Value,
   format?: (value: Value) => string,
 ): string {
-  return format ? format(value) : String(value);
+  return format
+    ? format(value)
+    : value instanceof Date
+      ? formatChartXValue(value)
+      : String(value);
 }

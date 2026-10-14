@@ -24,6 +24,7 @@ interface ChartAxesProps<X extends ChartXValue> {
   yAxis?: ChartYAxisOptions;
   yScale: LineChartScale<number>;
   yTicks: readonly number[];
+  orientation?: "vertical" | "horizontal";
 }
 
 export const ChartAxes = memo(function ChartAxes<
@@ -40,8 +41,49 @@ export const ChartAxes = memo(function ChartAxes<
     yAxis,
     yScale,
     yTicks,
+    orientation = "vertical",
   } = props;
   const isGridStyle = grid !== undefined;
+
+  if (orientation === "horizontal") {
+    return (
+      <>
+        {isGridStyle ? (
+          <Grid
+            options={grid}
+            plot={layout.plot}
+            theme={theme}
+            xTicks={yTicks}
+            xScale={yScale}
+            yTicks={xTicks}
+            yScale={xScale}
+          />
+        ) : null}
+        {yAxis?.visible !== false ? (
+          <XAxis
+            ticks={yTicks}
+            scale={yScale}
+            plot={layout.plot}
+            region={layout.xAxis}
+            theme={theme}
+            options={yAxis}
+            fontManager={fontManager}
+          />
+        ) : null}
+        {xAxis?.visible !== false ? (
+          <YAxis
+            ticks={xTicks}
+            scale={xScale}
+            plot={layout.plot}
+            region={layout.yAxis}
+            theme={theme}
+            options={xAxis}
+            fontManager={fontManager}
+          />
+        ) : null}
+      </>
+    );
+  }
 
   return (
     <>
@@ -66,8 +108,6 @@ export const ChartAxes = memo(function ChartAxes<
           theme={theme}
           options={xAxis}
           fontManager={fontManager}
-          lineVisible={!isGridStyle}
-          tickVisible={!isGridStyle}
         />
       ) : null}
 
@@ -80,8 +120,6 @@ export const ChartAxes = memo(function ChartAxes<
           theme={theme}
           options={yAxis}
           fontManager={fontManager}
-          lineVisible={!isGridStyle}
-          tickVisible={!isGridStyle}
         />
       ) : null}
     </>

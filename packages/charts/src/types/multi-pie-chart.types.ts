@@ -7,6 +7,7 @@ import {
 
 export interface MultiPieChartSeries {
   id: string;
+  label?: string;
   data: readonly PieChartPoint[];
   slice?: PieChartSliceOptions;
 }
