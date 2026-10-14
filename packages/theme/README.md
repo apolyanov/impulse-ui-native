@@ -144,7 +144,8 @@ insets, axis/grid/line widths, axis tick length and label gap, bar padding/round
 pie ring padding/rounding, typography, selection markers, legends, and tooltip
 placement. `createChartsLabelTokens` and `ChartsLabelTokens` provide the same font
 family, weight, size, and color defaults for native chart text and Skia labels.
-Chart tooltips reuse Card surface/content tokens; legend press feedback and
+Chart tooltip surface, border, radius, text color, padding, and gap come from
+`components.charts.tooltip`; legend press feedback and
 hidden opacity reuse Pressable tokens. New appearance groups are optional for
 compatibility with older complete chart token objects. The palette defaults to `ChartColorTokens`; override
 `components.charts.palette` to customize series colors. Explicit component and

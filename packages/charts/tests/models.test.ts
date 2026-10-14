@@ -517,6 +517,18 @@ test("partial chart token overrides preserve the shared appearance contract", ()
   assert.equal(custom.label?.fontSize, 18);
   assert.equal(custom.legend?.gap, 10);
   assert.equal(custom.tooltip?.offset, 10);
+  assert.equal(custom.tooltip?.padding, 10);
+  assert.equal(custom.tooltip?.gap, 10);
+  assert.equal(
+    custom.tooltip?.backgroundColor,
+    LightTheme.colors.surface.elevated.value,
+  );
+  assert.equal(
+    custom.tooltip?.borderColor,
+    LightTheme.colors.border.subtle.value,
+  );
+  assert.equal(custom.tooltip?.borderWidth, LightTheme.borderSize.sm);
+  assert.equal(custom.tooltip?.borderRadius, LightTheme.radii.sm);
   assert.equal(custom.selection?.width, LightTheme.borderSize.md);
 });
 

@@ -106,7 +106,7 @@ export function ChartsConsistencyGallery() {
     <View flex={1} backgroundColor={theme.colors.surface.primary.value}>
       <StoryDocumentationPage
         title="Chart consistency"
-        description="Compare shared spacing, fonts, rounding, selection markers, Card tooltips, and toggleable legends across all six charts. Tap or drag within a chart to inspect values."
+        description="Compare shared spacing, fonts, rounding, selection markers, tooltips, and toggleable legends across all six charts. Tap or drag within a chart to inspect values."
       >
         {examples.map((example) => (
           <Card.Root key={example.name}>

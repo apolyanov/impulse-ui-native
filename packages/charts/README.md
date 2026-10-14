@@ -301,7 +301,7 @@ ref-only consumers.
 See [the complete architecture and reuse map](../../docs/charts-architecture.md)
 for package ownership, every model/rendering layer, and the shared data flow.
 Native legend and tooltip text and Skia labels resolve the same chart typography.
-Legends reuse the shared Pressable behavior; tooltips reuse Card surfaces/content.
+Legends reuse the shared Pressable behavior; ChartTooltip owns its themed surface and rows.
 All chart frames resolve the same inset defaults, and bar/pie rounding defaults
 come from the shared radius scale.
 
@@ -309,7 +309,7 @@ The theme factory also supplies optional chart `label`, `selection`, `legend`, a
 `tooltip` tokens. Existing complete `ChartsTokens` objects remain valid: missing
 additions fall back to shared theme scales. Override `bar.radius` and
 `pie.cornerRadius` globally or their existing component props individually.
-Card tokens style the default tooltip surface and content spacing.
+Configure the tooltip with `components.charts.tooltip`: `backgroundColor`, `color`, `borderColor`, `borderWidth`, `borderRadius`, `padding`, and `gap`. `ChartTooltip` is exported for reuse with a `details` array, native View props, and a `style` override.
 
 Load your fonts in the host. If Skia cannot resolve the registered font, supply
 `fontManager` to Cartesian charts for the same glyphs used by native Typography.

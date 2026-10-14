@@ -31,7 +31,17 @@ export function createChartsTokens(tokens: PrimitiveThemeTokens): ChartsTokens {
       swatchSize: tokens.space.mxs,
       swatchRadius: tokens.radii.sm,
     },
-    tooltip: { offset: tokens.space.xs, maxWidth: "90%" },
+    tooltip: {
+      offset: tokens.space.xs,
+      maxWidth: "90%",
+      backgroundColor: tokens.colors.surface.elevated.value,
+      color: tokens.colors.text.primary,
+      borderColor: tokens.colors.border.subtle.value,
+      borderWidth: tokens.borderSize.sm,
+      borderRadius: tokens.radii.sm,
+      padding: tokens.space.xs,
+      gap: tokens.space.xs,
+    },
   };
 }
 

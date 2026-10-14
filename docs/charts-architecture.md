@@ -19,7 +19,7 @@ flowchart TD
   Geometry --> Targets[Hit targets and indexed selection]
   Targets --> Surface
   Surface --> Native[primitives: View, Pressable, Typography]
-  Surface --> Tooltip[Card.Root and Card.Content]
+  Surface --> Tooltip[ChartTooltip: themed surface and rows]
   Surface --> Skia[Skia Canvas and marks]
   Charts --> Axes[ChartAxes: physical axis mapping]
   Axes --> Axis[One ChartAxis and ChartStroke renderer]
@@ -33,7 +33,6 @@ flowchart TD
 | `core`               | Generic-preserving `memo`, stable event callbacks, controlled/uncontrolled state | Components, responder handlers, selection, and visibility.                                              |
 | `theme`              | Primitive scales, component tokens, theme provider, themed styles                | Shared chart typography, palette, insets, rounding, marker geometry, and legend/tooltip placement.      |
 | `primitives`         | `View`, `Pressable`, `Typography.Master`                                         | Native frame/overlays, legend press feedback, text/font resolution, swatches, and tooltip rows.         |
-| `card`               | `Card.Root`, `Card.Content`                                                      | Tooltip surface, border, rounding, content spacing, and theme customization.                            |
 | `charts`             | Chart-specific models, axes, hit testing, and rendering                          | Geometry and presentation contracts that depend on chart data.                                          |
 | `storybook`          | Documentation pages and native examples                                          | Basic usage, edge cases, controlled interactions, and six-chart light/dark comparison galleries.        |
 | `toolkit`            | Public aggregation                                                               | Re-exports the charts package; contains no chart implementation.                                        |
@@ -43,7 +42,7 @@ flowchart TD
 `data-state` remains an application-level composition option for loading/error
 flows. Chart `emptyContent` renders the application's supplied node; charts do
 not manufacture generic state actions. Modal/overlay/portal infrastructure is
-unnecessary for the local, non-interactive tooltip.
+unnecessary for the local tooltip.
 
 ## Public chart paths
 
@@ -71,7 +70,7 @@ Paths below are relative to `packages/charts/src` unless noted otherwise.
 | Shared frame         | `hooks/use-chart-frame.hook.ts`, `use-chart-canvas.hook.ts`, `use-chart-layout.hook.ts`                                                                 | Theme, native measurements/resizes, common insets, and frame options.                                                                                                                   |
 | Shared state         | `hooks/use-chart-presentation.hook.ts`, `use-visible-chart-series.hook.ts`                                                                              | Controlled/uncontrolled selection, visibility, stable handlers, and visible series.                                                                                                     |
 | Model hooks          | `hooks/use-line-chart-scale.hook.ts`, six `use-*-chart.hook.ts` modules                                                                                 | Memoization based on data, layout, domains, tick counts, and geometry options.                                                                                                          |
-| Native presentation  | `components/chart-surface.tsx`, `chart-legend.tsx`, `chart-legend-item.tsx`, `chart-tooltip.tsx`, `chart-text.tsx`, `chart-swatch.tsx`, `chart-row.tsx` | Shared overlays, native text, press feedback, swatches, and Card tooltip.                                                                                                               |
+| Native presentation  | `components/chart-surface.tsx`, `chart-legend.tsx`, `chart-legend-item.tsx`, `chart-tooltip.tsx`, `chart-text.tsx`, `chart-swatch.tsx`, `chart-row.tsx` | Shared overlays, native text, press feedback, swatches, and ChartTooltip.                                                                                                               |
 | Axes                 | `components/chart-axes/chart-axes.tsx`, `primitives/{x-axis,y-axis,chart-axis,chart-stroke}.tsx`, `utils/axis.util.ts`                                  | Physical axis mapping, shared layout, stroke/tick/label rendering, and formatting.                                                                                                      |
 | Marks and grid       | `components/primitives/{line,bar,pie,grid,label}.tsx`                                                                                                   | Memoized Skia rendering; hidden paths are not constructed.                                                                                                                              |
 | Plot layout          | `utils/chart-layout.util.ts`                                                                                                                            | Finite size/inset resolution, plot/axis regions, stroke clips, and compatibility inset geometry.                                                                                        |
@@ -101,8 +100,8 @@ Paths below are relative to `packages/charts/src` unless noted otherwise.
 - Selection markers use chart selection tokens. Legends and tooltips share
   swatches and native text; hidden legend opacity and press feedback come from
   the existing Pressable tokens.
-- Tooltip surface styling comes from Card tokens. Charts own only tooltip
-  placement and width constraints.
+- ChartTooltip owns its surface, border, radius, text color, padding, gap,
+  placement, and width constraints through chart tooltip tokens.
 - Typography/selection/legend/tooltip token additions are optional in the full
   `ChartsTokens` contract, preserving older custom token objects. The theme
   factory always supplies them; missing additions fall back to primitive scales.
@@ -112,7 +111,7 @@ Paths below are relative to `packages/charts/src` unless noted otherwise.
 ## Work avoided by the refactor
 
 - Six frame setups and two independent axis renderers become shared modules.
-- Native legends/tooltips reuse primitives and Card instead of rebuilding them.
+- Native legends/tooltips reuse themed View, Pressable, Typography, rows, and swatches.
 - Scale hooks depend on geometry inputs, so label colors/fonts/dashes do not
   rebuild scales or coordinates. Theme padding changes still rebuild geometry.
 - Single/multi-line charts share one scale hook; multi-line coordinates are
@@ -136,7 +135,7 @@ galleries are the visual acceptance surface for iOS and Android.
 
 Install `@impulse-ui-native/charts` and its host peers: React `>=18`, React Native `>=0.73`,
 Skia `>=2`, Gesture Handler `>=2`, Reanimated `>=4`, and Worklets `>=0.5`.
-The package directly depends on `core`, `theme`, `primitives`, and `card`, plus
+The package directly depends on `core`, `theme`, and `primitives`, plus
 D3 array, scale, and shape packages. Complete native gesture/runtime setup;
 D3 interpolation and time helpers arrive through transitive dependencies.
 
@@ -408,9 +407,13 @@ namespaces; equivalent Date timestamps share a key. Bar selections return the in
 individual slice. Targets absent from the visible index produce no marker or
 tooltip.
 
-The default tooltip is a native Card with shared ChartRow, ChartSwatch, and
+ChartTooltip is an exported, self-contained native View with ChartRow, ChartSwatch, and
 ChartText. It renders above the canvas, outside GestureDetector, and uses chart
-tokens for placement and maximum width. The default Card is wrapped in a native
+tooltip tokens for placement and maximum width. The tooltip also owns its
+backgroundColor, color, borderColor, borderWidth, borderRadius, padding, and gap.
+New surface fields are optional and fall back to primitive theme scales for
+older token objects. The reusable ChartTooltip accepts a details array and
+native View props, with caller style overrides applied after theme defaults. The default tooltip is wrapped in a native
 Pressable; tapping it calls `clearSelection`, which sends null through the
 controlled/uncontrolled selection setter. Tooltip taps cannot start a chart
 gesture and reselect a point underneath. Custom content receives touch events

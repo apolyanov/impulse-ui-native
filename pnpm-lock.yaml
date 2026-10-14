@@ -608,9 +608,6 @@ importers:
 
   packages/charts:
     dependencies:
-      '@impulse-ui-native/card':
-        specifier: workspace:*
-        version: link:../card
       '@impulse-ui-native/core':
         specifier: workspace:*
         version: link:../core

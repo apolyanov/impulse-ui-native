@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import type { ViewProps } from "@impulse-ui-native/primitives";
+
 import type { ChartPoint, ChartRect } from "./common.types";
 import type { PieChartCoordinate } from "./pie-chart.types";
 
@@ -34,7 +36,7 @@ export interface ChartLegendProps {
   onToggle?: (id: string) => void;
 }
 
-export interface ChartTooltipProps {
+export interface ChartTooltipProps extends Omit<ViewProps, "children"> {
   details: readonly ChartSelectionDetails[];
 }
 

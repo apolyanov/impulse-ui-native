@@ -40,8 +40,7 @@
     "@impulse-ui-native/theme": "workspace:*",
     "d3-array": "catalog:",
     "d3-scale": "catalog:",
-    "d3-shape": "catalog:",
-    "@impulse-ui-native/card": "workspace:*"
+    "d3-shape": "catalog:"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",

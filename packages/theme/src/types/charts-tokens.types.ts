@@ -27,5 +27,15 @@ export interface ChartsTokens {
     swatchSize: number;
     swatchRadius: number;
   };
-  tooltip?: { offset: number; maxWidth: DimensionValue };
+  tooltip?: {
+    offset: number;
+    maxWidth: DimensionValue;
+    backgroundColor?: string;
+    color?: string;
+    borderColor?: string;
+    borderWidth?: number;
+    borderRadius?: number;
+    padding?: number;
+    gap?: number;
+  };
 }
