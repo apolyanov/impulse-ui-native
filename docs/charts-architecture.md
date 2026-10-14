@@ -172,7 +172,7 @@ export function RevenueChart() {
 
 The package root exports chart components, the public Skia primitives, model
 hooks, types, constants, and selected utilities through local barrels. The
-`toolkit` aggregates this package. Internal frame, presentation, indexing, and
+`toolkit` aggregates this package. Internal frame, gesture, indexing, and
 axis-renderer helpers are imported by their source modules and should not be
 assumed to be public API merely because tsup emits their files.
 
@@ -368,19 +368,31 @@ or reordering its source data.
 `useChartPresentation` uses core's `useControllableState` for both selection and
 hidden IDs. `selection`/`hiddenIds` select controlled behavior; the corresponding
 `default*` props initialize uncontrolled state. Change callbacks notify the
-host. `selectAt` retains an equivalent selection object; toggling a legend ID
-also clears selection.
+host. `selectAt` retains an equivalent selection object and accepts an optional
+`clearOnMiss` argument (true by default for direct hook consumers). The native
+gesture hook passes false during touch-down and movement. Legend toggles retain
+selection; hidden selected values stop rendering until made visible again.
 
-`ChartSurface` installs native responder handlers when `interactive` is true.
-Grant, move, and release use local touch coordinates. Hit testing rejects points
+`ChartSurface` uses `useChartGesture` to install native PanResponder handlers
+when `interactive` is true. Touch-down records the local origin; movement uses
+that origin plus PanResponder displacement, keeping coordinates stable.
+`updateChartGestureState` records whether the gesture ever hit a mark or moved
+more than the eight-pixel tap slop. A completed empty-space tap clears selection;
+drag misses and release after a valid hit preserve the last selection. Release
+does not repeat the hit test after selecting a mark. Cancellation resets gesture
+tracking without clearing selection. The chart rejects responder termination
+while interactive and blocks the native responder, preventing parent vertical
+scroll during chart drags. Scrolling begins outside the interactive canvas.
+
+Hit testing rejects points
 outside the plot, tests rectangle containment for bars, radius/angle/padding
 containment for pies, and selects the nearest drawable point for lines. Line
 selection has no additional distance threshold within the plot.
 
 `createChartHitIndex` builds maps by series/index and by category when targets or
-layout change. Selected line/bar points collect details from all visible series
+layout change. Selected line points collect details from all visible series
 at the same typed category key. Numbers, strings, and Dates use distinct key
-namespaces; equivalent Date timestamps share a key. Pie selections return the
+namespaces; equivalent Date timestamps share a key. Bar selections return the individual bar; pie selections return the
 individual slice. Targets absent from the visible index produce no marker or
 tooltip.
 
@@ -467,7 +479,7 @@ models, layouts, appearance defaults, hit testing, category grouping, stacking,
 pie proportions, and clipping geometry. It does not run native components or
 mock the Skia renderer.
 
-At the documentation update on 2026-10-14, all 28 chart tests, chart typecheck and
+At the documentation update on 2026-10-14, all 30 chart tests, chart typecheck and
 build, and theme/Storybook typechecks passed. Package lint is unavailable because
 ESLint 9 cannot find a flat configuration; no new ESLint configuration was
 introduced. Native visual acceptance remains pending.

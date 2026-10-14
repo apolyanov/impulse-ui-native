@@ -1,14 +1,14 @@
-import type { GestureResponderEvent } from "react-native";
 import { useMemo } from "react";
 import { StyleSheet } from "react-native";
 import { Canvas, Circle, Group } from "@shopify/react-native-skia";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
-import { memo, useEventCallback } from "@impulse-ui-native/core";
+import { memo } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ChartSurfaceProps } from "../types/chart-surface.types";
+import { useChartGesture } from "../hooks/use-chart-gesture.hook";
 import { createChartStrokeClip } from "../utils/chart-layout.util";
 import {
   createChartHitIndex,
@@ -49,17 +49,11 @@ export const ChartSurface = memo(function ChartSurface({
     [index, presentation.selection],
   );
 
-  const handleShouldRespond = useEventCallback(() => interactive);
-  const handleTouch = useEventCallback((event: GestureResponderEvent) => {
-    if (!interactive) {
-      return;
-    }
-
-    presentation.selectAt(
-      { x: event.nativeEvent.locationX, y: event.nativeEvent.locationY },
-      targets,
-      layout.plot,
-    );
+  const gestureHandlers = useChartGesture({
+    interactive,
+    targets,
+    plot: layout.plot,
+    selectAt: presentation.selectAt,
   });
 
   return (
@@ -67,10 +61,7 @@ export const ChartSurface = memo(function ChartSurface({
       <View
         style={styles.canvasContainer}
         onLayout={canvas.onLayout}
-        onStartShouldSetResponder={handleShouldRespond}
-        onResponderGrant={handleTouch}
-        onResponderMove={handleTouch}
-        onResponderRelease={handleTouch}
+        {...gestureHandlers}
       >
         <Canvas ref={canvas.ref} style={styles.canvas}>
           {hasPlot ? children : null}

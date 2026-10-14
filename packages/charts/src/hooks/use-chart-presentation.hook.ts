@@ -38,12 +38,21 @@ export function useChartPresentation(props: ChartPresentationProps) {
       point: ChartPoint,
       targets: readonly ChartHitTarget[],
       plot: ChartRect,
+      clearOnMiss = true,
     ) => {
-      const next = findChartHitTarget(point, targets, plot)?.selection ?? null;
+      const target = findChartHitTarget(point, targets, plot);
+
+      if (!target && !clearOnMiss) {
+        return false;
+      }
+
+      const next = target?.selection ?? null;
 
       setSelection((previous) =>
         isSameChartSelection(previous, next) ? previous : next,
       );
+
+      return target !== null;
     },
   );
   const toggle = useEventCallback((id: string) => {
@@ -52,8 +61,6 @@ export function useChartPresentation(props: ChartPresentationProps) {
         ? previous.filter((value) => value !== id)
         : [...previous, id],
     );
-
-    setSelection(null);
   });
 
   return useMemo(

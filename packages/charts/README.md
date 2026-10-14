@@ -199,8 +199,11 @@ Line stroke width does not move data positions relative to axes or other series.
 
 All six chart components accept `interactive` for native tap/drag selection.
 Line charts select the nearest drawable point; bars and pies select the touched
-mark. Donut holes, spaces between bars/rings, and touches outside the plot clear
-selection. A tooltip and selection marker appear for the selected measurement.
+mark. Selection stays visible while dragging through gaps or beyond the plot,
+and lifting the finger preserves the last valid hit. A tap on empty space
+(including donut holes, bar/ring gaps, or plot margins) clears selection.
+Interactive charts retain the gesture so vertical dragging does not scroll
+the parent; begin a scroll outside the chart instead. A tooltip and selection marker appear for the selected measurement.
 Cartesian tooltip category labels use the same `xAxis.format` callback as the
 axis; default date labels use ISO dates. Multi-line tooltips include visible
 series at the same X value, including overlapping lines. Supply `tooltip={false}` to hide it, or a function receiving
@@ -241,8 +244,9 @@ function Trends() {
 
 `legend` enables toggleable legends on multi charts and `PieChart`. `hiddenIds`
 and `onHiddenIdsChange` control visibility; `defaultHiddenIds` initializes it.
-IDs refer to series on multi charts and slices on `PieChart`. Toggling clears
-selection and recomputes scales, groups, stacks, or rings from visible data.
+IDs refer to series on multi charts and slices on `PieChart`. Toggling preserves selection and recomputes scales, groups, stacks, or rings
+from visible data. A hidden selected datum/series stops rendering its selection
+until shown again; toggling unrelated entries does not clear the selection.
 Use unique stable series and slice IDs. Optional `label` fields provide readable
 legend/tooltip names. Single line/bar charts have no series legend.
 

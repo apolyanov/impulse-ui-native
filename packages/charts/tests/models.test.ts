@@ -11,6 +11,7 @@ import { formatAxisTick } from "../src/utils/axis.util";
 import { createBarChartModel } from "../src/utils/bar-chart.util";
 import { createStackedBarDomainData } from "../src/utils/bar-stack.util";
 import { getChartColor } from "../src/utils/chart-color.util";
+import { updateChartGestureState } from "../src/utils/chart-gesture.util";
 import {
   createBarChartHitTargets,
   createLineChartHitTargets,
@@ -653,4 +654,72 @@ test("axes and tooltips share date and custom category formatting", () => {
     )[0]?.label,
     "Category A",
   );
+});
+
+test("chart gestures distinguish empty taps from drags through gaps", () => {
+  const bars = createBarChartModel({
+    plot,
+    data: [
+      { x: "A", y: 5 },
+      { x: "B", y: 8 },
+    ],
+  });
+  const targets = createBarChartHitTargets(bars.coordinates, "red");
+  const first = targets[0]!;
+  const last = targets[1]!;
+  const gap = { x: plot.x + plot.width / 2, y: plot.y + plot.height / 2 };
+  const empty = { x: plot.x - 1, y: plot.y - 1 };
+  const hit = (point: { x: number; y: number }) =>
+    findChartHitTarget(point, targets, plot) !== null;
+
+  let gesture = updateChartGestureState(null, first, hit(first));
+  gesture = updateChartGestureState(gesture, gap, hit(gap));
+  assert.equal(gesture.hasHit, true);
+  assert.equal(gesture.dragged, true);
+  gesture = updateChartGestureState(gesture, last, hit(last));
+  gesture = updateChartGestureState(gesture, empty, hit(empty));
+  assert.equal(gesture.hasHit, true);
+
+  const tap = updateChartGestureState(null, empty, hit(empty));
+  assert.equal(tap.hasHit, false);
+  assert.equal(tap.dragged, false);
+  const slightMove = updateChartGestureState(
+    tap,
+    { x: empty.x + 2, y: empty.y + 2 },
+    false,
+  );
+  assert.equal(slightMove.dragged, false);
+
+  let emptyDrag = updateChartGestureState(
+    tap,
+    { x: empty.x + 20, y: empty.y },
+    false,
+  );
+  emptyDrag = updateChartGestureState(emptyDrag, empty, false);
+  assert.equal(emptyDrag.hasHit, false);
+  assert.equal(emptyDrag.dragged, true);
+});
+
+test("pie gesture remembers a hit across donut holes and ring gaps", () => {
+  const model = createMultiPieChartModel({
+    plot,
+    innerRadius: 0.25,
+    ringPadding: 10,
+    series: [
+      { id: "a", data: [{ id: "x", value: 1 }] },
+      { id: "b", data: [{ id: "x", value: 1 }] },
+    ],
+  });
+  const targets = model.series.flatMap((series) =>
+    createPieChartHitTargets(series.coordinates, palette, series.id),
+  );
+  const first = targets[0]!;
+  const center = model.series[0]!.coordinates[0]!.center;
+  const gesture = updateChartGestureState(
+    updateChartGestureState(null, first, true),
+    center,
+    findChartHitTarget(center, targets, plot) !== null,
+  );
+  assert.equal(gesture.hasHit, true);
+  assert.equal(gesture.dragged, true);
 });

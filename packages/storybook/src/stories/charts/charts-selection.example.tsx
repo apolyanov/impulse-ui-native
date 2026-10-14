@@ -55,7 +55,7 @@ export function ChartsSelectionExample() {
       <Text style={{ color: theme.colors.text.secondary }}>
         {selection
           ? `Selected ${selection.seriesId}, point ${selection.datumIndex + 1}`
-          : "Tap or drag to select; tap legend entries to hide series"}
+          : "Tap or drag to select; tap empty space to clear. Chart drags block scrolling; legend entries toggle series."}
       </Text>
     </View>
   );
