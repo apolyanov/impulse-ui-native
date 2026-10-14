@@ -27,7 +27,7 @@
     "@types/node": "catalog:",
     "prettier": "catalog:",
     "tsup": "^8.5.0",
-    "turbo": "^2.9.7",
+    "turbo": "^2.9.14",
     "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.33.2",
