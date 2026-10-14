@@ -1,10 +1,11 @@
 import { useMemo } from "react";
 import { StyleSheet } from "react-native";
+import { GestureDetector } from "react-native-gesture-handler";
 import { Canvas, Circle, Group } from "@shopify/react-native-skia";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { memo } from "@impulse-ui-native/core";
-import { View } from "@impulse-ui-native/primitives";
+import { Pressable, View } from "@impulse-ui-native/primitives";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { ChartSurfaceProps } from "../types/chart-surface.types";
@@ -49,7 +50,7 @@ export const ChartSurface = memo(function ChartSurface({
     [index, presentation.selection],
   );
 
-  const gestureHandlers = useChartGesture({
+  const gesture = useChartGesture({
     interactive,
     targets,
     plot: layout.plot,
@@ -58,33 +59,33 @@ export const ChartSurface = memo(function ChartSurface({
 
   return (
     <View style={styles.container}>
-      <View
-        style={styles.canvasContainer}
-        onLayout={canvas.onLayout}
-        {...gestureHandlers}
-      >
-        <Canvas ref={canvas.ref} style={styles.canvas}>
-          {hasPlot ? children : null}
-          {hasPlot && selected.length > 0 ? (
-            <Group clip={selectionClip}>
-              {selected.map((target) => (
-                <Circle
-                  key={
-                    (target.selection.seriesId ?? "") +
-                    ":" +
-                    target.selection.datumIndex
-                  }
-                  cx={target.x}
-                  cy={target.y}
-                  r={selectionRadius}
-                  color={target.color}
-                  style="stroke"
-                  strokeWidth={selectionWidth}
-                />
-              ))}
-            </Group>
-          ) : null}
-        </Canvas>
+      <View style={styles.canvasContainer} onLayout={canvas.onLayout}>
+        <GestureDetector gesture={gesture}>
+          <View style={styles.canvas} collapsable={false}>
+            <Canvas ref={canvas.ref} style={styles.canvas}>
+              {hasPlot ? children : null}
+              {hasPlot && selected.length > 0 ? (
+                <Group clip={selectionClip}>
+                  {selected.map((target) => (
+                    <Circle
+                      key={
+                        (target.selection.seriesId ?? "") +
+                        ":" +
+                        target.selection.datumIndex
+                      }
+                      cx={target.x}
+                      cy={target.y}
+                      r={selectionRadius}
+                      color={target.color}
+                      style="stroke"
+                      strokeWidth={selectionWidth}
+                    />
+                  ))}
+                </Group>
+              ) : null}
+            </Canvas>
+          </View>
+        </GestureDetector>
         {hasPlot &&
         targets.length === 0 &&
         emptyContent !== undefined &&
@@ -94,11 +95,13 @@ export const ChartSurface = memo(function ChartSurface({
           </View>
         ) : null}
         {selected.length > 0 && tooltip !== false ? (
-          <View pointerEvents="none" style={styles.tooltip}>
+          <View pointerEvents="box-none" style={styles.tooltip}>
             {typeof tooltip === "function" ? (
               tooltip(selected)
             ) : (
-              <ChartTooltip details={selected} />
+              <Pressable onPress={presentation.clearSelection}>
+                <ChartTooltip details={selected} />
+              </Pressable>
             )}
           </View>
         ) : null}

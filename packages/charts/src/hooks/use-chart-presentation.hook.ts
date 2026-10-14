@@ -55,6 +55,8 @@ export function useChartPresentation(props: ChartPresentationProps) {
       return target !== null;
     },
   );
+  const clearSelection = useEventCallback(() => setSelection(null));
+
   const toggle = useEventCallback((id: string) => {
     setHiddenIds((previous) =>
       previous.includes(id)
@@ -64,7 +66,7 @@ export function useChartPresentation(props: ChartPresentationProps) {
   });
 
   return useMemo(
-    () => ({ selection, hiddenIds, hidden, selectAt, toggle }),
-    [selection, hiddenIds, hidden, selectAt, toggle],
+    () => ({ selection, hiddenIds, hidden, selectAt, clearSelection, toggle }),
+    [selection, hiddenIds, hidden, selectAt, clearSelection, toggle],
   );
 }

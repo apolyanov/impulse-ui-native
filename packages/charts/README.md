@@ -5,10 +5,10 @@ Skia-rendered chart components and primitives for Impulse UI Native.
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/charts @shopify/react-native-skia
+pnpm add @impulse-ui-native/charts @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
-Follow Skia's platform setup instructions before rendering a chart.
+Complete Skia, Gesture Handler, Reanimated, and Worklets native setup before rendering a chart. Wrap the application in `GestureHandlerRootView` and `ThemeProvider`. Charts require Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5 for native gesture ownership.
 
 ## Components
 
@@ -203,7 +203,7 @@ mark. Selection stays visible while dragging through gaps or beyond the plot,
 and lifting the finger preserves the last valid hit. A tap on empty space
 (including donut holes, bar/ring gaps, or plot margins) clears selection.
 Interactive charts retain the gesture so vertical dragging does not scroll
-the parent; begin a scroll outside the chart instead. A tooltip and selection marker appear for the selected measurement.
+the parent; begin a scroll outside the chart instead. A tooltip and selection marker appear for the selected measurement. Tap any entry in the default tooltip to clear selection. Custom tooltip content receives touch events and owns its own actions.
 Cartesian tooltip category labels use the same `xAxis.format` callback as the
 axis; default date labels use ISO dates. Multi-line tooltips include visible
 series at the same X value, including overlapping lines. Supply `tooltip={false}` to hide it, or a function receiving

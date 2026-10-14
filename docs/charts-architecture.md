@@ -134,38 +134,40 @@ galleries are the visual acceptance surface for iOS and Android.
 
 ## Runtime setup and public API
 
-Install `@impulse-ui-native/charts` and its host peers: React >=18, React Native
+Install `@impulse-ui-native/charts` and its host peers: React `>=18`, React Native `>=0.73`,
+Skia `>=2`, Gesture Handler `>=2`, Reanimated `>=4`, and Worklets `>=0.5`.
+The package directly depends on `core`, `theme`, `primitives`, and `card`, plus
+D3 array, scale, and shape packages. Complete native gesture/runtime setup;
+D3 interpolation and time helpers arrive through transitive dependencies.
 
-> =0.73, and `@shopify/react-native-skia` >=2. The package directly depends on
-> `core`, `theme`, `primitives`, and `card`, plus D3 array, scale, and shape packages.
-> D3 interpolation and time helpers arrive through D3's dependencies; charts do
-> not need separate direct imports for them.
-
-Wrap the application in `ThemeProvider` and give each chart a parent with a
+Wrap the application in `GestureHandlerRootView` and `ThemeProvider` and give each chart a parent with a
 measurable height. ChartSurface and its canvas use `flex: 1`; an unbounded or
 zero-height parent cannot produce a drawable plot. Load the host fonts and pass
 `fontManager` for Skia labels when needed.
 
 ```tsx
 import { View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { LineChart } from "@impulse-ui-native/charts";
 import { ThemeProvider } from "@impulse-ui-native/theme";
 
 export function RevenueChart() {
   return (
-    <ThemeProvider>
-      <View style={{ height: 280 }}>
-        <LineChart
-          data={[
-            { x: "Mon", y: 12 },
-            { x: "Tue", y: 18 },
-          ]}
-          interactive
-          grid={{ y: {} }}
-        />
-      </View>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider>
+        <View style={{ height: 280 }}>
+          <LineChart
+            data={[
+              { x: "Mon", y: 12 },
+              { x: "Tue", y: 18 },
+            ]}
+            interactive
+            grid={{ y: {} }}
+          />
+        </View>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 ```
@@ -373,16 +375,20 @@ host. `selectAt` retains an equivalent selection object and accepts an optional
 gesture hook passes false during touch-down and movement. Legend toggles retain
 selection; hidden selected values stop rendering until made visible again.
 
-`ChartSurface` uses `useChartGesture` to install native PanResponder handlers
-when `interactive` is true. Touch-down records the local origin; movement uses
-that origin plus PanResponder displacement, keeping coordinates stable.
-`updateChartGestureState` records whether the gesture ever hit a mark or moved
-more than the eight-pixel tap slop. A completed empty-space tap clears selection;
-drag misses and release after a valid hit preserve the last selection. Release
-does not repeat the hit test after selecting a mark. Cancellation resets gesture
-tracking without clearing selection. The chart rejects responder termination
-while interactive and blocks the native responder, preventing parent vertical
-scroll during chart drags. Scrolling begins outside the interactive canvas.
+`ChartSurface` wraps only the native canvas view in `GestureDetector`.
+`useChartGesture` creates a manually activated native pan recognizer. Its
+`onTouchesDown` worklet activates immediately on the UI thread, claiming the
+touch before a parent scroll gesture begins. Native local X/Y coordinates are
+scheduled onto the React Native thread with `scheduleOnRN`; selection state
+and hit testing remain there. Gestures stay active outside the canvas and use
+one pointer. Disabled or zero-size charts do not activate.
+
+`updateChartGestureState` records whether the gesture hit a mark or exceeded
+the eight-pixel tap slop. Drag misses preserve selection. Successful release
+flushes a drag's final native position without clearing on a miss; an empty
+tap clears selection. Finalization resets tracking without clearing it.
+Scrolling begins outside the interactive canvas. This uses the same native
+ownership pattern as Slider and the color spectrum, replacing PanResponder.
 
 Hit testing rejects points
 outside the plot, tests rectangle containment for bars, radius/angle/padding
@@ -397,8 +403,12 @@ individual slice. Targets absent from the visible index produce no marker or
 tooltip.
 
 The default tooltip is a native Card with shared ChartRow, ChartSwatch, and
-ChartText. It renders above the canvas, ignores pointer events, and uses chart
-tokens for placement and maximum width. `tooltip={false}` hides it; a renderer
+ChartText. It renders above the canvas, outside GestureDetector, and uses chart
+tokens for placement and maximum width. The default Card is wrapped in a native
+Pressable; tapping it calls `clearSelection`, which sends null through the
+controlled/uncontrolled selection setter. Tooltip taps cannot start a chart
+gesture and reselect a point underneath. Custom content receives touch events
+and retains its own actions. `tooltip={false}` hides it; a renderer
 function receives the selected detail array. `legend` enables available entries
 for multi charts and PieChart. Multi-pie legend swatches show the ring's positive
 slice colors. Hidden entries remain available for toggling back on.

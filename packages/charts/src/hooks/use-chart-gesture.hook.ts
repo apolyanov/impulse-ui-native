@@ -1,5 +1,6 @@
 import { useMemo, useRef } from "react";
-import { PanResponder } from "react-native";
+import { Gesture } from "react-native-gesture-handler";
+import { scheduleOnRN } from "react-native-worklets";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 
@@ -25,61 +26,79 @@ export function useChartGesture({
   plot,
   selectAt,
 }: UseChartGestureProps) {
-  const gesture = useRef<ChartGestureState | null>(null);
+  const state = useRef<ChartGestureState | null>(null);
+  const enabled = interactive && plot.width > 0 && plot.height > 0;
 
-  const shouldRespond = useEventCallback(() => interactive);
-  const shouldTerminate = useEventCallback(() => !interactive);
   const begin = useEventCallback((point: ChartPoint) => {
-    gesture.current = updateChartGestureState(
+    state.current = updateChartGestureState(
       null,
       point,
       selectAt(point, targets, plot, false),
     );
   });
-  const move = useEventCallback((dx: number, dy: number) => {
-    if (!gesture.current) {
+  const move = useEventCallback((point: ChartPoint) => {
+    if (!state.current) {
       return;
     }
 
-    const point = {
-      x: gesture.current.origin.x + dx,
-      y: gesture.current.origin.y + dy,
-    };
-    gesture.current = updateChartGestureState(
-      gesture.current,
+    state.current = updateChartGestureState(
+      state.current,
       point,
       selectAt(point, targets, plot, false),
     );
   });
-  const end = useEventCallback(() => {
-    const current = gesture.current;
-    gesture.current = null;
+  const end = useEventCallback((point: ChartPoint, success: boolean) => {
+    const current = state.current;
 
-    if (current && !current.hasHit && !current.dragged) {
+    if (!current || !success) {
+      return;
+    }
+
+    const next = updateChartGestureState(current, point, false);
+
+    if (next.dragged) {
+      selectAt(point, targets, plot, false);
+    } else if (!next.hasHit) {
       selectAt(current.origin, targets, plot, true);
     }
   });
   const cancel = useEventCallback(() => {
-    gesture.current = null;
+    state.current = null;
   });
 
   return useMemo(
     () =>
-      PanResponder.create({
-        onStartShouldSetPanResponder: shouldRespond,
-        onMoveShouldSetPanResponder: shouldRespond,
-        onPanResponderTerminationRequest: shouldTerminate,
-        onShouldBlockNativeResponder: shouldRespond,
-        onPanResponderGrant: (event) => {
-          begin({
-            x: event.nativeEvent.locationX,
-            y: event.nativeEvent.locationY,
-          });
-        },
-        onPanResponderMove: (_event, state) => move(state.dx, state.dy),
-        onPanResponderRelease: end,
-        onPanResponderTerminate: cancel,
-      }).panHandlers,
-    [shouldRespond, shouldTerminate, begin, move, end, cancel],
+      Gesture.Pan()
+        .enabled(enabled)
+        .manualActivation(true)
+        .maxPointers(1)
+        .shouldCancelWhenOutside(false)
+        .onTouchesDown((_event, manager) => {
+          "worklet";
+
+          // Claim native touch ownership before a parent scroll can activate.
+          manager.activate();
+        })
+        .onStart((event) => {
+          "worklet";
+
+          scheduleOnRN(begin, { x: event.x, y: event.y });
+        })
+        .onUpdate((event) => {
+          "worklet";
+
+          scheduleOnRN(move, { x: event.x, y: event.y });
+        })
+        .onEnd((event, success) => {
+          "worklet";
+
+          scheduleOnRN(end, { x: event.x, y: event.y }, success);
+        })
+        .onFinalize(() => {
+          "worklet";
+
+          scheduleOnRN(cancel);
+        }),
+    [enabled, begin, move, end, cancel],
   );
 }
