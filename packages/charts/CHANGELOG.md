@@ -1,5 +1,51 @@
 # @impulse-ui-native/charts
 
+## 9.1.0
+
+### Minor Changes
+
+- e313eba: Claim native chart gestures on touch-down using Gesture Handler, Reanimated, and
+  Worklets so parent scroll views cannot steal chart drags. Tapping the default
+  tooltip dismisses selection. Keep tooltip controls outside the chart gesture
+  surface and allow custom tooltip content to receive taps. Declare gesture
+  runtime peers and document GestureHandlerRootView setup.
+- bffa719: Add shared native chart selection, tooltips, toggleable legends, empty content,
+  stacked bars, and horizontal bar orientation. Keep line geometry aligned with
+  axes, infer line scales, normalize degenerate domains, stabilize chart colors by
+  ID, and prevent pie sums from collapsing large finite values. Add model and hit
+  testing coverage and native Storybook examples.
+
+  Unify chart frame setup, axes, appearance tokens, typography, swatches, and Card
+  tooltips. Reuse shared native primitives, numeric scales, ticks, and bar geometry;
+  avoid style-driven geometry recalculation and redundant stack work. Add an
+  architecture/reuse map and light/dark chart comparison galleries.
+
+### Patch Changes
+
+- bffa719: Pass the resolved app theme into bar, line, and pie canvas primitives instead of
+  reading theme context inside Skia's separate renderer. This prevents chart
+  rendering from throwing even when the app is wrapped in ThemeProvider.
+- 918ee87: Finish chart taps from pointer-up events instead of requiring an ACTIVE pan-end
+  callback. Track movement from pointer events too, preserving drag behavior when
+  a pan has not activated. Add callback-sequence regression coverage for repeated
+  clicks, empty clicks, dragging, and cancellation.
+- bffa719: Allow selection dots to extend beyond plot edges by their full radius and stroke
+  width so dots at the first, last, minimum, and maximum data points stay visible.
+- 01b781f: Keep chart selection stable across drag gaps and finger release. Clear only on
+  an empty-space tap, preserve selection when toggling legends, and retain native
+  touch ownership so dragging an interactive chart does not scroll its parent.
+- 7770cba: Select chart values directly from native touch-down coordinates instead of
+  waiting for the pan gesture to reach ACTIVE, so simple taps show the tooltip
+  without a drag. Keep immediate native gesture ownership and tooltip dismissal.
+- 0d41c83: Dismiss selection when a tap starts on an already selected point. Keep the
+  selection while dragging, and allow any highlighted point in a multi-line
+  category to dismiss its shared tooltip.
+- Updated dependencies [bffa719]
+  - @impulse-ui-native/theme@9.1.0
+  - @impulse-ui-native/card@9.1.0
+  - @impulse-ui-native/primitives@9.1.0
+  - @impulse-ui-native/core@9.1.0
+
 ## 9.0.0
 
 ### Patch Changes

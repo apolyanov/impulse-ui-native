@@ -1,5 +1,33 @@
 # @impulse-ui-native/storybook
 
+## 9.1.0
+
+### Patch Changes
+
+- bffa719: Add shared native chart selection, tooltips, toggleable legends, empty content,
+  stacked bars, and horizontal bar orientation. Keep line geometry aligned with
+  axes, infer line scales, normalize degenerate domains, stabilize chart colors by
+  ID, and prevent pie sums from collapsing large finite values. Add model and hit
+  testing coverage and native Storybook examples.
+
+  Unify chart frame setup, axes, appearance tokens, typography, swatches, and Card
+  tooltips. Reuse shared native primitives, numeric scales, ticks, and bar geometry;
+  avoid style-driven geometry recalculation and redundant stack work. Add an
+  architecture/reuse map and light/dark chart comparison galleries.
+
+- d5c0a70: Give all chart previews fixed, non-shrinking heights. Reserve a separate fixed
+  status row in the controlled-selection example so selecting or dismissing a
+  tooltip does not resize the chart when the status text changes.
+- Updated dependencies [bffa719]
+  - @impulse-ui-native/theme@9.1.0
+  - @impulse-ui-native/card@9.1.0
+  - @impulse-ui-native/color-picker@9.1.0
+  - @impulse-ui-native/icon@9.1.0
+  - @impulse-ui-native/list@9.1.0
+  - @impulse-ui-native/primitives@9.1.0
+  - @impulse-ui-native/progress@9.1.0
+  - @impulse-ui-native/flat-list@9.1.0
+
 ## 9.0.0
 
 ### Minor Changes

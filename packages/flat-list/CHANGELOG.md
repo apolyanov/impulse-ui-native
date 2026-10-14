@@ -1,5 +1,7 @@
 # @impulse-ui-native/flat-list
 
+## 9.1.0
+
 ## 9.0.0
 
 ## 8.3.0

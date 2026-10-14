@@ -1,5 +1,19 @@
 # @impulse-ui-native/select
 
+## 9.1.0
+
+### Patch Changes
+
+- Updated dependencies [bffa719]
+  - @impulse-ui-native/theme@9.1.0
+  - @impulse-ui-native/flyout@9.1.0
+  - @impulse-ui-native/icon@9.1.0
+  - @impulse-ui-native/input@9.1.0
+  - @impulse-ui-native/primitives@9.1.0
+  - @impulse-ui-native/core@9.1.0
+  - @impulse-ui-native/portal@9.1.0
+  - @impulse-ui-native/flat-list@9.1.0
+
 ## 9.0.0
 
 ### Patch Changes
