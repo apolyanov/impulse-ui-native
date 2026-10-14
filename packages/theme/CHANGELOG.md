@@ -1,5 +1,15 @@
 # @impulse-ui-native/theme
 
+## 9.1.1
+
+### Patch Changes
+
+- 29ca8cf: Make ChartTooltip self-contained using chart tooltip surface tokens and native
+  View props/style overrides. Remove the charts package's Card dependency. Add
+  optional tooltip surface, border, radius, color, padding, and gap tokens with
+  primitive-theme fallbacks for existing custom token objects.
+  - @impulse-ui-native/core@9.1.1
+
 ## 9.1.0
 
 ### Minor Changes

@@ -1,5 +1,45 @@
 # @impulse-ui-native/toolkit
 
+## 9.1.1
+
+### Patch Changes
+
+- Updated dependencies [29ca8cf]
+  - @impulse-ui-native/charts@9.1.1
+  - @impulse-ui-native/theme@9.1.1
+  - @impulse-ui-native/accordion@9.1.1
+  - @impulse-ui-native/card@9.1.1
+  - @impulse-ui-native/carousel@9.1.1
+  - @impulse-ui-native/checkbox@9.1.1
+  - @impulse-ui-native/color-picker@9.1.1
+  - @impulse-ui-native/data-state@9.1.1
+  - @impulse-ui-native/datetime@9.1.1
+  - @impulse-ui-native/flyout@9.1.1
+  - @impulse-ui-native/form-field@9.1.1
+  - @impulse-ui-native/input@9.1.1
+  - @impulse-ui-native/list@9.1.1
+  - @impulse-ui-native/modal@9.1.1
+  - @impulse-ui-native/pagination@9.1.1
+  - @impulse-ui-native/popover@9.1.1
+  - @impulse-ui-native/primitives@9.1.1
+  - @impulse-ui-native/progress@9.1.1
+  - @impulse-ui-native/radio@9.1.1
+  - @impulse-ui-native/segmented-control@9.1.1
+  - @impulse-ui-native/select@9.1.1
+  - @impulse-ui-native/skeleton@9.1.1
+  - @impulse-ui-native/slider@9.1.1
+  - @impulse-ui-native/stepper@9.1.1
+  - @impulse-ui-native/switch@9.1.1
+  - @impulse-ui-native/tabs@9.1.1
+  - @impulse-ui-native/toast@9.1.1
+  - @impulse-ui-native/core@9.1.1
+  - @impulse-ui-native/echo@9.1.1
+  - @impulse-ui-native/endpoint@9.1.1
+  - @impulse-ui-native/overlay@9.1.1
+  - @impulse-ui-native/portal@9.1.1
+  - @impulse-ui-native/flat-list@9.1.1
+  - @impulse-ui-native/scroll-view@9.1.1
+
 ## 9.1.0
 
 ### Patch Changes

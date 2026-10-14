@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/color-picker",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "description": "Modular spectrum color picker with custom hex/RGB entry and theme presets for React Native.",
   "keywords": [
     "react-native",
