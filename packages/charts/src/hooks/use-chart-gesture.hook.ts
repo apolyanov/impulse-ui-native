@@ -73,16 +73,18 @@ export function useChartGesture({
         .manualActivation(true)
         .maxPointers(1)
         .shouldCancelWhenOutside(false)
-        .onTouchesDown((_event, manager) => {
+        .onTouchesDown((event, manager) => {
           "worklet";
+
+          const touch = event.changedTouches[0];
+
+          if (touch) {
+            // Taps must select even before the pan reaches ACTIVE.
+            scheduleOnRN(begin, { x: touch.x, y: touch.y });
+          }
 
           // Claim native touch ownership before a parent scroll can activate.
           manager.activate();
-        })
-        .onStart((event) => {
-          "worklet";
-
-          scheduleOnRN(begin, { x: event.x, y: event.y });
         })
         .onUpdate((event) => {
           "worklet";

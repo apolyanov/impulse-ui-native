@@ -377,8 +377,10 @@ selection; hidden selected values stop rendering until made visible again.
 
 `ChartSurface` wraps only the native canvas view in `GestureDetector`.
 `useChartGesture` creates a manually activated native pan recognizer. Its
-`onTouchesDown` worklet activates immediately on the UI thread, claiming the
-touch before a parent scroll gesture begins. Native local X/Y coordinates are
+`onTouchesDown` worklet schedules selection from the first changed touch's
+local X/Y coordinates before activating on the UI thread. Taps do not wait for
+the pan's ACTIVE transition. Activation claims the touch before a parent scroll
+gesture begins. Native local X/Y coordinates are
 scheduled onto the React Native thread with `scheduleOnRN`; selection state
 and hit testing remain there. Gestures stay active outside the canvas and use
 one pointer. Disabled or zero-size charts do not activate.
