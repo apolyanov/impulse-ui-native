@@ -1,6 +1,9 @@
 import type { ChartHitTarget, ChartRect, ChartSelection } from "../types";
 import type { ChartHitIndex } from "../types/chart-selection.types";
-import { isPointInChartRect } from "./chart-interaction.util";
+import {
+  isPointInChartRect,
+  isSameChartSelection,
+} from "./chart-interaction.util";
 
 export function createChartHitIndex(
   targets: readonly ChartHitTarget[],
@@ -56,4 +59,16 @@ export function getChartSelectedTargets(
   return target.categoryKey === undefined
     ? [target]
     : (index.byCategory.get(target.categoryKey) ?? []);
+}
+
+export function isChartTargetSelected(
+  target: ChartHitTarget | null,
+  selected: readonly ChartHitTarget[],
+): boolean {
+  return (
+    target !== null &&
+    selected.some((entry) =>
+      isSameChartSelection(entry.selection, target.selection),
+    )
+  );
 }

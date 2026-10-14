@@ -388,7 +388,10 @@ one pointer. Disabled or zero-size charts do not activate.
 `updateChartGestureState` records whether the gesture hit a mark or exceeded
 the eight-pixel tap slop. Drag misses preserve selection. Successful release
 flushes a drag's final native position without clearing on a miss; an empty
-tap clears selection. Finalization resets tracking without clearing it.
+tap clears selection. Touch-down also snapshots whether the hit belongs to
+the current selected target group; a completed tap on that group dismisses it.
+For multi-line charts, any highlighted point in the same category can dismiss
+the shared tooltip. Dragging never uses this toggle behavior. Finalization resets tracking without clearing it.
 Scrolling begins outside the interactive canvas. This uses the same native
 ownership pattern as Slider and the color spectrum, replacing PanResponder.
 
@@ -491,7 +494,7 @@ models, layouts, appearance defaults, hit testing, category grouping, stacking,
 pie proportions, and clipping geometry. It does not run native components or
 mock the Skia renderer.
 
-At the documentation update on 2026-10-14, all 30 chart tests, chart typecheck and
+At the documentation update on 2026-10-14, all 31 chart tests, chart typecheck and
 build, and theme/Storybook typechecks passed. Package lint is unavailable because
 ESLint 9 cannot find a flat configuration; no new ESLint configuration was
 introduced. Native visual acceptance remains pending.

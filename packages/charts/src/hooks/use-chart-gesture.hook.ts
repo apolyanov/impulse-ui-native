@@ -7,10 +7,14 @@ import { useEventCallback } from "@impulse-ui-native/core";
 import type { ChartHitTarget, ChartPoint, ChartRect } from "../types";
 import type { ChartGestureState } from "../utils/chart-gesture.util";
 import { updateChartGestureState } from "../utils/chart-gesture.util";
+import { findChartHitTarget } from "../utils/chart-interaction.util";
+import { isChartTargetSelected } from "../utils/chart-selection.util";
 
 interface UseChartGestureProps {
   interactive: boolean;
   targets: readonly ChartHitTarget[];
+  selectedTargets: readonly ChartHitTarget[];
+  clearSelection: () => void;
   plot: ChartRect;
   selectAt: (
     point: ChartPoint,
@@ -23,13 +27,21 @@ interface UseChartGestureProps {
 export function useChartGesture({
   interactive,
   targets,
+  selectedTargets,
+  clearSelection,
   plot,
   selectAt,
 }: UseChartGestureProps) {
   const state = useRef<ChartGestureState | null>(null);
+  const dismissOnTap = useRef(false);
   const enabled = interactive && plot.width > 0 && plot.height > 0;
 
   const begin = useEventCallback((point: ChartPoint) => {
+    dismissOnTap.current = isChartTargetSelected(
+      findChartHitTarget(point, targets, plot),
+      selectedTargets,
+    );
+
     state.current = updateChartGestureState(
       null,
       point,
@@ -58,12 +70,15 @@ export function useChartGesture({
 
     if (next.dragged) {
       selectAt(point, targets, plot, false);
+    } else if (dismissOnTap.current) {
+      clearSelection();
     } else if (!next.hasHit) {
       selectAt(current.origin, targets, plot, true);
     }
   });
   const cancel = useEventCallback(() => {
     state.current = null;
+    dismissOnTap.current = false;
   });
 
   return useMemo(

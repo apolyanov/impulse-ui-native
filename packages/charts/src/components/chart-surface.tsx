@@ -55,6 +55,8 @@ export const ChartSurface = memo(function ChartSurface({
     targets,
     plot: layout.plot,
     selectAt: presentation.selectAt,
+    selectedTargets: selected,
+    clearSelection: presentation.clearSelection,
   });
 
   return (

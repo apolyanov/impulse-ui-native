@@ -25,6 +25,7 @@ import {
 import {
   createChartHitIndex,
   getChartSelectedTargets,
+  isChartTargetSelected,
 } from "../src/utils/chart-selection.util";
 import { resolveChartLabelTokens } from "../src/utils/chart-theme.util";
 import {
@@ -722,4 +723,25 @@ test("pie gesture remembers a hit across donut holes and ring gaps", () => {
   );
   assert.equal(gesture.hasHit, true);
   assert.equal(gesture.dragged, true);
+});
+
+test("tap dismissal recognizes every selected category point without matching other data", () => {
+  const model = createLineChartModel({
+    plot,
+    data: [
+      { x: "A", y: 1 },
+      { x: "B", y: 3 },
+    ],
+  });
+  const first = createLineChartHitTargets(model.coordinates, "red", "first");
+  const second = createLineChartHitTargets(model.coordinates, "blue", "second");
+  const index = createChartHitIndex([...first, ...second], plot);
+  const selected = getChartSelectedTargets(index, first[0]!.selection);
+
+  assert.equal(isChartTargetSelected(first[0]!, selected), true);
+  assert.equal(isChartTargetSelected(second[0]!, selected), true);
+  assert.equal(isChartTargetSelected(first[1]!, selected), false);
+  assert.equal(isChartTargetSelected(second[1]!, selected), false);
+  assert.equal(isChartTargetSelected(null, selected), false);
+  assert.equal(isChartTargetSelected(first[0]!, []), false);
 });
