@@ -17,18 +17,36 @@ pnpm add @impulse-ui-native/echo
 
 ## Usage
 
-```tsx
-import { useEchoListener } from "@impulse-ui-native/echo";
+Add application events to `EchoEvents` with TypeScript module augmentation. Keep
+the declaration in a file included by your application's `tsconfig.json`.
 
-function EventObserver() {
-  useEchoListener("placeholder", (data) => {
-    console.log("Event received", data);
+```tsx
+import { EchoInstance, useEchoListener } from "@impulse-ui-native/echo";
+
+declare module "@impulse-ui-native/echo" {
+  interface EchoEvents {
+    "profile.updated": { userId: string; displayName: string };
+  }
+}
+
+function ProfileObserver() {
+  useEchoListener("profile.updated", (data) => {
+    // Both fields are inferred as strings from EchoEvents.
+    console.log("Profile updated", data.userId, data.displayName);
   });
 
   return null;
 }
+
+// Emit after a successful profile save, including from non-component code.
+EchoInstance.emit("profile.updated", {
+  userId: "user-123",
+  displayName: "Alex",
+});
 ```
 
-For non-component code, call `EchoInstance.emit` or `EchoInstance.subscribe` directly. `subscribe` returns its cleanup function.
+The event name determines the payload type for both emitting and subscribing.
+TypeScript rejects unknown event names and payloads that do not match the event
+map.
 
-`EchoEvents` is an exported interface, so applications can add their own strongly typed events with TypeScript module augmentation.
+For non-component code, call `EchoInstance.emit` or `EchoInstance.subscribe` directly. `subscribe` returns its cleanup function.

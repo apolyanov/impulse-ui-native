@@ -137,7 +137,7 @@ an implemented component unavailable.
 | Package                       | Current role                                                              | Follow-up                                                                                 |
 | ----------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `@impulse-ui-native/core`     | Shared state/event hooks, one-shot timers, and Android Back subscriptions | Document application-facing APIs and lifecycle guarantees.                                |
-| `@impulse-ui-native/echo`     | Typed event channel                                                       | Replace the placeholder usage example with a real augmented event map.                    |
+| `@impulse-ui-native/echo`     | Typed event channel                                                       | README demonstrates an augmented event map with typed subscription and emission.          |
 | `@impulse-ui-native/endpoint` | Axios and TanStack Query factories                                        | Add error, cancellation, retry, pagination, and cache-key examples.                       |
 | `@impulse-ui-native/toolkit`  | Aggregated public packages                                                | Keep export/dependency coverage current and document tree-shaking; icons remain separate. |
 
