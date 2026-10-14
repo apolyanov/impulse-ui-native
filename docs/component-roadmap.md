@@ -122,15 +122,15 @@ an implemented component unavailable.
 
 ### Data visualization
 
-| Component                                               | Package                     | Status | Storybook  | Follow-up                                                                  |
-| ------------------------------------------------------- | --------------------------- | ------ | ---------- | -------------------------------------------------------------------------- |
-| `LineChart`                                             | `@impulse-ui-native/charts` | Extend | Yes        | Add interaction, tooltips, legends, and selection.                         |
-| `MultiLineChart`                                        | `@impulse-ui-native/charts` | Extend | Yes        | Add shared interaction, series toggling, and overlapping-series treatment. |
-| `BarChart`                                              | `@impulse-ui-native/charts` | Extend | Yes        | Add interaction, labels, stacked mode, and horizontal orientation.         |
-| `MultiBarChart`                                         | `@impulse-ui-native/charts` | Extend | Yes        | Add stacked mode, legends, and series toggling.                            |
-| `PieChart`                                              | `@impulse-ui-native/charts` | Extend | Yes        | Add labels, legends, selection, and empty-data guidance.                   |
-| `MultiPieChart`                                         | `@impulse-ui-native/charts` | Extend | Yes        | Add ring labels, legends, and interactive series details.                  |
-| `Bar`, `Grid`, `Label`, `Line`, `Pie`, `XAxis`, `YAxis` | `@impulse-ui-native/charts` | Extend | Via charts | Document their exported lower-level composition contracts.                 |
+| Component                                               | Package                     | Status | Storybook  | Follow-up                                                                                     |
+| ------------------------------------------------------- | --------------------------- | ------ | ---------- | --------------------------------------------------------------------------------------------- |
+| `LineChart`                                             | `@impulse-ui-native/charts` | Extend | Yes        | Shared selection/tooltips implemented; add area fills and richer point styling.               |
+| `MultiLineChart`                                        | `@impulse-ui-native/charts` | Extend | Yes        | Shared category tooltips and toggleable legends implemented; add richer overlap styling.      |
+| `BarChart`                                              | `@impulse-ui-native/charts` | Extend | Yes        | Selection and horizontal orientation implemented; add configurable value labels.              |
+| `MultiBarChart`                                         | `@impulse-ui-native/charts` | Extend | Yes        | Grouped/stacked modes, horizontal orientation, selection, and toggleable legends implemented. |
+| `PieChart`                                              | `@impulse-ui-native/charts` | Extend | Yes        | Selection, toggleable legends, and empty-data guidance implemented; add on-slice labels.      |
+| `MultiPieChart`                                         | `@impulse-ui-native/charts` | Extend | Yes        | Ring legends/toggling and interactive slice details implemented; add on-ring labels.          |
+| `Bar`, `Grid`, `Label`, `Line`, `Pie`, `XAxis`, `YAxis` | `@impulse-ui-native/charts` | Extend | Via charts | Composition contracts documented; add dedicated primitive examples.                           |
 
 ## Supporting packages
 

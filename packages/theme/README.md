@@ -139,9 +139,14 @@ motion tokens.
 </ThemeProvider>
 ```
 
-`createChartsTokens` and `ChartsTokens` define the chart palette, Cartesian
-insets, axis/grid/line widths, axis tick length and label gap, bar padding ratios,
-and pie ring padding. The palette defaults to `ChartColorTokens`; override
+`createChartsTokens` and `ChartsTokens` define the chart palette, shared chart
+insets, axis/grid/line widths, axis tick length and label gap, bar padding/rounding,
+pie ring padding/rounding, typography, selection markers, legends, and tooltip
+placement. `createChartsLabelTokens` and `ChartsLabelTokens` provide the same font
+family, weight, size, and color defaults for native chart text and Skia labels.
+Chart tooltips reuse Card surface/content tokens; legend press feedback and
+hidden opacity reuse Pressable tokens. New appearance groups are optional for
+compatibility with older complete chart token objects. The palette defaults to `ChartColorTokens`; override
 `components.charts.palette` to customize series colors. Explicit component and
 series props continue to take precedence.
 
