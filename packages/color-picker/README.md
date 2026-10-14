@@ -8,12 +8,13 @@ A modular full-spectrum color picker for native iOS and Android. Reuses ImpulseU
 pnpm add @impulse-ui-native/color-picker react-native-svg react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
-Requires React >=18, React Native >=0.73, react-native-svg >=13.9.0, Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5. Complete Gesture Handler and Reanimated's native setup. Render inside GestureHandlerRootView and ThemeProvider and load the theme's fonts, as for other ImpulseUI controls. No overlay providers are required for this inline picker.
+Requires React >=18, React Native >=0.73, react-native-svg >=13.9.0, Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5. Complete Gesture Handler, Reanimated, and Worklets native setup. Render inside `GestureHandlerRootView` and `ThemeProvider` from `@impulse-ui-native/theme` and load the theme's fonts, as for other ImpulseUI controls. ColorPicker also requires react-native-svg for gradients and transparency previews. No overlay providers are required for this inline picker.
 
 ## Usage
 
 ```tsx
 import { useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { ColorPicker } from "@impulse-ui-native/color-picker";
 import { ThemeProvider } from "@impulse-ui-native/theme";
@@ -22,9 +23,11 @@ export function BrandColor() {
   const [color, setColor] = useState("#F55D6B");
 
   return (
-    <ThemeProvider>
-      <ColorPicker value={color} onChange={setColor} commitMode="confirm" />
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider>
+        <ColorPicker value={color} onChange={setColor} commitMode="confirm" />
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 ```

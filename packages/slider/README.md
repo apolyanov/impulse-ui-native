@@ -8,7 +8,7 @@ Token-aware slider and range slider controls for React Native mobile application
 pnpm add @impulse-ui-native/slider react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
-Complete Gesture Handler and Reanimated native setup. Render sliders inside
+Complete Gesture Handler, Reanimated, and Worklets native setup. Render sliders inside
 `GestureHandlerRootView` and `ThemeProvider` from `@impulse-ui-native/theme`.
 Requires Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5.
 
@@ -22,8 +22,10 @@ Requires Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5.
 
 ```tsx
 import { useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { RangeSlider, Slider } from "@impulse-ui-native/slider";
+import { ThemeProvider } from "@impulse-ui-native/theme";
 
 export function PriceControls() {
   const [rating, setRating] = useState(60);
@@ -32,28 +34,30 @@ export function PriceControls() {
   ]);
 
   return (
-    <>
-      <Slider
-        value={rating}
-        onValueChange={setRating}
-        min={0}
-        max={100}
-        step={5}
-        marks={[0, 25, 50, 75, 100]}
-        showMinMax
-        showValueBubble
-      />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider>
+        <Slider
+          value={rating}
+          onValueChange={setRating}
+          min={0}
+          max={100}
+          step={5}
+          marks={[0, 25, 50, 75, 100]}
+          showMinMax
+          showValueBubble
+        />
 
-      <RangeSlider
-        value={priceRange}
-        onValueChange={setPriceRange}
-        min={0}
-        max={100}
-        step={5}
-        minStepsBetweenThumbs={1}
-        showValueBubble
-      />
-    </>
+        <RangeSlider
+          value={priceRange}
+          onValueChange={setPriceRange}
+          min={0}
+          max={100}
+          step={5}
+          minStepsBetweenThumbs={1}
+          showValueBubble
+        />
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 ```
