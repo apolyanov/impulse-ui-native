@@ -20,6 +20,7 @@ import {
   ChartComparisonSeries,
   ChartComparisonSeriesSelection,
 } from "./charts-comparison.constants";
+import { ChartPreviewHeight } from "./charts-layout.constants";
 
 export function ChartsConsistencyGallery() {
   const theme = useTheme();
@@ -113,7 +114,9 @@ export function ChartsConsistencyGallery() {
               <Typography.Title3>{example.name}</Typography.Title3>
             </Card.Header>
             <Card.Content>
-              <View height={280}>{example.chart}</View>
+              <View height={ChartPreviewHeight} flexShrink={0}>
+                {example.chart}
+              </View>
             </Card.Content>
           </Card.Root>
         ))}

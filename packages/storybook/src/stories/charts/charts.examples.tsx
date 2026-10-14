@@ -15,6 +15,10 @@ import {
   StoryExample,
   StoryExamplePropDefinition,
 } from "../../components/story-example";
+import {
+  ChartPreviewHeight,
+  ChartSelectionPreviewHeight,
+} from "./charts-layout.constants";
 import { ChartsSelectionExample } from "./charts-selection.example";
 
 interface ChartExampleDefinition {
@@ -23,6 +27,7 @@ interface ChartExampleDefinition {
   description: string;
   props: StoryExamplePropDefinition[];
   preview: ReactNode;
+  previewHeight?: number;
 }
 
 const lineData = [
@@ -90,6 +95,7 @@ export const ChartExampleDefinitions = [
       },
     ],
     preview: <ChartsSelectionExample />,
+    previewHeight: ChartSelectionPreviewHeight,
   },
   {
     name: "StackedHorizontal",
@@ -311,7 +317,9 @@ export const ChartExample = memo(function ChartExample({
       props={example.props}
       elevated={elevated}
     >
-      <View height={240}>{example.preview}</View>
+      <View height={example.previewHeight ?? ChartPreviewHeight} flexShrink={0}>
+        {example.preview}
+      </View>
     </StoryExample>
   );
 });
