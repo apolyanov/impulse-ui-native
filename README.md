@@ -28,6 +28,8 @@ Individual packages such as `@impulse-ui-native/select`, `@impulse-ui-native/the
 
 ## Documentation
 
+For designing an application in another project, use the portable [design-system reference](docs/design-system/README.md). It includes a design context brief, the current component and API catalog, complete light/dark token exports, and implementation constraints.
+
 Component documentation lives in Storybook. Stories provide interactive examples, controls, component states, and generated API documentation.
 
 There are two ways to explore the components:

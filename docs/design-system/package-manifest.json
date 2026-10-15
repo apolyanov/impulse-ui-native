@@ -1,0 +1,785 @@
+[
+  {
+    "name": "@impulse-ui-native/accordion",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Animated accordion components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=3.6.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/accordion.md"
+  },
+  {
+    "name": "@impulse-ui-native/card",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Card components for ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 4,
+    "reference": "api/card.md"
+  },
+  {
+    "name": "@impulse-ui-native/carousel",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Native snapping carousel with centered previews and themed navigation.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-svg": ">=13.9.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/carousel.md"
+  },
+  {
+    "name": "@impulse-ui-native/charts",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Composable chart components for React Native applications.",
+    "peerDependencies": {
+      "@shopify/react-native-skia": ">=2",
+      "react-native-gesture-handler": ">=2.0.0",
+      "react-native-reanimated": ">=4.0.0",
+      "react-native-worklets": ">=0.5",
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 85,
+    "reference": "api/charts.md"
+  },
+  {
+    "name": "@impulse-ui-native/checkbox",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Checkbox controls for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/checkbox.md"
+  },
+  {
+    "name": "@impulse-ui-native/color-picker",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Modular spectrum color picker with custom hex/RGB entry and theme presets for React Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-svg": ">=13.9.0",
+      "react-native-gesture-handler": ">=2.0.0",
+      "react-native-reanimated": ">=4.0.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 7,
+    "reference": "api/color-picker.md"
+  },
+  {
+    "name": "@impulse-ui-native/core",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Core hooks and utilities for the ImpulseUI Native component library.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 16,
+    "reference": "api/core.md"
+  },
+  {
+    "name": "@impulse-ui-native/data-state",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Loading, empty, and error state components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=3.6.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 8,
+    "reference": "api/data-state.md"
+  },
+  {
+    "name": "@impulse-ui-native/datetime",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Date and time selection components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 15,
+    "reference": "api/datetime.md"
+  },
+  {
+    "name": "@impulse-ui-native/echo",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Feedback and notification components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 8,
+    "reference": "api/echo.md"
+  },
+  {
+    "name": "@impulse-ui-native/endpoint",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Declarative API endpoint utilities for React Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "@tanstack/react-query": ">=5.0.0",
+      "axios": ">=1.6.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 15,
+    "reference": "api/endpoint.md"
+  },
+  {
+    "name": "@impulse-ui-native/flat-list",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Native FlatList and a small hook for initial positioning with known row sizes.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 6,
+    "reference": "api/flat-list.md"
+  },
+  {
+    "name": "@impulse-ui-native/flyout",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Flyout, popover, and overlay components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=4.0.0",
+      "react-native-gesture-handler": ">=2.0.0",
+      "react-native-worklets": ">=0.5",
+      "react-native-safe-area-context": ">=5.0.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 4,
+    "reference": "api/flyout.md"
+  },
+  {
+    "name": "@impulse-ui-native/form-field",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Form-field composition for Impulse UI Native controls.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/form-field.md"
+  },
+  {
+    "name": "@impulse-ui-native/icon",
+    "version": "9.1.1",
+    "toolkitExport": false,
+    "description": "A typed icon library for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-svg": ">=13.9.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./dist/index.js",
+        "import": "./dist/index.js"
+      },
+      "./components/icon": {
+        "types": "./dist/components/icon.d.mts",
+        "react-native": "./dist/components/icon.js",
+        "import": "./dist/components/icon.js"
+      },
+      "./icons/*": {
+        "types": "./dist/icons/wrappers/*.icon.d.mts",
+        "react-native": "./dist/icons/wrappers/*.icon.js",
+        "import": "./dist/icons/wrappers/*.icon.js"
+      },
+      "./types": {
+        "types": "./dist/types/index.d.mts",
+        "react-native": "./dist/types/index.js",
+        "import": "./dist/types/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/icon.md"
+  },
+  {
+    "name": "@impulse-ui-native/input",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Form input components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 7,
+    "reference": "api/input.md"
+  },
+  {
+    "name": "@impulse-ui-native/list",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "List components for ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 4,
+    "reference": "api/list.md"
+  },
+  {
+    "name": "@impulse-ui-native/modal",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Compound modal dialogs with local and OverlayHost lifecycle support.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=4",
+      "react-native-safe-area-context": ">=5.0.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/modal.md"
+  },
+  {
+    "name": "@impulse-ui-native/overlay",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Overlay management components for overlays and stacked interfaces in ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 18,
+    "reference": "api/overlay.md"
+  },
+  {
+    "name": "@impulse-ui-native/pagination",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Token-aware pagination controls for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-svg": ">=13.9.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/pagination.md"
+  },
+  {
+    "name": "@impulse-ui-native/popover",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Portal-rendered tooltips and compound anchored popovers for ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-safe-area-context": ">=5.0.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/popover.md"
+  },
+  {
+    "name": "@impulse-ui-native/portal",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Portal components for rendering React Native content outside its parent hierarchy.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 17,
+    "reference": "api/portal.md"
+  },
+  {
+    "name": "@impulse-ui-native/primitives",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Foundational UI primitives for building ImpulseUI Native components.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-safe-area-context": ">=5.0.0",
+      "react-native-svg": ">=13.9.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 34,
+    "reference": "api/primitives.md"
+  },
+  {
+    "name": "@impulse-ui-native/progress",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Progress components for ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-svg": ">=13.9.0",
+      "react-native-reanimated": ">=4.0.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/progress.md"
+  },
+  {
+    "name": "@impulse-ui-native/radio",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Radio controls for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/radio.md"
+  },
+  {
+    "name": "@impulse-ui-native/scroll-view",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Native ScrollView and a small hook to reveal an initially selected child.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/scroll-view.md"
+  },
+  {
+    "name": "@impulse-ui-native/segmented-control",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Segmented controls for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-svg": ">=13.9.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/segmented-control.md"
+  },
+  {
+    "name": "@impulse-ui-native/select",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Select and option picker components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 6,
+    "reference": "api/select.md"
+  },
+  {
+    "name": "@impulse-ui-native/skeleton",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Animated skeleton loading components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=3.6.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/skeleton.md"
+  },
+  {
+    "name": "@impulse-ui-native/slider",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Slider and range slider controls for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-gesture-handler": ">=2.0.0",
+      "react-native-reanimated": ">=4.0.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 6,
+    "reference": "api/slider.md"
+  },
+  {
+    "name": "@impulse-ui-native/stepper",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Stepper and progress components for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 8,
+    "reference": "api/stepper.md"
+  },
+  {
+    "name": "@impulse-ui-native/switch",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Animated switch controls for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=3.6.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/switch.md"
+  },
+  {
+    "name": "@impulse-ui-native/tabs",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Token-aware underline tabs and conditional panels for ImpulseUI Native applications.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/tabs.md"
+  },
+  {
+    "name": "@impulse-ui-native/theme",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Theme tokens, providers, and styling utilities for ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 91,
+    "reference": "api/theme.md"
+  },
+  {
+    "name": "@impulse-ui-native/toast",
+    "version": "9.1.1",
+    "toolkitExport": true,
+    "description": "Compound toast notifications for ImpulseUI Native.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-reanimated": ">=4.0.0",
+      "react-native-worklets": ">=0.5",
+      "react-native-safe-area-context": ">=5.0.0",
+      "react-native-svg": ">=13.9.0"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 4,
+    "reference": "api/toast.md"
+  },
+  {
+    "name": "@impulse-ui-native/toolkit",
+    "version": "9.1.1",
+    "toolkitExport": false,
+    "description": "The complete ImpulseUI Native component toolkit for building React Native applications.",
+    "peerDependencies": {
+      "@shopify/react-native-skia": ">=2",
+      "react": ">=18",
+      "react-native": ">=0.73",
+      "react-native-gesture-handler": ">=2.0.0",
+      "react-native-reanimated": ">=4",
+      "react-native-safe-area-context": ">=5.0.0",
+      "react-native-svg": ">=13.9.0",
+      "react-native-worklets": ">=0.5"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 1,
+    "reference": "api/toolkit.md"
+  }
+]
