@@ -27,21 +27,19 @@ export const ChartTooltip = memo(function ChartTooltip({
 
   return (
     <View {...props} style={containerStyle}>
-      {details.map((detail) => (
-        <ChartRow
-          style={styles.row}
-          key={
-            (detail.selection.seriesId ?? "") +
-            ":" +
-            detail.selection.datumIndex
-          }
-        >
-          <ChartSwatch color={detail.color} />
-          <ChartText numeric color={color} flexShrink={1}>
-            {detail.label}: {detail.value}
-          </ChartText>
-        </ChartRow>
-      ))}
+      {details.map((detail) => {
+        const selectionKey =
+          (detail.selection.seriesId ?? "") + ":" + detail.selection.datumIndex;
+
+        return (
+          <ChartRow style={styles.row} key={selectionKey}>
+            <ChartSwatch color={detail.color} />
+            <ChartText numeric color={color} flexShrink={1}>
+              {detail.label}: {detail.value}
+            </ChartText>
+          </ChartRow>
+        );
+      })}
     </View>
   );
 });

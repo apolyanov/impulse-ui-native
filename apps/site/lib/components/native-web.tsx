@@ -172,24 +172,24 @@ export function WebTag({
   disabled?: boolean;
   closable?: boolean;
 }) {
+  const showClose = closable && !disabled;
+
+  const tagClassName = classNames(
+    "inline-flex items-center justify-center gap-xxs rounded-round border-sm",
+    tagSizes[size],
+    tagColors[color][variant],
+    disabled &&
+      (variant === "outlined"
+        ? "border-border-strong bg-transparent text-text-disabled"
+        : variant === "soft"
+          ? "border-border-subtle bg-surface-primary text-text-disabled"
+          : "border-border-strong bg-surface-primary text-text-disabled"),
+  );
+
   return (
-    <span
-      className={classNames(
-        "inline-flex items-center justify-center gap-xxs rounded-round border-sm",
-        tagSizes[size],
-        tagColors[color][variant],
-        disabled &&
-          (variant === "outlined"
-            ? "border-border-strong bg-transparent text-text-disabled"
-            : variant === "soft"
-              ? "border-border-subtle bg-surface-primary text-text-disabled"
-              : "border-border-strong bg-surface-primary text-text-disabled"),
-      )}
-    >
+    <span className={tagClassName}>
       {children}
-      {closable && !disabled ? (
-        <SystemIcon className="size-sm" name="x" />
-      ) : null}
+      {showClose ? <SystemIcon className="size-sm" name="x" /> : null}
     </span>
   );
 }
@@ -226,31 +226,26 @@ export function WebControl({
   children: ReactNode;
   className?: string;
 }) {
+  const labelClassName = classNames(
+    "mb-xxs block text-xsm leading-xsm text-text-secondary",
+    error && "text-feedback-error",
+    disabled && "text-text-disabled",
+  );
+  const controlClassName = classNames(
+    "flex w-full items-center rounded-sm border-sm px-xs",
+    controlSizes[size],
+    controlVariants[variant],
+    error && "border-feedback-error",
+    disabled &&
+      (variant === "filled"
+        ? "border-transparent bg-surface-primary opacity-70"
+        : "border-border-default bg-transparent opacity-70"),
+  );
+
   return (
     <label className={classNames("block w-full", className)}>
-      {label ? (
-        <span
-          className={classNames(
-            "mb-xxs block text-xsm leading-xsm text-text-secondary",
-            error && "text-feedback-error",
-            disabled && "text-text-disabled",
-          )}
-        >
-          {label}
-        </span>
-      ) : null}
-      <span
-        className={classNames(
-          "flex w-full items-center rounded-sm border-sm px-xs",
-          controlSizes[size],
-          controlVariants[variant],
-          error && "border-feedback-error",
-          disabled &&
-            (variant === "filled"
-              ? "border-transparent bg-surface-primary opacity-70"
-              : "border-border-default bg-transparent opacity-70"),
-        )}
-      >
+      {label ? <span className={labelClassName}>{label}</span> : null}
+      <span className={controlClassName}>
         {prefix ? (
           <span className="mx-xxs text-text-secondary">{prefix}</span>
         ) : null}

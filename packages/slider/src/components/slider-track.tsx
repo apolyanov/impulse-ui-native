@@ -56,6 +56,8 @@ export const SliderTrack = memo(function SliderTrack({
     [marks, styles.activeMark, styles.mark],
   );
 
+  const showDefaultTrack = trackContent === null || trackContent === undefined;
+
   return (
     <GestureDetector gesture={gesture}>
       <View
@@ -65,7 +67,7 @@ export const SliderTrack = memo(function SliderTrack({
       >
         <View pointerEvents="none" style={styles.track}>
           {trackContent}
-          {trackContent === null || trackContent === undefined ? (
+          {showDefaultTrack ? (
             <Animated.View style={activeTrackStyles} />
           ) : null}
         </View>

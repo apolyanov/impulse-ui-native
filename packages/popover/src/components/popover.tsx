@@ -26,14 +26,17 @@ export const PopoverComponent = memo(function Popover({
 }: PopoverProps) {
   const colors = useColors();
 
+  const showHeader = header || title || !hideClose;
+  const showTitle = !header && title;
+
   return (
     <PopoverRoot {...props}>
       <PopoverTrigger {...triggerProps}>{trigger}</PopoverTrigger>
       <PopoverContent {...contentProps}>
-        {header || title || !hideClose ? (
+        {showHeader ? (
           <PopoverHeader>
             {header}
-            {!header && title ? <PopoverTitle>{title}</PopoverTitle> : null}
+            {showTitle ? <PopoverTitle>{title}</PopoverTitle> : null}
             {!hideClose ? (
               <PopoverClose marginLeft="auto">
                 <Icon icon={XIcon} size="small" color={colors.text.tertiary} />

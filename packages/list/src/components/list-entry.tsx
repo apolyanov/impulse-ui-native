@@ -22,23 +22,22 @@ export const ListEntry = memo(function ListEntry({
     [disabled, onPress],
   );
 
+  const hasLeading = leading !== null && leading !== undefined;
+  const hasTitle = title !== null && title !== undefined;
+  const hasDescription = description !== null && description !== undefined;
+  const hasTrailing = trailing !== null && trailing !== undefined;
+
   return (
     <Row {...props} nativeID={props.nativeID ?? id} {...pressableProps}>
-      {leading !== null && leading !== undefined ? (
-        <List.Leading>{leading}</List.Leading>
-      ) : null}
+      {hasLeading ? <List.Leading>{leading}</List.Leading> : null}
       <List.Content>
-        {title !== null && title !== undefined ? (
-          <Typography.Title6>{title}</Typography.Title6>
-        ) : null}
-        {description !== null && description !== undefined ? (
+        {hasTitle ? <Typography.Title6>{title}</Typography.Title6> : null}
+        {hasDescription ? (
           <Typography.BodySmall>{description}</Typography.BodySmall>
         ) : null}
         {children}
       </List.Content>
-      {trailing !== null && trailing !== undefined ? (
-        <List.Trailing>{trailing}</List.Trailing>
-      ) : null}
+      {hasTrailing ? <List.Trailing>{trailing}</List.Trailing> : null}
     </Row>
   );
 });

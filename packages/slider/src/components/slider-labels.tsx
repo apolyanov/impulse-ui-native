@@ -34,6 +34,8 @@ export const SliderLabels = memo(function SliderLabels({
     return null;
   }
 
+  const hasMarkLabels = showMarkLabels && marks.length > 0;
+
   return (
     <>
       {showMinMax ? (
@@ -47,7 +49,7 @@ export const SliderLabels = memo(function SliderLabels({
         </View>
       ) : null}
 
-      {showMarkLabels && marks.length > 0 ? (
+      {hasMarkLabels ? (
         <View pointerEvents="none" style={styles.markLabelRow}>
           {marks.map((mark, index) => (
             <Typography.Caption key={mark.value} style={markLabelStyles[index]}>

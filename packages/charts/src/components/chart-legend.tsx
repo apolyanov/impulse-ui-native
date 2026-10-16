@@ -17,14 +17,18 @@ export const ChartLegend = memo(function ChartLegend({
 
   return (
     <View style={styles.container}>
-      {items.map((item) => (
-        <ChartLegendEntry
-          key={item.id}
-          item={item}
-          hidden={hiddenIds?.includes(item.id) ?? false}
-          onToggle={onToggle}
-        />
-      ))}
+      {items.map((item) => {
+        const hidden = hiddenIds?.includes(item.id) ?? false;
+
+        return (
+          <ChartLegendEntry
+            key={item.id}
+            item={item}
+            hidden={hidden}
+            onToggle={onToggle}
+          />
+        );
+      })}
     </View>
   );
 });

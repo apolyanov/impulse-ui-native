@@ -29,6 +29,8 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
     rest.onOpen?.(id);
   });
 
+  const shouldScrollToSelected = Boolean(rest.open) && initialScrollToSelected;
+
   return (
     <Portal>
       <Flyout {...rest} onOpen={handleOpen}>
@@ -38,9 +40,7 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
             options={options}
             isSelected={isSelected}
             onSelect={onSelect}
-            initialScrollToSelected={
-              Boolean(rest.open) && initialScrollToSelected
-            }
+            initialScrollToSelected={shouldScrollToSelected}
           />
         </View>
       </Flyout>

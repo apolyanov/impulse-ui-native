@@ -35,18 +35,23 @@ export const CarouselPagination = memo(function CarouselPagination({
     setWidth(event.nativeEvent.layout.width),
   );
 
+  const showPaginationCounter = variant !== "none" && showCounter;
+  const showIndicators =
+    !showCounter && (variant === "dots" || variant === "segments");
+  const indicatorsDisabled = disabled || count < 2;
+
   return (
     <View onLayout={handleLayout} style={styles.root}>
-      {variant !== "none" && showCounter ? (
+      {showPaginationCounter ? (
         <CarouselCounter count={count} index={index} disabled={disabled} />
       ) : null}
-      {!showCounter && (variant === "dots" || variant === "segments")
+      {showIndicators
         ? indices.map((position) => (
             <CarouselIndicator
               key={position}
               index={position}
               active={position === index}
-              disabled={disabled || count < 2}
+              disabled={indicatorsDisabled}
               variant={variant}
               onSelect={onSelect}
             />

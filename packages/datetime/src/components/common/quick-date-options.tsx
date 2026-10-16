@@ -40,13 +40,17 @@ export const QuickDateOptions = memo(function QuickDateOptions(
       contentContainerStyle={styles.content}
       showsHorizontalScrollIndicator={false}
     >
-      {props.options.map((option, index) => (
-        <QuickDateOptionTag
-          key={getQuickOptionKey(option.value) ?? index}
-          option={option}
-          onPress={props.onPress}
-        />
-      ))}
+      {props.options.map((option, index) => {
+        const optionKey = getQuickOptionKey(option.value) ?? index;
+
+        return (
+          <QuickDateOptionTag
+            key={optionKey}
+            option={option}
+            onPress={props.onPress}
+          />
+        );
+      })}
     </ScrollView>
   );
 });

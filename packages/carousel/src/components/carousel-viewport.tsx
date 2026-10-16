@@ -24,15 +24,18 @@ export const CarouselViewport = memo(function CarouselViewport({
     controller.syncPosition(false),
   );
 
+  const hasSlides = width > 0 && slides.length > 0;
+  const scrollEnabled = !disabled && slides.length > 1;
+
   return (
     <View onLayout={onLayout} style={styles.root}>
-      {width > 0 && slides.length > 0 ? (
+      {hasSlides ? (
         <ScrollView
           ref={controller.scrollRef}
           horizontal
           contentContainerStyle={styles.content}
           showsHorizontalScrollIndicator={false}
-          scrollEnabled={!disabled && slides.length > 1}
+          scrollEnabled={scrollEnabled}
           bounces={false}
           overScrollMode="never"
           decelerationRate="fast"

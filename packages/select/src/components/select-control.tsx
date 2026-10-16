@@ -38,6 +38,11 @@ function SelectControlComponent<Value extends PrimitiveValue>(
 
   const SuffixContent = loading ? Control.Loader : Suffix;
 
+  const hasPrefix = Prefix || PrefixIcon;
+  const showPrefixIcon = !Prefix && PrefixIcon;
+  const hasSuffix = SuffixContent || SuffixIcon;
+  const showSuffixIcon = !SuffixContent && SuffixIcon;
+
   return (
     <Control.Provider
       size={size}
@@ -49,19 +54,19 @@ function SelectControlComponent<Value extends PrimitiveValue>(
         <Control.Label>{label}</Control.Label>
         <Pressable onPress={onPress}>
           <Control.Container>
-            {Prefix || PrefixIcon ? (
+            {hasPrefix ? (
               <Control.Addon onPress={onPressPrefix}>
                 {Prefix ? <Prefix /> : null}
-                {!Prefix && PrefixIcon ? (
+                {showPrefixIcon ? (
                   <Icon color={addonColor} icon={PrefixIcon} />
                 ) : null}
               </Control.Addon>
             ) : null}
             {children}
-            {SuffixContent || SuffixIcon ? (
+            {hasSuffix ? (
               <Control.Addon onPress={onPressSuffix}>
                 {SuffixContent ? <SuffixContent /> : null}
-                {!SuffixContent && SuffixIcon ? (
+                {showSuffixIcon ? (
                   <Icon color={addonColor} icon={SuffixIcon} />
                 ) : null}
               </Control.Addon>

@@ -36,6 +36,9 @@ export const DateControl = memo(function DateControl(
     error: Boolean(error),
   }).iconColor;
 
+  const hasSuffix = Suffix || SuffixIcon;
+  const showSuffixIcon = !Suffix && SuffixIcon;
+
   return (
     <Control.Provider
       size={size}
@@ -52,10 +55,10 @@ export const DateControl = memo(function DateControl(
               {!Prefix ? <Icon color={addonColor} icon={PrefixIcon} /> : null}
             </Control.Addon>
             {children}
-            {Suffix || SuffixIcon ? (
+            {hasSuffix ? (
               <Control.Addon onPress={onSuffixPress}>
                 {Suffix ? <Suffix /> : null}
-                {!Suffix && SuffixIcon ? (
+                {showSuffixIcon ? (
                   <Icon color={addonColor} icon={SuffixIcon} />
                 ) : null}
               </Control.Addon>

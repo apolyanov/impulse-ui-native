@@ -59,9 +59,12 @@ export const Grid = memo(function Grid<
     [plot, yScale, yTicks, yStyle.visible],
   );
 
+  const showXGrid = xStyle.visible && xPath;
+  const showYGrid = yStyle.visible && yPath;
+
   return (
     <Group>
-      {xStyle.visible && xPath ? (
+      {showXGrid ? (
         <Path
           path={xPath}
           color={xStyle.color}
@@ -75,7 +78,7 @@ export const Grid = memo(function Grid<
         </Path>
       ) : null}
 
-      {yStyle.visible && yPath ? (
+      {showYGrid ? (
         <Path
           path={yPath}
           color={yStyle.color}

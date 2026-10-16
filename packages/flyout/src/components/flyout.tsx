@@ -14,11 +14,13 @@ export const FlyoutComponent = memo(function Flyout({
   placement = "bottom",
   ...props
 }: FlyoutProps) {
+  const showTitle = !header && title;
+
   return (
     <FlyoutRoot {...props} placement={placement}>
       {placement === "bottom" ? <FlyoutHandle placement={placement} /> : null}
       {header ? <FlyoutHeader>{header}</FlyoutHeader> : null}
-      {!header && title ? (
+      {showTitle ? (
         <FlyoutHeader>
           <FlyoutTitle>{title}</FlyoutTitle>
         </FlyoutHeader>

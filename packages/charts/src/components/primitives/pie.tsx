@@ -45,8 +45,10 @@ export const Pie = memo(function Pie(props: PieProps) {
 
   return (
     <Group>
-      {slices.map(({ color, coordinate, path }) =>
-        path ? (
+      {slices.map(({ color, coordinate, path }) => {
+        const showStroke = strokeColor && strokeWidth > 0;
+
+        return path ? (
           <Group
             key={coordinate.datum.id}
             transform={[
@@ -55,7 +57,7 @@ export const Pie = memo(function Pie(props: PieProps) {
             ]}
           >
             <Path path={path} color={color} opacity={opacity} />
-            {strokeColor && strokeWidth > 0 ? (
+            {showStroke ? (
               <Path
                 path={path}
                 color={strokeColor}
@@ -65,8 +67,8 @@ export const Pie = memo(function Pie(props: PieProps) {
               />
             ) : null}
           </Group>
-        ) : null,
-      )}
+        ) : null;
+      })}
     </Group>
   );
 });

@@ -40,12 +40,14 @@ function SelectComponent<Value extends PrimitiveValue>(
     [select, close],
   );
 
+  const hasSelectedValue = selected !== null && selected !== undefined;
+
   return (
     <SelectControl {...rest} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
-      {selected !== null && selected !== undefined ? (
+      {hasSelectedValue ? (
         <Control.Value>{getLabel(selected)}</Control.Value>
       ) : null}
       <SelectFlyout

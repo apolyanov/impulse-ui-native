@@ -66,12 +66,14 @@ export const ChartAxis = memo(function ChartAxis<Value>({
     [orientation, ticks, scale, plot, region, tickLength, labelGap, fontSize],
   );
 
+  const showLine = lineVisible && line?.visible !== false;
+
   return (
     <Group>
       <ChartStroke
         start={layout.line.start}
         end={layout.line.end}
-        visible={lineVisible && line?.visible !== false}
+        visible={showLine}
         color={line?.color ?? theme.colors.border.default.value}
         width={line?.width ?? tokens.width}
         opacity={line?.opacity ?? AxisDefaultOpacity}

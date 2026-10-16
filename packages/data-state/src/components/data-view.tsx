@@ -47,6 +47,8 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
     isEmpty,
   ]);
 
+  const showContent = !error && !isEmpty;
+
   return (
     <LoadingView
       {...rest}
@@ -54,7 +56,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
       contentContainerStyle={contentContainerStyle}
       loading={loading}
     >
-      {!error && !isEmpty ? children : null}
+      {showContent ? children : null}
       {content}
     </LoadingView>
   );

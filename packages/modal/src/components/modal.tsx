@@ -31,6 +31,9 @@ export const ModalComponent = memo(function Modal({
 }: ModalProps) {
   const colors = useColors();
 
+  const showHeader = header || title || !hideClose;
+  const showTitle = !header && title;
+
   return (
     <ModalProvider
       id={id}
@@ -43,10 +46,10 @@ export const ModalComponent = memo(function Modal({
       onCloseFinished={onCloseFinished}
     >
       <ModalRoot {...props}>
-        {header || title || !hideClose ? (
+        {showHeader ? (
           <ModalHeader>
             {header}
-            {!header && title ? <ModalTitle>{title}</ModalTitle> : null}
+            {showTitle ? <ModalTitle>{title}</ModalTitle> : null}
             {!hideClose ? (
               <ModalClose marginLeft="auto">
                 <Icon icon={XIcon} size="small" color={colors.text.tertiary} />

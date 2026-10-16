@@ -52,6 +52,12 @@ export const Input = memo(function Input(props: InputProps) {
     ? togglePasswordVisibility
     : onPressSuffix;
 
+  const hasPrefix = Prefix || PrefixIcon;
+  const showPrefixIcon = !Prefix && PrefixIcon;
+  const secureTextEntry = props.secureTextEntry && !showPassword;
+  const hasSuffix = Suffix || SuffixInternalIcon;
+  const showSuffixIcon = !Suffix && SuffixInternalIcon;
+
   return (
     <Control.Provider
       size={size}
@@ -62,23 +68,23 @@ export const Input = memo(function Input(props: InputProps) {
       <Control.Root>
         <Control.Label>{label}</Control.Label>
         <Control.Container style={containerStyle}>
-          {Prefix || PrefixIcon ? (
+          {hasPrefix ? (
             <Control.Addon onPress={onPressPrefix}>
               {Prefix ? <Prefix /> : null}
-              {!Prefix && PrefixIcon ? (
+              {showPrefixIcon ? (
                 <Icon color={addonColor} icon={PrefixIcon} />
               ) : null}
             </Control.Addon>
           ) : null}
           <Control.Input
-            secureTextEntry={props.secureTextEntry && !showPassword}
+            secureTextEntry={secureTextEntry}
             style={style}
             {...rest}
           />
-          {Suffix || SuffixInternalIcon ? (
+          {hasSuffix ? (
             <Control.Addon onPress={internalOnSuffixPress}>
               {Suffix ? <Suffix /> : null}
-              {!Suffix && SuffixInternalIcon ? (
+              {showSuffixIcon ? (
                 <Icon color={addonColor} icon={SuffixInternalIcon} />
               ) : null}
             </Control.Addon>

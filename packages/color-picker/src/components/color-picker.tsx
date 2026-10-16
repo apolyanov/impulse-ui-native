@@ -30,6 +30,8 @@ export const ColorPickerComponent = memo(function ColorPicker({
   const styles = useThemedStyles(themedStyles);
   const palette = presets ?? tokens.presets;
 
+  const hasPresets = showPresets && palette.length > 0;
+
   return (
     <ColorPickerRoot {...props} commitMode={commitMode}>
       <Typography.Title4 color={tokens.labelColor}>
@@ -68,7 +70,7 @@ export const ColorPickerComponent = memo(function ColorPicker({
           <ColorPickerChannelInput channel="b" label="B" />
         </View>
       </View>
-      {showPresets && palette.length > 0 ? (
+      {hasPresets ? (
         <View gap={tokens.presetsLabelGap}>
           <Typography.Label>{presetsLabel}</Typography.Label>
           <View style={styles.palette}>

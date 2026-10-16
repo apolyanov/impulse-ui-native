@@ -34,13 +34,14 @@ export const Avatar = memo(function Avatar({
     [extractedStyleProps, style, styles.container],
   );
 
+  const showInitials =
+    (fallback === null || fallback === undefined) && initials;
+
   return (
     <View {...props} style={containerStyle}>
       <View style={styles.content}>
         {fallback}
-        {(fallback === null || fallback === undefined) && initials ? (
-          <Text style={styles.initials}>{initials}</Text>
-        ) : null}
+        {showInitials ? <Text style={styles.initials}>{initials}</Text> : null}
 
         {source ? (
           <AvatarImageLayer

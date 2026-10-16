@@ -40,6 +40,9 @@ export const Tooltip = memo(function Tooltip({
 
   useTimer({ enabled: open && !disabled, duration, callback: dismiss });
 
+  const isTextContent =
+    typeof content === "string" || typeof content === "number";
+
   return (
     <PopoverRoot
       {...props}
@@ -52,7 +55,7 @@ export const Tooltip = memo(function Tooltip({
         {children}
       </PopoverTrigger>
       <PopoverContent shadow="sm" style={styles.content}>
-        {typeof content === "string" || typeof content === "number" ? (
+        {isTextContent ? (
           <PopoverDescription style={styles.description}>
             {content}
           </PopoverDescription>

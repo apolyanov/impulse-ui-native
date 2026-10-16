@@ -10,18 +10,16 @@ export const CardComponent = memo(function CardComponent({
   footer,
   ...props
 }: CardProps) {
+  const hasMedia = media !== null && media !== undefined;
+  const hasHeader = header !== null && header !== undefined;
+  const hasFooter = footer !== null && footer !== undefined;
+
   return (
     <Card.Root {...props}>
-      {media !== null && media !== undefined ? (
-        <Card.Media>{media}</Card.Media>
-      ) : null}
-      {header !== null && header !== undefined ? (
-        <Card.Header>{header}</Card.Header>
-      ) : null}
+      {hasMedia ? <Card.Media>{media}</Card.Media> : null}
+      {hasHeader ? <Card.Header>{header}</Card.Header> : null}
       <Card.Content>{children}</Card.Content>
-      {footer !== null && footer !== undefined ? (
-        <Card.Footer>{footer}</Card.Footer>
-      ) : null}
+      {hasFooter ? <Card.Footer>{footer}</Card.Footer> : null}
     </Card.Root>
   );
 });

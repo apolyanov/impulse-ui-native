@@ -80,6 +80,10 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
     }
   }, [isOpen, selected, isClosed]);
 
+  const showPlaceholder = selected === null && placeholder;
+  const hasSuffix = Suffix || SuffixIcon;
+  const showSuffixIcon = !Suffix && SuffixIcon;
+
   return (
     <Control.Provider
       size={size}
@@ -96,7 +100,7 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
               {!Prefix ? <Icon color={addonColor} icon={PrefixIcon} /> : null}
             </Control.Addon>
 
-            {selected === null && placeholder ? (
+            {showPlaceholder ? (
               <Control.Placeholder>{placeholder}</Control.Placeholder>
             ) : null}
 
@@ -118,10 +122,10 @@ export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
               onPressCancel={close}
             />
 
-            {Suffix || SuffixIcon ? (
+            {hasSuffix ? (
               <Control.Addon onPress={onSuffixPress}>
                 {Suffix ? <Suffix /> : null}
-                {!Suffix && SuffixIcon ? (
+                {showSuffixIcon ? (
                   <Icon color={addonColor} icon={SuffixIcon} />
                 ) : null}
               </Control.Addon>

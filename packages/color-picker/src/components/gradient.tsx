@@ -32,6 +32,9 @@ export const ColorGradient = memo(function ColorGradient({
     [colors],
   );
 
+  const checkerFill = "url(#" + id + "-checker)";
+  const gradientFill = "url(#" + id + ")";
+
   return (
     <Svg width="100%" height="100%">
       <Defs>
@@ -42,14 +45,18 @@ export const ColorGradient = memo(function ColorGradient({
           x2={vertical ? "0%" : "100%"}
           y2={vertical ? "100%" : "0%"}
         >
-          {stops.map((stop, index) => (
-            <Stop
-              key={index}
-              offset={index / Math.max(1, stops.length - 1)}
-              stopColor={stop.color}
-              stopOpacity={stop.opacity}
-            />
-          ))}
+          {stops.map((stop, index) => {
+            const offset = index / Math.max(1, stops.length - 1);
+
+            return (
+              <Stop
+                key={index}
+                offset={offset}
+                stopColor={stop.color}
+                stopOpacity={stop.opacity}
+              />
+            );
+          })}
         </LinearGradient>
         {checkerboard ? (
           <Pattern
@@ -79,9 +86,9 @@ export const ColorGradient = memo(function ColorGradient({
         ) : null}
       </Defs>
       {checkerboard ? (
-        <Rect width="100%" height="100%" fill={"url(#" + id + "-checker)"} />
+        <Rect width="100%" height="100%" fill={checkerFill} />
       ) : null}
-      <Rect width="100%" height="100%" fill={"url(#" + id + ")"} />
+      <Rect width="100%" height="100%" fill={gradientFill} />
     </Svg>
   );
 });

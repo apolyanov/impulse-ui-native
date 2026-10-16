@@ -59,6 +59,15 @@ export const ChartSurface = memo(function ChartSurface({
     clearSelection: presentation.clearSelection,
   });
 
+  const showSelection = hasPlot && selected.length > 0;
+  const showEmptyContent =
+    hasPlot &&
+    targets.length === 0 &&
+    emptyContent !== undefined &&
+    emptyContent !== null;
+  const showTooltip = selected.length > 0 && tooltip !== false;
+  const showLegend = legend && legendItems;
+
   return (
     <View style={styles.container}>
       <View style={styles.canvasContainer} onLayout={canvas.onLayout}>
@@ -66,37 +75,37 @@ export const ChartSurface = memo(function ChartSurface({
           <View style={styles.canvas} collapsable={false}>
             <Canvas ref={canvas.ref} style={styles.canvas}>
               {hasPlot ? children : null}
-              {hasPlot && selected.length > 0 ? (
+              {showSelection ? (
                 <Group clip={selectionClip}>
-                  {selected.map((target) => (
-                    <Circle
-                      key={
-                        (target.selection.seriesId ?? "") +
-                        ":" +
-                        target.selection.datumIndex
-                      }
-                      cx={target.x}
-                      cy={target.y}
-                      r={selectionRadius}
-                      color={target.color}
-                      style="stroke"
-                      strokeWidth={selectionWidth}
-                    />
-                  ))}
+                  {selected.map((target) => {
+                    const selectionKey =
+                      (target.selection.seriesId ?? "") +
+                      ":" +
+                      target.selection.datumIndex;
+
+                    return (
+                      <Circle
+                        key={selectionKey}
+                        cx={target.x}
+                        cy={target.y}
+                        r={selectionRadius}
+                        color={target.color}
+                        style="stroke"
+                        strokeWidth={selectionWidth}
+                      />
+                    );
+                  })}
                 </Group>
               ) : null}
             </Canvas>
           </View>
         </GestureDetector>
-        {hasPlot &&
-        targets.length === 0 &&
-        emptyContent !== undefined &&
-        emptyContent !== null ? (
+        {showEmptyContent ? (
           <View pointerEvents="none" style={styles.empty}>
             {emptyContent}
           </View>
         ) : null}
-        {selected.length > 0 && tooltip !== false ? (
+        {showTooltip ? (
           <View pointerEvents="box-none" style={styles.tooltip}>
             {typeof tooltip === "function" ? (
               tooltip(selected)
@@ -108,7 +117,7 @@ export const ChartSurface = memo(function ChartSurface({
           </View>
         ) : null}
       </View>
-      {legend && legendItems ? (
+      {showLegend ? (
         <ChartLegend
           items={legendItems}
           hiddenIds={presentation.hiddenIds}

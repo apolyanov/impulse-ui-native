@@ -21,6 +21,9 @@ export const ToastComponent = memo(function ToastComponent({
 }: ToastProps) {
   const tokens = useComponentsTokens().toast;
 
+  const hasDescription = description !== null && description !== undefined;
+  const hasAction = action !== null && action !== undefined;
+
   return (
     <Toast.Root {...props} tone={tone}>
       {!hideIcon ? (
@@ -34,12 +37,12 @@ export const ToastComponent = memo(function ToastComponent({
       ) : null}
       <Toast.Content>
         {title ? <Toast.Title>{title}</Toast.Title> : null}
-        {description !== null && description !== undefined ? (
+        {hasDescription ? (
           <Toast.Description>{description}</Toast.Description>
         ) : null}
         {children}
       </Toast.Content>
-      {action !== null && action !== undefined ? (
+      {hasAction ? (
         <Toast.Action {...actionProps}>{action}</Toast.Action>
       ) : null}
       {!hideClose ? (

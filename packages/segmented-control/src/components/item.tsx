@@ -88,6 +88,9 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     onLayout?.(event);
   });
 
+  const isTextChild =
+    typeof children === "string" || typeof children === "number";
+
   return (
     <Pressable
       {...props}
@@ -107,7 +110,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
           />
         ) : null}
 
-        {typeof children === "string" || typeof children === "number" ? (
+        {isTextChild ? (
           <Typography.Label numberOfLines={1} style={styles.label}>
             {children}
           </Typography.Label>

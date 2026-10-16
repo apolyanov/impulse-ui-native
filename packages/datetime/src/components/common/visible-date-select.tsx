@@ -58,15 +58,17 @@ export const VisibleDateSelect = memo(function VisibleDateSelect(
     [props.value, props.onChange],
   );
 
+  const defaultMonth = props.defaultValue?.getMonth() ?? props.value.getMonth();
+  const defaultYear =
+    props.defaultValue?.getFullYear() ?? props.value.getFullYear();
+
   return (
     <View flexDirection="row" gap={tokens.datetimePicker.visibleDateSelect.gap}>
       <View flex={1}>
         <Select
           options={monthOptions}
           value={props.value.getMonth()}
-          defaultValue={
-            props.defaultValue?.getMonth() ?? props.value.getMonth()
-          }
+          defaultValue={defaultMonth}
           PrefixIcon={CalendarDotsIcon}
           onChange={onChangeVisibleMonth}
           placeholder="Month"
@@ -77,9 +79,7 @@ export const VisibleDateSelect = memo(function VisibleDateSelect(
         <Select
           options={yearOptions}
           value={props.value.getFullYear()}
-          defaultValue={
-            props.defaultValue?.getFullYear() ?? props.value.getFullYear()
-          }
+          defaultValue={defaultYear}
           PrefixIcon={CalendarDotsIcon}
           onChange={onChangeVisibleYear}
           placeholder="Year"

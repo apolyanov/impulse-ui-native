@@ -29,12 +29,15 @@ export const CarouselControls = memo(function CarouselControls({
     return null;
   }
 
+  const previousDisabled = disabled || index === 0;
+  const nextDisabled = disabled || index === count - 1;
+
   return (
     <View style={styles.root}>
       {showNavigation ? (
         <IconButton
           icon={CaretLeftIcon}
-          disabled={disabled || index === 0}
+          disabled={previousDisabled}
           onPress={previous}
         />
       ) : null}
@@ -48,7 +51,7 @@ export const CarouselControls = memo(function CarouselControls({
       {showNavigation ? (
         <IconButton
           icon={CaretRightIcon}
-          disabled={disabled || index === count - 1}
+          disabled={nextDisabled}
           onPress={next}
         />
       ) : null}

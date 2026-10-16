@@ -36,6 +36,8 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
 
   const datePickerTokens = tokens.datetimePicker.datePickerFlyout;
 
+  const hasQuickDateOptions = quickDateOptions && quickDateOptions.length > 0;
+
   return (
     <Portal>
       <Flyout {...rest}>
@@ -48,7 +50,7 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
             onPress={onPressCalendarDay}
           />
 
-          {quickDateOptions && quickDateOptions.length > 0 ? (
+          {hasQuickDateOptions ? (
             <QuickDateOptions
               options={quickDateOptions}
               onPress={onPressQuickDateOption}

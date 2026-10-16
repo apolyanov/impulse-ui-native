@@ -19,6 +19,8 @@ export const ColorMotionGradient = memo(function ColorMotionGradient({
     color: rgbaToNativeColor(rgba.get(), true),
   }));
 
+  const gradientFill = "url(#" + id + ")";
+
   return (
     <>
       <ColorGradient colors={TransparentStops} checkerboard />
@@ -34,7 +36,7 @@ export const ColorMotionGradient = memo(function ColorMotionGradient({
             <Stop offset={1} stopColor="#FFFFFF" stopOpacity={1} />
           </LinearGradient>
           <Mask id={id + "-mask"} x="0%" y="0%" width="100%" height="100%">
-            <Rect width="100%" height="100%" fill={"url(#" + id + ")"} />
+            <Rect width="100%" height="100%" fill={gradientFill} />
           </Mask>
         </Defs>
         <AnimatedColorRect

@@ -51,26 +51,30 @@ export const Tabs = memo(function Tabs({
   const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
   const tabButtons = useMemo(
     () =>
-      items.map((item) => (
-        <TabButton
-          key={item.value}
-          item={item}
-          disabled={disabled || Boolean(item.disabled)}
-          selected={item.value === selectedValue}
-          size={size}
-          onSelect={setSelectedValue}
-          initialScrollRef={
-            item.value === initialSelectedValue
-              ? initialScroll.targetRef
-              : undefined
-          }
-          onLayout={
-            item.value === initialSelectedValue
-              ? initialScroll.onTargetLayout
-              : undefined
-          }
-        />
-      )),
+      items.map((item) => {
+        const itemDisabled = disabled || Boolean(item.disabled);
+
+        return (
+          <TabButton
+            key={item.value}
+            item={item}
+            disabled={itemDisabled}
+            selected={item.value === selectedValue}
+            size={size}
+            onSelect={setSelectedValue}
+            initialScrollRef={
+              item.value === initialSelectedValue
+                ? initialScroll.targetRef
+                : undefined
+            }
+            onLayout={
+              item.value === initialSelectedValue
+                ? initialScroll.onTargetLayout
+                : undefined
+            }
+          />
+        );
+      }),
     [
       disabled,
       items,

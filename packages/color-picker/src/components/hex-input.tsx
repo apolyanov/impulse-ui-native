@@ -46,6 +46,9 @@ export const ColorPickerHexInput = memo(function ColorPickerHexInput({
     onSubmitEditing?.(event);
   });
 
+  const inputError =
+    error ?? (input.invalid ? "Enter a valid hex color" : undefined);
+
   return (
     <Input
       size={size}
@@ -58,7 +61,7 @@ export const ColorPickerHexInput = memo(function ColorPickerHexInput({
       onChangeText={input.onChangeText}
       onBlur={handleBlur}
       onSubmitEditing={handleSubmit}
-      error={error ?? (input.invalid ? "Enter a valid hex color" : undefined)}
+      error={inputError}
     />
   );
 });

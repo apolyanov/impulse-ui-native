@@ -39,6 +39,9 @@ export const TabButton = memo(function TabButton({
     onSelect(item.value);
   });
 
+  const isTextLabel =
+    typeof item.label === "string" || typeof item.label === "number";
+
   return (
     <Pressable
       ref={initialScrollRef}
@@ -49,7 +52,7 @@ export const TabButton = memo(function TabButton({
       style={styles.button}
     >
       <View pointerEvents="none">
-        {typeof item.label === "string" || typeof item.label === "number" ? (
+        {isTextLabel ? (
           <Typography.Label style={styles.label}>{item.label}</Typography.Label>
         ) : (
           item.label

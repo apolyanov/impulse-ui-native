@@ -408,32 +408,36 @@ export function ArchitectureSection() {
           title="From tokens to product UI."
         />
         <div className="mt-lg grid grid-cols-1 gap-sm lg:grid-cols-5">
-          {architectureLayers.map(([title, copy, items], index) => (
-            <article
-              className="relative rounded-md border border-border-subtle bg-surface-primary p-sm"
-              key={title}
-            >
-              <h3 className="text-title-6">{title}</h3>
-              <p className="mt-xs min-h-xl text-body-small text-text-secondary">
-                {copy}
-              </p>
-              <div className="mt-sm space-y-xxs">
-                {items.map((item) => (
-                  <code
-                    className="block break-all rounded-sm border border-border-subtle bg-surface-elevated px-xs py-xxs text-caption"
-                    key={item}
-                  >
-                    {item}
-                  </code>
-                ))}
-              </div>
-              {index < architectureLayers.length - 1 ? (
-                <span className="absolute -right-msm top-1/2 z-10 hidden size-md -translate-y-1/2 items-center justify-center rounded-round bg-primary text-primary-contrast lg:flex">
-                  <SystemIcon className="size-sm" name="arrow" />
-                </span>
-              ) : null}
-            </article>
-          ))}
+          {architectureLayers.map(([title, copy, items], index) => {
+            const hasNextLayer = index < architectureLayers.length - 1;
+
+            return (
+              <article
+                className="relative rounded-md border border-border-subtle bg-surface-primary p-sm"
+                key={title}
+              >
+                <h3 className="text-title-6">{title}</h3>
+                <p className="mt-xs min-h-xl text-body-small text-text-secondary">
+                  {copy}
+                </p>
+                <div className="mt-sm space-y-xxs">
+                  {items.map((item) => (
+                    <code
+                      className="block break-all rounded-sm border border-border-subtle bg-surface-elevated px-xs py-xxs text-caption"
+                      key={item}
+                    >
+                      {item}
+                    </code>
+                  ))}
+                </div>
+                {hasNextLayer ? (
+                  <span className="absolute -right-msm top-1/2 z-10 hidden size-md -translate-y-1/2 items-center justify-center rounded-round bg-primary text-primary-contrast lg:flex">
+                    <SystemIcon className="size-sm" name="arrow" />
+                  </span>
+                ) : null}
+              </article>
+            );
+          })}
         </div>
         <div className="mt-msm flex flex-wrap justify-center gap-sm">
           {componentTokenNames.map((token) => (

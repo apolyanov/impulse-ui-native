@@ -53,6 +53,9 @@ export const AccordionTrigger = memo(function AccordionTrigger({
     onPress?.(event);
   });
 
+  const isTextChild =
+    typeof children === "string" || typeof children === "number";
+
   return (
     <Pressable
       {...props}
@@ -60,7 +63,7 @@ export const AccordionTrigger = memo(function AccordionTrigger({
       onPress={handlePress}
       style={triggerStyle}
     >
-      {typeof children === "string" || typeof children === "number" ? (
+      {isTextChild ? (
         <Typography.Label style={styles.title}>{children}</Typography.Label>
       ) : (
         children

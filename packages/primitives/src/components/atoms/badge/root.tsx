@@ -48,6 +48,9 @@ export const BadgeRoot = memo(function BadgeRoot({
   const affixColor =
     typeof styles.label.color === "string" ? styles.label.color : undefined;
 
+  const isTextChild =
+    typeof children === "string" || typeof children === "number";
+
   return (
     <View {...props} style={containerStyle}>
       <BadgeAddon
@@ -59,7 +62,7 @@ export const BadgeRoot = memo(function BadgeRoot({
         onPress={onPressPrefix}
       />
 
-      {typeof children === "string" || typeof children === "number" ? (
+      {isTextChild ? (
         <Text numberOfLines={1} style={styles.label}>
           {children}
         </Text>
