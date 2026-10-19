@@ -99,6 +99,7 @@ linkWorkspacePackages: true
 nodeLinker: hoisted
 
 onlyBuiltDependencies:
+  - "@shopify/react-native-skia"
   - esbuild
 
 overrides:

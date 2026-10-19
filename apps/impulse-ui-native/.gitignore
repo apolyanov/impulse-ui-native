@@ -26,3 +26,5 @@ expo-env.d.ts
 
 # Storybook build output
 storybook-static/
+android
+ios
