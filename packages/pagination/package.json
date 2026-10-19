@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/pagination",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "description": "Token-aware pagination controls for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

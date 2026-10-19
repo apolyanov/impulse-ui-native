@@ -1,5 +1,11 @@
 # @impulse-ui-native/endpoint
 
+## 9.1.2
+
+### Patch Changes
+
+- 0f2d6de: Publish compiled React Native entry points while preserving source exports for instant workspace development in Storybook and the playground.
+
 ## 9.1.1
 
 ## 9.1.0

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/checkbox",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "description": "Checkbox controls for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

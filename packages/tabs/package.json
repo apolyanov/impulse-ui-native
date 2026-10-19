@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/tabs",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "description": "Token-aware underline tabs and conditional panels for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
