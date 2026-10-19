@@ -11,7 +11,7 @@
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.mts",
-  "react-native": "src/index.ts",
+  "react-native": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
@@ -51,7 +51,14 @@
     "react-native": ">=0.73"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./dist/index.js",
+        "import": "./dist/index.js"
+      }
+    }
   },
   "prettier": "@impulse-ui-native/prettier-config"
 }

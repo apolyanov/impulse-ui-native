@@ -53,6 +53,14 @@ pnpm release
 ```
 
 `pnpm release` builds the monorepo and then runs `changeset publish`.
+Changesets uses pnpm to publish packages in this workspace. Keep using pnpm
+for packing and publishing so that `publishConfig.exports` overrides are applied.
+The workspace `react-native` export points to `src/index.ts` for instant updates
+in Storybook and the playground; the published export and legacy top-level
+`react-native` field point to `dist/index.js`. When adding package exports,
+keep the corresponding `publishConfig.exports` entries in sync and point them
+at files included in the package.
+
 The publish command uses `scripts/changeset-publish.mjs` to strip pnpm-only
 environment config before npm runs, which avoids noisy npm warnings about
 settings such as `catalog`, `catalogs`, and `node-linker`.
