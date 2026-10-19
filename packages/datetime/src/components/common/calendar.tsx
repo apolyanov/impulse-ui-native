@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 
 import { Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useTheme } from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { TimeRange } from "../../types";
 import {

@@ -9,10 +9,16 @@ Typed, app-wide overlay registration and rendering for Impulse UI Native.
 - `OverlayHost` renders the active overlay stack.
 - `useOverlayContext` provides access to the current store.
 - `useOverlayLifecycle` tracks component lifecycle status without requiring a provider.
+- `useOverlayTiming({ enterDuration, exitDuration })` supplies a shared
+  Reanimated progress value and lifecycle handlers for timed entry/exit.
 - `useOverlayStatus(id)` observes the reported status of a hosted overlay.
 - `useOverlayLayer(id, Component?, order?)` returns the entry's opening-order index among entries with the same registered component. Omit `Component` to infer it from the ID. The default `OverlayOrder.OldestFirst` order gives newer entries higher indices; `OverlayOrder.NewestFirst` gives the newest entry index zero. A missing ID returns `-1`. Closing entries remain counted until removed.
 
 ## Usage
+
+Install `react-native-reanimated` and `react-native-worklets` alongside this
+package and complete their host-application setup. The shared timing helper
+requires Reanimated 4 or newer and Worklets 0.5 or newer.
 
 ```tsx
 import {
@@ -79,9 +85,12 @@ becomes true. Exit handlers must also handle dismissal before readiness, usually
 by completing immediately when nothing has appeared. Reopening during exit starts
 a fresh transition and prevents the old completion from closing the new one.
 
-Modal, Flyout, and Toast use this shared hook. Their animation, gestures, and
-Toast's duration timer remain component-owned. Flyout enables drag gestures once
-entry completes so gestures cannot interrupt the entry completion notification.
+Modal, Flyout, and Toast use this shared hook. Modal and Toast share timed
+transitions through `useOverlayTiming`; the helper cancels its progress animation
+on unmount and bridges successful completion to the React Native thread. Supply
+its `options` to `useOverlayLifecycle` and use its `progress` in animated styles.
+Custom animation, gestures, and Toast's duration timer remain component-owned.
+Flyout enables drag gestures once entry completes so gestures cannot interrupt the entry completion notification.
 
 ## Observing hosted status
 

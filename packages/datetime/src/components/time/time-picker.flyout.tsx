@@ -1,12 +1,18 @@
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback } from "react";
 
 import { Flyout, FlyoutProps } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
 import { View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useTheme } from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { PickerFlyoutActions, TimePickerValue } from "../../types";
-import { createInfiniteRange, getInfiniteRangeInitialIndex } from "../../utils";
+import { getInfiniteRangeInitialIndex } from "../../utils";
+import {
+  DefaultTimePickerValue,
+  HourValues,
+  MinuteSecondValues,
+  TimePickerRangeRepeats,
+} from "../../constants/time-picker.constants";
 import { DatetimePickerFlyoutActions } from "../common/datetime-picker-flyout-actions";
 import { PickerColumn } from "./picker-column";
 
@@ -14,12 +20,6 @@ interface TimePickerFlyoutProps extends FlyoutProps, PickerFlyoutActions {
   value: Partial<TimePickerValue> | null | undefined;
   onChange: (value: TimePickerValue | null) => void;
 }
-
-const DefaultTimePickerValue: TimePickerValue = {
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-};
 
 export const TimePickerFlyout = memo(function TimePickerFlyout(
   props: TimePickerFlyoutProps,
@@ -42,29 +42,23 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
   const selectedMinutes = value?.minutes ?? DefaultTimePickerValue.minutes;
   const selectedSeconds = value?.seconds ?? DefaultTimePickerValue.seconds;
 
-  const hours = useMemo(() => {
-    return createInfiniteRange(24, 4);
-  }, []);
+  const hoursInitialIndex = getInfiniteRangeInitialIndex(
+    24,
+    selectedHours,
+    TimePickerRangeRepeats,
+  );
 
-  const minutes = useMemo(() => {
-    return createInfiniteRange(60, 4);
-  }, []);
+  const minutesInitialIndex = getInfiniteRangeInitialIndex(
+    60,
+    selectedMinutes,
+    TimePickerRangeRepeats,
+  );
 
-  const seconds = useMemo(() => {
-    return createInfiniteRange(60, 4);
-  }, []);
-
-  const hoursInitialIndex = useMemo(() => {
-    return getInfiniteRangeInitialIndex(24, selectedHours, 4);
-  }, [selectedHours]);
-
-  const minutesInitialIndex = useMemo(() => {
-    return getInfiniteRangeInitialIndex(60, selectedMinutes, 4);
-  }, [selectedMinutes]);
-
-  const secondsInitialIndex = useMemo(() => {
-    return getInfiniteRangeInitialIndex(60, selectedSeconds, 4);
-  }, [selectedSeconds]);
+  const secondsInitialIndex = getInfiniteRangeInitialIndex(
+    60,
+    selectedSeconds,
+    TimePickerRangeRepeats,
+  );
 
   const handleHoursChange = useCallback(
     (hours: number) => {
@@ -123,30 +117,24 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
             />
 
             <PickerColumn
-              data={hours}
+              data={HourValues}
               label="h"
-              format="24h"
-              type="hour"
               value={selectedHours}
               initialScrollIndex={hoursInitialIndex}
               onChange={handleHoursChange}
             />
 
             <PickerColumn
-              data={minutes}
+              data={MinuteSecondValues}
               label="m"
-              format="24h"
-              type="minute"
               value={selectedMinutes}
               initialScrollIndex={minutesInitialIndex}
               onChange={handleMinutesChange}
             />
 
             <PickerColumn
-              data={seconds}
+              data={MinuteSecondValues}
               label="s"
-              format="24h"
-              type="second"
               value={selectedSeconds}
               initialScrollIndex={secondsInitialIndex}
               onChange={handleSecondsChange}

@@ -29,26 +29,14 @@ export const Progress = memo(function Progress({
 
   const indeterminate = normalized.value === undefined;
 
-  const commonProps = useMemo(
-    () => ({
-      ...props,
-      animationDuration: tokens.animationDuration,
-      fraction: normalized.fraction,
-      indicatorColor: color ?? colorTokens.indicatorColor,
-      indeterminate,
-      trackColor: trackColor ?? colorTokens.trackColor,
-    }),
-    [
-      color,
-      colorTokens.indicatorColor,
-      colorTokens.trackColor,
-      indeterminate,
-      normalized.fraction,
-      props,
-      tokens.animationDuration,
-      trackColor,
-    ],
-  );
+  const commonProps = {
+    ...props,
+    animationDuration: tokens.animationDuration,
+    fraction: normalized.fraction,
+    indicatorColor: color ?? colorTokens.indicatorColor,
+    indeterminate,
+    trackColor: trackColor ?? colorTokens.trackColor,
+  };
 
   return (
     <>

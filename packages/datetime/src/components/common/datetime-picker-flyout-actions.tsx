@@ -1,12 +1,14 @@
 import { memo } from "react";
+import { StyleSheet } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import {
   Button,
   Pressable,
   Typography,
   View,
 } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import { DatetimePickerFlyoutCommonProps } from "../../types";
 
@@ -22,33 +24,44 @@ export const DatetimePickerFlyoutActions = memo(
     props: DatetimePickerFlyoutActionsProps,
   ) {
     const tokens = useComponentsTokens();
+    const styles = useThemedStyles(themedStyles);
 
     const flyoutActionsTokens = tokens.datetimePicker.flyoutActions;
 
     return (
       <View gap={flyoutActionsTokens.gap}>
         {props.canClear ? (
-          <View alignItems="center">
-            <Pressable onPress={props.onPressClear}>
-              <Typography.BodyLarge color={flyoutActionsTokens.clearColor}>
-                Clear
-              </Typography.BodyLarge>
-            </Pressable>
-          </View>
+          <Pressable style={styles.clear} onPress={props.onPressClear}>
+            <Typography.BodyLarge color={flyoutActionsTokens.clearColor}>
+              Clear
+            </Typography.BodyLarge>
+          </Pressable>
         ) : null}
 
         <View flexDirection="row" gap={flyoutActionsTokens.buttonsGap}>
-          <View flex={1}>
-            <Button onPress={props.onPressCancel} variant="outlined">
-              Cancel
-            </Button>
-          </View>
-
-          <View flex={1}>
-            <Button onPress={props.onPressApply}>Apply</Button>
-          </View>
+          <Button
+            style={styles.action}
+            onPress={props.onPressCancel}
+            variant="outlined"
+          >
+            Cancel
+          </Button>
+          <Button style={styles.action} onPress={props.onPressApply}>
+            Apply
+          </Button>
         </View>
       </View>
     );
   },
 );
+
+function themedStyles(_theme: AppTheme) {
+  return StyleSheet.create({
+    clear: {
+      alignSelf: "center",
+    },
+    action: {
+      flex: 1,
+    },
+  });
+}

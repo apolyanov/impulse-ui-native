@@ -1,72 +1,37 @@
 import type { PropsWithChildren } from "react";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
-import { Icon } from "@impulse-ui-native/icon";
 import { CalendarDotsIcon } from "@impulse-ui-native/icon/icons/calendar-dots";
-import { Control, Pressable } from "@impulse-ui-native/primitives";
-import {
-  getFieldStateTokens,
-  useComponentsTokens,
-} from "@impulse-ui-native/theme";
+import { Control } from "@impulse-ui-native/primitives";
 
 import type { DateControlProps } from "../../types/date-control.types";
 
-export const DateControl = memo(function DateControl(
-  props: PropsWithChildren<DateControlProps>,
-) {
-  const {
-    size = "medium",
-    variant = "outlined",
-    label,
-    error,
-    disabled,
-    PrefixIcon = CalendarDotsIcon,
-    Prefix,
-    onPressPrefix: onPrefixPress,
-    SuffixIcon,
-    Suffix,
-    onPressSuffix: onSuffixPress,
-    onPress,
-    children,
-  } = props;
+export const DateControl = memo(function DateControl({
+  PrefixIcon = CalendarDotsIcon,
+  Prefix,
+  SuffixIcon,
+  Suffix,
+  children,
+  ...props
+}: PropsWithChildren<DateControlProps>) {
+  const prefix = useMemo(
+    () => (Prefix ? <Prefix /> : <Control.Icon icon={PrefixIcon} />),
+    [Prefix, PrefixIcon],
+  );
+  const suffix = useMemo(
+    () => {
+      if (Suffix) {
+        return <Suffix />;
+      }
 
-  const addonTokens = useComponentsTokens().controlAddon;
-  const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
-    disabled,
-    error: Boolean(error),
-  }).iconColor;
-
-  const hasSuffix = Suffix || SuffixIcon;
-  const showSuffixIcon = !Suffix && SuffixIcon;
+      return SuffixIcon ? <Control.Icon icon={SuffixIcon} /> : null;
+    },
+    [Suffix, SuffixIcon],
+  );
 
   return (
-    <Control.Provider
-      size={size}
-      variant={variant}
-      error={error}
-      disabled={disabled}
-    >
-      <Control.Root>
-        <Control.Label>{label}</Control.Label>
-        <Pressable onPress={onPress}>
-          <Control.Container>
-            <Control.Addon onPress={onPrefixPress}>
-              {Prefix ? <Prefix /> : null}
-              {!Prefix ? <Icon color={addonColor} icon={PrefixIcon} /> : null}
-            </Control.Addon>
-            {children}
-            {hasSuffix ? (
-              <Control.Addon onPress={onSuffixPress}>
-                {Suffix ? <Suffix /> : null}
-                {showSuffixIcon ? (
-                  <Icon color={addonColor} icon={SuffixIcon} />
-                ) : null}
-              </Control.Addon>
-            ) : null}
-          </Control.Container>
-        </Pressable>
-        {error ? <Control.Error>{error}</Control.Error> : null}
-      </Control.Root>
-    </Control.Provider>
+    <Control.Field {...props} prefix={prefix} suffix={suffix}>
+      {children}
+    </Control.Field>
   );
 });

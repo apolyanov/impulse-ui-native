@@ -25,7 +25,7 @@ export const BadgeAddon = memo(function BadgeAddon({
   IconComponent,
   onPress,
 }: BadgeAddonProps) {
-  const Container = useMemo(() => (onPress ? Pressable : View), [onPress]);
+  const Container = onPress ? Pressable : View;
   const content = useMemo(() => {
     if (Content) {
       return <Content />;

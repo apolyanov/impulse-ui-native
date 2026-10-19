@@ -157,14 +157,7 @@ export function getQuickOptionKey(value: Date | TimeRange) {
   }
 }
 
-export function isDateRange(value: unknown): value is TimeRange {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    !(value instanceof Date) &&
-    ("start" in value || "end" in value)
-  );
-}
+export const isDateRange = isTimeRange;
 
 export function getDateKey(date: Date) {
   const year = date.getFullYear();

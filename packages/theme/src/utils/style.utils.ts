@@ -28,15 +28,12 @@ export const extractStyleProps = <Props extends object>(
 };
 
 export const createStyleKey = <Props extends object>(props: Props) => {
-  let key = "";
+  const entries = Object.keys(props)
+    .filter(isStylePropKey)
+    .sort()
+    .map((key) => [key, props[key as keyof Props]]);
 
-  for (const k in props) {
-    if (isStylePropKey(k)) {
-      key += String(props[k as keyof Props]);
-    }
-  }
-
-  return key;
+  return JSON.stringify(entries);
 };
 
 export const getShadowStyle = (

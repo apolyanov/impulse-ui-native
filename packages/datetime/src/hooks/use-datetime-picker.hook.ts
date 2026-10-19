@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useId, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
-import { useControllableState, useIsOpen } from "@impulse-ui-native/core";
+import { useEventCallback } from "@impulse-ui-native/core";
 
 import { TimePickerValue, TimeRange } from "../types";
 import { isDateInMonth, isSameDay } from "../utils";
+
+import { usePickerDraft } from "./use-picker-draft.hook";
 
 interface UseDatetimePickerStateOptions {
   value?: Date | null;
@@ -16,45 +18,32 @@ export function useDatetimePicker({
   defaultValue,
   onChange,
 }: UseDatetimePickerStateOptions) {
-  const id = useId();
-
-  const [visible, setVisible] = useState<Date>(
-    value ?? defaultValue ?? new Date(),
-  );
-
-  const [tempDate, setTempDate] = useState<Date | null>(
-    value ?? defaultValue ?? null,
-  );
-
-  const [selected, setSelected] = useControllableState<Date | null>({
-    prop: value,
-    defaultProp: defaultValue ?? null,
-    onChange,
-  });
-
-  const { isOpen, isClosed, open, close } = useIsOpen();
-
-  const onPressOpen = useCallback(() => {
-    setTempDate(selected);
-    open();
-  }, [open, selected]);
-
-  const syncState = useCallback(() => {
-    setTempDate(selected);
-
+  const [visible, setVisible] = useState<Date>(value ?? defaultValue ?? new Date());
+  const handleCloseSync = useEventCallback((selected: Date | null) => {
     if (selected) {
       setVisible(selected);
     }
-  }, [selected]);
-
-  const onPressApply = useCallback(() => {
-    setSelected(tempDate);
-    close();
-  }, [close, tempDate]);
-
-  const onPressCancel = useCallback(() => {
-    close();
-  }, [close]);
+  });
+  const {
+    id,
+    isOpen,
+    draft: tempDate,
+    setDraft: setTempDate,
+    selected,
+    setSelected,
+    open,
+    close,
+    onPressOpen,
+    onPressApply,
+    onPressCancel,
+    onPressClear,
+    syncState,
+  } = usePickerDraft<Date>({
+    value,
+    defaultValue,
+    onChange,
+    onCloseSync: handleCloseSync,
+  });
 
   const onPressCalendarDay = useCallback((date: Date) => {
     setTempDate((prev) => {
@@ -93,10 +82,6 @@ export function useDatetimePicker({
     [visible],
   );
 
-  const onPressClear = useCallback(() => {
-    setTempDate(null);
-  }, []);
-
   const onPressQuickDateOption = useCallback(
     (optionValue: Date | TimeRange) => {
       if (!(optionValue instanceof Date)) {
@@ -111,12 +96,6 @@ export function useDatetimePicker({
     },
     [visible],
   );
-
-  useEffect(() => {
-    if (!isOpen && isClosed) {
-      setTempDate(selected);
-    }
-  }, [isOpen, selected, isClosed]);
 
   return useMemo(
     () => ({

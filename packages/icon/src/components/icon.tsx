@@ -1,4 +1,4 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 
 import { useTheme } from "@impulse-ui-native/theme";
 
@@ -16,10 +16,7 @@ export const Icon = memo(function Icon({
   const iconTokens = theme.components.icon;
   const color = props.color ?? props.fill ?? theme.colors.text.primary;
 
-  const iconSize = useMemo(
-    () => (typeof size === "number" ? size : iconTokens.sizes[size]),
-    [iconTokens.sizes, size],
-  );
+  const iconSize = typeof size === "number" ? size : iconTokens.sizes[size];
 
   return (
     <Icon

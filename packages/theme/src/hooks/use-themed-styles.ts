@@ -32,15 +32,6 @@ export function useThemedStyles<
   Props extends object,
   T extends StyleSheet.NamedStyles<T>,
 >(
-  styledFunction: StyledFunctionWithProps<Props, T>,
-  props: Props,
-  dependencies: readonly unknown[],
-): ThemedStyles<T>;
-
-export function useThemedStyles<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
->(
   styledFunction: StyledFunctionNoProps<T> | StyledFunctionWithProps<Props, T>,
   props?: Props,
   dependencies?: readonly unknown[],

@@ -24,10 +24,7 @@ export const Stepper = memo(
       [current, lastStepIndex, onChange],
     );
 
-    const Step = useMemo(
-      () => items[current]?.Component ?? null,
-      [current, items],
-    );
+    const Step = items[current]?.Component ?? null;
 
     useImperativeHandle(ref, () => context, [context]);
 

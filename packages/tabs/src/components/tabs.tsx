@@ -30,13 +30,13 @@ export const Tabs = memo(function Tabs({
     () => defaultValue ?? items.find((item) => !item.disabled)?.value,
     [defaultValue, items],
   );
-  const stateOptions = useMemo(
-    () => ({ prop: value, defaultProp: initialValue, onChange: onValueChange }),
-    [initialValue, onValueChange, value],
-  );
 
   const [selectedValue, setSelectedValue] =
-    useControllableState<string>(stateOptions);
+    useControllableState<string>({
+      prop: value,
+      defaultProp: initialValue,
+      onChange: onValueChange,
+    });
   const initialSelectedValue = useRef(selectedValue).current;
   const initialScroll = useScrollViewInitialScroll({
     horizontal: true,

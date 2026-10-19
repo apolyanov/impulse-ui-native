@@ -1,9 +1,11 @@
 import { useMemo } from "react";
 
-import { createStyleKey, extractStyleProps } from "../utils";
+import { StylePropsSet } from "../constants";
+import { extractStyleProps } from "../utils";
 
 export function useStyleProps<Props extends object>(props: Props) {
-  const key = useMemo(() => createStyleKey(props), [props]);
+  // The fixed key order compares actual values without a serialized cache key.
+  const values = Array.from(StylePropsSet, (key) => props[key as keyof Props]);
 
-  return useMemo(() => extractStyleProps(props), [key]);
+  return useMemo(() => extractStyleProps(props), values);
 }

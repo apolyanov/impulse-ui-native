@@ -12,7 +12,7 @@ import {
   FlatListRef,
   useFlatListInitialScroll,
 } from "@impulse-ui-native/flat-list";
-import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
+import { Typography, View } from "@impulse-ui-native/primitives";
 import {
   getSelectionItemStateTokens,
   useComponentsTokens,
@@ -24,8 +24,6 @@ import { getClosestIndexByValue } from "../../utils";
 interface PickerColumnProps {
   data: number[];
   label: string;
-  type: "hour" | "minute" | "second";
-  format: "12h" | "24h";
   value?: number;
   initialScrollIndex?: number;
   onChange?: (value: number) => void;
@@ -73,7 +71,7 @@ export const PickerColumn = memo(function PickerColumn(
       const fontWeight = appearanceTokens.fontWeight as FontWeightValue;
 
       return (
-        <Pressable style={styles.pressable}>
+        <View style={styles.item}>
           <Typography.Master
             fontSize={columnTokens.fontSize}
             color={appearanceTokens.color}
@@ -84,10 +82,10 @@ export const PickerColumn = memo(function PickerColumn(
           >
             {String(item).padStart(2, "0")}
           </Typography.Master>
-        </Pressable>
+        </View>
       );
     },
-    [columnTokens.fontSize, columnTokens.states, styles.pressable, value],
+    [columnTokens.fontSize, columnTokens.states, styles.item, value],
   );
 
   const onMomentumScrollEnd = useCallback(
@@ -173,7 +171,7 @@ function themedStyles(theme: AppTheme) {
     contentContainer: {
       paddingVertical: columnTokens.verticalPadding,
     },
-    pressable: {
+    item: {
       alignItems: "center",
       height: columnTokens.itemHeight,
       justifyContent: "center",

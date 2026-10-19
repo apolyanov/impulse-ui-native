@@ -17,6 +17,12 @@ Complete the Reanimated and Worklets setup required by your React Native or Expo
 - `DataView` coordinates loading, error, empty, and successful-content states and renders the configured state copy and actions.
 - Public prop types describe each state view and its action footer.
 
+`EmptyView` and `ErrorView` always render their supplied children. Their only
+container-specific option is `contentContainerStyle`, which styles the inner
+content separately from the outer `style`. They accept native/themed View props
+and children; text, action, `variant`, `isEmpty`, and `error` props are not part
+of their API. Use `DataView` for automatic state selection and configured details.
+
 ## Usage
 
 ```tsx

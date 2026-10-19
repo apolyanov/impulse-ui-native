@@ -41,11 +41,15 @@
     "prettier": "catalog:",
     "react": "catalog:react19",
     "react-native": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-worklets": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.73"
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=4",
+    "react-native-worklets": ">=0.5"
   },
   "publishConfig": {
     "access": "public",

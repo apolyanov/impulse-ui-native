@@ -1,7 +1,4 @@
-import { ComponentType, memo, useMemo } from "react";
-import { SvgProps } from "react-native-svg";
-
-import { IconVariant, IconWrapperProps } from "../../types";
+import { createIcon } from "../../hocs/create-icon.hoc";
 import { ShovelBoldIcon } from "../bold/shovel-bold.icon";
 import { ShovelDuotoneIcon } from "../duotone/shovel-duotone.icon";
 import { ShovelFillIcon } from "../fill/shovel-fill.icon";
@@ -9,19 +6,11 @@ import { ShovelLightIcon } from "../light/shovel-light.icon";
 import { ShovelRegularIcon } from "../regular/shovel-regular.icon";
 import { ShovelThinIcon } from "../thin/shovel-thin.icon";
 
-export const ShovelIcon = memo(function Shovel(props: IconWrapperProps) {
-  const Icon = useMemo(() => {
-    const icons: Record<IconVariant, ComponentType<SvgProps>> = {
-      bold: ShovelBoldIcon,
-      duotone: ShovelDuotoneIcon,
-      fill: ShovelFillIcon,
-      light: ShovelLightIcon,
-      regular: ShovelRegularIcon,
-      thin: ShovelThinIcon,
-    };
-
-    return icons[props.variant ?? "regular"];
-  }, [props.variant]);
-
-  return <Icon {...props} />;
+export const ShovelIcon = createIcon("Shovel", {
+  bold: ShovelBoldIcon,
+  duotone: ShovelDuotoneIcon,
+  fill: ShovelFillIcon,
+  light: ShovelLightIcon,
+  regular: ShovelRegularIcon,
+  thin: ShovelThinIcon,
 });

@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode } from "react";
+import { ComponentType } from "react";
 import { PressableProps, ViewStyle } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
@@ -17,13 +17,13 @@ export interface StateViewProps extends StateActionsFooterProps, ViewProps {
   contentContainerStyle?: ViewStyle;
 }
 
-export interface EmptyViewProps extends StateViewProps {
-  isEmpty: boolean;
+export interface StateContainerProps extends ViewProps {
+  contentContainerStyle?: ViewStyle;
 }
 
-export interface ErrorViewProps extends StateViewProps {
-  error: Error | null;
-}
+export type EmptyViewProps = StateContainerProps;
+
+export type ErrorViewProps = StateContainerProps;
 
 export interface LoadingViewProps extends ViewProps {
   loading: boolean;
@@ -32,8 +32,8 @@ export interface LoadingViewProps extends ViewProps {
 }
 
 export interface DataViewProps extends ViewProps {
-  error: ErrorViewProps["error"];
-  isEmpty: EmptyViewProps["isEmpty"];
+  error: Error | null;
+  isEmpty: boolean;
   LoadingComponent: ComponentType;
   loading: LoadingViewProps["loading"];
   contentContainerStyle?: ViewStyle;

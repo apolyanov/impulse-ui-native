@@ -1,4 +1,4 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { Icon } from "@impulse-ui-native/icon";
@@ -39,13 +39,7 @@ export const Tag = memo(function Tag({
     [size, variant, disabled, color],
   );
 
-  const Container = useMemo(() => {
-    if (onPress) {
-      return Pressable;
-    }
-
-    return View;
-  }, [onPress]);
+  const Container = onPress ? Pressable : View;
 
   const showClose = closable && !disabled && onClose;
 

@@ -1,5 +1,3 @@
-import { useEventCallback } from "@impulse-ui-native/core";
-
 import { EchoInstance } from "../singletons";
 import { EchoEventNames, EchoEvents } from "../types";
 

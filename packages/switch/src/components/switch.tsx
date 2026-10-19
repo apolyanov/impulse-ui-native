@@ -54,11 +54,10 @@ export const Switch = memo(function Switch({
   });
 
   const switchStyle = useCallback(
-    (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
-      StyleSheet.flatten([
-        styles.root,
-        typeof style === "function" ? style(state) : style,
-      ]),
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
+      styles.root,
+      typeof style === "function" ? style(state) : style,
+    ],
     [style, styles.root],
   );
 

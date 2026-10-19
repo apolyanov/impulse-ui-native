@@ -1,52 +1,14 @@
-import { useEffect, useMemo } from "react";
-import {
-  cancelAnimation,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
-import { scheduleOnRN } from "react-native-worklets";
+import { useMemo } from "react";
 
-import type { OverlayTransitionHandler } from "@impulse-ui-native/overlay";
-import { useEventCallback } from "@impulse-ui-native/core";
-import { useOverlayLifecycle } from "@impulse-ui-native/overlay";
+import { useOverlayLifecycle, useOverlayTiming } from "@impulse-ui-native/overlay";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { ModalLifecycleProps } from "../types";
 
 export function useModalLifecycle(props: ModalLifecycleProps) {
   const tokens = useComponentsTokens().modal;
-  const progress = useSharedValue(0);
-
-  const enter = useEventCallback<OverlayTransitionHandler>(
-    (transitionId, complete) => {
-      progress.set(
-        withTiming(1, { duration: tokens.enterDuration }, (finished) => {
-          if (finished) {
-            scheduleOnRN(complete, transitionId);
-          }
-        }),
-      );
-    },
-  );
-  const exit = useEventCallback<OverlayTransitionHandler>(
-    (transitionId, complete) => {
-      progress.set(
-        withTiming(0, { duration: tokens.exitDuration }, (finished) => {
-          if (finished) {
-            scheduleOnRN(complete, transitionId);
-          }
-        }),
-      );
-    },
-  );
-
-  const options = useMemo(
-    () => ({ onEnter: enter, onExit: exit }),
-    [enter, exit],
-  );
+  const { options, progress } = useOverlayTiming(tokens);
   const lifecycle = useOverlayLifecycle(props, options);
-
-  useEffect(() => () => cancelAnimation(progress), [progress]);
 
   return useMemo(() => ({ ...lifecycle, progress }), [lifecycle, progress]);
 }

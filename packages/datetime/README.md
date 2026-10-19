@@ -35,3 +35,8 @@ import { DatePicker } from "@impulse-ui-native/datetime";
 ```
 
 All picker controls support the shared control props for labels, errors, sizes, variants, placeholders, and addons. Date and range controls support controlled `value` and uncontrolled `defaultValue` modes.
+
+Pickers share draft handling: opening snapshots the committed selection, Apply
+commits the draft, Cancel discards it, and the draft resynchronizes after the
+close animation. Date/range calculations remain specific to their picker.
+The shared field trigger respects disabling for both the trigger and its addons.

@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import type { TextInputProps, TextProps, ViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
@@ -28,6 +28,20 @@ export interface ControlComponentProps {
 export type ControlContextData = ControlComponentProps;
 
 export type ControlContainerProps = ViewProps;
+
+export type ControlTriggerProps = PressableCoreProps;
+
+export type ControlIconProps = IconProps;
+
+export interface ControlFieldProps extends Partial<ControlComponentProps> {
+  children?: ReactNode;
+  label?: string;
+  onPress?: PressableCoreProps["onPress"];
+  prefix?: ReactNode;
+  suffix?: ReactNode;
+  onPressPrefix?: PressableCoreProps["onPress"];
+  onPressSuffix?: PressableCoreProps["onPress"];
+}
 
 export type ControlLabelProps = TextProps;
 

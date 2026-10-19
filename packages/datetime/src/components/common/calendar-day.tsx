@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { StyleSheet } from "react-native";
 
-import { Pressable, Typography, View } from "@impulse-ui-native/primitives";
+import { Pressable, Typography } from "@impulse-ui-native/primitives";
 import {
   AppTheme,
   getDatetimePickerDayStateTokens,
@@ -10,7 +10,6 @@ import {
 
 interface CalendarDayProps {
   date: Date;
-  selected?: boolean;
   isSelected?: boolean;
   isRangeStart?: boolean;
   isInRange?: boolean;
@@ -35,11 +34,9 @@ export const CalendarDay = memo(function CalendarDay(props: CalendarDayProps) {
 
   return (
     <Pressable style={styles.pressableStyles} onPress={handleOnPress}>
-      <View style={styles.container}>
-        <Typography.Body style={styles.text} numeric>
-          {props.date.getDate()}
-        </Typography.Body>
-      </View>
+      <Typography.Body style={styles.text} numeric>
+        {props.date.getDate()}
+      </Typography.Body>
     </Pressable>
   );
 });
@@ -63,12 +60,8 @@ function themedStyles(
 
   return StyleSheet.create({
     pressableStyles: {
-      justifyContent: "center",
-      alignItems: "center",
-    },
-
-    container: {
       borderRadius: dayTokens.borderRadius,
+      overflow: "hidden",
       width: dayTokens.size,
       height: dayTokens.size,
       justifyContent: "center",

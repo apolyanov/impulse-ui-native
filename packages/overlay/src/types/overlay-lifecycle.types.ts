@@ -33,6 +33,11 @@ export interface OverlayLifecycleOptions {
   onExit?: OverlayTransitionHandler;
 }
 
+export interface OverlayTimingOptions {
+  enterDuration: number;
+  exitDuration: number;
+}
+
 export interface OverlayLifecycle {
   status: OverlayLifecycleStatus;
   mounted: boolean;

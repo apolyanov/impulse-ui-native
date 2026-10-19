@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useId, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
-import { useControllableState, useIsOpen } from "@impulse-ui-native/core";
+import { useEventCallback } from "@impulse-ui-native/core";
 
 import { RangeSide, TimePickerValue, TimeRange } from "../types";
 import {
@@ -13,6 +13,8 @@ import {
   startOfDay,
 } from "../utils";
 
+import { usePickerDraft } from "./use-picker-draft.hook";
+
 interface UseDatetimeRangePickerStateOptions {
   value?: TimeRange | null;
   defaultValue?: TimeRange | null;
@@ -24,47 +26,37 @@ export function useDatetimeRangePicker({
   defaultValue,
   onChange,
 }: UseDatetimeRangePickerStateOptions) {
-  const id = useId();
-
   const [visible, setVisible] = useState<Date>(
     getInitialVisibleDate(value, defaultValue),
   );
-
-  const [tempRange, setTempRange] = useState<TimeRange | null>(
-    value ?? defaultValue ?? null,
-  );
-
-  const [selected, setSelected] = useControllableState<TimeRange | null>({
-    prop: value,
-    defaultProp: defaultValue ?? null,
-    onChange,
-  });
-
-  const { isOpen, isClosed, open, close } = useIsOpen();
-
-  const onPressOpen = useCallback(() => {
-    setTempRange(selected);
-    open();
-  }, [open, selected]);
-
-  const syncState = useCallback(() => {
-    setTempRange(selected);
-
+  const handleCloseSync = useEventCallback((selected: TimeRange | null) => {
     const nextVisible = selected?.start ?? selected?.end;
 
     if (nextVisible) {
       setVisible(nextVisible);
     }
-  }, [selected]);
-
-  const onPressApply = useCallback(() => {
-    setSelected(normalizeRange(tempRange));
-    close();
-  }, [close, tempRange]);
-
-  const onPressCancel = useCallback(() => {
-    close();
-  }, [close]);
+  });
+  const {
+    id,
+    isOpen,
+    draft: tempRange,
+    setDraft: setTempRange,
+    selected,
+    setSelected,
+    open,
+    close,
+    onPressOpen,
+    onPressApply,
+    onPressCancel,
+    onPressClear,
+    syncState,
+  } = usePickerDraft<TimeRange>({
+    value,
+    defaultValue,
+    onChange,
+    onCloseSync: handleCloseSync,
+    normalize: normalizeRange,
+  });
 
   const onPressCalendarDay = useCallback((date: Date) => {
     setTempRange((prev) => {
@@ -136,10 +128,6 @@ export function useDatetimeRangePicker({
     [onChangeEndTime, onChangeStartTime],
   );
 
-  const onPressClear = useCallback(() => {
-    setTempRange(null);
-  }, []);
-
   const onPressQuickDateOption = useCallback(
     (optionValue: Date | TimeRange) => {
       if (optionValue instanceof Date) {
@@ -168,12 +156,6 @@ export function useDatetimeRangePicker({
     },
     [visible],
   );
-
-  useEffect(() => {
-    if (!isOpen && isClosed) {
-      setTempRange(selected);
-    }
-  }, [isOpen, selected, isClosed]);
 
   return useMemo(
     () => ({

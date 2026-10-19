@@ -21,12 +21,11 @@ export const CardPressable = memo(function CardPressable({
   const extractedStyleProps = useStyleProps(props);
 
   const rootStyle = useCallback(
-    (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
-      StyleSheet.flatten([
-        styles.root,
-        extractedStyleProps,
-        typeof style === "function" ? style(state) : style,
-      ]),
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
+      styles.root,
+      extractedStyleProps,
+      typeof style === "function" ? style(state) : style,
+    ],
     [extractedStyleProps, style, styles.root],
   );
 

@@ -93,6 +93,27 @@ export function ProfileSummary() {
 
 Use the compound `Control` when building a custom field that should share the same label, addon, error, size, and variant behavior as `Input` and `Select`.
 
+`Control.Trigger` combines the field container's themed geometry with a
+Pressable. It respects group and local disabling and accepts supplied children,
+style props, and function-valued pressable styles. `Control.Icon` renders a
+caller-selected icon with the current field's addon color.
+
+`Control.Field` assembles a label, trigger, optional prefix/suffix slots, and an
+error label for a read-only selection field. The caller supplies the value,
+placeholder, icons, and behavior; this convenience component does not choose
+default icons or manage selection state.
+
+```tsx
+<Control.Field
+  label="Destination"
+  onPress={openDestinationPicker}
+  prefix={<Control.Icon icon={LocationIcon} />}
+>
+  <Control.Value>{destination}</Control.Value>
+</Control.Field>
+```
+
+
 `Control.Addon` and `Control.Error` render supplied children. Addons own spacing
 and optional press behavior, including group/local disabling; the parent chooses
 and renders icons or custom content. Error owns error-label styling; the parent

@@ -47,11 +47,10 @@ export const Radio = memo(function Radio({
   const sizeTokens = radioTokens.sizes[size];
 
   const radioStyle = useCallback(
-    (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
-      StyleSheet.flatten([
-        styles.root,
-        typeof style === "function" ? style(state) : style,
-      ]),
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
+      styles.root,
+      typeof style === "function" ? style(state) : style,
+    ],
     [style, styles.root],
   );
 
