@@ -1,5 +1,5 @@
 import type { ListRenderItemInfo } from "react-native";
-import { memo, ReactElement, useCallback, useRef } from "react";
+import { memo, ReactElement, useCallback, useMemo, useRef } from "react";
 
 import {
   FlatList,
@@ -19,29 +19,44 @@ const SelectOptionsComponent = function SelectOptions<
 
   const initialSelection = useRef(isSelected);
 
-  const tokens = useComponentsTokens();
+  const { select: tokens } = useComponentsTokens();
 
-  // Capture selection at opening, including when options arrive later.
-  const selectedIndex = options.findIndex(
-    (option) =>
-      option.value !== null &&
-      option.value !== undefined &&
-      initialSelection.current(option.value),
+  const optionHeight = tokens.option.height;
+  const optionsHeight = options.length * optionHeight;
+  const canScroll = optionsHeight > tokens.flyoutHeight;
+
+  const selectedIndex = useMemo(
+    () =>
+      options.findIndex(
+        (option) =>
+          option.value !== null &&
+          option.value !== undefined &&
+          initialSelection.current(option.value),
+      ),
+    [options],
   );
+
+  const shouldScrollToSelected =
+    initialScrollToSelected && canScroll && selectedIndex >= 0;
+  const initialScrollIndex = shouldScrollToSelected ? selectedIndex : undefined;
+
   const initialScroll = useFlatListInitialScroll<SelectOption<Value>>({
-    itemSize: tokens.select.option.height,
-    initialScrollIndex:
-      initialScrollToSelected && selectedIndex >= 0 ? selectedIndex : undefined,
+    itemSize: optionHeight,
+    initialScrollIndex,
   });
 
   const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<SelectOption<Value>>) => (
-      <SelectFlyoutOption
-        option={item}
-        selected={isSelected(item.value)}
-        onSelect={onSelect}
-      />
-    ),
+    ({ item }: ListRenderItemInfo<SelectOption<Value>>) => {
+      const selected = isSelected(item.value);
+
+      return (
+        <SelectFlyoutOption
+          option={item}
+          selected={selected}
+          onSelect={onSelect}
+        />
+      );
+    },
     [isSelected, onSelect],
   );
 

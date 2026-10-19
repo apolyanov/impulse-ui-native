@@ -35,6 +35,7 @@ export const PickerColumn = memo(function PickerColumn(
   const { data, label, value, initialScrollIndex = 0, onChange } = props;
 
   const listRef = useRef<FlatListRef<number>>(null);
+  const initialIndex = useRef(initialScrollIndex).current;
   const currentIndexRef = useRef(initialScrollIndex);
 
   const tokens = useComponentsTokens();
@@ -43,13 +44,25 @@ export const PickerColumn = memo(function PickerColumn(
 
   const styles = useThemedStyles(themedStyles);
 
+  const renderWindowSize = 3;
+  const visibleRowCount = Math.ceil(
+    columnTokens.height / columnTokens.itemHeight,
+  );
+  const initialRenderCount = visibleRowCount * renderWindowSize + 1;
+  const firstRenderIndex = Math.max(0, initialIndex - visibleRowCount);
+
   const initialScroll = useFlatListInitialScroll<number>({
     itemSize: columnTokens.itemHeight,
-    initialScrollIndex,
+    initialScrollIndex: firstRenderIndex,
   });
 
-  // Android truncates snap intervals to physical pixels. Round each row's
-  // offset independently so fractional pixels cannot accumulate across rows.
+  // Position the wheel on mount instead of scrolling after its first layout.
+  const initialContentOffset = useMemo(
+    () => ({ x: 0, y: initialIndex * columnTokens.itemHeight }),
+    [columnTokens.itemHeight, initialIndex],
+  );
+
+  // Per-row offsets prevent Android's pixel truncation from accumulating.
   const snapOffsets = useMemo(
     () => data.map((_, index) => index * columnTokens.itemHeight),
     [columnTokens.itemHeight, data],
@@ -76,6 +89,7 @@ export const PickerColumn = memo(function PickerColumn(
         { selected },
       );
       const fontWeight = appearanceTokens.fontWeight as FontWeightValue;
+      const formattedValue = String(item).padStart(2, "0");
 
       return (
         <View style={styles.item}>
@@ -87,7 +101,7 @@ export const PickerColumn = memo(function PickerColumn(
             fontWeight={fontWeight}
             numeric
           >
-            {String(item).padStart(2, "0")}
+            {formattedValue}
           </Typography.Master>
         </View>
       );
@@ -147,6 +161,7 @@ export const PickerColumn = memo(function PickerColumn(
       >
         <FlatList
           {...initialScroll}
+          contentOffset={initialContentOffset}
           ref={listRef}
           data={data}
           renderItem={renderItem}
@@ -158,8 +173,8 @@ export const PickerColumn = memo(function PickerColumn(
           contentContainerStyle={styles.contentContainer}
           onMomentumScrollEnd={onMomentumScrollEnd}
           removeClippedSubviews
-          windowSize={3}
-          initialNumToRender={7}
+          windowSize={renderWindowSize}
+          initialNumToRender={initialRenderCount}
           maxToRenderPerBatch={7}
           updateCellsBatchingPeriod={50}
           scrollEventThrottle={16}
