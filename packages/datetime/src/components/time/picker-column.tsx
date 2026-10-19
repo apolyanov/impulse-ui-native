@@ -3,7 +3,7 @@ import type {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from "react-native";
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef } from "react";
 import { StyleSheet } from "react-native";
 
 import type { AppTheme, FontWeightValue } from "@impulse-ui-native/theme";
@@ -47,6 +47,13 @@ export const PickerColumn = memo(function PickerColumn(
     itemSize: columnTokens.itemHeight,
     initialScrollIndex,
   });
+
+  // Android truncates snap intervals to physical pixels. Round each row's
+  // offset independently so fractional pixels cannot accumulate across rows.
+  const snapOffsets = useMemo(
+    () => data.map((_, index) => index * columnTokens.itemHeight),
+    [columnTokens.itemHeight, data],
+  );
 
   const keyExtractor = useCallback((item: number, index: number) => {
     return `${item}-${index}`;
@@ -144,7 +151,7 @@ export const PickerColumn = memo(function PickerColumn(
           data={data}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
-          snapToInterval={columnTokens.itemHeight}
+          snapToOffsets={snapOffsets}
           snapToAlignment="start"
           decelerationRate="fast"
           showsVerticalScrollIndicator={false}

@@ -15,7 +15,7 @@ import type {
 } from "@impulse-ui-native/overlay";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { useOverlayLifecycle } from "@impulse-ui-native/overlay";
-import { getFlyoutTokens, useComponentsTokens } from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { FlyoutProps } from "../types";
 
@@ -32,13 +32,11 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
 
   const tokens = useComponentsTokens();
-  const flyoutTokens = getFlyoutTokens(tokens.flyout, { placement });
   const enterSpring = tokens.flyout.enterSpring;
   const exitAnimationConfig = useMemo(
     () => ({ duration: tokens.flyout.exitDuration }),
     [tokens.flyout.exitDuration],
   );
-  const handleHeight = flyoutTokens.handleContainer.height;
 
   const translateY = useSharedValue(
     placement === "top" ? -screenHeight : screenHeight,
@@ -101,8 +99,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
       return;
     }
 
-    const height =
-      event.nativeEvent.layout.height + safeAreaInset + handleHeight;
+    const height = event.nativeEvent.layout.height + safeAreaInset;
     translateY.set(placement === "top" ? -height : height);
 
     setMeasuredHeight(height);

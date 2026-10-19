@@ -1,5 +1,6 @@
 import { memo, useMemo } from "react";
 import { StyleSheet } from "react-native";
+import { GestureDetector } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -12,12 +13,14 @@ import {
 
 import type { FlyoutHandleProps } from "../types";
 import type { FlyoutPlacementThemeProps } from "../types/flyout-theme.types";
+import { useFlyoutDragContext } from "../hooks";
 
 export const FlyoutHandle = memo(function FlyoutHandle({
   placement = "bottom",
   style,
   ...props
 }: FlyoutHandleProps) {
+  const dragGesture = useFlyoutDragContext();
   const extractedStyleProps = useStyleProps(props);
   const styles = useThemedStyles(themedStyles, { placement }, [placement]);
 
@@ -27,9 +30,11 @@ export const FlyoutHandle = memo(function FlyoutHandle({
   );
 
   return (
-    <Animated.View {...props} style={handleStyle}>
-      <View style={styles.flyoutHandle} />
-    </Animated.View>
+    <GestureDetector gesture={dragGesture}>
+      <Animated.View {...props} collapsable={false} style={handleStyle}>
+        <View style={styles.flyoutHandle} />
+      </Animated.View>
+    </GestureDetector>
   );
 });
 
@@ -49,11 +54,10 @@ function themedStyles(
       borderRadius: handleTokens.borderRadius,
     },
     flyoutHandleContainer: {
-      position: "absolute",
       width: "100%",
       justifyContent: "center",
       alignItems: "center",
-      ...flyoutTokens.handleContainer,
+      height: flyoutTokens.handleContainer.height,
     },
   });
 }

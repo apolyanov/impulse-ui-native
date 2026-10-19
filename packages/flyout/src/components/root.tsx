@@ -1,7 +1,6 @@
 import type { Edge } from "react-native-safe-area-context";
 import { Fragment, memo, useMemo } from "react";
 import { StyleSheet, useWindowDimensions } from "react-native";
-import { GestureDetector } from "react-native-gesture-handler";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
 import {
   SafeAreaView,
@@ -18,6 +17,7 @@ import {
 
 import type { FlyoutRootProps } from "../types";
 import type { FlyoutPlacementThemeProps } from "../types/flyout-theme.types";
+import { FlyoutDragContext } from "../contexts/flyout-drag.context";
 import { useFlyoutLifecycle } from "../hooks";
 
 export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
@@ -121,11 +121,11 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
         <Pressable onPress={close} style={StyleSheet.absoluteFill} />
       </Animated.View>
 
-      <GestureDetector gesture={dragGesture}>
+      <FlyoutDragContext.Provider value={dragGesture}>
         <Animated.View onLayout={onLayout} style={containerStyle}>
           <SafeAreaView edges={edges}>{children}</SafeAreaView>
         </Animated.View>
-      </GestureDetector>
+      </FlyoutDragContext.Provider>
     </Fragment>
   );
 });
