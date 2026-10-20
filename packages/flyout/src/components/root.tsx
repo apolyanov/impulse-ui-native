@@ -1,6 +1,6 @@
 import type { Edge } from "react-native-safe-area-context";
 import { Fragment, memo, useMemo } from "react";
-import { StyleSheet, useWindowDimensions } from "react-native";
+import { StyleSheet, useWindowDimensions, View } from "react-native";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
 import {
   SafeAreaView,
@@ -123,6 +123,7 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
 
       <FlyoutDragContext.Provider value={dragGesture}>
         <Animated.View onLayout={onLayout} style={containerStyle}>
+          <View pointerEvents="none" style={styles.surface} />
           <SafeAreaView edges={edges}>{children}</SafeAreaView>
         </Animated.View>
       </FlyoutDragContext.Provider>
@@ -133,14 +134,23 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
 function themedStyles(theme: AppTheme, props: FlyoutPlacementThemeProps) {
   const { placement } = props;
   const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
+  const { top, bottom, ...surfaceShape } = flyoutTokens.container;
+  const handleHeight = flyoutTokens.handleContainer.height;
 
   return StyleSheet.create({
     container: {
       position: "absolute",
       left: 0,
       right: 0,
+      top,
+      bottom,
+    },
+    surface: {
+      ...StyleSheet.absoluteFill,
+      top: placement === "bottom" ? handleHeight : 0,
+      bottom: placement === "top" ? handleHeight : 0,
       backgroundColor: flyoutTokens.backgroundColor,
-      ...flyoutTokens.container,
+      ...surfaceShape,
     },
     hidden: {
       opacity: flyoutTokens.hiddenOpacity,

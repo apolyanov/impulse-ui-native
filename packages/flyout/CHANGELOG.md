@@ -1,5 +1,25 @@
 # @impulse-ui-native/flyout
 
+## 10.0.0
+
+### Patch Changes
+
+- Support the React Native 0.88 strict TypeScript API and Gesture Handler 3 used by
+  Expo SDK 58. Update native ref, style, gesture, and text-input event declarations,
+  and normalize an omitted FlatList initial index to undefined.
+- 760e4a3: Restrict drag dismissal to the flyout handle so the sheet gesture no longer
+  intercepts scrolling in FlatList and other content. Keep the handle inside the
+  sheet's native touch bounds for Android.
+- Restore the handle outside the flyout surface while keeping its drag area inside
+  the root's native touch bounds on Android.
+- Updated dependencies
+- Updated dependencies [a80ff6d]
+- Updated dependencies [ffa7afb]
+  - @impulse-ui-native/primitives@10.0.0
+  - @impulse-ui-native/theme@10.0.0
+  - @impulse-ui-native/overlay@10.0.0
+  - @impulse-ui-native/core@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

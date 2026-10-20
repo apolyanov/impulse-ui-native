@@ -1,3 +1,4 @@
+import type { ComponentRef } from "react";
 import type {
   LayoutChangeEvent,
   NativeScrollEvent,
@@ -9,7 +10,10 @@ import { useRef } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 
-import type { UseScrollViewInitialScrollOptions } from "../types";
+import type {
+  UseScrollViewInitialScrollOptions,
+  UseScrollViewInitialScrollResult,
+} from "../types";
 import type { ScrollViewMeasurement } from "../types/scroll-view-measurement.types";
 import { getScrollViewRevealOffset } from "../utils/get-scroll-view-reveal-offset";
 
@@ -20,9 +24,9 @@ export function useScrollViewInitialScroll({
   onLayout,
   onContentSizeChange,
   onScrollBeginDrag,
-}: UseScrollViewInitialScrollOptions = {}) {
-  const scrollViewRef = useRef<ScrollView>(null);
-  const targetRef = useRef<View>(null);
+}: UseScrollViewInitialScrollOptions = {}): UseScrollViewInitialScrollResult {
+  const scrollViewRef = useRef<ComponentRef<typeof ScrollView>>(null);
+  const targetRef = useRef<ComponentRef<typeof View>>(null);
   const viewportSizeRef = useRef(0);
   const contentSizeRef = useRef(0);
   const completedRef = useRef(false);

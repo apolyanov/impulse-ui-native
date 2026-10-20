@@ -24,5 +24,5 @@ export function useFlatListInitialScroll<Item>(
     [itemSize, separatorSize, headerSize],
   );
 
-  return { initialScrollIndex, getItemLayout };
+  return { initialScrollIndex: initialScrollIndex ?? undefined, getItemLayout };
 }

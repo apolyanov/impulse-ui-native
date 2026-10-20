@@ -1,5 +1,15 @@
 # @impulse-ui-native/form-field
 
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies [a80ff6d]
+- Updated dependencies [ffa7afb]
+  - @impulse-ui-native/primitives@10.0.0
+  - @impulse-ui-native/theme@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

@@ -1,3 +1,4 @@
+import type { ComponentRef } from "react";
 import type { LayoutChangeEvent, View } from "react-native";
 import { useMemo, useRef, useState } from "react";
 
@@ -5,16 +6,21 @@ import { useBackHandler, useEventCallback } from "@impulse-ui-native/core";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { PopoverContentProps } from "../types";
-import type { PopoverSurfaceStyleProps } from "../types/popover.types";
+import type {
+  PopoverSurfaceResult,
+  PopoverSurfaceStyleProps,
+} from "../types/popover.types";
 import { getPopoverPosition } from "../utils/popover-position.utils";
 import { usePopoverContext } from "./use-popover-context.hook";
 import { usePopoverPosition } from "./use-popover-position.hook";
 
-export function usePopoverSurface(onLayout: PopoverContentProps["onLayout"]) {
+export function usePopoverSurface(
+  onLayout: PopoverContentProps["onLayout"],
+): PopoverSurfaceResult {
   const { placement, setOpen } = usePopoverContext();
 
   const [size, setSize] = useState({ width: 0, height: 0 });
-  const hostRef = useRef<View>(null);
+  const hostRef = useRef<ComponentRef<typeof View>>(null);
 
   const tokens = useComponentsTokens().popover;
   const { measurement, bounds, visible } = usePopoverPosition(hostRef);

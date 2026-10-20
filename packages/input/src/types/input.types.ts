@@ -8,7 +8,7 @@ import {
 
 export interface InputProps
   extends
-    TextInputProps,
+    Omit<TextInputProps, "placeholder">,
     Partial<ControlComponentProps>,
     ControlComponentCommonProps {
   containerStyle?: ViewProps["style"];

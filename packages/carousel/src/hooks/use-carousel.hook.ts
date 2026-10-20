@@ -1,3 +1,4 @@
+import type { ComponentRef } from "react";
 import type {
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -32,7 +33,7 @@ export function useCarousel({
     clampIndex(indexProp ?? defaultIndex, count),
   );
 
-  const scrollRef = useRef<ScrollView>(null);
+  const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
   const offsetRef = useRef(0);
   const draggingRef = useRef(false);
   const userScrollRef = useRef(false);

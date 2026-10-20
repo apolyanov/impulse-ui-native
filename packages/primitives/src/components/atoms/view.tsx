@@ -1,3 +1,9 @@
+import type {
+  ComponentRef,
+  NamedExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from "react";
 import { forwardRef, memo, useMemo } from "react";
 import { View as NativeView, StyleSheet } from "react-native";
 
@@ -9,8 +15,13 @@ import {
 
 import { ViewProps } from "../../types";
 
-export const View = memo(
-  forwardRef<NativeView, ViewProps>(function View(props: ViewProps, ref) {
+export const View: NamedExoticComponent<
+  PropsWithoutRef<ViewProps> & RefAttributes<ComponentRef<typeof NativeView>>
+> = memo(
+  forwardRef<ComponentRef<typeof NativeView>, ViewProps>(function View(
+    props: ViewProps,
+    ref,
+  ) {
     const { style, shadow, shadowPosition, ...rest } = props;
 
     const { colors, shadows } = useTheme();

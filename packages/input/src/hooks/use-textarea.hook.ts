@@ -1,8 +1,4 @@
-import type {
-  NativeSyntheticEvent,
-  TextInputContentSizeChangeEventData,
-  TextInputProps,
-} from "react-native";
+import type { TextInputProps } from "react-native";
 import { useCallback, useMemo, useState } from "react";
 
 import { useControllableState } from "@impulse-ui-native/core";
@@ -55,7 +51,9 @@ export function useTextarea({
   const scrollEnabled = !autoGrow || measuredHeight > maxHeight;
 
   const handleContentSizeChange = useCallback(
-    (event: NativeSyntheticEvent<TextInputContentSizeChangeEventData>) => {
+    (
+      event: Parameters<NonNullable<TextInputProps["onContentSizeChange"]>>[0],
+    ) => {
       setContentHeight(event.nativeEvent.contentSize.height);
       onContentSizeChange?.(event);
     },

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/popover",
-  "version": "9.1.2",
+  "version": "10.0.0",
   "description": "Portal-rendered tooltips and compound anchored popovers for ImpulseUI Native.",
   "keywords": [
     "react-native",

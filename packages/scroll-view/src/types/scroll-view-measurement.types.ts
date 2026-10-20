@@ -1,8 +1,9 @@
+import type { ComponentRef } from "react";
 import type { LayoutRectangle, ScrollView, View } from "react-native";
 
 export interface ScrollViewMeasurement {
-  scrollView: ScrollView;
-  target: View;
+  scrollView: ComponentRef<typeof ScrollView>;
+  target: ComponentRef<typeof View>;
   layout: LayoutRectangle;
 }
 

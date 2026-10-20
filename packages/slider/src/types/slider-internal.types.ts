@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { LayoutChangeEvent, ViewStyle } from "react-native";
-import type { PanGesture } from "react-native-gesture-handler";
+import type { Gesture } from "react-native-gesture-handler";
 import type { AnimatedStyle, SharedValue } from "react-native-reanimated";
 
 import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
@@ -32,12 +32,12 @@ export interface UseSliderInteractionOptions {
 }
 
 export interface UseSliderInteractionResult {
-  gesture: PanGesture;
+  gesture: ReturnType<typeof Gesture.Pan>;
   handleLayout: (event: LayoutChangeEvent) => void;
 }
 
 export interface SliderTrackProps extends SliderInteractionHandlers {
-  gesture: PanGesture;
+  gesture: ReturnType<typeof Gesture.Pan>;
   trackContent?: ReactNode;
   activeTrackStyle: AnimatedStyle<ViewStyle>;
   children: ReactNode;
@@ -86,7 +86,7 @@ export interface UseSliderOptions {
 export interface UseSliderResult {
   activeTrackStyle: AnimatedStyle<ViewStyle>;
   bounds: SliderBounds;
-  gesture: PanGesture;
+  gesture: ReturnType<typeof Gesture.Pan>;
   handleLayout: (event: LayoutChangeEvent) => void;
   labelMarks: readonly SliderMarkDefinition[];
   marks: readonly SliderMarkLayout[];
@@ -119,7 +119,7 @@ export interface UseRangeSliderResult {
   activeTrackStyle: AnimatedStyle<ViewStyle>;
   bounds: SliderBounds;
   endThumb: RangeSliderThumbBehavior;
-  gesture: PanGesture;
+  gesture: ReturnType<typeof Gesture.Pan>;
   handleLayout: (event: LayoutChangeEvent) => void;
   labelMarks: readonly SliderMarkDefinition[];
   marks: readonly SliderMarkLayout[];

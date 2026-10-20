@@ -1,5 +1,7 @@
 # @impulse-ui-native/endpoint
 
+## 10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

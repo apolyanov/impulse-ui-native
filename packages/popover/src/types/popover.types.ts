@@ -1,4 +1,9 @@
-import type { PropsWithChildren, ReactNode, RefObject } from "react";
+import type {
+  ComponentRef,
+  PropsWithChildren,
+  ReactNode,
+  RefObject,
+} from "react";
 import type { View as NativeView } from "react-native";
 
 import type {
@@ -57,7 +62,7 @@ export interface PopoverContextValue {
 
   setOpen: (open: boolean) => void;
 
-  anchorRef: RefObject<NativeView | null>;
+  anchorRef: RefObject<ComponentRef<typeof NativeView> | null>;
   placement: PopoverPlacement;
   portalName?: string;
 }
@@ -90,4 +95,11 @@ export interface PopoverSurfaceStyleProps {
   host?: PopoverRect;
   position: PopoverPosition | null;
   ready: boolean;
+}
+
+export interface PopoverSurfaceResult {
+  hostRef: RefObject<ComponentRef<typeof NativeView> | null>;
+  styleProps: PopoverSurfaceStyleProps;
+  close: () => void;
+  handleLayout: NonNullable<PopoverContentProps["onLayout"]>;
 }

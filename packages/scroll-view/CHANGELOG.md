@@ -1,5 +1,14 @@
 # @impulse-ui-native/scroll-view
 
+## 10.0.0
+
+### Patch Changes
+
+- Support the React Native 0.88 strict TypeScript API and Gesture Handler 3 used by
+  Expo SDK 58. Update native ref, style, gesture, and text-input event declarations,
+  and normalize an omitted FlatList initial index to undefined.
+  - @impulse-ui-native/core@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-import type { RefObject } from "react";
+import type { ComponentRef, RefObject } from "react";
 import type { View } from "react-native";
 import { useEffect, useMemo, useState } from "react";
 import { useWindowDimensions } from "react-native";
@@ -11,7 +11,9 @@ import { AnchorMeasureInterval } from "../constants/popover.constants";
 import { equalRects } from "../utils/popover-position.utils";
 import { usePopoverContext } from "./use-popover-context.hook";
 
-export function usePopoverPosition(hostRef: RefObject<View | null>) {
+export function usePopoverPosition(
+  hostRef: RefObject<ComponentRef<typeof View> | null>,
+) {
   const { anchorRef } = usePopoverContext();
   const window = useWindowDimensions();
   const insets = useSafeAreaInsets();

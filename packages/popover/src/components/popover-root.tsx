@@ -1,3 +1,4 @@
+import type { ComponentRef } from "react";
 import type { View } from "react-native";
 import { memo, useMemo, useRef } from "react";
 
@@ -15,7 +16,7 @@ export const PopoverRoot = memo(function PopoverRoot({
   placement = "bottom",
   portalName,
 }: PopoverRootProps) {
-  const anchorRef = useRef<View>(null);
+  const anchorRef = useRef<ComponentRef<typeof View>>(null);
 
   const [open, setOpen] = useControllableState({
     prop: openProp,

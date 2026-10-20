@@ -1,5 +1,19 @@
 # @impulse-ui-native/color-picker
 
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies [a80ff6d]
+- Updated dependencies [ffa7afb]
+  - @impulse-ui-native/input@10.0.0
+  - @impulse-ui-native/primitives@10.0.0
+  - @impulse-ui-native/slider@10.0.0
+  - @impulse-ui-native/theme@10.0.0
+  - @impulse-ui-native/icon@10.0.0
+  - @impulse-ui-native/core@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

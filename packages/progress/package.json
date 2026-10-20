@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/progress",
-  "version": "9.1.2",
+  "version": "10.0.0",
   "description": "Progress components for ImpulseUI Native.",
   "keywords": [
     "react-native",

@@ -1,4 +1,4 @@
-import type { Ref } from "react";
+import type { ComponentRef, Ref } from "react";
 import type { View } from "react-native";
 
 import type { ComponentSize } from "@impulse-ui-native/theme";
@@ -11,7 +11,7 @@ export interface TabButtonProps {
   selected: boolean;
   size: ComponentSize;
   onSelect: (value: string) => void;
-  initialScrollRef?: Ref<View>;
+  initialScrollRef?: Ref<ComponentRef<typeof View>>;
   onLayout?: () => void;
 }
 

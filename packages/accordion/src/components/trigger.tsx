@@ -36,10 +36,10 @@ export const AccordionTrigger = memo(function AccordionTrigger({
   ]);
 
   const triggerStyle = useCallback(
-    ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
       styles.trigger,
-      pressed ? styles.triggerPressed : undefined,
-      typeof style === "function" ? style({ pressed }) : style,
+      state.pressed ? styles.triggerPressed : undefined,
+      typeof style === "function" ? style(state) : style,
     ],
     [style, styles.trigger, styles.triggerPressed],
   );

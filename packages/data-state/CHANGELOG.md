@@ -1,5 +1,29 @@
 # @impulse-ui-native/data-state
 
+## 10.0.0
+
+### Major Changes
+
+- ffa7afb: Add shared Control.Field, Control.Trigger, and Control.Icon composition and
+  shared overlay timing. Reuse picker draft handling, preserve calendar clipping,
+  and remove redundant wrappers, memoization, style flattening, and icon variant
+  map construction. Correct style-prop caching and retain compatible date-guard
+  aliases. Remove legacy text, variant, action, isEmpty, and error props from EmptyView
+  and ErrorView. These standalone containers now accept only View props, children,
+  and contentContainerStyle; use DataView for state selection and configured
+  details.
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies [a80ff6d]
+- Updated dependencies [ffa7afb]
+  - @impulse-ui-native/primitives@10.0.0
+  - @impulse-ui-native/theme@10.0.0
+  - @impulse-ui-native/icon@10.0.0
+  - @impulse-ui-native/skeleton@10.0.0
+  - @impulse-ui-native/core@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

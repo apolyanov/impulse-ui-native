@@ -1,37 +1,33 @@
+import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
 import { useMemo } from "react";
-import { StyleSheet } from "react-native";
 
 import { AppTheme } from "../types";
 import { useTheme } from "./use-theme.hook";
 
-type ThemedStyles<T extends StyleSheet.NamedStyles<T>> = T;
+type NamedStyles<T> = { [Key in keyof T]: ViewStyle | TextStyle | ImageStyle };
 
-type StyledFunctionNoProps<T extends StyleSheet.NamedStyles<T>> = (
+type ThemedStyles<T extends NamedStyles<T>> = T;
+
+type StyledFunctionNoProps<T extends NamedStyles<T>> = (
   theme: AppTheme,
 ) => ThemedStyles<T>;
 
-type StyledFunctionWithProps<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
-> = (theme: AppTheme, props: Props) => ThemedStyles<T>;
+type StyledFunctionWithProps<Props extends object, T extends NamedStyles<T>> = (
+  theme: AppTheme,
+  props: Props,
+) => ThemedStyles<T>;
 
-export function useThemedStyles<T extends StyleSheet.NamedStyles<T>>(
+export function useThemedStyles<T extends NamedStyles<T>>(
   styledFunction: StyledFunctionNoProps<T>,
 ): ThemedStyles<T>;
 
-export function useThemedStyles<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
->(
+export function useThemedStyles<Props extends object, T extends NamedStyles<T>>(
   styledFunction: StyledFunctionWithProps<Props, T>,
   props: Props,
   dependencies: readonly unknown[],
 ): ThemedStyles<T>;
 
-export function useThemedStyles<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
->(
+export function useThemedStyles<Props extends object, T extends NamedStyles<T>>(
   styledFunction: StyledFunctionNoProps<T> | StyledFunctionWithProps<Props, T>,
   props?: Props,
   dependencies?: readonly unknown[],

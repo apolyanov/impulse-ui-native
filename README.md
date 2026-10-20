@@ -160,6 +160,9 @@ tooling/               Shared TypeScript, ESLint, and Prettier configuration
 
 ## Local development
 
+Both native apps use Expo SDK 58, React Native 0.88, and React 19.3. Dependency
+versions are shared through the pnpm workspace catalog.
+
 Requirements:
 
 - Node.js 22.21 or newer within the Node 22 release line
@@ -190,6 +193,11 @@ Start the Expo application:
 ```sh
 pnpm --filter impulse-ui-native start
 ```
+
+When upgrading from SDK 57, regenerate ignored native projects with
+`pnpm exec expo prebuild --clean` from the app directory, then create a new native
+build. Preserve any local native customizations before regenerating. An existing
+SDK 57 development or release build cannot load the SDK 58 runtime.
 
 ## Quality checks
 

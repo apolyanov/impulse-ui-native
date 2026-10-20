@@ -1,5 +1,7 @@
 # @impulse-ui-native/portal
 
+## 10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

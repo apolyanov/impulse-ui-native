@@ -63,7 +63,7 @@ Keep the external Portal mounted; Root handles mounting its visible content thro
 the existing lifecycle. For top placement, set `placement="top"` on both Root and
 Handle. Root provides the drag gesture internally; no separate provider is required.
 Include Handle to enable drag dismissal; omitting it leaves backdrop and programmatic dismissal available.
-The handle occupies a strip inside the sheet so its touch area stays within native view bounds.
+The handle sits outside the sheet surface in a transparent strip within Root's native touch bounds.
 Content remains a regular View
 with horizontal padding and a maximum height of 70% of the window by default.
 Root accepts native `style`; the presentation parts accept primitive style props.

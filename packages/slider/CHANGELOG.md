@@ -1,5 +1,19 @@
 # @impulse-ui-native/slider
 
+## 10.0.0
+
+### Patch Changes
+
+- Support the React Native 0.88 strict TypeScript API and Gesture Handler 3 used by
+  Expo SDK 58. Update native ref, style, gesture, and text-input event declarations,
+  and normalize an omitted FlatList initial index to undefined.
+- Updated dependencies
+- Updated dependencies [a80ff6d]
+- Updated dependencies [ffa7afb]
+  - @impulse-ui-native/primitives@10.0.0
+  - @impulse-ui-native/theme@10.0.0
+  - @impulse-ui-native/core@10.0.0
+
 ## 9.1.2
 
 ### Patch Changes

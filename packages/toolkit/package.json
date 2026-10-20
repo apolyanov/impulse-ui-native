@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/toolkit",
-  "version": "9.1.2",
+  "version": "10.0.0",
   "description": "The complete ImpulseUI Native component toolkit for building React Native applications.",
   "keywords": [
     "react-native",
@@ -70,6 +70,7 @@
     "@impulse-ui-native/color-picker": "workspace:*"
   },
   "devDependencies": {
+    "@shopify/react-native-skia": "catalog:",
     "@impulse-ui-native/eslint-config": "workspace:*",
     "@impulse-ui-native/prettier-config": "workspace:*",
     "@impulse-ui-native/tsconfig": "workspace:*",
@@ -78,6 +79,11 @@
     "prettier": "catalog:",
     "react": "catalog:react19",
     "react-native": "catalog:",
+    "react-native-gesture-handler": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-safe-area-context": "catalog:",
+    "react-native-svg": "catalog:",
+    "react-native-worklets": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {

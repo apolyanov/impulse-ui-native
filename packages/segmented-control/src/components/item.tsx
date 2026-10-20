@@ -68,9 +68,9 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
   );
 
   const itemStyle = useCallback(
-    ({ pressed }: PressableStateCallbackType): StyleProp<ViewStyle> => [
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
       styles.item,
-      typeof style === "function" ? style({ pressed }) : style,
+      typeof style === "function" ? style(state) : style,
     ],
     [style, styles.item],
   );
