@@ -30,10 +30,10 @@
     "turbo": "^2.9.7",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@12.14.0",
   "engines": {
-    "node": "^22.21.0",
-    "pnpm": "^10.19.0"
+    "node": "^26.12.0",
+    "pnpm": "^12.14.0"
   },
   "prettier": "@impulse-ui-native/prettier-config"
 }

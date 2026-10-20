@@ -10,7 +10,8 @@
     "supportsTablet": true,
     "infoPlist": {
       "ITSAppUsesNonExemptEncryption": false
-    }
+    },
+    "bundleIdentifier": "com.apolyanov.impulseuinative"
   },
   "android": {
     "adaptiveIcon": {

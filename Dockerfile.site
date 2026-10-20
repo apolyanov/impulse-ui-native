@@ -1,9 +1,9 @@
-FROM node:22-alpine AS base
+FROM node:26.12.0-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
-RUN corepack enable
+RUN npm install --global pnpm@12.14.0
 
 FROM base AS builder
 
@@ -22,7 +22,7 @@ COPY . .
 RUN pnpm install --frozen-lockfile
 RUN pnpm --filter @impulse-ui-native/site build
 
-FROM node:22-alpine AS runner
+FROM node:26.12.0-alpine AS runner
 
 ENV NODE_ENV="production"
 ENV HOSTNAME="0.0.0.0"

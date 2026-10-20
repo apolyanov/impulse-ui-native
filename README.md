@@ -165,8 +165,8 @@ versions are shared through the pnpm workspace catalog.
 
 Requirements:
 
-- Node.js 22.21 or newer within the Node 22 release line
-- pnpm 10.19 or newer
+- Node.js 26.12 or newer within the Node 26 release line
+- pnpm 12.14 or newer within the pnpm 12 release line
 
 Clone and install the workspace:
 
