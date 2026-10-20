@@ -15,7 +15,7 @@ export function createTimePickerTokens(
       height: ContainerHeight,
       gap: tokens.space.xxs,
 
-      listWidth: 30,
+      listWidth: tokens.fontSize.xl * 2,
       itemHeight: ItemHeight,
       visibleItems: VisibleItems,
       verticalPadding: VerticalPadding,
