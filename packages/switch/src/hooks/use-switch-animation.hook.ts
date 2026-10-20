@@ -34,37 +34,31 @@ export function useSwitchAnimation({
     sizeTokens.trackPadding * 2 -
     borderWidth * 2;
 
-  const trackStyle = useAnimatedStyle(
-    () => ({
-      backgroundColor: interpolateColor(
-        progress.value,
-        [0, 1],
-        [colors.inactiveBackgroundColor, colors.activeBackgroundColor],
-      ),
-      borderColor: interpolateColor(
-        progress.value,
-        [0, 1],
-        [colors.inactiveBorderColor, colors.activeBorderColor],
-      ),
-    }),
-    [colors],
-  );
+  const trackStyle = useAnimatedStyle(() => ({
+    backgroundColor: interpolateColor(
+      progress.value,
+      [0, 1],
+      [colors.inactiveBackgroundColor, colors.activeBackgroundColor],
+    ),
+    borderColor: interpolateColor(
+      progress.value,
+      [0, 1],
+      [colors.inactiveBorderColor, colors.activeBorderColor],
+    ),
+  }));
 
-  const thumbStyle = useAnimatedStyle(
-    () => ({
-      backgroundColor: interpolateColor(
-        progress.value,
-        [0, 1],
-        [colors.inactiveThumbColor, colors.activeThumbColor],
-      ),
-      transform: [
-        {
-          translateX: progress.value * thumbTravel,
-        },
-      ],
-    }),
-    [colors, thumbTravel],
-  );
+  const thumbStyle = useAnimatedStyle(() => ({
+    backgroundColor: interpolateColor(
+      progress.value,
+      [0, 1],
+      [colors.inactiveThumbColor, colors.activeThumbColor],
+    ),
+    transform: [
+      {
+        translateX: progress.value * thumbTravel,
+      },
+    ],
+  }));
 
   useEffect(() => {
     // Reanimated shared values are mutable handles updated from React effects.
