@@ -1,5 +1,7 @@
 # @impulse-ui-native/core
 
+## 11.2.0
+
 ## 11.1.0
 
 ## 11.0.1

@@ -1,5 +1,17 @@
 # @impulse-ui-native/primitives
 
+## 11.2.0
+
+### Minor Changes
+
+- 5c30476: Expose direct flex and positioning props on Pressable alongside its existing spacing and dimension props.
+
+### Patch Changes
+
+- @impulse-ui-native/core@11.2.0
+- @impulse-ui-native/icon@11.2.0
+- @impulse-ui-native/theme@11.2.0
+
 ## 11.1.0
 
 ### Minor Changes
