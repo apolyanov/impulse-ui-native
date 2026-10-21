@@ -1,0 +1,26 @@
+diff --git a/dist/changesets-cli.cjs.js b/dist/changesets-cli.cjs.js
+index 56cd7bd47e22feb4f64f12a096958e33c8373888..f76eb7d36d1e28e4ace9f809dc4fde01138b68e2 100644
+--- a/dist/changesets-cli.cjs.js
++++ b/dist/changesets-cli.cjs.js
+@@ -968,7 +968,7 @@ async function internalPublish(packageJson, opts, twoFactorState) {
+         };
+       }
+       // The first case is no 2fa provided, the second is when the 2fa is wrong (timeout or wrong words)
+-      if ((json.error.code === "EOTP" || json.error.code === "E401" && (_json$error$detail = json.error.detail) !== null && _json$error$detail !== void 0 && _json$error$detail.includes("--otp=<code>")) && process.stdin.isTTY) {
++      if ((json.error.code === "EOTP" || json.error.code === "ERR_PNPM_OTP_NON_INTERACTIVE" || json.error.code === "E401" && (_json$error$detail = json.error.detail) !== null && _json$error$detail !== void 0 && _json$error$detail.includes("--otp=<code>")) && process.stdin.isTTY) {
+         // the current otp code must be invalid since it errored
+         twoFactorState.token = undefined;
+         // just in case this isn't already true
+diff --git a/dist/changesets-cli.esm.js b/dist/changesets-cli.esm.js
+index 87493a35c6324e77efa85fc96a287149aa021276..2afb850c0d19df79f6e401d1a1ce6e08969a5ef5 100644
+--- a/dist/changesets-cli.esm.js
++++ b/dist/changesets-cli.esm.js
+@@ -931,7 +931,7 @@ async function internalPublish(packageJson, opts, twoFactorState) {
+         };
+       }
+       // The first case is no 2fa provided, the second is when the 2fa is wrong (timeout or wrong words)
+-      if ((json.error.code === "EOTP" || json.error.code === "E401" && (_json$error$detail = json.error.detail) !== null && _json$error$detail !== void 0 && _json$error$detail.includes("--otp=<code>")) && process.stdin.isTTY) {
++      if ((json.error.code === "EOTP" || json.error.code === "ERR_PNPM_OTP_NON_INTERACTIVE" || json.error.code === "E401" && (_json$error$detail = json.error.detail) !== null && _json$error$detail !== void 0 && _json$error$detail.includes("--otp=<code>")) && process.stdin.isTTY) {
+         // the current otp code must be invalid since it errored
+         twoFactorState.token = undefined;
+         // just in case this isn't already true

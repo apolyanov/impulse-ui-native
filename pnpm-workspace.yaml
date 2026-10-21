@@ -119,5 +119,7 @@ overrides:
   "@types/minimatch": 5.1.2
   react-docgen-typescript: 2.2.2
 
+patchedDependencies:
+  '@changesets/cli@2.31.1': patches/@changesets__cli@2.31.1.patch
 publicHoistPattern:
   - "@ianvs/prettier-plugin-sort-imports"

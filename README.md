@@ -216,6 +216,24 @@ Format TypeScript, TSX, and Markdown files with:
 pnpm format
 ```
 
+## Publishing
+
+After preparing package versions, use the release wrapper:
+
+```sh
+pnpm run publish-packages
+```
+
+It removes pnpm-only npm configuration before invoking Changesets. Keep running
+it from an interactive terminal for browser authentication. The pinned Changesets
+patch recognizes `ERR_PNPM_OTP_NON_INTERACTIVE` and retries publishing with terminal
+input and output attached, allowing pnpm to display its authentication prompt.
+Once authenticated, Changesets resumes publishing the remaining packages.
+
+The patch is installed by `pnpm install`. Run `node scripts/check-publish-auth.mjs`
+to verify its retry behavior without publishing. Review or remove the patch when
+upgrading Changesets to a version that supports this error itself.
+
 ## Contributing
 
 Issues, discussions, and pull requests are welcome at [github.com/apolyanov/impulse-ui-native](https://github.com/apolyanov/impulse-ui-native).

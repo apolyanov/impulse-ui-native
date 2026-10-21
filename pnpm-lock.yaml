@@ -318,13 +318,16 @@ overrides:
   '@types/minimatch': 5.1.2
   react-docgen-typescript: 2.2.2
 
+patchedDependencies:
+  '@changesets/cli@2.31.1': b13ab33dc6b3e806f1424701000d1422632c6c145c274ea96a3c448f2b0800d8
+
 importers:
 
   .:
     devDependencies:
       '@changesets/cli':
         specifier: ^2.31.0
-        version: 2.31.1(@types/node@22.20.5)
+        version: 2.31.1(patch_hash=b13ab33dc6b3e806f1424701000d1422632c6c145c274ea96a3c448f2b0800d8)(@types/node@22.20.5)
       '@impulse-ui-native/prettier-config':
         specifier: workspace:*
         version: link:tooling/prettier
@@ -9916,7 +9919,7 @@ snapshots:
     dependencies:
       '@changesets/types': 6.1.0
 
-  '@changesets/cli@2.31.1(@types/node@22.20.5)':
+  '@changesets/cli@2.31.1(patch_hash=b13ab33dc6b3e806f1424701000d1422632c6c145c274ea96a3c448f2b0800d8)(@types/node@22.20.5)':
     dependencies:
       '@changesets/apply-release-plan': 7.1.1
       '@changesets/assemble-release-plan': 6.0.10
