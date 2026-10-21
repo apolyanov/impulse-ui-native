@@ -47,7 +47,7 @@ export function createPaginationTokens(
         ellipsisColor: tokens.colors.text.tertiary,
       },
       disabled: {
-        backgroundColor: tokens.colors.surface.primary.value,
+        backgroundColor: tokens.colors.surface.subtle.value,
         borderColor: tokens.colors.border.subtle.value,
         color: tokens.colors.text.disabled,
         ellipsisColor: tokens.colors.text.disabled,

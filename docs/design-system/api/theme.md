@@ -42,7 +42,7 @@ export function App() {
   semantic surface, border, and text tokens for colors that should adapt to the
   active scheme. The `white` and `black` tokens also keep their literal colors.
 - Dark borders use progressively lighter `subtle`, `default`, and `strong` tones
-  that remain visible on primary, secondary, and elevated surfaces. Disabled
+  that remain visible on canvas, default, and elevated surfaces. Disabled
   control fills use surface tokens independently of the border scale.
 - `useTheme` returns the complete `AppTheme`.
 - `useColors`, `useSpace`, `useBorder`, and `useRadii` read focused token groups.
@@ -159,6 +159,25 @@ series props continue to take precedence.
 
 `getShadowStyle` accepts the active shadow scale as its fourth argument. Omitting
 it retains the exported default `ShadowScale` for existing utility callers.
+
+## Surface roles
+
+| Role                      | Purpose                                               | Light     | Dark      |
+| ------------------------- | ----------------------------------------------------- | --------- | --------- |
+| `colors.surface.canvas`   | App and screen backgrounds                            | `#f1f3f5` | `#16191d` |
+| `colors.surface.subtle`   | Muted control fills, tracks, and disabled backgrounds | `#f1f3f5` | `#16191d` |
+| `colors.surface.default`  | Content panels, cards, and lists                      | `#ffffff` | `#212529` |
+| `colors.surface.elevated` | Floating overlays, popovers, sheets, and toasts       | `#ffffff` | `#343a40` |
+| `colors.surface.inverse`  | Inverse surfaces such as tooltips                     | `#000000` | `#ffffff` |
+
+Each role has a `value` fill and a `contrast` foreground. Canvas and subtle
+start with the same colors but can be overridden independently. For example,
+changing `theme.dark.colors.surface.canvas.value` leaves control fills intact.
+
+Migration: replace `surface.primary` with `surface.canvas` for page backgrounds
+or `surface.subtle` for muted control fills. Replace `surface.secondary` with
+`surface.default` for content surfaces. Cards, lists, and accordions now use
+`default`; popovers use `elevated`.
 
 
 ## Public export and source reference
@@ -832,7 +851,7 @@ export function createPaginationTokens(
         ellipsisColor: tokens.colors.text.tertiary,
       },
       disabled: {
-        backgroundColor: tokens.colors.surface.primary.value,
+        backgroundColor: tokens.colors.surface.subtle.value,
         borderColor: tokens.colors.border.subtle.value,
         color: tokens.colors.text.disabled,
         ellipsisColor: tokens.colors.text.disabled,
@@ -865,7 +884,7 @@ export function createPopoverTokens(
     titleColor: tokens.colors.text.primary,
     descriptionColor: tokens.colors.text.secondary,
 
-    backgroundColor: tokens.colors.surface.secondary.value,
+    backgroundColor: tokens.colors.surface.elevated.value,
     borderColor: tokens.colors.border.subtle.value,
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.lg,
@@ -902,7 +921,7 @@ export function createSegmentedControlTokens(
     borderWidth: tokens.borderSize.sm,
     itemBorderRadius: tokens.radii.md,
     itemBorderWidth: tokens.borderSize.sm,
-    rootBackgroundColor: tokens.colors.surface.primary.value,
+    rootBackgroundColor: tokens.colors.surface.subtle.value,
     rootBorderColor: tokens.colors.border.default.value,
     rootGap: tokens.space.none,
     rootPadding: tokens.space.none,
@@ -987,7 +1006,7 @@ export function createSegmentedControlTokens(
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -1035,7 +1054,7 @@ export function createSegmentedControlTokens(
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -1638,11 +1657,15 @@ export const LightColors: ThemeColors = {
   neutral: NeutralColorTokens,
 
   surface: {
-    primary: {
+    canvas: {
       value: NeutralColorTokens["2"],
       contrast: NeutralColorTokens["11"],
     },
-    secondary: {
+    subtle: {
+      value: NeutralColorTokens["2"],
+      contrast: NeutralColorTokens["11"],
+    },
+    default: {
       value: NeutralColorTokens["0"],
       contrast: NeutralColorTokens["11"],
     },
@@ -1727,11 +1750,15 @@ export const DarkColors: ThemeColors = {
   neutral: NeutralColorTokens,
 
   surface: {
-    primary: {
+    canvas: {
       value: NeutralColorTokens["11"],
       contrast: NeutralColorTokens["0"],
     },
-    secondary: {
+    subtle: {
+      value: NeutralColorTokens["11"],
+      contrast: NeutralColorTokens["0"],
+    },
+    default: {
       value: NeutralColorTokens["10"],
       contrast: NeutralColorTokens["0"],
     },
@@ -3529,8 +3556,12 @@ export type ThemeColors = {
   neutral: NeutralColor;
 
   surface: {
-    primary: ColorPair;
-    secondary: ColorPair;
+    /** App and screen backgrounds. */
+    canvas: ColorPair;
+    /** Muted control fills, tracks, and disabled backgrounds. */
+    subtle: ColorPair;
+    /** Content panels, cards, and lists. */
+    default: ColorPair;
     elevated: ColorPair;
     inverse: ColorPair;
   };

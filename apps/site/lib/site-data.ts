@@ -123,14 +123,19 @@ export const semanticTokens = [
     darkValue: DarkTheme.colors.secondary.contrast,
   },
   {
-    name: "colors.surface.primary.value",
-    value: LightTheme.colors.surface.primary.value,
-    darkValue: DarkTheme.colors.surface.primary.value,
+    name: "colors.surface.canvas.value",
+    value: LightTheme.colors.surface.canvas.value,
+    darkValue: DarkTheme.colors.surface.canvas.value,
   },
   {
-    name: "colors.surface.secondary.value",
-    value: LightTheme.colors.surface.secondary.value,
-    darkValue: DarkTheme.colors.surface.secondary.value,
+    name: "colors.surface.subtle.value",
+    value: LightTheme.colors.surface.subtle.value,
+    darkValue: DarkTheme.colors.surface.subtle.value,
+  },
+  {
+    name: "colors.surface.default.value",
+    value: LightTheme.colors.surface.default.value,
+    darkValue: DarkTheme.colors.surface.default.value,
   },
   {
     name: "colors.text.primary",

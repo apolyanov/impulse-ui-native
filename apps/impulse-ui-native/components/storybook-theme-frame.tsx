@@ -21,7 +21,7 @@ export const StorybookThemeFrame = memo(function StorybookThemeFrame({
   const { colors, space, borderSize } = useTheme();
 
   return (
-    <View flex={1} backgroundColor={colors.surface.primary.value}>
+    <View flex={1} backgroundColor={colors.surface.canvas.value}>
       <SafeAreaView edges={["top"]}>
         <View
           flexDirection="row"
@@ -29,7 +29,7 @@ export const StorybookThemeFrame = memo(function StorybookThemeFrame({
           justifyContent="space-between"
           padding={space.xs}
           gap={space.sm}
-          backgroundColor={colors.surface.secondary.value}
+          backgroundColor={colors.surface.default.value}
           borderBottomWidth={borderSize.sm}
           borderColor={colors.border.subtle.value}
         >

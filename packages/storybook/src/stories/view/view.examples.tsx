@@ -22,7 +22,7 @@ function PreviewBox({ children }: { children: ReactNode }) {
     <ViewPreview
       padding="sm"
       borderRadius="md"
-      surface="primary"
+      surface="canvas"
       borderWidth="sm"
     >
       {children}
@@ -82,7 +82,7 @@ export const ViewExampleDefinitions = [
       },
       {
         name: "backgroundColor",
-        value: "colors.surface.primary.value",
+        value: "colors.surface.canvas.value",
         description: "Applies a background color to the layout surface.",
       },
       {
@@ -96,7 +96,7 @@ export const ViewExampleDefinitions = [
       borderRadius: 12,
     },
     preview: (
-      <ViewPreview padding={16} borderRadius={12} surface="primary">
+      <ViewPreview padding={16} borderRadius={12} surface="canvas">
         <Typography.Body>Content with padding</Typography.Body>
       </ViewPreview>
     ),
@@ -198,7 +198,7 @@ export const ViewExampleDefinitions = [
         alignItems="center"
         padding={16}
         borderRadius={12}
-        surface="primary"
+        surface="canvas"
       >
         <Typography.Body>Balance</Typography.Body>
         <Typography.Title5>$2,480</Typography.Title5>
@@ -238,7 +238,7 @@ export const ViewExampleDefinitions = [
         justifyContent="center"
         minHeight={120}
         borderRadius={12}
-        surface="primary"
+        surface="canvas"
       >
         <Typography.Body>Centered content</Typography.Body>
       </ViewPreview>

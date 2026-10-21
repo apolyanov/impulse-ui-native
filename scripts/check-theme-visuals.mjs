@@ -80,8 +80,9 @@ for (const scheme of ["Light", "Dark"]) {
         value.backgroundColor && value.backgroundColor !== "transparent"
           ? [value.backgroundColor]
           : [
-              colors.surface.primary.value,
-              colors.surface.secondary.value,
+              colors.surface.canvas.value,
+              colors.surface.subtle.value,
+              colors.surface.default.value,
               colors.surface.elevated.value,
             ];
       for (const background of backgrounds) {
@@ -106,7 +107,7 @@ for (const scheme of ["Light", "Dark"]) {
     checkPair(pair.contrast, pair.value, 4.5, `${scheme} palette pair`);
   }
 
-  for (const surface of ["primary", "secondary", "elevated"]) {
+  for (const surface of ["canvas", "subtle", "default", "elevated"]) {
     const background = colors.surface[surface].value;
     for (const tone of ["primary", "secondary", "neutral"]) {
       checkPair(
@@ -205,7 +206,7 @@ for (const scheme of ["Light", "Dark"]) {
     );
   }
   if (scheme === "Dark") {
-    for (const surface of ["primary", "secondary", "elevated"]) {
+    for (const surface of ["canvas", "subtle", "default", "elevated"]) {
       let previous = 0;
       for (const tone of ["subtle", "default", "strong"]) {
         const current = contrast(

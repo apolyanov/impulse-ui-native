@@ -47,7 +47,7 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
           color: primaryContrast,
         },
         disabled: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.default.value,
           color: disabledColor,
         },
@@ -83,7 +83,7 @@ export function createButtonTokens(tokens: PrimitiveThemeTokens): ButtonTokens {
           color: secondaryContrast,
         },
         disabled: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.subtle.value,
           color: disabledColor,
         },

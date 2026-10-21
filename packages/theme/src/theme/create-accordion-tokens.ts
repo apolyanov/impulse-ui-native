@@ -5,7 +5,7 @@ export function createAccordionTokens(
 ): AccordionTokens {
   return {
     animationDuration: 220,
-    backgroundColor: tokens.colors.surface.elevated.value,
+    backgroundColor: tokens.colors.surface.default.value,
     borderColor: tokens.colors.border.subtle.value,
     borderRadius: tokens.radii.lg,
     borderWidth: tokens.borderSize.sm,
@@ -30,7 +30,7 @@ export function createAccordionTokens(
           titleColor: tokens.colors.text.primary,
         },
         focused: {
-          backgroundColor: tokens.colors.surface.secondary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           iconColor: tokens.colors.text.secondary,
           opacity: 1,
           pressedOpacity: 0.72,

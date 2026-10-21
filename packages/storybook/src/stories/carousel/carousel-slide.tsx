@@ -30,7 +30,7 @@ function themedStyles(theme: AppTheme) {
     image: {
       flex: 1,
       justifyContent: "flex-end",
-      backgroundColor: theme.colors.surface.primary.value,
+      backgroundColor: theme.colors.surface.canvas.value,
     },
     caption: { padding: theme.space.sm, backgroundColor: theme.colors.overlay },
     title: { color: theme.colors.white },

@@ -60,7 +60,7 @@ Individual packages may be installed independently when the complete toolkit is 
 
 ## Theme API and token structure
 
-AppTheme extends PrimitiveThemeTokens with components. PrimitiveThemeTokens contains colors, space, radii, borderSize, fontFamily, fontWeight, fontSize, lineHeight, and letterSpacing. ThemeColors uses { value, contrast } pairs for primary, accent, secondary, surface roles, border roles, and feedback roles. Text colors, neutral colors, overlay, white, and black are strings. For example, use colors.surface.primary.value and colors.border.focus.value; colors.text.primary is already a string.
+AppTheme extends PrimitiveThemeTokens with components. PrimitiveThemeTokens contains colors, space, radii, borderSize, fontFamily, fontWeight, fontSize, lineHeight, and letterSpacing. ThemeColors uses { value, contrast } pairs for primary, accent, secondary, surface roles, border roles, and feedback roles. Text colors, neutral colors, overlay, white, and black are strings. For example, use colors.surface.canvas.value and colors.border.focus.value; colors.text.primary is already a string.
 
 LightTheme and DarkTheme are primitive themes with distinct semantic color palettes and shared numeric scales. ThemeProvider accepts scheme: "light" | "dark" (default "light"). It does not select a scheme automatically. Its theme prop accepts deep partial overrides under light and dark. Its components prop accepts a deep partial token object or a function of the merged primitive theme. The provider regenerates component tokens from that merged theme, then merges component overrides.
 
@@ -152,7 +152,7 @@ useBackHandler(callback, enabled = true) subscribes to Android hardware Back wit
 
 ## Select and Flyout behavior
 
-Select uses the shared Control primitives for its trigger. Opening it mounts a SelectFlyout through a Portal. The default Flyout placement is bottom. The sheet uses a secondary surface, a 32-pixel top radius, a 32-pixel handle container, a 25-percent-wide by 6-pixel handle, centered Title3 typography, 32-pixel horizontal content padding, and 16-pixel option padding. Selecting an option displays a primary-colored check icon and closes the Flyout.
+Select uses the shared Control primitives for its trigger. Opening it mounts a SelectFlyout through a Portal. The default Flyout placement is bottom. The sheet uses an elevated surface, a 32-pixel top radius, a 32-pixel handle container, a 25-percent-wide by 6-pixel handle, centered Title3 typography, 32-pixel horizontal content padding, and 16-pixel option padding. Selecting an option displays a primary-colored check icon and closes the Flyout.
 
 ## Documentation surfaces
 

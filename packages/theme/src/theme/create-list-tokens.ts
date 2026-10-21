@@ -2,7 +2,7 @@ import type { ListTokens, PrimitiveThemeTokens } from "../types";
 
 export function createListTokens(tokens: PrimitiveThemeTokens): ListTokens {
   return {
-    backgroundColor: tokens.colors.surface.elevated.value,
+    backgroundColor: tokens.colors.surface.default.value,
     borderColor: tokens.colors.border.subtle.value,
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.lg,

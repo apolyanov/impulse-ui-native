@@ -18,7 +18,7 @@ export function createPopoverTokens(
     titleColor: tokens.colors.text.primary,
     descriptionColor: tokens.colors.text.secondary,
 
-    backgroundColor: tokens.colors.surface.secondary.value,
+    backgroundColor: tokens.colors.surface.elevated.value,
     borderColor: tokens.colors.border.subtle.value,
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.lg,

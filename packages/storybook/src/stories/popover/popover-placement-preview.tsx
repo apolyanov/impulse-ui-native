@@ -64,7 +64,7 @@ function themedStyles({
       borderRadius: radii.md,
       borderWidth: borderSize.sm,
       borderColor: colors.border.default.value,
-      backgroundColor: colors.surface.secondary.value,
+      backgroundColor: colors.surface.default.value,
     },
   });
 }

@@ -40,7 +40,7 @@ an implemented component unavailable.
 
 | Component                      | Package                         | Status    | Storybook | Follow-up                                                                                                    |
 | ------------------------------ | ------------------------------- | --------- | --------- | ------------------------------------------------------------------------------------------------------------ |
-| `ThemeProvider`                | `@impulse-ui-native/theme`      | Available | Indirect  | Add a dedicated token gallery, including primitive and component overrides.                                  |
+| `ThemeProvider`                | `@impulse-ui-native/theme`      | Available | Indirect  | Add a dedicated token gallery, including canvas, subtle, default, and elevated surface overrides.            |
 | `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Keep native layout and spacing examples current.                                                             |
 | `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for safe-area edges and themed spacing.                                                          |
 | `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit font scaling, truncation and selection on devices.                                                     |
@@ -67,7 +67,7 @@ an implemented component unavailable.
 
 | Component             | Package                                | Status    | Storybook | Follow-up                                                                                                                    |
 | --------------------- | -------------------------------------- | --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Control.Field, Control.Trigger, and Control.Icon share field composition; native validation and loading stories remain.                                                      |
+| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Control.Field, Control.Trigger, and Control.Icon share field composition; native validation and loading stories remain.      |
 | `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Expand addon-action and form integration examples; use `Textarea` for longer text.                                           |
 | `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.                                           |
 | `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.                                               |
@@ -95,8 +95,8 @@ an implemented component unavailable.
 | Compound `Skeleton`        | `@impulse-ui-native/skeleton`   | Available | Yes            | Keep shape and control presets aligned with their corresponding components.              |
 | `Toast` and compound parts | `@impulse-ui-native/toast`      | Available | Yes            | Validate stacked placement, actions, timed dismissal, and background pausing on devices. |
 | `LoadingView`              | `@impulse-ui-native/data-state` | Available | Via `DataView` | Add a direct story for standalone loading content.                                       |
-| `EmptyView`                | `@impulse-ui-native/data-state` | Available | Via `DataView` | View props and caller-rendered children only. Add a container-style story.                                       |
-| `ErrorView`                | `@impulse-ui-native/data-state` | Available | Via `DataView` | View props and caller-rendered children only. Add retry-content guidance.                                            |
+| `EmptyView`                | `@impulse-ui-native/data-state` | Available | Via `DataView` | View props and caller-rendered children only. Add a container-style story.               |
+| `ErrorView`                | `@impulse-ui-native/data-state` | Available | Via `DataView` | View props and caller-rendered children only. Add retry-content guidance.                |
 | `DataView`                 | `@impulse-ui-native/data-state` | Available | Yes            | Document precedence and transitions between loading, error, empty, and content.          |
 
 ### Navigation and workflow

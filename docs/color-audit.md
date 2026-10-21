@@ -10,7 +10,7 @@ borders, brand colors, feedback pairs, and overlay have dark defaults.
 Both palettes share the unchanged `NeutralColorTokens` scale. Component factories use semantic surface, border, and text tokens for adaptive fills, tracks, skeletons, and muted foregrounds instead of relying on fixed neutral steps.
 `white` and `black` remain absolute colors for shadows and image overlays.
 
-The neutral badge uses `text.secondary` for its fill, `text.inverse` for its foreground, and `surface.primary` for its soft background.
+The neutral badge uses `text.secondary` for its fill, `text.inverse` for its foreground, and `surface.subtle` for its soft background.
 
 ## Remaining literals outside theme tokens
 
@@ -61,8 +61,8 @@ strong respectively. The subtle tone has at least 3:1 calculated contrast
 against each standard dark surface; the other tones are progressively stronger.
 
 Disabled Button, IconButton, Tag, Checkbox, Radio, and SegmentedControl fills
-now use `surface.primary` rather than border values. Neutral Progress tracks
-also use `surface.primary`. This keeps their foregrounds distinct when border
+now use `surface.subtle` rather than border values. Neutral Progress tracks
+also use `surface.subtle`. This keeps their foregrounds distinct when border
 tokens are brightened. Light border values and surface palettes remain unchanged.
 
 Border verification: all 27 package typechecks and the theme build passed.

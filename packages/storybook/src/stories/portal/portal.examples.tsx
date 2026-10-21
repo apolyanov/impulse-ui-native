@@ -62,7 +62,7 @@ function PortalPreview({ hostName }: { hostName: string }) {
         <View
           padding={space.mxs}
           borderRadius={radii.md}
-          backgroundColor={colors.surface.secondary.value}
+          backgroundColor={colors.surface.default.value}
         >
           <Typography.Body>
             Rendered through the {hostName} host.

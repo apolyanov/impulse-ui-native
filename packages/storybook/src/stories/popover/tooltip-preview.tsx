@@ -32,7 +32,7 @@ export const TooltipPreview = memo(function TooltipPreview({
       padding={space.sm}
       paddingTop={space.xxl}
       paddingBottom={space.lg}
-      backgroundColor={colors.surface.primary.value}
+      backgroundColor={colors.surface.canvas.value}
       borderRadius={radii.lg}
     >
       <View
@@ -43,7 +43,7 @@ export const TooltipPreview = memo(function TooltipPreview({
         borderRadius={radii.md}
         borderWidth={borderSize.sm}
         borderColor={colors.border.subtle.value}
-        backgroundColor={colors.surface.secondary.value}
+        backgroundColor={colors.surface.default.value}
       >
         <View flex={1} gap={space.xxs}>
           <Typography.Title6>Auto-sync</Typography.Title6>

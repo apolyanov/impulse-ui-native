@@ -62,7 +62,7 @@ export function ComponentCard({
         <span className="flex size-component-large items-center justify-center rounded-md bg-secondary text-primary">
           <SystemIcon className="size-msm" name={icon} />
         </span>
-        <span className="rounded-round border border-border-subtle bg-surface-primary px-xs py-xxs text-[10px] font-semiBold uppercase tracking-wider text-text-disabled">
+        <span className="rounded-round border border-border-subtle bg-surface-subtle px-xs py-xxs text-[10px] font-semiBold uppercase tracking-wider text-text-disabled">
           {category}
         </span>
       </div>
@@ -73,7 +73,7 @@ export function ComponentCard({
       <div className="mt-sm flex flex-wrap gap-xxs">
         {tags.map((tag) => (
           <span
-            className="rounded-sm bg-surface-primary px-xs py-xxs text-[10px] font-semiBold text-text-disabled"
+            className="rounded-sm bg-surface-subtle px-xs py-xxs text-[10px] font-semiBold text-text-disabled"
             key={tag}
           >
             {tag}

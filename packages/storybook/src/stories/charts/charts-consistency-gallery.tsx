@@ -103,7 +103,7 @@ export function ChartsConsistencyGallery() {
   );
 
   return (
-    <View flex={1} backgroundColor={theme.colors.surface.primary.value}>
+    <View flex={1} backgroundColor={theme.colors.surface.canvas.value}>
       <StoryDocumentationPage
         title="Chart consistency"
         description="Compare shared spacing, fonts, rounding, selection markers, tooltips, and toggleable legends across all six charts. Tap or drag within a chart to inspect values."

@@ -55,22 +55,22 @@ export function createControlContainerTokens(
     variants: {
       filled: {
         default: {
-          backgroundColor: tokens.colors.surface.secondary.value,
+          backgroundColor: tokens.colors.surface.default.value,
           borderColor: "transparent",
           opacity: 1,
         },
         error: {
-          backgroundColor: tokens.colors.surface.secondary.value,
+          backgroundColor: tokens.colors.surface.default.value,
           borderColor: tokens.colors.feedback.error.value,
           opacity: 1,
         },
         disabled: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: "transparent",
           opacity: 0.7,
         },
         disabledError: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.feedback.error.value,
           opacity: 0.7,
         },

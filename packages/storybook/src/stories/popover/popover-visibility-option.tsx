@@ -46,7 +46,7 @@ function themedStyles(theme: AppTheme, { selected }: { selected: boolean }) {
         : theme.colors.border.subtle.value,
       backgroundColor: selected
         ? theme.colors.secondary.value
-        : theme.colors.surface.secondary.value,
+        : theme.colors.surface.default.value,
     },
 
     copy: { rowGap: theme.space.xxs },

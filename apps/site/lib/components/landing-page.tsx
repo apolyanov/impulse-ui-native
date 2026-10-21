@@ -214,7 +214,7 @@ export function TokensSection() {
         <div className="mt-lg grid grid-cols-1 gap-sm md:grid-cols-2 lg:grid-cols-3">
           {primitiveTokenGroups.map((group) => (
             <article
-              className="rounded-md border border-border-subtle bg-surface-primary p-sm"
+              className="rounded-md border border-border-subtle bg-surface-canvas p-sm"
               key={group.title}
             >
               <h3 className="text-title-6">{group.title}</h3>
@@ -261,7 +261,7 @@ export function TokensSection() {
               <code>{primitiveTokenExample}</code>
             </pre>
           </div>
-          <div className="rounded-md border border-border-subtle bg-surface-primary p-sm">
+          <div className="rounded-md border border-border-subtle bg-surface-canvas p-sm">
             <ul className="space-y-mxs">
               {[
                 "A shared visual contract across iOS and Android.",
@@ -298,7 +298,7 @@ export function ThemingSection() {
             <div className="mb-sm flex items-center justify-end">
               <WebTag variant="outlined">LightTheme</WebTag>
             </div>
-            <div className="flex flex-1 items-center justify-center rounded-md bg-surface-primary p-sm">
+            <div className="flex flex-1 items-center justify-center rounded-md bg-surface-canvas p-sm">
               <PhonePreview />
             </div>
           </div>
@@ -373,7 +373,7 @@ const architectureLayers = [
     "Semantic tokens",
     "Intent-driven roles for surfaces and actions.",
     [
-      "colors.surface.primary.value",
+      "colors.surface.canvas.value",
       "colors.text.disabled",
       "colors.border.focus.value",
     ],
@@ -413,7 +413,7 @@ export function ArchitectureSection() {
 
             return (
               <article
-                className="relative rounded-md border border-border-subtle bg-surface-primary p-sm"
+                className="relative rounded-md border border-border-subtle bg-surface-canvas p-sm"
                 key={title}
               >
                 <h3 className="text-title-6">{title}</h3>
@@ -442,7 +442,7 @@ export function ArchitectureSection() {
         <div className="mt-msm flex flex-wrap justify-center gap-sm">
           {componentTokenNames.map((token) => (
             <code
-              className="whitespace-nowrap rounded-md border border-border-subtle bg-surface-primary px-xs py-xs text-center text-caption font-semiBold"
+              className="whitespace-nowrap rounded-md border border-border-subtle bg-surface-canvas px-xs py-xs text-center text-caption font-semiBold"
               key={token}
             >
               components.{token}
@@ -515,7 +515,7 @@ export function DeveloperExperienceSection() {
                 <PackageVersion prefix="Actual v" suffix=" API" />
               </span>
             </div>
-            <div className="hidden grid-cols-[0.8fr_1.8fr_0.7fr] gap-xs border-b border-border-subtle bg-surface-primary px-sm py-xs text-[10px] font-semiBold uppercase text-text-disabled sm:grid">
+            <div className="hidden grid-cols-[0.8fr_1.8fr_0.7fr] gap-xs border-b border-border-subtle bg-surface-canvas px-sm py-xs text-[10px] font-semiBold uppercase text-text-disabled sm:grid">
               <span>Prop</span>
               <span>Type</span>
               <span>Default</span>
@@ -593,7 +593,7 @@ export function ContributeSection() {
         <div className="grid grid-cols-1 gap-xs sm:grid-cols-2">
           {cards.map(([icon, title, copy]) => (
             <a
-              className="group rounded-md border border-border-subtle bg-surface-primary p-sm transition-colors hover:border-primary"
+              className="group rounded-md border border-border-subtle bg-surface-canvas p-sm transition-colors hover:border-primary"
               href={project.repository}
               key={title}
             >

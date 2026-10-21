@@ -81,7 +81,7 @@ export const PopoverPreview = memo(function PopoverPreview({
         gap={space.sm}
         padding={space.sm}
         borderRadius={radii.lg}
-        backgroundColor={colors.surface.secondary.value}
+        backgroundColor={colors.surface.default.value}
       >
         <Typography.Title4>Project settings</Typography.Title4>
         <View

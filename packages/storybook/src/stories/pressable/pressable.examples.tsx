@@ -260,7 +260,7 @@ function themedStyles(theme: AppTheme, example: PressableExampleDefinition) {
         ? colors.surface.inverse.value
         : example.name === "Outlined"
           ? "transparent"
-          : colors.surface.primary.value,
+          : colors.surface.subtle.value,
       borderColor: example.inverted
         ? colors.surface.inverse.value
         : colors.border.default.value,

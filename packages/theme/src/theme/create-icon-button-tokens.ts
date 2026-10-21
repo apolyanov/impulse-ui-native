@@ -43,7 +43,7 @@ export function createIconButtonTokens(
           color: primaryContrast,
         },
         disabled: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.default.value,
           color: disabledColor,
         },
@@ -79,7 +79,7 @@ export function createIconButtonTokens(
           color: secondaryContrast,
         },
         disabled: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.subtle.value,
           color: disabledColor,
         },

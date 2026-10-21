@@ -70,8 +70,12 @@ export type ThemeColors = {
   neutral: NeutralColor;
 
   surface: {
-    primary: ColorPair;
-    secondary: ColorPair;
+    /** App and screen backgrounds. */
+    canvas: ColorPair;
+    /** Muted control fills, tracks, and disabled backgrounds. */
+    subtle: ColorPair;
+    /** Content panels, cards, and lists. */
+    default: ColorPair;
     elevated: ColorPair;
     inverse: ColorPair;
   };

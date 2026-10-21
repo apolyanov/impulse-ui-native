@@ -218,11 +218,15 @@ export const LightColors: ThemeColors = {
   neutral: NeutralColorTokens,
 
   surface: {
-    primary: {
+    canvas: {
       value: NeutralColorTokens["2"],
       contrast: NeutralColorTokens["11"],
     },
-    secondary: {
+    subtle: {
+      value: NeutralColorTokens["2"],
+      contrast: NeutralColorTokens["11"],
+    },
+    default: {
       value: NeutralColorTokens["0"],
       contrast: NeutralColorTokens["11"],
     },
@@ -307,11 +311,15 @@ export const DarkColors: ThemeColors = {
   neutral: NeutralColorTokens,
 
   surface: {
-    primary: {
+    canvas: {
       value: NeutralColorTokens["11"],
       contrast: NeutralColorTokens["0"],
     },
-    secondary: {
+    subtle: {
+      value: NeutralColorTokens["11"],
+      contrast: NeutralColorTokens["0"],
+    },
+    default: {
       value: NeutralColorTokens["10"],
       contrast: NeutralColorTokens["0"],
     },

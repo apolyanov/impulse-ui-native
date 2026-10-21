@@ -62,11 +62,15 @@
       "13": "#000000"
     },
     "surface": {
-      "primary": {
+      "canvas": {
         "value": "#f1f3f5",
         "contrast": "#16191d"
       },
-      "secondary": {
+      "subtle": {
+        "value": "#f1f3f5",
+        "contrast": "#16191d"
+      },
+      "default": {
         "value": "#ffffff",
         "contrast": "#16191d"
       },
@@ -579,7 +583,7 @@
             "titleColor": "#16191d"
           },
           "focused": {
-            "backgroundColor": "#ffffff",
+            "backgroundColor": "#f1f3f5",
             "iconColor": "#212529",
             "opacity": 1,
             "pressedOpacity": 0.72,
@@ -908,7 +912,7 @@
         "gap": 8,
         "padding": 16
       },
-      "mediaBackgroundColor": "#ffffff"
+      "mediaBackgroundColor": "#f1f3f5"
     },
     "list": {
       "backgroundColor": "#ffffff",

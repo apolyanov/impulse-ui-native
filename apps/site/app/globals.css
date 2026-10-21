@@ -2,7 +2,7 @@
 @config "../tailwind.config.mjs";
 
 :root {
-  --background: theme(colors.surface.primary.DEFAULT);
+  --background: theme(colors.surface.canvas.DEFAULT);
   --foreground: theme(colors.text.primary);
 }
 

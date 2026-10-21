@@ -45,10 +45,12 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `colors.neutral.11` | `"#16191d"` | `"#16191d"` |
 | `colors.neutral.12` | `"#0d0f12"` | `"#0d0f12"` |
 | `colors.neutral.13` | `"#000000"` | `"#000000"` |
-| `colors.surface.primary.value` | `"#f1f3f5"` | `"#16191d"` |
-| `colors.surface.primary.contrast` | `"#16191d"` | `"#ffffff"` |
-| `colors.surface.secondary.value` | `"#ffffff"` | `"#212529"` |
-| `colors.surface.secondary.contrast` | `"#16191d"` | `"#ffffff"` |
+| `colors.surface.canvas.value` | `"#f1f3f5"` | `"#16191d"` |
+| `colors.surface.canvas.contrast` | `"#16191d"` | `"#ffffff"` |
+| `colors.surface.subtle.value` | `"#f1f3f5"` | `"#16191d"` |
+| `colors.surface.subtle.contrast` | `"#16191d"` | `"#ffffff"` |
+| `colors.surface.default.value` | `"#ffffff"` | `"#212529"` |
+| `colors.surface.default.contrast` | `"#16191d"` | `"#ffffff"` |
 | `colors.surface.elevated.value` | `"#ffffff"` | `"#343a40"` |
 | `colors.surface.elevated.contrast` | `"#16191d"` | `"#ffffff"` |
 | `colors.surface.inverse.value` | `"#000000"` | `"#ffffff"` |
@@ -347,7 +349,7 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.popover.descriptionLineHeight` | `20` | `20` |
 | `components.popover.titleColor` | `"#16191d"` | `"#ffffff"` |
 | `components.popover.descriptionColor` | `"#212529"` | `"#f1f3f5"` |
-| `components.popover.backgroundColor` | `"#ffffff"` | `"#212529"` |
+| `components.popover.backgroundColor` | `"#ffffff"` | `"#343a40"` |
 | `components.popover.borderColor` | `"#e9ecef"` | `"#868e96"` |
 | `components.popover.borderWidth` | `1` | `1` |
 | `components.popover.borderRadius` | `16` | `16` |
@@ -375,7 +377,7 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.carousel.counter.states.default.color` | `"#16191d"` | `"#ffffff"` |
 | `components.carousel.counter.states.disabled.color` | `"#868e96"` | `"#868e96"` |
 | `components.accordion.animationDuration` | `220` | `220` |
-| `components.accordion.backgroundColor` | `"#ffffff"` | `"#343a40"` |
+| `components.accordion.backgroundColor` | `"#ffffff"` | `"#212529"` |
 | `components.accordion.borderColor` | `"#e9ecef"` | `"#868e96"` |
 | `components.accordion.borderRadius` | `16` | `16` |
 | `components.accordion.borderWidth` | `1` | `1` |
@@ -393,7 +395,7 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.accordion.trigger.states.default.opacity` | `1` | `1` |
 | `components.accordion.trigger.states.default.pressedOpacity` | `0.72` | `0.72` |
 | `components.accordion.trigger.states.default.titleColor` | `"#16191d"` | `"#ffffff"` |
-| `components.accordion.trigger.states.focused.backgroundColor` | `"#ffffff"` | `"#212529"` |
+| `components.accordion.trigger.states.focused.backgroundColor` | `"#f1f3f5"` | `"#16191d"` |
 | `components.accordion.trigger.states.focused.iconColor` | `"#212529"` | `"#f1f3f5"` |
 | `components.accordion.trigger.states.focused.opacity` | `1` | `1` |
 | `components.accordion.trigger.states.focused.pressedOpacity` | `0.72` | `0.72` |
@@ -567,7 +569,7 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.button.variants.ghost.disabled.backgroundColor` | `"transparent"` | `"transparent"` |
 | `components.button.variants.ghost.disabled.borderColor` | `"transparent"` | `"transparent"` |
 | `components.button.variants.ghost.disabled.color` | `"#868e96"` | `"#868e96"` |
-| `components.card.backgroundColor` | `"#ffffff"` | `"#343a40"` |
+| `components.card.backgroundColor` | `"#ffffff"` | `"#212529"` |
 | `components.card.borderColor` | `"#e9ecef"` | `"#868e96"` |
 | `components.card.borderRadius` | `16` | `16` |
 | `components.card.borderWidth` | `1` | `1` |
@@ -577,8 +579,8 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.card.content.padding` | `16` | `16` |
 | `components.card.footer.gap` | `8` | `8` |
 | `components.card.footer.padding` | `16` | `16` |
-| `components.card.mediaBackgroundColor` | `"#ffffff"` | `"#212529"` |
-| `components.list.backgroundColor` | `"#ffffff"` | `"#343a40"` |
+| `components.card.mediaBackgroundColor` | `"#f1f3f5"` | `"#16191d"` |
+| `components.list.backgroundColor` | `"#ffffff"` | `"#212529"` |
 | `components.list.borderColor` | `"#e9ecef"` | `"#868e96"` |
 | `components.list.borderWidth` | `1` | `1` |
 | `components.list.borderRadius` | `16` | `16` |

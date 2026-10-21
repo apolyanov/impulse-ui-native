@@ -71,7 +71,7 @@ export function Navigation() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border-subtle bg-surface-secondary/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-border-subtle bg-surface-default/90 backdrop-blur-md">
       <SectionContainer className="flex h-xl items-center justify-between gap-xs">
         <a
           aria-label="ImpulseUI Native home"
@@ -123,7 +123,7 @@ export function Navigation() {
       {open ? (
         <div
           id="mobile-navigation"
-          className="max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-border-subtle bg-surface-secondary pb-[env(safe-area-inset-bottom)] lg:hidden"
+          className="max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-border-subtle bg-surface-default pb-[env(safe-area-inset-bottom)] lg:hidden"
         >
           <SectionContainer className="py-sm">
             <ul className="flex flex-col gap-xxs">

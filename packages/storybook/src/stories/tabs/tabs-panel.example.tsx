@@ -24,7 +24,7 @@ export const TabsPanelExample = memo(function TabsPanelExample({
 
   return (
     <View
-      backgroundColor={colors.surface.secondary.value}
+      backgroundColor={colors.surface.default.value}
       borderColor={colors.border.subtle.value}
       borderWidth={borderSize.sm}
       borderRadius={radii.lg}

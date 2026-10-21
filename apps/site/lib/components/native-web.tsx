@@ -33,10 +33,10 @@ const buttonSizes: Record<NativeSize, string> = {
 
 const buttonVariants: Record<NativeVariant, string> = {
   filled:
-    "border-primary bg-primary text-primary-contrast disabled:border-border-default disabled:bg-surface-primary disabled:text-text-disabled",
+    "border-primary bg-primary text-primary-contrast disabled:border-border-default disabled:bg-surface-subtle disabled:text-text-disabled",
   outlined:
     "border-primary bg-transparent text-primary disabled:border-border-default disabled:text-text-disabled",
-  soft: "border-secondary bg-secondary text-secondary-contrast disabled:border-border-subtle disabled:bg-surface-primary disabled:text-text-disabled",
+  soft: "border-secondary bg-secondary text-secondary-contrast disabled:border-border-subtle disabled:bg-surface-subtle disabled:text-text-disabled",
   ghost:
     "border-transparent bg-transparent text-primary disabled:text-text-disabled",
 };
@@ -182,8 +182,8 @@ export function WebTag({
       (variant === "outlined"
         ? "border-border-strong bg-transparent text-text-disabled"
         : variant === "soft"
-          ? "border-border-subtle bg-surface-primary text-text-disabled"
-          : "border-border-strong bg-surface-primary text-text-disabled"),
+          ? "border-border-subtle bg-surface-subtle text-text-disabled"
+          : "border-border-strong bg-surface-subtle text-text-disabled"),
   );
 
   return (
@@ -201,7 +201,7 @@ const controlSizes: Record<NativeSize, string> = {
 };
 
 const controlVariants: Record<FieldVariant, string> = {
-  filled: "border-transparent bg-surface-secondary",
+  filled: "border-transparent bg-surface-default",
   outlined: "border-border-default bg-transparent",
 };
 
@@ -238,7 +238,7 @@ export function WebControl({
     error && "border-feedback-error",
     disabled &&
       (variant === "filled"
-        ? "border-transparent bg-surface-primary opacity-70"
+        ? "border-transparent bg-surface-subtle opacity-70"
         : "border-border-default bg-transparent opacity-70"),
   );
 

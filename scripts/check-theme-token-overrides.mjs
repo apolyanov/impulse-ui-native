@@ -114,6 +114,52 @@ const { resolveGridLineOptions } = loadSource(
 
 for (const scheme of ["light", "dark"]) {
   const defaults = ThemeProvider({ scheme }).props.value;
+  // A canvas override must leave component fills unchanged, even though canvas
+  // and subtle share the same default colors.
+  const canvasOverride = ThemeProvider({
+    scheme,
+    theme: {
+      [scheme]: { colors: { surface: { canvas: { value: "#123456" } } } },
+    },
+  }).props.value;
+  assert.equal(canvasOverride.colors.surface.canvas.value, "#123456");
+  assert.deepEqual(canvasOverride.components, defaults.components);
+
+  const surfaceOverride = ThemeProvider({
+    scheme,
+    theme: {
+      [scheme]: {
+        colors: {
+          surface: {
+            subtle: { value: "#234567" },
+            default: { value: "#345678" },
+            elevated: { value: "#456789" },
+          },
+        },
+      },
+    },
+  }).props.value;
+  assert.equal(
+    surfaceOverride.colors.surface.canvas.value,
+    defaults.colors.surface.canvas.value,
+  );
+  assert.equal(
+    surfaceOverride.components.button.variants.filled.disabled.backgroundColor,
+    "#234567",
+  );
+  assert.equal(surfaceOverride.components.card.backgroundColor, "#345678");
+  assert.equal(surfaceOverride.components.list.backgroundColor, "#345678");
+  assert.equal(surfaceOverride.components.accordion.backgroundColor, "#345678");
+  assert.equal(surfaceOverride.components.modal.backgroundColor, "#456789");
+  assert.equal(surfaceOverride.components.popover.backgroundColor, "#456789");
+}
+
+console.log(
+  "Independent surface override checks passed for light and dark themes.",
+);
+
+for (const scheme of ["light", "dark"]) {
+  const defaults = ThemeProvider({ scheme }).props.value;
   assert.equal(defaults.components.charts.line.width, 2);
   assert.equal(defaults.components.charts.insets.left, 32);
   assert.equal(defaults.components.slider.markLabelWidth, 48);

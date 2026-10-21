@@ -8,7 +8,7 @@ and component consumers rather than individual SVG path geometry.
 ## Changes
 
 - Switch disabled tracks used the same color as their thumbs in dark mode.
-  Tracks now use `surface.primary`; unchecked thumbs use `text.secondary`.
+  Tracks now use `surface.subtle`; unchecked thumbs use `text.secondary`.
   The loading indicator uses `text.primary` against the disabled thumb palette.
 - Secondary outlined Badge and Tag foregrounds used the secondary background
   tint. They now use `secondary.contrast`, as does the secondary Spinner.
@@ -17,7 +17,7 @@ and component consumers rather than individual SVG path geometry.
 - Slider active marks now contrast with active tracks; inactive marks use
   `text.primary`. Disabled active and inactive tracks remain distinct. Soft thumb
   highlights use `accent.contrast`, and value bubbles retain paired foregrounds.
-- Secondary Progress tracks use `surface.primary` so the bright dark border
+- Secondary Progress tracks use `surface.subtle` so the bright dark border
   palette does not weaken the indicator/track distinction.
 - Disabled Carousel selected indicators use `text.secondary`, distinguishing
   them from unselected indicators using `text.disabled`.

@@ -62,11 +62,15 @@
       "13": "#000000"
     },
     "surface": {
-      "primary": {
+      "canvas": {
         "value": "#16191d",
         "contrast": "#ffffff"
       },
-      "secondary": {
+      "subtle": {
+        "value": "#16191d",
+        "contrast": "#ffffff"
+      },
+      "default": {
         "value": "#212529",
         "contrast": "#ffffff"
       },
@@ -494,7 +498,7 @@
       "descriptionLineHeight": 20,
       "titleColor": "#ffffff",
       "descriptionColor": "#f1f3f5",
-      "backgroundColor": "#212529",
+      "backgroundColor": "#343a40",
       "borderColor": "#868e96",
       "borderWidth": 1,
       "borderRadius": 16,
@@ -554,7 +558,7 @@
     },
     "accordion": {
       "animationDuration": 220,
-      "backgroundColor": "#343a40",
+      "backgroundColor": "#212529",
       "borderColor": "#868e96",
       "borderRadius": 16,
       "borderWidth": 1,
@@ -579,7 +583,7 @@
             "titleColor": "#ffffff"
           },
           "focused": {
-            "backgroundColor": "#212529",
+            "backgroundColor": "#16191d",
             "iconColor": "#f1f3f5",
             "opacity": 1,
             "pressedOpacity": 0.72,
@@ -892,7 +896,7 @@
       }
     },
     "card": {
-      "backgroundColor": "#343a40",
+      "backgroundColor": "#212529",
       "borderColor": "#868e96",
       "borderRadius": 16,
       "borderWidth": 1,
@@ -908,10 +912,10 @@
         "gap": 8,
         "padding": 16
       },
-      "mediaBackgroundColor": "#212529"
+      "mediaBackgroundColor": "#16191d"
     },
     "list": {
-      "backgroundColor": "#343a40",
+      "backgroundColor": "#212529",
       "borderColor": "#868e96",
       "borderWidth": 1,
       "borderRadius": 16,

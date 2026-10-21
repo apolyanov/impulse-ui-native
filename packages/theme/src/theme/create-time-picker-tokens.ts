@@ -45,7 +45,7 @@ export function createTimePickerTokens(
       indicatorWidth: ColumnWidth * 3 + 70,
       indicatorTop: VerticalPadding,
       indicatorBorderRadius: tokens.radii.round,
-      indicatorBackgroundColor: tokens.colors.surface.primary.value,
+      indicatorBackgroundColor: tokens.colors.surface.subtle.value,
     },
   };
 }

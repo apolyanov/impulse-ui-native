@@ -9,7 +9,7 @@ export const StorybookCanvas = memo(function StorybookCanvas({
   const colors = useColors();
 
   return (
-    <View flex={1} backgroundColor={colors.surface.primary.value}>
+    <View flex={1} backgroundColor={colors.surface.canvas.value}>
       {children}
     </View>
   );

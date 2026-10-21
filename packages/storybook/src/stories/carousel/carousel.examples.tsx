@@ -184,7 +184,7 @@ export const CarouselExample = memo(function CarouselExample({
         <ThemeProvider scheme="dark">
           <View
             padding={space.sm}
-            backgroundColor={DarkTheme.colors.surface.primary.value}
+            backgroundColor={DarkTheme.colors.surface.canvas.value}
           >
             {content}
           </View>

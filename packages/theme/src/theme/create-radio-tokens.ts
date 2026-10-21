@@ -46,7 +46,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
           color: tokens.colors.text.disabled,
         },
         disabledSelected: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
@@ -68,7 +68,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
           color: tokens.colors.text.disabled,
         },
         disabledSelected: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },
@@ -90,7 +90,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
           color: tokens.colors.text.disabled,
         },
         disabledSelected: {
-          backgroundColor: tokens.colors.surface.primary.value,
+          backgroundColor: tokens.colors.surface.subtle.value,
           borderColor: tokens.colors.border.default.value,
           color: tokens.colors.text.disabled,
         },

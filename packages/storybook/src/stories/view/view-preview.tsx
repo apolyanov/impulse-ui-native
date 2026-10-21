@@ -24,7 +24,7 @@ type ViewPreviewProps = Omit<
   gap?: number | SpaceSizesKey;
   borderRadius?: number | RadiusKey;
   borderWidth?: number | BorderSizeKey;
-  surface?: "primary" | "elevated";
+  surface?: "canvas" | "elevated";
 };
 
 export const ViewPreview = memo(function ViewPreview({

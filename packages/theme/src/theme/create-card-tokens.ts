@@ -2,7 +2,7 @@ import type { CardTokens, PrimitiveThemeTokens } from "../types";
 
 export function createCardTokens(tokens: PrimitiveThemeTokens): CardTokens {
   return {
-    backgroundColor: tokens.colors.surface.elevated.value,
+    backgroundColor: tokens.colors.surface.default.value,
     borderColor: tokens.colors.border.subtle.value,
     borderRadius: tokens.radii.lg,
     borderWidth: tokens.borderSize.sm,
@@ -18,6 +18,6 @@ export function createCardTokens(tokens: PrimitiveThemeTokens): CardTokens {
       gap: tokens.space.xs,
       padding: tokens.space.sm,
     },
-    mediaBackgroundColor: tokens.colors.surface.secondary.value,
+    mediaBackgroundColor: tokens.colors.surface.subtle.value,
   };
 }

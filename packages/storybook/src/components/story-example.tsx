@@ -54,7 +54,7 @@ export const StoryExample = memo(function StoryExample({
                 gap={space.xs}
                 padding={space.xs}
                 borderRadius={radii.md}
-                backgroundColor={colors.surface.secondary.value}
+                backgroundColor={colors.surface.default.value}
               >
                 <View
                   flexDirection="row"
@@ -68,7 +68,7 @@ export const StoryExample = memo(function StoryExample({
                     paddingHorizontal={space.xs}
                     paddingVertical={space.xxs}
                     borderRadius={radii.sm}
-                    backgroundColor={colors.surface.primary.value}
+                    backgroundColor={colors.surface.canvas.value}
                   >
                     <Typography.Code>{prop.value}</Typography.Code>
                   </View>

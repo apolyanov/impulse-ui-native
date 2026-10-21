@@ -14,7 +14,7 @@ export function createSegmentedControlTokens(
     borderWidth: tokens.borderSize.sm,
     itemBorderRadius: tokens.radii.md,
     itemBorderWidth: tokens.borderSize.sm,
-    rootBackgroundColor: tokens.colors.surface.primary.value,
+    rootBackgroundColor: tokens.colors.surface.subtle.value,
     rootBorderColor: tokens.colors.border.default.value,
     rootGap: tokens.space.none,
     rootPadding: tokens.space.none,
@@ -99,7 +99,7 @@ export function createSegmentedControlTokens(
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -147,7 +147,7 @@ export function createSegmentedControlTokens(
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },

@@ -48,8 +48,8 @@ export const FlatListExample = memo(function FlatListExample({
         justifyContent="center"
         backgroundColor={
           index === FlatListExampleTarget
-            ? colors.surface.secondary.value
-            : colors.surface.primary.value
+            ? colors.surface.default.value
+            : colors.surface.canvas.value
         }
       >
         <Typography.Body numberOfLines={1}>Option {index}</Typography.Body>
@@ -59,8 +59,8 @@ export const FlatListExample = memo(function FlatListExample({
       horizontal,
       extent,
       space.xs,
-      colors.surface.secondary.value,
-      colors.surface.primary.value,
+      colors.surface.default.value,
+      colors.surface.canvas.value,
     ],
   );
 

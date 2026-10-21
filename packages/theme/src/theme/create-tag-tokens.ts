@@ -40,7 +40,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.primary.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.strong.value,
             color: tokens.colors.text.disabled,
           },
@@ -64,7 +64,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.secondary.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -78,7 +78,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.secondary.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.strong.value,
             color: tokens.colors.text.disabled,
           },
@@ -102,7 +102,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.secondary.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -116,7 +116,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.error.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.strong.value,
             color: tokens.colors.text.disabled,
           },
@@ -140,7 +140,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.error.value,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -154,7 +154,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.warning.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.strong.value,
             color: tokens.colors.text.disabled,
           },
@@ -178,7 +178,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.warning.value,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -192,7 +192,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.success.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.strong.value,
             color: tokens.colors.text.disabled,
           },
@@ -216,7 +216,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.success.value,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
@@ -230,7 +230,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.info.contrast,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.strong.value,
             color: tokens.colors.text.disabled,
           },
@@ -254,7 +254,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
             color: tokens.colors.feedback.info.value,
           },
           disabled: {
-            backgroundColor: tokens.colors.surface.primary.value,
+            backgroundColor: tokens.colors.surface.subtle.value,
             borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },

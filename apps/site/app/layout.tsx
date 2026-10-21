@@ -98,7 +98,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${montserratSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-surface-secondary">
+      <body className="min-h-full flex flex-col bg-surface-default">
         {children}
       </body>
     </html>

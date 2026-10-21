@@ -73,7 +73,7 @@ export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
       neutral: createVariants(
         tokens.colors.text.secondary,
         tokens.colors.text.inverse,
-        tokens.colors.surface.primary.value,
+        tokens.colors.surface.subtle.value,
         tokens.colors.text.primary,
       ),
       error: createVariants(

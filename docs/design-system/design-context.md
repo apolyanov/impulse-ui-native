@@ -34,29 +34,30 @@ Component overrides work in the current source. Changing primitive spacing does 
 
 Many components append `style` after generated defaults. Confirm the owning component when relying on precedence; this is not a universal guarantee for every nested child. Custom content may own its own typography and colors. A button turns a string child into themed text, while a custom React node is rendered as supplied.
 
-The default `AppTheme` JSON files have **39 component token groups** and **1,442 leaf values per scheme**. Typography presets sit outside `components`, in the primitives implementation.
+The default `AppTheme` JSON files have **39 component token groups** and **1,444 leaf values per scheme**. Typography presets sit outside `components`, in the primitives implementation.
 
 ## 3. Semantic colors
 
 For paired colors, `.value` is the main fill/role color and `.contrast` is the associated foreground. Contrast values are explicit design tokens, not computed dynamically. Read `colors.text.*` directly as strings. Neutral steps, `white`, and `black` keep their literal values across schemes.
 
-| Role                | Light value / contrast | Dark value / contrast |
-| ------------------- | ---------------------- | --------------------- |
-| `primary`           | `#F55D6B` / `#ffffff`  | `#FA9EA7` / `#16191d` |
-| `accent`            | `#FA9EA7` / `#16191d`  | `#f55d6b` / `#16191d` |
-| `secondary`         | `#FEE7E9` / `#c92a3b`  | `#3b2027` / `#FA9EA7` |
-| `surface.primary`   | `#f1f3f5` / `#16191d`  | `#16191d` / `#ffffff` |
-| `surface.secondary` | `#ffffff` / `#16191d`  | `#212529` / `#ffffff` |
-| `surface.elevated`  | `#ffffff` / `#16191d`  | `#343a40` / `#ffffff` |
-| `surface.inverse`   | `#000000` / `#ffffff`  | `#ffffff` / `#16191d` |
-| `border.subtle`     | `#e9ecef` / `#343a40`  | `#868e96` / `#adb5bd` |
-| `border.default`    | `#dee2e6` / `#212529`  | `#adb5bd` / `#f1f3f5` |
-| `border.strong`     | `#adb5bd` / `#16191d`  | `#ced4da` / `#ffffff` |
-| `border.focus`      | `#c92a3b` / `#ffffff`  | `#FA9EA7` / `#16191d` |
-| `feedback.error`    | `#c92a2a` / `#fff5f5`  | `#ff8787` / `#3b1515` |
-| `feedback.warning`  | `#a65300` / `#fff4e6`  | `#ffc078` / `#3b250f` |
-| `feedback.success`  | `#526b00` / `#f4fce3`  | `#c0eb75` / `#26320f` |
-| `feedback.info`     | `#1864ab` / `#e7f5ff`  | `#74c0fc` / `#102a43` |
+| Role               | Light value / contrast | Dark value / contrast |
+| ------------------ | ---------------------- | --------------------- |
+| `primary`          | `#F55D6B` / `#ffffff`  | `#FA9EA7` / `#16191d` |
+| `accent`           | `#FA9EA7` / `#16191d`  | `#f55d6b` / `#16191d` |
+| `secondary`        | `#FEE7E9` / `#c92a3b`  | `#3b2027` / `#FA9EA7` |
+| `surface.subtle`   | `#f1f3f5` / `#16191d`  | `#16191d` / `#ffffff` |
+| `surface.canvas`   | `#f1f3f5` / `#16191d`  | `#16191d` / `#ffffff` |
+| `surface.default`  | `#ffffff` / `#16191d`  | `#212529` / `#ffffff` |
+| `surface.elevated` | `#ffffff` / `#16191d`  | `#343a40` / `#ffffff` |
+| `surface.inverse`  | `#000000` / `#ffffff`  | `#ffffff` / `#16191d` |
+| `border.subtle`    | `#e9ecef` / `#343a40`  | `#868e96` / `#adb5bd` |
+| `border.default`   | `#dee2e6` / `#212529`  | `#adb5bd` / `#f1f3f5` |
+| `border.strong`    | `#adb5bd` / `#16191d`  | `#ced4da` / `#ffffff` |
+| `border.focus`     | `#c92a3b` / `#ffffff`  | `#FA9EA7` / `#16191d` |
+| `feedback.error`   | `#c92a2a` / `#fff5f5`  | `#ff8787` / `#3b1515` |
+| `feedback.warning` | `#a65300` / `#fff4e6`  | `#ffc078` / `#3b250f` |
+| `feedback.success` | `#526b00` / `#f4fce3`  | `#c0eb75` / `#26320f` |
+| `feedback.info`    | `#1864ab` / `#e7f5ff`  | `#74c0fc` / `#102a43` |
 
 | Text role        | Light     | Dark      |
 | ---------------- | --------- | --------- |
@@ -243,7 +244,7 @@ export function WelcomeSection() {
     <View
       padding={theme.space.sm}
       gap={theme.space.xs}
-      backgroundColor={theme.colors.surface.primary.value}
+      backgroundColor={theme.colors.surface.canvas.value}
     >
       <Typography.Title2>Welcome</Typography.Title2>
       <Typography.Body>Choose your next step.</Typography.Body>

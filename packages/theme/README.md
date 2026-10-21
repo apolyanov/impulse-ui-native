@@ -36,7 +36,7 @@ export function App() {
   semantic surface, border, and text tokens for colors that should adapt to the
   active scheme. The `white` and `black` tokens also keep their literal colors.
 - Dark borders use progressively lighter `subtle`, `default`, and `strong` tones
-  that remain visible on primary, secondary, and elevated surfaces. Disabled
+  that remain visible on canvas, default, and elevated surfaces. Disabled
   control fills use surface tokens independently of the border scale.
 - `useTheme` returns the complete `AppTheme`.
 - `useColors`, `useSpace`, `useBorder`, and `useRadii` read focused token groups.
@@ -153,3 +153,22 @@ series props continue to take precedence.
 
 `getShadowStyle` accepts the active shadow scale as its fourth argument. Omitting
 it retains the exported default `ShadowScale` for existing utility callers.
+
+## Surface roles
+
+| Role                      | Purpose                                               | Light     | Dark      |
+| ------------------------- | ----------------------------------------------------- | --------- | --------- |
+| `colors.surface.canvas`   | App and screen backgrounds                            | `#f1f3f5` | `#16191d` |
+| `colors.surface.subtle`   | Muted control fills, tracks, and disabled backgrounds | `#f1f3f5` | `#16191d` |
+| `colors.surface.default`  | Content panels, cards, and lists                      | `#ffffff` | `#212529` |
+| `colors.surface.elevated` | Floating overlays, popovers, sheets, and toasts       | `#ffffff` | `#343a40` |
+| `colors.surface.inverse`  | Inverse surfaces such as tooltips                     | `#000000` | `#ffffff` |
+
+Each role has a `value` fill and a `contrast` foreground. Canvas and subtle
+start with the same colors but can be overridden independently. For example,
+changing `theme.dark.colors.surface.canvas.value` leaves control fills intact.
+
+Migration: replace `surface.primary` with `surface.canvas` for page backgrounds
+or `surface.subtle` for muted control fills. Replace `surface.secondary` with
+`surface.default` for content surfaces. Cards, lists, and accordions now use
+`default`; popovers use `elevated`.
