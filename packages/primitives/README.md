@@ -164,3 +164,15 @@ to change `Typography.Code` globally; its default remains `monospace`.
 In a column, fields stretch horizontally by default without growing vertically.
 In a row, set `flex={1}` on each field to share the available width. If the
 parent centers its children, use `alignSelf="stretch"` or an explicit `width`.
+
+## Pressable layout
+
+`Pressable` accepts flex and positioning props directly, alongside its existing
+spacing, dimension, and shadow props. Native `style` objects or callbacks override
+direct style props; `pressedStyle` applies last while pressed.
+
+```tsx
+<Pressable flex={1} flexDirection="row" alignItems="center" gap={8} padding={16}>
+  <Typography.Master>Continue</Typography.Master>
+</Pressable>
+```

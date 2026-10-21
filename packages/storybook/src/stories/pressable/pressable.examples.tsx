@@ -61,6 +61,35 @@ export const PressableExampleDefinitions = [
     args: {},
   },
   {
+    name: "DirectLayoutProps",
+    title: "Direct layout props",
+    description:
+      "Compose a custom touch target with flex, alignment, spacing, and dimension props directly on Pressable.",
+    props: [
+      {
+        name: "flex / alignSelf",
+        value: '1 / "stretch"',
+        description:
+          "Grows the pressable within its parent and stretches its width.",
+      },
+      {
+        name: "flexDirection / gap",
+        value: '"row" / 8',
+        description: "Arranges child content horizontally with a native gap.",
+      },
+    ],
+    label: "Direct Layout Props",
+    args: {
+      flex: 1,
+      alignSelf: "stretch",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 8,
+      minHeight: 56,
+    },
+  },
+  {
     name: "Filled",
     title: "Filled pressable",
     description:

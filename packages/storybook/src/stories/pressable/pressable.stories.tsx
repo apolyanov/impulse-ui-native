@@ -60,6 +60,8 @@ export const Documentation: Story = {
 };
 
 export const Default: Story = createPressableStory("Default");
+export const DirectLayoutProps: Story =
+  createPressableStory("DirectLayoutProps");
 export const Filled: Story = createPressableStory("Filled");
 export const Outlined: Story = createPressableStory("Outlined");
 export const PressedStyle: Story = createPressableStory("PressedStyle");

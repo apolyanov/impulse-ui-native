@@ -4,6 +4,7 @@ import {
   ActionVariant,
   ComponentSize,
   DimensionProps,
+  FlexProps,
   ShadowProps,
   SpacingProps,
 } from "@impulse-ui-native/theme";
@@ -25,7 +26,7 @@ export interface ButtonThemeProps {
 }
 
 export interface PressableCoreProps
-  extends PressableProps, Omit<ButtonProps, "style"> {
+  extends PressableProps, Omit<ButtonProps, "style">, FlexProps {
   disabled?: boolean;
   pressedStyle?: StyleProp<ViewStyle>;
 }
