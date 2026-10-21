@@ -1,5 +1,16 @@
 # @impulse-ui-native/switch
 
+## 11.0.0
+
+### Patch Changes
+
+- 91a8f78: Remove ignored native animation dependency arrays to avoid Reanimated warnings.
+- Updated dependencies [4aa2862]
+- Updated dependencies [75fabf6]
+  - @impulse-ui-native/theme@11.0.0
+  - @impulse-ui-native/primitives@11.0.0
+  - @impulse-ui-native/core@11.0.0
+
 ## 10.0.0
 
 ### Patch Changes

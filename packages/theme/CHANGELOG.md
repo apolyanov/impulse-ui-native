@@ -1,5 +1,20 @@
 # @impulse-ui-native/theme
 
+## 11.0.0
+
+### Major Changes
+
+- 4aa2862: Split surface roles into canvas, subtle, default, and elevated. Replace
+  surface.primary with canvas for page backgrounds or subtle for muted control
+  fills, and replace surface.secondary with default for content surfaces.
+  Canvas and subtle can now be customized independently. Cards, lists, and
+  accordions use default; popovers use elevated. Inverse surfaces are unchanged.
+
+### Patch Changes
+
+- 75fabf6: Widen TimePicker number wheels to fit two semibold digits without truncation.
+  - @impulse-ui-native/core@11.0.0
+
 ## 10.0.0
 
 ### Patch Changes
