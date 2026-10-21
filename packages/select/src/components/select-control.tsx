@@ -1,11 +1,14 @@
-import type { PropsWithChildren, ReactElement } from "react";
-import { memo, useMemo } from "react";
+import type { PropsWithChildren } from "react";
+import { useMemo } from "react";
 
+import { memo } from "@impulse-ui-native/core";
 import { Control } from "@impulse-ui-native/primitives";
 
 import type { PrimitiveValue, SelectControlProps } from "../types";
 
-function SelectControlComponent<Value extends PrimitiveValue>({
+export const SelectControl = memo(function SelectControlComponent<
+  Value extends PrimitiveValue,
+>({
   loading,
   PrefixIcon,
   Prefix,
@@ -14,16 +17,13 @@ function SelectControlComponent<Value extends PrimitiveValue>({
   children,
   ...props
 }: PropsWithChildren<SelectControlProps<Value>>) {
-  const prefix = useMemo(
-    () => {
-      if (Prefix) {
-        return <Prefix />;
-      }
+  const prefix = useMemo(() => {
+    if (Prefix) {
+      return <Prefix />;
+    }
 
-      return PrefixIcon ? <Control.Icon icon={PrefixIcon} /> : null;
-    },
-    [Prefix, PrefixIcon],
-  );
+    return PrefixIcon ? <Control.Icon icon={PrefixIcon} /> : null;
+  }, [Prefix, PrefixIcon]);
   const suffix = useMemo(() => {
     if (loading) {
       return <Control.Loader />;
@@ -41,10 +41,4 @@ function SelectControlComponent<Value extends PrimitiveValue>({
       {children}
     </Control.Field>
   );
-}
-
-export const SelectControl = memo(SelectControlComponent) as <
-  Value extends PrimitiveValue,
->(
-  props: PropsWithChildren<SelectControlProps<Value>>,
-) => ReactElement | null;
+});

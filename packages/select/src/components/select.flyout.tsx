@@ -1,6 +1,6 @@
-import { memo, ReactElement, useState } from "react";
+import { useState } from "react";
 
-import { useEventCallback } from "@impulse-ui-native/core";
+import { memo, useEventCallback } from "@impulse-ui-native/core";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
 import { View } from "@impulse-ui-native/primitives";
@@ -9,7 +9,7 @@ import { useComponentsTokens } from "@impulse-ui-native/theme";
 import { PrimitiveValue, SelectFlyoutProps } from "../types";
 import { SelectOptions } from "./select-options";
 
-const SelectFlyoutComponent = function SelectFlyoutContent<
+export const SelectFlyout = memo(function SelectFlyoutContent<
   Value extends PrimitiveValue,
 >(props: SelectFlyoutProps<Value>) {
   const {
@@ -46,10 +46,4 @@ const SelectFlyoutComponent = function SelectFlyoutContent<
       </Flyout>
     </Portal>
   );
-};
-
-export const SelectFlyout = memo(SelectFlyoutComponent) as <
-  Value extends PrimitiveValue,
->(
-  props: SelectFlyoutProps<Value>,
-) => ReactElement | null;
+});

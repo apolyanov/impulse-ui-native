@@ -1,6 +1,6 @@
-import { memo, ReactElement, useId } from "react";
+import { useId } from "react";
 
-import { useEventCallback, useIsOpen } from "@impulse-ui-native/core";
+import { memo, useEventCallback, useIsOpen } from "@impulse-ui-native/core";
 import { Control, Tag, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
@@ -16,9 +16,9 @@ interface SelectedTagProps<Value extends PrimitiveValue> {
   onSelect: (value: Value) => void;
 }
 
-function SelectedTagComponent<Value extends PrimitiveValue>(
-  props: SelectedTagProps<Value>,
-) {
+const SelectedTag = memo(function SelectedTagComponent<
+  Value extends PrimitiveValue,
+>(props: SelectedTagProps<Value>) {
   const handleClose = useEventCallback(() => props.onSelect(props.value));
 
   return (
@@ -30,17 +30,11 @@ function SelectedTagComponent<Value extends PrimitiveValue>(
       label={props.label}
     />
   );
-}
+});
 
-const SelectedTag = memo(SelectedTagComponent) as <
+export const MultiSelect = memo(function MultiSelectComponent<
   Value extends PrimitiveValue,
->(
-  props: SelectedTagProps<Value>,
-) => ReactElement | null;
-
-function MultiSelectComponent<Value extends PrimitiveValue>(
-  props: MultiSelectProps<Value>,
-) {
+>(props: MultiSelectProps<Value>) {
   const {
     options,
     value,
@@ -105,10 +99,4 @@ function MultiSelectComponent<Value extends PrimitiveValue>(
       />
     </SelectControl>
   );
-}
-
-export const MultiSelect = memo(MultiSelectComponent) as <
-  Value extends PrimitiveValue,
->(
-  props: MultiSelectProps<Value>,
-) => ReactElement | null;
+});

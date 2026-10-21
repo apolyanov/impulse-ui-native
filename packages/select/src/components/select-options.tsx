@@ -1,6 +1,7 @@
 import type { ListRenderItemInfo } from "react-native";
-import { memo, ReactElement, useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 
+import { memo } from "@impulse-ui-native/core";
 import {
   FlatList,
   useFlatListInitialScroll,
@@ -12,7 +13,7 @@ import { PrimitiveValue, SelectOption } from "../types";
 import { getOptionId } from "../utils";
 import { SelectFlyoutOption } from "./select-flyout-option";
 
-const SelectOptionsComponent = function SelectOptions<
+export const SelectOptions = memo(function SelectOptions<
   Value extends PrimitiveValue,
 >(props: SelectOptionsProps<Value>) {
   const { options, isSelected, onSelect, initialScrollToSelected } = props;
@@ -76,10 +77,4 @@ const SelectOptionsComponent = function SelectOptions<
       updateCellsBatchingPeriod={32}
     />
   );
-};
-
-export const SelectOptions = memo(SelectOptionsComponent) as <
-  Value extends PrimitiveValue,
->(
-  props: SelectOptionsProps<Value>,
-) => ReactElement | null;
+});

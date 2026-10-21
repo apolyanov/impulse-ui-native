@@ -1,6 +1,6 @@
-import { memo, ReactElement, useCallback, useId } from "react";
+import { useCallback, useId } from "react";
 
-import { useIsOpen } from "@impulse-ui-native/core";
+import { memo, useIsOpen } from "@impulse-ui-native/core";
 import { Control } from "@impulse-ui-native/primitives";
 
 import { useSelect } from "../hooks/use-select.hook";
@@ -8,9 +8,9 @@ import { PrimitiveValue, SelectProps } from "../types";
 import { SelectControl } from "./select-control";
 import { SelectFlyout } from "./select.flyout";
 
-function SelectComponent<Value extends PrimitiveValue>(
-  props: SelectProps<Value>,
-) {
+export const Select = memo(function SelectComponent<
+  Value extends PrimitiveValue,
+>(props: SelectProps<Value>) {
   const {
     options,
     value,
@@ -62,8 +62,4 @@ function SelectComponent<Value extends PrimitiveValue>(
       />
     </SelectControl>
   );
-}
-
-export const Select = memo(SelectComponent) as <Value extends PrimitiveValue>(
-  props: SelectProps<Value>,
-) => ReactElement | null;
+});

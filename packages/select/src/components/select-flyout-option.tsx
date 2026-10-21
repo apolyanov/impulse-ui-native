@@ -1,12 +1,10 @@
-import { memo, ReactElement } from "react";
-
-import { useEventCallback } from "@impulse-ui-native/core";
+import { memo, useEventCallback } from "@impulse-ui-native/core";
 
 import type { SelectFlyoutOptionProps } from "../types/select-options.types";
 import { PrimitiveValue } from "../types";
 import { Option } from "./option";
 
-const SelectFlyoutOptionComponent = function SelectFlyoutOption<
+export const SelectFlyoutOption = memo(function SelectFlyoutOption<
   Value extends PrimitiveValue,
 >(props: SelectFlyoutOptionProps<Value>) {
   const handlePress = useEventCallback(() =>
@@ -21,10 +19,4 @@ const SelectFlyoutOptionComponent = function SelectFlyoutOption<
       selected={props.selected}
     />
   );
-};
-
-export const SelectFlyoutOption = memo(SelectFlyoutOptionComponent) as <
-  Value extends PrimitiveValue,
->(
-  props: SelectFlyoutOptionProps<Value>,
-) => ReactElement | null;
+});
