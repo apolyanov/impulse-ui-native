@@ -1,5 +1,26 @@
 # @impulse-ui-native/select
 
+## 11.1.0
+
+### Minor Changes
+
+- de8bfb9: Support layout props on the outer root of Input, Textarea, Select, MultiSelect,
+  and date/time pickers. Remove the forced full width from Control.Root so fields
+  stretch naturally in columns and can share row width with explicit flex props.
+  Existing input style and containerStyle props retain their targets.
+
+### Patch Changes
+
+- Updated dependencies [de8bfb9]
+  - @impulse-ui-native/primitives@11.1.0
+  - @impulse-ui-native/input@11.1.0
+  - @impulse-ui-native/flyout@11.1.0
+  - @impulse-ui-native/core@11.1.0
+  - @impulse-ui-native/icon@11.1.0
+  - @impulse-ui-native/portal@11.1.0
+  - @impulse-ui-native/theme@11.1.0
+  - @impulse-ui-native/flat-list@11.1.0
+
 ## 11.0.1
 
 ### Patch Changes

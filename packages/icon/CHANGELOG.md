@@ -1,5 +1,11 @@
 # @impulse-ui-native/icon
 
+## 11.1.0
+
+### Patch Changes
+
+- @impulse-ui-native/theme@11.1.0
+
 ## 11.0.1
 
 ### Patch Changes

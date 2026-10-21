@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/endpoint",
-  "version": "11.0.1",
+  "version": "11.1.0",
   "description": "Declarative API endpoint utilities for React Native applications.",
   "keywords": [
     "react-native",

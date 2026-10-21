@@ -1,5 +1,14 @@
 # @impulse-ui-native/switch
 
+## 11.1.0
+
+### Patch Changes
+
+- Updated dependencies [de8bfb9]
+  - @impulse-ui-native/primitives@11.1.0
+  - @impulse-ui-native/core@11.1.0
+  - @impulse-ui-native/theme@11.1.0
+
 ## 11.0.1
 
 ### Patch Changes
