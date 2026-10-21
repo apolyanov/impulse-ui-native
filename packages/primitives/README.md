@@ -113,7 +113,6 @@ default icons or manage selection state.
 </Control.Field>
 ```
 
-
 `Control.Addon` and `Control.Error` render supplied children. Addons own spacing
 and optional press behavior, including group/local disabling; the parent chooses
 and renders icons or custom content. Error owns error-label styling; the parent
@@ -157,3 +156,11 @@ Card, List, Progress, and their prop types are exported from `@impulse-ui-native
 `theme.shadows` scale, including Android elevation. Explicit shadow style props
 and style overrides still take precedence. Configure `theme.codeFontFamily`
 to change `Typography.Code` globally; its default remains `monospace`.
+
+## Field layout
+
+`Control.Root` uses normal parent stretching rather than a forced width.
+`Control.Field` accepts flex, dimension, and spacing props on its outer root.
+In a column, fields stretch horizontally by default without growing vertically.
+In a row, set `flex={1}` on each field to share the available width. If the
+parent centers its children, use `alignSelf="stretch"` or an explicit `width`.

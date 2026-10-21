@@ -8,6 +8,7 @@ import {
 } from "@impulse-ui-native/storybook";
 
 import { SelectInitialScrollExample } from "./select-initial-scroll-example";
+import { SelectLayoutExample } from "./select-layout-example";
 import { SelectDocumentation } from "./select.documentation";
 import {
   SelectExample,
@@ -83,6 +84,14 @@ export const Documentation: Story = {
 };
 
 export const Single: Story = createSelectStory("Single");
+export const Layout: Story = {
+  render: function renderLayout() {
+    return <SelectLayoutExample />;
+  },
+  parameters: createStoryDescription(
+    "Use layout props on fields directly: columns stretch naturally, and row children share width with flex without extra wrappers.",
+  ),
+};
 export const Multiple: Story = createSelectStory("Multiple");
 export const Loading: Story = createSelectStory("Loading");
 

@@ -1,7 +1,11 @@
 import { memo, useMemo } from "react";
 
 import { Control, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  useComponentsTokens,
+  useStyleProps,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { TextareaProps } from "../types";
 import { useTextarea } from "../hooks";
@@ -27,6 +31,8 @@ export const Textarea = memo(function Textarea({
   variant = "outlined",
   ...props
 }: TextareaProps) {
+  const layoutStyle = useStyleProps(props);
+
   const componentsTokens = useComponentsTokens();
 
   const controlContainerTokens = componentsTokens.controlContainer;
@@ -73,7 +79,7 @@ export const Textarea = memo(function Textarea({
       size={size}
       variant={variant}
     >
-      <Control.Root>
+      <Control.Root style={layoutStyle}>
         <Control.Label disabled={disabled}>{label}</Control.Label>
         <Control.Container style={resolvedContainerStyle}>
           <Control.Input

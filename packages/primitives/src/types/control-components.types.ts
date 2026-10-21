@@ -2,12 +2,20 @@ import type { ComponentType, ReactNode } from "react";
 import type { TextInputProps, TextProps, ViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import type { ComponentSize, FieldVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  DimensionProps,
+  FieldVariant,
+  FlexProps,
+  SpacingProps,
+} from "@impulse-ui-native/theme";
 
 import type { PressableCoreProps } from "./button.types";
 import type { SpinnerProps } from "./spinner.types";
 
-export interface ControlComponentCommonProps {
+export type ControlLayoutProps = FlexProps & DimensionProps & SpacingProps;
+
+export interface ControlComponentCommonProps extends ControlLayoutProps {
   placeholder?: string;
   label?: string;
   PrefixIcon?: IconProps["icon"];
@@ -33,7 +41,8 @@ export type ControlTriggerProps = PressableCoreProps;
 
 export type ControlIconProps = IconProps;
 
-export interface ControlFieldProps extends Partial<ControlComponentProps> {
+export interface ControlFieldProps
+  extends Partial<ControlComponentProps>, ControlLayoutProps {
   children?: ReactNode;
   label?: string;
   onPress?: PressableCoreProps["onPress"];

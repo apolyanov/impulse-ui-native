@@ -2,13 +2,15 @@ import type { TextInputProps } from "react-native";
 
 import type {
   ControlComponentProps,
+  ControlLayoutProps,
   ViewProps,
 } from "@impulse-ui-native/primitives";
 
 export interface TextareaProps
   extends
     Omit<TextInputProps, "multiline" | "numberOfLines" | "secureTextEntry">,
-    Partial<ControlComponentProps> {
+    Partial<ControlComponentProps>,
+    ControlLayoutProps {
   /** Grows the field with its content until `maxRows` is reached. */
   autoGrow?: boolean;
   /** Styles the bordered textarea container. */

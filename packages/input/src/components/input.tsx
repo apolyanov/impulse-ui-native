@@ -8,6 +8,7 @@ import { Control } from "@impulse-ui-native/primitives";
 import {
   getFieldStateTokens,
   useComponentsTokens,
+  useStyleProps,
 } from "@impulse-ui-native/theme";
 
 import type { InputProps } from "../types";
@@ -29,6 +30,8 @@ export const Input = memo(function Input(props: InputProps) {
     onPressSuffix,
     ...rest
   } = props;
+
+  const layoutStyle = useStyleProps(rest);
 
   const addonTokens = useComponentsTokens().controlAddon;
   const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
@@ -65,7 +68,7 @@ export const Input = memo(function Input(props: InputProps) {
       error={error}
       disabled={disabled}
     >
-      <Control.Root>
+      <Control.Root style={layoutStyle}>
         <Control.Label>{label}</Control.Label>
         <Control.Container style={containerStyle}>
           {hasPrefix ? (

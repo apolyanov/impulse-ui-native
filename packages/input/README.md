@@ -56,3 +56,11 @@ import { Textarea } from "@impulse-ui-native/input";
 ```
 
 `Textarea` supports native controlled and uncontrolled values. When `autoGrow` is enabled, it grows from `minRows` through `maxRows`, then becomes scrollable. Validation remains application-owned: pass the current message through `error`.
+
+## Field layout
+
+Input and Textarea accept flex, dimension, and spacing props on the outer field,
+including its label and error. Use `flex={1}` for equal widths inside a row;
+column layouts stretch horizontally by default without vertical growth. Use
+`width`, `minWidth`, or `alignSelf` for explicit sizing. Existing `style` still
+targets the text input; `containerStyle` targets the bordered container.

@@ -40,3 +40,11 @@ Pickers share draft handling: opening snapshots the committed selection, Apply
 commits the draft, Cancel discards it, and the draft resynchronizes after the
 close animation. Date/range calculations remain specific to their picker.
 The shared field trigger respects disabling for both the trigger and its addons.
+
+## Field layout
+
+All date, date-range, datetime, datetime-range, and time pickers accept flex,
+dimension, and spacing props on the outer field. Use `flex={1}` to share row
+width without extra wrappers. Columns stretch fields horizontally by default
+without vertical growth; use `alignSelf="stretch"` or `width` when the parent
+uses a different alignment.

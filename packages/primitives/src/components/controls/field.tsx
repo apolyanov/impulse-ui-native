@@ -1,5 +1,7 @@
 import { memo } from "react";
 
+import { useStyleProps } from "@impulse-ui-native/theme";
+
 import type { ControlFieldProps } from "../../types";
 import { ControlAddon } from "./addon";
 import { ControlError } from "./error";
@@ -20,7 +22,10 @@ export const ControlField = memo(function ControlField({
   size = "medium",
   suffix,
   variant = "outlined",
+  ...props
 }: ControlFieldProps) {
+  const layoutStyle = useStyleProps(props);
+
   const hasPrefix = prefix !== null && prefix !== undefined;
   const hasSuffix = suffix !== null && suffix !== undefined;
 
@@ -31,7 +36,7 @@ export const ControlField = memo(function ControlField({
       error={error}
       disabled={disabled}
     >
-      <ControlRoot>
+      <ControlRoot style={layoutStyle}>
         <ControlLabel>{label}</ControlLabel>
         <ControlTrigger onPress={onPress}>
           {hasPrefix ? (

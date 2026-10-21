@@ -56,3 +56,19 @@ export function DepartmentField() {
 Both controls support controlled `value` and uncontrolled `defaultValue` usage. Values are limited to strings, numbers, `null`, and `undefined`; multi-select stores an array of those values.
 
 On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Lists that fit within the flyout stay at the top so all rows remain visible. Longer lists use native initial scrolling to reveal the opening selection. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default), also supplied to native `getItemLayout`. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.
+
+## Field layout
+
+Select and MultiSelect accept flex, dimension, and spacing props on the outer
+field, including its label and error. No extra field wrappers are needed:
+
+```tsx
+<View flexDirection="row" gap={space.xs}>
+  <Select flex={1} options={options} />
+  <Select flex={1} options={options} />
+</View>
+```
+
+In a column, fields stretch horizontally by default without vertical growth.
+For a parent with `alignItems="center"`, use `alignSelf="stretch"` on the field
+or set an explicit `width`. No default `flex` is applied.
