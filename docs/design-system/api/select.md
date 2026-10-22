@@ -1,6 +1,6 @@
 # @impulse-ui-native/select
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -61,8 +61,7 @@ export function DepartmentField() {
 
 Both controls support controlled `value` and uncontrolled `defaultValue` usage. Values are limited to strings, numbers, `null`, and `undefined`; multi-select stores an array of those values.
 
-On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default). The same height is supplied to native `getItemLayout`, so native `initialScrollIndex` handles positioning. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.
-
+On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Lists that fit within the flyout stay at the top so all rows remain visible. Longer lists use native initial scrolling to reveal the opening selection. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default), also supplied to native `getItemLayout`. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.
 
 ## Public export and source reference
 
@@ -239,12 +238,14 @@ function SelectComponent<Value extends PrimitiveValue>(
     [select, close],
   );
 
+  const hasSelectedValue = selected !== null && selected !== undefined;
+
   return (
     <SelectControl {...rest} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
-      {selected !== null && selected !== undefined ? (
+      {hasSelectedValue ? (
         <Control.Value>{getLabel(selected)}</Control.Value>
       ) : null}
       <SelectFlyout

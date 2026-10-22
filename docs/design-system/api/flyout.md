@@ -1,6 +1,6 @@
 # @impulse-ui-native/flyout
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -21,7 +21,7 @@ This package uses React Native Gesture Handler, Reanimated, Safe Area Context, a
 - `Flyout` composes Root, Header, Title, Content, and Handle, preserving the ready-made sheet API. A truthy `header` replaces the generated title header.
 - `Flyout.Root` is the main sheet container and owns the overlay, gestures, safe-area padding, and lifecycle animations. It renders supplied children without generating presentation parts.
 - `Flyout.Header`, `Flyout.Title`, and `Flyout.Content` render supplied children. Header and Content accept primitive View props; Title accepts primitive Text props.
-- `Flyout.Handle` renders the themed drag indicator. Pass the same placement as Root; its default is bottom.
+- `Flyout.Handle` renders the themed drag indicator and owns the sheet's drag gesture. Pass the same placement as Root; its default is bottom.
 - `FlyoutProps` adds `placement`, `topOffset`, and `bottomOffset` to the common overlay contract.
 
 ## Usage
@@ -40,7 +40,7 @@ import { Flyout } from "@impulse-ui-native/flyout";
 </Flyout>;
 ```
 
-The overlay closes the sheet when pressed. A drag past half the measured sheet height, or a sufficiently fast swipe toward the edge, closes it as well.
+The overlay closes the sheet when pressed. Dragging the handle past half the measured sheet height, or swiping it sufficiently fast toward the edge, closes it as well. Content gestures remain available to FlatList, ScrollView, and other interactive children.
 
 ## Compound composition
 
@@ -67,7 +67,10 @@ import { Portal } from "@impulse-ui-native/portal";
 
 Keep the external Portal mounted; Root handles mounting its visible content through
 the existing lifecycle. For top placement, set `placement="top"` on both Root and
-Handle. No Flyout context or provider is required. Content remains a regular View
+Handle. Root provides the drag gesture internally; no separate provider is required.
+Include Handle to enable drag dismissal; omitting it leaves backdrop and programmatic dismissal available.
+The handle sits outside the sheet surface in a transparent strip within Root's native touch bounds.
+Content remains a regular View
 with horizontal padding and a maximum height of 70% of the window by default.
 Root accepts native `style`; the presentation parts accept primitive style props.
 
@@ -85,7 +88,6 @@ after entry completes. Entry preparation includes the initial layout measurement
 `components.flyout.enterSpring` contains `damping`, `stiffness`, and `mass`
 (defaults 50, 300, and 1). `exitDuration` defaults to 150 ms. The enter spring
 also controls the return animation after a drag that does not dismiss the sheet.
-
 
 ## Public export and source reference
 

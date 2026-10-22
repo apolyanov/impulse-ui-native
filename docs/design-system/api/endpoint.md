@@ -1,6 +1,6 @@
 # @impulse-ui-native/endpoint
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -49,7 +49,6 @@ function ProjectScreen({ id }: { id: string }) {
 ```
 
 Generated standard-query and mutation functions are callable as React hooks and also expose `.execute(...)` for imperative use outside React. Infinite-query factories return hooks only; use the configured Axios client directly when an imperative paginated request is needed.
-
 
 ## Public export and source reference
 

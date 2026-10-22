@@ -1,6 +1,6 @@
 # @impulse-ui-native/switch
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -45,7 +45,6 @@ export function NotificationsSwitch() {
 Use `defaultChecked` for uncontrolled state. The thumb position and track colors animate when the state changes.
 
 Set `loading` while an update is pending. Loading switches show an activity indicator and block further presses until loading ends. Disabled switches also block interaction.
-
 
 ## Public export and source reference
 
@@ -116,11 +115,10 @@ export const Switch = memo(function Switch({
   });
 
   const switchStyle = useCallback(
-    (state: PressableStateCallbackType): StyleProp<ViewStyle> =>
-      StyleSheet.flatten([
-        styles.root,
-        typeof style === "function" ? style(state) : style,
-      ]),
+    (state: PressableStateCallbackType): StyleProp<ViewStyle> => [
+      styles.root,
+      typeof style === "function" ? style(state) : style,
+    ],
     [style, styles.root],
   );
 

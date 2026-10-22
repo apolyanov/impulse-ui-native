@@ -1,6 +1,6 @@
 # @impulse-ui-native/list
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -52,7 +52,6 @@ import { Divider, Typography } from "@impulse-ui-native/primitives";
 All namespaced parts render supplied children and accept their underlying primitive props and style overrides. Leading and Trailing keep their natural size while Content fills remaining width. Parts can be used without Root for standalone rows. Tokens come from `theme.components.list`.
 
 List and its prop types are also exported by `@impulse-ui-native/toolkit`. Migrate imports from primitives to this package or the toolkit. Native Storybook covers ready-made rows and custom compositions.
-
 
 ## Public export and source reference
 

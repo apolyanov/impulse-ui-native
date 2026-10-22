@@ -1,6 +1,6 @@
 # ImpulseUI Native design and application reference
 
-Reviewed on **2026-10-15**, against the local repository with toolkit version **9.1.1**. This bundle describes the current source; it does not establish which version is published to npm. `snapshot.json` records the commit and input hashes.
+Reviewed on **2026-10-22**, against the local repository with toolkit version **11.0.0**. This bundle describes the current source; it does not establish which version is published to npm. `snapshot.json` records the commit and input hashes.
 
 ## Bring this into another project
 
@@ -37,7 +37,7 @@ The exporter regenerates the package references, status snapshot, icon catalog, 
 
 The export executes the actual pure theme factories, checks representative values and matching light/dark token paths, and walks relative public re-exports for every toolkit dependency plus the icon package. It does not render components or certify their native behavior. Numeric tokens generally use React Native logical units, not physical device pixels; motion durations are milliseconds and other units follow the owning type.
 
-During this handoff, `node scripts/check-theme-token-overrides.mjs` failed its existing chart assertion named `Palette selection wraps by length` (actual `#9333ea`, expected `#123456`). The default token export succeeded. This documentation change does not repair or certify custom chart palette behavior; review that path before relying on a palette redesign.
+During this refresh, `node scripts/check-theme-token-overrides.mjs` passed its independent surface override checks for both schemes, then failed its existing chart assertion named `Palette selection wraps by length` (actual `#9333ea`, expected `#123456`). `node scripts/check-theme-visuals.mjs` failed on the light filled Avatar foreground/background pair (**3.15:1**, below its **4.5:1** threshold). The default token export succeeded. Review these paths before relying on custom chart palettes or default color contrast.
 
 The theme package typecheck, exporter syntax check, and all 93 local documentation links passed verification. Formatting was applied to the bundle and exporter. No native component rendering was performed for this documentation task.
 

@@ -1,6 +1,6 @@
 # @impulse-ui-native/charts
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -330,7 +330,6 @@ model code and pure theme factories without loading native rendering modules.
 Use the on-device Charts Storybook stories to verify touch behavior, font
 rendering, and layout on iOS and Android; model tests do not exercise native UI.
 
-
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -430,14 +429,18 @@ export const ChartLegend = memo(function ChartLegend({
 
   return (
     <View style={styles.container}>
-      {items.map((item) => (
-        <ChartLegendEntry
-          key={item.id}
-          item={item}
-          hidden={hiddenIds?.includes(item.id) ?? false}
-          onToggle={onToggle}
-        />
-      ))}
+      {items.map((item) => {
+        const hidden = hiddenIds?.includes(item.id) ?? false;
+
+        return (
+          <ChartLegendEntry
+            key={item.id}
+            item={item}
+            hidden={hidden}
+            onToggle={onToggle}
+          />
+        );
+      })}
     </View>
   );
 });
@@ -481,21 +484,19 @@ export const ChartTooltip = memo(function ChartTooltip({
 
   return (
     <View {...props} style={containerStyle}>
-      {details.map((detail) => (
-        <ChartRow
-          style={styles.row}
-          key={
-            (detail.selection.seriesId ?? "") +
-            ":" +
-            detail.selection.datumIndex
-          }
-        >
-          <ChartSwatch color={detail.color} />
-          <ChartText numeric color={color} flexShrink={1}>
-            {detail.label}: {detail.value}
-          </ChartText>
-        </ChartRow>
-      ))}
+      {details.map((detail) => {
+        const selectionKey =
+          (detail.selection.seriesId ?? "") + ":" + detail.selection.datumIndex;
+
+        return (
+          <ChartRow style={styles.row} key={selectionKey}>
+            <ChartSwatch color={detail.color} />
+            <ChartText numeric color={color} flexShrink={1}>
+              {detail.label}: {detail.value}
+            </ChartText>
+          </ChartRow>
+        );
+      })}
     </View>
   );
 });
@@ -1051,9 +1052,12 @@ export const Grid = memo(function Grid<
     [plot, yScale, yTicks, yStyle.visible],
   );
 
+  const showXGrid = xStyle.visible && xPath;
+  const showYGrid = yStyle.visible && yPath;
+
   return (
     <Group>
-      {xStyle.visible && xPath ? (
+      {showXGrid ? (
         <Path
           path={xPath}
           color={xStyle.color}
@@ -1067,7 +1071,7 @@ export const Grid = memo(function Grid<
         </Path>
       ) : null}
 
-      {yStyle.visible && yPath ? (
+      {showYGrid ? (
         <Path
           path={yPath}
           color={yStyle.color}
@@ -1356,8 +1360,10 @@ export const Pie = memo(function Pie(props: PieProps) {
 
   return (
     <Group>
-      {slices.map(({ color, coordinate, path }) =>
-        path ? (
+      {slices.map(({ color, coordinate, path }) => {
+        const showStroke = strokeColor && strokeWidth > 0;
+
+        return path ? (
           <Group
             key={coordinate.datum.id}
             transform={[
@@ -1366,7 +1372,7 @@ export const Pie = memo(function Pie(props: PieProps) {
             ]}
           >
             <Path path={path} color={color} opacity={opacity} />
-            {strokeColor && strokeWidth > 0 ? (
+            {showStroke ? (
               <Path
                 path={path}
                 color={strokeColor}
@@ -1376,8 +1382,8 @@ export const Pie = memo(function Pie(props: PieProps) {
               />
             ) : null}
           </Group>
-        ) : null,
-      )}
+        ) : null;
+      })}
     </Group>
   );
 });
@@ -2157,8 +2163,7 @@ export interface ChartPresentationProps {
   onSelectionChange?: (selection: ChartSelection | null) => void;
   /** Displays selected details by default. A renderer can replace the tooltip. */
   tooltip?:
-    | boolean
-    | ((details: readonly ChartSelectionDetails[]) => ReactNode);
+    boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode);
   legend?: boolean;
   /** Series IDs for multi charts; datum IDs for PieChart. */
   hiddenIds?: readonly string[];

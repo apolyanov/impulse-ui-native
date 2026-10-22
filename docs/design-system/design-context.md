@@ -1,6 +1,6 @@
 # ImpulseUI Native: context for designing a new application
 
-This document is a portable design brief for **ImpulseUI Native**, reviewed from the local source on **2026-10-15**, toolkit version **9.1.1**. Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
+This document is a portable design brief for **ImpulseUI Native**, reviewed from the local source on **2026-10-22**, toolkit version **11.0.0**. Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
 
 The application's product, users, navigation, content, brand changes, and screen layouts are still to be defined. The library supplies components and a visual system rather than a complete application template.
 
@@ -82,6 +82,18 @@ The common neutral scale is:
 | 6    | `#adb5bd` | 13   | `#000000` |
 
 Use `surface`, `text`, and `border` roles for scheme-adaptive screen styling. When changing brand colors, define both schemes and their foreground pairs. Contrast and readability still need review for the application's actual combinations and text sizes.
+
+Choose surface roles by purpose:
+
+- `surface.canvas`: app and screen backgrounds.
+- `surface.subtle`: muted control fills, tracks, and disabled backgrounds.
+- `surface.default`: content panels, cards, lists, accordions, and enabled filled fields.
+- `surface.elevated`: floating overlays, popovers, sheets, and toasts.
+- `surface.inverse`: inverse surfaces such as tooltips.
+
+Canvas and subtle share their default colors but are independent roles. Override `surface.canvas` to restyle screen backgrounds without changing muted control fills. Default and elevated also share a light fill, while dark mode distinguishes content panels from floating surfaces. Use each role's `.contrast` for its paired foreground.
+
+When migrating older themes, replace `surface.primary` with `surface.canvas` for screen backgrounds or `surface.subtle` for muted controls, and replace `surface.secondary` with `surface.default` for content panels. Update custom overrides as well as token reads. Cards, lists, and accordions use `default`; popovers use `elevated`. The brand roles `primary` and `secondary` remain separate from these surface roles.
 
 ## 4. Spacing, corners, borders, and elevation
 
@@ -215,7 +227,7 @@ There is no shared `plain` variant in the current source. Check each component's
 
 For Button, filled uses primary fill/contrast; outlined uses a transparent fill with primary border/text; soft uses secondary fill/contrast; ghost uses transparent fill/border with primary text. Button defaults to medium/filled. It has a 1-unit border and small/medium/large horizontal padding **12 / 16 / 20**, vertical padding **6 / 8 / 10**, and text sizes **14 / 16 / 16**.
 
-Rectangular field containers use filled or outlined presentation. Filled uses secondary surface with a transparent default border; outlined uses a transparent background and default semantic border. Both have error and disabled combinations. Container horizontal padding is 8; input text sizes are **12 / 14 / 16**. Labels use 14, error text 12, and label/error spacing 4.
+Rectangular field containers use filled or outlined presentation. Enabled filled fields use `surface.default` with a transparent default border; disabled filled fields use `surface.subtle`. Outlined fields use a transparent background and default semantic border. Both have error and disabled combinations. Container horizontal padding is 8; input text sizes are **12 / 14 / 16**. Labels use 14, error text 12, and label/error spacing 4.
 
 Shared state maps include:
 
@@ -308,7 +320,7 @@ Install `@impulse-ui-native/toolkit`, or individual packages for a narrower depe
 
 These are declared package ranges, not a tested compatibility matrix or a promise that every combination works together. For Expo, resolve native packages against the chosen SDK. Endpoint has additional Axios/TanStack Query peers; per-package requirements are preserved in `package-manifest.json`.
 
-The local development catalog currently records React **19.2.3**, React Native **0.86.2**, Expo **57**, Reanimated **4.5.1**, and TypeScript **6.0.3**. These are the repository's development versions, not requirements for the future application's SDK choice.
+The local development catalog currently records React **19.3.0**, React Native **0.88.0**, Expo **58**, Reanimated **4.7.1**, and TypeScript **6.0.3**. These are the repository's development versions, not requirements for the future application's SDK choice.
 
 The full application's provider/host hierarchy is:
 

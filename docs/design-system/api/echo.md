@@ -1,6 +1,6 @@
 # @impulse-ui-native/echo
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -57,7 +57,6 @@ map.
 
 For non-component code, call `EchoInstance.emit` or `EchoInstance.subscribe` directly. `subscribe` returns its cleanup function.
 
-
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -72,8 +71,6 @@ export { useEchoEmitter } from "./use-echo-emitter.hook";
 ### packages/echo/src/hooks/use-echo-emitter.hook.ts
 
 ```tsx
-import { useEventCallback } from "@impulse-ui-native/core";
-
 import { EchoInstance } from "../singletons";
 import { EchoEventNames, EchoEvents } from "../types";
 
