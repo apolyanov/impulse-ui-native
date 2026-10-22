@@ -1,6 +1,6 @@
 # @impulse-ui-native/toolkit
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -269,7 +269,6 @@ Modal is aggregated from `@impulse-ui-native/modal`. It supplies Root, Header, C
 ## Color picker
 
 ColorPicker selects custom colors with spectrum, hue, opacity, hex/RGB entry, and theme presets. It supports immediate or staged Apply/Cancel updates and exposes composable parts. See the [ColorPicker API](color-picker.md).
-
 
 ## Public export and source reference
 

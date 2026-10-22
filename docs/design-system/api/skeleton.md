@@ -1,6 +1,6 @@
 # @impulse-ui-native/skeleton
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -56,7 +56,6 @@ Skeleton colors, radii, line height, and gaps come from the active
 `ThemeProvider` component tokens. Composite layouts such as cards, accordions,
 steppers, and charts should be assembled from these presets and `Skeleton.Bone`
 so the placeholder preserves the application-specific layout.
-
 
 ## Public export and source reference
 

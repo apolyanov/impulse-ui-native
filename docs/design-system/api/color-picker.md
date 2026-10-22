@@ -1,6 +1,6 @@
 # @impulse-ui-native/color-picker
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -92,7 +92,6 @@ Immediate-mode `onChange` still emits live values. Apply, Cancel, and gesture
 completion reconcile the visual color to the accepted selection.
 
 Native device verification of dragging, keyboard entry, font scaling, and nested scrolling remains necessary; package checks are not interaction tests.
-
 
 ## Public export and source reference
 

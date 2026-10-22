@@ -1,6 +1,6 @@
 # @impulse-ui-native/datetime
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -42,6 +42,10 @@ import { DatePicker } from "@impulse-ui-native/datetime";
 
 All picker controls support the shared control props for labels, errors, sizes, variants, placeholders, and addons. Date and range controls support controlled `value` and uncontrolled `defaultValue` modes.
 
+Pickers share draft handling: opening snapshots the committed selection, Apply
+commits the draft, Cancel discards it, and the draft resynchronizes after the
+close animation. Date/range calculations remain specific to their picker.
+The shared field trigger respects disabling for both the trigger and its addons.
 
 ## Public export and source reference
 
@@ -366,139 +370,63 @@ export { TimePicker } from "./time/time-picker";
 ### packages/datetime/src/components/time/time-picker.tsx
 
 ```tsx
-import { memo, useCallback, useEffect, useId, useState } from "react";
+import { memo } from "react";
 
-import { useControllableState, useIsOpen } from "@impulse-ui-native/core";
-import { Icon } from "@impulse-ui-native/icon";
 import { ClockIcon } from "@impulse-ui-native/icon/icons/clock";
-import { Control, Pressable } from "@impulse-ui-native/primitives";
-import {
-  getFieldStateTokens,
-  useComponentsTokens,
-} from "@impulse-ui-native/theme";
+import { Control } from "@impulse-ui-native/primitives";
 
 import type { TimePickerProps, TimePickerValue } from "../../types";
+import { usePickerDraft } from "../../hooks/use-picker-draft.hook";
 import { formatTimepickerValue } from "../../utils";
+import { DateControl } from "../common/date-control";
 import { TimePickerFlyout } from "./time-picker.flyout";
 
-export const TimePicker = memo(function TimePicker(props: TimePickerProps) {
+export const TimePicker = memo(function TimePicker({
+  value,
+  defaultValue,
+  placeholder,
+  clearable = true,
+  onChange,
+  PrefixIcon = ClockIcon,
+  ...props
+}: TimePickerProps) {
   const {
-    value,
-    defaultValue,
-    placeholder,
-    clearable = true,
-    size = "medium",
-    onChange,
-    variant = "outlined",
-    label,
-    error,
-    disabled,
-    PrefixIcon = ClockIcon,
-    Prefix,
-    onPressPrefix: onPrefixPress,
-    SuffixIcon,
-    Suffix,
-    onPressSuffix: onSuffixPress,
-  } = props;
-
-  const addonTokens = useComponentsTokens().controlAddon;
-  const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
-    disabled,
-    error: Boolean(error),
-  }).iconColor;
-
-  const id = useId();
-
-  const [selected, setSelected] = useControllableState<TimePickerValue | null>({
-    prop: value,
-    defaultProp: defaultValue ?? null,
-    onChange,
-  });
-
-  const [tempTime, setTempTime] = useState<TimePickerValue | null>(selected);
-
-  const { isOpen, isClosed, finishClose, open, close } = useIsOpen();
-
-  const onPressOpen = useCallback(() => {
-    setTempTime(selected);
-    open();
-  }, [open, selected]);
-
-  const onPressApply = useCallback(() => {
-    setSelected(tempTime);
-    close();
-  }, [tempTime, close, setSelected]);
-
-  const onPressClear = useCallback(() => {
-    setTempTime(null);
-  }, []);
-
-  const syncState = useCallback(() => {
-    setTempTime(selected);
-  }, [selected]);
-
-  const onCloseFinished = useCallback(() => {
-    syncState();
-    finishClose();
-  }, [syncState, finishClose]);
-
-  useEffect(() => {
-    if (!isOpen && isClosed) {
-      setTempTime(selected);
-    }
-  }, [isOpen, selected, isClosed]);
+    id,
+    isOpen,
+    draft,
+    selected,
+    setDraft,
+    close,
+    onPressOpen,
+    onPressApply,
+    onPressCancel,
+    onPressClear,
+    syncState,
+  } = usePickerDraft<TimePickerValue>({ value, defaultValue, onChange });
+  const showPlaceholder = selected === null && placeholder;
 
   return (
-    <Control.Provider
-      size={size}
-      variant={variant}
-      error={error}
-      disabled={disabled}
-    >
-      <Control.Root>
-        <Control.Label>{label}</Control.Label>
-        <Pressable onPress={onPressOpen}>
-          <Control.Container>
-            <Control.Addon onPress={onPrefixPress}>
-              {Prefix ? <Prefix /> : null}
-              {!Prefix ? <Icon color={addonColor} icon={PrefixIcon} /> : null}
-            </Control.Addon>
-
-            {selected === null && placeholder ? (
-              <Control.Placeholder>{placeholder}</Control.Placeholder>
-            ) : null}
-
-            {selected !== null ? (
-              <Control.Value>{formatTimepickerValue(selected)}</Control.Value>
-            ) : null}
-
-            <TimePickerFlyout
-              id={id}
-              title="Time"
-              open={isOpen}
-              value={tempTime}
-              clearable={clearable}
-              onClose={close}
-              onCloseFinished={onCloseFinished}
-              onChange={setTempTime}
-              onPressApply={onPressApply}
-              onPressClear={onPressClear}
-              onPressCancel={close}
-            />
-
-            {Suffix || SuffixIcon ? (
-              <Control.Addon onPress={onSuffixPress}>
-                {Suffix ? <Suffix /> : null}
-                {!Suffix && SuffixIcon ? (
-                  <Icon color={addonColor} icon={SuffixIcon} />
-                ) : null}
-              </Control.Addon>
-            ) : null}
-          </Control.Container>
-        </Pressable>
-        {error ? <Control.Error>{error}</Control.Error> : null}
-      </Control.Root>
-    </Control.Provider>
+    <DateControl {...props} PrefixIcon={PrefixIcon} onPress={onPressOpen}>
+      {showPlaceholder ? (
+        <Control.Placeholder>{placeholder}</Control.Placeholder>
+      ) : null}
+      {selected !== null ? (
+        <Control.Value>{formatTimepickerValue(selected)}</Control.Value>
+      ) : null}
+      <TimePickerFlyout
+        id={id}
+        title="Time"
+        open={isOpen}
+        value={draft}
+        clearable={clearable}
+        onClose={close}
+        onCloseFinished={syncState}
+        onChange={setDraft}
+        onPressApply={onPressApply}
+        onPressClear={onPressClear}
+        onPressCancel={onPressCancel}
+      />
+    </DateControl>
   );
 });
 ```
@@ -514,9 +442,6 @@ export * from "./utils";
 ### packages/datetime/src/types/common.types.ts
 
 ```tsx
-import { ComponentType } from "react";
-
-import type { IconProps } from "@impulse-ui-native/icon/types";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
 import {
   ControlComponentCommonProps,
@@ -791,14 +716,7 @@ export function getQuickOptionKey(value: Date | TimeRange) {
   }
 }
 
-export function isDateRange(value: unknown): value is TimeRange {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    !(value instanceof Date) &&
-    ("start" in value || "end" in value)
-  );
-}
+export const isDateRange = isTimeRange;
 
 export function getDateKey(date: Date) {
   const year = date.getFullYear();

@@ -2068,7 +2068,7 @@
         "width": 70,
         "height": 250,
         "gap": 4,
-        "listWidth": 30,
+        "listWidth": 48,
         "itemHeight": 50,
         "visibleItems": 5,
         "verticalPadding": 100,

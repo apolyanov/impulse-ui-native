@@ -1,6 +1,6 @@
 # @impulse-ui-native/overlay
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -15,10 +15,16 @@ Typed, app-wide overlay registration and rendering for Impulse UI Native.
 - `OverlayHost` renders the active overlay stack.
 - `useOverlayContext` provides access to the current store.
 - `useOverlayLifecycle` tracks component lifecycle status without requiring a provider.
+- `useOverlayTiming({ enterDuration, exitDuration })` supplies a shared
+  Reanimated progress value and lifecycle handlers for timed entry/exit.
 - `useOverlayStatus(id)` observes the reported status of a hosted overlay.
 - `useOverlayLayer(id, Component?, order?)` returns the entry's opening-order index among entries with the same registered component. Omit `Component` to infer it from the ID. The default `OverlayOrder.OldestFirst` order gives newer entries higher indices; `OverlayOrder.NewestFirst` gives the newest entry index zero. A missing ID returns `-1`. Closing entries remain counted until removed.
 
 ## Usage
+
+Install `react-native-reanimated` and `react-native-worklets` alongside this
+package and complete their host-application setup. The shared timing helper
+requires Reanimated 4 or newer and Worklets 0.5 or newer.
 
 ```tsx
 import {
@@ -85,9 +91,12 @@ becomes true. Exit handlers must also handle dismissal before readiness, usually
 by completing immediately when nothing has appeared. Reopening during exit starts
 a fresh transition and prevents the old completion from closing the new one.
 
-Modal, Flyout, and Toast use this shared hook. Their animation, gestures, and
-Toast's duration timer remain component-owned. Flyout enables drag gestures once
-entry completes so gestures cannot interrupt the entry completion notification.
+Modal, Flyout, and Toast use this shared hook. Modal and Toast share timed
+transitions through `useOverlayTiming`; the helper cancels its progress animation
+on unmount and bridges successful completion to the React Native thread. Supply
+its `options` to `useOverlayLifecycle` and use its `progress` in animated styles.
+Custom animation, gestures, and Toast's duration timer remain component-owned.
+Flyout enables drag gestures once entry completes so gestures cannot interrupt the entry completion notification.
 
 ## Observing hosted status
 
@@ -101,7 +110,6 @@ Registered components must forward onStatusChange to the shared lifecycle hook
 or report it themselves. Registrations may supply their own onStatusChange
 callback alongside the host's tracking. Store entries expose their latest optional
 status; host removal still happens through onCloseFinished.
-
 
 ## Public export and source reference
 
@@ -156,6 +164,7 @@ export * from "./use-overlay-layer.hook";
 export * from "./use-overlays.hook";
 export * from "./use-overlay-lifecycle.hook";
 export * from "./use-overlay-status.hook";
+export * from "./use-overlay-timing.hook";
 ```
 
 ### packages/overlay/src/hooks/use-overlay-context.hook.ts
@@ -397,6 +406,60 @@ export function useOverlayStatus(id: OverlayID): OverlayLifecycleStatus {
   const entries = useOverlays();
 
   return entries.find((entry) => entry.id === id)?.status ?? "closed";
+}
+```
+
+### packages/overlay/src/hooks/use-overlay-timing.hook.ts
+
+```tsx
+import { useEffect, useMemo } from "react";
+import {
+  cancelAnimation,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
+import { scheduleOnRN } from "react-native-worklets";
+
+import { useEventCallback } from "@impulse-ui-native/core";
+
+import type { OverlayTimingOptions, OverlayTransitionHandler } from "../types";
+
+export function useOverlayTiming({
+  enterDuration,
+  exitDuration,
+}: OverlayTimingOptions) {
+  const progress = useSharedValue(0);
+
+  const enter = useEventCallback<OverlayTransitionHandler>(
+    (transitionId, complete) => {
+      progress.set(
+        withTiming(1, { duration: enterDuration }, (finished) => {
+          if (finished) {
+            scheduleOnRN(complete, transitionId);
+          }
+        }),
+      );
+    },
+  );
+  const exit = useEventCallback<OverlayTransitionHandler>(
+    (transitionId, complete) => {
+      progress.set(
+        withTiming(0, { duration: exitDuration }, (finished) => {
+          if (finished) {
+            scheduleOnRN(complete, transitionId);
+          }
+        }),
+      );
+    },
+  );
+  const options = useMemo(
+    () => ({ onEnter: enter, onExit: exit }),
+    [enter, exit],
+  );
+
+  useEffect(() => () => cancelAnimation(progress), [progress]);
+
+  return useMemo(() => ({ options, progress }), [options, progress]);
 }
 ```
 
@@ -659,6 +722,11 @@ export interface OverlayLifecycleOptions {
   onExit?: OverlayTransitionHandler;
 }
 
+export interface OverlayTimingOptions {
+  enterDuration: number;
+  exitDuration: number;
+}
+
 export interface OverlayLifecycle {
   status: OverlayLifecycleStatus;
   mounted: boolean;
@@ -722,8 +790,7 @@ export type OverlayOpenArguments<Props extends object> = [Props] extends [never]
     : [props: Props];
 
 export type OverlayTitle<Props extends object> =
-  | string
-  | ((...args: OverlayOpenArguments<Props>) => string | undefined);
+  string | ((...args: OverlayOpenArguments<Props>) => string | undefined);
 
 export interface OverlayRegistrationProps<Props extends object = never> {
   id: OverlayID;

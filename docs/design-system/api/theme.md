@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -179,7 +179,6 @@ or `surface.subtle` for muted control fills. Replace `surface.secondary` with
 `surface.default` for content surfaces. Cards, lists, and accordions now use
 `default`; popovers use `elevated`.
 
-
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -309,74 +308,64 @@ export { useThemedStyles } from "./use-themed-styles";
 ### packages/theme/src/hooks/use-border.hook.ts
 
 ```tsx
-import { useMemo } from "react";
-
 import { useThemeContext } from "../providers";
 import { BorderSize } from "../types";
 
 export function useBorder(): BorderSize {
   const context = useThemeContext();
 
-  return useMemo(() => context.borderSize, [context.borderSize]);
+  return context.borderSize;
 }
 ```
 
 ### packages/theme/src/hooks/use-colors.hook.ts
 
 ```tsx
-import { useMemo } from "react";
-
 import { useThemeContext } from "../providers";
 import { ThemeColors } from "../types";
 
 export function useColors(): ThemeColors {
   const context = useThemeContext();
 
-  return useMemo(() => context.colors, [context.colors]);
+  return context.colors;
 }
 ```
 
 ### packages/theme/src/hooks/use-components-tokens.hook.ts
 
 ```tsx
-import { useMemo } from "react";
-
 import { useThemeContext } from "../providers";
 
 export function useComponentsTokens() {
   const context = useThemeContext();
 
-  return useMemo(() => context.components, [context.components]);
+  return context.components;
 }
 ```
 
 ### packages/theme/src/hooks/use-radii.hook.ts
 
 ```tsx
-import { useMemo } from "react";
-
 import { useThemeContext } from "../providers";
 import { Radii } from "../types";
 
 export function useRadii(): Radii {
   const context = useThemeContext();
 
-  return useMemo(() => context.radii, [context.radii]);
+  return context.radii;
 }
 ```
 
 ### packages/theme/src/hooks/use-space.hook.ts
 
 ```tsx
-import { useMemo } from "react";
-
 import { useThemeContext } from "../providers";
 import { Space } from "../types";
 
 export function useSpace(): Space {
   const context = useThemeContext();
 
-  return useMemo(() => context.space, [context.space]);
+  return context.space;
 }
 ```
 
@@ -385,12 +374,14 @@ export function useSpace(): Space {
 ```tsx
 import { useMemo } from "react";
 
-import { createStyleKey, extractStyleProps } from "../utils";
+import { StylePropsSet } from "../constants";
+import { extractStyleProps } from "../utils";
 
 export function useStyleProps<Props extends object>(props: Props) {
-  const key = useMemo(() => createStyleKey(props), [props]);
+  // The fixed key order compares actual values without a serialized cache key.
+  const values = Array.from(StylePropsSet, (key) => props[key as keyof Props]);
 
-  return useMemo(() => extractStyleProps(props), [key]);
+  return useMemo(() => extractStyleProps(props), values);
 }
 ```
 
@@ -408,49 +399,36 @@ export function useTheme(): AppTheme {
 ### packages/theme/src/hooks/use-themed-styles.ts
 
 ```tsx
+import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
 import { useMemo } from "react";
-import { StyleSheet } from "react-native";
 
 import { AppTheme } from "../types";
 import { useTheme } from "./use-theme.hook";
 
-type ThemedStyles<T extends StyleSheet.NamedStyles<T>> = T;
+type NamedStyles<T> = { [Key in keyof T]: ViewStyle | TextStyle | ImageStyle };
 
-type StyledFunctionNoProps<T extends StyleSheet.NamedStyles<T>> = (
+type ThemedStyles<T extends NamedStyles<T>> = T;
+
+type StyledFunctionNoProps<T extends NamedStyles<T>> = (
   theme: AppTheme,
 ) => ThemedStyles<T>;
 
-type StyledFunctionWithProps<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
-> = (theme: AppTheme, props: Props) => ThemedStyles<T>;
+type StyledFunctionWithProps<Props extends object, T extends NamedStyles<T>> = (
+  theme: AppTheme,
+  props: Props,
+) => ThemedStyles<T>;
 
-export function useThemedStyles<T extends StyleSheet.NamedStyles<T>>(
+export function useThemedStyles<T extends NamedStyles<T>>(
   styledFunction: StyledFunctionNoProps<T>,
 ): ThemedStyles<T>;
 
-export function useThemedStyles<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
->(
+export function useThemedStyles<Props extends object, T extends NamedStyles<T>>(
   styledFunction: StyledFunctionWithProps<Props, T>,
   props: Props,
   dependencies: readonly unknown[],
 ): ThemedStyles<T>;
 
-export function useThemedStyles<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
->(
-  styledFunction: StyledFunctionWithProps<Props, T>,
-  props: Props,
-  dependencies: readonly unknown[],
-): ThemedStyles<T>;
-
-export function useThemedStyles<
-  Props extends object,
-  T extends StyleSheet.NamedStyles<T>,
->(
+export function useThemedStyles<Props extends object, T extends NamedStyles<T>>(
   styledFunction: StyledFunctionNoProps<T> | StyledFunctionWithProps<Props, T>,
   props?: Props,
   dependencies?: readonly unknown[],
@@ -2335,10 +2313,7 @@ export interface AvailabilityState {
 }
 
 export type FieldVisualState =
-  | "default"
-  | "error"
-  | "disabled"
-  | "disabledError";
+  "default" | "error" | "disabled" | "disabledError";
 
 export interface FieldState {
   disabled?: boolean;
@@ -2346,10 +2321,7 @@ export interface FieldState {
 }
 
 export type SelectionVisualState =
-  | "unselected"
-  | "selected"
-  | "disabledUnselected"
-  | "disabledSelected";
+  "unselected" | "selected" | "disabledUnselected" | "disabledSelected";
 
 export interface SelectionState {
   disabled?: boolean;
@@ -2503,10 +2475,7 @@ export interface DataStateTokens {
 import type { VisualStateTokens } from "./components.types";
 
 export type DatetimePickerDayVisualState =
-  | "default"
-  | "outsideMonth"
-  | "range"
-  | "selected";
+  "default" | "outsideMonth" | "range" | "selected";
 
 export interface DatetimePickerDayState {
   currentMonth?: boolean;
@@ -2593,11 +2562,7 @@ export interface DimensionProps {
 
 ```tsx
 export type DividerTone =
-  | "subtle"
-  | "default"
-  | "strong"
-  | "primary"
-  | "inverse";
+  "subtle" | "default" | "strong" | "primary" | "inverse";
 
 export type DividerTokenOrientation = "horizontal" | "vertical";
 
@@ -3138,12 +3103,7 @@ export interface SkeletonBoneTokens {
 
 export interface SkeletonTextTokens {
   alignSelf:
-    | "auto"
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "stretch"
-    | "baseline";
+    "auto" | "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
   textTransform: "none" | "capitalize" | "uppercase" | "lowercase";
   opacity: number;
 }
@@ -3410,12 +3370,7 @@ import type {
 } from "./components.types";
 
 export type TagColor =
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+  "primary" | "secondary" | "error" | "warning" | "success" | "info";
 
 export type TagSizeTokens = Record<
   ComponentSize,
@@ -3783,27 +3738,10 @@ export type FontWeightItalic =
   | "Montserrat_900Black_Italic";
 
 export type FontWeightValue =
-  | 100
-  | 200
-  | 300
-  | 400
-  | 500
-  | 600
-  | 700
-  | 800
-  | 900;
+  100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 
 export type SpaceSizesKey =
-  | "none"
-  | "xxs"
-  | "xs"
-  | "mxs"
-  | "sm"
-  | "msm"
-  | "md"
-  | "lg"
-  | "xl"
-  | "xxl";
+  "none" | "xxs" | "xs" | "mxs" | "sm" | "msm" | "md" | "lg" | "xl" | "xxl";
 
 export type Space = Record<SpaceSizesKey, number>;
 
@@ -3865,12 +3803,7 @@ export type RadiusKey = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "round";
 export type Radii = Record<RadiusKey, number>;
 
 export type RadiusDrawnKey =
-  | "drawn1"
-  | "drawn2"
-  | "drawn3"
-  | "drawn4"
-  | "drawn5"
-  | "drawn6";
+  "drawn1" | "drawn2" | "drawn3" | "drawn4" | "drawn5" | "drawn6";
 
 export type RadiiDrawn = Record<RadiusDrawnKey, string>;
 
@@ -4282,15 +4215,12 @@ export const extractStyleProps = <Props extends object>(
 };
 
 export const createStyleKey = <Props extends object>(props: Props) => {
-  let key = "";
+  const entries = Object.keys(props)
+    .filter(isStylePropKey)
+    .sort()
+    .map((key) => [key, props[key as keyof Props]]);
 
-  for (const k in props) {
-    if (isStylePropKey(k)) {
-      key += String(props[k as keyof Props]);
-    }
-  }
-
-  return key;
+  return JSON.stringify(entries);
 };
 
 export const getShadowStyle = (

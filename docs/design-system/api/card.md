@@ -1,6 +1,6 @@
 # @impulse-ui-native/card
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -43,7 +43,6 @@ Card assembles `Card.Root`, optional `Card.Media`, `Card.Header`, and `Card.Foot
 `Card.Root`, `Card.Header`, `Card.Content`, `Card.Footer`, and `Card.Media` render supplied children and accept primitive View props. `Card.Pressable` supplies the card surface with native press and disabled behavior. Use it for one surface-level action; use Root with separate footer actions when the card contains independent buttons. Parts accept style overrides.
 
 Card and its prop types are also exported by `@impulse-ui-native/toolkit`. Migrate imports from primitives to this package or the toolkit. The on-device Card stories exercise static, media, and pressable compositions in light and dark themes.
-
 
 ## Public export and source reference
 

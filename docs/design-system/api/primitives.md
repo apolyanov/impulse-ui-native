@@ -1,6 +1,6 @@
 # @impulse-ui-native/primitives
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -99,6 +99,26 @@ export function ProfileSummary() {
 
 Use the compound `Control` when building a custom field that should share the same label, addon, error, size, and variant behavior as `Input` and `Select`.
 
+`Control.Trigger` combines the field container's themed geometry with a
+Pressable. It respects group and local disabling and accepts supplied children,
+style props, and function-valued pressable styles. `Control.Icon` renders a
+caller-selected icon with the current field's addon color.
+
+`Control.Field` assembles a label, trigger, optional prefix/suffix slots, and an
+error label for a read-only selection field. The caller supplies the value,
+placeholder, icons, and behavior; this convenience component does not choose
+default icons or manage selection state.
+
+```tsx
+<Control.Field
+  label="Destination"
+  onPress={openDestinationPicker}
+  prefix={<Control.Icon icon={LocationIcon} />}
+>
+  <Control.Value>{destination}</Control.Value>
+</Control.Field>
+```
+
 `Control.Addon` and `Control.Error` render supplied children. Addons own spacing
 and optional press behavior, including group/local disabling; the parent chooses
 and renders icons or custom content. Error owns error-label styling; the parent
@@ -143,7 +163,6 @@ Card, List, Progress, and their prop types are exported from `@impulse-ui-native
 and style overrides still take precedence. Configure `theme.codeFontFamily`
 to change `Typography.Code` globally; its default remains `monospace`.
 
-
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -187,13 +206,14 @@ export const Avatar = memo(function Avatar({
     [extractedStyleProps, style, styles.container],
   );
 
+  const showInitials =
+    (fallback === null || fallback === undefined) && initials;
+
   return (
     <View {...props} style={containerStyle}>
       <View style={styles.content}>
         {fallback}
-        {(fallback === null || fallback === undefined) && initials ? (
-          <Text style={styles.initials}>{initials}</Text>
-        ) : null}
+        {showInitials ? <Text style={styles.initials}>{initials}</Text> : null}
 
         {source ? (
           <AvatarImageLayer
@@ -372,6 +392,9 @@ export const BadgeRoot = memo(function BadgeRoot({
   const affixColor =
     typeof styles.label.color === "string" ? styles.label.color : undefined;
 
+  const isTextChild =
+    typeof children === "string" || typeof children === "number";
+
   return (
     <View {...props} style={containerStyle}>
       <BadgeAddon
@@ -383,7 +406,7 @@ export const BadgeRoot = memo(function BadgeRoot({
         onPress={onPressPrefix}
       />
 
-      {typeof children === "string" || typeof children === "number" ? (
+      {isTextChild ? (
         <Text numberOfLines={1} style={styles.label}>
           {children}
         </Text>
@@ -717,7 +740,12 @@ export { Tag } from "./tag";
 ### packages/primitives/src/components/atoms/pressable.tsx
 
 ```tsx
-import type { ComponentRef, PropsWithChildren } from "react";
+import type {
+  ComponentRef,
+  NamedExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from "react";
 import { forwardRef, memo, useCallback } from "react";
 import {
   PressableStateCallbackType,
@@ -736,70 +764,72 @@ import {
 
 import { PressableCoreProps } from "../../types";
 
-export const Pressable = memo(
-  forwardRef<
-    ComponentRef<typeof RNPressable>,
-    PropsWithChildren<PressableCoreProps>
-  >(function PressableCore(
-    { children, disabled, pressedStyle, style, ...props },
-    ref,
-  ) {
-    const { colors, shadows } = useTheme();
-    const tokens = useComponentsTokens();
+export const Pressable: NamedExoticComponent<
+  PropsWithoutRef<PressableCoreProps> &
+    RefAttributes<ComponentRef<typeof RNPressable>>
+> = memo(
+  forwardRef<ComponentRef<typeof RNPressable>, PressableCoreProps>(
+    function PressableCore(
+      { children, disabled, pressedStyle, style, ...props },
+      ref,
+    ) {
+      const { colors, shadows } = useTheme();
+      const tokens = useComponentsTokens();
 
-    const pressableTokens = tokens.pressable;
+      const pressableTokens = tokens.pressable;
 
-    const extractedStyleProps = useStyleProps(props);
+      const extractedStyleProps = useStyleProps(props);
 
-    const pressableStyles = useCallback(
-      (state: PressableStateCallbackType): StyleProp<ViewStyle> => {
-        let overrideStyle: StyleProp<ViewStyle>;
+      const pressableStyles = useCallback(
+        (state: PressableStateCallbackType): StyleProp<ViewStyle> => {
+          let overrideStyle: StyleProp<ViewStyle>;
 
-        if (typeof style === "function") {
-          overrideStyle = style(state);
-        } else {
-          overrideStyle = style;
-        }
+          if (typeof style === "function") {
+            overrideStyle = style(state);
+          } else {
+            overrideStyle = style;
+          }
 
-        return StyleSheet.flatten([
-          {
-            opacity: disabled
-              ? pressableTokens.disabledOpacity
-              : state.pressed
-                ? pressableTokens.pressedOpacity
-                : 1,
-          },
-          getShadowStyle(props.shadow, props.shadowPosition, colors, shadows),
+          return StyleSheet.flatten([
+            {
+              opacity: disabled
+                ? pressableTokens.disabledOpacity
+                : state.pressed
+                  ? pressableTokens.pressedOpacity
+                  : 1,
+            },
+            getShadowStyle(props.shadow, props.shadowPosition, colors, shadows),
+            extractedStyleProps,
+            overrideStyle,
+            state.pressed ? pressedStyle : undefined,
+          ]);
+        },
+        [
+          style,
+          pressedStyle,
+          disabled,
           extractedStyleProps,
-          overrideStyle,
-          state.pressed ? pressedStyle : undefined,
-        ]);
-      },
-      [
-        style,
-        pressedStyle,
-        disabled,
-        extractedStyleProps,
-        props.shadow,
-        props.shadowPosition,
-        colors,
-        shadows,
-        pressableTokens.disabledOpacity,
-        pressableTokens.pressedOpacity,
-      ],
-    );
+          props.shadow,
+          props.shadowPosition,
+          colors,
+          shadows,
+          pressableTokens.disabledOpacity,
+          pressableTokens.pressedOpacity,
+        ],
+      );
 
-    return (
-      <RNPressable
-        {...props}
-        ref={ref}
-        style={pressableStyles}
-        disabled={disabled}
-      >
-        {children}
-      </RNPressable>
-    );
-  }),
+      return (
+        <RNPressable
+          {...props}
+          ref={ref}
+          style={pressableStyles}
+          disabled={disabled}
+        >
+          {children}
+        </RNPressable>
+      );
+    },
+  ),
 );
 ```
 
@@ -1006,7 +1036,7 @@ function themedStyles(theme: AppTheme, props: SpinnerThemeProps) {
 ### packages/primitives/src/components/atoms/tag.tsx
 
 ```tsx
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { Icon } from "@impulse-ui-native/icon";
@@ -1047,13 +1077,7 @@ export const Tag = memo(function Tag({
     [size, variant, disabled, color],
   );
 
-  const Container = useMemo(() => {
-    if (onPress) {
-      return Pressable;
-    }
-
-    return View;
-  }, [onPress]);
+  const Container = onPress ? Pressable : View;
 
   const showClose = closable && !disabled && onClose;
 
@@ -1353,6 +1377,12 @@ export type TypographyComponent = (typeof Typography)[keyof typeof Typography];
 ### packages/primitives/src/components/atoms/view.tsx
 
 ```tsx
+import type {
+  ComponentRef,
+  NamedExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from "react";
 import { forwardRef, memo, useMemo } from "react";
 import { View as NativeView, StyleSheet } from "react-native";
 
@@ -1364,8 +1394,13 @@ import {
 
 import { ViewProps } from "../../types";
 
-export const View = memo(
-  forwardRef<NativeView, ViewProps>(function View(props: ViewProps, ref) {
+export const View: NamedExoticComponent<
+  PropsWithoutRef<ViewProps> & RefAttributes<ComponentRef<typeof NativeView>>
+> = memo(
+  forwardRef<ComponentRef<typeof NativeView>, ViewProps>(function View(
+    props: ViewProps,
+    ref,
+  ) {
     const { style, shadow, shadowPosition, ...rest } = props;
 
     const { colors, shadows } = useTheme();
@@ -1391,15 +1426,21 @@ export const View = memo(
 import { ControlAddon } from "./addon";
 import { ControlContainer } from "./container";
 import { ControlError } from "./error";
+import { ControlField } from "./field";
+import { ControlIcon } from "./icon";
 import { ControlInput } from "./input";
 import { ControlLabel } from "./label";
 import { ControlLoader } from "./loader";
 import { ControlPlaceholder } from "./placeholder";
 import { ControlProvider } from "./provider";
 import { ControlRoot } from "./root";
+import { ControlTrigger } from "./trigger";
 import { ControlValue } from "./value";
 
 export const Control = {
+  Field: ControlField,
+  Trigger: ControlTrigger,
+  Icon: ControlIcon,
   Container: ControlContainer,
   Provider: ControlProvider,
   Root: ControlRoot,
@@ -1686,7 +1727,7 @@ export interface PressableCoreProps
 ### packages/primitives/src/types/control-components.types.ts
 
 ```tsx
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import type { TextInputProps, TextProps, ViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
@@ -1716,6 +1757,20 @@ export interface ControlComponentProps {
 export type ControlContextData = ControlComponentProps;
 
 export type ControlContainerProps = ViewProps;
+
+export type ControlTriggerProps = PressableCoreProps;
+
+export type ControlIconProps = IconProps;
+
+export interface ControlFieldProps extends Partial<ControlComponentProps> {
+  children?: ReactNode;
+  label?: string;
+  onPress?: PressableCoreProps["onPress"];
+  prefix?: ReactNode;
+  suffix?: ReactNode;
+  onPressPrefix?: PressableCoreProps["onPress"];
+  onPressSuffix?: PressableCoreProps["onPress"];
+}
 
 export type ControlLabelProps = TextProps;
 

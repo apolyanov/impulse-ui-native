@@ -1,6 +1,6 @@
 # @impulse-ui-native/carousel
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -99,7 +99,6 @@ example uses explicit primitive color overrides, as shown in the approved design
 Exercise Storybook on iOS and Android to validate snapping, resizing, preview
 bounds, centered alignment, midpoint transitions, empty/invalid indices, and
 native gestures.
-
 
 ## Public export and source reference
 

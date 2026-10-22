@@ -1,6 +1,6 @@
 # @impulse-ui-native/stepper
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -41,7 +41,6 @@ const steps = [
 ```
 
 The current index is controlled by the caller. Navigation methods clamp the index to the available step range.
-
 
 ## Public export and source reference
 
@@ -117,10 +116,7 @@ export const Stepper = memo(
       [current, lastStepIndex, onChange],
     );
 
-    const Step = useMemo(
-      () => items[current]?.Component ?? null,
-      [current, items],
-    );
+    const Step = items[current]?.Component ?? null;
 
     useImperativeHandle(ref, () => context, [context]);
 

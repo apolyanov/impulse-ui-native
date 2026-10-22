@@ -1,6 +1,6 @@
 # @impulse-ui-native/popover
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -64,7 +64,7 @@ A truthy header replaces the generated title. The header includes a neutral X cl
 - Root `disabled` suppresses the overlay and blocks trigger changes. Trigger/Close `disabled` or `loading` blocks that part's interaction. Supply a single Trigger and Content per Root; use non-interactive visual children inside Trigger rather than nesting another pressable.
 - Outside taps and Android Back request dismissal. Outside taps are consumed; there is no dim scrim. Content sizes naturally without internal scrolling. Keep popovers compact; use a sheet, dialog, or screen for larger content. Keyboard avoidance and nested overlay coordination are outside this initial API.
 - Tooltip `duration` defaults to 3000ms from opening; zero persists until dismissal. Timers clean up on close/unmount. Supply strings/numbers for token-styled text or a React node for custom content.
-- Popover uses one flat secondary surface with a subtle border and no default shadow. Override `components.popover` on ThemeProvider for geometry, typography, and panel styling. Tooltip owns its compact inverse styling through `components.popover.tooltip`, without a surface variant in Root or context.
+- Popover uses `colors.surface.elevated.value` with a subtle border and no default shadow. Override `components.popover` on ThemeProvider for geometry, typography, and panel styling. Tooltip owns its compact inverse styling through `components.popover.tooltip`, without a surface variant in Root or context.
 - Popover content defaults to 320dp wide; Tooltip sizes to its content. Both are constrained to the available host width. Content spacing and width can be customized with primitive style props or `style`.
 - Anchors and host bounds are measured on opening and polled every 100ms while open, following scrolling and layout changes. Only one measurement is in flight; slow native callbacks are allowed to finish. Closed overlays have no measurement timer. Content stays hidden until measured and when its anchor is outside the usable host bounds.
 - Popover and Tooltip use rounded panels without arrows. Collision handling flips to the opposite side when it has more space, then shifts into safe-area bounds. Extremely large content can overlap the anchor after clamping.
@@ -81,7 +81,6 @@ components.popover.surfaces.elevated customizations to the flat panel tokens
 and paddingVertical). Move inverse hint styling to components.popover.tooltip;
 its text color is named color. Customize Popover.Content directly for custom
 panel styling.
-
 
 ## Public export and source reference
 
@@ -159,6 +158,9 @@ export const Tooltip = memo(function Tooltip({
 
   useTimer({ enabled: open && !disabled, duration, callback: dismiss });
 
+  const isTextContent =
+    typeof content === "string" || typeof content === "number";
+
   return (
     <PopoverRoot
       {...props}
@@ -171,7 +173,7 @@ export const Tooltip = memo(function Tooltip({
         {children}
       </PopoverTrigger>
       <PopoverContent shadow="sm" style={styles.content}>
-        {typeof content === "string" || typeof content === "number" ? (
+        {isTextContent ? (
           <PopoverDescription style={styles.description}>
             {content}
           </PopoverDescription>
@@ -231,7 +233,12 @@ export type {
 ### packages/popover/src/types/popover.types.ts
 
 ```tsx
-import type { PropsWithChildren, ReactNode, RefObject } from "react";
+import type {
+  ComponentRef,
+  PropsWithChildren,
+  ReactNode,
+  RefObject,
+} from "react";
 import type { View as NativeView } from "react-native";
 
 import type {
@@ -290,7 +297,7 @@ export interface PopoverContextValue {
 
   setOpen: (open: boolean) => void;
 
-  anchorRef: RefObject<NativeView | null>;
+  anchorRef: RefObject<ComponentRef<typeof NativeView> | null>;
   placement: PopoverPlacement;
   portalName?: string;
 }
@@ -323,5 +330,12 @@ export interface PopoverSurfaceStyleProps {
   host?: PopoverRect;
   position: PopoverPosition | null;
   ready: boolean;
+}
+
+export interface PopoverSurfaceResult {
+  hostRef: RefObject<ComponentRef<typeof NativeView> | null>;
+  styleProps: PopoverSurfaceStyleProps;
+  close: () => void;
+  handleLayout: NonNullable<PopoverContentProps["onLayout"]>;
 }
 ```

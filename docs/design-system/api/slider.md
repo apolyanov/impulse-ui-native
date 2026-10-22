@@ -1,6 +1,6 @@
 # @impulse-ui-native/slider
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -97,7 +97,6 @@ Reanimated visuals. The callback must be a worklet and runs on the UI thread
 before step snapping; keep React state updates in `onValueChange`.
 
 Slider accepts trackContent for gradient or other custom track visuals. It renders the supplied content inside the clipped track and omits the numeric active fill. Touch handling, thumb, and callbacks remain unchanged. The theme token components.slider.interactionMinHeight defaults to 44 for native touch targets.
-
 
 ## Public export and source reference
 

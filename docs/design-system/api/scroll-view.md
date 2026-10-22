@@ -1,6 +1,6 @@
 # @impulse-ui-native/scroll-view
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -65,7 +65,6 @@ Positioning happens once per mount. A user drag cancels pending positioning. Lat
 
 Exports: `ScrollView`, `ScrollViewProps`, `useScrollViewInitialScroll`, and `UseScrollViewInitialScrollOptions`.
 
-
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -79,6 +78,7 @@ export * from "./use-scroll-view-initial-scroll.hook";
 ### packages/scroll-view/src/hooks/use-scroll-view-initial-scroll.hook.ts
 
 ```tsx
+import type { ComponentRef } from "react";
 import type {
   LayoutChangeEvent,
   NativeScrollEvent,
@@ -90,7 +90,10 @@ import { useRef } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 
-import type { UseScrollViewInitialScrollOptions } from "../types";
+import type {
+  UseScrollViewInitialScrollOptions,
+  UseScrollViewInitialScrollResult,
+} from "../types";
 import type { ScrollViewMeasurement } from "../types/scroll-view-measurement.types";
 import { getScrollViewRevealOffset } from "../utils/get-scroll-view-reveal-offset";
 
@@ -101,9 +104,9 @@ export function useScrollViewInitialScroll({
   onLayout,
   onContentSizeChange,
   onScrollBeginDrag,
-}: UseScrollViewInitialScrollOptions = {}) {
-  const scrollViewRef = useRef<ScrollView>(null);
-  const targetRef = useRef<View>(null);
+}: UseScrollViewInitialScrollOptions = {}): UseScrollViewInitialScrollResult {
+  const scrollViewRef = useRef<ComponentRef<typeof ScrollView>>(null);
+  const targetRef = useRef<ComponentRef<typeof View>>(null);
   const viewportSizeRef = useRef(0);
   const contentSizeRef = useRef(0);
   const completedRef = useRef(false);
@@ -250,7 +253,17 @@ export * from "./use-scroll-view-initial-scroll.types";
 ### packages/scroll-view/src/types/use-scroll-view-initial-scroll.types.ts
 
 ```tsx
-import type { ScrollViewProps } from "react-native";
+import type { ComponentRef, RefObject } from "react";
+import type { ScrollView, ScrollViewProps, View } from "react-native";
+
+export interface UseScrollViewInitialScrollResult {
+  scrollViewRef: RefObject<ComponentRef<typeof ScrollView> | null>;
+  targetRef: RefObject<ComponentRef<typeof View> | null>;
+  onTargetLayout: () => void;
+  onLayout: NonNullable<ScrollViewProps["onLayout"]>;
+  onContentSizeChange: NonNullable<ScrollViewProps["onContentSizeChange"]>;
+  onScrollBeginDrag: NonNullable<ScrollViewProps["onScrollBeginDrag"]>;
+}
 
 export interface UseScrollViewInitialScrollOptions extends Pick<
   ScrollViewProps,

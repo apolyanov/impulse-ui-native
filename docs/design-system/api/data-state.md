@@ -1,6 +1,6 @@
 # @impulse-ui-native/data-state
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -22,6 +22,12 @@ Complete the Reanimated and Worklets setup required by your React Native or Expo
 - `EmptyView` and `ErrorView` are standalone containers for caller-rendered state content.
 - `DataView` coordinates loading, error, empty, and successful-content states and renders the configured state copy and actions.
 - Public prop types describe each state view and its action footer.
+
+`EmptyView` and `ErrorView` always render their supplied children. Their only
+container-specific option is `contentContainerStyle`, which styles the inner
+content separately from the outer `style`. They accept native/themed View props
+and children; text, action, `variant`, `isEmpty`, and `error` props are not part
+of their API. Use `DataView` for automatic state selection and configured details.
 
 ## Usage
 
@@ -55,7 +61,6 @@ visually hidden beneath the loader. Give those children their expected loaded
 height to prevent the surrounding layout from shifting when loading finishes.
 
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
-
 
 ## Public export and source reference
 
@@ -113,6 +118,8 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
     isEmpty,
   ]);
 
+  const showContent = !error && !isEmpty;
+
   return (
     <LoadingView
       {...rest}
@@ -120,7 +127,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
       contentContainerStyle={contentContainerStyle}
       loading={loading}
     >
-      {!error && !isEmpty ? children : null}
+      {showContent ? children : null}
       {content}
     </LoadingView>
   );
@@ -132,29 +139,11 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
 ```tsx
 import { memo } from "react";
 
-import { View } from "@impulse-ui-native/primitives";
-
-import { EmptyViewProps } from "../types";
+import type { EmptyViewProps } from "../types";
+import { StateViewContainer } from "./state-view-container";
 
 export const EmptyView = memo(function EmptyView(props: EmptyViewProps) {
-  const {
-    variant,
-    text,
-    isEmpty,
-    onPressPrimaryAction,
-    primaryActionLabel,
-    onPressSecondaryAction,
-    secondaryActionLabel,
-    contentContainerStyle,
-    children,
-    ...rest
-  } = props;
-
-  return (
-    <View {...rest}>
-      <View style={contentContainerStyle}>{children}</View>
-    </View>
-  );
+  return <StateViewContainer {...props} />;
 });
 ```
 
@@ -163,29 +152,11 @@ export const EmptyView = memo(function EmptyView(props: EmptyViewProps) {
 ```tsx
 import { memo } from "react";
 
-import { View } from "@impulse-ui-native/primitives";
-
-import { ErrorViewProps } from "../types";
+import type { ErrorViewProps } from "../types";
+import { StateViewContainer } from "./state-view-container";
 
 export const ErrorView = memo(function ErrorView(props: ErrorViewProps) {
-  const {
-    variant,
-    text,
-    error,
-    onPressPrimaryAction,
-    onPressSecondaryAction,
-    primaryActionLabel,
-    secondaryActionLabel,
-    contentContainerStyle,
-    children,
-    ...rest
-  } = props;
-
-  return (
-    <View {...rest}>
-      <View style={contentContainerStyle}>{children}</View>
-    </View>
-  );
+  return <StateViewContainer {...props} />;
 });
 ```
 
@@ -344,7 +315,7 @@ export * from "./state-view.types";
 ### packages/data-state/src/types/state-view.types.ts
 
 ```tsx
-import { ComponentType, ReactNode } from "react";
+import { ComponentType } from "react";
 import { PressableProps, ViewStyle } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
@@ -363,13 +334,13 @@ export interface StateViewProps extends StateActionsFooterProps, ViewProps {
   contentContainerStyle?: ViewStyle;
 }
 
-export interface EmptyViewProps extends StateViewProps {
-  isEmpty: boolean;
+export interface StateContainerProps extends ViewProps {
+  contentContainerStyle?: ViewStyle;
 }
 
-export interface ErrorViewProps extends StateViewProps {
-  error: Error | null;
-}
+export type EmptyViewProps = StateContainerProps;
+
+export type ErrorViewProps = StateContainerProps;
 
 export interface LoadingViewProps extends ViewProps {
   loading: boolean;
@@ -378,8 +349,8 @@ export interface LoadingViewProps extends ViewProps {
 }
 
 export interface DataViewProps extends ViewProps {
-  error: ErrorViewProps["error"];
-  isEmpty: EmptyViewProps["isEmpty"];
+  error: Error | null;
+  isEmpty: boolean;
   LoadingComponent: ComponentType;
   loading: LoadingViewProps["loading"];
   contentContainerStyle?: ViewStyle;

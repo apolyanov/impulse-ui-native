@@ -11,7 +11,7 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const output = path.join(root, "docs/design-system");
 const cache = new Map();
 const sources = new Map();
-const reviewDate = "2026-10-15";
+const reviewDate = "2026-10-22";
 
 read("pnpm-workspace.yaml");
 

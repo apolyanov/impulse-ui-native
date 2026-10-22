@@ -1,6 +1,6 @@
 # @impulse-ui-native/modal
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -153,7 +153,6 @@ local status with onStatusChange(id, status), or hosted status with useOverlaySt
 
 `components.modal.enterDuration` and `exitDuration` control the fade/scale
 transition timing. Defaults remain 180 ms and 150 ms.
-
 
 ## Public export and source reference
 

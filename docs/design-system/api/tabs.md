@@ -1,6 +1,6 @@
 # @impulse-ui-native/tabs
 
-Local package version: 9.1.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -66,7 +66,6 @@ Visuals come from `theme.components.tabs`, generated with `createTabsTokens`: pr
 
 Exports: `Tabs`, `TabsProps`, `TabsItem`, and `TabsOverflow`.
 
-
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -112,13 +111,12 @@ export const Tabs = memo(function Tabs({
     () => defaultValue ?? items.find((item) => !item.disabled)?.value,
     [defaultValue, items],
   );
-  const stateOptions = useMemo(
-    () => ({ prop: value, defaultProp: initialValue, onChange: onValueChange }),
-    [initialValue, onValueChange, value],
-  );
 
-  const [selectedValue, setSelectedValue] =
-    useControllableState<string>(stateOptions);
+  const [selectedValue, setSelectedValue] = useControllableState<string>({
+    prop: value,
+    defaultProp: initialValue,
+    onChange: onValueChange,
+  });
   const initialSelectedValue = useRef(selectedValue).current;
   const initialScroll = useScrollViewInitialScroll({
     horizontal: true,
@@ -133,26 +131,30 @@ export const Tabs = memo(function Tabs({
   const rootStyle = useMemo(() => [styles.root, style], [style, styles.root]);
   const tabButtons = useMemo(
     () =>
-      items.map((item) => (
-        <TabButton
-          key={item.value}
-          item={item}
-          disabled={disabled || Boolean(item.disabled)}
-          selected={item.value === selectedValue}
-          size={size}
-          onSelect={setSelectedValue}
-          initialScrollRef={
-            item.value === initialSelectedValue
-              ? initialScroll.targetRef
-              : undefined
-          }
-          onLayout={
-            item.value === initialSelectedValue
-              ? initialScroll.onTargetLayout
-              : undefined
-          }
-        />
-      )),
+      items.map((item) => {
+        const itemDisabled = disabled || Boolean(item.disabled);
+
+        return (
+          <TabButton
+            key={item.value}
+            item={item}
+            disabled={itemDisabled}
+            selected={item.value === selectedValue}
+            size={size}
+            onSelect={setSelectedValue}
+            initialScrollRef={
+              item.value === initialSelectedValue
+                ? initialScroll.targetRef
+                : undefined
+            }
+            onLayout={
+              item.value === initialSelectedValue
+                ? initialScroll.onTargetLayout
+                : undefined
+            }
+          />
+        );
+      }),
     [
       disabled,
       items,
