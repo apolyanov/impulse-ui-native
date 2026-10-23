@@ -1,5 +1,13 @@
 # @impulse-ui-native/switch
 
+## 11.3.2
+
+### Patch Changes
+
+- @impulse-ui-native/core@11.3.2
+- @impulse-ui-native/primitives@11.3.2
+- @impulse-ui-native/theme@11.3.2
+
 ## 11.3.1
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @impulse-ui-native/storybook
 
+## 11.3.2
+
+### Patch Changes
+
+- @impulse-ui-native/icon@11.3.2
+- @impulse-ui-native/primitives@11.3.2
+- @impulse-ui-native/theme@11.3.2
+- @impulse-ui-native/card@11.3.2
+- @impulse-ui-native/list@11.3.2
+- @impulse-ui-native/progress@11.3.2
+- @impulse-ui-native/flat-list@11.3.2
+- @impulse-ui-native/color-picker@11.3.2
+- @impulse-ui-native/icon-view@11.3.2
+
 ## 11.3.1
 
 ### Patch Changes

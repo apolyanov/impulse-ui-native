@@ -1,5 +1,12 @@
 # @impulse-ui-native/list
 
+## 11.3.2
+
+### Patch Changes
+
+- @impulse-ui-native/primitives@11.3.2
+- @impulse-ui-native/theme@11.3.2
+
 ## 11.3.1
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @impulse-ui-native/charts
 
+## 11.3.2
+
+### Patch Changes
+
+- a8196d9: Show all unique categories by default on bar and point-scale line chart axes, including multi-series charts, while preserving explicit tick counts and continuous-axis defaults.
+  - @impulse-ui-native/core@11.3.2
+  - @impulse-ui-native/primitives@11.3.2
+  - @impulse-ui-native/theme@11.3.2
+
 ## 11.3.1
 
 ### Patch Changes
