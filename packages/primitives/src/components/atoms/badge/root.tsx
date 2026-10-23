@@ -92,7 +92,6 @@ function themedStyles(theme: AppTheme, props: BadgeThemeProps) {
   return StyleSheet.create({
     container: {
       alignItems: "center",
-      alignSelf: "flex-start",
       flexDirection: "row",
       flexShrink: 0,
       justifyContent: "center",

@@ -146,6 +146,10 @@ appearance, but does not inject label content.
 
 Use `Badge` for compact states and metadata. It supports `filled`, `outlined`, and `soft` display variants and semantic tones. Its addons follow Input: use `PrefixIcon` or `Prefix`, `SuffixIcon` or `Suffix`, and optionally `onPressPrefix` or `onPressSuffix`. A custom component takes precedence over its corresponding icon. Use `Tag` when the whole label needs built-in press or close behavior.
 
+Badges follow their parent's `alignItems` for cross-axis alignment. For example,
+use `alignItems="center"` on a column to center badges horizontally. Use
+`alignSelf` on a badge when it needs a different alignment from its siblings.
+
 ## Dedicated component packages
 
 Card, List, Progress, and their prop types are exported from `@impulse-ui-native/card`, `@impulse-ui-native/list`, and `@impulse-ui-native/progress`, respectively. They remain available through `@impulse-ui-native/toolkit`. Migrate direct primitives imports to their owning packages.
