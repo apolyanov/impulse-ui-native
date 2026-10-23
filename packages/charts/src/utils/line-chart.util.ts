@@ -23,7 +23,6 @@ import {
 export function createLineChartScaleModel<X extends ChartXValue>(
   props: UseLineChartProps<X>,
 ): Omit<UseLineChartResult<X>, "coordinates"> {
-  const xTickCount = getChartTickCount(props.xAxis?.tickCount);
   const yTickCount = getChartTickCount(props.yAxis?.tickCount);
   const xRange: ChartNumericDomain = [
     props.plot.x,
@@ -39,7 +38,7 @@ export function createLineChartScaleModel<X extends ChartXValue>(
     xValues,
     props.xScaleType ?? inferChartScaleType(xValues),
     xRange,
-    xTickCount,
+    props.xAxis?.tickCount,
   );
 
   const yValues = props.data.reduce<number[]>((values, point) => {
@@ -122,7 +121,7 @@ function createXScale<X extends ChartXValue>(
   values: readonly X[],
   scaleType: UseLineChartProps<X>["xScaleType"],
   range: ChartNumericDomain,
-  tickCount: number,
+  tickCount: number | undefined,
 ): LineChartXScaleModel<X> {
   if (scaleType === "point") {
     const d3Scale = scalePoint<X>()
@@ -132,10 +131,12 @@ function createXScale<X extends ChartXValue>(
 
     return {
       domain,
-      ticks: selectChartTicks(domain, tickCount),
+      ticks: selectChartTicks(domain, getChartTickCount(tickCount, domain.length)),
       scale: (value) => d3Scale(value),
     };
   }
+
+  const continuousTickCount = getChartTickCount(tickCount);
 
   if (scaleType === "time") {
     const dates = values.filter(
@@ -154,13 +155,13 @@ function createXScale<X extends ChartXValue>(
         : ([new Date(0), new Date(1)] as const);
     const d3Scale = scaleTime().domain(domain).range(range);
 
-    if (tickCount > 0) {
-      d3Scale.nice(tickCount);
+    if (continuousTickCount > 0) {
+      d3Scale.nice(continuousTickCount);
     }
 
     return {
       domain: d3Scale.domain() as X[],
-      ticks: d3Scale.ticks(tickCount) as X[],
+      ticks: d3Scale.ticks(continuousTickCount) as X[],
       scale: (value) =>
         value instanceof Date && Number.isFinite(value.getTime())
           ? d3Scale(value)
@@ -175,7 +176,7 @@ function createXScale<X extends ChartXValue>(
   const numeric = createChartNumericScale(
     getNumericDomain(numbers),
     range,
-    tickCount,
+    continuousTickCount,
     true,
   );
 

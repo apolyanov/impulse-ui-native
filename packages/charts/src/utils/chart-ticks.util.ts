@@ -1,8 +1,11 @@
 import { LineChartDefaultTickCount } from "../constants/line-chart.constants";
 import { normalizeChartNumber } from "./chart-number.util";
 
-export function getChartTickCount(value: number | undefined): number {
-  return Math.floor(normalizeChartNumber(value, LineChartDefaultTickCount));
+export function getChartTickCount(
+  value: number | undefined,
+  fallback = LineChartDefaultTickCount,
+): number {
+  return Math.floor(normalizeChartNumber(value, fallback));
 }
 
 export function selectChartTicks<Value>(

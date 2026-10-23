@@ -264,6 +264,8 @@ For rings, excessive `ringPadding` can consume all radial space; reduce padding
 or increase chart size. Pie totals saturate at `Number.MAX_VALUE` when their sum
 overflows, while slice proportions remain valid.
 
+Categorical axes show every unique valid category in data order by default: this applies to `BarChart` and `MultiBarChart` (including horizontal and stacked bars), and to `LineChart` and `MultiLineChart` with a point X scale. Set `xAxis.tickCount` to explicitly thin these labels, or `0` to hide ticks. Continuous numeric/date line axes and numeric value axes retain a default target of five ticks. Pie charts have no axes.
+
 Grid visibility and axis stroke/tick visibility are independent. Use
 `xAxis.line.visible`, `xAxis.tick.visible`, or the corresponding Y options to
 hide individual parts. Label size/rotation and very small parent layouts can

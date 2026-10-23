@@ -40,6 +40,7 @@ export interface ChartLayout {
 
 export interface ChartAxisOptions<Value> {
   visible?: boolean;
+  /** Defaults to all unique categories for categorical axes, or 5 for continuous axes. */
   tickCount?: number;
   format?: (value: Value) => string;
   line?: ChartAxisLineOptions;

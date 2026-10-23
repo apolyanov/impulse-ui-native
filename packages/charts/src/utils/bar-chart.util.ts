@@ -99,7 +99,6 @@ export function createBarChartScaleModel<X extends ChartXValue>(
   props: UseBarChartProps<X>,
   tokens: ChartsTokens = DefaultChartsTokens,
 ): BarChartScaleModel<X> {
-  const xTickCount = getChartTickCount(props.xAxis?.tickCount);
   const yTickCount = getChartTickCount(props.yAxis?.tickCount);
   const categoryPadding = normalizeBarChartPadding(
     props.categoryPadding,
@@ -119,6 +118,7 @@ export function createBarChartScaleModel<X extends ChartXValue>(
     .paddingInner(categoryPadding)
     .paddingOuter(categoryPadding / 2);
   const xDomain = xBandScale.domain();
+  const xTickCount = getChartTickCount(props.xAxis?.tickCount, xDomain.length);
   const bandwidth = xDomain.length === 0 ? 0 : xBandScale.bandwidth();
 
   const xStartScale: LineChartScale<X> = (value) => xBandScale(value);

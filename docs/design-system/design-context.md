@@ -306,6 +306,8 @@ Deep partial primitive overrides can customize both schemes. Component overrides
 
 This is an illustrative customization, not a selected brand for the new application. Primitive changes regenerate component defaults before component overrides are merged. In an app, keep reusable overrides stable and name screen-level decisions clearly.
 
+Categorical axes show every unique valid category in data order by default: this applies to `BarChart` and `MultiBarChart` (including horizontal and stacked bars), and to `LineChart` and `MultiLineChart` with a point X scale. Set `xAxis.tickCount` to explicitly thin these labels, or `0` to hide ticks. Continuous numeric/date line axes and numeric value axes retain a default target of five ticks. Pie charts have no axes.
+
 Charts have their own palette and geometry under `components.charts`; customize those rather than assuming the brand palette supplies every series. Their explicit component/series props can supersede token defaults. Multi-series line/bar default colors are selected by a hash of the series ID, not simply its display index. The deep merge utility merges arrays by index, so a shorter palette override retains trailing default entries. Review the resolved palette when customizing it. The complete reference includes chart insets, axis/grid/line widths, labels, legends, selection markers, and tooltip presentation.
 
 Motion is component-specific and implemented with Reanimated. Example defaults: Modal enter/exit **180 / 150 ms** with closed scale **0.96**; Flyout enter spring **damping 50, stiffness 300, mass 1**, exit **150 ms**, maximum height ratio **0.7**. The complete table includes Toast, Skeleton, Switch, Slider, and other motion tokens. A global duration token is not present.

@@ -270,6 +270,8 @@ For rings, excessive `ringPadding` can consume all radial space; reduce padding
 or increase chart size. Pie totals saturate at `Number.MAX_VALUE` when their sum
 overflows, while slice proportions remain valid.
 
+Categorical axes show every unique valid category in data order by default: this applies to `BarChart` and `MultiBarChart` (including horizontal and stacked bars), and to `LineChart` and `MultiLineChart` with a point X scale. Set `xAxis.tickCount` to explicitly thin these labels, or `0` to hide ticks. Continuous numeric/date line axes and numeric value axes retain a default target of five ticks. Pie charts have no axes.
+
 Grid visibility and axis stroke/tick visibility are independent. Use
 `xAxis.line.visible`, `xAxis.tick.visible`, or the corresponding Y options to
 hide individual parts. Label size/rotation and very small parent layouts can
@@ -2250,6 +2252,7 @@ export interface ChartLayout {
 
 export interface ChartAxisOptions<Value> {
   visible?: boolean;
+  /** Defaults to all unique categories for categorical axes, or 5 for continuous axes. */
   tickCount?: number;
   format?: (value: Value) => string;
   line?: ChartAxisLineOptions;
@@ -3058,7 +3061,6 @@ export function createBarChartScaleModel<X extends ChartXValue>(
   props: UseBarChartProps<X>,
   tokens: ChartsTokens = DefaultChartsTokens,
 ): BarChartScaleModel<X> {
-  const xTickCount = getChartTickCount(props.xAxis?.tickCount);
   const yTickCount = getChartTickCount(props.yAxis?.tickCount);
   const categoryPadding = normalizeBarChartPadding(
     props.categoryPadding,
@@ -3078,6 +3080,7 @@ export function createBarChartScaleModel<X extends ChartXValue>(
     .paddingInner(categoryPadding)
     .paddingOuter(categoryPadding / 2);
   const xDomain = xBandScale.domain();
+  const xTickCount = getChartTickCount(props.xAxis?.tickCount, xDomain.length);
   const bandwidth = xDomain.length === 0 ? 0 : xBandScale.bandwidth();
 
   const xStartScale: LineChartScale<X> = (value) => xBandScale(value);
@@ -3740,7 +3743,6 @@ import {
 export function createLineChartScaleModel<X extends ChartXValue>(
   props: UseLineChartProps<X>,
 ): Omit<UseLineChartResult<X>, "coordinates"> {
-  const xTickCount = getChartTickCount(props.xAxis?.tickCount);
   const yTickCount = getChartTickCount(props.yAxis?.tickCount);
   const xRange: ChartNumericDomain = [
     props.plot.x,
@@ -3756,7 +3758,7 @@ export function createLineChartScaleModel<X extends ChartXValue>(
     xValues,
     props.xScaleType ?? inferChartScaleType(xValues),
     xRange,
-    xTickCount,
+    props.xAxis?.tickCount,
   );
 
   const yValues = props.data.reduce<number[]>((values, point) => {
@@ -3839,7 +3841,7 @@ function createXScale<X extends ChartXValue>(
   values: readonly X[],
   scaleType: UseLineChartProps<X>["xScaleType"],
   range: ChartNumericDomain,
-  tickCount: number,
+  tickCount: number | undefined,
 ): LineChartXScaleModel<X> {
   if (scaleType === "point") {
     const d3Scale = scalePoint<X>()
@@ -3849,10 +3851,12 @@ function createXScale<X extends ChartXValue>(
 
     return {
       domain,
-      ticks: selectChartTicks(domain, tickCount),
+      ticks: selectChartTicks(domain, getChartTickCount(tickCount, domain.length)),
       scale: (value) => d3Scale(value),
     };
   }
+
+  const continuousTickCount = getChartTickCount(tickCount);
 
   if (scaleType === "time") {
     const dates = values.filter(
@@ -3871,13 +3875,13 @@ function createXScale<X extends ChartXValue>(
         : ([new Date(0), new Date(1)] as const);
     const d3Scale = scaleTime().domain(domain).range(range);
 
-    if (tickCount > 0) {
-      d3Scale.nice(tickCount);
+    if (continuousTickCount > 0) {
+      d3Scale.nice(continuousTickCount);
     }
 
     return {
       domain: d3Scale.domain() as X[],
-      ticks: d3Scale.ticks(tickCount) as X[],
+      ticks: d3Scale.ticks(continuousTickCount) as X[],
       scale: (value) =>
         value instanceof Date && Number.isFinite(value.getTime())
           ? d3Scale(value)
@@ -3892,7 +3896,7 @@ function createXScale<X extends ChartXValue>(
   const numeric = createChartNumericScale(
     getNumericDomain(numbers),
     range,
-    tickCount,
+    continuousTickCount,
     true,
   );
 

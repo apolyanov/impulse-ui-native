@@ -757,3 +757,72 @@ test("tap dismissal recognizes every selected category point without matching ot
   assert.equal(isChartTargetSelected(null, selected), false);
   assert.equal(isChartTargetSelected(first[0]!, []), false);
 });
+
+test("categorical axes infer every unique weekday and preserve tick overrides", () => {
+  const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
+  const data = [...days, days[0]!].map((x) => ({ x, y: 10 }));
+
+  for (const tickCount of [undefined, 3, 0]) {
+    const expected = selectChartTicks(days, tickCount ?? days.length);
+    const props = { plot, data, xAxis: { tickCount } };
+    assert.deepEqual(createLineChartModel(props).xTicks, expected);
+    for (const orientation of ["vertical", "horizontal"] as const) {
+      assert.deepEqual(
+        createBarChartModel({ ...props, orientation }).xTicks,
+        expected,
+      );
+      for (const mode of ["grouped", "stacked"] as const) {
+        const model = createMultiBarChartModel({
+          plot,
+          orientation,
+          mode,
+          xAxis: { tickCount },
+          series: [
+            { id: "first", data: data.slice(0, 4) },
+            { id: "second", data: data.slice(3) },
+          ],
+        });
+        assert.deepEqual(model.xTicks, expected);
+      }
+    }
+    // MultiLineChart uses this same scale model with flattened series data.
+    assert.deepEqual(createLineChartScaleModel(props).xTicks, expected);
+  }
+});
+
+test("point scales infer valid unique categories for numeric and date data", () => {
+  for (const values of [
+    [1, 2, 3, 4, 5, 6, 7, 1, NaN],
+    [0, 1, 2, 3, 4, 5, 6, 0, NaN].map((value) => new Date(value)),
+  ]) {
+    const data = values.map((x) => ({ x, y: 1 }));
+    const expected = values.slice(0, 7);
+    assert.deepEqual(createBarChartModel({ plot, data }).xTicks, expected);
+    assert.deepEqual(
+      createLineChartModel({ plot, data, xScaleType: "point" }).xTicks,
+      expected,
+    );
+  }
+  assert.deepEqual(createBarChartModel({ plot, data: [] }).xTicks, []);
+  assert.deepEqual(
+    createLineChartModel({ plot, data: [], xScaleType: "point" }).xTicks,
+    [],
+  );
+});
+
+test("continuous axes keep their default tick target", () => {
+  for (const values of [
+    [0, 10, 20, 30, 40, 50, 60],
+    [0, 10, 20, 30, 40, 50, 60].map((day) => new Date(day * 86400000)),
+  ]) {
+    const props = { plot, data: values.map((x) => ({ x, y: 10 })) };
+    const implicit = createLineChartModel(props);
+    const explicit = createLineChartModel({
+      ...props,
+      xAxis: { tickCount: 5 },
+      yAxis: { tickCount: 5 },
+    });
+    assert.deepEqual(implicit.xTicks, explicit.xTicks);
+    assert.deepEqual(implicit.yTicks, explicit.yTicks);
+  }
+});
