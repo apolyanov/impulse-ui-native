@@ -1,5 +1,51 @@
 # @impulse-ui-native/toolkit
 
+## 11.3.0
+
+### Minor Changes
+
+- e90e036: Add IconView, a non-pressable icon surface with IconButton sizes and Badge variants and semantic tones, backed by dedicated theme tokens.
+
+### Patch Changes
+
+- Updated dependencies [e90e036]
+- Updated dependencies [eea2aca]
+  - @impulse-ui-native/icon-view@11.3.0
+  - @impulse-ui-native/theme@11.3.0
+  - @impulse-ui-native/primitives@11.3.0
+  - @impulse-ui-native/accordion@11.3.0
+  - @impulse-ui-native/card@11.3.0
+  - @impulse-ui-native/carousel@11.3.0
+  - @impulse-ui-native/charts@11.3.0
+  - @impulse-ui-native/checkbox@11.3.0
+  - @impulse-ui-native/color-picker@11.3.0
+  - @impulse-ui-native/data-state@11.3.0
+  - @impulse-ui-native/datetime@11.3.0
+  - @impulse-ui-native/flyout@11.3.0
+  - @impulse-ui-native/form-field@11.3.0
+  - @impulse-ui-native/input@11.3.0
+  - @impulse-ui-native/list@11.3.0
+  - @impulse-ui-native/modal@11.3.0
+  - @impulse-ui-native/pagination@11.3.0
+  - @impulse-ui-native/popover@11.3.0
+  - @impulse-ui-native/progress@11.3.0
+  - @impulse-ui-native/radio@11.3.0
+  - @impulse-ui-native/segmented-control@11.3.0
+  - @impulse-ui-native/select@11.3.0
+  - @impulse-ui-native/skeleton@11.3.0
+  - @impulse-ui-native/slider@11.3.0
+  - @impulse-ui-native/stepper@11.3.0
+  - @impulse-ui-native/switch@11.3.0
+  - @impulse-ui-native/tabs@11.3.0
+  - @impulse-ui-native/toast@11.3.0
+  - @impulse-ui-native/core@11.3.0
+  - @impulse-ui-native/echo@11.3.0
+  - @impulse-ui-native/endpoint@11.3.0
+  - @impulse-ui-native/overlay@11.3.0
+  - @impulse-ui-native/portal@11.3.0
+  - @impulse-ui-native/flat-list@11.3.0
+  - @impulse-ui-native/scroll-view@11.3.0
+
 ## 11.2.0
 
 ### Patch Changes

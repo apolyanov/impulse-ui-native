@@ -1,5 +1,16 @@
 # @impulse-ui-native/carousel
 
+## 11.3.0
+
+### Patch Changes
+
+- Updated dependencies [e90e036]
+- Updated dependencies [eea2aca]
+  - @impulse-ui-native/theme@11.3.0
+  - @impulse-ui-native/primitives@11.3.0
+  - @impulse-ui-native/icon@11.3.0
+  - @impulse-ui-native/core@11.3.0
+
 ## 11.2.0
 
 ### Patch Changes

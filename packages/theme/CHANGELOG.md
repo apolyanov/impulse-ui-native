@@ -1,5 +1,15 @@
 # @impulse-ui-native/theme
 
+## 11.3.0
+
+### Minor Changes
+
+- e90e036: Add IconView, a non-pressable icon surface with IconButton sizes and Badge variants and semantic tones, backed by dedicated theme tokens.
+
+### Patch Changes
+
+- @impulse-ui-native/core@11.3.0
+
 ## 11.2.0
 
 ### Patch Changes

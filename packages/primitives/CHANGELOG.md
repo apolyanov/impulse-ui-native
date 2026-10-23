@@ -1,5 +1,15 @@
 # @impulse-ui-native/primitives
 
+## 11.3.0
+
+### Patch Changes
+
+- eea2aca: Allow badges to follow their parent's cross-axis alignment instead of forcing start alignment.
+- Updated dependencies [e90e036]
+  - @impulse-ui-native/theme@11.3.0
+  - @impulse-ui-native/icon@11.3.0
+  - @impulse-ui-native/core@11.3.0
+
 ## 11.2.0
 
 ### Minor Changes
