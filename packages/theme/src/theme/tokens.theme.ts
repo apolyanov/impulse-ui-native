@@ -216,6 +216,11 @@ export const LightColors: ThemeColors = {
     contrast: "#c92a3b",
   },
 
+  subtle: {
+    value: "#FFF5F6",
+    contrast: "#c92a3b",
+  },
+
   neutral: NeutralColorTokens,
 
   surface: {
@@ -306,6 +311,11 @@ export const DarkColors: ThemeColors = {
 
   secondary: {
     value: "#3b2027",
+    contrast: "#FA9EA7",
+  },
+
+  subtle: {
+    value: "#241C20",
     contrast: "#FA9EA7",
   },
 

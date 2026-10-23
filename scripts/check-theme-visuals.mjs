@@ -102,6 +102,7 @@ for (const scheme of ["Light", "Dark"]) {
     colors.primary,
     colors.secondary,
     colors.accent,
+    colors.subtle,
     ...Object.values(colors.feedback),
   ]) {
     checkPair(pair.contrast, pair.value, 4.5, `${scheme} palette pair`);

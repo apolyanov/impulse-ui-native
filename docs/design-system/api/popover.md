@@ -1,6 +1,6 @@
 # @impulse-ui-native/popover
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -81,7 +81,6 @@ components.popover.surfaces.elevated customizations to the flat panel tokens
 and paddingVertical). Move inverse hint styling to components.popover.tooltip;
 its text color is named color. Customize Popover.Content directly for custom
 panel styling.
-
 
 ## Public export and source reference
 

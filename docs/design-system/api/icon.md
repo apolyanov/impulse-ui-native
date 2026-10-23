@@ -1,6 +1,6 @@
 # @impulse-ui-native/icon
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -43,7 +43,6 @@ entrypoints so Metro only includes the icons used by the application:
 ```tsx
 import { HeartIcon } from "@impulse-ui-native/icon/icons/heart";
 ```
-
 
 ## Public export and source reference
 
@@ -108,12 +107,7 @@ import { ComponentSize } from "@impulse-ui-native/theme";
 export type IconStyle = SvgProps["style"];
 
 export type IconVariant =
-  | "bold"
-  | "duotone"
-  | "fill"
-  | "light"
-  | "regular"
-  | "thin";
+  "bold" | "duotone" | "fill" | "light" | "regular" | "thin";
 
 export interface IconProps extends SvgProps {
   size?: ComponentSize | number;

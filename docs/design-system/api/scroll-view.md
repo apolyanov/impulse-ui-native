@@ -1,6 +1,6 @@
 # @impulse-ui-native/scroll-view
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -64,7 +64,6 @@ Pass `enabled: false` to skip positioning. Pass native `contentOffset` to both t
 Positioning happens once per mount. A user drag cancels pending positioning. Later selection and layout changes do not scroll again. Mount with the initial selection and content available, and remount when a fresh initial position is needed. This hook is for ordinary, unzoomed ScrollViews without automatic/custom content insets or snapping.
 
 Exports: `ScrollView`, `ScrollViewProps`, `useScrollViewInitialScroll`, and `UseScrollViewInitialScrollOptions`.
-
 
 ## Public export and source reference
 

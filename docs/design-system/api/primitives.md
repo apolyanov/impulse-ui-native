@@ -1,6 +1,6 @@
 # @impulse-ui-native/primitives
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -182,11 +182,16 @@ spacing, dimension, and shadow props. Native `style` objects or callbacks overri
 direct style props; `pressedStyle` applies last while pressed.
 
 ```tsx
-<Pressable flex={1} flexDirection="row" alignItems="center" gap={8} padding={16}>
+<Pressable
+  flex={1}
+  flexDirection="row"
+  alignItems="center"
+  gap={8}
+  padding={16}
+>
   <Typography.Master>Continue</Typography.Master>
 </Pressable>
 ```
-
 
 ## Public export and source reference
 

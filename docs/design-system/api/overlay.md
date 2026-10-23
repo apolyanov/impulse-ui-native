@@ -1,6 +1,6 @@
 # @impulse-ui-native/overlay
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -110,7 +110,6 @@ Registered components must forward onStatusChange to the shared lifecycle hook
 or report it themselves. Registrations may supply their own onStatusChange
 callback alongside the host's tracking. Store entries expose their latest optional
 status; host removal still happens through onCloseFinished.
-
 
 ## Public export and source reference
 
@@ -791,8 +790,7 @@ export type OverlayOpenArguments<Props extends object> = [Props] extends [never]
     : [props: Props];
 
 export type OverlayTitle<Props extends object> =
-  | string
-  | ((...args: OverlayOpenArguments<Props>) => string | undefined);
+  string | ((...args: OverlayOpenArguments<Props>) => string | undefined);
 
 export interface OverlayRegistrationProps<Props extends object = never> {
   id: OverlayID;

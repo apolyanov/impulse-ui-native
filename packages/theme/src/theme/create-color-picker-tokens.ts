@@ -40,6 +40,7 @@ export function createColorPickerTokens(
       { label: "Primary", color: colors.primary.value },
       { label: "Accent", color: colors.accent.value },
       { label: "Secondary", color: colors.secondary.value },
+      { label: "Subtle", color: colors.subtle.value },
       { label: "Error", color: colors.feedback.error.value },
       { label: "Warning", color: colors.feedback.warning.value },
       { label: "Success", color: colors.feedback.success.value },

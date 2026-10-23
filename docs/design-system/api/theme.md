@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -51,6 +51,26 @@ export function App() {
 - `useStyleProps` and `extractStyleProps` convert supported system props into styles.
 - Primitive token constants include `SpaceTokens`, `BorderSizeTokens`, `RadiiTokens`, `FontSizeTokens`, `LineHeightTokens`, `FontWeightTokens`, and the color scales.
 - Public types cover colors, spacing, dimensions, flex, typography, shadows, component variants, theme extension, and every component-token group.
+
+## Brand colors
+
+`colors.primary`, `colors.accent`, `colors.secondary`, and `colors.subtle` each
+provide a `value` fill and a `contrast` foreground. `subtle` is the faintest brand
+tint: near-white pink (`#FFF5F6`) in light mode and a restrained dark pink
+(`#241C20`) in dark mode. Use it for low-emphasis branded backgrounds with
+`subtle.contrast` for text or icons. It is separate from the neutral
+`colors.surface.subtle` role. ColorPicker includes it in the default presets.
+
+```tsx
+const { subtle } = useColors();
+
+<View backgroundColor={subtle.value}>
+  <Typography.Body color={subtle.contrast}>Quiet emphasis</Typography.Body>
+</View>;
+```
+
+Override `colors.subtle.value` and `colors.subtle.contrast` through the same
+per-scheme theme overrides as the other brand colors.
 
 ## Customizing tokens
 
@@ -178,7 +198,6 @@ Migration: replace `surface.primary` with `surface.canvas` for page backgrounds
 or `surface.subtle` for muted control fills. Replace `surface.secondary` with
 `surface.default` for content surfaces. Cards, lists, and accordions now use
 `default`; popovers use `elevated`.
-
 
 ## Public export and source reference
 
@@ -704,6 +723,7 @@ export function createColorPickerTokens(
       { label: "Primary", color: colors.primary.value },
       { label: "Accent", color: colors.accent.value },
       { label: "Secondary", color: colors.secondary.value },
+      { label: "Subtle", color: colors.subtle.value },
       { label: "Error", color: colors.feedback.error.value },
       { label: "Warning", color: colors.feedback.warning.value },
       { label: "Success", color: colors.feedback.success.value },
@@ -1634,6 +1654,11 @@ export const LightColors: ThemeColors = {
     contrast: "#c92a3b",
   },
 
+  subtle: {
+    value: "#FFF5F6",
+    contrast: "#c92a3b",
+  },
+
   neutral: NeutralColorTokens,
 
   surface: {
@@ -1724,6 +1749,11 @@ export const DarkColors: ThemeColors = {
 
   secondary: {
     value: "#3b2027",
+    contrast: "#FA9EA7",
+  },
+
+  subtle: {
+    value: "#241C20",
     contrast: "#FA9EA7",
   },
 
@@ -2316,10 +2346,7 @@ export interface AvailabilityState {
 }
 
 export type FieldVisualState =
-  | "default"
-  | "error"
-  | "disabled"
-  | "disabledError";
+  "default" | "error" | "disabled" | "disabledError";
 
 export interface FieldState {
   disabled?: boolean;
@@ -2327,10 +2354,7 @@ export interface FieldState {
 }
 
 export type SelectionVisualState =
-  | "unselected"
-  | "selected"
-  | "disabledUnselected"
-  | "disabledSelected";
+  "unselected" | "selected" | "disabledUnselected" | "disabledSelected";
 
 export interface SelectionState {
   disabled?: boolean;
@@ -2484,10 +2508,7 @@ export interface DataStateTokens {
 import type { VisualStateTokens } from "./components.types";
 
 export type DatetimePickerDayVisualState =
-  | "default"
-  | "outsideMonth"
-  | "range"
-  | "selected";
+  "default" | "outsideMonth" | "range" | "selected";
 
 export interface DatetimePickerDayState {
   currentMonth?: boolean;
@@ -2574,11 +2595,7 @@ export interface DimensionProps {
 
 ```tsx
 export type DividerTone =
-  | "subtle"
-  | "default"
-  | "strong"
-  | "primary"
-  | "inverse";
+  "subtle" | "default" | "strong" | "primary" | "inverse";
 
 export type DividerTokenOrientation = "horizontal" | "vertical";
 
@@ -3135,12 +3152,7 @@ export interface SkeletonBoneTokens {
 
 export interface SkeletonTextTokens {
   alignSelf:
-    | "auto"
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "stretch"
-    | "baseline";
+    "auto" | "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
   textTransform: "none" | "capitalize" | "uppercase" | "lowercase";
   opacity: number;
 }
@@ -3407,12 +3419,7 @@ import type {
 } from "./components.types";
 
 export type TagColor =
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+  "primary" | "secondary" | "error" | "warning" | "success" | "info";
 
 export type TagSizeTokens = Record<
   ComponentSize,
@@ -3550,6 +3557,8 @@ export type ThemeColors = {
   primary: ColorPair;
   accent: ColorPair;
   secondary: ColorPair;
+  /** Faintest brand tint, adapted to the active color scheme. */
+  subtle: ColorPair;
 
   neutral: NeutralColor;
 
@@ -3782,27 +3791,10 @@ export type FontWeightItalic =
   | "Montserrat_900Black_Italic";
 
 export type FontWeightValue =
-  | 100
-  | 200
-  | 300
-  | 400
-  | 500
-  | 600
-  | 700
-  | 800
-  | 900;
+  100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 
 export type SpaceSizesKey =
-  | "none"
-  | "xxs"
-  | "xs"
-  | "mxs"
-  | "sm"
-  | "msm"
-  | "md"
-  | "lg"
-  | "xl"
-  | "xxl";
+  "none" | "xxs" | "xs" | "mxs" | "sm" | "msm" | "md" | "lg" | "xl" | "xxl";
 
 export type Space = Record<SpaceSizesKey, number>;
 
@@ -3864,12 +3856,7 @@ export type RadiusKey = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "round";
 export type Radii = Record<RadiusKey, number>;
 
 export type RadiusDrawnKey =
-  | "drawn1"
-  | "drawn2"
-  | "drawn3"
-  | "drawn4"
-  | "drawn5"
-  | "drawn6";
+  "drawn1" | "drawn2" | "drawn3" | "drawn4" | "drawn5" | "drawn6";
 
 export type RadiiDrawn = Record<RadiusDrawnKey, string>;
 

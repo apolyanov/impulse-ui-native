@@ -1,6 +1,6 @@
 # @impulse-ui-native/flyout
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -88,7 +88,6 @@ after entry completes. Entry preparation includes the initial layout measurement
 `components.flyout.enterSpring` contains `damping`, `stiffness`, and `mass`
 (defaults 50, 300, and 1). `exitDuration` defaults to 150 ms. The enter spring
 also controls the return animation after a drag that does not dismiss the sheet.
-
 
 ## Public export and source reference
 

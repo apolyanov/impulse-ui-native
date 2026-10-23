@@ -46,6 +46,26 @@ export function App() {
 - Primitive token constants include `SpaceTokens`, `BorderSizeTokens`, `RadiiTokens`, `FontSizeTokens`, `LineHeightTokens`, `FontWeightTokens`, and the color scales.
 - Public types cover colors, spacing, dimensions, flex, typography, shadows, component variants, theme extension, and every component-token group.
 
+## Brand colors
+
+`colors.primary`, `colors.accent`, `colors.secondary`, and `colors.subtle` each
+provide a `value` fill and a `contrast` foreground. `subtle` is the faintest brand
+tint: near-white pink (`#FFF5F6`) in light mode and a restrained dark pink
+(`#241C20`) in dark mode. Use it for low-emphasis branded backgrounds with
+`subtle.contrast` for text or icons. It is separate from the neutral
+`colors.surface.subtle` role. ColorPicker includes it in the default presets.
+
+```tsx
+const { subtle } = useColors();
+
+<View backgroundColor={subtle.value}>
+  <Typography.Body color={subtle.contrast}>Quiet emphasis</Typography.Body>
+</View>;
+```
+
+Override `colors.subtle.value` and `colors.subtle.contrast` through the same
+per-scheme theme overrides as the other brand colors.
+
 ## Customizing tokens
 
 ```tsx

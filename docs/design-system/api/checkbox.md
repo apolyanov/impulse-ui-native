@@ -1,6 +1,6 @@
 # @impulse-ui-native/checkbox
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -47,7 +47,6 @@ export function TermsCheckbox() {
 Use `defaultChecked` for uncontrolled state. Pressing an indeterminate checkbox
 changes it to checked. The component accepts the shared `small`, `medium`, and
 `large` sizes and the `filled`, `outlined`, and `soft` selection variants.
-
 
 ## Public export and source reference
 

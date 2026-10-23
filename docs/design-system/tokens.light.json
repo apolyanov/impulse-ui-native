@@ -45,6 +45,10 @@
       "value": "#FEE7E9",
       "contrast": "#c92a3b"
     },
+    "subtle": {
+      "value": "#FFF5F6",
+      "contrast": "#c92a3b"
+    },
     "neutral": {
       "0": "#ffffff",
       "1": "#f8f9fa",
@@ -277,6 +281,10 @@
         {
           "label": "Secondary",
           "color": "#FEE7E9"
+        },
+        {
+          "label": "Subtle",
+          "color": "#FFF5F6"
         },
         {
           "label": "Error",

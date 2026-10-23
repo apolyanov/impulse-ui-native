@@ -1,6 +1,6 @@
 # @impulse-ui-native/charts
 
-Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -331,7 +331,6 @@ tests, then the package's `typecheck` and `build`. The test runner bundles real
 model code and pure theme factories without loading native rendering modules.
 Use the on-device Charts Storybook stories to verify touch behavior, font
 rendering, and layout on iOS and Android; model tests do not exercise native UI.
-
 
 ## Public export and source reference
 
@@ -2166,8 +2165,7 @@ export interface ChartPresentationProps {
   onSelectionChange?: (selection: ChartSelection | null) => void;
   /** Displays selected details by default. A renderer can replace the tooltip. */
   tooltip?:
-    | boolean
-    | ((details: readonly ChartSelectionDetails[]) => ReactNode);
+    boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode);
   legend?: boolean;
   /** Series IDs for multi charts; datum IDs for PieChart. */
   hiddenIds?: readonly string[];
@@ -3851,7 +3849,10 @@ function createXScale<X extends ChartXValue>(
 
     return {
       domain,
-      ticks: selectChartTicks(domain, getChartTickCount(tickCount, domain.length)),
+      ticks: selectChartTicks(
+        domain,
+        getChartTickCount(tickCount, domain.length),
+      ),
       scale: (value) => d3Scale(value),
     };
   }

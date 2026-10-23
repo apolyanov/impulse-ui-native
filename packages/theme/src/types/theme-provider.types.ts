@@ -67,6 +67,8 @@ export type ThemeColors = {
   primary: ColorPair;
   accent: ColorPair;
   secondary: ColorPair;
+  /** Faintest brand tint, adapted to the active color scheme. */
+  subtle: ColorPair;
 
   neutral: NeutralColor;
 
