@@ -1,6 +1,6 @@
 # @impulse-ui-native/core
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -72,6 +72,7 @@ useTimer({
 
 `merge` preserves array values as arrays when applying deep partial overrides,
 including indexed overrides inside nested theme palettes.
+
 
 ## Public export and source reference
 

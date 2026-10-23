@@ -1,6 +1,6 @@
 # @impulse-ui-native/portal
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -53,6 +53,7 @@ function Screen() {
 ```
 
 Pass the same `name` to `Portal` and `PortalsHost` when you need more than one portal destination.
+
 
 ## Public export and source reference
 

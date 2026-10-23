@@ -1,6 +1,6 @@
 # @impulse-ui-native/echo
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -56,6 +56,7 @@ TypeScript rejects unknown event names and payloads that do not match the event
 map.
 
 For non-component code, call `EchoInstance.emit` or `EchoInstance.subscribe` directly. `subscribe` returns its cleanup function.
+
 
 ## Public export and source reference
 

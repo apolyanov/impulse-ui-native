@@ -1,6 +1,6 @@
 # @impulse-ui-native/flat-list
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -48,6 +48,7 @@ Use the same size for rendered rows and `itemSize`. For multiple columns, use th
 Initial positioning follows native FlatList's mount behavior. Remount the list when a fresh initial position is needed, and mount it after asynchronously loaded data is available. Changing the selected value after initialization does not scroll an existing list.
 
 Exports: `FlatList`, `useFlatListInitialScroll`, `FlatListProps`, `FlatListRef`, and `UseFlatListInitialScrollOptions`.
+
 
 ## Public export and source reference
 

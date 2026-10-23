@@ -1,6 +1,6 @@
 # @impulse-ui-native/data-state
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -61,6 +61,7 @@ visually hidden beneath the loader. Give those children their expected loaded
 height to prevent the surrounding layout from shifting when loading finishes.
 
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
+
 
 ## Public export and source reference
 

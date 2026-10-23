@@ -16,7 +16,7 @@
     "dev": "turbo run dev",
     "version-packages": "changeset version",
     "publish-packages": "node scripts/changeset-publish.mjs",
-    "release": "pnpm run build && pnpm run publish-packages",
+    "release": "pnpm run publish-packages",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"

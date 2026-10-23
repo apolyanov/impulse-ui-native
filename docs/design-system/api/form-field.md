@@ -1,6 +1,6 @@
 # @impulse-ui-native/form-field
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -47,6 +47,7 @@ The render function receives:
 `FormField` renders validation feedback once outside the custom control. Use `invalid` only to map the field state into a control's own visual API; do not render the error a second time inside the control.
 
 An explicit `nativeID` can be provided when stable IDs are required; otherwise, `FormField` generates one with React `useId`.
+
 
 ## Public export and source reference
 

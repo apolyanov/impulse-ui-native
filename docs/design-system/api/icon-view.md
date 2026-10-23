@@ -1,6 +1,6 @@
 # @impulse-ui-native/icon-view
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -50,6 +50,7 @@ props, which override the component's default container styles. Parent alignment
 applies normally. Styling comes from `theme.components.iconView`.
 
 Use IconButton when the icon is an action; IconView has no built-in press behavior.
+
 
 ## Public export and source reference
 

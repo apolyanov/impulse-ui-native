@@ -52,7 +52,10 @@ After the version commit is ready, publish with:
 pnpm release
 ```
 
-`pnpm release` builds the monorepo and then runs `changeset publish`.
+`pnpm release` and `pnpm publish-packages` both force a fresh build of all
+library packages before running `changeset publish`. The wrapper bypasses Turbo
+build caches and stops on build failure; application builds are not required.
+Use either wrapper rather than invoking `changeset publish` directly.
 Changesets uses pnpm to publish packages in this workspace. Keep using pnpm
 for packing and publishing so that `publishConfig.exports` overrides are applied.
 The workspace `react-native` export points to `src/index.ts` for instant updates

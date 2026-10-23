@@ -1,6 +1,6 @@
 # @impulse-ui-native/toast
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -127,6 +127,7 @@ The duration timer starts when status reaches open.
 the transitions (180 ms, 150 ms, and 220 ms by default).
 `actionFontWeight` defaults to the primitive theme semi-bold weight. The
 `duration` prop still controls auto-dismiss independently of animation timing.
+
 
 ## Public export and source reference
 

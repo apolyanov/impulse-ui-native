@@ -1,6 +1,6 @@
 # @impulse-ui-native/radio
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -46,6 +46,7 @@ Use `defaultChecked` for uncontrolled state. Pressing a radio selects it;
 pressing it again does not clear the selection. The component accepts the
 shared `small`, `medium`, and `large` sizes and the `filled`, `outlined`, and
 `soft` selection variants.
+
 
 ## Public export and source reference
 

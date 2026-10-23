@@ -1,6 +1,6 @@
 # ImpulseUI Native design and application reference
 
-Reviewed on **2026-10-23**, against the local repository with toolkit version **11.2.0**. This bundle describes the current source; it does not establish which version is published to npm. `snapshot.json` records the commit and input hashes.
+Reviewed on **2026-10-23**, against the local repository with toolkit version **11.3.1**. This bundle describes the current source; it does not establish which version is published to npm. `snapshot.json` records the commit and input hashes.
 
 ## Bring this into another project
 

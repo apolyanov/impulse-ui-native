@@ -1,6 +1,6 @@
 # @impulse-ui-native/segmented-control
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -63,6 +63,7 @@ Later selection changes do not scroll again. Remount the root for a fresh initia
 position. A user drag cancels pending positioning. Custom zoom, content insets,
 and snapping are outside the initial-scroll helper's scope; use
 `initialScrollToSelected={false}` when managing those offsets yourself.
+
 
 ## Public export and source reference
 
@@ -139,7 +140,8 @@ interface SegmentedControlUncontrolledRootProps extends SegmentedControlRootComm
 }
 
 export type SegmentedControlRootProps =
-  SegmentedControlControlledRootProps | SegmentedControlUncontrolledRootProps;
+  | SegmentedControlControlledRootProps
+  | SegmentedControlUncontrolledRootProps;
 
 export interface SegmentedControlItemProps extends Omit<
   PressableProps,

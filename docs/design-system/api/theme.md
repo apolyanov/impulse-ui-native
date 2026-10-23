@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -178,6 +178,7 @@ Migration: replace `surface.primary` with `surface.canvas` for page backgrounds
 or `surface.subtle` for muted control fills. Replace `surface.secondary` with
 `surface.default` for content surfaces. Cards, lists, and accordions now use
 `default`; popovers use `elevated`.
+
 
 ## Public export and source reference
 
@@ -2315,7 +2316,10 @@ export interface AvailabilityState {
 }
 
 export type FieldVisualState =
-  "default" | "error" | "disabled" | "disabledError";
+  | "default"
+  | "error"
+  | "disabled"
+  | "disabledError";
 
 export interface FieldState {
   disabled?: boolean;
@@ -2323,7 +2327,10 @@ export interface FieldState {
 }
 
 export type SelectionVisualState =
-  "unselected" | "selected" | "disabledUnselected" | "disabledSelected";
+  | "unselected"
+  | "selected"
+  | "disabledUnselected"
+  | "disabledSelected";
 
 export interface SelectionState {
   disabled?: boolean;
@@ -2477,7 +2484,10 @@ export interface DataStateTokens {
 import type { VisualStateTokens } from "./components.types";
 
 export type DatetimePickerDayVisualState =
-  "default" | "outsideMonth" | "range" | "selected";
+  | "default"
+  | "outsideMonth"
+  | "range"
+  | "selected";
 
 export interface DatetimePickerDayState {
   currentMonth?: boolean;
@@ -2564,7 +2574,11 @@ export interface DimensionProps {
 
 ```tsx
 export type DividerTone =
-  "subtle" | "default" | "strong" | "primary" | "inverse";
+  | "subtle"
+  | "default"
+  | "strong"
+  | "primary"
+  | "inverse";
 
 export type DividerTokenOrientation = "horizontal" | "vertical";
 
@@ -3121,7 +3135,12 @@ export interface SkeletonBoneTokens {
 
 export interface SkeletonTextTokens {
   alignSelf:
-    "auto" | "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
   textTransform: "none" | "capitalize" | "uppercase" | "lowercase";
   opacity: number;
 }
@@ -3388,7 +3407,12 @@ import type {
 } from "./components.types";
 
 export type TagColor =
-  "primary" | "secondary" | "error" | "warning" | "success" | "info";
+  | "primary"
+  | "secondary"
+  | "error"
+  | "warning"
+  | "success"
+  | "info";
 
 export type TagSizeTokens = Record<
   ComponentSize,
@@ -3758,10 +3782,27 @@ export type FontWeightItalic =
   | "Montserrat_900Black_Italic";
 
 export type FontWeightValue =
-  100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900;
 
 export type SpaceSizesKey =
-  "none" | "xxs" | "xs" | "mxs" | "sm" | "msm" | "md" | "lg" | "xl" | "xxl";
+  | "none"
+  | "xxs"
+  | "xs"
+  | "mxs"
+  | "sm"
+  | "msm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "xxl";
 
 export type Space = Record<SpaceSizesKey, number>;
 
@@ -3823,7 +3864,12 @@ export type RadiusKey = "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "round";
 export type Radii = Record<RadiusKey, number>;
 
 export type RadiusDrawnKey =
-  "drawn1" | "drawn2" | "drawn3" | "drawn4" | "drawn5" | "drawn6";
+  | "drawn1"
+  | "drawn2"
+  | "drawn3"
+  | "drawn4"
+  | "drawn5"
+  | "drawn6";
 
 export type RadiiDrawn = Record<RadiusDrawnKey, string>;
 

@@ -224,7 +224,9 @@ After preparing package versions, use the release wrapper:
 pnpm run publish-packages
 ```
 
-It removes pnpm-only npm configuration before invoking Changesets. Keep running
+It forces a fresh build of every library package before invoking Changesets and
+stops if any build fails. `pnpm release` uses the same wrapper. It also removes
+pnpm-only npm configuration. Keep running
 it from an interactive terminal for browser authentication. The pinned Changesets
 patch recognizes `ERR_PNPM_OTP_NON_INTERACTIVE` and retries publishing with terminal
 input and output attached, allowing pnpm to display its authentication prompt.

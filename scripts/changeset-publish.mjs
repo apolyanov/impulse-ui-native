@@ -1,5 +1,24 @@
 import { spawnSync } from "node:child_process";
 
+// Always rebuild publishable packages, including when this script is run directly.
+// Bypass cached outputs so a release cannot reuse stale dist files.
+const build = spawnSync(
+  "pnpm",
+  ["exec", "turbo", "run", "build", "--filter=./packages/*", "--force"],
+  {
+    shell: process.platform === "win32",
+    stdio: "inherit",
+  },
+);
+
+if (build.error) {
+  console.error(build.error);
+}
+
+if (build.status !== 0) {
+  process.exit(build.status ?? 1);
+}
+
 const pnpmOnlyConfigKeys = new Set([
   "_jsr-registry",
   "catalog",

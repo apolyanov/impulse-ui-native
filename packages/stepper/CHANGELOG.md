@@ -1,5 +1,13 @@
 # @impulse-ui-native/stepper
 
+## 11.3.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @impulse-ui-native/primitives@11.3.1
+  - @impulse-ui-native/theme@11.3.1
+
 ## 11.3.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 # @impulse-ui-native/select
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -78,6 +78,7 @@ field, including its label and error. No extra field wrappers are needed:
 In a column, fields stretch horizontally by default without vertical growth.
 For a parent with `alignItems="center"`, use `alignSelf="stretch"` on the field
 or set an explicit `width`. No default `flex` is applied.
+
 
 ## Public export and source reference
 

@@ -1,6 +1,6 @@
 # @impulse-ui-native/input
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -70,6 +70,7 @@ including its label and error. Use `flex={1}` for equal widths inside a row;
 column layouts stretch horizontally by default without vertical growth. Use
 `width`, `minWidth`, or `alignSelf` for explicit sizing. Existing `style` still
 targets the text input; `containerStyle` targets the bordered container.
+
 
 ## Public export and source reference
 

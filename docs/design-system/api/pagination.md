@@ -1,6 +1,6 @@
 # @impulse-ui-native/pagination
 
-Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.3.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -45,6 +45,7 @@ layout when space is tighter. Set `compact` to force that layout. Override
 
 Pagination items use the shared primitives `Pressable`; pressed feedback comes
 from that primitive and is not modeled as Pagination state or theme tokens.
+
 
 ## Public export and source reference
 
@@ -300,7 +301,8 @@ interface PaginationUncontrolledProps extends PaginationCommonProps {
 }
 
 export type PaginationProps =
-  PaginationControlledProps | PaginationUncontrolledProps;
+  | PaginationControlledProps
+  | PaginationUncontrolledProps;
 
 export interface PaginationThemeProps {
   disabled: boolean;
