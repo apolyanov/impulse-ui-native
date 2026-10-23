@@ -10,3 +10,11 @@
   render ternaries may remain inline. Do not add memoization for primitive values
   just to move an expression out of JSX.
 - Apply this convention throughout packages, apps, examples, and stories.
+
+# Design system documentation
+
+- After every styling change, check whether `docs/design-system/` needs updating.
+- Update the authored design guidance when visual rules, component usage, or
+  defaults change. Regenerate derived references and token snapshots with
+  `node scripts/export-design-system.mjs` when their source inputs change,
+  following the refresh instructions in `docs/design-system/README.md`.

@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -1454,6 +1454,7 @@ import { createDividerTokens } from "./create-divider-tokens";
 import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
+import { createIconViewTokens } from "./create-icon-view-tokens";
 import { createListTokens } from "./create-list-tokens";
 import { createModalTokens } from "./create-modal-tokens";
 import { createPaginationTokens } from "./create-pagination-tokens";
@@ -1821,6 +1822,7 @@ export function createComponentsTokens(
     checkbox: createCheckboxTokens(tokens),
     iconButton: createIconButtonTokens(tokens),
     icon: createIconTokens(),
+    iconView: createIconViewTokens(tokens),
     pagination: createPaginationTokens(tokens),
     pressable: createPressableTokens(),
     progress: createProgressTokens(tokens),
@@ -2703,6 +2705,20 @@ export interface IconTokens {
 }
 ```
 
+### packages/theme/src/types/icon-view-tokens.types.ts
+
+```tsx
+import type { BadgeTokens } from "./badge-tokens.types";
+import type { IconButtonTokens } from "./buttons-tokens.types";
+
+export interface IconViewTokens {
+  borderRadius: number;
+  borderWidth: number;
+  sizes: IconButtonTokens["sizes"];
+  colors: BadgeTokens["colors"];
+}
+```
+
 ### packages/theme/src/types/index.ts
 
 ```tsx
@@ -2755,6 +2771,8 @@ export * from "./popover-tokens.types";
 export * from "./modal-tokens.types";
 
 export * from "./color-picker-tokens.types";
+
+export * from "./icon-view-tokens.types";
 ```
 
 ### packages/theme/src/types/list-tokens.types.ts
@@ -3444,6 +3462,7 @@ import type { CarouselTokens } from "./carousel-tokens.types";
 import type { ChartsTokens } from "./charts-tokens.types";
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { ColorPickerTokens } from "./color-picker-tokens.types";
+import type { IconViewTokens } from "./icon-view-tokens.types";
 import type { ListTokens } from "./list-tokens.types";
 import type { ModalTokens } from "./modal-tokens.types";
 import type { PopoverTokens } from "./popover-tokens.types";
@@ -3570,6 +3589,7 @@ export interface ComponentsTokens {
   card: CardTokens;
   checkbox: CheckboxTokens;
   iconButton: IconButtonTokens;
+  iconView: IconViewTokens;
   icon: IconTokens;
   pagination: PaginationTokens;
   pressable: PressableTokens;

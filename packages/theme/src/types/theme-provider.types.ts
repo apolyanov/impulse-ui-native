@@ -3,6 +3,7 @@ import type { CarouselTokens } from "./carousel-tokens.types";
 import type { ChartsTokens } from "./charts-tokens.types";
 import type { CheckboxTokens } from "./checkbox-tokens.types";
 import type { ColorPickerTokens } from "./color-picker-tokens.types";
+import type { IconViewTokens } from "./icon-view-tokens.types";
 import type { ListTokens } from "./list-tokens.types";
 import type { ModalTokens } from "./modal-tokens.types";
 import type { PopoverTokens } from "./popover-tokens.types";
@@ -129,6 +130,7 @@ export interface ComponentsTokens {
   card: CardTokens;
   checkbox: CheckboxTokens;
   iconButton: IconButtonTokens;
+  iconView: IconViewTokens;
   icon: IconTokens;
   pagination: PaginationTokens;
   pressable: PressableTokens;

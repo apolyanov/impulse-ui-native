@@ -10,6 +10,8 @@ The complete Impulse UI Native component library in one package.
 - Native `FlatList` and a small initial-positioning hook for known row sizes. See the [FlatList API](../flat-list/README.md).
 - `Carousel` with native snapping, centered previews, adaptive pagination, and
   navigation buttons. See the [Carousel API](../carousel/README.md).
+- `IconView` displays icons in a themed surface with IconButton sizes and Badge
+  variants and tones. See the [IconView API](../icon-view/README.md).
 - One theme system shared by every component.
 - Works with React Native mobile applications.
 - Gesture-driven flyouts and app-wide overlay management.

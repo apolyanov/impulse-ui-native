@@ -1314,6 +1314,52 @@ importers:
         specifier: 'catalog:'
         version: 6.0.3
 
+  packages/icon-view:
+    dependencies:
+      '@impulse-ui-native/icon':
+        specifier: workspace:*
+        version: link:../icon
+      '@impulse-ui-native/primitives':
+        specifier: workspace:*
+        version: link:../primitives
+      '@impulse-ui-native/theme':
+        specifier: workspace:*
+        version: link:../theme
+    devDependencies:
+      '@impulse-ui-native/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@impulse-ui-native/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@impulse-ui-native/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@types/react':
+        specifier: catalog:react19
+        version: 19.3.0
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.5(jiti@2.7.0)(supports-color@8.1.1)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.9.10
+      react:
+        specifier: catalog:react19
+        version: 19.3.0
+      react-native:
+        specifier: 'catalog:'
+        version: 0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.3.0)(react@19.3.0)(supports-color@8.1.1)
+      react-native-safe-area-context:
+        specifier: 'catalog:'
+        version: 5.10.1(react-native@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.3.0)(react@19.3.0)(supports-color@8.1.1))(react@19.3.0)
+      react-native-svg:
+        specifier: 'catalog:'
+        version: 15.16.0(react-native@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.3.0)(react@19.3.0)(supports-color@8.1.1))(react@19.3.0)
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+
   packages/input:
     dependencies:
       '@impulse-ui-native/core':
@@ -2024,6 +2070,9 @@ importers:
       '@impulse-ui-native/icon':
         specifier: workspace:*
         version: link:../icon
+      '@impulse-ui-native/icon-view':
+        specifier: workspace:*
+        version: link:../icon-view
       '@impulse-ui-native/list':
         specifier: workspace:*
         version: link:../list
@@ -2368,6 +2417,9 @@ importers:
       '@impulse-ui-native/form-field':
         specifier: workspace:*
         version: link:../form-field
+      '@impulse-ui-native/icon-view':
+        specifier: workspace:*
+        version: link:../icon-view
       '@impulse-ui-native/input':
         specifier: workspace:*
         version: link:../input

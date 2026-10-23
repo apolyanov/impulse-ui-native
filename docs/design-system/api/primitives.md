@@ -1,6 +1,6 @@
 # @impulse-ui-native/primitives
 
-Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -152,6 +152,10 @@ appearance, but does not inject label content.
 
 Use `Badge` for compact states and metadata. It supports `filled`, `outlined`, and `soft` display variants and semantic tones. Its addons follow Input: use `PrefixIcon` or `Prefix`, `SuffixIcon` or `Suffix`, and optionally `onPressPrefix` or `onPressSuffix`. A custom component takes precedence over its corresponding icon. Use `Tag` when the whole label needs built-in press or close behavior.
 
+Badges follow their parent's `alignItems` for cross-axis alignment. For example,
+use `alignItems="center"` on a column to center badges horizontally. Use
+`alignSelf` on a badge when it needs a different alignment from its siblings.
+
 ## Dedicated component packages
 
 Card, List, Progress, and their prop types are exported from `@impulse-ui-native/card`, `@impulse-ui-native/list`, and `@impulse-ui-native/progress`, respectively. They remain available through `@impulse-ui-native/toolkit`. Migrate direct primitives imports to their owning packages.
@@ -162,6 +166,32 @@ Card, List, Progress, and their prop types are exported from `@impulse-ui-native
 `theme.shadows` scale, including Android elevation. Explicit shadow style props
 and style overrides still take precedence. Configure `theme.codeFontFamily`
 to change `Typography.Code` globally; its default remains `monospace`.
+
+## Field layout
+
+`Control.Root` uses normal parent stretching rather than a forced width.
+`Control.Field` accepts flex, dimension, and spacing props on its outer root.
+In a column, fields stretch horizontally by default without growing vertically.
+In a row, set `flex={1}` on each field to share the available width. If the
+parent centers its children, use `alignSelf="stretch"` or an explicit `width`.
+
+## Pressable layout
+
+`Pressable` accepts flex and positioning props directly, alongside its existing
+spacing, dimension, and shadow props. Native `style` objects or callbacks override
+direct style props; `pressedStyle` applies last while pressed.
+
+```tsx
+<Pressable
+  flex={1}
+  flexDirection="row"
+  alignItems="center"
+  gap={8}
+  padding={16}
+>
+  <Typography.Master>Continue</Typography.Master>
+</Pressable>
+```
 
 ## Public export and source reference
 
@@ -436,7 +466,6 @@ function themedStyles(theme: AppTheme, props: BadgeThemeProps) {
   return StyleSheet.create({
     container: {
       alignItems: "center",
-      alignSelf: "flex-start",
       flexDirection: "row",
       flexShrink: 0,
       justifyContent: "center",
@@ -1697,6 +1726,7 @@ import {
   ActionVariant,
   ComponentSize,
   DimensionProps,
+  FlexProps,
   ShadowProps,
   SpacingProps,
 } from "@impulse-ui-native/theme";
@@ -1718,7 +1748,7 @@ export interface ButtonThemeProps {
 }
 
 export interface PressableCoreProps
-  extends PressableProps, Omit<ButtonProps, "style"> {
+  extends PressableProps, Omit<ButtonProps, "style">, FlexProps {
   disabled?: boolean;
   pressedStyle?: StyleProp<ViewStyle>;
 }
@@ -1731,12 +1761,20 @@ import type { ComponentType, ReactNode } from "react";
 import type { TextInputProps, TextProps, ViewProps } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import type { ComponentSize, FieldVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  DimensionProps,
+  FieldVariant,
+  FlexProps,
+  SpacingProps,
+} from "@impulse-ui-native/theme";
 
 import type { PressableCoreProps } from "./button.types";
 import type { SpinnerProps } from "./spinner.types";
 
-export interface ControlComponentCommonProps {
+export type ControlLayoutProps = FlexProps & DimensionProps & SpacingProps;
+
+export interface ControlComponentCommonProps extends ControlLayoutProps {
   placeholder?: string;
   label?: string;
   PrefixIcon?: IconProps["icon"];
@@ -1762,7 +1800,8 @@ export type ControlTriggerProps = PressableCoreProps;
 
 export type ControlIconProps = IconProps;
 
-export interface ControlFieldProps extends Partial<ControlComponentProps> {
+export interface ControlFieldProps
+  extends Partial<ControlComponentProps>, ControlLayoutProps {
   children?: ReactNode;
   label?: string;
   onPress?: PressableCoreProps["onPress"];

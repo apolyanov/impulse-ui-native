@@ -1,6 +1,6 @@
 # @impulse-ui-native/input
 
-Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -63,6 +63,14 @@ import { Textarea } from "@impulse-ui-native/input";
 
 `Textarea` supports native controlled and uncontrolled values. When `autoGrow` is enabled, it grows from `minRows` through `maxRows`, then becomes scrollable. Validation remains application-owned: pass the current message through `error`.
 
+## Field layout
+
+Input and Textarea accept flex, dimension, and spacing props on the outer field,
+including its label and error. Use `flex={1}` for equal widths inside a row;
+column layouts stretch horizontally by default without vertical growth. Use
+`width`, `minWidth`, or `alignSelf` for explicit sizing. Existing `style` still
+targets the text input; `containerStyle` targets the bordered container.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -87,6 +95,7 @@ import { Control } from "@impulse-ui-native/primitives";
 import {
   getFieldStateTokens,
   useComponentsTokens,
+  useStyleProps,
 } from "@impulse-ui-native/theme";
 
 import type { InputProps } from "../types";
@@ -108,6 +117,8 @@ export const Input = memo(function Input(props: InputProps) {
     onPressSuffix,
     ...rest
   } = props;
+
+  const layoutStyle = useStyleProps(rest);
 
   const addonTokens = useComponentsTokens().controlAddon;
   const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
@@ -144,7 +155,7 @@ export const Input = memo(function Input(props: InputProps) {
       error={error}
       disabled={disabled}
     >
-      <Control.Root>
+      <Control.Root style={layoutStyle}>
         <Control.Label>{label}</Control.Label>
         <Control.Container style={containerStyle}>
           {hasPrefix ? (
@@ -182,7 +193,11 @@ export const Input = memo(function Input(props: InputProps) {
 import { memo, useMemo } from "react";
 
 import { Control, Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
+import {
+  useComponentsTokens,
+  useStyleProps,
+  useThemedStyles,
+} from "@impulse-ui-native/theme";
 
 import type { TextareaProps } from "../types";
 import { useTextarea } from "../hooks";
@@ -208,6 +223,8 @@ export const Textarea = memo(function Textarea({
   variant = "outlined",
   ...props
 }: TextareaProps) {
+  const layoutStyle = useStyleProps(props);
+
   const componentsTokens = useComponentsTokens();
 
   const controlContainerTokens = componentsTokens.controlContainer;
@@ -254,7 +271,7 @@ export const Textarea = memo(function Textarea({
       size={size}
       variant={variant}
     >
-      <Control.Root>
+      <Control.Root style={layoutStyle}>
         <Control.Label disabled={disabled}>{label}</Control.Label>
         <Control.Container style={resolvedContainerStyle}>
           <Control.Input
@@ -330,13 +347,15 @@ import type { TextInputProps } from "react-native";
 
 import type {
   ControlComponentProps,
+  ControlLayoutProps,
   ViewProps,
 } from "@impulse-ui-native/primitives";
 
 export interface TextareaProps
   extends
     Omit<TextInputProps, "multiline" | "numberOfLines" | "secureTextEntry">,
-    Partial<ControlComponentProps> {
+    Partial<ControlComponentProps>,
+    ControlLayoutProps {
   /** Grows the field with its content until `maxRows` is reached. */
   autoGrow?: boolean;
   /** Styles the bordered textarea container. */

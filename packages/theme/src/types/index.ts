@@ -47,3 +47,5 @@ export * from "./popover-tokens.types";
 export * from "./modal-tokens.types";
 
 export * from "./color-picker-tokens.types";
+
+export * from "./icon-view-tokens.types";

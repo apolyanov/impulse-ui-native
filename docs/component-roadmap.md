@@ -49,6 +49,10 @@ an implemented component unavailable.
 | `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Validate existing size, variant, loading, and disabled examples on devices.                                  |
 | `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable catalogue and per-icon import guidance. Icons are a separate package, not a toolkit export. |
 
+`IconView` is available from `@impulse-ui-native/icon-view` and toolkit with dedicated theme
+tokens and Storybook examples for IconButton sizes and Badge variants and tones.
+Validate the new surface on iOS and Android.
+
 ### Content and composition
 
 | Component                 | Package                          | Status    | Storybook                 | Follow-up                                                                         |

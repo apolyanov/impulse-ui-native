@@ -1,6 +1,6 @@
 # ImpulseUI Native: context for designing a new application
 
-This document is a portable design brief for **ImpulseUI Native**, reviewed from the local source on **2026-10-22**, toolkit version **11.0.0**. Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
+This document is a portable design brief for **ImpulseUI Native**, reviewed from the local source on **2026-10-23**, toolkit version **11.2.0**. Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
 
 The application's product, users, navigation, content, brand changes, and screen layouts are still to be defined. The library supplies components and a visual system rather than a complete application template.
 
@@ -179,6 +179,7 @@ The toolkit aggregates the following component families. Each package reference 
 | --------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | Layout and text       | `View`, `SafeAreaView`, all `Typography` presets, `createPreset`                                        | [primitives](api/primitives.md)                                             |
 | Actions               | `Pressable`, `Button`, `IconButton`; disabled and loading feedback                                      | [primitives](api/primitives.md)                                             |
+| Icon surfaces         | `IconView`: non-pressable square surfaces, IconButton sizes, Badge variants and tones                   | [icon-view](api/icon-view.md)                                               |
 | Identity and metadata | `Avatar`, `Badge`, `Tag`, `Divider`, `Spinner`                                                          | [primitives](api/primitives.md)                                             |
 | Cards                 | Convenience `Card` and child-only Root, Pressable, Header, Content, Footer, Media parts                 | [card](api/card.md)                                                         |
 | Rows                  | Convenience `List` and Root, Item, Pressable, Leading, Content, Trailing parts                          | [list](api/list.md)                                                         |
@@ -211,6 +212,12 @@ The toolkit aggregates the following component families. Each package reference 
 Supporting APIs include state/event/timer and Android Back helpers in [core](api/core.md), typed event channels in [echo](api/echo.md), and Axios/TanStack Query factories in [endpoint](api/endpoint.md). The [theme](api/theme.md) supplies tokens, token factories, styling hooks, state resolvers, and public style types. [toolkit](api/toolkit.md) is an aggregation layer.
 
 **Icons are separate from the toolkit.** Import the shared renderer from `@impulse-ui-native/icon` and named wrappers from per-icon paths, such as `@impulse-ui-native/icon/icons/heart`. Weights are `bold`, `duotone`, `fill`, `light`, `regular`, and `thin`. The shared renderer uses themed primary text by default; directly rendered named wrappers need an explicit color. Consult [icon API](api/icon.md) and [icon catalog](icon-catalog.md).
+
+`IconView` is exported from `@impulse-ui-native/icon-view` and toolkit. Pass an
+icon component through `icon`; choose `filled`, `outlined`, or `soft` and any
+Badge tone. Its small/medium/large containers are 32/40/48, with 18/24/30 icons.
+It uses primitives `View` layout and spacing props. Badges and IconView follow
+the parent’s cross-axis alignment; use `alignSelf` for individual overrides.
 
 ## 7. Variants and visual states
 

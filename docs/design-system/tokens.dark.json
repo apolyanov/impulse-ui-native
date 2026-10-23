@@ -1111,6 +1111,145 @@
         "large": 30
       }
     },
+    "iconView": {
+      "borderRadius": 8,
+      "borderWidth": 1,
+      "sizes": {
+        "small": {
+          "size": 32,
+          "padding": 6
+        },
+        "medium": {
+          "size": 40,
+          "padding": 8
+        },
+        "large": {
+          "size": 48,
+          "padding": 10
+        }
+      },
+      "colors": {
+        "primary": {
+          "filled": {
+            "backgroundColor": "#FA9EA7",
+            "borderColor": "#FA9EA7",
+            "color": "#16191d"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#FA9EA7",
+            "color": "#FA9EA7"
+          },
+          "soft": {
+            "backgroundColor": "#3b2027",
+            "borderColor": "#3b2027",
+            "color": "#FA9EA7"
+          }
+        },
+        "secondary": {
+          "filled": {
+            "backgroundColor": "#3b2027",
+            "borderColor": "#3b2027",
+            "color": "#FA9EA7"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#FA9EA7",
+            "color": "#FA9EA7"
+          },
+          "soft": {
+            "backgroundColor": "#3b2027",
+            "borderColor": "#3b2027",
+            "color": "#FA9EA7"
+          }
+        },
+        "neutral": {
+          "filled": {
+            "backgroundColor": "#f1f3f5",
+            "borderColor": "#f1f3f5",
+            "color": "#16191d"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#f1f3f5",
+            "color": "#f1f3f5"
+          },
+          "soft": {
+            "backgroundColor": "#16191d",
+            "borderColor": "#16191d",
+            "color": "#ffffff"
+          }
+        },
+        "error": {
+          "filled": {
+            "backgroundColor": "#ff8787",
+            "borderColor": "#ff8787",
+            "color": "#3b1515"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#ff8787",
+            "color": "#ff8787"
+          },
+          "soft": {
+            "backgroundColor": "#3b1515",
+            "borderColor": "#3b1515",
+            "color": "#ff8787"
+          }
+        },
+        "warning": {
+          "filled": {
+            "backgroundColor": "#ffc078",
+            "borderColor": "#ffc078",
+            "color": "#3b250f"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#ffc078",
+            "color": "#ffc078"
+          },
+          "soft": {
+            "backgroundColor": "#3b250f",
+            "borderColor": "#3b250f",
+            "color": "#ffc078"
+          }
+        },
+        "success": {
+          "filled": {
+            "backgroundColor": "#c0eb75",
+            "borderColor": "#c0eb75",
+            "color": "#26320f"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#c0eb75",
+            "color": "#c0eb75"
+          },
+          "soft": {
+            "backgroundColor": "#26320f",
+            "borderColor": "#26320f",
+            "color": "#c0eb75"
+          }
+        },
+        "info": {
+          "filled": {
+            "backgroundColor": "#74c0fc",
+            "borderColor": "#74c0fc",
+            "color": "#102a43"
+          },
+          "outlined": {
+            "backgroundColor": "transparent",
+            "borderColor": "#74c0fc",
+            "color": "#74c0fc"
+          },
+          "soft": {
+            "backgroundColor": "#102a43",
+            "borderColor": "#102a43",
+            "color": "#74c0fc"
+          }
+        }
+      }
+    },
     "pagination": {
       "borderRadius": 8,
       "borderWidth": 1,

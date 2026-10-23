@@ -1,6 +1,6 @@
 # @impulse-ui-native/select
 
-Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -63,6 +63,22 @@ Both controls support controlled `value` and uncontrolled `defaultValue` usage. 
 
 On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Lists that fit within the flyout stay at the top so all rows remain visible. Longer lists use native initial scrolling to reveal the opening selection. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default), also supplied to native `getItemLayout`. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.
 
+## Field layout
+
+Select and MultiSelect accept flex, dimension, and spacing props on the outer
+field, including its label and error. No extra field wrappers are needed:
+
+```tsx
+<View flexDirection="row" gap={space.xs}>
+  <Select flex={1} options={options} />
+  <Select flex={1} options={options} />
+</View>
+```
+
+In a column, fields stretch horizontally by default without vertical growth.
+For a parent with `alignItems="center"`, use `alignSelf="stretch"` on the field
+or set an explicit `width`. No default `flex` is applied.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -77,9 +93,9 @@ export { MultiSelect } from "./multi-select";
 ### packages/select/src/components/multi-select.tsx
 
 ```tsx
-import { memo, ReactElement, useId } from "react";
+import { useId } from "react";
 
-import { useEventCallback, useIsOpen } from "@impulse-ui-native/core";
+import { memo, useEventCallback, useIsOpen } from "@impulse-ui-native/core";
 import { Control, Tag, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
@@ -95,9 +111,9 @@ interface SelectedTagProps<Value extends PrimitiveValue> {
   onSelect: (value: Value) => void;
 }
 
-function SelectedTagComponent<Value extends PrimitiveValue>(
-  props: SelectedTagProps<Value>,
-) {
+const SelectedTag = memo(function SelectedTagComponent<
+  Value extends PrimitiveValue,
+>(props: SelectedTagProps<Value>) {
   const handleClose = useEventCallback(() => props.onSelect(props.value));
 
   return (
@@ -109,17 +125,11 @@ function SelectedTagComponent<Value extends PrimitiveValue>(
       label={props.label}
     />
   );
-}
+});
 
-const SelectedTag = memo(SelectedTagComponent) as <
+export const MultiSelect = memo(function MultiSelectComponent<
   Value extends PrimitiveValue,
->(
-  props: SelectedTagProps<Value>,
-) => ReactElement | null;
-
-function MultiSelectComponent<Value extends PrimitiveValue>(
-  props: MultiSelectProps<Value>,
-) {
+>(props: MultiSelectProps<Value>) {
   const {
     options,
     value,
@@ -184,21 +194,15 @@ function MultiSelectComponent<Value extends PrimitiveValue>(
       />
     </SelectControl>
   );
-}
-
-export const MultiSelect = memo(MultiSelectComponent) as <
-  Value extends PrimitiveValue,
->(
-  props: MultiSelectProps<Value>,
-) => ReactElement | null;
+});
 ```
 
 ### packages/select/src/components/select.tsx
 
 ```tsx
-import { memo, ReactElement, useCallback, useId } from "react";
+import { useCallback, useId } from "react";
 
-import { useIsOpen } from "@impulse-ui-native/core";
+import { memo, useIsOpen } from "@impulse-ui-native/core";
 import { Control } from "@impulse-ui-native/primitives";
 
 import { useSelect } from "../hooks/use-select.hook";
@@ -206,9 +210,9 @@ import { PrimitiveValue, SelectProps } from "../types";
 import { SelectControl } from "./select-control";
 import { SelectFlyout } from "./select.flyout";
 
-function SelectComponent<Value extends PrimitiveValue>(
-  props: SelectProps<Value>,
-) {
+export const Select = memo(function SelectComponent<
+  Value extends PrimitiveValue,
+>(props: SelectProps<Value>) {
   const {
     options,
     value,
@@ -260,11 +264,7 @@ function SelectComponent<Value extends PrimitiveValue>(
       />
     </SelectControl>
   );
-}
-
-export const Select = memo(SelectComponent) as <Value extends PrimitiveValue>(
-  props: SelectProps<Value>,
-) => ReactElement | null;
+});
 ```
 
 ### packages/select/src/index.ts

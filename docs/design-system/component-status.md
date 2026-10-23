@@ -44,10 +44,14 @@ an implemented component unavailable.
 | `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Keep native layout and spacing examples current.                                                             |
 | `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for safe-area edges and themed spacing.                                                          |
 | `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit font scaling, truncation and selection on devices.                                                     |
-| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Document inherited native pressed and disabled feedback.                                                     |
+| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Direct layout props supported; validate native pressed and disabled feedback.                                |
 | `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Expand native examples for action content and loading transitions.                                           |
 | `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Validate existing size, variant, loading, and disabled examples on devices.                                  |
 | `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable catalogue and per-icon import guidance. Icons are a separate package, not a toolkit export. |
+
+`IconView` is available from `@impulse-ui-native/icon-view` and toolkit with dedicated theme
+tokens and Storybook examples for IconButton sizes and Badge variants and tones.
+Validate the new surface on iOS and Android.
 
 ### Content and composition
 

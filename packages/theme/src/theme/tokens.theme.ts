@@ -37,6 +37,7 @@ import { createDividerTokens } from "./create-divider-tokens";
 import { createFlyoutTokens } from "./create-flyout-tokens";
 import { createIconButtonTokens } from "./create-icon-button-tokens";
 import { createIconTokens } from "./create-icon-tokens";
+import { createIconViewTokens } from "./create-icon-view-tokens";
 import { createListTokens } from "./create-list-tokens";
 import { createModalTokens } from "./create-modal-tokens";
 import { createPaginationTokens } from "./create-pagination-tokens";
@@ -404,6 +405,7 @@ export function createComponentsTokens(
     checkbox: createCheckboxTokens(tokens),
     iconButton: createIconButtonTokens(tokens),
     icon: createIconTokens(),
+    iconView: createIconViewTokens(tokens),
     pagination: createPaginationTokens(tokens),
     pressable: createPressableTokens(),
     progress: createProgressTokens(tokens),

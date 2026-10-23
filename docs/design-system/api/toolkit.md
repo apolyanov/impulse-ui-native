@@ -1,6 +1,6 @@
 # @impulse-ui-native/toolkit
 
-Local package version: 11.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.2.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -16,6 +16,8 @@ The complete Impulse UI Native component library in one package.
 - Native `FlatList` and a small initial-positioning hook for known row sizes. See the [FlatList API](flat-list.md).
 - `Carousel` with native snapping, centered previews, adaptive pagination, and
   navigation buttons. See the [Carousel API](carousel.md).
+- `IconView` displays icons in a themed surface with IconButton sizes and Badge
+  variants and tones. See the [IconView API](icon-view.md).
 - One theme system shared by every component.
 - Works with React Native mobile applications.
 - Gesture-driven flyouts and app-wide overlay management.
@@ -320,4 +322,6 @@ export * from "@impulse-ui-native/popover";
 export * from "@impulse-ui-native/modal";
 
 export * from "@impulse-ui-native/color-picker";
+
+export * from "@impulse-ui-native/icon-view";
 ```

@@ -41,7 +41,8 @@
     "@impulse-ui-native/list": "workspace:*",
     "@impulse-ui-native/progress": "workspace:*",
     "@impulse-ui-native/flat-list": "workspace:*",
-    "@impulse-ui-native/color-picker": "workspace:*"
+    "@impulse-ui-native/color-picker": "workspace:*",
+    "@impulse-ui-native/icon-view": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/popover": "workspace:*",
