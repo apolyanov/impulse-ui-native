@@ -1,5 +1,15 @@
 # @impulse-ui-native/theme
 
+## 11.4.0
+
+### Minor Changes
+
+- c0f3119: Add a subtle brand color pair in both themes as the faintest brand tint, and include it in the default ColorPicker presets.
+
+### Patch Changes
+
+- @impulse-ui-native/core@11.4.0
+
 ## 11.3.2
 
 ### Patch Changes
