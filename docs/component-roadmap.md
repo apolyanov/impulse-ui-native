@@ -44,7 +44,7 @@ an implemented component unavailable.
 | `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Keep native layout and spacing examples current.                                                             |
 | `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for safe-area edges and themed spacing.                                                          |
 | `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit font scaling, truncation and selection on devices.                                                     |
-| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Direct layout props supported; validate native pressed and disabled feedback.                                                     |
+| `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | Direct layout props supported; validate native pressed and disabled feedback.                                |
 | `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Expand native examples for action content and loading transitions.                                           |
 | `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Validate existing size, variant, loading, and disabled examples on devices.                                  |
 | `Icon` and named icon wrappers | `@impulse-ui-native/icon`       | Available | Yes       | Add a searchable catalogue and per-icon import guidance. Icons are a separate package, not a toolkit export. |
@@ -72,7 +72,7 @@ Validate the new surface on iOS and Android.
 | Component             | Package                                | Status    | Storybook | Follow-up                                                                                                                    |
 | --------------------- | -------------------------------------- | --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Control.Field, Control.Trigger, and Control.Icon share field composition; native validation and loading stories remain.      |
-| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Expand addon-action and form integration examples; use `Textarea` for longer text.                                           |
+| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Three field variants and neutral/primary/secondary tones implemented; validate native appearance and addon actions.          |
 | `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.                                           |
 | `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.                                               |
 | `Checkbox`            | `@impulse-ui-native/checkbox`          | Available | Yes       | Document checked, unchecked, and indeterminate field composition.                                                            |

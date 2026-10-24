@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -2371,7 +2371,9 @@ export type ActionVariant = "filled" | "outlined" | "soft" | "ghost";
 
 export type DisplayVariant = "filled" | "outlined" | "soft";
 
-export type FieldVariant = "filled" | "outlined";
+export type FieldVariant = "filled" | "outlined" | "soft";
+
+export type FieldTone = "neutral" | "primary" | "secondary";
 
 export type SelectionVariant = "filled" | "outlined" | "soft";
 
@@ -2384,6 +2386,7 @@ export type ComponentVariant = ActionVariant;
 ```tsx
 import type {
   ComponentSize,
+  FieldTone,
   FieldVariant,
   FieldVisualState,
   VisualStateTokens,
@@ -2401,7 +2404,7 @@ export type ControlAddonVariantTokens = Record<
 export interface ControlAddonTokens {
   marginHorizontal: number;
   hitSlop: number;
-  variants: ControlAddonVariantTokens;
+  colors: Record<FieldTone, ControlAddonVariantTokens>;
 }
 
 export type ControlContainerSizeTokens = Record<
@@ -2427,7 +2430,7 @@ export interface ControlContainerTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: ControlContainerSizeTokens;
-  variants: ControlContainerVariantTokens;
+  colors: Record<FieldTone, ControlContainerVariantTokens>;
 }
 
 export interface ControlErrorTokens {
@@ -2458,7 +2461,7 @@ export interface ControlInputTokens {
   fontFamily: string;
   paddingHorizontal: number;
   sizes: ControlInputSizeTokens;
-  variants: ControlInputVariantTokens;
+  colors: Record<FieldTone, ControlInputVariantTokens>;
 }
 
 export interface ControlLabelAppearanceTokens {

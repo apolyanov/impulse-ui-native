@@ -4,9 +4,11 @@ import { Input } from "@impulse-ui-native/input";
 import {
   ComponentSizeOptions,
   createStoryDescription,
+  FieldToneOptions,
   FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
+import { InputAppearanceExample } from "./input-appearance-example";
 import { InputDocumentation } from "./input.documentation";
 import { InputExample, InputExampleDefinitions } from "./input.examples";
 
@@ -18,10 +20,16 @@ const meta = {
     placeholder: "you@example.com",
     size: "medium",
     variant: "outlined",
+    tone: "neutral",
     disabled: false,
     secureTextEntry: false,
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: FieldToneOptions,
+      description: "Selects the neutral, primary, or secondary field palette.",
+    },
     size: {
       control: "select",
       options: ComponentSizeOptions,
@@ -67,6 +75,18 @@ export const Documentation: Story = {
     "A complete usage guide for Input labels, validation, secure values, and disabled states.",
   ),
 };
+
+export const AppearanceMatrix: Story = {
+  render: function renderAppearanceMatrix(args) {
+    return <InputAppearanceExample {...args} />;
+  },
+  parameters: createStoryDescription(
+    "All nine variant/tone combinations. Use error, disabled, size, and secure-entry controls to compare states.",
+  ),
+};
+
+export const SoftPrimary: Story = createInputStory("Soft primary");
+export const FilledSecondary: Story = createInputStory("Filled secondary");
 
 export const Default: Story = createInputStory("Default");
 export const WithError: Story = createInputStory("Error");

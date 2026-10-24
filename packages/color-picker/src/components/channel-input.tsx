@@ -11,6 +11,8 @@ import { parseColorChannel } from "../utils/color.utils";
 export const ColorPickerChannelInput = memo(function ColorPickerChannelInput({
   channel,
   label,
+  variant,
+  tone,
 }: ColorPickerChannelInputProps) {
   const { rgba, disabled, size, setChannel, resetKey } =
     useColorPickerContext();
@@ -35,6 +37,8 @@ export const ColorPickerChannelInput = memo(function ColorPickerChannelInput({
   return (
     <Input
       label={label}
+      variant={variant}
+      tone={tone}
       size={size}
       disabled={disabled}
       keyboardType="number-pad"

@@ -7,11 +7,11 @@ import type { ControlFieldThemeProps } from "../../types/control-theme.types";
 
 export function controlContainerStyles(
   theme: AppTheme,
-  { size, variant, disabled, error }: ControlFieldThemeProps,
+  { size, variant, tone, disabled, error }: ControlFieldThemeProps,
 ) {
   const tokens = theme.components.controlContainer;
   const sizeTokens = tokens.sizes[size];
-  const appearance = getFieldStateTokens(tokens.variants[variant], {
+  const appearance = getFieldStateTokens(tokens.colors[tone][variant], {
     disabled,
     error: Boolean(error),
   });

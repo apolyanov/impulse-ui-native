@@ -1702,33 +1702,137 @@
     "controlAddon": {
       "marginHorizontal": 4,
       "hitSlop": 16,
-      "variants": {
-        "filled": {
-          "default": {
-            "iconColor": "#ffffff"
+      "colors": {
+        "neutral": {
+          "outlined": {
+            "default": {
+              "iconColor": "#f1f3f5"
+            },
+            "error": {
+              "iconColor": "#ff8787"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           },
-          "error": {
-            "iconColor": "#ffffff"
+          "soft": {
+            "default": {
+              "iconColor": "#f1f3f5"
+            },
+            "error": {
+              "iconColor": "#ff8787"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           },
-          "disabled": {
-            "iconColor": "#868e96"
-          },
-          "disabledError": {
-            "iconColor": "#868e96"
+          "filled": {
+            "default": {
+              "iconColor": "#16191d"
+            },
+            "error": {
+              "iconColor": "#3b1515"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           }
         },
-        "outlined": {
-          "default": {
-            "iconColor": "#ffffff"
+        "primary": {
+          "outlined": {
+            "default": {
+              "iconColor": "#FA9EA7"
+            },
+            "error": {
+              "iconColor": "#ff8787"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           },
-          "error": {
-            "iconColor": "#ffffff"
+          "soft": {
+            "default": {
+              "iconColor": "#FA9EA7"
+            },
+            "error": {
+              "iconColor": "#ff8787"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           },
-          "disabled": {
-            "iconColor": "#868e96"
+          "filled": {
+            "default": {
+              "iconColor": "#16191d"
+            },
+            "error": {
+              "iconColor": "#3b1515"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
+          }
+        },
+        "secondary": {
+          "outlined": {
+            "default": {
+              "iconColor": "#FA9EA7"
+            },
+            "error": {
+              "iconColor": "#ff8787"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           },
-          "disabledError": {
-            "iconColor": "#868e96"
+          "soft": {
+            "default": {
+              "iconColor": "#FA9EA7"
+            },
+            "error": {
+              "iconColor": "#ff8787"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
+          },
+          "filled": {
+            "default": {
+              "iconColor": "#FA9EA7"
+            },
+            "error": {
+              "iconColor": "#3b1515"
+            },
+            "disabled": {
+              "iconColor": "#868e96"
+            },
+            "disabledError": {
+              "iconColor": "#868e96"
+            }
           }
         }
       }
@@ -1750,49 +1854,209 @@
           "paddingHorizontal": 8
         }
       },
-      "variants": {
-        "filled": {
-          "default": {
-            "backgroundColor": "#212529",
-            "borderColor": "transparent",
-            "opacity": 1
+      "colors": {
+        "neutral": {
+          "outlined": {
+            "default": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "transparent",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 0.7
+            }
           },
-          "error": {
-            "backgroundColor": "#212529",
-            "borderColor": "#ff8787",
-            "opacity": 1
+          "soft": {
+            "default": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "#3b1515",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            }
           },
-          "disabled": {
-            "backgroundColor": "#16191d",
-            "borderColor": "transparent",
-            "opacity": 0.7
-          },
-          "disabledError": {
-            "backgroundColor": "#16191d",
-            "borderColor": "#ff8787",
-            "opacity": 0.7
+          "filled": {
+            "default": {
+              "backgroundColor": "#f1f3f5",
+              "borderColor": "transparent",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "#ff8787",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            }
           }
         },
-        "outlined": {
-          "default": {
-            "backgroundColor": "transparent",
-            "borderColor": "#adb5bd",
-            "opacity": 1
+        "primary": {
+          "outlined": {
+            "default": {
+              "backgroundColor": "transparent",
+              "borderColor": "#FA9EA7",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "transparent",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 0.7
+            }
           },
-          "error": {
-            "backgroundColor": "transparent",
-            "borderColor": "#ff8787",
-            "opacity": 1
+          "soft": {
+            "default": {
+              "backgroundColor": "#3b2027",
+              "borderColor": "transparent",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "#3b1515",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            }
           },
-          "disabled": {
-            "backgroundColor": "transparent",
-            "borderColor": "#adb5bd",
-            "opacity": 0.7
+          "filled": {
+            "default": {
+              "backgroundColor": "#FA9EA7",
+              "borderColor": "transparent",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "#ff8787",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            }
+          }
+        },
+        "secondary": {
+          "outlined": {
+            "default": {
+              "backgroundColor": "transparent",
+              "borderColor": "#FA9EA7",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "transparent",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "transparent",
+              "borderColor": "#adb5bd",
+              "opacity": 0.7
+            }
           },
-          "disabledError": {
-            "backgroundColor": "transparent",
-            "borderColor": "#ff8787",
-            "opacity": 0.7
+          "soft": {
+            "default": {
+              "backgroundColor": "#241C20",
+              "borderColor": "transparent",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "#3b1515",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            }
+          },
+          "filled": {
+            "default": {
+              "backgroundColor": "#3b2027",
+              "borderColor": "transparent",
+              "opacity": 1
+            },
+            "error": {
+              "backgroundColor": "#ff8787",
+              "borderColor": "#ff8787",
+              "opacity": 1
+            },
+            "disabled": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            },
+            "disabledError": {
+              "backgroundColor": "#16191d",
+              "borderColor": "transparent",
+              "opacity": 0.7
+            }
           }
         }
       }
@@ -1817,41 +2081,173 @@
           "fontSize": 16
         }
       },
-      "variants": {
-        "filled": {
-          "default": {
-            "color": "#ffffff",
-            "placeholderColor": "#adb5bd"
+      "colors": {
+        "neutral": {
+          "outlined": {
+            "default": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "error": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           },
-          "error": {
-            "color": "#ffffff",
-            "placeholderColor": "#ff8787"
+          "soft": {
+            "default": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "error": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           },
-          "disabled": {
-            "color": "#868e96",
-            "placeholderColor": "#868e96"
-          },
-          "disabledError": {
-            "color": "#868e96",
-            "placeholderColor": "#868e96"
+          "filled": {
+            "default": {
+              "color": "#16191d",
+              "placeholderColor": "#16191d"
+            },
+            "error": {
+              "color": "#3b1515",
+              "placeholderColor": "#3b1515"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           }
         },
-        "outlined": {
-          "default": {
-            "color": "#ffffff",
-            "placeholderColor": "#adb5bd"
+        "primary": {
+          "outlined": {
+            "default": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "error": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           },
-          "error": {
-            "color": "#ffffff",
-            "placeholderColor": "#ff8787"
+          "soft": {
+            "default": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "error": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           },
-          "disabled": {
-            "color": "#868e96",
-            "placeholderColor": "#868e96"
+          "filled": {
+            "default": {
+              "color": "#16191d",
+              "placeholderColor": "#16191d"
+            },
+            "error": {
+              "color": "#3b1515",
+              "placeholderColor": "#3b1515"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
+          }
+        },
+        "secondary": {
+          "outlined": {
+            "default": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "error": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           },
-          "disabledError": {
-            "color": "#868e96",
-            "placeholderColor": "#868e96"
+          "soft": {
+            "default": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "error": {
+              "color": "#ffffff",
+              "placeholderColor": "#adb5bd"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
+          },
+          "filled": {
+            "default": {
+              "color": "#FA9EA7",
+              "placeholderColor": "#FA9EA7"
+            },
+            "error": {
+              "color": "#3b1515",
+              "placeholderColor": "#3b1515"
+            },
+            "disabled": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            },
+            "disabledError": {
+              "color": "#868e96",
+              "placeholderColor": "#868e96"
+            }
           }
         }
       }

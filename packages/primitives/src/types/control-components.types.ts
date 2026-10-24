@@ -5,6 +5,7 @@ import type { IconProps } from "@impulse-ui-native/icon/types";
 import type {
   ComponentSize,
   DimensionProps,
+  FieldTone,
   FieldVariant,
   FlexProps,
   SpacingProps,
@@ -29,11 +30,14 @@ export interface ControlComponentCommonProps extends ControlLayoutProps {
 export interface ControlComponentProps {
   size: ComponentSize;
   variant: FieldVariant;
+  tone?: FieldTone;
   error: string | undefined;
   disabled: boolean | undefined;
 }
 
-export type ControlContextData = ControlComponentProps;
+export interface ControlContextData extends ControlComponentProps {
+  tone: FieldTone;
+}
 
 export type ControlContainerProps = ViewProps;
 

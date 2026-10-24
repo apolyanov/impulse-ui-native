@@ -1,5 +1,6 @@
 import type { PropsWithChildren, ReactNode } from "react";
 
+import type { InputProps } from "@impulse-ui-native/input";
 import type {
   ButtonProps,
   PressableCoreProps,
@@ -36,12 +37,18 @@ export interface ColorPickerProps extends Omit<
   presetsLabel?: string;
 }
 
-export interface ColorPickerChannelInputProps {
+export interface ColorPickerChannelInputProps extends Pick<
+  InputProps,
+  "variant" | "tone"
+> {
   channel: ColorChannel;
   label?: string;
 }
 
-export interface ColorPickerAlphaInputProps {
+export interface ColorPickerAlphaInputProps extends Pick<
+  InputProps,
+  "variant" | "tone"
+> {
   label?: string;
 }
 

@@ -13,9 +13,9 @@ export const ControlIcon = memo(function ControlIcon({
   color,
   ...props
 }: ControlIconProps) {
-  const { variant, disabled, error } = useControlContext();
+  const { variant, tone = "neutral", disabled, error } = useControlContext();
   const tokens = useComponentsTokens().controlAddon;
-  const appearance = getFieldStateTokens(tokens.variants[variant], {
+  const appearance = getFieldStateTokens(tokens.colors[tone][variant], {
     disabled,
     error: Boolean(error),
   });

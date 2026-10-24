@@ -4,6 +4,7 @@ import { Select } from "@impulse-ui-native/select";
 import {
   ComponentSizeOptions,
   createStoryDescription,
+  FieldToneOptions,
   FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
@@ -23,10 +24,16 @@ const meta = {
     options: SelectStoryOptions,
     size: "medium",
     variant: "outlined",
+    tone: "neutral",
     disabled: false,
     loading: false,
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: FieldToneOptions,
+      description: "Selects the neutral, primary, or secondary field palette.",
+    },
     size: {
       control: "select",
       options: ComponentSizeOptions,
@@ -82,6 +89,9 @@ export const Documentation: Story = {
     "A complete usage guide for single and multiple selects, states, sizes, and variants.",
   ),
 };
+
+export const SoftPrimary: Story = createSelectStory("Soft primary");
+export const FilledSecondary: Story = createSelectStory("Filled secondary");
 
 export const Single: Story = createSelectStory("Single");
 export const Layout: Story = {

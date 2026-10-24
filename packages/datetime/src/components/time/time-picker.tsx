@@ -34,7 +34,11 @@ export const TimePicker = memo(function TimePicker({
   const showPlaceholder = selected === null && placeholder;
 
   return (
-    <DateControl {...props} PrefixIcon={PrefixIcon} onPress={onPressOpen}>
+    <DateControl
+      {...props}
+      PrefixIcon={PrefixIcon}
+      onPress={onPressOpen}
+    >
       {showPlaceholder ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}

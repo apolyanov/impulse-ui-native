@@ -29,6 +29,7 @@ export const Textarea = memo(function Textarea({
   style,
   value: valueProp,
   variant = "outlined",
+  tone = "neutral",
   ...props
 }: TextareaProps) {
   const layoutStyle = useStyleProps(props);
@@ -78,6 +79,7 @@ export const Textarea = memo(function Textarea({
       error={error}
       size={size}
       variant={variant}
+      tone={tone}
     >
       <Control.Root style={layoutStyle}>
         <Control.Label disabled={disabled}>{label}</Control.Label>

@@ -17,13 +17,19 @@ export const ControlTrigger = memo(function ControlTrigger({
   style,
   ...props
 }: ControlTriggerProps) {
-  const { size, variant, disabled, error } = useControlContext();
+  const {
+    size,
+    variant,
+    tone = "neutral",
+    disabled,
+    error,
+  } = useControlContext();
   const tokens = useComponentsTokens().pressable;
   const resolvedDisabled = Boolean(disabled) || disabledProp === true;
   const styles = useThemedStyles(
     controlContainerStyles,
-    { size, variant, disabled: resolvedDisabled, error },
-    [size, variant, resolvedDisabled, error],
+    { size, variant, tone, disabled: resolvedDisabled, error },
+    [size, variant, tone, resolvedDisabled, error],
   );
   const extractedStyleProps = useStyleProps(props);
 

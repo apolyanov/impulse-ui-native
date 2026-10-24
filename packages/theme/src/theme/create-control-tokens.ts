@@ -10,21 +10,150 @@ import {
 export function createControlAddonTokens(
   tokens: PrimitiveThemeTokens,
 ): ControlAddonTokens {
+  const primary = tokens.colors.primary.value;
+  const primaryContrast = tokens.colors.primary.contrast;
+  const secondaryContrast = tokens.colors.secondary.contrast;
+  const neutral = tokens.colors.text.secondary;
+  const neutralContrast = tokens.colors.text.inverse;
+  const disabledColor = tokens.colors.text.disabled;
+  const errorColor = tokens.colors.feedback.error.value;
+  const errorContrast = tokens.colors.feedback.error.contrast;
+
   return {
     marginHorizontal: tokens.space.xxs,
     hitSlop: tokens.space.sm,
-    variants: {
-      filled: {
-        default: { iconColor: tokens.colors.text.primary },
-        error: { iconColor: tokens.colors.text.primary },
-        disabled: { iconColor: tokens.colors.text.disabled },
-        disabledError: { iconColor: tokens.colors.text.disabled },
+    colors: {
+      neutral: {
+        outlined: {
+          default: {
+            iconColor: neutral,
+          },
+          error: {
+            iconColor: errorColor,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+        soft: {
+          default: {
+            iconColor: neutral,
+          },
+          error: {
+            iconColor: errorColor,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+        filled: {
+          default: {
+            iconColor: neutralContrast,
+          },
+          error: {
+            iconColor: errorContrast,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
       },
-      outlined: {
-        default: { iconColor: tokens.colors.text.primary },
-        error: { iconColor: tokens.colors.text.primary },
-        disabled: { iconColor: tokens.colors.text.disabled },
-        disabledError: { iconColor: tokens.colors.text.disabled },
+      primary: {
+        outlined: {
+          default: {
+            iconColor: primary,
+          },
+          error: {
+            iconColor: errorColor,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+        soft: {
+          default: {
+            iconColor: primary,
+          },
+          error: {
+            iconColor: errorColor,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+        filled: {
+          default: {
+            iconColor: primaryContrast,
+          },
+          error: {
+            iconColor: errorContrast,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+      },
+      secondary: {
+        outlined: {
+          default: {
+            iconColor: secondaryContrast,
+          },
+          error: {
+            iconColor: errorColor,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+        soft: {
+          default: {
+            iconColor: secondaryContrast,
+          },
+          error: {
+            iconColor: errorColor,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
+        filled: {
+          default: {
+            iconColor: secondaryContrast,
+          },
+          error: {
+            iconColor: errorContrast,
+          },
+          disabled: {
+            iconColor: disabledColor,
+          },
+          disabledError: {
+            iconColor: disabledColor,
+          },
+        },
       },
     },
   };
@@ -33,6 +162,16 @@ export function createControlAddonTokens(
 export function createControlContainerTokens(
   tokens: PrimitiveThemeTokens,
 ): ControlContainerTokens {
+  const primary = tokens.colors.primary.value;
+  const secondary = tokens.colors.secondary.value;
+  const secondaryContrast = tokens.colors.secondary.contrast;
+  const subtle = tokens.colors.subtle.value;
+  const neutral = tokens.colors.text.secondary;
+  const disabledBackground = tokens.colors.surface.subtle.value;
+  const defaultBorder = tokens.colors.border.default.value;
+  const errorColor = tokens.colors.feedback.error.value;
+  const errorContrast = tokens.colors.feedback.error.contrast;
+
   return {
     borderWidth: tokens.borderSize.sm,
     borderRadius: tokens.radii.sm,
@@ -52,50 +191,209 @@ export function createControlContainerTokens(
       },
     },
 
-    variants: {
-      filled: {
-        default: {
-          backgroundColor: tokens.colors.surface.default.value,
-          borderColor: "transparent",
-          opacity: 1,
+    colors: {
+      neutral: {
+        outlined: {
+          default: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: "transparent",
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 0.7,
+          },
         },
-        error: {
-          backgroundColor: tokens.colors.surface.default.value,
-          borderColor: tokens.colors.feedback.error.value,
-          opacity: 1,
+        soft: {
+          default: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: errorContrast,
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
         },
-        disabled: {
-          backgroundColor: tokens.colors.surface.subtle.value,
-          borderColor: "transparent",
-          opacity: 0.7,
-        },
-        disabledError: {
-          backgroundColor: tokens.colors.surface.subtle.value,
-          borderColor: tokens.colors.feedback.error.value,
-          opacity: 0.7,
+        filled: {
+          default: {
+            backgroundColor: neutral,
+            borderColor: "transparent",
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: errorColor,
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
         },
       },
-
-      outlined: {
-        default: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.default.value,
-          opacity: 1,
+      primary: {
+        outlined: {
+          default: {
+            backgroundColor: "transparent",
+            borderColor: primary,
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: "transparent",
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 0.7,
+          },
         },
-        error: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.feedback.error.value,
-          opacity: 1,
+        soft: {
+          default: {
+            backgroundColor: secondary,
+            borderColor: "transparent",
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: errorContrast,
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
         },
-        disabled: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.default.value,
-          opacity: 0.7,
+        filled: {
+          default: {
+            backgroundColor: primary,
+            borderColor: "transparent",
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: errorColor,
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
         },
-        disabledError: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.feedback.error.value,
-          opacity: 0.7,
+      },
+      secondary: {
+        outlined: {
+          default: {
+            backgroundColor: "transparent",
+            borderColor: secondaryContrast,
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: "transparent",
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: "transparent",
+            borderColor: defaultBorder,
+            opacity: 0.7,
+          },
+        },
+        soft: {
+          default: {
+            backgroundColor: subtle,
+            borderColor: "transparent",
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: errorContrast,
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+        },
+        filled: {
+          default: {
+            backgroundColor: secondary,
+            borderColor: "transparent",
+            opacity: 1,
+          },
+          error: {
+            backgroundColor: errorColor,
+            borderColor: errorColor,
+            opacity: 1,
+          },
+          disabled: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
+          disabledError: {
+            backgroundColor: disabledBackground,
+            borderColor: "transparent",
+            opacity: 0.7,
+          },
         },
       },
     },
@@ -115,6 +413,14 @@ export function createControlErrorTokens(
 export function createControlInputTokens(
   tokens: PrimitiveThemeTokens,
 ): ControlInputTokens {
+  const primaryContrast = tokens.colors.primary.contrast;
+  const secondaryContrast = tokens.colors.secondary.contrast;
+  const neutralContrast = tokens.colors.text.inverse;
+  const textColor = tokens.colors.text.primary;
+  const placeholderColor = tokens.colors.text.tertiary;
+  const disabledColor = tokens.colors.text.disabled;
+  const errorContrast = tokens.colors.feedback.error.contrast;
+
   return {
     flex: 1,
     fontFamily: tokens.fontFamily.normal[400],
@@ -132,42 +438,173 @@ export function createControlInputTokens(
       },
     },
 
-    variants: {
-      filled: {
-        default: {
-          color: tokens.colors.text.primary,
-          placeholderColor: tokens.colors.text.tertiary,
+    colors: {
+      neutral: {
+        outlined: {
+          default: {
+            color: textColor,
+            placeholderColor,
+          },
+          error: {
+            color: textColor,
+            placeholderColor,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
-        error: {
-          color: tokens.colors.text.primary,
-          placeholderColor: tokens.colors.feedback.error.value,
+        soft: {
+          default: {
+            color: textColor,
+            placeholderColor,
+          },
+          error: {
+            color: textColor,
+            placeholderColor,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
-        disabled: {
-          color: tokens.colors.text.disabled,
-          placeholderColor: tokens.colors.text.disabled,
-        },
-        disabledError: {
-          color: tokens.colors.text.disabled,
-          placeholderColor: tokens.colors.text.disabled,
+        filled: {
+          default: {
+            color: neutralContrast,
+            placeholderColor: neutralContrast,
+          },
+          error: {
+            color: errorContrast,
+            placeholderColor: errorContrast,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
       },
-
-      outlined: {
-        default: {
-          color: tokens.colors.text.primary,
-          placeholderColor: tokens.colors.text.tertiary,
+      primary: {
+        outlined: {
+          default: {
+            color: textColor,
+            placeholderColor,
+          },
+          error: {
+            color: textColor,
+            placeholderColor,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
-        error: {
-          color: tokens.colors.text.primary,
-          placeholderColor: tokens.colors.feedback.error.value,
+        soft: {
+          default: {
+            color: textColor,
+            placeholderColor,
+          },
+          error: {
+            color: textColor,
+            placeholderColor,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
-        disabled: {
-          color: tokens.colors.text.disabled,
-          placeholderColor: tokens.colors.text.disabled,
+        filled: {
+          default: {
+            color: primaryContrast,
+            placeholderColor: primaryContrast,
+          },
+          error: {
+            color: errorContrast,
+            placeholderColor: errorContrast,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
-        disabledError: {
-          color: tokens.colors.text.disabled,
-          placeholderColor: tokens.colors.text.disabled,
+      },
+      secondary: {
+        outlined: {
+          default: {
+            color: textColor,
+            placeholderColor,
+          },
+          error: {
+            color: textColor,
+            placeholderColor,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+        },
+        soft: {
+          default: {
+            color: textColor,
+            placeholderColor,
+          },
+          error: {
+            color: textColor,
+            placeholderColor,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+        },
+        filled: {
+          default: {
+            color: secondaryContrast,
+            placeholderColor: secondaryContrast,
+          },
+          error: {
+            color: errorContrast,
+            placeholderColor: errorContrast,
+          },
+          disabled: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
+          disabledError: {
+            color: disabledColor,
+            placeholderColor: disabledColor,
+          },
         },
       },
     },

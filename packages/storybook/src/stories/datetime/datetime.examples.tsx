@@ -26,6 +26,7 @@ type DatetimeStoryArgs = Pick<
   ComponentProps<typeof DatePicker>,
   | "size"
   | "variant"
+  | "tone"
   | "disabled"
   | "clearable"
   | "error"

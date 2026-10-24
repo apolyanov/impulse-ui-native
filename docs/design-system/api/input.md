@@ -1,6 +1,6 @@
 # @impulse-ui-native/input
 
-Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -71,6 +71,20 @@ column layouts stretch horizontally by default without vertical growth. Use
 `width`, `minWidth`, or `alignSelf` for explicit sizing. Existing `style` still
 targets the text input; `containerStyle` targets the bordered container.
 
+## Field appearance
+
+Rectangular fields support `variant="outlined" | "soft" | "filled"` and
+`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+Outlined uses a transparent surface with a tone border; soft uses a subtle tone
+surface; filled uses the tone fill with its paired foreground. Colors come from
+the active theme in both schemes. Error styling overrides the selected tone;
+disabled fields use neutral styling and block interaction.
+
+Customize `components.controlContainer.colors[tone][variant][state]`,
+`controlInput.colors[tone][variant][state]`, and
+`controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
+the previous `variants[variant][state]` maps.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -104,6 +118,7 @@ export const Input = memo(function Input(props: InputProps) {
   const {
     size = "medium",
     variant = "outlined",
+    tone = "neutral",
     label,
     error,
     disabled,
@@ -118,15 +133,15 @@ export const Input = memo(function Input(props: InputProps) {
     ...rest
   } = props;
 
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const layoutStyle = useStyleProps(rest);
 
   const addonTokens = useComponentsTokens().controlAddon;
-  const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
+  const addonColor = getFieldStateTokens(addonTokens.colors[tone][variant], {
     disabled,
     error: Boolean(error),
   }).iconColor;
-
-  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const togglePasswordVisibility = useEventCallback(() => {
     setShowPassword((prevState) => !prevState);
@@ -152,6 +167,7 @@ export const Input = memo(function Input(props: InputProps) {
     <Control.Provider
       size={size}
       variant={variant}
+      tone={tone}
       error={error}
       disabled={disabled}
     >
@@ -221,6 +237,7 @@ export const Textarea = memo(function Textarea({
   style,
   value: valueProp,
   variant = "outlined",
+  tone = "neutral",
   ...props
 }: TextareaProps) {
   const layoutStyle = useStyleProps(props);
@@ -270,6 +287,7 @@ export const Textarea = memo(function Textarea({
       error={error}
       size={size}
       variant={variant}
+      tone={tone}
     >
       <Control.Root style={layoutStyle}>
         <Control.Label disabled={disabled}>{label}</Control.Label>

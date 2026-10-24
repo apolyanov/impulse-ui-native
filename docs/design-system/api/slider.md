@@ -1,6 +1,6 @@
 # @impulse-ui-native/slider
 
-Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

@@ -4,6 +4,7 @@ import { DatePicker } from "@impulse-ui-native/datetime";
 import {
   ComponentSizeOptions,
   createStoryDescription,
+  FieldToneOptions,
   FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
@@ -19,10 +20,16 @@ const meta = {
   args: {
     size: "medium",
     variant: "outlined",
+    tone: "neutral",
     disabled: false,
     clearable: true,
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: FieldToneOptions,
+      description: "Selects the neutral, primary, or secondary field palette.",
+    },
     size: {
       control: "select",
       options: ComponentSizeOptions,

@@ -64,3 +64,17 @@ including its label and error. Use `flex={1}` for equal widths inside a row;
 column layouts stretch horizontally by default without vertical growth. Use
 `width`, `minWidth`, or `alignSelf` for explicit sizing. Existing `style` still
 targets the text input; `containerStyle` targets the bordered container.
+
+## Field appearance
+
+Rectangular fields support `variant="outlined" | "soft" | "filled"` and
+`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+Outlined uses a transparent surface with a tone border; soft uses a subtle tone
+surface; filled uses the tone fill with its paired foreground. Colors come from
+the active theme in both schemes. Error styling overrides the selected tone;
+disabled fields use neutral styling and block interaction.
+
+Customize `components.controlContainer.colors[tone][variant][state]`,
+`controlInput.colors[tone][variant][state]`, and
+`controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
+the previous `variants[variant][state]` maps.

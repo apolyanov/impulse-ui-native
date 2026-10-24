@@ -17,6 +17,7 @@ export const Input = memo(function Input(props: InputProps) {
   const {
     size = "medium",
     variant = "outlined",
+    tone = "neutral",
     label,
     error,
     disabled,
@@ -31,15 +32,15 @@ export const Input = memo(function Input(props: InputProps) {
     ...rest
   } = props;
 
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const layoutStyle = useStyleProps(rest);
 
   const addonTokens = useComponentsTokens().controlAddon;
-  const addonColor = getFieldStateTokens(addonTokens.variants[variant], {
+  const addonColor = getFieldStateTokens(addonTokens.colors[tone][variant], {
     disabled,
     error: Boolean(error),
   }).iconColor;
-
-  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const togglePasswordVisibility = useEventCallback(() => {
     setShowPassword((prevState) => !prevState);
@@ -65,6 +66,7 @@ export const Input = memo(function Input(props: InputProps) {
     <Control.Provider
       size={size}
       variant={variant}
+      tone={tone}
       error={error}
       disabled={disabled}
     >

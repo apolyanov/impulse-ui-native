@@ -11,11 +11,17 @@ export const ControlContainer = memo(function ControlContainer({
   style,
   ...props
 }: ControlContainerProps) {
-  const { size, variant, disabled, error } = useControlContext();
+  const {
+    size,
+    variant,
+    tone = "neutral",
+    disabled,
+    error,
+  } = useControlContext();
   const styles = useThemedStyles(
     controlContainerStyles,
-    { size, variant, disabled, error },
-    [size, variant, disabled, error],
+    { size, variant, tone, disabled, error },
+    [size, variant, tone, disabled, error],
   );
   const containerStyle = useMemo(
     () => [styles.inputContainer, style],

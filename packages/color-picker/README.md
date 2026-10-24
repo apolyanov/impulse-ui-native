@@ -86,3 +86,19 @@ Immediate-mode `onChange` still emits live values. Apply, Cancel, and gesture
 completion reconcile the visual color to the accepted selection.
 
 Native device verification of dragging, keyboard entry, font scaling, and nested scrolling remains necessary; package checks are not interaction tests.
+
+## Field appearance
+
+Rectangular fields support `variant="outlined" | "soft" | "filled"` and
+`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+Outlined uses a transparent surface with a tone border; soft uses a subtle tone
+surface; filled uses the tone fill with its paired foreground. Colors come from
+the active theme in both schemes. Error styling overrides the selected tone;
+disabled fields use neutral styling and block interaction.
+
+Customize `components.controlContainer.colors[tone][variant][state]`,
+`controlInput.colors[tone][variant][state]`, and
+`controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
+the previous `variants[variant][state]` maps.
+
+`ColorPicker.HexInput`, `ColorPicker.ChannelInput`, and `ColorPicker.AlphaInput` accept the field appearance props individually.

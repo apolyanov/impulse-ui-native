@@ -227,14 +227,14 @@ Variant axes belong to component families. The current shared types are:
 | ------------------ | ------------------------------------- |
 | `ActionVariant`    | `filled`, `outlined`, `soft`, `ghost` |
 | `DisplayVariant`   | `filled`, `outlined`, `soft`          |
-| `FieldVariant`     | `filled`, `outlined`                  |
+| `FieldVariant`     | `filled`, `outlined`, `soft`          |
 | `SelectionVariant` | `filled`, `outlined`, `soft`          |
 
 There is no shared `plain` variant in the current source. Check each component's props for the family it supports. `ComponentVariant` is a deprecated alias of `ActionVariant`.
 
 For Button, filled uses primary fill/contrast; outlined uses a transparent fill with primary border/text; soft uses secondary fill/contrast; ghost uses transparent fill/border with primary text. Button defaults to medium/filled. It has a 1-unit border and small/medium/large horizontal padding **12 / 16 / 20**, vertical padding **6 / 8 / 10**, and text sizes **14 / 16 / 16**.
 
-Rectangular field containers use filled or outlined presentation. Enabled filled fields use `surface.default` with a transparent default border; disabled filled fields use `surface.subtle`. Outlined fields use a transparent background and default semantic border. Both have error and disabled combinations. Container horizontal padding is 8; input text sizes are **12 / 14 / 16**. Labels use 14, error text 12, and label/error spacing 4.
+Rectangular fields support `outlined`, `soft`, and `filled`, with `tone="neutral" | "primary" | "secondary"`. Default to `outlined` / `neutral`. Outlined uses a transparent surface and tone border; soft uses a subtle tone surface; filled uses the tone fill and its paired foreground. Primary soft uses `colors.secondary`; secondary soft uses `colors.subtle`, while secondary filled uses `colors.secondary` and its contrast. Neutral soft uses `surface.subtle`; neutral filled uses `text.secondary` / `text.inverse`. Keep entered text neutral on outlined/soft surfaces and use tone-aware icons. Validation overrides the tone through `error`; disabled fields are neutral regardless of tone, including disabled errors. Fields use a fixed 1-unit border without a separate focus appearance. Field size, outer dimensions, and radii stay unchanged. Container horizontal padding is 8; input text sizes are **12 / 14 / 16**. Labels use 14, error text 12, and label/error spacing 4. Customize the shared `controlContainer`, `controlInput`, and `controlAddon` `colors[tone][variant][state]` maps together; they replace the older `variants[variant][state]` maps. All field families, including Select/MultiSelect, date/time pickers, and ColorPicker input parts, share this appearance contract.
 
 Shared state maps include:
 

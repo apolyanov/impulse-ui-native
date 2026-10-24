@@ -118,14 +118,23 @@ for (const scheme of ["Light", "Dark"]) {
         scheme + " Spinner " + tone,
       );
     }
-    for (const variant of ["filled", "outlined"]) {
-      checkPair(
-        generated.createControlInputTokens.variants[variant].default
-          .placeholderColor,
-        background,
-        4.5,
-        scheme + " input placeholder " + variant,
-      );
+    for (const tone of ["neutral", "primary", "secondary"]) {
+      for (const variant of ["filled", "outlined", "soft"]) {
+        const input =
+          generated.createControlInputTokens.colors[tone][variant].default;
+        const container =
+          generated.createControlContainerTokens.colors[tone][variant].default;
+        const fieldBackground =
+          container.backgroundColor === "transparent"
+            ? background
+            : container.backgroundColor;
+        checkPair(
+          input.placeholderColor,
+          fieldBackground,
+          4.5,
+          `${scheme} input placeholder ${tone}/${variant}`,
+        );
+      }
     }
     checkPair(
       generated.createAvatarTokens.statusColors.offline,

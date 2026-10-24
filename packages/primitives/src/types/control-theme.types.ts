@@ -1,4 +1,8 @@
-import type { ComponentSize, FieldVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  FieldTone,
+  FieldVariant,
+} from "@impulse-ui-native/theme";
 
 export interface ControlStateThemeProps {
   disabled?: boolean;
@@ -8,4 +12,5 @@ export interface ControlStateThemeProps {
 export interface ControlFieldThemeProps extends ControlStateThemeProps {
   size: ComponentSize;
   variant: FieldVariant;
+  tone: FieldTone;
 }

@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  FieldTone,
   FieldVariant,
   FieldVisualState,
   VisualStateTokens,
@@ -17,7 +18,7 @@ export type ControlAddonVariantTokens = Record<
 export interface ControlAddonTokens {
   marginHorizontal: number;
   hitSlop: number;
-  variants: ControlAddonVariantTokens;
+  colors: Record<FieldTone, ControlAddonVariantTokens>;
 }
 
 export type ControlContainerSizeTokens = Record<
@@ -43,7 +44,7 @@ export interface ControlContainerTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: ControlContainerSizeTokens;
-  variants: ControlContainerVariantTokens;
+  colors: Record<FieldTone, ControlContainerVariantTokens>;
 }
 
 export interface ControlErrorTokens {
@@ -74,7 +75,7 @@ export interface ControlInputTokens {
   fontFamily: string;
   paddingHorizontal: number;
   sizes: ControlInputSizeTokens;
-  variants: ControlInputVariantTokens;
+  colors: Record<FieldTone, ControlInputVariantTokens>;
 }
 
 export interface ControlLabelAppearanceTokens {

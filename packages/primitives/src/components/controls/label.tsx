@@ -12,9 +12,10 @@ import { Typography } from "../atoms";
 export const ControlLabel = memo(function ControlLabel(
   props: ControlLabelProps,
 ) {
-  const { children, disabled, style, ...rest } = props;
+  const { children, disabled: disabledProp, style, ...rest } = props;
 
-  const { error } = useControlContext();
+  const { error, disabled: groupDisabled } = useControlContext();
+  const disabled = Boolean(groupDisabled) || disabledProp === true;
 
   const styles = useThemedStyles(
     themedStyles,

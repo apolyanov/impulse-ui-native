@@ -1,17 +1,23 @@
 import type { PropsWithChildren } from "react";
 import { memo, useMemo } from "react";
 
-import type { ControlContextData } from "../../types";
+import type { ControlComponentProps, ControlContextData } from "../../types";
 import { ControlContext } from "../../contexts/control.context";
 
 export const ControlProvider = memo(function ControlProvider(
-  props: PropsWithChildren<ControlContextData>,
+  props: PropsWithChildren<ControlComponentProps>,
 ) {
-  const { children, disabled, error, size, variant } = props;
+  const { children, disabled, error, size, variant, tone = "neutral" } = props;
 
   const context = useMemo<ControlContextData>(
-    () => ({ disabled, error, size, variant }),
-    [disabled, error, size, variant],
+    () => ({
+      disabled,
+      error,
+      size,
+      variant,
+      tone,
+    }),
+    [disabled, error, size, variant, tone],
   );
 
   return (

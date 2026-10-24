@@ -26,6 +26,7 @@ type SelectStoryArgs = Pick<
   ComponentProps<typeof Select>,
   | "size"
   | "variant"
+  | "tone"
   | "disabled"
   | "loading"
   | "error"
@@ -43,6 +44,59 @@ export const SelectStoryOptions = [
 ];
 
 export const SelectExampleDefinitions = [
+  {
+    name: "Soft primary",
+    title: "Soft primary field",
+    description:
+      "A subtle brand surface with readable text. Error overrides the palette; disabled fields use neutral styling.",
+    props: [
+      {
+        name: "variant",
+        value: "soft",
+        description: "Uses a tinted surface without a resting border.",
+      },
+      {
+        name: "tone",
+        value: "primary",
+        description: "Uses the primary theme palette.",
+      },
+    ],
+    args: {
+      options: SelectStoryOptions,
+      label: "Soft primary",
+      placeholder: "Choose a value",
+      variant: "soft",
+      tone: "primary",
+    },
+    renderPreview: (args) => <Select {...args} />,
+  },
+  {
+    name: "Filled secondary",
+    title: "Filled secondary field",
+    description:
+      "A secondary theme fill with its paired foreground. The secondary palette can be light or dark depending on the theme.",
+    props: [
+      {
+        name: "variant",
+        value: "filled",
+        description: "Uses the tone's fill and contrast colors.",
+      },
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Uses the secondary theme palette.",
+      },
+    ],
+    args: {
+      options: SelectStoryOptions,
+      label: "Filled secondary",
+      placeholder: "Choose a value",
+      variant: "filled",
+      tone: "secondary",
+    },
+    renderPreview: (args) => <Select {...args} />,
+  },
+
   {
     name: "Single",
     title: "Single select",

@@ -26,10 +26,7 @@ export interface AvailabilityState {
 }
 
 export type FieldVisualState =
-  | "default"
-  | "error"
-  | "disabled"
-  | "disabledError";
+  "default" | "error" | "disabled" | "disabledError";
 
 export interface FieldState {
   disabled?: boolean;
@@ -37,10 +34,7 @@ export interface FieldState {
 }
 
 export type SelectionVisualState =
-  | "unselected"
-  | "selected"
-  | "disabledUnselected"
-  | "disabledSelected";
+  "unselected" | "selected" | "disabledUnselected" | "disabledSelected";
 
 export interface SelectionState {
   disabled?: boolean;
@@ -57,7 +51,9 @@ export type ActionVariant = "filled" | "outlined" | "soft" | "ghost";
 
 export type DisplayVariant = "filled" | "outlined" | "soft";
 
-export type FieldVariant = "filled" | "outlined";
+export type FieldVariant = "filled" | "outlined" | "soft";
+
+export type FieldTone = "neutral" | "primary" | "secondary";
 
 export type SelectionVariant = "filled" | "outlined" | "soft";
 

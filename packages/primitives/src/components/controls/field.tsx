@@ -22,6 +22,7 @@ export const ControlField = memo(function ControlField({
   size = "medium",
   suffix,
   variant = "outlined",
+  tone = "neutral",
   ...props
 }: ControlFieldProps) {
   const layoutStyle = useStyleProps(props);
@@ -33,6 +34,7 @@ export const ControlField = memo(function ControlField({
     <ControlProvider
       size={size}
       variant={variant}
+      tone={tone}
       error={error}
       disabled={disabled}
     >

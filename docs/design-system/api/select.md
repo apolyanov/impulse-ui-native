@@ -1,6 +1,6 @@
 # @impulse-ui-native/select
 
-Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -78,6 +78,20 @@ field, including its label and error. No extra field wrappers are needed:
 In a column, fields stretch horizontally by default without vertical growth.
 For a parent with `alignItems="center"`, use `alignSelf="stretch"` on the field
 or set an explicit `width`. No default `flex` is applied.
+
+## Field appearance
+
+Rectangular fields support `variant="outlined" | "soft" | "filled"` and
+`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+Outlined uses a transparent surface with a tone border; soft uses a subtle tone
+surface; filled uses the tone fill with its paired foreground. Colors come from
+the active theme in both schemes. Error styling overrides the selected tone;
+disabled fields use neutral styling and block interaction.
+
+Customize `components.controlContainer.colors[tone][variant][state]`,
+`controlInput.colors[tone][variant][state]`, and
+`controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
+the previous `variants[variant][state]` maps.
 
 ## Public export and source reference
 

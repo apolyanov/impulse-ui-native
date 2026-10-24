@@ -14,17 +14,24 @@ export const ControlPlaceholder = memo(function ControlPlaceholder(
 ) {
   const { style, ...rest } = props;
 
-  const { size, variant, disabled, error } = useControlContext();
+  const {
+    size,
+    variant,
+    tone = "neutral",
+    disabled,
+    error,
+  } = useControlContext();
 
   const styles = useThemedStyles(
     themedStyles,
     {
       size,
       variant,
+      tone,
       disabled,
       error,
     },
-    [size, variant, disabled, error],
+    [size, variant, tone, disabled, error],
   );
 
   const placeholderStyle = useMemo(
@@ -39,12 +46,12 @@ export const ControlPlaceholder = memo(function ControlPlaceholder(
 
 function themedStyles(
   theme: AppTheme,
-  { size, variant, disabled, error }: ControlFieldThemeProps,
+  { size, variant, tone = "neutral", disabled, error }: ControlFieldThemeProps,
 ) {
   const controlInputTokens = theme.components.controlInput;
   const sizeTokens = controlInputTokens.sizes[size];
   const appearanceTokens = getFieldStateTokens(
-    controlInputTokens.variants[variant],
+    controlInputTokens.colors[tone][variant],
     { disabled, error: Boolean(error) },
   );
 

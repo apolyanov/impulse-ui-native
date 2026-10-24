@@ -10,6 +10,8 @@ import { parseColorPercentage } from "../utils/color.utils";
 
 export const ColorPickerAlphaInput = memo(function ColorPickerAlphaInput({
   label,
+  variant,
+  tone,
 }: ColorPickerAlphaInputProps) {
   const { hsva, disabled, size, setAlpha, resetKey } = useColorPickerContext();
   const commit = useEventCallback((text: string): string | undefined => {
@@ -33,6 +35,8 @@ export const ColorPickerAlphaInput = memo(function ColorPickerAlphaInput({
   return (
     <Input
       label={label}
+      variant={variant}
+      tone={tone}
       size={size}
       disabled={disabled}
       keyboardType="number-pad"

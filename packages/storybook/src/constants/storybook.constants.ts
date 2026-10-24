@@ -2,6 +2,7 @@ import type {
   ActionVariant,
   ComponentSize,
   DisplayVariant,
+  FieldTone,
   FieldVariant,
   SelectionVariant,
 } from "@impulse-ui-native/theme";
@@ -28,7 +29,14 @@ export const DisplayVariantOptions = [
 export const FieldVariantOptions = [
   "filled",
   "outlined",
+  "soft",
 ] satisfies FieldVariant[];
+
+export const FieldToneOptions = [
+  "neutral",
+  "primary",
+  "secondary",
+] satisfies FieldTone[];
 
 export const SelectionVariantOptions = [
   "filled",

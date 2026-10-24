@@ -11,19 +11,26 @@ import { useControlContext } from "../../hooks/use-control-context.hook";
 export const ControlInput = memo(function ControlInput(
   props: ControlInputProps,
 ) {
-  const { onPress: _onPress, style, ...rest } = props;
+  const { onPress: _onPress, editable, style, ...rest } = props;
 
-  const { size, variant, disabled, error } = useControlContext();
+  const {
+    size,
+    variant,
+    tone = "neutral",
+    disabled,
+    error,
+  } = useControlContext();
 
   const styles = useThemedStyles(
     themedStyles,
     {
       size,
       variant,
+      tone,
       disabled,
       error,
     },
-    [size, variant, disabled, error],
+    [size, variant, tone, disabled, error],
   );
 
   const inputStyles = useMemo(
@@ -36,19 +43,19 @@ export const ControlInput = memo(function ControlInput(
       {...rest}
       style={inputStyles}
       placeholderTextColor={styles.placeholder.color}
-      editable={!disabled}
+      editable={!disabled && editable !== false}
     />
   );
 });
 
 function themedStyles(
   theme: AppTheme,
-  { size, variant, disabled, error }: ControlFieldThemeProps,
+  { size, variant, tone = "neutral", disabled, error }: ControlFieldThemeProps,
 ) {
   const controlInputTokens = theme.components.controlInput;
   const sizeTokens = controlInputTokens.sizes[size];
   const appearanceTokens = getFieldStateTokens(
-    controlInputTokens.variants[variant],
+    controlInputTokens.colors[tone][variant],
     { disabled, error: Boolean(error) },
   );
 

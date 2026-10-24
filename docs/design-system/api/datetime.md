@@ -1,6 +1,6 @@
 # @impulse-ui-native/datetime
 
-Local package version: 11.3.2. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -54,6 +54,20 @@ dimension, and spacing props on the outer field. Use `flex={1}` to share row
 width without extra wrappers. Columns stretch fields horizontally by default
 without vertical growth; use `alignSelf="stretch"` or `width` when the parent
 uses a different alignment.
+
+## Field appearance
+
+Rectangular fields support `variant="outlined" | "soft" | "filled"` and
+`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+Outlined uses a transparent surface with a tone border; soft uses a subtle tone
+surface; filled uses the tone fill with its paired foreground. Colors come from
+the active theme in both schemes. Error styling overrides the selected tone;
+disabled fields use neutral styling and block interaction.
+
+Customize `components.controlContainer.colors[tone][variant][state]`,
+`controlInput.colors[tone][variant][state]`, and
+`controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
+the previous `variants[variant][state]` maps.
 
 ## Public export and source reference
 

@@ -18,6 +18,55 @@ interface TextareaExampleDefinition {
 
 export const TextareaExampleDefinitions = [
   {
+    name: "Soft primary",
+    title: "Soft primary field",
+    description:
+      "A subtle brand surface with readable text. Error overrides the palette; disabled fields use neutral styling.",
+    props: [
+      {
+        name: "variant",
+        value: "soft",
+        description: "Uses a tinted surface without a resting border.",
+      },
+      {
+        name: "tone",
+        value: "primary",
+        description: "Uses the primary theme palette.",
+      },
+    ],
+    args: {
+      label: "Soft primary",
+      placeholder: "Choose a value",
+      variant: "soft",
+      tone: "primary",
+    },
+  },
+  {
+    name: "Filled secondary",
+    title: "Filled secondary field",
+    description:
+      "A secondary theme fill with its paired foreground. The secondary palette can be light or dark depending on the theme.",
+    props: [
+      {
+        name: "variant",
+        value: "filled",
+        description: "Uses the tone's fill and contrast colors.",
+      },
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Uses the secondary theme palette.",
+      },
+    ],
+    args: {
+      label: "Filled secondary",
+      placeholder: "Choose a value",
+      variant: "filled",
+      tone: "secondary",
+    },
+  },
+
+  {
     name: "Default",
     title: "Default textarea",
     description:

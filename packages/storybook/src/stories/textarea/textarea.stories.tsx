@@ -4,6 +4,7 @@ import { Textarea } from "@impulse-ui-native/input";
 import {
   ComponentSizeOptions,
   createStoryDescription,
+  FieldToneOptions,
   FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
@@ -26,8 +27,14 @@ const meta = {
     showCharacterCount: false,
     size: "medium",
     variant: "outlined",
+    tone: "neutral",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: FieldToneOptions,
+      description: "Selects the neutral, primary, or secondary field palette.",
+    },
     autoGrow: {
       control: "boolean",
       description:
@@ -91,6 +98,9 @@ export const Documentation: Story = {
     "A complete usage guide for Textarea values, validation, character counting, auto-grow behavior, and disabled states.",
   ),
 };
+
+export const SoftPrimary: Story = createTextareaStory("Soft primary");
+export const FilledSecondary: Story = createTextareaStory("Filled secondary");
 
 export const Default: Story = createTextareaStory("Default");
 export const CharacterCount: Story = createTextareaStory("Character count");
