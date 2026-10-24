@@ -1,5 +1,14 @@
 # @impulse-ui-native/radio
 
+## 12.0.0
+
+### Patch Changes
+
+- Updated dependencies [0226bfb]
+  - @impulse-ui-native/theme@12.0.0
+  - @impulse-ui-native/primitives@12.0.0
+  - @impulse-ui-native/core@12.0.0
+
 ## 11.4.0
 
 ### Patch Changes

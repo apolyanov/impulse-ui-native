@@ -1,5 +1,16 @@
 # @impulse-ui-native/data-state
 
+## 12.0.0
+
+### Patch Changes
+
+- Updated dependencies [0226bfb]
+  - @impulse-ui-native/theme@12.0.0
+  - @impulse-ui-native/primitives@12.0.0
+  - @impulse-ui-native/icon@12.0.0
+  - @impulse-ui-native/skeleton@12.0.0
+  - @impulse-ui-native/core@12.0.0
+
 ## 11.4.0
 
 ### Patch Changes

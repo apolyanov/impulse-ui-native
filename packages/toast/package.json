@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/toast",
-  "version": "11.4.0",
+  "version": "12.0.0",
   "description": "Compound toast notifications for ImpulseUI Native.",
   "keywords": [
     "react-native",

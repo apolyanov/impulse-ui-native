@@ -1,5 +1,29 @@
 # @impulse-ui-native/storybook
 
+## 12.0.0
+
+### Minor Changes
+
+- 0226bfb: Add soft fields and neutral, primary, and secondary tones across text fields,
+  selects, date/time pickers, and ColorPicker inputs. Filled now uses a real tone
+  fill and paired foreground. Preserve outlined/neutral defaults and use neutral disabled appearances.
+
+  Custom field tokens move from variants[variant][state] to
+  colors[tone][variant][state] on controlContainer, controlInput, and controlAddon.
+
+### Patch Changes
+
+- Updated dependencies [0226bfb]
+  - @impulse-ui-native/theme@12.0.0
+  - @impulse-ui-native/primitives@12.0.0
+  - @impulse-ui-native/color-picker@12.0.0
+  - @impulse-ui-native/card@12.0.0
+  - @impulse-ui-native/icon@12.0.0
+  - @impulse-ui-native/icon-view@12.0.0
+  - @impulse-ui-native/list@12.0.0
+  - @impulse-ui-native/progress@12.0.0
+  - @impulse-ui-native/flat-list@12.0.0
+
 ## 11.4.0
 
 ### Patch Changes
