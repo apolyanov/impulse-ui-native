@@ -175,10 +175,11 @@ In a column, fields stretch horizontally by default without growing vertically.
 In a row, set `flex={1}` on each field to share the available width. If the
 parent centers its children, use `alignSelf="stretch"` or an explicit `width`.
 
-## Pressable layout
+## Pressable styling
 
-`Pressable` accepts flex and positioning props directly, alongside its existing
-spacing, dimension, and shadow props. Native `style` objects or callbacks override
+`Pressable` accepts the same direct styling props as `View`: spacing, colors,
+opacity, shadows, borders, radii, flex layout, positioning, and dimensions. Both
+share the exported `ViewStyleProps` contract. Native `style` objects or callbacks override
 direct style props; `pressedStyle` applies last while pressed.
 
 ```tsx
@@ -188,10 +189,16 @@ direct style props; `pressedStyle` applies last while pressed.
   alignItems="center"
   gap={8}
   padding={16}
+  backgroundColor={colors.surface.subtle.value}
+  borderColor={colors.border.default.value}
+  borderWidth={1}
+  borderRadius={radii.md}
 >
   <Typography.Master>Continue</Typography.Master>
 </Pressable>
 ```
+
+Text and icons keep their own foreground styling, as with `View`.
 
 ## Field appearance
 
@@ -1782,10 +1789,11 @@ import {
   ButtonTone,
   ComponentSize,
   DimensionProps,
-  FlexProps,
   ShadowProps,
   SpacingProps,
 } from "@impulse-ui-native/theme";
+
+import type { ViewStyleProps } from "./view.types";
 
 export interface ButtonProps
   extends PressableProps, DimensionProps, SpacingProps, ShadowProps {
@@ -1806,7 +1814,7 @@ export interface ButtonThemeProps {
 }
 
 export interface PressableCoreProps
-  extends PressableProps, Omit<ButtonProps, "style" | "tone">, FlexProps {
+  extends PressableProps, Omit<ButtonProps, "style" | "tone">, ViewStyleProps {
   disabled?: boolean;
   pressedStyle?: StyleProp<ViewStyle>;
 }
@@ -2039,11 +2047,12 @@ import {
   SpacingProps,
 } from "@impulse-ui-native/theme";
 
-export type ViewProps = NativeViewProps &
-  SpacingProps &
+export type ViewStyleProps = SpacingProps &
   ColorProps &
   ShadowProps &
   BorderProps &
   FlexProps &
   DimensionProps;
+
+export type ViewProps = NativeViewProps & ViewStyleProps;
 ```

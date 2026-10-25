@@ -243,7 +243,7 @@ Shared state maps include:
 - Selection: `unselected`, `selected`, `disabledUnselected`, `disabledSelected`.
 - Availability: `default`, `disabled`.
 
-Pressed behavior belongs to Pressable tokens and the owning interaction component. Do not assume a browser hover/focus-visible system. A theme's focus color alone does not prove every field has a focused visual state.
+`Pressable` shares the complete `ViewStyleProps` contract with `View`, including direct color, opacity, border, radius, shadow, spacing, dimension, flex, and positioning props. Explicit native `style` objects/callbacks override direct props; `pressedStyle` applies last while pressed. Text and icons own their foreground styling. Pressed behavior belongs to Pressable tokens and the owning interaction component. Do not assume a browser hover/focus-visible system. A theme's focus color alone does not prove every field has a focused visual state.
 
 Design representative default, selected, pressed, disabled, loading, invalid, empty, and error states where they apply. Include long labels, wrapped content, missing imagery, and keyboard-visible forms. State support differs by component; exact maps are in the token reference and owning API.
 

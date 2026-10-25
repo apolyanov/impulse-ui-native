@@ -9,10 +9,11 @@ import {
   SpacingProps,
 } from "@impulse-ui-native/theme";
 
-export type ViewProps = NativeViewProps &
-  SpacingProps &
+export type ViewStyleProps = SpacingProps &
   ColorProps &
   ShadowProps &
   BorderProps &
   FlexProps &
   DimensionProps;
+
+export type ViewProps = NativeViewProps & ViewStyleProps;

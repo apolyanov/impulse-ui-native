@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Pressable } from "@impulse-ui-native/primitives";
 import { createStoryDescription } from "@impulse-ui-native/storybook";
 
+import { PressableViewStyleExample } from "./pressable-view-style-example";
 import { PressableDocumentation } from "./pressable.documentation";
 import {
   PressableExample,
@@ -56,6 +57,15 @@ export const Documentation: Story = {
   },
   parameters: createStoryDescription(
     "A complete usage guide for Pressable states, styling, pressed feedback, and composition patterns.",
+  ),
+};
+
+export const ViewStylingProps: Story = {
+  render: function renderViewStylingProps(args) {
+    return <PressableViewStyleExample disabled={args.disabled} />;
+  },
+  parameters: createStoryDescription(
+    "All View styling families are available directly on Pressable. This example combines dimensions, layout, spacing, background, borders, radius, and shadow with pressed-style overrides.",
   ),
 };
 
