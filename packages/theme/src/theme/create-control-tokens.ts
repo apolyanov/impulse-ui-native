@@ -13,6 +13,7 @@ export function createControlAddonTokens(
   const primary = tokens.colors.primary.value;
   const primaryContrast = tokens.colors.primary.contrast;
   const secondaryContrast = tokens.colors.secondary.contrast;
+  const textColor = tokens.colors.text.primary;
   const neutral = tokens.colors.text.secondary;
   const neutralContrast = tokens.colors.text.inverse;
   const disabledColor = tokens.colors.text.disabled;
@@ -40,7 +41,7 @@ export function createControlAddonTokens(
         },
         soft: {
           default: {
-            iconColor: neutral,
+            iconColor: textColor,
           },
           error: {
             iconColor: errorColor,
@@ -84,7 +85,7 @@ export function createControlAddonTokens(
         },
         soft: {
           default: {
-            iconColor: primary,
+            iconColor: secondaryContrast,
           },
           error: {
             iconColor: errorColor,

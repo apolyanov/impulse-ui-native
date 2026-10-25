@@ -45,6 +45,7 @@ const colors = {
   primary: colorPair(LightTheme.colors.primary),
   accent: colorPair(LightTheme.colors.accent),
   secondary: colorPair(LightTheme.colors.secondary),
+  subtle: colorPair(LightTheme.colors.subtle),
   surface: colorPairs(LightTheme.colors.surface),
   border: colorPairs(LightTheme.colors.border),
   feedback: colorPairs(LightTheme.colors.feedback),

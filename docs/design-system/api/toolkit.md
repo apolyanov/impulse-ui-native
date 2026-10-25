@@ -1,6 +1,6 @@
 # @impulse-ui-native/toolkit
 
-Local package version: 14.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

@@ -395,3 +395,14 @@ It supports neutral, primary, secondary, error, warning, success, and info, with
 primary as the default. Feedback tones retain their previous appearance.
 
 Select and MultiSelect use a trailing CaretDown while closed and CaretUp while open. Override it through `SuffixIcon` or `Suffix`; loading takes precedence. The default icon inherits the field appearance through `Control.Icon`, following the date-picker addon composition model.
+
+### Shared variant/tone palette
+
+Use the same enabled palette across Button, IconButton, Badge, IconView, Tag,
+Avatar, and selection controls. For neutral soft use `surface.subtle.value` /
+`text.primary`; for primary soft use `secondary.value` / `secondary.contrast`;
+for secondary soft use `subtle.value` / `secondary.contrast`. Field addon icons
+use the corresponding foreground, including primary and neutral soft fields.
+IconView inherits the Badge palette. Keep feedback tones unchanged. Entered field
+text, validation, disabled appearances, presence colors, slider interaction marks,
+and the elevated selected SegmentedControl surface keep their distinct roles.

@@ -129,7 +129,7 @@ const tagColors: Record<TagTone, Record<DisplayVariant, string>> = {
     filled: "border-secondary bg-secondary text-secondary-contrast",
     outlined:
       "border-secondary-contrast bg-transparent text-secondary-contrast",
-    soft: "border-secondary bg-secondary text-secondary-contrast",
+    soft: "border-subtle bg-subtle text-secondary-contrast",
   },
   error: {
     filled:

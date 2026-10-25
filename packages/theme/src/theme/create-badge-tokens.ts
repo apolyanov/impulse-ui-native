@@ -1,30 +1,6 @@
 import type { BadgeTokens, PrimitiveThemeTokens } from "../types";
 
 export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
-  const createVariants = (
-    value: string,
-    contrast: string,
-    softBackgroundColor = contrast,
-    softColor = value,
-    outlinedColor = value,
-  ) => ({
-    filled: {
-      backgroundColor: value,
-      borderColor: value,
-      color: contrast,
-    },
-    outlined: {
-      backgroundColor: "transparent",
-      borderColor: outlinedColor,
-      color: outlinedColor,
-    },
-    soft: {
-      backgroundColor: softBackgroundColor,
-      borderColor: softBackgroundColor,
-      color: softColor,
-    },
-  });
-
   return {
     addonHitSlop: tokens.space.xs,
     borderRadius: tokens.radii.round,
@@ -58,40 +34,125 @@ export function createBadgeTokens(tokens: PrimitiveThemeTokens): BadgeTokens {
       },
     },
     colors: {
-      primary: createVariants(
-        tokens.colors.primary.value,
-        tokens.colors.primary.contrast,
-        tokens.colors.secondary.value,
-      ),
-      secondary: createVariants(
-        tokens.colors.secondary.value,
-        tokens.colors.secondary.contrast,
-        tokens.colors.secondary.value,
-        tokens.colors.secondary.contrast,
-        tokens.colors.secondary.contrast,
-      ),
-      neutral: createVariants(
-        tokens.colors.text.secondary,
-        tokens.colors.text.inverse,
-        tokens.colors.surface.subtle.value,
-        tokens.colors.text.primary,
-      ),
-      error: createVariants(
-        tokens.colors.feedback.error.value,
-        tokens.colors.feedback.error.contrast,
-      ),
-      warning: createVariants(
-        tokens.colors.feedback.warning.value,
-        tokens.colors.feedback.warning.contrast,
-      ),
-      success: createVariants(
-        tokens.colors.feedback.success.value,
-        tokens.colors.feedback.success.contrast,
-      ),
-      info: createVariants(
-        tokens.colors.feedback.info.value,
-        tokens.colors.feedback.info.contrast,
-      ),
+      neutral: {
+        filled: {
+          backgroundColor: tokens.colors.text.secondary,
+          borderColor: tokens.colors.text.secondary,
+          color: tokens.colors.text.inverse,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.text.secondary,
+          color: tokens.colors.text.secondary,
+        },
+        soft: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.surface.subtle.value,
+          color: tokens.colors.text.primary,
+        },
+      },
+      primary: {
+        filled: {
+          backgroundColor: tokens.colors.primary.value,
+          borderColor: tokens.colors.primary.value,
+          color: tokens.colors.primary.contrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.primary.value,
+          color: tokens.colors.primary.value,
+        },
+        soft: {
+          backgroundColor: tokens.colors.secondary.value,
+          borderColor: tokens.colors.secondary.value,
+          color: tokens.colors.secondary.contrast,
+        },
+      },
+      secondary: {
+        filled: {
+          backgroundColor: tokens.colors.secondary.value,
+          borderColor: tokens.colors.secondary.value,
+          color: tokens.colors.secondary.contrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.secondary.contrast,
+          color: tokens.colors.secondary.contrast,
+        },
+        soft: {
+          backgroundColor: tokens.colors.subtle.value,
+          borderColor: tokens.colors.subtle.value,
+          color: tokens.colors.secondary.contrast,
+        },
+      },
+      error: {
+        filled: {
+          backgroundColor: tokens.colors.feedback.error.value,
+          borderColor: tokens.colors.feedback.error.value,
+          color: tokens.colors.feedback.error.contrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.feedback.error.value,
+          color: tokens.colors.feedback.error.value,
+        },
+        soft: {
+          backgroundColor: tokens.colors.feedback.error.contrast,
+          borderColor: tokens.colors.feedback.error.contrast,
+          color: tokens.colors.feedback.error.value,
+        },
+      },
+      warning: {
+        filled: {
+          backgroundColor: tokens.colors.feedback.warning.value,
+          borderColor: tokens.colors.feedback.warning.value,
+          color: tokens.colors.feedback.warning.contrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.feedback.warning.value,
+          color: tokens.colors.feedback.warning.value,
+        },
+        soft: {
+          backgroundColor: tokens.colors.feedback.warning.contrast,
+          borderColor: tokens.colors.feedback.warning.contrast,
+          color: tokens.colors.feedback.warning.value,
+        },
+      },
+      success: {
+        filled: {
+          backgroundColor: tokens.colors.feedback.success.value,
+          borderColor: tokens.colors.feedback.success.value,
+          color: tokens.colors.feedback.success.contrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.feedback.success.value,
+          color: tokens.colors.feedback.success.value,
+        },
+        soft: {
+          backgroundColor: tokens.colors.feedback.success.contrast,
+          borderColor: tokens.colors.feedback.success.contrast,
+          color: tokens.colors.feedback.success.value,
+        },
+      },
+      info: {
+        filled: {
+          backgroundColor: tokens.colors.feedback.info.value,
+          borderColor: tokens.colors.feedback.info.value,
+          color: tokens.colors.feedback.info.contrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: tokens.colors.feedback.info.value,
+          color: tokens.colors.feedback.info.value,
+        },
+        soft: {
+          backgroundColor: tokens.colors.feedback.info.contrast,
+          borderColor: tokens.colors.feedback.info.contrast,
+          color: tokens.colors.feedback.info.value,
+        },
+      },
     },
   };
 }

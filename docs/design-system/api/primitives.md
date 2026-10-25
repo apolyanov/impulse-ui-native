@@ -1,6 +1,6 @@
 # @impulse-ui-native/primitives
 
-Local package version: 14.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -248,6 +248,8 @@ using the matching resolved action tokens; string children are styled automatica
 `primary`, across filled, outlined, and soft variants. Tone affects the fallback
 surface, initials, and border; images and presence/status colors retain their own
 meaning. Avatar appearance tokens move to `components.avatar.colors[tone][variant]`.
+
+Badge, Tag, IconView, and field addon icons share the enabled variant/tone palette with Button and IconButton: primary soft uses secondary fill/contrast, secondary soft uses subtle fill with secondary contrast, and neutral soft uses subtle neutral fill with primary text.
 
 ## Public export and source reference
 

@@ -135,8 +135,8 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
         },
         soft: {
           default: {
-            backgroundColor: tokens.colors.secondary.value,
-            borderColor: tokens.colors.secondary.value,
+            backgroundColor: tokens.colors.subtle.value,
+            borderColor: tokens.colors.subtle.value,
             color: tokens.colors.secondary.contrast,
           },
           disabled: {

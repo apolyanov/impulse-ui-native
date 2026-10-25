@@ -6,11 +6,13 @@ import {
   ButtonToneOptions,
   ComponentSizeOptions,
   createStoryDescription,
+  DisplayVariantOptions,
 } from "@impulse-ui-native/storybook";
 
 import { ButtonAppearanceExample } from "./button-appearance-example";
 import { ButtonDocumentation } from "./button.documentation";
 import { ButtonExample, ButtonExampleDefinitions } from "./button.examples";
+import { VariantTonePaletteExample } from "./variant-tone-palette-example";
 
 const meta = {
   title: "Components/Button",
@@ -72,6 +74,21 @@ export const AppearanceMatrix: Story = {
   },
   parameters: createStoryDescription(
     "All variant/tone combinations for Button and IconButton. Use size, disabled, and loading controls to compare states.",
+  ),
+};
+
+export const SharedPalette: Story = {
+  args: { tone: "primary", variant: "soft" },
+  argTypes: { variant: { options: DisplayVariantOptions } },
+  render: function renderSharedPalette(args) {
+    const variant =
+      args.variant === "ghost" ? "soft" : (args.variant ?? "soft");
+    const tone = args.tone ?? "primary";
+
+    return <VariantTonePaletteExample tone={tone} variant={variant} />;
+  },
+  parameters: createStoryDescription(
+    "Compare the same enabled variant/tone palette across buttons, display components, selection controls, fields, and sliders.",
   ),
 };
 
