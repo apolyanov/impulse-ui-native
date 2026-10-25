@@ -1,5 +1,22 @@
 # @impulse-ui-native/select
 
+## 14.1.0
+
+### Patch Changes
+
+- 2f3f671: Add a default trailing CaretDown to Select and MultiSelect, switching to CaretUp
+  while their flyout is open. Preserve custom Suffix/SuffixIcon overrides and loading
+  indicator precedence, using the shared Control.Icon composition and field colors.
+- Updated dependencies [e1f7160]
+  - @impulse-ui-native/primitives@14.1.0
+  - @impulse-ui-native/flyout@14.1.0
+  - @impulse-ui-native/input@14.1.0
+  - @impulse-ui-native/core@14.1.0
+  - @impulse-ui-native/icon@14.1.0
+  - @impulse-ui-native/portal@14.1.0
+  - @impulse-ui-native/theme@14.1.0
+  - @impulse-ui-native/flat-list@14.1.0
+
 ## 14.0.0
 
 ### Patch Changes

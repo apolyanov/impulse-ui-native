@@ -1,5 +1,26 @@
 # @impulse-ui-native/storybook
 
+## 14.1.0
+
+### Minor Changes
+
+- e1f7160: Share ViewStyleProps between View and Pressable so Pressable accepts every direct
+  styling prop supported by View, including colors, opacity, borders, and radii.
+  Preserve native style callbacks, pressedStyle precedence, and interaction feedback.
+
+### Patch Changes
+
+- Updated dependencies [e1f7160]
+  - @impulse-ui-native/primitives@14.1.0
+  - @impulse-ui-native/card@14.1.0
+  - @impulse-ui-native/color-picker@14.1.0
+  - @impulse-ui-native/icon-view@14.1.0
+  - @impulse-ui-native/list@14.1.0
+  - @impulse-ui-native/icon@14.1.0
+  - @impulse-ui-native/theme@14.1.0
+  - @impulse-ui-native/progress@14.1.0
+  - @impulse-ui-native/flat-list@14.1.0
+
 ## 14.0.0
 
 ### Minor Changes

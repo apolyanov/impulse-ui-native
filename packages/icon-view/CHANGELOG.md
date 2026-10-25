@@ -1,5 +1,14 @@
 # @impulse-ui-native/icon-view
 
+## 14.1.0
+
+### Patch Changes
+
+- Updated dependencies [e1f7160]
+  - @impulse-ui-native/primitives@14.1.0
+  - @impulse-ui-native/icon@14.1.0
+  - @impulse-ui-native/theme@14.1.0
+
 ## 14.0.0
 
 ### Patch Changes
