@@ -1,5 +1,22 @@
 # @impulse-ui-native/storybook
 
+## 15.0.1
+
+### Patch Changes
+
+- 2f12c26: Default Divider to the standard border tone ("default") instead of primary.
+  Align Storybook defaults and design guidance.
+- Updated dependencies [2f12c26]
+  - @impulse-ui-native/primitives@15.0.1
+  - @impulse-ui-native/card@15.0.1
+  - @impulse-ui-native/color-picker@15.0.1
+  - @impulse-ui-native/icon-view@15.0.1
+  - @impulse-ui-native/list@15.0.1
+  - @impulse-ui-native/icon@15.0.1
+  - @impulse-ui-native/theme@15.0.1
+  - @impulse-ui-native/progress@15.0.1
+  - @impulse-ui-native/flat-list@15.0.1
+
 ## 15.0.0
 
 ### Minor Changes

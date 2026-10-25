@@ -1,5 +1,11 @@
 # @impulse-ui-native/theme
 
+## 15.0.1
+
+### Patch Changes
+
+- @impulse-ui-native/core@15.0.1
+
 ## 15.0.0
 
 ### Major Changes
