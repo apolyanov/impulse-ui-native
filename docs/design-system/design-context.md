@@ -34,7 +34,7 @@ Component overrides work in the current source. Changing primitive spacing does 
 
 Many components append `style` after generated defaults. Confirm the owning component when relying on precedence; this is not a universal guarantee for every nested child. Custom content may own its own typography and colors. A button turns a string child into themed text, while a custom React node is rendered as supplied.
 
-The default `AppTheme` JSON files have **39 component token groups** and **1,444 leaf values per scheme**. Typography presets sit outside `components`, in the primitives implementation.
+The default `AppTheme` JSON files have **40 component token groups** and **2,486 leaf values per scheme**. Typography presets sit outside `components`, in the primitives implementation.
 
 ## 3. Semantic colors
 
@@ -384,7 +384,7 @@ Checkbox, Radio, Switch, SegmentedControl, Slider, RangeSlider, and Avatar accep
 `tone="neutral" | "primary" | "secondary"` independently of filled, outlined, and
 soft variants. All default to `primary` and preserve previous primary appearances.
 Selection controls use neutral disabled appearances regardless of tone. Set tone on
-SegmentedControl.Root; its items inherit it, while nested roots keep their own palette. Neutral soft segments use the elevated selected surface against the subtle group background.
+SegmentedControl.Root; its items inherit it, while nested roots keep their own palette. Selected segments use the shared palette: outlined is transparent and neutral soft uses surface.subtle against the root surface.default.
 Slider and RangeSlider share tone across the active track, thumbs, marks, labels,
 and value bubbles. Avatar tone styles fallback content and borders, not images or
 presence status. Token maps are explicitly authored as `colors[tone][variant]`
@@ -403,6 +403,43 @@ Avatar, and selection controls. For neutral soft use `surface.subtle.value` /
 `text.primary`; for primary soft use `secondary.value` / `secondary.contrast`;
 for secondary soft use `subtle.value` / `secondary.contrast`. Field addon icons
 use the corresponding foreground, including primary and neutral soft fields.
-IconView inherits the Badge palette. Keep feedback tones unchanged. Entered field
-text, validation, disabled appearances, presence colors, slider interaction marks,
-and the elevated selected SegmentedControl surface keep their distinct roles.
+IconView inherits the Badge palette. Selected segments, slider thumbs and bubbles, and field borders use the same palette as buttons. For disabled selected surfaces, filled uses surface.subtle / border.default, outlined uses transparent / border.default, and soft uses surface.subtle / border.subtle, with text.disabled foreground. Keep entered field text, placeholders, validation, unselected control structure, and presence colors in their distinct semantic roles.
+
+### Repository-wide tone policy
+
+`ComponentTone` is neutral, primary, or secondary; `FeedbackTone` is error, warning,
+success, or info. Use tone for palette identity, variant for meaningful appearance,
+and dedicated shape props/variants for geometry. Spinner and Progress use stroke
+accents: neutral=text.secondary, primary=primary.value, secondary=secondary.contrast;
+Progress tracks use surface.subtle, secondary.value, and subtle.value respectively.
+Inverse remains available for loading indicators on inverse surfaces.
+
+Tabs, Stepper, and Carousel indicators share stroke accents. Pagination's current
+page uses the filled palette. Select options and selected tags inherit their field
+tone, including across portals. Date/time fields explicitly propagate tone through
+calendar ranges/selections, month/year selects, quick-date tags, nested time fields,
+selected time rows, Clear, Cancel, and Apply. DataView propagates tone to its icons,
+default actions, and optional custom-loader props. ColorPicker passes tone to its
+input/action controls and selected swatch rings, while preserving selected color
+values and spectrum/checkerboard data. Toast actions follow the feedback tone of
+the icon. Divider supports brand accents and keeps its intensity aliases.
+
+Keep neutral layout surfaces (Card/List/Accordion and overlay shells), typography
+roles, presence/validation/feedback semantics, chart-series palettes, skeletons,
+and caller-provided data colors distinct from brand-tone selection. App/Storybook
+examples may deliberately select a primary or soft-primary palette, but must use
+semantic tokens rather than an independent color vocabulary. Site preview controls
+mirror the same brand palettes, borders, radii, and unavailable states.
+
+Tone-aware token maps replace scalar/state-only color paths for tabs, pagination,
+carousel indicators, stepper navigation, select options, picker days/time rows,
+ColorPicker swatch rings, and DataState detail icons. See the generated API references
+for exact paths. Consumer-provided text/icon content still owns its foreground.
+
+### Shared component defaults
+
+Defaults follow component roles. Rectangular fields (Input, Textarea, Select/MultiSelect, and date/time pickers) default to `size="medium"`, `variant="outlined"`, and `tone="neutral"`. Their standalone parts use neutral fallbacks and nested parts inherit the root tone. Buttons and accent controls default to `size="medium"`, `variant="filled"`, and `tone="primary"`. Divider defaults to primary. Explicit appearance props override defaults; equal variant/tone combinations share the same palette across roles. Internal secondary actions may explicitly use outlined styling.
+
+Shape and semantic variants retain their own defaults: Progress uses linear, icon glyphs use regular, and Toast uses success from its feedback-only tones. These are distinct contracts rather than shared appearance axes.
+
+MultiSelect preserves the field tone for selected tags, using soft tags on filled fields and filled tags on outlined/soft fields. Disabled tags are outlined and non-removable. Nested tags deliberately use a complementary variant so their boundary remains visible.

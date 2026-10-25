@@ -7,7 +7,8 @@ import { useColorPickerContext } from "../hooks/use-color-picker-context.hook";
 import { ColorMotionGradient } from "./motion-gradient";
 
 export const ColorPickerAlphaSlider = memo(function ColorPickerAlphaSlider() {
-  const { hsva, disabled, size, gesture, motion } = useColorPickerContext();
+  const { hsva, disabled, size, tone, gesture, motion } =
+    useColorPickerContext();
   const trackContent = useMemo(
     () => <ColorMotionGradient rgba={motion.rgba} />,
     [motion.rgba],
@@ -19,6 +20,7 @@ export const ColorPickerAlphaSlider = memo(function ColorPickerAlphaSlider() {
 
   return (
     <Slider
+      tone={tone}
       min={0}
       max={1}
       step={0.01}

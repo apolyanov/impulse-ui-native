@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import type { LayoutChangeEvent } from "react-native";
 
+import type { ComponentTone } from "@impulse-ui-native/theme";
+
 import type { useCarousel } from "../hooks/use-carousel.hook";
 import type { CarouselPagination } from "./carousel.types";
 
@@ -34,6 +36,7 @@ export interface CarouselSlideProps {
 }
 
 export interface CarouselControlsProps {
+  tone: ComponentTone;
   count: number;
   index: number;
   disabled: boolean;
@@ -43,6 +46,7 @@ export interface CarouselControlsProps {
 }
 
 export interface CarouselPaginationProps {
+  tone: ComponentTone;
   count: number;
   index: number;
   disabled: boolean;

@@ -59,3 +59,10 @@ Only the active panel is mounted. Switching values unmounts its content, includi
 Visuals come from `theme.components.tabs`, generated with `createTabsTokens`: primary selected text and underline, secondary inactive text, disabled text, a subtle baseline, shared sizes, and panel spacing. The `states` map defines `unselected`, `selected`, `disabledUnselected`, and `disabledSelected` appearances. `getTabsItemTokens` resolves these states together with size tokens, including label color and indicator color/opacity. Both default light and dark themes are supported.
 
 Exports: `Tabs`, `TabsProps`, `TabsItem`, and `TabsOverflow`.
+
+## Repository palette consistency
+
+Tabs accepts `tone="neutral" | "primary" | "secondary"` (default primary).
+The selected label and underline share the tone accent used by Spinner; disabled
+states stay neutral. Custom label elements continue to own their text styling.
+Custom theme states move from tabs.states to tabs.colors[tone].

@@ -1,36 +1,15 @@
 import { useId } from "react";
 
-import { memo, useEventCallback, useIsOpen } from "@impulse-ui-native/core";
-import { Control, Tag, View } from "@impulse-ui-native/primitives";
+import { memo, useIsOpen } from "@impulse-ui-native/core";
+import { Control, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
+import { MultiSelectTagVariants } from "../constants/multi-select.constants";
 import { useMultiSelect } from "../hooks/use-multi-select.hook";
 import { MultiSelectProps, PrimitiveValue } from "../types";
 import { SelectControl } from "./select-control";
 import { SelectFlyout } from "./select.flyout";
-
-interface SelectedTagProps<Value extends PrimitiveValue> {
-  value: Value;
-  label: string;
-  size: MultiSelectProps<Value>["size"];
-  onSelect: (value: Value) => void;
-}
-
-const SelectedTag = memo(function SelectedTagComponent<
-  Value extends PrimitiveValue,
->(props: SelectedTagProps<Value>) {
-  const handleClose = useEventCallback(() => props.onSelect(props.value));
-
-  return (
-    <Tag
-      variant="filled"
-      size={props.size}
-      closable
-      onClose={handleClose}
-      label={props.label}
-    />
-  );
-});
+import { SelectedTag } from "./selected-tag";
 
 export const MultiSelect = memo(function MultiSelectComponent<
   Value extends PrimitiveValue,
@@ -41,13 +20,13 @@ export const MultiSelect = memo(function MultiSelectComponent<
     defaultValue,
     onChange,
     placeholder,
+    tone = "neutral",
+    variant = "outlined",
     initialScrollToSelected,
     ...rest
   } = props;
 
   const tokens = useComponentsTokens();
-
-  const selectTokens = tokens.select;
 
   const id = useId();
 
@@ -61,8 +40,19 @@ export const MultiSelect = memo(function MultiSelectComponent<
       onChange,
     });
 
+  const selectTokens = tokens.select;
+  const tagVariant = props.disabled
+    ? "outlined"
+    : MultiSelectTagVariants[variant];
+
   return (
-    <SelectControl {...rest} open={isOpen} onPress={open}>
+    <SelectControl
+      {...rest}
+      variant={variant}
+      tone={tone}
+      open={isOpen}
+      onPress={open}
+    >
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -77,6 +67,9 @@ export const MultiSelect = memo(function MultiSelectComponent<
           {selected
             ? selected.map((value) => (
                 <SelectedTag
+                  tone={tone}
+                  variant={tagVariant}
+                  disabled={props.disabled}
                   size={props.size}
                   key={value}
                   label={String(getLabel(value))}
@@ -88,6 +81,7 @@ export const MultiSelect = memo(function MultiSelectComponent<
         </View>
       ) : null}
       <SelectFlyout
+        tone={tone}
         id={id}
         title="Options"
         open={isOpen}

@@ -7,7 +7,14 @@ import { ControlContext } from "../../contexts/control.context";
 export const ControlProvider = memo(function ControlProvider(
   props: PropsWithChildren<ControlComponentProps>,
 ) {
-  const { children, disabled, error, size, variant, tone = "neutral" } = props;
+  const {
+    children,
+    disabled,
+    error,
+    size = "medium",
+    variant = "outlined",
+    tone = "neutral",
+  } = props;
 
   const context = useMemo<ControlContextData>(
     () => ({

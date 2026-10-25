@@ -55,3 +55,11 @@ visually hidden beneath the loader. Give those children their expected loaded
 height to prevent the surrounding layout from shifting when loading finishes.
 
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
+
+## Repository palette consistency
+
+DataView and its internal state details/actions accept tone (default primary).
+The icon accent and default action buttons use the same tone, with per-state tone
+overrides allowed in errorViewProps/emptyViewProps. LoadingView passes the optional
+tone prop to custom LoadingComponent; custom loaders decide how to consume it.
+Details icon tokens move to dataState.details.colors[tone]. Skeletons remain neutral.

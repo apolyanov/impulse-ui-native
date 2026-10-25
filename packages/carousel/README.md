@@ -93,3 +93,11 @@ example uses explicit primitive color overrides, as shown in the approved design
 Exercise Storybook on iOS and Android to validate snapping, resizing, preview
 bounds, centered alignment, midpoint transitions, empty/invalid indices, and
 native gestures.
+
+## Repository palette consistency
+
+Carousel accepts `tone="neutral" | "primary" | "secondary"` (default primary).
+It propagates to navigation IconButtons and active dots/segments; counters and
+unselected/disabled indicators remain neutral. The pagination choice continues to
+mean dots, segments, counter, or none. Indicator states move to
+carousel.indicator.colors[tone].

@@ -15,6 +15,7 @@ export const StateActionsFooter = memo(function StateActionsFooter(
     onPressPrimaryAction,
     onPressSecondaryAction,
     primaryActionLabel,
+    tone = "primary",
     secondaryActionLabel,
     ...rest
   } = props;
@@ -27,11 +28,15 @@ export const StateActionsFooter = memo(function StateActionsFooter(
       alignItems="center"
       {...rest}
     >
-      <Button onPress={props.onPressPrimaryAction}>
+      <Button tone={tone} onPress={props.onPressPrimaryAction}>
         {props.primaryActionLabel}
       </Button>
       {props.onPressSecondaryAction ? (
-        <Button variant="outlined" onPress={props.onPressSecondaryAction}>
+        <Button
+          tone={tone}
+          variant="outlined"
+          onPress={props.onPressSecondaryAction}
+        >
           {props.secondaryActionLabel}
         </Button>
       ) : null}

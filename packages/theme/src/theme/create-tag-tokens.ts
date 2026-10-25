@@ -41,7 +41,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -53,7 +53,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -79,7 +79,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -91,7 +91,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -117,7 +117,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -129,7 +129,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -155,7 +155,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -167,7 +167,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -193,7 +193,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -205,7 +205,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -231,7 +231,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -243,7 +243,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -269,7 +269,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -281,7 +281,7 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
           },
           disabled: {
             backgroundColor: "transparent",
-            borderColor: tokens.colors.border.strong.value,
+            borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
         },

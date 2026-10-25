@@ -14,6 +14,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
   const dataStateTokens = tokens.dataState;
   const {
     error,
+    tone = "primary",
     isEmpty,
     loading,
     errorViewProps,
@@ -29,14 +30,17 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
       return null;
     }
 
+    const errorTone = errorViewProps.tone ?? tone;
+    const emptyTone = emptyViewProps.tone ?? tone;
+
     return (
       <View
         alignItems="center"
         justifyContent="center"
         zIndex={dataStateTokens.content.zIndex}
       >
-        {error ? <ErrorDetails {...errorViewProps} /> : null}
-        {isEmpty ? <EmptyDetails {...emptyViewProps} /> : null}
+        {error ? <ErrorDetails {...errorViewProps} tone={errorTone} /> : null}
+        {isEmpty ? <EmptyDetails {...emptyViewProps} tone={emptyTone} /> : null}
       </View>
     );
   }, [
@@ -44,6 +48,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
     emptyViewProps,
     error,
     errorViewProps,
+    tone,
     isEmpty,
   ]);
 
@@ -51,6 +56,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
 
   return (
     <LoadingView
+      tone={tone}
       {...rest}
       LoadingComponent={LoadingComponent}
       contentContainerStyle={contentContainerStyle}

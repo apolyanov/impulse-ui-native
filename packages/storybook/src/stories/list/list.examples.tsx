@@ -2,17 +2,19 @@ import { memo, useCallback, useMemo, useState } from "react";
 
 import { List } from "@impulse-ui-native/list";
 import { Divider, Typography, View } from "@impulse-ui-native/primitives";
-import { useColors } from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 export const ListExample = memo(function ListExample() {
-  const colors = useColors();
+  const palette = useComponentsTokens().button.colors.primary.soft.default;
 
   const [selected, setSelected] = useState(false);
 
   const selectionStyle = useMemo(
-    () => (selected ? { backgroundColor: colors.secondary.value } : undefined),
-    [selected, colors.secondary.value],
+    () => (selected ? { backgroundColor: palette.backgroundColor } : undefined),
+    [selected, palette.backgroundColor],
   );
+
+  const selectionColor = selected ? palette.color : undefined;
 
   const handlePress = useCallback(() => setSelected((value) => !value), []);
 
@@ -36,13 +38,15 @@ export const ListExample = memo(function ListExample() {
         <Divider inset="both" />
         <List.Pressable onPress={handlePress} style={selectionStyle}>
           <List.Content>
-            <Typography.Title6>Work</Typography.Title6>
-            <Typography.BodySmall>
+            <Typography.Title6 color={selectionColor}>Work</Typography.Title6>
+            <Typography.BodySmall color={selectionColor}>
               Press to toggle the application-owned selection
             </Typography.BodySmall>
           </List.Content>
           <List.Trailing>
-            <Typography.Body>{selected ? "?" : "?"}</Typography.Body>
+            <Typography.Body color={selectionColor}>
+              {selected ? "?" : "?"}
+            </Typography.Body>
           </List.Trailing>
         </List.Pressable>
         <Divider />

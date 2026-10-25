@@ -1,6 +1,6 @@
 # @impulse-ui-native/tabs
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -66,6 +66,13 @@ Visuals come from `theme.components.tabs`, generated with `createTabsTokens`: pr
 
 Exports: `Tabs`, `TabsProps`, `TabsItem`, and `TabsOverflow`.
 
+## Repository palette consistency
+
+Tabs accepts `tone="neutral" | "primary" | "secondary"` (default primary).
+The selected label and underline share the tone accent used by Spinner; disabled
+states stay neutral. Custom label elements continue to own their text styling.
+Custom theme states move from tabs.states to tabs.colors[tone].
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -103,6 +110,7 @@ export const Tabs = memo(function Tabs({
   overflow = "scroll",
   panelStyle,
   size = "medium",
+  tone = "primary",
   style,
   value,
   ...props
@@ -141,6 +149,7 @@ export const Tabs = memo(function Tabs({
             disabled={itemDisabled}
             selected={item.value === selectedValue}
             size={size}
+            tone={tone}
             onSelect={setSelectedValue}
             initialScrollRef={
               item.value === initialSelectedValue
@@ -161,6 +170,7 @@ export const Tabs = memo(function Tabs({
       selectedValue,
       setSelectedValue,
       size,
+      tone,
       initialSelectedValue,
       initialScroll.targetRef,
       initialScroll.onTargetLayout,
@@ -235,7 +245,7 @@ import type { ReactNode } from "react";
 import type { StyleProp, ViewStyle } from "react-native";
 
 import type { ViewProps } from "@impulse-ui-native/primitives";
-import type { ComponentSize } from "@impulse-ui-native/theme";
+import type { ComponentSize, ComponentTone } from "@impulse-ui-native/theme";
 
 export interface TabsItem {
   value: string;
@@ -255,6 +265,7 @@ interface TabsCommonProps extends Omit<ViewProps, "children" | "overflow"> {
   overflow?: TabsOverflow;
   panelStyle?: StyleProp<ViewStyle>;
   size?: ComponentSize;
+  tone?: ComponentTone;
 }
 
 interface TabsControlledProps extends TabsCommonProps {

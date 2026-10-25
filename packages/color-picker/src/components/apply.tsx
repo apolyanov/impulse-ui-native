@@ -26,6 +26,7 @@ export const ColorPickerApply = memo(function ColorPickerApply({
 
   return (
     <Button
+      tone={picker.tone}
       size={picker.size}
       {...props}
       loading={loading}

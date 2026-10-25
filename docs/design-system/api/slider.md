@@ -1,6 +1,6 @@
 # @impulse-ui-native/slider
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -107,6 +107,8 @@ Appearance tokens are explicit `colors[tone][variant]` maps under this component
 theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
 
 Both `Slider` and `RangeSlider` apply tone to the active track, every thumb, marks, labels, and value bubbles. Gesture and value semantics are unchanged.
+
+Thumbs and value bubbles share the same variant/tone surface, border, and foreground palette as buttons. Outlined thumbs are transparent; active tracks use the outline stroke color. Disabled thumbs and bubbles use the shared neutral unavailable palette. Standalone labels use a readable tone accent.
 
 ## Public export and source reference
 

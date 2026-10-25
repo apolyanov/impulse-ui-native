@@ -11,7 +11,7 @@ export function getTabsItemTokens(
 ): ResolvedTabsItemTokens {
   return {
     ...tokens.sizes[state.size],
-    ...getSelectionStateTokens(tokens.states, state),
+    ...getSelectionStateTokens(tokens.colors[state.tone ?? "primary"], state),
     indicatorHeight: tokens.indicatorHeight,
   };
 }

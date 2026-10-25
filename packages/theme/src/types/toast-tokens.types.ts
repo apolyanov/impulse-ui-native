@@ -1,7 +1,8 @@
+import type { FeedbackTone } from "./components.types";
 import type { ColorPair } from "./theme-provider.types";
 import type { FontWeightValue } from "./tokens.types";
 
-export type ToastTone = "success" | "info" | "warning" | "error";
+export type ToastTone = FeedbackTone;
 
 export interface ToastTokens {
   enterDuration: number;
@@ -26,12 +27,11 @@ export interface ToastTokens {
   actionMinSize: number;
   titleColor: string;
   descriptionColor: string;
-  actionColor: string;
   disabledColor: string;
   titleFontSize: number;
   titleLineHeight: number;
   descriptionFontSize: number;
   descriptionLineHeight: number;
   zIndexBase: number;
-  tones: Record<ToastTone, ColorPair>;
+  tones: Record<ToastTone, ColorPair & { actionColor: string }>;
 }

@@ -17,6 +17,7 @@ export interface TabsExampleDefinition {
     TabsProps,
     | "value"
     | "defaultValue"
+    | "tone"
     | "size"
     | "disabled"
     | "overflow"
@@ -218,6 +219,7 @@ export const TabsExample = memo(function TabsExample({
             overflow={example.args.overflow}
             panelStyle={example.args.panelStyle}
             size={example.args.size}
+            tone={example.args.tone}
             style={example.args.style}
           />
         ) : (
@@ -229,6 +231,7 @@ export const TabsExample = memo(function TabsExample({
             overflow={example.args.overflow}
             panelStyle={example.args.panelStyle}
             size={example.args.size}
+            tone={example.args.tone}
             style={example.args.style}
           />
         )}

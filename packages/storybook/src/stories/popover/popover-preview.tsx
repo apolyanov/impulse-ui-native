@@ -123,15 +123,17 @@ export const PopoverPreview = memo(function PopoverPreview({
                 <EyeIcon
                   width={components.icon.sizes.small}
                   height={components.icon.sizes.small}
-                  color={colors.secondary.contrast}
+                  color={components.button.colors.primary.soft.default.color}
                 />
-                <Typography.Label color={colors.secondary.contrast}>
+                <Typography.Label
+                  color={components.button.colors.primary.soft.default.color}
+                >
                   Visibility
                 </Typography.Label>
                 <CaretDownIcon
                   width={14}
                   height={14}
-                  color={colors.secondary.contrast}
+                  color={components.button.colors.primary.soft.default.color}
                 />
               </Popover.Trigger>
               <Popover.Content>
@@ -222,8 +224,8 @@ function themedStyles(theme: AppTheme) {
       paddingHorizontal: theme.space.xs,
       borderWidth: button.borderWidth,
       borderRadius: button.borderRadius,
-      borderColor: theme.colors.accent.value,
-      backgroundColor: theme.colors.secondary.value,
+      borderColor: button.colors.primary.soft.default.borderColor,
+      backgroundColor: button.colors.primary.soft.default.backgroundColor,
     },
   });
 }

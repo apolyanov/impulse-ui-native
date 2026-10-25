@@ -2,6 +2,8 @@ export type DividerTone =
   | "subtle"
   | "default"
   | "strong"
+  | "neutral"
+  | "secondary"
   | "primary"
   | "inverse";
 

@@ -196,3 +196,5 @@ or verification requirements.
 4. Run the applicable typechecks/builds and record remaining native-validation gaps.
 5. Update the website catalog and public support claims when capabilities change.
 6. Update `Last reviewed` after reviewing the relevant inventory.
+
+Appearance defaults follow component roles: fields and their composed parts use medium / outlined / neutral; buttons and accent controls use medium / filled / primary. Equal variant/tone combinations share palettes. Shape variants and feedback-only tone contracts keep their semantic defaults.

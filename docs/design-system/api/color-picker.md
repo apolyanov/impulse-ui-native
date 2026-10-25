@@ -1,6 +1,6 @@
 # @impulse-ui-native/color-picker
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -96,7 +96,7 @@ Native device verification of dragging, keyboard entry, font scaling, and nested
 ## Field appearance
 
 Rectangular fields support `variant="outlined" | "soft" | "filled"` and
-`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+`tone="neutral" | "primary" | "secondary"`. Inputs default to `outlined` and inherit the root tone (`primary` by default). Set `tone="neutral"` on an input to use the standard neutral field appearance.
 Outlined uses a transparent surface with a tone border; soft uses a subtle tone
 surface; filled uses the tone fill with its paired foreground. Colors come from
 the active theme in both schemes. Error styling overrides the selected tone;
@@ -108,6 +108,14 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 the previous `variants[variant][state]` maps.
 
 `ColorPicker.HexInput`, `ColorPicker.ChannelInput`, and `ColorPicker.AlphaInput` accept the field appearance props individually.
+
+## Repository palette consistency
+
+ColorPicker.Root and the convenience ColorPicker accept tone (default primary).
+Inputs, sliders, confirm actions, and selected swatch rings inherit it; explicit
+child tones override it. The hue/saturation spectrum, presets, alpha checkerboard,
+and user-selected color are data, so changing tone does not change those values.
+Selection ring tokens move to colorPicker.colors[tone].
 
 ## Public export and source reference
 
@@ -195,6 +203,7 @@ import type { DerivedValue, SharedValue } from "react-native-reanimated";
 import type {
   ColorPickerPreset,
   ComponentSize,
+  ComponentTone,
 } from "@impulse-ui-native/theme";
 
 import type {
@@ -209,6 +218,7 @@ export interface ColorPickerPresetEntryProps {
 }
 
 export interface ColorPickerContextData {
+  tone: ComponentTone;
   gesture: ColorPickerGestureHandlers;
   motion: ColorPickerMotion;
   resetKey: number;
@@ -255,6 +265,7 @@ export interface ColorPickerSizeThemeProps {
 }
 
 export interface ColorPickerSwatchThemeProps extends ColorPickerSizeThemeProps {
+  tone: ComponentTone;
   selected: boolean;
 }
 ```
@@ -273,11 +284,13 @@ import type {
 import type {
   ColorPickerPreset,
   ComponentSize,
+  ComponentTone,
 } from "@impulse-ui-native/theme";
 
 import type { ColorChannel, ColorPickerCommitMode } from "./color.types";
 
 export interface ColorPickerRootProps extends ViewProps {
+  tone?: ComponentTone;
   /** Hex: RGB, RGBA, RRGGBB, or RRGGBBAA, with an optional #. */
   value?: string;
   defaultValue?: string;

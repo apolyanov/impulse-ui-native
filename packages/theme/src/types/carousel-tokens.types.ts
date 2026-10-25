@@ -1,5 +1,6 @@
 import type {
   AvailabilityVisualState,
+  ComponentTone,
   SelectionVisualState,
   VisualStateTokens,
 } from "./components.types";
@@ -21,9 +22,9 @@ export interface CarouselTokens {
     borderRadius: number;
     targetSize: number;
     variants: Record<"dots" | "segments", { width: number; height: number }>;
-    states: VisualStateTokens<
-      SelectionVisualState,
-      CarouselIndicatorAppearanceTokens
+    colors: Record<
+      ComponentTone,
+      VisualStateTokens<SelectionVisualState, CarouselIndicatorAppearanceTokens>
     >;
   };
   counter: {

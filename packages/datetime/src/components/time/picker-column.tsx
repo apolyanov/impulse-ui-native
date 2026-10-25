@@ -6,7 +6,11 @@ import type {
 import { memo, useCallback, useEffect, useMemo, useRef } from "react";
 import { StyleSheet } from "react-native";
 
-import type { AppTheme, FontWeightValue } from "@impulse-ui-native/theme";
+import type {
+  AppTheme,
+  ComponentTone,
+  FontWeightValue,
+} from "@impulse-ui-native/theme";
 import {
   FlatList,
   FlatListRef,
@@ -22,6 +26,7 @@ import {
 import { getClosestIndexByValue } from "../../utils";
 
 interface PickerColumnProps {
+  tone?: ComponentTone;
   data: number[];
   label: string;
   value?: number;
@@ -32,7 +37,14 @@ interface PickerColumnProps {
 export const PickerColumn = memo(function PickerColumn(
   props: PickerColumnProps,
 ) {
-  const { data, label, value, initialScrollIndex = 0, onChange } = props;
+  const {
+    data,
+    label,
+    value,
+    initialScrollIndex = 0,
+    onChange,
+    tone = "neutral",
+  } = props;
 
   const listRef = useRef<FlatListRef<number>>(null);
   const initialIndex = useRef(initialScrollIndex).current;
@@ -85,7 +97,7 @@ export const PickerColumn = memo(function PickerColumn(
     ({ item }: ListRenderItemInfo<number>) => {
       const selected = item === value;
       const appearanceTokens = getSelectionItemStateTokens(
-        columnTokens.states,
+        columnTokens.colors[tone],
         { selected },
       );
       const fontWeight = appearanceTokens.fontWeight as FontWeightValue;
@@ -106,7 +118,7 @@ export const PickerColumn = memo(function PickerColumn(
         </View>
       );
     },
-    [columnTokens.fontSize, columnTokens.states, styles.item, value],
+    [columnTokens.fontSize, columnTokens.colors[tone], styles.item, value],
   );
 
   const onMomentumScrollEnd = useCallback(

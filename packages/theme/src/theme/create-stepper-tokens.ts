@@ -6,7 +6,12 @@ export function createStepperTokens(
   return {
     navigation: {
       itemHeight: 6,
-      itemBackgroundColor: tokens.colors.primary.value,
+      inactiveItemBackgroundColor: tokens.colors.border.strong.value,
+      colors: {
+        neutral: { itemBackgroundColor: tokens.colors.text.secondary },
+        primary: { itemBackgroundColor: tokens.colors.primary.value },
+        secondary: { itemBackgroundColor: tokens.colors.secondary.contrast },
+      },
     },
   };
 }

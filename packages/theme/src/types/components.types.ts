@@ -47,6 +47,8 @@ export interface SelectionItemState {
   selected: boolean;
 }
 
+export type FeedbackTone = "error" | "warning" | "success" | "info";
+
 export type ComponentTone = "neutral" | "primary" | "secondary";
 
 export type ButtonTone = ComponentTone;

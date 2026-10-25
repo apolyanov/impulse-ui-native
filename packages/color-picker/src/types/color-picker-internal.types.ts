@@ -3,6 +3,7 @@ import type { DerivedValue, SharedValue } from "react-native-reanimated";
 import type {
   ColorPickerPreset,
   ComponentSize,
+  ComponentTone,
 } from "@impulse-ui-native/theme";
 
 import type {
@@ -17,6 +18,7 @@ export interface ColorPickerPresetEntryProps {
 }
 
 export interface ColorPickerContextData {
+  tone: ComponentTone;
   gesture: ColorPickerGestureHandlers;
   motion: ColorPickerMotion;
   resetKey: number;
@@ -63,5 +65,6 @@ export interface ColorPickerSizeThemeProps {
 }
 
 export interface ColorPickerSwatchThemeProps extends ColorPickerSizeThemeProps {
+  tone: ComponentTone;
   selected: boolean;
 }

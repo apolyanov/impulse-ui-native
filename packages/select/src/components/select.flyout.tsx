@@ -14,6 +14,7 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
 >(props: SelectFlyoutProps<Value>) {
   const {
     options,
+    tone = "neutral",
     isSelected,
     onSelect,
     initialScrollToSelected = true,
@@ -36,6 +37,7 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
       <Flyout {...rest} onOpen={handleOpen}>
         <View height={tokens.select.flyoutHeight}>
           <SelectOptions
+            tone={tone}
             key={openingKey}
             options={options}
             isSelected={isSelected}

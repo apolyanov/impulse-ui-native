@@ -22,14 +22,36 @@ export function createTimePickerTokens(
       initialScrollIndexViewOffset: -VerticalPadding,
 
       fontSize: tokens.fontSize.xl,
-      states: {
-        default: {
-          color: tokens.colors.text.primary,
-          fontWeight: tokens.fontWeight.regular,
+      colors: {
+        neutral: {
+          default: {
+            color: tokens.colors.text.primary,
+            fontWeight: tokens.fontWeight.regular,
+          },
+          selected: {
+            color: tokens.colors.text.secondary,
+            fontWeight: tokens.fontWeight.semiBold,
+          },
         },
-        selected: {
-          color: tokens.colors.primary.value,
-          fontWeight: tokens.fontWeight.semiBold,
+        primary: {
+          default: {
+            color: tokens.colors.text.primary,
+            fontWeight: tokens.fontWeight.regular,
+          },
+          selected: {
+            color: tokens.colors.primary.value,
+            fontWeight: tokens.fontWeight.semiBold,
+          },
+        },
+        secondary: {
+          default: {
+            color: tokens.colors.text.primary,
+            fontWeight: tokens.fontWeight.regular,
+          },
+          selected: {
+            color: tokens.colors.secondary.contrast,
+            fontWeight: tokens.fontWeight.semiBold,
+          },
         },
       },
     },

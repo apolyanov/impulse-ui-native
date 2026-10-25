@@ -12,7 +12,7 @@ const meta = {
   args: {
     inset: "none",
     orientation: "horizontal",
-    tone: "subtle",
+    tone: "primary",
   },
   argTypes: {
     orientation: {
@@ -27,7 +27,15 @@ const meta = {
     },
     tone: {
       control: "select",
-      options: ["subtle", "default", "strong", "primary", "inverse"],
+      options: [
+        "subtle",
+        "default",
+        "strong",
+        "neutral",
+        "primary",
+        "secondary",
+        "inverse",
+      ],
       description: "Selects a semantic divider color.",
     },
     color: {

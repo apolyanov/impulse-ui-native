@@ -20,16 +20,17 @@ export const TabButton = memo(function TabButton({
   disabled,
   selected,
   size,
+  tone,
   onSelect,
   initialScrollRef,
   onLayout,
 }: TabButtonProps) {
   const tokens = useComponentsTokens().tabs;
-  const styles = useThemedStyles(themedStyles, { disabled, selected, size }, [
-    disabled,
-    selected,
-    size,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { disabled, selected, size, tone },
+    [disabled, selected, size, tone],
+  );
 
   const handlePress = useEventCallback(() => {
     if (disabled) {

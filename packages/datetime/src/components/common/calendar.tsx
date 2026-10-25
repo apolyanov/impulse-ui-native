@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 
 import { Typography, View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
+import { ComponentTone, useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { TimeRange } from "../../types";
 import {
@@ -13,13 +13,14 @@ import {
 import { CalendarDay } from "./calendar-day";
 
 interface CalendarProps {
+  tone?: ComponentTone;
   value: Date | TimeRange | null | undefined;
   visible: Date;
   onPress: (date: Date) => void;
 }
 
 export const Calendar = memo(function Calendar(props: CalendarProps) {
-  const { visible, value, onPress } = props;
+  const { visible, value, onPress, tone = "neutral" } = props;
 
   const tokens = useComponentsTokens();
 
@@ -61,6 +62,7 @@ export const Calendar = memo(function Calendar(props: CalendarProps) {
 
               return (
                 <CalendarDay
+                  tone={tone}
                   key={getDateKey(date)}
                   date={date}
                   isSelected={state.isSelected}

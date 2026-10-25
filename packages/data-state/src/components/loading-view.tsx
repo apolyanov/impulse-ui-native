@@ -16,6 +16,7 @@ import { LoadingViewProps } from "../types";
 export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
   const {
     loading,
+    tone = "primary",
     children,
     LoadingComponent,
     contentContainerStyle,
@@ -116,7 +117,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
       {shouldMountLoader ? (
         <Animated.View style={loaderStyles} pointerEvents="auto">
           <View onLayout={onLoaderLayout}>
-            <LoadingComponent />
+            <LoadingComponent tone={tone} />
           </View>
         </Animated.View>
       ) : null}

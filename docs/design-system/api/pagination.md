@@ -1,6 +1,6 @@
 # @impulse-ui-native/pagination
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -45,6 +45,13 @@ layout when space is tighter. Set `compact` to force that layout. Override
 
 Pagination items use the shared primitives `Pressable`; pressed feedback comes
 from that primitive and is not modeled as Pagination state or theme tokens.
+
+## Repository palette consistency
+
+Pagination accepts `tone="neutral" | "primary" | "secondary"` (default primary).
+The current page uses the shared filled Button palette. Disabled controls use the
+shared unavailable filled palette; unselected pages and compact counts remain
+neutral. Custom theme states move to pagination.colors[tone].
 
 ## Public export and source reference
 
@@ -97,6 +104,7 @@ export const Pagination = memo(function Pagination({
   page: pageProp,
   pageCount,
   size = "medium",
+  tone = "primary",
   style,
   ...props
 }: PaginationProps) {
@@ -114,9 +122,10 @@ export const Pagination = memo(function Pagination({
 
   const resolvedPage = clampPage(page, normalizedPageCount);
 
-  const styles = useThemedStyles(themedStyles, { disabled, size }, [
+  const styles = useThemedStyles(themedStyles, { disabled, size, tone }, [
     disabled,
     size,
+    tone,
   ]);
 
   const windowLayout = useMemo(
@@ -163,6 +172,7 @@ export const Pagination = memo(function Pagination({
         Icon={CaretLeftIcon}
         onSelect={selectPage}
         size={size}
+        tone={tone}
         targetPage={resolvedPage - 1}
       />
 
@@ -182,6 +192,7 @@ export const Pagination = memo(function Pagination({
               label={item}
               onSelect={selectPage}
               size={size}
+              tone={tone}
               targetPage={item}
             />
           ) : (
@@ -199,6 +210,7 @@ export const Pagination = memo(function Pagination({
         Icon={CaretRightIcon}
         onSelect={selectPage}
         size={size}
+        tone={tone}
         targetPage={resolvedPage + 1}
       />
     </View>
@@ -208,7 +220,7 @@ export const Pagination = memo(function Pagination({
 function themedStyles(theme: AppTheme, props: PaginationThemeProps) {
   const tokens = theme.components.pagination;
   const sizeTokens = tokens.sizes[props.size];
-  const statusTokens = getPaginationStateTokens(tokens.states, {
+  const statusTokens = getPaginationStateTokens(tokens.colors[props.tone], {
     current: false,
     disabled: props.disabled,
   });
@@ -271,7 +283,7 @@ export * from "./pagination.types";
 ```tsx
 import type { ViewProps } from "react-native";
 
-import type { ComponentSize } from "@impulse-ui-native/theme";
+import type { ComponentSize, ComponentTone } from "@impulse-ui-native/theme";
 
 export type PaginationItemValue = number | "start-ellipsis" | "end-ellipsis";
 
@@ -287,6 +299,7 @@ interface PaginationCommonProps extends Omit<ViewProps, "children"> {
   onPageChange?: (page: number) => void;
   pageCount: number;
   size?: ComponentSize;
+  tone?: ComponentTone;
 }
 
 interface PaginationControlledProps extends PaginationCommonProps {
@@ -305,11 +318,13 @@ export type PaginationProps =
 export interface PaginationThemeProps {
   disabled: boolean;
   size: ComponentSize;
+  tone: ComponentTone;
 }
 
 export interface PaginationButtonThemeProps {
   current: boolean;
   disabled: boolean;
   size: ComponentSize;
+  tone: ComponentTone;
 }
 ```

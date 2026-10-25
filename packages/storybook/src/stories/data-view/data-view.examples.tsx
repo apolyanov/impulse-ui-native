@@ -4,7 +4,7 @@ import { memo } from "react";
 import { DataView } from "@impulse-ui-native/data-state";
 import { Typography, View } from "@impulse-ui-native/primitives";
 import { Skeleton } from "@impulse-ui-native/skeleton";
-import { useSpace } from "@impulse-ui-native/theme";
+import { ComponentTone, useSpace } from "@impulse-ui-native/theme";
 
 import {
   StoryExample,
@@ -12,6 +12,7 @@ import {
 } from "../../components/story-example";
 
 interface DataViewExampleDefinition {
+  tone?: ComponentTone;
   name: string;
   title: string;
   description: string;
@@ -136,6 +137,7 @@ export const DataViewExample = memo(function DataViewExample({
       elevated={elevated}
     >
       <DataView
+        tone={example.tone}
         loading={example.loading}
         error={example.error}
         isEmpty={example.isEmpty}

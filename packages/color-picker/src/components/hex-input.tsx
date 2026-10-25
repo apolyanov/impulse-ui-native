@@ -13,12 +13,14 @@ export const ColorPickerHexInput = memo(function ColorPickerHexInput({
   onBlur,
   onSubmitEditing,
   error,
+  tone,
   ...props
 }: ColorPickerHexInputProps) {
   const {
     value,
     disabled: rootDisabled,
     size,
+    tone: rootTone,
     setColor,
     resetKey,
   } = useColorPickerContext();
@@ -51,6 +53,7 @@ export const ColorPickerHexInput = memo(function ColorPickerHexInput({
 
   return (
     <Input
+      tone={tone ?? rootTone}
       size={size}
       autoCapitalize="characters"
       autoCorrect={false}

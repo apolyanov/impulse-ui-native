@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -599,11 +599,25 @@ export function createCarouselTokens(
         dots: { width: tokens.space.xs, height: tokens.space.xs },
         segments: { width: tokens.space.md, height: tokens.space.xxs },
       },
-      states: {
-        unselected: { backgroundColor: tokens.colors.border.strong.value },
-        selected: { backgroundColor: tokens.colors.primary.value },
-        disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
-        disabledSelected: { backgroundColor: tokens.colors.text.secondary },
+      colors: {
+        neutral: {
+          unselected: { backgroundColor: tokens.colors.border.strong.value },
+          selected: { backgroundColor: tokens.colors.text.secondary },
+          disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
+          disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        },
+        primary: {
+          unselected: { backgroundColor: tokens.colors.border.strong.value },
+          selected: { backgroundColor: tokens.colors.primary.value },
+          disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
+          disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        },
+        secondary: {
+          unselected: { backgroundColor: tokens.colors.border.strong.value },
+          selected: { backgroundColor: tokens.colors.secondary.contrast },
+          disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
+          disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        },
       },
     },
     counter: {
@@ -705,9 +719,14 @@ export function createColorPickerTokens(
     swatchRingBorderWidth: borderSize.md,
     borderWidth: borderSize.sm,
     borderColor: colors.border.default.value,
+    disabledBorderColor: colors.border.default.value,
     backgroundColor: colors.surface.elevated.value,
     labelColor: colors.text.primary,
-    selectedBorderColor: colors.border.focus.value,
+    colors: {
+      neutral: { selectedBorderColor: colors.text.secondary },
+      primary: { selectedBorderColor: colors.primary.value },
+      secondary: { selectedBorderColor: colors.secondary.contrast },
+    },
     indicatorColor: colors.white,
     indicatorBorderRadius: radii.round,
     indicatorBorderWidth: borderSize.md,
@@ -836,24 +855,66 @@ export function createPaginationTokens(
         paddingHorizontal: tokens.space.msm,
       },
     },
-    states: {
-      default: {
-        backgroundColor: tokens.colors.surface.elevated.value,
-        borderColor: tokens.colors.border.default.value,
-        color: tokens.colors.text.primary,
-        ellipsisColor: tokens.colors.text.tertiary,
+    colors: {
+      neutral: {
+        default: {
+          backgroundColor: tokens.colors.surface.default.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.primary,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        current: {
+          backgroundColor: tokens.colors.text.secondary,
+          borderColor: tokens.colors.text.secondary,
+          color: tokens.colors.text.inverse,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.disabled,
+          ellipsisColor: tokens.colors.text.disabled,
+        },
       },
-      current: {
-        backgroundColor: tokens.colors.primary.value,
-        borderColor: tokens.colors.primary.value,
-        color: tokens.colors.primary.contrast,
-        ellipsisColor: tokens.colors.text.tertiary,
+      primary: {
+        default: {
+          backgroundColor: tokens.colors.surface.default.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.primary,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        current: {
+          backgroundColor: tokens.colors.primary.value,
+          borderColor: tokens.colors.primary.value,
+          color: tokens.colors.primary.contrast,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.disabled,
+          ellipsisColor: tokens.colors.text.disabled,
+        },
       },
-      disabled: {
-        backgroundColor: tokens.colors.surface.subtle.value,
-        borderColor: tokens.colors.border.subtle.value,
-        color: tokens.colors.text.disabled,
-        ellipsisColor: tokens.colors.text.disabled,
+      secondary: {
+        default: {
+          backgroundColor: tokens.colors.surface.default.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.primary,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        current: {
+          backgroundColor: tokens.colors.secondary.value,
+          borderColor: tokens.colors.secondary.value,
+          color: tokens.colors.secondary.contrast,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.disabled,
+          ellipsisColor: tokens.colors.text.disabled,
+        },
       },
     },
   };
@@ -917,7 +978,7 @@ export function createSegmentedControlTokens(
 
   const neutral = tokens.colors.text.secondary;
   const neutralContrast = tokens.colors.text.inverse;
-  const neutralSoft = tokens.colors.surface.elevated.value;
+  const neutralSoft = tokens.colors.surface.subtle.value;
   const neutralSoftContrast = tokens.colors.text.primary;
   const subtle = tokens.colors.subtle.value;
 
@@ -926,7 +987,7 @@ export function createSegmentedControlTokens(
     borderWidth: tokens.borderSize.sm,
     itemBorderRadius: tokens.radii.md,
     itemBorderWidth: tokens.borderSize.sm,
-    rootBackgroundColor: tokens.colors.surface.subtle.value,
+    rootBackgroundColor: tokens.colors.surface.default.value,
     rootBorderColor: tokens.colors.border.default.value,
     rootGap: tokens.space.none,
     rootPadding: tokens.space.none,
@@ -1013,7 +1074,7 @@ export function createSegmentedControlTokens(
             },
             disabledSelected: {
               backgroundColor: tokens.colors.surface.subtle.value,
-              borderColor: tokens.colors.border.subtle.value,
+              borderColor: tokens.colors.border.default.value,
               color: tokens.colors.text.disabled,
             },
           },
@@ -1026,7 +1087,7 @@ export function createSegmentedControlTokens(
               color: tokens.colors.text.secondary,
             },
             selected: {
-              backgroundColor: tokens.colors.surface.elevated.value,
+              backgroundColor: transparent,
               borderColor: neutral,
               color: neutral,
             },
@@ -1087,7 +1148,7 @@ export function createSegmentedControlTokens(
             },
             disabledSelected: {
               backgroundColor: tokens.colors.surface.subtle.value,
-              borderColor: tokens.colors.border.subtle.value,
+              borderColor: tokens.colors.border.default.value,
               color: tokens.colors.text.disabled,
             },
           },
@@ -1100,7 +1161,7 @@ export function createSegmentedControlTokens(
               color: tokens.colors.text.secondary,
             },
             selected: {
-              backgroundColor: tokens.colors.surface.elevated.value,
+              backgroundColor: transparent,
               borderColor: primary,
               color: primary,
             },
@@ -1161,7 +1222,7 @@ export function createSegmentedControlTokens(
             },
             disabledSelected: {
               backgroundColor: tokens.colors.surface.subtle.value,
-              borderColor: tokens.colors.border.subtle.value,
+              borderColor: tokens.colors.border.default.value,
               color: tokens.colors.text.disabled,
             },
           },
@@ -1174,7 +1235,7 @@ export function createSegmentedControlTokens(
               color: tokens.colors.text.secondary,
             },
             selected: {
-              backgroundColor: tokens.colors.surface.elevated.value,
+              backgroundColor: transparent,
               borderColor: secondaryContrast,
               color: secondaryContrast,
             },
@@ -1296,16 +1357,16 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.text.inverse,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.surface.subtle.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.border.default.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbHighlightColor: tokens.colors.text.disabled,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
             valueBubbleBorderColor: tokens.colors.border.default.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
@@ -1317,7 +1378,7 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.secondary,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBackgroundColor: "transparent",
             thumbBorderColor: tokens.colors.text.secondary,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
@@ -1331,7 +1392,7 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.secondary,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBackgroundColor: "transparent",
             thumbBorderColor: tokens.colors.text.secondary,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
@@ -1340,16 +1401,16 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.text.secondary,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.border.default.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: "transparent",
+            thumbBorderColor: tokens.colors.border.default.value,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBackgroundColor: "transparent",
             valueBubbleBorderColor: tokens.colors.border.default.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
@@ -1361,10 +1422,10 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.primary,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.text.secondary,
-            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.surface.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: tokens.colors.text.inverse,
+            thumbHighlightColor: tokens.colors.text.primary,
             valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
             valueBubbleBorderColor: tokens.colors.surface.subtle.value,
             valueBubbleColor: tokens.colors.text.primary,
@@ -1375,26 +1436,26 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.primary,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.text.secondary,
-            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.surface.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: tokens.colors.text.inverse,
+            thumbHighlightColor: tokens.colors.text.primary,
             valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
             valueBubbleBorderColor: tokens.colors.surface.subtle.value,
             valueBubbleColor: tokens.colors.text.primary,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.surface.subtle.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.border.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
-            valueBubbleBorderColor: tokens.colors.border.default.value,
+            thumbHighlightColor: tokens.colors.text.disabled,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
+            valueBubbleBorderColor: tokens.colors.border.subtle.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
         },
@@ -1430,16 +1491,16 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.primary.contrast,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.surface.subtle.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.border.default.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbHighlightColor: tokens.colors.text.disabled,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
             valueBubbleBorderColor: tokens.colors.border.default.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
@@ -1451,7 +1512,7 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.primary.value,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBackgroundColor: "transparent",
             thumbBorderColor: tokens.colors.primary.value,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
@@ -1465,7 +1526,7 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.primary.value,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBackgroundColor: "transparent",
             thumbBorderColor: tokens.colors.primary.value,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
@@ -1474,16 +1535,16 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.primary.value,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.border.default.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: "transparent",
+            thumbBorderColor: tokens.colors.border.default.value,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBackgroundColor: "transparent",
             valueBubbleBorderColor: tokens.colors.border.default.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
@@ -1495,10 +1556,10 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.accent.value,
-            thumbBorderColor: tokens.colors.accent.value,
+            thumbBackgroundColor: tokens.colors.secondary.value,
+            thumbBorderColor: tokens.colors.secondary.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: tokens.colors.accent.contrast,
+            thumbHighlightColor: tokens.colors.secondary.contrast,
             valueBubbleBackgroundColor: tokens.colors.secondary.value,
             valueBubbleBorderColor: tokens.colors.secondary.value,
             valueBubbleColor: tokens.colors.secondary.contrast,
@@ -1509,26 +1570,26 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.accent.value,
-            thumbBorderColor: tokens.colors.accent.value,
+            thumbBackgroundColor: tokens.colors.secondary.value,
+            thumbBorderColor: tokens.colors.secondary.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: tokens.colors.accent.contrast,
+            thumbHighlightColor: tokens.colors.secondary.contrast,
             valueBubbleBackgroundColor: tokens.colors.secondary.value,
             valueBubbleBorderColor: tokens.colors.secondary.value,
             valueBubbleColor: tokens.colors.secondary.contrast,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.surface.subtle.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.border.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
-            valueBubbleBorderColor: tokens.colors.border.default.value,
+            thumbHighlightColor: tokens.colors.text.disabled,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
+            valueBubbleBorderColor: tokens.colors.border.subtle.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
         },
@@ -1539,7 +1600,7 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             activeMarkColor: tokens.colors.secondary.contrast,
             activeTrackColor: tokens.colors.secondary.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
-            labelColor: tokens.colors.secondary.value,
+            labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
             thumbBackgroundColor: tokens.colors.secondary.value,
             thumbBorderColor: tokens.colors.secondary.value,
@@ -1553,7 +1614,7 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             activeMarkColor: tokens.colors.secondary.contrast,
             activeTrackColor: tokens.colors.secondary.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
-            labelColor: tokens.colors.secondary.value,
+            labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
             thumbBackgroundColor: tokens.colors.secondary.value,
             thumbBorderColor: tokens.colors.secondary.value,
@@ -1564,28 +1625,28 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.secondary.contrast,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.surface.subtle.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.border.default.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbHighlightColor: tokens.colors.text.disabled,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
             valueBubbleBorderColor: tokens.colors.border.default.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
         },
         outlined: {
           default: {
-            activeMarkColor: tokens.colors.secondary.contrast,
-            activeTrackColor: tokens.colors.secondary.value,
+            activeMarkColor: tokens.colors.secondary.value,
+            activeTrackColor: tokens.colors.secondary.contrast,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBackgroundColor: "transparent",
             thumbBorderColor: tokens.colors.secondary.contrast,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
@@ -1594,12 +1655,12 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.secondary.contrast,
           },
           focused: {
-            activeMarkColor: tokens.colors.secondary.contrast,
-            activeTrackColor: tokens.colors.secondary.value,
+            activeMarkColor: tokens.colors.secondary.value,
+            activeTrackColor: tokens.colors.secondary.contrast,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBackgroundColor: "transparent",
             thumbBorderColor: tokens.colors.secondary.contrast,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
@@ -1608,16 +1669,16 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             valueBubbleColor: tokens.colors.secondary.contrast,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.border.default.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: "transparent",
+            thumbBorderColor: tokens.colors.border.default.value,
             thumbBorderWidth: tokens.borderSize.md,
             thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBackgroundColor: "transparent",
             valueBubbleBorderColor: tokens.colors.border.default.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
@@ -1629,10 +1690,10 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.secondary.contrast,
-            thumbBorderColor: tokens.colors.secondary.contrast,
+            thumbBackgroundColor: tokens.colors.subtle.value,
+            thumbBorderColor: tokens.colors.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: tokens.colors.secondary.value,
+            thumbHighlightColor: tokens.colors.secondary.contrast,
             valueBubbleBackgroundColor: tokens.colors.subtle.value,
             valueBubbleBorderColor: tokens.colors.subtle.value,
             valueBubbleColor: tokens.colors.secondary.contrast,
@@ -1643,26 +1704,26 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.secondary.contrast,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.secondary.contrast,
-            thumbBorderColor: tokens.colors.secondary.contrast,
+            thumbBackgroundColor: tokens.colors.subtle.value,
+            thumbBorderColor: tokens.colors.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: tokens.colors.secondary.value,
+            thumbHighlightColor: tokens.colors.secondary.contrast,
             valueBubbleBackgroundColor: tokens.colors.subtle.value,
             valueBubbleBorderColor: tokens.colors.subtle.value,
             valueBubbleColor: tokens.colors.secondary.contrast,
           },
           disabled: {
-            activeMarkColor: tokens.colors.surface.elevated.value,
-            activeTrackColor: tokens.colors.border.strong.value,
+            activeMarkColor: tokens.colors.text.disabled,
+            activeTrackColor: tokens.colors.surface.subtle.value,
             inactiveTrackColor: tokens.colors.border.subtle.value,
             labelColor: tokens.colors.text.disabled,
             markColor: tokens.colors.text.primary,
-            thumbBackgroundColor: tokens.colors.border.strong.value,
-            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBackgroundColor: tokens.colors.surface.subtle.value,
+            thumbBorderColor: tokens.colors.border.subtle.value,
             thumbBorderWidth: tokens.borderSize.sm,
-            thumbHighlightColor: "transparent",
-            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
-            valueBubbleBorderColor: tokens.colors.border.default.value,
+            thumbHighlightColor: tokens.colors.text.disabled,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
+            valueBubbleBorderColor: tokens.colors.border.subtle.value,
             valueBubbleColor: tokens.colors.text.disabled,
           },
         },
@@ -1683,26 +1744,72 @@ export function createTabsTokens(tokens: PrimitiveThemeTokens): TabsTokens {
     borderWidth: tokens.borderSize.sm,
     indicatorHeight: tokens.borderSize.md,
     panelGap: tokens.space.msm,
-    states: {
-      unselected: {
-        color: tokens.colors.text.secondary,
-        indicatorColor: tokens.colors.primary.value,
-        indicatorOpacity: 0,
+    colors: {
+      neutral: {
+        unselected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.text.secondary,
+          indicatorOpacity: 0,
+        },
+        selected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.text.secondary,
+          indicatorOpacity: 1,
+        },
+        disabledUnselected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 0,
+        },
+        disabledSelected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 1,
+        },
       },
-      selected: {
-        color: tokens.colors.primary.value,
-        indicatorColor: tokens.colors.primary.value,
-        indicatorOpacity: 1,
+      primary: {
+        unselected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.primary.value,
+          indicatorOpacity: 0,
+        },
+        selected: {
+          color: tokens.colors.primary.value,
+          indicatorColor: tokens.colors.primary.value,
+          indicatorOpacity: 1,
+        },
+        disabledUnselected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 0,
+        },
+        disabledSelected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 1,
+        },
       },
-      disabledUnselected: {
-        color: tokens.colors.text.disabled,
-        indicatorColor: tokens.colors.text.disabled,
-        indicatorOpacity: 0,
-      },
-      disabledSelected: {
-        color: tokens.colors.text.disabled,
-        indicatorColor: tokens.colors.text.disabled,
-        indicatorOpacity: 1,
+      secondary: {
+        unselected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.secondary.contrast,
+          indicatorOpacity: 0,
+        },
+        selected: {
+          color: tokens.colors.secondary.contrast,
+          indicatorColor: tokens.colors.secondary.contrast,
+          indicatorOpacity: 1,
+        },
+        disabledUnselected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 0,
+        },
+        disabledSelected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 1,
+        },
       },
     },
     sizes: {
@@ -1761,14 +1868,34 @@ export function createToastTokens(tokens: PrimitiveThemeTokens): ToastTokens {
     actionMinSize: tokens.space.md,
     titleColor: tokens.colors.text.primary,
     descriptionColor: tokens.colors.text.secondary,
-    actionColor: tokens.colors.primary.value,
     disabledColor: tokens.colors.text.disabled,
     titleFontSize: tokens.fontSize.sm,
     titleLineHeight: tokens.lineHeight.sm,
     descriptionFontSize: tokens.fontSize.xsm,
     descriptionLineHeight: tokens.lineHeight.xsm,
     zIndexBase: 2000,
-    tones: { ...tokens.colors.feedback },
+    tones: {
+      success: {
+        value: tokens.colors.feedback.success.value,
+        contrast: tokens.colors.feedback.success.contrast,
+        actionColor: tokens.colors.feedback.success.value,
+      },
+      info: {
+        value: tokens.colors.feedback.info.value,
+        contrast: tokens.colors.feedback.info.contrast,
+        actionColor: tokens.colors.feedback.info.value,
+      },
+      warning: {
+        value: tokens.colors.feedback.warning.value,
+        contrast: tokens.colors.feedback.warning.contrast,
+        actionColor: tokens.colors.feedback.warning.value,
+      },
+      error: {
+        value: tokens.colors.feedback.error.value,
+        contrast: tokens.colors.feedback.error.contrast,
+        actionColor: tokens.colors.feedback.error.value,
+      },
+    },
   };
 }
 ```
@@ -2384,16 +2511,14 @@ export interface AvatarTokens {
 ### packages/theme/src/types/badge-tokens.types.ts
 
 ```tsx
-import type { ComponentSize, DisplayVariant } from "./components.types";
+import type {
+  ComponentSize,
+  ComponentTone,
+  DisplayVariant,
+  FeedbackTone,
+} from "./components.types";
 
-export type BadgeTone =
-  | "primary"
-  | "secondary"
-  | "neutral"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+export type BadgeTone = ComponentTone | FeedbackTone;
 
 export interface BadgeSizeTokens {
   fontSize: number;
@@ -2536,6 +2661,7 @@ export interface CardTokens {
 ```tsx
 import type {
   AvailabilityVisualState,
+  ComponentTone,
   SelectionVisualState,
   VisualStateTokens,
 } from "./components.types";
@@ -2557,9 +2683,9 @@ export interface CarouselTokens {
     borderRadius: number;
     targetSize: number;
     variants: Record<"dots" | "segments", { width: number; height: number }>;
-    states: VisualStateTokens<
-      SelectionVisualState,
-      CarouselIndicatorAppearanceTokens
+    colors: Record<
+      ComponentTone,
+      VisualStateTokens<SelectionVisualState, CarouselIndicatorAppearanceTokens>
     >;
   };
   counter: {
@@ -2681,7 +2807,7 @@ export interface CheckboxTokens {
 ### packages/theme/src/types/color-picker-tokens.types.ts
 
 ```tsx
-import type { ComponentSize } from "./components.types";
+import type { ComponentSize, ComponentTone } from "./components.types";
 
 export interface ColorPickerPreset {
   label: string;
@@ -2706,9 +2832,10 @@ export interface ColorPickerTokens {
   swatchRingBorderWidth: number;
   borderWidth: number;
   borderColor: string;
+  disabledBorderColor: string;
   backgroundColor: string;
   labelColor: string;
-  selectedBorderColor: string;
+  colors: Record<ComponentTone, { selectedBorderColor: string }>;
   indicatorColor: string;
   indicatorBorderRadius: number;
   indicatorBorderWidth: number;
@@ -2798,6 +2925,8 @@ export type SelectionItemVisualState = "default" | "selected";
 export interface SelectionItemState {
   selected: boolean;
 }
+
+export type FeedbackTone = "error" | "warning" | "success" | "info";
 
 export type ComponentTone = "neutral" | "primary" | "secondary";
 
@@ -2914,10 +3043,12 @@ export interface ControlLabelTokens {
 ### packages/theme/src/types/data-state-tokens.types.ts
 
 ```tsx
+import type { ComponentTone } from "./components.types";
+
 export interface DataStateDetailsTokens {
   gap: number;
   iconSize: number;
-  iconColor: string;
+  colors: Record<ComponentTone, { iconColor: string }>;
 }
 
 export interface DataStateActionsFooterTokens {
@@ -2944,7 +3075,7 @@ export interface DataStateTokens {
 ### packages/theme/src/types/datetime-picker-tokens.types.ts
 
 ```tsx
-import type { VisualStateTokens } from "./components.types";
+import type { ComponentTone, VisualStateTokens } from "./components.types";
 
 export type DatetimePickerDayVisualState =
   "default" | "outsideMonth" | "range" | "selected";
@@ -2968,16 +3099,19 @@ export interface DatetimePickerDayAppearanceTokens {
 export interface DatetimePickerDayTokens {
   size: number;
   borderRadius: number;
-  states: VisualStateTokens<
-    DatetimePickerDayVisualState,
-    DatetimePickerDayAppearanceTokens
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<
+      DatetimePickerDayVisualState,
+      DatetimePickerDayAppearanceTokens
+    >
   >;
 }
 
 export interface DatetimePickerFlyoutActionsTokens {
   gap: number;
   buttonsGap: number;
-  clearColor: string;
+  colors: Record<ComponentTone, { clearColor: string }>;
 }
 
 export interface DatetimePickerQuickDateOptionsTokens {
@@ -3034,7 +3168,13 @@ export interface DimensionProps {
 
 ```tsx
 export type DividerTone =
-  "subtle" | "default" | "strong" | "primary" | "inverse";
+  | "subtle"
+  | "default"
+  | "strong"
+  | "neutral"
+  | "secondary"
+  | "primary"
+  | "inverse";
 
 export type DividerTokenOrientation = "horizontal" | "vertical";
 
@@ -3296,7 +3436,11 @@ export interface ModalTokens {
 ### packages/theme/src/types/pagination-tokens.types.ts
 
 ```tsx
-import type { ComponentSize, VisualStateTokens } from "./components.types";
+import type {
+  ComponentSize,
+  ComponentTone,
+  VisualStateTokens,
+} from "./components.types";
 
 export type PaginationVisualState = "default" | "current" | "disabled";
 
@@ -3326,7 +3470,10 @@ export interface PaginationTokens {
   borderWidth: number;
   gap: number;
   sizes: Record<ComponentSize, PaginationSizeToken>;
-  states: VisualStateTokens<PaginationVisualState, PaginationAppearanceTokens>;
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<PaginationVisualState, PaginationAppearanceTokens>
+  >;
 }
 ```
 
@@ -3530,7 +3677,8 @@ export type ResolvedSegmentedControlItemTokens = Omit<
 
 ```tsx
 import type {
-  SelectionItemVisualState,
+  ComponentTone,
+  SelectionVisualState,
   VisualStateTokens,
 } from "./components.types";
 
@@ -3542,9 +3690,9 @@ export interface SelectOptionAppearanceTokens {
 export interface SelectOptionTokens {
   height: number;
   padding: number;
-  states: VisualStateTokens<
-    SelectionItemVisualState,
-    SelectOptionAppearanceTokens
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<SelectionVisualState, SelectOptionAppearanceTokens>
   >;
 }
 
@@ -3717,9 +3865,9 @@ export interface SpacingProps {
 ### packages/theme/src/types/spinner-tokens.types.ts
 
 ```tsx
-import type { ComponentSize } from "./components.types";
+import type { ComponentSize, ComponentTone } from "./components.types";
 
-export type SpinnerTone = "primary" | "secondary" | "neutral" | "inverse";
+export type SpinnerTone = ComponentTone | "inverse";
 
 export interface SpinnerTokens {
   baseSize: number;
@@ -3731,9 +3879,12 @@ export interface SpinnerTokens {
 ### packages/theme/src/types/stepper-tokens.types.ts
 
 ```tsx
+import type { ComponentTone } from "./components.types";
+
 export interface StepperNavigationTokens {
   itemHeight: number;
-  itemBackgroundColor: string;
+  inactiveItemBackgroundColor: string;
+  colors: Record<ComponentTone, { itemBackgroundColor: string }>;
 }
 
 export interface StepperTokens {
@@ -3818,6 +3969,7 @@ export interface SwitchTokens {
 ```tsx
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionState,
   SelectionVisualState,
   VisualStateTokens,
@@ -3843,11 +3995,15 @@ export interface TabsTokens {
   indicatorHeight: number;
   panelGap: number;
   sizes: Record<ComponentSize, TabsSizeTokens>;
-  states: VisualStateTokens<SelectionVisualState, TabsItemAppearanceTokens>;
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<SelectionVisualState, TabsItemAppearanceTokens>
+  >;
 }
 
 export interface TabsItemTokenState extends SelectionState {
   size: ComponentSize;
+  tone?: ComponentTone;
 }
 
 export type ResolvedTabsItemTokens = TabsSizeTokens &
@@ -3862,18 +4018,13 @@ export type ResolvedTabsItemTokens = TabsSizeTokens &
 import type {
   AvailabilityVisualState,
   ComponentSize,
+  ComponentTone,
   DisplayVariant,
+  FeedbackTone,
   VisualStateTokens,
 } from "./components.types";
 
-export type TagTone =
-  | "neutral"
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+export type TagTone = ComponentTone | FeedbackTone;
 
 export type TagSizeTokens = Record<
   ComponentSize,
@@ -4127,6 +4278,7 @@ export interface AppTheme extends PrimitiveThemeTokens {
 
 ```tsx
 import type {
+  ComponentTone,
   SelectionItemVisualState,
   VisualStateTokens,
 } from "./components.types";
@@ -4148,9 +4300,12 @@ export interface TimePickerColumnTokens {
   initialScrollIndexViewOffset: number;
 
   fontSize: number;
-  states: VisualStateTokens<
-    SelectionItemVisualState,
-    TimePickerColumnAppearanceTokens
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<
+      SelectionItemVisualState,
+      TimePickerColumnAppearanceTokens
+    >
   >;
 }
 
@@ -4178,10 +4333,11 @@ export interface TimePickerTokens {
 ### packages/theme/src/types/toast-tokens.types.ts
 
 ```tsx
+import type { FeedbackTone } from "./components.types";
 import type { ColorPair } from "./theme-provider.types";
 import type { FontWeightValue } from "./tokens.types";
 
-export type ToastTone = "success" | "info" | "warning" | "error";
+export type ToastTone = FeedbackTone;
 
 export interface ToastTokens {
   enterDuration: number;
@@ -4206,14 +4362,13 @@ export interface ToastTokens {
   actionMinSize: number;
   titleColor: string;
   descriptionColor: string;
-  actionColor: string;
   disabledColor: string;
   titleFontSize: number;
   titleLineHeight: number;
   descriptionFontSize: number;
   descriptionLineHeight: number;
   zIndexBase: number;
-  tones: Record<ToastTone, ColorPair>;
+  tones: Record<ToastTone, ColorPair & { actionColor: string }>;
 }
 ```
 
@@ -4465,13 +4620,14 @@ export function getControlStateTokens<Tokens>(
 
 ```tsx
 import type {
+  ComponentTone,
   DatetimePickerDayAppearanceTokens,
   DatetimePickerDayState,
   DatetimePickerDayTokens,
 } from "../types";
 
 export function getDatetimePickerDayStateTokens(
-  tokens: DatetimePickerDayTokens["states"],
+  tokens: DatetimePickerDayTokens["colors"][ComponentTone],
   state: DatetimePickerDayState,
 ): DatetimePickerDayAppearanceTokens {
   const { currentMonth = false, inRange = false, selected = false } = state;
@@ -4790,7 +4946,7 @@ export function getTabsItemTokens(
 ): ResolvedTabsItemTokens {
   return {
     ...tokens.sizes[state.size],
-    ...getSelectionStateTokens(tokens.states, state),
+    ...getSelectionStateTokens(tokens.colors[state.tone ?? "primary"], state),
     indicatorHeight: tokens.indicatorHeight,
   };
 }

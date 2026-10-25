@@ -1,5 +1,6 @@
 import type {
-  SelectionItemVisualState,
+  ComponentTone,
+  SelectionVisualState,
   VisualStateTokens,
 } from "./components.types";
 
@@ -11,9 +12,9 @@ export interface SelectOptionAppearanceTokens {
 export interface SelectOptionTokens {
   height: number;
   padding: number;
-  states: VisualStateTokens<
-    SelectionItemVisualState,
-    SelectOptionAppearanceTokens
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<SelectionVisualState, SelectOptionAppearanceTokens>
   >;
 }
 

@@ -23,3 +23,11 @@ Progress defaults to a medium linear indicator with the primary tone. Provide `v
 Indeterminate linear motion travels from left to right. Reanimated loops cancel on unmount and restart when duration changes. Native View props, styles, and linear `onLayout` callbacks are preserved.
 
 `Progress` and `ProgressProps` are also exported by `@impulse-ui-native/toolkit`. Migrate imports from primitives to this package or the toolkit. Use the native Progress stories to inspect both variants, ranges, sizes, tones, and indeterminate states.
+
+## Repository palette consistency
+
+Progress keeps `variant="linear" | "circular"` as its shape axis. Tone is a
+stroke palette shared with Spinner: primary uses primary.value over secondary.value;
+secondary uses secondary.contrast over subtle.value; neutral uses text.secondary
+over surface.subtle; inverse retains its inverse-surface pairing. Explicit color
+and trackColor overrides still take precedence.

@@ -1,4 +1,8 @@
-import type { ComponentSize, VisualStateTokens } from "./components.types";
+import type {
+  ComponentSize,
+  ComponentTone,
+  VisualStateTokens,
+} from "./components.types";
 
 export type PaginationVisualState = "default" | "current" | "disabled";
 
@@ -28,5 +32,8 @@ export interface PaginationTokens {
   borderWidth: number;
   gap: number;
   sizes: Record<ComponentSize, PaginationSizeToken>;
-  states: VisualStateTokens<PaginationVisualState, PaginationAppearanceTokens>;
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<PaginationVisualState, PaginationAppearanceTokens>
+  >;
 }

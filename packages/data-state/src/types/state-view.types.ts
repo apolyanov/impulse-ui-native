@@ -2,9 +2,11 @@ import { ComponentType } from "react";
 import { PressableProps, ViewStyle } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
+import type { ComponentTone } from "@impulse-ui-native/theme";
 import { ViewProps } from "@impulse-ui-native/primitives";
 
 export interface StateActionsFooterProps extends ViewProps {
+  tone?: ComponentTone;
   onPressPrimaryAction: PressableProps["onPress"];
   primaryActionLabel: string;
   onPressSecondaryAction?: PressableProps["onPress"];
@@ -26,15 +28,17 @@ export type EmptyViewProps = StateContainerProps;
 export type ErrorViewProps = StateContainerProps;
 
 export interface LoadingViewProps extends ViewProps {
+  tone?: ComponentTone;
   loading: boolean;
-  LoadingComponent: ComponentType;
+  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
   contentContainerStyle?: ViewStyle;
 }
 
 export interface DataViewProps extends ViewProps {
+  tone?: ComponentTone;
   error: Error | null;
   isEmpty: boolean;
-  LoadingComponent: ComponentType;
+  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
   loading: LoadingViewProps["loading"];
   contentContainerStyle?: ViewStyle;
   errorViewProps: StateViewProps;

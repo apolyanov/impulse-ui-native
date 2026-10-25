@@ -17,6 +17,7 @@ export const Select = memo(function SelectComponent<
     defaultValue,
     onChange,
     placeholder,
+    tone = "neutral",
     initialScrollToSelected,
     ...rest
   } = props;
@@ -43,7 +44,7 @@ export const Select = memo(function SelectComponent<
   const hasSelectedValue = selected !== null && selected !== undefined;
 
   return (
-    <SelectControl {...rest} open={isOpen} onPress={open}>
+    <SelectControl {...rest} tone={tone} open={isOpen} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -51,6 +52,7 @@ export const Select = memo(function SelectComponent<
         <Control.Value>{getLabel(selected)}</Control.Value>
       ) : null}
       <SelectFlyout
+        tone={tone}
         id={id}
         title="Options"
         open={isOpen}

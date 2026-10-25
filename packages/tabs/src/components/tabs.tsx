@@ -22,6 +22,7 @@ export const Tabs = memo(function Tabs({
   overflow = "scroll",
   panelStyle,
   size = "medium",
+  tone = "primary",
   style,
   value,
   ...props
@@ -31,12 +32,11 @@ export const Tabs = memo(function Tabs({
     [defaultValue, items],
   );
 
-  const [selectedValue, setSelectedValue] =
-    useControllableState<string>({
-      prop: value,
-      defaultProp: initialValue,
-      onChange: onValueChange,
-    });
+  const [selectedValue, setSelectedValue] = useControllableState<string>({
+    prop: value,
+    defaultProp: initialValue,
+    onChange: onValueChange,
+  });
   const initialSelectedValue = useRef(selectedValue).current;
   const initialScroll = useScrollViewInitialScroll({
     horizontal: true,
@@ -61,6 +61,7 @@ export const Tabs = memo(function Tabs({
             disabled={itemDisabled}
             selected={item.value === selectedValue}
             size={size}
+            tone={tone}
             onSelect={setSelectedValue}
             initialScrollRef={
               item.value === initialSelectedValue
@@ -81,6 +82,7 @@ export const Tabs = memo(function Tabs({
       selectedValue,
       setSelectedValue,
       size,
+      tone,
       initialSelectedValue,
       initialScroll.targetRef,
       initialScroll.onTargetLayout,

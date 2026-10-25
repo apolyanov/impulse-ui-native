@@ -62,3 +62,13 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlInput.colors[tone][variant][state]`, and
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
+
+## Repository palette consistency
+
+The field tone (default neutral) is explicitly passed through portals into
+calendar selections, range fills, month/year selects, quick-date tags, nested time
+inputs, selected time rows, Clear, Cancel, and Apply. Calendar selections use the
+shared filled palette and ranges use the soft palette. Field variant remains a
+field appearance; selected days and action buttons retain their semantic roles.
+Custom day states move to datetimePicker.day.colors[tone], time rows to
+timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].

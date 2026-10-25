@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { StyleProp, ViewStyle } from "react-native";
 
 import type { ViewProps } from "@impulse-ui-native/primitives";
-import type { ComponentSize } from "@impulse-ui-native/theme";
+import type { ComponentSize, ComponentTone } from "@impulse-ui-native/theme";
 
 export interface TabsItem {
   value: string;
@@ -22,6 +22,7 @@ interface TabsCommonProps extends Omit<ViewProps, "children" | "overflow"> {
   overflow?: TabsOverflow;
   panelStyle?: StyleProp<ViewStyle>;
   size?: ComponentSize;
+  tone?: ComponentTone;
 }
 
 interface TabsControlledProps extends TabsCommonProps {

@@ -3,7 +3,11 @@ import { memo } from "react";
 import { StyleSheet } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import type { AppTheme, ComponentSize } from "@impulse-ui-native/theme";
+import type {
+  AppTheme,
+  ComponentSize,
+  ComponentTone,
+} from "@impulse-ui-native/theme";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { Icon } from "@impulse-ui-native/icon";
 import { Pressable, Typography } from "@impulse-ui-native/primitives";
@@ -22,6 +26,7 @@ interface PaginationButtonProps {
   label?: number;
   onSelect: (page: number) => void;
   size: ComponentSize;
+  tone: ComponentTone;
   targetPage: number;
 }
 
@@ -32,15 +37,16 @@ export const PaginationButton = memo(function PaginationButton({
   label,
   onSelect,
   size,
+  tone,
   targetPage,
 }: PaginationButtonProps) {
   const tokens = useComponentsTokens().pagination;
 
-  const styles = useThemedStyles(themedStyles, { current, disabled, size }, [
-    current,
-    disabled,
-    size,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { current, disabled, size, tone },
+    [current, disabled, size, tone],
+  );
 
   const handlePress = useEventCallback((_event: GestureResponderEvent) => {
     onSelect(targetPage);
@@ -72,7 +78,7 @@ export const PaginationButton = memo(function PaginationButton({
 function themedStyles(theme: AppTheme, props: PaginationButtonThemeProps) {
   const tokens = theme.components.pagination;
   const sizeTokens = tokens.sizes[props.size];
-  const stateTokens = getPaginationStateTokens(tokens.states, {
+  const stateTokens = getPaginationStateTokens(tokens.colors[props.tone], {
     current: props.current,
     disabled: props.disabled,
   });

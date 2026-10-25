@@ -1,6 +1,9 @@
+import type { ComponentTone } from "./components.types";
+
 export interface StepperNavigationTokens {
   itemHeight: number;
-  itemBackgroundColor: string;
+  inactiveItemBackgroundColor: string;
+  colors: Record<ComponentTone, { itemBackgroundColor: string }>;
 }
 
 export interface StepperTokens {

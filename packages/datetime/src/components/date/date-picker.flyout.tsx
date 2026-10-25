@@ -22,6 +22,7 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
     visible,
     value,
     clearable,
+    tone = "neutral",
     quickDateOptions,
     onPressQuickDateOption,
     onChangeVisible,
@@ -42,9 +43,14 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
     <Portal>
       <Flyout {...rest}>
         <View gap={datePickerTokens.gap}>
-          <VisibleDateSelect value={visible} onChange={onChangeVisible} />
+          <VisibleDateSelect
+            tone={tone}
+            value={visible}
+            onChange={onChangeVisible}
+          />
 
           <Calendar
+            tone={tone}
             value={value}
             visible={visible}
             onPress={onPressCalendarDay}
@@ -52,12 +58,14 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
 
           {hasQuickDateOptions ? (
             <QuickDateOptions
+              tone={tone}
               options={quickDateOptions}
               onPress={onPressQuickDateOption}
             />
           ) : null}
 
           <DatetimePickerFlyoutActions
+            tone={tone}
             canClear={Boolean(value && clearable)}
             onPressApply={onPressApply}
             onPressCancel={onPressCancel}

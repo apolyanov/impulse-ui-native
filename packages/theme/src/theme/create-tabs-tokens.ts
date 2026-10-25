@@ -6,26 +6,72 @@ export function createTabsTokens(tokens: PrimitiveThemeTokens): TabsTokens {
     borderWidth: tokens.borderSize.sm,
     indicatorHeight: tokens.borderSize.md,
     panelGap: tokens.space.msm,
-    states: {
-      unselected: {
-        color: tokens.colors.text.secondary,
-        indicatorColor: tokens.colors.primary.value,
-        indicatorOpacity: 0,
+    colors: {
+      neutral: {
+        unselected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.text.secondary,
+          indicatorOpacity: 0,
+        },
+        selected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.text.secondary,
+          indicatorOpacity: 1,
+        },
+        disabledUnselected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 0,
+        },
+        disabledSelected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 1,
+        },
       },
-      selected: {
-        color: tokens.colors.primary.value,
-        indicatorColor: tokens.colors.primary.value,
-        indicatorOpacity: 1,
+      primary: {
+        unselected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.primary.value,
+          indicatorOpacity: 0,
+        },
+        selected: {
+          color: tokens.colors.primary.value,
+          indicatorColor: tokens.colors.primary.value,
+          indicatorOpacity: 1,
+        },
+        disabledUnselected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 0,
+        },
+        disabledSelected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 1,
+        },
       },
-      disabledUnselected: {
-        color: tokens.colors.text.disabled,
-        indicatorColor: tokens.colors.text.disabled,
-        indicatorOpacity: 0,
-      },
-      disabledSelected: {
-        color: tokens.colors.text.disabled,
-        indicatorColor: tokens.colors.text.disabled,
-        indicatorOpacity: 1,
+      secondary: {
+        unselected: {
+          color: tokens.colors.text.secondary,
+          indicatorColor: tokens.colors.secondary.contrast,
+          indicatorOpacity: 0,
+        },
+        selected: {
+          color: tokens.colors.secondary.contrast,
+          indicatorColor: tokens.colors.secondary.contrast,
+          indicatorOpacity: 1,
+        },
+        disabledUnselected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 0,
+        },
+        disabledSelected: {
+          color: tokens.colors.text.disabled,
+          indicatorColor: tokens.colors.text.disabled,
+          indicatorOpacity: 1,
+        },
       },
     },
     sizes: {

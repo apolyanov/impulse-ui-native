@@ -90,7 +90,7 @@ Native device verification of dragging, keyboard entry, font scaling, and nested
 ## Field appearance
 
 Rectangular fields support `variant="outlined" | "soft" | "filled"` and
-`tone="neutral" | "primary" | "secondary"`. The default is `outlined` / `neutral`.
+`tone="neutral" | "primary" | "secondary"`. Inputs default to `outlined` and inherit the root tone (`primary` by default). Set `tone="neutral"` on an input to use the standard neutral field appearance.
 Outlined uses a transparent surface with a tone border; soft uses a subtle tone
 surface; filled uses the tone fill with its paired foreground. Colors come from
 the active theme in both schemes. Error styling overrides the selected tone;
@@ -102,3 +102,11 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 the previous `variants[variant][state]` maps.
 
 `ColorPicker.HexInput`, `ColorPicker.ChannelInput`, and `ColorPicker.AlphaInput` accept the field appearance props individually.
+
+## Repository palette consistency
+
+ColorPicker.Root and the convenience ColorPicker accept tone (default primary).
+Inputs, sliders, confirm actions, and selected swatch rings inherit it; explicit
+child tones override it. The hue/saturation spectrum, presets, alpha checkerboard,
+and user-selected color are data, so changing tone does not change those values.
+Selection ring tokens move to colorPicker.colors[tone].

@@ -26,6 +26,7 @@ export const ColorPickerCancel = memo(function ColorPickerCancel({
 
   return (
     <Button
+      tone={picker.tone}
       size={picker.size}
       variant="outlined"
       {...props}

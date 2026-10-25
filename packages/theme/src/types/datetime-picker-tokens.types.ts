@@ -1,10 +1,7 @@
-import type { VisualStateTokens } from "./components.types";
+import type { ComponentTone, VisualStateTokens } from "./components.types";
 
 export type DatetimePickerDayVisualState =
-  | "default"
-  | "outsideMonth"
-  | "range"
-  | "selected";
+  "default" | "outsideMonth" | "range" | "selected";
 
 export interface DatetimePickerDayState {
   currentMonth?: boolean;
@@ -25,16 +22,19 @@ export interface DatetimePickerDayAppearanceTokens {
 export interface DatetimePickerDayTokens {
   size: number;
   borderRadius: number;
-  states: VisualStateTokens<
-    DatetimePickerDayVisualState,
-    DatetimePickerDayAppearanceTokens
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<
+      DatetimePickerDayVisualState,
+      DatetimePickerDayAppearanceTokens
+    >
   >;
 }
 
 export interface DatetimePickerFlyoutActionsTokens {
   gap: number;
   buttonsGap: number;
-  clearColor: string;
+  colors: Record<ComponentTone, { clearColor: string }>;
 }
 
 export interface DatetimePickerQuickDateOptionsTokens {

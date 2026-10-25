@@ -16,13 +16,14 @@ export const CarouselIndicator = memo(function CarouselIndicator({
   disabled,
   index,
   variant,
+  tone,
   onSelect,
 }: CarouselIndicatorProps) {
-  const styles = useThemedStyles(themedStyles, { active, disabled, variant }, [
-    active,
-    disabled,
-    variant,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { active, disabled, variant, tone },
+    [active, disabled, variant, tone],
+  );
 
   const handlePress = useEventCallback(() => onSelect(index));
 
@@ -35,11 +36,14 @@ export const CarouselIndicator = memo(function CarouselIndicator({
 
 function themedStyles(
   theme: AppTheme,
-  props: Pick<CarouselIndicatorProps, "active" | "disabled" | "variant">,
+  props: Pick<
+    CarouselIndicatorProps,
+    "active" | "disabled" | "variant" | "tone"
+  >,
 ) {
   const tokens = theme.components.carousel.indicator;
   const geometry = tokens.variants[props.variant];
-  const appearance = getSelectionStateTokens(tokens.states, {
+  const appearance = getSelectionStateTokens(tokens.colors[props.tone], {
     selected: props.active,
     disabled: props.disabled,
   });

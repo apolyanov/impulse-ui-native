@@ -19,6 +19,7 @@ export const Carousel = memo(function Carousel({
   onIndexChange,
   disabled = false,
   pagination = "dots",
+  tone = "primary",
   showNavigation = true,
   peek = 0,
   slideAspectRatio = DefaultSlideAspectRatio,
@@ -50,6 +51,7 @@ export const Carousel = memo(function Carousel({
         disabled={disabled}
       />
       <CarouselControls
+        tone={tone}
         count={count}
         index={controller.displayedIndex}
         disabled={disabled}

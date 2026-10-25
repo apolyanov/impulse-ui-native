@@ -1,6 +1,6 @@
 # @impulse-ui-native/segmented-control
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -74,7 +74,7 @@ theme tokens, replacing `variants[variant]`. Geometry and value behavior are unc
 
 Set `tone` on `SegmentedControl.Root`; all items inherit it through the group context, including custom item compositions. Nested roots own their own tone.
 
-The neutral soft selected item uses the elevated surface against the subtle group background so selection remains visible.
+The root uses the default neutral surface. Selected items use the shared variant/tone palette: outlined is transparent and neutral soft uses the subtle surface, keeping selection visible against the root.
 
 ## Public export and source reference
 

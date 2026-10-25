@@ -1,13 +1,11 @@
-import type { ComponentSize, DisplayVariant } from "./components.types";
+import type {
+  ComponentSize,
+  ComponentTone,
+  DisplayVariant,
+  FeedbackTone,
+} from "./components.types";
 
-export type BadgeTone =
-  | "primary"
-  | "secondary"
-  | "neutral"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+export type BadgeTone = ComponentTone | FeedbackTone;
 
 export interface BadgeSizeTokens {
   fontSize: number;

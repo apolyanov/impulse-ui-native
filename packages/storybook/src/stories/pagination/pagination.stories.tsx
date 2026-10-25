@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Pagination } from "@impulse-ui-native/pagination";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 
@@ -16,6 +17,7 @@ const meta = {
   title: "Components/Pagination",
   component: Pagination,
   args: {
+    tone: "primary",
     compact: false,
     defaultPage: 1,
     disabled: false,
@@ -23,6 +25,11 @@ const meta = {
     size: "medium",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description: "Uses the shared neutral, primary, or secondary tone.",
+    },
     page: {
       control: "number",
       description: "Controls the current page.",

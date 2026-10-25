@@ -36,6 +36,7 @@ export const Pagination = memo(function Pagination({
   page: pageProp,
   pageCount,
   size = "medium",
+  tone = "primary",
   style,
   ...props
 }: PaginationProps) {
@@ -53,9 +54,10 @@ export const Pagination = memo(function Pagination({
 
   const resolvedPage = clampPage(page, normalizedPageCount);
 
-  const styles = useThemedStyles(themedStyles, { disabled, size }, [
+  const styles = useThemedStyles(themedStyles, { disabled, size, tone }, [
     disabled,
     size,
+    tone,
   ]);
 
   const windowLayout = useMemo(
@@ -102,6 +104,7 @@ export const Pagination = memo(function Pagination({
         Icon={CaretLeftIcon}
         onSelect={selectPage}
         size={size}
+        tone={tone}
         targetPage={resolvedPage - 1}
       />
 
@@ -121,6 +124,7 @@ export const Pagination = memo(function Pagination({
               label={item}
               onSelect={selectPage}
               size={size}
+              tone={tone}
               targetPage={item}
             />
           ) : (
@@ -138,6 +142,7 @@ export const Pagination = memo(function Pagination({
         Icon={CaretRightIcon}
         onSelect={selectPage}
         size={size}
+        tone={tone}
         targetPage={resolvedPage + 1}
       />
     </View>
@@ -147,7 +152,7 @@ export const Pagination = memo(function Pagination({
 function themedStyles(theme: AppTheme, props: PaginationThemeProps) {
   const tokens = theme.components.pagination;
   const sizeTokens = tokens.sizes[props.size];
-  const statusTokens = getPaginationStateTokens(tokens.states, {
+  const statusTokens = getPaginationStateTokens(tokens.colors[props.tone], {
     current: false,
     disabled: props.disabled,
   });

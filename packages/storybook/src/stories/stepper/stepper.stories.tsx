@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Stepper } from "@impulse-ui-native/stepper";
-import { createStoryDescription } from "@impulse-ui-native/storybook";
+import {
+  ComponentToneOptions,
+  createStoryDescription,
+} from "@impulse-ui-native/storybook";
 
 import { StepperDocumentation } from "./stepper.documentation";
 import { StepperExample, StepperExampleDefinitions } from "./stepper.examples";
@@ -9,7 +12,9 @@ import { StepperExample, StepperExampleDefinitions } from "./stepper.examples";
 const meta = {
   title: "Components/Stepper",
   component: Stepper,
+  argTypes: { tone: { control: "select", options: ComponentToneOptions } },
   args: {
+    tone: "primary",
     items: [],
     current: 0,
     onChange: () => undefined,
@@ -37,8 +42,10 @@ function createStepperStory(name: string): Story {
   }
 
   return {
-    render: function renderStepperStory() {
-      return <StepperExample example={example} elevated />;
+    render: function renderStepperStory(args) {
+      return (
+        <StepperExample example={{ ...example, tone: args.tone }} elevated />
+      );
     },
     parameters: createStoryDescription(example.description),
   };

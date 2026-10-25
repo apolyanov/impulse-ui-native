@@ -1,18 +1,13 @@
 import type {
   AvailabilityVisualState,
   ComponentSize,
+  ComponentTone,
   DisplayVariant,
+  FeedbackTone,
   VisualStateTokens,
 } from "./components.types";
 
-export type TagTone =
-  | "neutral"
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "success"
-  | "info";
+export type TagTone = ComponentTone | FeedbackTone;
 
 export type TagSizeTokens = Record<
   ComponentSize,

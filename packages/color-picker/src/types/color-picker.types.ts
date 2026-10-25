@@ -9,11 +9,13 @@ import type {
 import type {
   ColorPickerPreset,
   ComponentSize,
+  ComponentTone,
 } from "@impulse-ui-native/theme";
 
 import type { ColorChannel, ColorPickerCommitMode } from "./color.types";
 
 export interface ColorPickerRootProps extends ViewProps {
+  tone?: ComponentTone;
   /** Hex: RGB, RGBA, RRGGBB, or RRGGBBAA, with an optional #. */
   value?: string;
   defaultValue?: string;

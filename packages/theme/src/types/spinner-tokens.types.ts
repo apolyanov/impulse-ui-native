@@ -1,6 +1,6 @@
-import type { ComponentSize } from "./components.types";
+import type { ComponentSize, ComponentTone } from "./components.types";
 
-export type SpinnerTone = "primary" | "secondary" | "neutral" | "inverse";
+export type SpinnerTone = ComponentTone | "inverse";
 
 export interface SpinnerTokens {
   baseSize: number;

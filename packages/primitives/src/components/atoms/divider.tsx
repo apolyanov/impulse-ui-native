@@ -16,7 +16,7 @@ export const Divider = memo(function Divider({
   inset = "none",
   orientation = "horizontal",
   style,
-  tone = "subtle",
+  tone = "primary",
   ...props
 }: DividerProps) {
   const extractedStyleProps = useStyleProps(props);

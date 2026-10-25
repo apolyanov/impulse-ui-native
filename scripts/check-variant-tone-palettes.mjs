@@ -55,6 +55,30 @@ const factories = Object.fromEntries(
     )[0],
   ]),
 );
+const additionalFactories = Object.fromEntries(
+  [
+    "progress",
+    "spinner",
+    "tabs",
+    "pagination",
+    "carousel",
+    "stepper",
+    "select",
+    "data-state",
+    "color-picker",
+    "toast",
+    "divider",
+    "time-picker",
+  ].map((name) => [
+    name,
+    Object.values(
+      loadSource(`packages/theme/src/theme/create-${name}-tokens.ts`),
+    )[0],
+  ]),
+);
+const { createDatetimePickerTokens } = loadSource(
+  "packages/theme/src/theme/create-datetime-picker.ts",
+);
 const controls = loadSource(
   "packages/theme/src/theme/create-control-tokens.ts",
 );
@@ -113,24 +137,262 @@ for (const scheme of ["Light", "Dark"]) {
         }
         const selection =
           components["segmented-control"].colors[tone][variant].states.selected;
-        assert.equal(selection.color, reference.color);
-        const toggle = components.switch.colors[tone][variant].default;
-        assert.equal(toggle.activeThumbColor, reference.color);
-        assert.equal(toggle.activeBackgroundColor, reference.backgroundColor);
-        const slider = components.slider.colors[tone][variant].default;
-        assert.equal(slider.valueBubbleColor, reference.color);
-        if (variant !== "outlined")
-          assert.equal(slider.activeTrackColor, reference.backgroundColor);
-        assert.equal(
-          container.colors[tone][variant].default.backgroundColor,
-          reference.backgroundColor,
+        assert.deepEqual(
+          normalize(selection),
+          normalize(reference),
+          `${scheme} selected segment ${tone}/${variant}`,
         );
+        const toggle = components.switch.colors[tone][variant].default;
+        assert.equal(
+          toggle.inactiveBackgroundColor,
+          primitive.colors.surface.subtle.value,
+        );
+        assert.equal(
+          toggle.inactiveBorderColor,
+          primitive.colors.border.strong.value,
+        );
+        assert.deepEqual(
+          {
+            backgroundColor: toggle.activeBackgroundColor,
+            borderColor: toggle.activeBorderColor,
+            color: toggle.activeThumbColor,
+          },
+          normalize(reference),
+          `${scheme} active switch ${tone}/${variant}`,
+        );
+        const slider = components.slider.colors[tone][variant].default;
+        assert.equal(
+          slider.inactiveTrackColor,
+          primitive.colors.border.subtle.value,
+        );
+        assert.deepEqual(
+          normalize(components.slider.colors[tone][variant].focused),
+          normalize(slider),
+        );
+        const labelVariant = variant === "soft" ? "soft" : "outlined";
+        assert.equal(
+          slider.labelColor,
+          components.button.colors[tone][labelVariant].default.color,
+        );
+        assert.deepEqual(
+          {
+            backgroundColor: slider.thumbBackgroundColor,
+            borderColor: slider.thumbBorderColor,
+            color:
+              variant === "outlined"
+                ? slider.labelColor
+                : slider.thumbHighlightColor,
+          },
+          normalize(reference),
+          `${scheme} slider thumb ${tone}/${variant}`,
+        );
+        assert.deepEqual(
+          {
+            backgroundColor: slider.valueBubbleBackgroundColor,
+            borderColor: slider.valueBubbleBorderColor,
+            color: slider.valueBubbleColor,
+          },
+          normalize(reference),
+          `${scheme} slider bubble ${tone}/${variant}`,
+        );
+        assert.equal(
+          slider.activeTrackColor,
+          variant === "outlined"
+            ? reference.borderColor
+            : reference.backgroundColor,
+        );
+        const field = container.colors[tone][variant].default;
+        assert.equal(field.backgroundColor, reference.backgroundColor);
+        assert.equal(field.borderColor, reference.borderColor);
         assert.equal(
           addon.colors[tone][variant].default.iconColor,
           reference.color,
         );
+        for (const name of [
+          "icon-button",
+          "tag",
+          "checkbox",
+          "radio",
+          "segmented-control",
+          "switch",
+          "slider",
+          "field",
+        ]) {
+          const disabledReference =
+            components.button.colors[tone][variant].disabled;
+          const palette =
+            name === "field"
+              ? container.colors[tone][variant]
+              : components[name].colors[tone][variant];
+          const disabled =
+            palette.disabled ??
+            palette.disabledSelected ??
+            palette.states?.disabledSelected;
+          if (name === "field") {
+            assert.equal(
+              disabled.backgroundColor,
+              disabledReference.backgroundColor,
+            );
+            assert.equal(disabled.borderColor, disabledReference.borderColor);
+          } else if (name === "switch") {
+            assert.equal(
+              disabled.inactiveBackgroundColor,
+              primitive.colors.surface.subtle.value,
+            );
+            assert.equal(
+              disabled.inactiveBorderColor,
+              primitive.colors.border.default.value,
+            );
+            assert.deepEqual(
+              {
+                backgroundColor: disabled.activeBackgroundColor,
+                borderColor: disabled.activeBorderColor,
+                color: disabled.activeThumbColor,
+              },
+              normalize(disabledReference),
+            );
+          } else if (name === "slider") {
+            assert.equal(
+              disabled.inactiveTrackColor,
+              primitive.colors.border.subtle.value,
+            );
+            assert.deepEqual(
+              {
+                backgroundColor: disabled.thumbBackgroundColor,
+                borderColor: disabled.thumbBorderColor,
+                color: disabled.valueBubbleColor,
+              },
+              normalize(disabledReference),
+            );
+            assert.deepEqual(
+              {
+                backgroundColor: disabled.valueBubbleBackgroundColor,
+                borderColor: disabled.valueBubbleBorderColor,
+                color: disabled.valueBubbleColor,
+              },
+              normalize(disabledReference),
+            );
+          } else {
+            assert.deepEqual(
+              normalize(disabled),
+              normalize(disabledReference),
+              `${scheme} disabled ${name} ${tone}/${variant}`,
+            );
+          }
+          checked++;
+        }
         checked++;
       }
+    }
+    const extra = Object.fromEntries(
+      Object.entries(additionalFactories).map(([name, factory]) => [
+        name,
+        factory(primitive),
+      ]),
+    );
+    const calendar = createDatetimePickerTokens(primitive);
+    for (const tone of ["neutral", "primary", "secondary"]) {
+      const accent = components.button.colors[tone].outlined.default.color;
+      const filled = components.button.colors[tone].filled.default;
+      const soft = components.button.colors[tone].soft.default;
+      assert.equal(extra.spinner.colors[tone], accent);
+      assert.equal(extra.progress.colors[tone].indicatorColor, accent);
+      const track =
+        tone === "primary"
+          ? primitive.colors.secondary.value
+          : tone === "secondary"
+            ? primitive.colors.subtle.value
+            : primitive.colors.surface.subtle.value;
+      assert.equal(extra.progress.colors[tone].trackColor, track);
+      assert.equal(extra.tabs.colors[tone].selected.color, accent);
+      assert.equal(extra.tabs.colors[tone].selected.indicatorColor, accent);
+      assert.equal(
+        extra.tabs.colors[tone].disabledSelected.color,
+        primitive.colors.text.disabled,
+      );
+      const page = extra.pagination.colors[tone].current;
+      assert.deepEqual(
+        {
+          backgroundColor: page.backgroundColor,
+          borderColor: page.borderColor,
+          color: page.color,
+        },
+        normalize(filled),
+      );
+      const unavailable = extra.pagination.colors[tone].disabled;
+      const expectedUnavailable =
+        components.button.colors[tone].filled.disabled;
+      assert.deepEqual(
+        {
+          backgroundColor: unavailable.backgroundColor,
+          borderColor: unavailable.borderColor,
+          color: unavailable.color,
+        },
+        normalize(expectedUnavailable),
+      );
+      assert.equal(
+        extra.carousel.indicator.colors[tone].selected.backgroundColor,
+        accent,
+      );
+      assert.equal(
+        extra.carousel.indicator.colors[tone].disabledSelected.backgroundColor,
+        primitive.colors.text.disabled,
+      );
+      assert.equal(
+        extra.stepper.navigation.colors[tone].itemBackgroundColor,
+        accent,
+      );
+      assert.equal(extra["data-state"].details.colors[tone].iconColor, accent);
+      assert.equal(
+        extra["color-picker"].colors[tone].selectedBorderColor,
+        accent,
+      );
+      assert.equal(extra.divider.colors[tone], accent);
+      const option = extra.select.option.colors[tone];
+      assert.equal(option.selected.iconColor, accent);
+      assert.equal(option.selected.iconOpacity, 1);
+      assert.equal(option.unselected.iconOpacity, 0);
+      assert.equal(
+        option.disabledSelected.iconColor,
+        primitive.colors.text.disabled,
+      );
+      assert.equal(option.disabledSelected.iconOpacity, 1);
+      assert.equal(option.disabledUnselected.iconOpacity, 0);
+      const day = calendar.day.colors[tone];
+      assert.deepEqual(normalize(day.selected), {
+        backgroundColor: filled.backgroundColor,
+        color: filled.color,
+      });
+      assert.deepEqual(normalize(day.range), {
+        backgroundColor: soft.backgroundColor,
+        color: soft.color,
+      });
+      assert.equal(calendar.flyoutActions.colors[tone].clearColor, accent);
+      assert.equal(
+        extra["time-picker"].column.colors[tone].selected.color,
+        accent,
+      );
+      checked += 13;
+    }
+    assert.equal(
+      extra.progress.colors.inverse.indicatorColor,
+      primitive.colors.text.inverse,
+    );
+    assert.equal(extra.spinner.colors.inverse, primitive.colors.text.inverse);
+    for (const tone of ["error", "warning", "success", "info"]) {
+      assert.equal(
+        extra.toast.tones[tone].value,
+        primitive.colors.feedback[tone].value,
+      );
+      assert.equal(
+        extra.toast.tones[tone].actionColor,
+        primitive.colors.feedback[tone].value,
+      );
+      assert.equal(
+        extra.toast.tones[tone].contrast,
+        primitive.colors.feedback[tone].contrast,
+      );
+      checked++;
     }
     for (const tone of ["error", "warning", "success", "info"]) {
       for (const variant of ["filled", "outlined", "soft"]) {

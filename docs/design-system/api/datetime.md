@@ -1,6 +1,6 @@
 # @impulse-ui-native/datetime
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -69,6 +69,16 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
 
+## Repository palette consistency
+
+The field tone (default neutral) is explicitly passed through portals into
+calendar selections, range fills, month/year selects, quick-date tags, nested time
+inputs, selected time rows, Clear, Cancel, and Apply. Calendar selections use the
+shared filled palette and ranges use the soft palette. Field variant remains a
+field appearance; selected days and action buttons retain their semantic roles.
+Custom day states move to datetimePicker.day.colors[tone], time rows to
+timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -92,6 +102,7 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
     clearable = true,
     onChange,
     placeholder,
+    tone = "neutral",
     quickDateOptions,
     ...rest
   } = props;
@@ -114,7 +125,7 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
   } = useDatetimePicker({ value, defaultValue, onChange });
 
   return (
-    <DateControl {...rest} onPress={onPressOpen}>
+    <DateControl tone={tone} {...rest} onPress={onPressOpen}>
       {selected === null ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -124,6 +135,7 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
       ) : null}
 
       <DatePickerFlyout
+        tone={tone}
         id={id}
         open={isOpen}
         title="Date"
@@ -165,6 +177,7 @@ export const DateRangePicker = memo(function DateRangePicker(
     defaultValue,
     onChange,
     placeholder,
+    tone = "neutral",
     quickDateOptions,
     clearable = true,
     ...rest
@@ -188,7 +201,7 @@ export const DateRangePicker = memo(function DateRangePicker(
   } = useDatetimeRangePicker({ value, defaultValue, onChange });
 
   return (
-    <DateControl {...rest} onPress={onPressOpen}>
+    <DateControl tone={tone} {...rest} onPress={onPressOpen}>
       {selected === null ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -200,6 +213,7 @@ export const DateRangePicker = memo(function DateRangePicker(
       ) : null}
 
       <DatePickerFlyout
+        tone={tone}
         id={id}
         open={isOpen}
         title="Date"
@@ -242,6 +256,7 @@ export const DatetimePicker = memo(function DatetimePicker(
     clearable = true,
     onChange,
     placeholder,
+    tone = "neutral",
     quickDateOptions,
     ...rest
   } = props;
@@ -265,7 +280,7 @@ export const DatetimePicker = memo(function DatetimePicker(
   } = useDatetimePicker({ value, defaultValue, onChange });
 
   return (
-    <DateControl {...rest} onPress={onPressOpen}>
+    <DateControl tone={tone} {...rest} onPress={onPressOpen}>
       {selected === null ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -275,6 +290,7 @@ export const DatetimePicker = memo(function DatetimePicker(
       ) : null}
 
       <DatetimePickerFlyout
+        tone={tone}
         id={id}
         open={isOpen}
         title="Date"
@@ -318,6 +334,7 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
     clearable = true,
     onChange,
     placeholder,
+    tone = "neutral",
     quickDateOptions,
     ...rest
   } = props;
@@ -342,7 +359,7 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
   } = useDatetimeRangePicker({ value, defaultValue, onChange });
 
   return (
-    <DateControl {...rest} onPress={onPressOpen}>
+    <DateControl tone={tone} {...rest} onPress={onPressOpen}>
       {selected === null ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -354,6 +371,7 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
       ) : null}
 
       <DatetimeRangePickerFlyout
+        tone={tone}
         id={id}
         open={isOpen}
         title="Date"
@@ -407,6 +425,7 @@ export const TimePicker = memo(function TimePicker({
   value,
   defaultValue,
   placeholder,
+  tone = "neutral",
   clearable = true,
   onChange,
   PrefixIcon = ClockIcon,
@@ -428,7 +447,12 @@ export const TimePicker = memo(function TimePicker({
   const showPlaceholder = selected === null && placeholder;
 
   return (
-    <DateControl {...props} PrefixIcon={PrefixIcon} onPress={onPressOpen}>
+    <DateControl
+      tone={tone}
+      {...props}
+      PrefixIcon={PrefixIcon}
+      onPress={onPressOpen}
+    >
       {showPlaceholder ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -436,6 +460,7 @@ export const TimePicker = memo(function TimePicker({
         <Control.Value>{formatTimepickerValue(selected)}</Control.Value>
       ) : null}
       <TimePickerFlyout
+        tone={tone}
         id={id}
         title="Time"
         open={isOpen}
@@ -464,6 +489,7 @@ export * from "./utils";
 ### packages/datetime/src/types/common.types.ts
 
 ```tsx
+import type { ComponentTone } from "@impulse-ui-native/theme";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
 import {
   ControlComponentCommonProps,
@@ -500,6 +526,7 @@ export interface QuickDateOption<Value> {
 }
 
 export interface PickerFlyoutActions {
+  tone?: ComponentTone;
   clearable?: boolean;
   onPressApply?: PressableCoreProps["onPress"];
   onPressCancel?: PressableCoreProps["onPress"];

@@ -14,6 +14,7 @@ import { classNames } from "@/lib/utils/class-names";
 import type {
   ActionVariant,
   ComponentSize,
+  ComponentTone,
   DisplayVariant,
   FieldVariant,
 } from "../../../../packages/theme/src/types/components.types";
@@ -23,7 +24,7 @@ export type NativeSize = ComponentSize;
 export type NativeVariant = ActionVariant;
 
 const buttonBase =
-  "inline-flex shrink-0 cursor-pointer items-center justify-center gap-xs rounded-md border-sm font-montserrat text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 active:opacity-70 disabled:pointer-events-none disabled:cursor-default";
+  "inline-flex shrink-0 cursor-pointer items-center justify-center gap-xs rounded-md border-sm font-montserrat text-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 active:opacity-60 disabled:opacity-60 disabled:pointer-events-none disabled:cursor-default";
 
 const buttonSizes: Record<NativeSize, string> = {
   small: "h-component-small px-mxs py-[6px] text-xsm",
@@ -31,25 +32,47 @@ const buttonSizes: Record<NativeSize, string> = {
   large: "h-component-large px-5 py-[10px] text-sm",
 };
 
-const buttonVariants: Record<NativeVariant, string> = {
-  filled:
-    "border-primary bg-primary text-primary-contrast disabled:border-border-default disabled:bg-surface-subtle disabled:text-text-disabled",
-  outlined:
-    "border-primary bg-transparent text-primary disabled:border-border-default disabled:text-text-disabled",
-  soft: "border-secondary bg-secondary text-secondary-contrast disabled:border-border-subtle disabled:bg-surface-subtle disabled:text-text-disabled",
-  ghost:
-    "border-transparent bg-transparent text-primary disabled:text-text-disabled",
+const buttonVariants: Record<ComponentTone, Record<NativeVariant, string>> = {
+  neutral: {
+    filled:
+      "border-text-secondary bg-text-secondary text-text-inverse disabled:border-border-default disabled:bg-surface-subtle disabled:text-text-disabled",
+    outlined:
+      "border-text-secondary bg-transparent text-text-secondary disabled:border-border-default disabled:text-text-disabled",
+    soft: "border-surface-subtle bg-surface-subtle text-text-primary disabled:border-border-subtle disabled:bg-surface-subtle disabled:text-text-disabled",
+    ghost:
+      "border-transparent bg-transparent text-text-secondary disabled:text-text-disabled",
+  },
+  primary: {
+    filled:
+      "border-primary bg-primary text-primary-contrast disabled:border-border-default disabled:bg-surface-subtle disabled:text-text-disabled",
+    outlined:
+      "border-primary bg-transparent text-primary disabled:border-border-default disabled:text-text-disabled",
+    soft: "border-secondary bg-secondary text-secondary-contrast disabled:border-border-subtle disabled:bg-surface-subtle disabled:text-text-disabled",
+    ghost:
+      "border-transparent bg-transparent text-primary disabled:text-text-disabled",
+  },
+  secondary: {
+    filled:
+      "border-secondary bg-secondary text-secondary-contrast disabled:border-border-default disabled:bg-surface-subtle disabled:text-text-disabled",
+    outlined:
+      "border-secondary-contrast bg-transparent text-secondary-contrast disabled:border-border-default disabled:text-text-disabled",
+    soft: "border-subtle bg-subtle text-secondary-contrast disabled:border-border-subtle disabled:bg-surface-subtle disabled:text-text-disabled",
+    ghost:
+      "border-transparent bg-transparent text-secondary-contrast disabled:text-text-disabled",
+  },
 };
 
 export interface WebButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: NativeSize;
   variant?: NativeVariant;
+  tone?: ComponentTone;
   loading?: boolean;
 }
 
 export const WebButton = memo(function WebButton({
   size = "medium",
   variant = "filled",
+  tone = "primary",
   loading,
   disabled,
   className,
@@ -61,11 +84,11 @@ export const WebButton = memo(function WebButton({
       className={classNames(
         buttonBase,
         buttonSizes[size],
-        buttonVariants[variant],
+        buttonVariants[tone][variant],
         className,
       )}
       aria-busy={loading ?? undefined}
-      disabled={disabled}
+      disabled={disabled === true || loading === true}
       {...props}
     >
       {loading ? (
@@ -82,6 +105,7 @@ export interface WebIconButtonProps extends ButtonHTMLAttributes<HTMLButtonEleme
   label: string;
   size?: NativeSize;
   variant?: NativeVariant;
+  tone?: ComponentTone;
 }
 
 const iconButtonSizes: Record<NativeSize, string> = {
@@ -95,6 +119,7 @@ export const WebIconButton = memo(function WebIconButton({
   label,
   size = "medium",
   variant = "filled",
+  tone = "primary",
   className,
   ...props
 }: WebIconButtonProps) {
@@ -104,7 +129,7 @@ export const WebIconButton = memo(function WebIconButton({
       className={classNames(
         buttonBase,
         iconButtonSizes[size],
-        buttonVariants[variant],
+        buttonVariants[tone][variant],
         className,
       )}
       {...props}
@@ -185,10 +210,10 @@ export function WebTag({
     tagColors[tone][variant],
     disabled &&
       (variant === "outlined"
-        ? "border-border-strong bg-transparent text-text-disabled"
+        ? "border-border-default bg-transparent text-text-disabled"
         : variant === "soft"
           ? "border-border-subtle bg-surface-subtle text-text-disabled"
-          : "border-border-strong bg-surface-subtle text-text-disabled"),
+          : "border-border-default bg-surface-subtle text-text-disabled"),
   );
 
   return (
@@ -205,10 +230,36 @@ const controlSizes: Record<NativeSize, string> = {
   large: "h-component-large text-sm",
 };
 
-const controlVariants: Record<FieldVariant, string> = {
-  soft: "border-transparent bg-surface-subtle",
-  filled: "border-transparent bg-surface-default",
-  outlined: "border-border-default bg-transparent",
+const controlVariants: Record<ComponentTone, Record<FieldVariant, string>> = {
+  neutral: {
+    filled: "border-text-secondary bg-text-secondary text-text-inverse",
+    outlined: "border-text-secondary bg-transparent text-text-secondary",
+    soft: "border-surface-subtle bg-surface-subtle text-text-primary",
+  },
+  primary: {
+    filled: "border-primary bg-primary text-primary-contrast",
+    outlined: "border-primary bg-transparent text-primary",
+    soft: "border-secondary bg-secondary text-secondary-contrast",
+  },
+  secondary: {
+    filled: "border-secondary bg-secondary text-secondary-contrast",
+    outlined:
+      "border-secondary-contrast bg-transparent text-secondary-contrast",
+    soft: "border-subtle bg-subtle text-secondary-contrast",
+  },
+};
+const disabledControlVariants: Record<FieldVariant, string> = {
+  filled:
+    "border-border-default bg-surface-subtle text-text-disabled opacity-70",
+  outlined:
+    "border-border-default bg-transparent text-text-disabled opacity-70",
+  soft: "border-border-subtle bg-surface-subtle text-text-disabled opacity-70",
+};
+const errorControlVariants: Record<FieldVariant, string> = {
+  filled:
+    "border-feedback-error bg-feedback-error text-feedback-error-contrast",
+  outlined: "border-feedback-error bg-transparent text-feedback-error",
+  soft: "border-feedback-error bg-feedback-error-contrast text-feedback-error",
 };
 
 export function WebControl({
@@ -217,6 +268,7 @@ export function WebControl({
   disabled,
   size = "medium",
   variant = "outlined",
+  tone = "neutral",
   prefix,
   suffix,
   children,
@@ -227,6 +279,7 @@ export function WebControl({
   disabled?: boolean;
   size?: NativeSize;
   variant?: FieldVariant;
+  tone?: ComponentTone;
   prefix?: ReactNode;
   suffix?: ReactNode;
   children: ReactNode;
@@ -238,27 +291,22 @@ export function WebControl({
     disabled && "text-text-disabled",
   );
   const controlClassName = classNames(
-    "flex w-full items-center rounded-sm border-sm px-xs",
+    "flex w-full items-center rounded-md border-sm px-xs",
     controlSizes[size],
-    controlVariants[variant],
-    error && "border-feedback-error",
-    disabled &&
-      (variant === "filled"
-        ? "border-transparent bg-surface-subtle opacity-70"
-        : "border-border-default bg-transparent opacity-70"),
+    disabled
+      ? disabledControlVariants[variant]
+      : error
+        ? errorControlVariants[variant]
+        : controlVariants[tone][variant],
   );
 
   return (
     <label className={classNames("block w-full", className)}>
       {label ? <span className={labelClassName}>{label}</span> : null}
       <span className={controlClassName}>
-        {prefix ? (
-          <span className="mx-xxs text-text-secondary">{prefix}</span>
-        ) : null}
+        {prefix ? <span className="mx-xxs text-current">{prefix}</span> : null}
         {children}
-        {suffix ? (
-          <span className="mx-xxs text-text-secondary">{suffix}</span>
-        ) : null}
+        {suffix ? <span className="mx-xxs text-current">{suffix}</span> : null}
       </span>
       {error ? (
         <span className="mt-xxs block text-caption text-feedback-error">
@@ -272,21 +320,29 @@ export function WebControl({
 export function WebInput({
   label,
   error,
-  size,
-  variant,
+  size = "medium",
+  variant = "outlined",
+  tone = "neutral",
   prefixIcon,
   suffixIcon,
   ...props
-}: InputHTMLAttributes<HTMLInputElement> & {
+}: Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
   label?: string;
   error?: string;
   size?: NativeSize;
   variant?: FieldVariant;
+  tone?: ComponentTone;
   prefixIcon?: SystemIconName;
   suffixIcon?: SystemIconName;
 }) {
+  const inputTextClass =
+    variant === "filled"
+      ? "text-inherit placeholder:text-current"
+      : "text-text-primary placeholder:text-text-tertiary";
+
   return (
     <WebControl
+      tone={tone}
       disabled={props.disabled}
       error={error}
       label={label}
@@ -300,7 +356,10 @@ export function WebInput({
       variant={variant}
     >
       <input
-        className="min-w-0 flex-1 bg-transparent px-xxs outline-none placeholder:text-text-disabled disabled:text-text-disabled"
+        className={classNames(
+          "min-w-0 flex-1 bg-transparent px-xxs outline-none disabled:text-text-disabled",
+          inputTextClass,
+        )}
         {...props}
       />
     </WebControl>
@@ -327,8 +386,10 @@ export function SegmentedControl<T extends string>({
   options,
   value,
   onChange,
+  tone = "primary",
 }: {
   label: string;
+  tone?: ComponentTone;
   options: readonly T[];
   value: T;
   onChange: (value: T) => void;
@@ -341,6 +402,7 @@ export function SegmentedControl<T extends string>({
       <div className="grid grid-cols-2 gap-xxs sm:flex sm:flex-wrap">
         {options.map((option) => (
           <WebButton
+            tone={tone}
             className="min-h-11 min-w-0 capitalize"
             key={option}
             onClick={() => onChange(option)}

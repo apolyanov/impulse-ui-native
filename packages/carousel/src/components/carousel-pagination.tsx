@@ -15,6 +15,7 @@ export const CarouselPagination = memo(function CarouselPagination({
   index,
   disabled,
   variant,
+  tone,
   onSelect,
 }: CarouselPaginationProps) {
   const [width, setWidth] = useState(0);
@@ -48,6 +49,7 @@ export const CarouselPagination = memo(function CarouselPagination({
       {showIndicators
         ? indices.map((position) => (
             <CarouselIndicator
+              tone={tone}
               key={position}
               index={position}
               active={position === index}

@@ -1,11 +1,12 @@
 import type {
+  ComponentTone,
   DatetimePickerDayAppearanceTokens,
   DatetimePickerDayState,
   DatetimePickerDayTokens,
 } from "../types";
 
 export function getDatetimePickerDayStateTokens(
-  tokens: DatetimePickerDayTokens["states"],
+  tokens: DatetimePickerDayTokens["colors"][ComponentTone],
   state: DatetimePickerDayState,
 ): DatetimePickerDayAppearanceTokens {
   const { currentMonth = false, inRange = false, selected = false } = state;

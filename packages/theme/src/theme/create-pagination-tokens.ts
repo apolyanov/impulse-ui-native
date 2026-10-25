@@ -33,24 +33,66 @@ export function createPaginationTokens(
         paddingHorizontal: tokens.space.msm,
       },
     },
-    states: {
-      default: {
-        backgroundColor: tokens.colors.surface.elevated.value,
-        borderColor: tokens.colors.border.default.value,
-        color: tokens.colors.text.primary,
-        ellipsisColor: tokens.colors.text.tertiary,
+    colors: {
+      neutral: {
+        default: {
+          backgroundColor: tokens.colors.surface.default.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.primary,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        current: {
+          backgroundColor: tokens.colors.text.secondary,
+          borderColor: tokens.colors.text.secondary,
+          color: tokens.colors.text.inverse,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.disabled,
+          ellipsisColor: tokens.colors.text.disabled,
+        },
       },
-      current: {
-        backgroundColor: tokens.colors.primary.value,
-        borderColor: tokens.colors.primary.value,
-        color: tokens.colors.primary.contrast,
-        ellipsisColor: tokens.colors.text.tertiary,
+      primary: {
+        default: {
+          backgroundColor: tokens.colors.surface.default.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.primary,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        current: {
+          backgroundColor: tokens.colors.primary.value,
+          borderColor: tokens.colors.primary.value,
+          color: tokens.colors.primary.contrast,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.disabled,
+          ellipsisColor: tokens.colors.text.disabled,
+        },
       },
-      disabled: {
-        backgroundColor: tokens.colors.surface.subtle.value,
-        borderColor: tokens.colors.border.subtle.value,
-        color: tokens.colors.text.disabled,
-        ellipsisColor: tokens.colors.text.disabled,
+      secondary: {
+        default: {
+          backgroundColor: tokens.colors.surface.default.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.primary,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        current: {
+          backgroundColor: tokens.colors.secondary.value,
+          borderColor: tokens.colors.secondary.value,
+          color: tokens.colors.secondary.contrast,
+          ellipsisColor: tokens.colors.text.tertiary,
+        },
+        disabled: {
+          backgroundColor: tokens.colors.surface.subtle.value,
+          borderColor: tokens.colors.border.default.value,
+          color: tokens.colors.text.disabled,
+          ellipsisColor: tokens.colors.text.disabled,
+        },
       },
     },
   };

@@ -1,7 +1,9 @@
+import type { ComponentTone } from "./components.types";
+
 export interface DataStateDetailsTokens {
   gap: number;
   iconSize: number;
-  iconColor: string;
+  colors: Record<ComponentTone, { iconColor: string }>;
 }
 
 export interface DataStateActionsFooterTokens {

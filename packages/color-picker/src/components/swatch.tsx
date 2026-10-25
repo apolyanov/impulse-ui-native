@@ -31,16 +31,17 @@ export const ColorPickerSwatch = memo(function ColorPickerSwatch({
     disabled: rootDisabled,
     size,
     setColor,
+    tone,
   } = useColorPickerContext();
   const parsed = parseHexColor(color);
   const disabled =
     rootDisabled || disabledProp === true || parsed === undefined;
   const selected = parsed !== undefined && rgbaToHex(parsed) === value;
-  const styles = useThemedStyles(themedStyles, { size, disabled, selected }, [
-    size,
-    disabled,
-    selected,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { size, disabled, selected, tone },
+    [size, disabled, selected, tone],
+  );
   const colors = useMemo(() => [color, color], [color]);
   const swatchStyle = useCallback(
     (state: PressableStateCallbackType) => [
@@ -77,7 +78,7 @@ export const ColorPickerSwatch = memo(function ColorPickerSwatch({
 
 function themedStyles(
   theme: AppTheme,
-  { size, selected }: ColorPickerSwatchThemeProps,
+  { size, selected, tone, disabled }: ColorPickerSwatchThemeProps,
 ) {
   const tokens = theme.components.colorPicker;
   const sizeTokens = tokens.sizes[size];
@@ -93,7 +94,11 @@ function themedStyles(
       padding: tokens.swatchRingPadding,
       borderRadius: tokens.swatchBorderRadius,
       borderWidth: tokens.swatchRingBorderWidth,
-      borderColor: selected ? tokens.selectedBorderColor : "transparent",
+      borderColor: selected
+        ? disabled
+          ? tokens.disabledBorderColor
+          : tokens.colors[tone].selectedBorderColor
+        : "transparent",
     },
     color: {
       width: sizeTokens.swatchSize,

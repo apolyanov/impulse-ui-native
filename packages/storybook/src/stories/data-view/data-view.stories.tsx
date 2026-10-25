@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { DataView } from "@impulse-ui-native/data-state";
-import { createStoryDescription } from "@impulse-ui-native/storybook";
+import {
+  ComponentToneOptions,
+  createStoryDescription,
+} from "@impulse-ui-native/storybook";
 
 import { DataViewDocumentation } from "./data-view.documentation";
 import {
@@ -12,7 +15,9 @@ import {
 const meta = {
   title: "Components/DataView",
   component: DataView,
+  argTypes: { tone: { control: "select", options: ComponentToneOptions } },
   args: {
+    tone: "primary",
     loading: false,
     error: null,
     isEmpty: false,
@@ -53,8 +58,10 @@ function createDataViewStory(name: string): Story {
   }
 
   return {
-    render: function renderDataViewStory() {
-      return <DataViewExample example={example} elevated />;
+    render: function renderDataViewStory(args) {
+      return (
+        <DataViewExample example={{ ...example, tone: args.tone }} elevated />
+      );
     },
     parameters: createStoryDescription(example.description),
   };

@@ -1,28 +1,20 @@
-import {
-  createContext,
-  memo,
-  PropsWithChildren,
-  useContext,
-  useMemo,
-} from "react";
+import { memo, PropsWithChildren, useContext, useMemo } from "react";
 
-import { StepperProviderData } from "../types";
-
-const StepperContext = createContext<StepperProviderData | undefined>(
-  undefined,
-);
+import { StepperContext } from "../contexts/stepper.context";
+import { StepperProviderData, StepperProviderProps } from "../types";
 
 export const StepperProvider = memo(function StepperProvider(
-  props: PropsWithChildren<StepperProviderData>,
+  props: PropsWithChildren<StepperProviderProps>,
 ) {
   const value = useMemo<StepperProviderData>(
     () => ({
       current: props.current,
+      tone: props.tone ?? "primary",
       goto: props.goto,
       next: props.next,
       previous: props.previous,
     }),
-    [props.previous, props.goto, props.next, props.current],
+    [props.previous, props.goto, props.next, props.current, props.tone],
   );
 
   return (

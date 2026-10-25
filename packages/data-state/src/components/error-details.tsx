@@ -12,16 +12,19 @@ export const ErrorDetails = memo(function ErrorDetails(props: StateViewProps) {
 
   const detailsTokens = tokens.dataState.details;
 
+  const iconColor = detailsTokens.colors[props.tone ?? "primary"].iconColor;
+
   return (
     <View alignItems="center" justifyContent="center" gap={detailsTokens.gap}>
       <CloudXIcon
         width={detailsTokens.iconSize}
         height={detailsTokens.iconSize}
         variant={props.variant}
-        color={detailsTokens.iconColor}
+        color={iconColor}
       />
       <Typography.Body>{props.text}</Typography.Body>
       <StateActionsFooter
+        tone={props.tone}
         onPressPrimaryAction={props.onPressPrimaryAction}
         primaryActionLabel={props.primaryActionLabel}
         onPressSecondaryAction={props.onPressSecondaryAction}

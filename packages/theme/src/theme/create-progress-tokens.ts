@@ -30,11 +30,11 @@ export function createProgressTokens(
         trackColor: tokens.colors.secondary.value,
       },
       secondary: {
-        indicatorColor: tokens.colors.text.secondary,
-        trackColor: tokens.colors.surface.subtle.value,
+        indicatorColor: tokens.colors.secondary.contrast,
+        trackColor: tokens.colors.subtle.value,
       },
       neutral: {
-        indicatorColor: tokens.colors.text.disabled,
+        indicatorColor: tokens.colors.text.secondary,
         trackColor: tokens.colors.surface.subtle.value,
       },
       inverse: {

@@ -5,12 +5,13 @@ import { StepperProps, StepperProviderData, StepperRef } from "../types";
 
 export const Stepper = memo(
   forwardRef<StepperRef, StepperProps>(function Stepper(props, ref) {
-    const { current, items, onChange } = props;
+    const { current, items, onChange, tone = "primary" } = props;
     const lastStepIndex = items.length - 1;
 
     const context = useMemo<StepperProviderData>(
       () => ({
         current,
+        tone,
         goto(value) {
           onChange(Math.min(Math.max(value, 0), lastStepIndex));
         },
@@ -21,7 +22,7 @@ export const Stepper = memo(
           onChange(Math.max(current - 1, 0));
         },
       }),
-      [current, lastStepIndex, onChange],
+      [current, lastStepIndex, onChange, tone],
     );
 
     const Step = items[current]?.Component ?? null;
@@ -34,7 +35,7 @@ export const Stepper = memo(
 
     return (
       <StepperProvider {...context}>
-        <Step />
+        <Step tone={tone} />
       </StepperProvider>
     );
   }),

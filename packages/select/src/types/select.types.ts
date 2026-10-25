@@ -1,3 +1,4 @@
+import type { ComponentTone } from "@impulse-ui-native/theme";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
 import {
   ControlComponentCommonProps,
@@ -48,6 +49,7 @@ export interface MultiSelectProps<Value extends PrimitiveValue>
 export interface SelectFlyoutProps<
   Value extends PrimitiveValue,
 > extends FlyoutProps {
+  tone?: ComponentTone;
   options: SelectOption<Value>[];
   initialScrollToSelected?: boolean;
   isSelected: (value: Value) => boolean;
@@ -55,6 +57,7 @@ export interface SelectFlyoutProps<
 }
 
 export interface OptionProps extends PressableCoreProps {
+  tone?: ComponentTone;
   label: string;
   selected: boolean;
 }

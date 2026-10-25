@@ -1,6 +1,6 @@
 # @impulse-ui-native/select
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -101,6 +101,15 @@ tone, and disabled/error appearance. Supply `SuffixIcon` to replace the caret or
 `Suffix` for custom suffix content, using the same composition model as the date
 pickers. A loading indicator takes precedence over the suffix while `loading`.
 
+## Repository palette consistency
+
+The field tone now propagates into flyout selection indicators and MultiSelect
+tags. Disabled selected options and disabled tags use neutral unavailable colors;
+disabled tags cannot be removed. The default is neutral. Selection indicator
+tokens move from select.option.states to select.option.colors[tone].
+
+MultiSelect selected tags use the same tone as the field: soft tags inside filled fields, and filled tags inside outlined/soft fields. Disabled tags use outlined styling and cannot be removed. This separates the selected values from the field surface without changing the shared palettes.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -117,37 +126,16 @@ export { MultiSelect } from "./multi-select";
 ```tsx
 import { useId } from "react";
 
-import { memo, useEventCallback, useIsOpen } from "@impulse-ui-native/core";
-import { Control, Tag, View } from "@impulse-ui-native/primitives";
+import { memo, useIsOpen } from "@impulse-ui-native/core";
+import { Control, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
+import { MultiSelectTagVariants } from "../constants/multi-select.constants";
 import { useMultiSelect } from "../hooks/use-multi-select.hook";
 import { MultiSelectProps, PrimitiveValue } from "../types";
 import { SelectControl } from "./select-control";
 import { SelectFlyout } from "./select.flyout";
-
-interface SelectedTagProps<Value extends PrimitiveValue> {
-  value: Value;
-  label: string;
-  size: MultiSelectProps<Value>["size"];
-  onSelect: (value: Value) => void;
-}
-
-const SelectedTag = memo(function SelectedTagComponent<
-  Value extends PrimitiveValue,
->(props: SelectedTagProps<Value>) {
-  const handleClose = useEventCallback(() => props.onSelect(props.value));
-
-  return (
-    <Tag
-      variant="filled"
-      size={props.size}
-      closable
-      onClose={handleClose}
-      label={props.label}
-    />
-  );
-});
+import { SelectedTag } from "./selected-tag";
 
 export const MultiSelect = memo(function MultiSelectComponent<
   Value extends PrimitiveValue,
@@ -158,13 +146,13 @@ export const MultiSelect = memo(function MultiSelectComponent<
     defaultValue,
     onChange,
     placeholder,
+    tone = "neutral",
+    variant = "outlined",
     initialScrollToSelected,
     ...rest
   } = props;
 
   const tokens = useComponentsTokens();
-
-  const selectTokens = tokens.select;
 
   const id = useId();
 
@@ -178,8 +166,19 @@ export const MultiSelect = memo(function MultiSelectComponent<
       onChange,
     });
 
+  const selectTokens = tokens.select;
+  const tagVariant = props.disabled
+    ? "outlined"
+    : MultiSelectTagVariants[variant];
+
   return (
-    <SelectControl {...rest} open={isOpen} onPress={open}>
+    <SelectControl
+      {...rest}
+      variant={variant}
+      tone={tone}
+      open={isOpen}
+      onPress={open}
+    >
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -194,6 +193,9 @@ export const MultiSelect = memo(function MultiSelectComponent<
           {selected
             ? selected.map((value) => (
                 <SelectedTag
+                  tone={tone}
+                  variant={tagVariant}
+                  disabled={props.disabled}
                   size={props.size}
                   key={value}
                   label={String(getLabel(value))}
@@ -205,6 +207,7 @@ export const MultiSelect = memo(function MultiSelectComponent<
         </View>
       ) : null}
       <SelectFlyout
+        tone={tone}
         id={id}
         title="Options"
         open={isOpen}
@@ -241,6 +244,7 @@ export const Select = memo(function SelectComponent<
     defaultValue,
     onChange,
     placeholder,
+    tone = "neutral",
     initialScrollToSelected,
     ...rest
   } = props;
@@ -267,7 +271,7 @@ export const Select = memo(function SelectComponent<
   const hasSelectedValue = selected !== null && selected !== undefined;
 
   return (
-    <SelectControl {...rest} open={isOpen} onPress={open}>
+    <SelectControl {...rest} tone={tone} open={isOpen} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -275,6 +279,7 @@ export const Select = memo(function SelectComponent<
         <Control.Value>{getLabel(selected)}</Control.Value>
       ) : null}
       <SelectFlyout
+        tone={tone}
         id={id}
         title="Options"
         open={isOpen}
@@ -305,6 +310,7 @@ export * from "./select.types";
 ### packages/select/src/types/select.types.ts
 
 ```tsx
+import type { ComponentTone } from "@impulse-ui-native/theme";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
 import {
   ControlComponentCommonProps,
@@ -355,6 +361,7 @@ export interface MultiSelectProps<Value extends PrimitiveValue>
 export interface SelectFlyoutProps<
   Value extends PrimitiveValue,
 > extends FlyoutProps {
+  tone?: ComponentTone;
   options: SelectOption<Value>[];
   initialScrollToSelected?: boolean;
   isSelected: (value: Value) => boolean;
@@ -362,6 +369,7 @@ export interface SelectFlyoutProps<
 }
 
 export interface OptionProps extends PressableCoreProps {
+  tone?: ComponentTone;
   label: string;
   selected: boolean;
 }

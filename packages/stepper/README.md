@@ -35,3 +35,12 @@ const steps = [
 ```
 
 The current index is controlled by the caller. Navigation methods clamp the index to the available step range.
+
+## Repository palette consistency
+
+Stepper and standalone StepperTabsNavigation accept a shared tone (default
+primary). Steps receive tone as an optional prop and useStepperContext exposes it.
+Navigation inherits a surrounding Stepper tone unless explicitly overridden;
+standalone navigation accepts its own tone. Current/completed indicators use the
+shared accent and upcoming indicators use a neutral border color. Colors live in
+stepper.navigation.colors[tone].

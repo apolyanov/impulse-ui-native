@@ -1,4 +1,5 @@
 import type {
+  ComponentTone,
   SelectionItemVisualState,
   VisualStateTokens,
 } from "./components.types";
@@ -20,9 +21,12 @@ export interface TimePickerColumnTokens {
   initialScrollIndexViewOffset: number;
 
   fontSize: number;
-  states: VisualStateTokens<
-    SelectionItemVisualState,
-    TimePickerColumnAppearanceTokens
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<
+      SelectionItemVisualState,
+      TimePickerColumnAppearanceTokens
+    >
   >;
 }
 

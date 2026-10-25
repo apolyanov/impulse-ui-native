@@ -94,3 +94,12 @@ options flyout is open. Icons use `Control.Icon`, inheriting the field's variant
 tone, and disabled/error appearance. Supply `SuffixIcon` to replace the caret or
 `Suffix` for custom suffix content, using the same composition model as the date
 pickers. A loading indicator takes precedence over the suffix while `loading`.
+
+## Repository palette consistency
+
+The field tone now propagates into flyout selection indicators and MultiSelect
+tags. Disabled selected options and disabled tags use neutral unavailable colors;
+disabled tags cannot be removed. The default is neutral. Selection indicator
+tokens move from select.option.states to select.option.colors[tone].
+
+MultiSelect selected tags use the same tone as the field: soft tags inside filled fields, and filled tags inside outlined/soft fields. Disabled tags use outlined styling and cannot be removed. This separates the selected values from the field surface without changing the shared palettes.

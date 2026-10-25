@@ -1,6 +1,6 @@
 # @impulse-ui-native/data-state
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -62,6 +62,14 @@ height to prevent the surrounding layout from shifting when loading finishes.
 
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
 
+## Repository palette consistency
+
+DataView and its internal state details/actions accept tone (default primary).
+The icon accent and default action buttons use the same tone, with per-state tone
+overrides allowed in errorViewProps/emptyViewProps. LoadingView passes the optional
+tone prop to custom LoadingComponent; custom loaders decide how to consume it.
+Details icon tokens move to dataState.details.colors[tone]. Skeletons remain neutral.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -85,6 +93,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
   const dataStateTokens = tokens.dataState;
   const {
     error,
+    tone = "primary",
     isEmpty,
     loading,
     errorViewProps,
@@ -100,14 +109,17 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
       return null;
     }
 
+    const errorTone = errorViewProps.tone ?? tone;
+    const emptyTone = emptyViewProps.tone ?? tone;
+
     return (
       <View
         alignItems="center"
         justifyContent="center"
         zIndex={dataStateTokens.content.zIndex}
       >
-        {error ? <ErrorDetails {...errorViewProps} /> : null}
-        {isEmpty ? <EmptyDetails {...emptyViewProps} /> : null}
+        {error ? <ErrorDetails {...errorViewProps} tone={errorTone} /> : null}
+        {isEmpty ? <EmptyDetails {...emptyViewProps} tone={emptyTone} /> : null}
       </View>
     );
   }, [
@@ -115,6 +127,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
     emptyViewProps,
     error,
     errorViewProps,
+    tone,
     isEmpty,
   ]);
 
@@ -122,6 +135,7 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
 
   return (
     <LoadingView
+      tone={tone}
       {...rest}
       LoadingComponent={LoadingComponent}
       contentContainerStyle={contentContainerStyle}
@@ -190,6 +204,7 @@ import { LoadingViewProps } from "../types";
 export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
   const {
     loading,
+    tone = "primary",
     children,
     LoadingComponent,
     contentContainerStyle,
@@ -290,7 +305,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
       {shouldMountLoader ? (
         <Animated.View style={loaderStyles} pointerEvents="auto">
           <View onLayout={onLoaderLayout}>
-            <LoadingComponent />
+            <LoadingComponent tone={tone} />
           </View>
         </Animated.View>
       ) : null}
@@ -319,9 +334,11 @@ import { ComponentType } from "react";
 import { PressableProps, ViewStyle } from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
+import type { ComponentTone } from "@impulse-ui-native/theme";
 import { ViewProps } from "@impulse-ui-native/primitives";
 
 export interface StateActionsFooterProps extends ViewProps {
+  tone?: ComponentTone;
   onPressPrimaryAction: PressableProps["onPress"];
   primaryActionLabel: string;
   onPressSecondaryAction?: PressableProps["onPress"];
@@ -343,15 +360,17 @@ export type EmptyViewProps = StateContainerProps;
 export type ErrorViewProps = StateContainerProps;
 
 export interface LoadingViewProps extends ViewProps {
+  tone?: ComponentTone;
   loading: boolean;
-  LoadingComponent: ComponentType;
+  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
   contentContainerStyle?: ViewStyle;
 }
 
 export interface DataViewProps extends ViewProps {
+  tone?: ComponentTone;
   error: Error | null;
   isEmpty: boolean;
-  LoadingComponent: ComponentType;
+  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
   loading: LoadingViewProps["loading"];
   contentContainerStyle?: ViewStyle;
   errorViewProps: StateViewProps;

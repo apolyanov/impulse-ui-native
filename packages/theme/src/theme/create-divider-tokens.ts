@@ -12,6 +12,8 @@ export function createDividerTokens(
       default: tokens.colors.border.default.value,
       strong: tokens.colors.border.strong.value,
       primary: tokens.colors.primary.value,
+      secondary: tokens.colors.secondary.contrast,
+      neutral: tokens.colors.text.secondary,
       inverse: tokens.colors.text.inverse,
     },
     layouts: {

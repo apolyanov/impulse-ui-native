@@ -120,3 +120,8 @@ function createSelectStory(name: string): Story {
     parameters: createStoryDescription(example.description),
   };
 }
+
+export const MultipleFilled: Story = {
+  ...createSelectStory("Multiple"),
+  args: { variant: "filled", tone: "primary" },
+};

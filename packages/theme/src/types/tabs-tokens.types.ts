@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionState,
   SelectionVisualState,
   VisualStateTokens,
@@ -25,11 +26,15 @@ export interface TabsTokens {
   indicatorHeight: number;
   panelGap: number;
   sizes: Record<ComponentSize, TabsSizeTokens>;
-  states: VisualStateTokens<SelectionVisualState, TabsItemAppearanceTokens>;
+  colors: Record<
+    ComponentTone,
+    VisualStateTokens<SelectionVisualState, TabsItemAppearanceTokens>
+  >;
 }
 
 export interface TabsItemTokenState extends SelectionState {
   size: ComponentSize;
+  tone?: ComponentTone;
 }
 
 export type ResolvedTabsItemTokens = TabsSizeTokens &

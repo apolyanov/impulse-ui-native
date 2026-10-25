@@ -20,12 +20,15 @@ export const ToastAction = memo(function ToastAction({
   style,
   ...props
 }: ToastActionProps) {
-  const { interactive, close } = useToastContext();
+  const { interactive, close, tone } = useToastContext();
   const tokens = useComponentsTokens().toast;
 
   const blocked = disabled === true || loading === true || !interactive;
 
-  const styles = useThemedStyles(themedStyles, { blocked }, [blocked]);
+  const styles = useThemedStyles(themedStyles, { blocked, tone }, [
+    blocked,
+    tone,
+  ]);
 
   const actionStyle = useMemo(
     () => [styles.action, style],
@@ -66,7 +69,10 @@ export const ToastAction = memo(function ToastAction({
   );
 });
 
-function themedStyles(theme: AppTheme, { blocked }: ToastActionThemeProps) {
+function themedStyles(
+  theme: AppTheme,
+  { blocked, tone }: ToastActionThemeProps,
+) {
   const tokens = theme.components.toast;
 
   return StyleSheet.create({
@@ -78,7 +84,7 @@ function themedStyles(theme: AppTheme, { blocked }: ToastActionThemeProps) {
       paddingHorizontal: tokens.gap,
     },
     label: {
-      color: blocked ? tokens.disabledColor : tokens.actionColor,
+      color: blocked ? tokens.disabledColor : tokens.tones[tone].actionColor,
     },
   });
 }

@@ -1,4 +1,4 @@
-import type { ComponentSize } from "./components.types";
+import type { ComponentSize, ComponentTone } from "./components.types";
 
 export interface ColorPickerPreset {
   label: string;
@@ -23,9 +23,10 @@ export interface ColorPickerTokens {
   swatchRingBorderWidth: number;
   borderWidth: number;
   borderColor: string;
+  disabledBorderColor: string;
   backgroundColor: string;
   labelColor: string;
-  selectedBorderColor: string;
+  colors: Record<ComponentTone, { selectedBorderColor: string }>;
   indicatorColor: string;
   indicatorBorderRadius: number;
   indicatorBorderWidth: number;

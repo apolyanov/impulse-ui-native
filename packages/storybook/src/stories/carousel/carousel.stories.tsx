@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Carousel } from "@impulse-ui-native/carousel";
-import { createStoryDescription } from "@impulse-ui-native/storybook";
+import {
+  ComponentToneOptions,
+  createStoryDescription,
+} from "@impulse-ui-native/storybook";
 
 import { CarouselDocumentation } from "./carousel.documentation";
 import {
@@ -13,6 +16,11 @@ const meta = {
   title: "Components/Carousel",
   component: Carousel,
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description: "Uses the shared neutral, primary, or secondary tone.",
+    },
     index: { control: "number" },
     defaultIndex: { control: "number" },
     pagination: {

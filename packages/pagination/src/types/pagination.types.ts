@@ -1,6 +1,6 @@
 import type { ViewProps } from "react-native";
 
-import type { ComponentSize } from "@impulse-ui-native/theme";
+import type { ComponentSize, ComponentTone } from "@impulse-ui-native/theme";
 
 export type PaginationItemValue = number | "start-ellipsis" | "end-ellipsis";
 
@@ -16,6 +16,7 @@ interface PaginationCommonProps extends Omit<ViewProps, "children"> {
   onPageChange?: (page: number) => void;
   pageCount: number;
   size?: ComponentSize;
+  tone?: ComponentTone;
 }
 
 interface PaginationControlledProps extends PaginationCommonProps {
@@ -29,16 +30,17 @@ interface PaginationUncontrolledProps extends PaginationCommonProps {
 }
 
 export type PaginationProps =
-  | PaginationControlledProps
-  | PaginationUncontrolledProps;
+  PaginationControlledProps | PaginationUncontrolledProps;
 
 export interface PaginationThemeProps {
   disabled: boolean;
   size: ComponentSize;
+  tone: ComponentTone;
 }
 
 export interface PaginationButtonThemeProps {
   current: boolean;
   disabled: boolean;
   size: ComponentSize;
+  tone: ComponentTone;
 }

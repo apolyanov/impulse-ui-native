@@ -7,7 +7,7 @@ import { Icon } from "@impulse-ui-native/icon";
 import { CheckIcon } from "@impulse-ui-native/icon/icons/check";
 import { Pressable, Typography } from "@impulse-ui-native/primitives";
 import {
-  getSelectionItemStateTokens,
+  getSelectionStateTokens,
   useComponentsTokens,
   useStyleProps,
   useThemedStyles,
@@ -16,15 +16,16 @@ import {
 import { OptionProps } from "../types";
 
 export const Option = memo(function Option(props: OptionProps) {
-  const { label, selected, style, ...rest } = props;
+  const { label, selected, style, tone = "neutral", ...rest } = props;
 
   const tokens = useComponentsTokens();
   const styles = useThemedStyles(themedStyles);
   const extractedStyleProps = useStyleProps(rest);
 
   const optionTokens = tokens.select.option;
-  const appearanceTokens = getSelectionItemStateTokens(optionTokens.states, {
+  const appearanceTokens = getSelectionStateTokens(optionTokens.colors[tone], {
     selected,
+    disabled: Boolean(rest.disabled),
   });
 
   const optionStyle = useCallback(

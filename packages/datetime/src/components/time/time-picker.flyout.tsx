@@ -5,14 +5,14 @@ import { Portal } from "@impulse-ui-native/portal";
 import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
-import { PickerFlyoutActions, TimePickerValue } from "../../types";
-import { getInfiniteRangeInitialIndex } from "../../utils";
 import {
   DefaultTimePickerValue,
   HourValues,
   MinuteSecondValues,
   TimePickerRangeRepeats,
 } from "../../constants/time-picker.constants";
+import { PickerFlyoutActions, TimePickerValue } from "../../types";
+import { getInfiniteRangeInitialIndex } from "../../utils";
 import { DatetimePickerFlyoutActions } from "../common/datetime-picker-flyout-actions";
 import { PickerColumn } from "./picker-column";
 
@@ -31,6 +31,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
     onPressCancel,
     onPressClear,
     clearable,
+    tone = "neutral",
     ...rest
   } = props;
 
@@ -117,6 +118,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
             />
 
             <PickerColumn
+              tone={tone}
               data={HourValues}
               label="h"
               value={selectedHours}
@@ -125,6 +127,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
             />
 
             <PickerColumn
+              tone={tone}
               data={MinuteSecondValues}
               label="m"
               value={selectedMinutes}
@@ -133,6 +136,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
             />
 
             <PickerColumn
+              tone={tone}
               data={MinuteSecondValues}
               label="s"
               value={selectedSeconds}
@@ -142,6 +146,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
           </View>
 
           <DatetimePickerFlyoutActions
+            tone={tone}
             canClear={Boolean(value && clearable)}
             onPressApply={onPressApply}
             onPressCancel={onPressCancel}

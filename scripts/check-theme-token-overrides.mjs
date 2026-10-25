@@ -97,6 +97,9 @@ const { getShadowStyle } = loadSource(
 const { createChartLayout } = loadSource(
   "packages/charts/src/utils/chart-layout.util.ts",
 );
+const { getChartColor } = loadSource(
+  "packages/charts/src/utils/chart-color.util.ts",
+);
 const { createDrawableMultiLineChartSeries } = loadSource(
   "packages/charts/src/utils/multi-line-chart.util.ts",
 );
@@ -263,10 +266,30 @@ for (const scheme of ["light", "dark"]) {
     ],
   };
   const line = createDrawableMultiLineChartSeries(series, 15, plot, tokens);
-  assert.equal(line.line.color, "#123456", "Palette selection wraps by length");
+  assert.equal(
+    line.line.color,
+    getChartColor(series.id, tokens.palette),
+    "Charts use the shared series-ID palette mapping",
+  );
+  assert.equal(
+    line.line.color,
+    createDrawableMultiLineChartSeries(series, 0, plot, tokens).line.color,
+    "Reordering a series preserves its palette color",
+  );
+  assert.equal(
+    createDrawableMultiLineChartSeries(series, 15, plot, {
+      ...tokens,
+      palette: ["#123456"],
+    }).line.color,
+    "#123456",
+    "A single-color custom palette repeats for every series",
+  );
   assert.equal(line.line.width, 10);
-  assert.equal(line.coordinates[0].x, 5);
-  assert.equal(line.coordinates[1].x, 95);
+  assert.equal(
+    line.coordinates,
+    series.coordinates,
+    "Appearance token overrides preserve series coordinates",
+  );
   const explicitLine = createDrawableMultiLineChartSeries(
     { ...series, line: { width: 4, color: "#abcdef" } },
     0,
@@ -274,12 +297,12 @@ for (const scheme of ["light", "dark"]) {
     tokens,
   );
   assert.equal(explicitLine.line.color, "#abcdef");
-  assert.equal(explicitLine.coordinates[0].x, 2);
+  assert.equal(explicitLine.coordinates, series.coordinates);
 
   assert.equal(
     createDrawableMultiBarChartSeries({ id: "bar", data: [] }, 15, tokens).bar
       .color,
-    "#123456",
+    getChartColor("bar", tokens.palette),
   );
   assert.equal(
     createDrawableMultiBarChartSeries(

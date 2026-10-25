@@ -16,6 +16,7 @@ export const CarouselControls = memo(function CarouselControls({
   index,
   disabled,
   pagination,
+  tone,
   showNavigation,
   onSelect,
 }: CarouselControlsProps) {
@@ -36,12 +37,14 @@ export const CarouselControls = memo(function CarouselControls({
     <View style={styles.root}>
       {showNavigation ? (
         <IconButton
+          tone={tone}
           icon={CaretLeftIcon}
           disabled={previousDisabled}
           onPress={previous}
         />
       ) : null}
       <CarouselPagination
+        tone={tone}
         count={count}
         index={index}
         disabled={disabled}
@@ -50,6 +53,7 @@ export const CarouselControls = memo(function CarouselControls({
       />
       {showNavigation ? (
         <IconButton
+          tone={tone}
           icon={CaretRightIcon}
           disabled={nextDisabled}
           onPress={next}

@@ -121,3 +121,10 @@ The duration timer starts when status reaches open.
 the transitions (180 ms, 150 ms, and 220 ms by default).
 `actionFontWeight` defaults to the primitive theme semi-bold weight. The
 `duration` prop still controls auto-dismiss independently of animation timing.
+
+## Repository palette consistency
+
+Toast keeps feedback tones (success, info, warning, error). The action foreground
+now follows the same feedback tone as its icon; disabled actions remain neutral.
+Custom action colors move to toast.tones[tone].actionColor. The elevated surface,
+title, description, and close control keep their neutral semantic roles.

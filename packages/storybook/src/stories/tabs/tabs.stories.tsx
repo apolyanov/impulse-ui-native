@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import type { TabsProps } from "@impulse-ui-native/tabs";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 import { Tabs } from "@impulse-ui-native/tabs";
@@ -13,8 +14,19 @@ import { TabsExample, TabsExampleDefinitions } from "./tabs.examples";
 const meta = {
   title: "Components/Tabs",
   component: Tabs,
-  args: { items: [], disabled: false, size: "medium", overflow: "scroll" },
+  args: {
+    tone: "primary",
+    items: [],
+    disabled: false,
+    size: "medium",
+    overflow: "scroll",
+  },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description: "Uses the shared neutral, primary, or secondary tone.",
+    },
     items: {
       control: false,
       description:

@@ -13,6 +13,7 @@ export const SelectFlyoutOption = memo(function SelectFlyoutOption<
 
   return (
     <Option
+      tone={props.tone}
       label={props.option.label}
       onPress={handlePress}
       disabled={props.option.disabled}

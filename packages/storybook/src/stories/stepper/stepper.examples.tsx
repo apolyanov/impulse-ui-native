@@ -6,7 +6,7 @@ import {
   StepperTabsNavigation,
   useStepperContext,
 } from "@impulse-ui-native/stepper";
-import { useSpace } from "@impulse-ui-native/theme";
+import { ComponentTone, useSpace } from "@impulse-ui-native/theme";
 
 import {
   StoryExample,
@@ -14,6 +14,7 @@ import {
 } from "../../components/story-example";
 
 interface StepperExampleDefinition {
+  tone?: ComponentTone;
   name: string;
   title: string;
   description: string;
@@ -28,7 +29,9 @@ function DetailsStep() {
   return (
     <View gap={space.mxs}>
       <Typography.Body>Enter the details for this flow.</Typography.Body>
-      <Button onPress={stepper.next}>Continue</Button>
+      <Button tone={stepper.tone} onPress={stepper.next}>
+        Continue
+      </Button>
     </View>
   );
 }
@@ -42,7 +45,7 @@ function ReviewStep() {
       <Typography.Body>
         Review the information before finishing.
       </Typography.Body>
-      <Button variant="outlined" onPress={stepper.previous}>
+      <Button tone={stepper.tone} variant="outlined" onPress={stepper.previous}>
         Back
       </Button>
     </View>
@@ -91,19 +94,25 @@ export const StepperExampleDefinitions = [
 ] satisfies StepperExampleDefinition[];
 
 interface StepperPreviewProps {
+  tone?: ComponentTone;
   showTabs: boolean;
 }
 
-function StepperPreview({ showTabs }: StepperPreviewProps) {
+function StepperPreview({ showTabs, tone }: StepperPreviewProps) {
   const space = useSpace();
   const [current, setCurrent] = useState(0);
 
   return (
     <View gap={space.sm}>
       {showTabs ? (
-        <StepperTabsNavigation current={current} items={steps} />
+        <StepperTabsNavigation tone={tone} current={current} items={steps} />
       ) : null}
-      <Stepper current={current} items={steps} onChange={setCurrent} />
+      <Stepper
+        tone={tone}
+        current={current}
+        items={steps}
+        onChange={setCurrent}
+      />
     </View>
   );
 }
@@ -124,7 +133,7 @@ export const StepperExample = memo(function StepperExample({
       props={example.props}
       elevated={elevated}
     >
-      <StepperPreview showTabs={example.showTabs} />
+      <StepperPreview tone={example.tone} showTabs={example.showTabs} />
     </StoryExample>
   );
 });

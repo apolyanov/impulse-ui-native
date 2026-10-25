@@ -76,7 +76,7 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
             inactiveThumbColor: tokens.colors.text.secondary,
           },
           disabled: {
-            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBackgroundColor: "transparent",
             activeBorderColor: tokens.colors.border.default.value,
             activeThumbColor: tokens.colors.text.disabled,
             inactiveBackgroundColor: tokens.colors.surface.subtle.value,
@@ -95,7 +95,7 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
           },
           disabled: {
             activeBackgroundColor: tokens.colors.surface.subtle.value,
-            activeBorderColor: tokens.colors.border.default.value,
+            activeBorderColor: tokens.colors.border.subtle.value,
             activeThumbColor: tokens.colors.text.disabled,
             inactiveBackgroundColor: tokens.colors.surface.subtle.value,
             inactiveBorderColor: tokens.colors.border.default.value,
@@ -132,7 +132,7 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
             inactiveThumbColor: tokens.colors.text.secondary,
           },
           disabled: {
-            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBackgroundColor: "transparent",
             activeBorderColor: tokens.colors.border.default.value,
             activeThumbColor: tokens.colors.text.disabled,
             inactiveBackgroundColor: tokens.colors.surface.subtle.value,
@@ -151,7 +151,7 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
           },
           disabled: {
             activeBackgroundColor: tokens.colors.surface.subtle.value,
-            activeBorderColor: tokens.colors.border.default.value,
+            activeBorderColor: tokens.colors.border.subtle.value,
             activeThumbColor: tokens.colors.text.disabled,
             inactiveBackgroundColor: tokens.colors.surface.subtle.value,
             inactiveBorderColor: tokens.colors.border.default.value,
@@ -188,7 +188,7 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
             inactiveThumbColor: tokens.colors.text.secondary,
           },
           disabled: {
-            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBackgroundColor: "transparent",
             activeBorderColor: tokens.colors.border.default.value,
             activeThumbColor: tokens.colors.text.disabled,
             inactiveBackgroundColor: tokens.colors.surface.subtle.value,
@@ -207,7 +207,7 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
           },
           disabled: {
             activeBackgroundColor: tokens.colors.surface.subtle.value,
-            activeBorderColor: tokens.colors.border.default.value,
+            activeBorderColor: tokens.colors.border.subtle.value,
             activeThumbColor: tokens.colors.text.disabled,
             inactiveBackgroundColor: tokens.colors.surface.subtle.value,
             inactiveBorderColor: tokens.colors.border.default.value,

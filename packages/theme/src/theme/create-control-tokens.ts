@@ -168,6 +168,7 @@ export function createControlContainerTokens(
   const secondaryContrast = tokens.colors.secondary.contrast;
   const subtle = tokens.colors.subtle.value;
   const neutral = tokens.colors.text.secondary;
+  const neutralSoft = tokens.colors.surface.subtle.value;
   const disabledBackground = tokens.colors.surface.subtle.value;
   const defaultBorder = tokens.colors.border.default.value;
   const errorColor = tokens.colors.feedback.error.value;
@@ -197,7 +198,7 @@ export function createControlContainerTokens(
         outlined: {
           default: {
             backgroundColor: "transparent",
-            borderColor: defaultBorder,
+            borderColor: neutral,
             opacity: 1,
           },
           error: {
@@ -218,8 +219,8 @@ export function createControlContainerTokens(
         },
         soft: {
           default: {
-            backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            backgroundColor: neutralSoft,
+            borderColor: neutralSoft,
             opacity: 1,
           },
           error: {
@@ -229,19 +230,19 @@ export function createControlContainerTokens(
           },
           disabled: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: tokens.colors.border.subtle.value,
             opacity: 0.7,
           },
           disabledError: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: tokens.colors.border.subtle.value,
             opacity: 0.7,
           },
         },
         filled: {
           default: {
             backgroundColor: neutral,
-            borderColor: "transparent",
+            borderColor: neutral,
             opacity: 1,
           },
           error: {
@@ -251,12 +252,12 @@ export function createControlContainerTokens(
           },
           disabled: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: defaultBorder,
             opacity: 0.7,
           },
           disabledError: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: defaultBorder,
             opacity: 0.7,
           },
         },
@@ -287,7 +288,7 @@ export function createControlContainerTokens(
         soft: {
           default: {
             backgroundColor: secondary,
-            borderColor: "transparent",
+            borderColor: secondary,
             opacity: 1,
           },
           error: {
@@ -297,19 +298,19 @@ export function createControlContainerTokens(
           },
           disabled: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: tokens.colors.border.subtle.value,
             opacity: 0.7,
           },
           disabledError: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: tokens.colors.border.subtle.value,
             opacity: 0.7,
           },
         },
         filled: {
           default: {
             backgroundColor: primary,
-            borderColor: "transparent",
+            borderColor: primary,
             opacity: 1,
           },
           error: {
@@ -319,12 +320,12 @@ export function createControlContainerTokens(
           },
           disabled: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: defaultBorder,
             opacity: 0.7,
           },
           disabledError: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: defaultBorder,
             opacity: 0.7,
           },
         },
@@ -355,7 +356,7 @@ export function createControlContainerTokens(
         soft: {
           default: {
             backgroundColor: subtle,
-            borderColor: "transparent",
+            borderColor: subtle,
             opacity: 1,
           },
           error: {
@@ -365,19 +366,19 @@ export function createControlContainerTokens(
           },
           disabled: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: tokens.colors.border.subtle.value,
             opacity: 0.7,
           },
           disabledError: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: tokens.colors.border.subtle.value,
             opacity: 0.7,
           },
         },
         filled: {
           default: {
             backgroundColor: secondary,
-            borderColor: "transparent",
+            borderColor: secondary,
             opacity: 1,
           },
           error: {
@@ -387,12 +388,12 @@ export function createControlContainerTokens(
           },
           disabled: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: defaultBorder,
             opacity: 0.7,
           },
           disabledError: {
             backgroundColor: disabledBackground,
-            borderColor: "transparent",
+            borderColor: defaultBorder,
             opacity: 0.7,
           },
         },

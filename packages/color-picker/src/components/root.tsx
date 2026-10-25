@@ -18,6 +18,7 @@ export const ColorPickerRoot = memo(function ColorPickerRoot({
   disabled,
   size,
   commitMode,
+  tone,
   ...props
 }: ColorPickerRootProps) {
   const context = useColorPicker({
@@ -27,6 +28,7 @@ export const ColorPickerRoot = memo(function ColorPickerRoot({
     disabled,
     size,
     commitMode,
+    tone,
   });
   const styles = useThemedStyles(themedStyles);
   const extractedStyleProps = useStyleProps(props);

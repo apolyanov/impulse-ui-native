@@ -14,8 +14,14 @@ export const ColorPickerChannelInput = memo(function ColorPickerChannelInput({
   variant,
   tone,
 }: ColorPickerChannelInputProps) {
-  const { rgba, disabled, size, setChannel, resetKey } =
-    useColorPickerContext();
+  const {
+    rgba,
+    disabled,
+    size,
+    tone: rootTone,
+    setChannel,
+    resetKey,
+  } = useColorPickerContext();
   const commit = useEventCallback((text: string): string | undefined => {
     const number = parseColorChannel(text);
 
@@ -38,7 +44,7 @@ export const ColorPickerChannelInput = memo(function ColorPickerChannelInput({
     <Input
       label={label}
       variant={variant}
-      tone={tone}
+      tone={tone ?? rootTone}
       size={size}
       disabled={disabled}
       keyboardType="number-pad"

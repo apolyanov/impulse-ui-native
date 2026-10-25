@@ -15,11 +15,25 @@ export function createCarouselTokens(
         dots: { width: tokens.space.xs, height: tokens.space.xs },
         segments: { width: tokens.space.md, height: tokens.space.xxs },
       },
-      states: {
-        unselected: { backgroundColor: tokens.colors.border.strong.value },
-        selected: { backgroundColor: tokens.colors.primary.value },
-        disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
-        disabledSelected: { backgroundColor: tokens.colors.text.secondary },
+      colors: {
+        neutral: {
+          unselected: { backgroundColor: tokens.colors.border.strong.value },
+          selected: { backgroundColor: tokens.colors.text.secondary },
+          disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
+          disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        },
+        primary: {
+          unselected: { backgroundColor: tokens.colors.border.strong.value },
+          selected: { backgroundColor: tokens.colors.primary.value },
+          disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
+          disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        },
+        secondary: {
+          unselected: { backgroundColor: tokens.colors.border.strong.value },
+          selected: { backgroundColor: tokens.colors.secondary.contrast },
+          disabledUnselected: { backgroundColor: tokens.colors.text.disabled },
+          disabledSelected: { backgroundColor: tokens.colors.text.disabled },
+        },
       },
     },
     counter: {

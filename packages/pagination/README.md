@@ -39,3 +39,10 @@ layout when space is tighter. Set `compact` to force that layout. Override
 
 Pagination items use the shared primitives `Pressable`; pressed feedback comes
 from that primitive and is not modeled as Pagination state or theme tokens.
+
+## Repository palette consistency
+
+Pagination accepts `tone="neutral" | "primary" | "secondary"` (default primary).
+The current page uses the shared filled Button palette. Disabled controls use the
+shared unavailable filled palette; unselected pages and compact counts remain
+neutral. Custom theme states move to pagination.colors[tone].

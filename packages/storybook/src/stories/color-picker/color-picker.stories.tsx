@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ColorPicker } from "@impulse-ui-native/color-picker";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 
@@ -17,6 +18,7 @@ const meta = {
   title: "Components/ColorPicker",
   component: ColorPicker,
   args: {
+    tone: "primary",
     size: "medium",
     disabled: false,
     showAlpha: true,
@@ -24,6 +26,11 @@ const meta = {
     commitMode: "immediate",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description: "Uses the shared neutral, primary, or secondary tone.",
+    },
     value: { control: "text", description: "Controlled hex color." },
     defaultValue: {
       control: "text",

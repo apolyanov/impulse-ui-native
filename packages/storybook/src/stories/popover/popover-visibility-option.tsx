@@ -26,13 +26,17 @@ export const PopoverVisibilityOption = memo(function PopoverVisibilityOption({
       </View>
       <View flex={1} gap={styles.copy.rowGap}>
         <Typography.Label style={styles.title}>{title}</Typography.Label>
-        <Typography.Caption>{description}</Typography.Caption>
+        <Typography.Caption style={styles.description}>
+          {description}
+        </Typography.Caption>
       </View>
     </Pressable>
   );
 });
 
 function themedStyles(theme: AppTheme, { selected }: { selected: boolean }) {
+  const palette = theme.components.button.colors.primary.soft.default;
+
   return StyleSheet.create({
     row: {
       flexDirection: "row",
@@ -42,15 +46,21 @@ function themedStyles(theme: AppTheme, { selected }: { selected: boolean }) {
       borderWidth: theme.borderSize.sm,
       borderRadius: theme.radii.md,
       borderColor: selected
-        ? theme.colors.secondary.value
+        ? palette.backgroundColor
         : theme.colors.border.subtle.value,
       backgroundColor: selected
-        ? theme.colors.secondary.value
+        ? palette.backgroundColor
         : theme.colors.surface.default.value,
     },
 
     copy: { rowGap: theme.space.xxs },
 
-    title: { fontWeight: "600" },
+    title: {
+      fontWeight: "600",
+      color: selected ? palette.color : theme.colors.text.primary,
+    },
+    description: {
+      color: selected ? palette.color : theme.colors.text.secondary,
+    },
   });
 }

@@ -9,13 +9,31 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const themeDirectory = path.join(root, "packages/theme/src/theme");
 
 // Execute the pure token factories without loading React Native or build output.
+const tokenCache = new Map();
 function loadTokens(filename) {
+  if (tokenCache.has(filename)) return tokenCache.get(filename);
   const exports = {};
+  tokenCache.set(filename, exports);
   const source = fs.readFileSync(path.join(themeDirectory, filename), "utf8");
   const { outputText } = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS },
   });
-  vm.runInNewContext(outputText, { exports, require: () => ({}) });
+  vm.runInNewContext(outputText, {
+    exports,
+    require: (specifier) => {
+      if (!specifier.startsWith(".")) return {};
+      const target = path.resolve(
+        path.dirname(path.join(themeDirectory, filename)),
+        specifier,
+      );
+      const resolved = [target + ".ts", path.join(target, "index.ts")].find(
+        (candidate) => fs.existsSync(candidate),
+      );
+      return resolved
+        ? loadTokens(path.relative(themeDirectory, resolved))
+        : {};
+    },
+  });
   return exports;
 }
 
@@ -317,6 +335,7 @@ for (const colors of [
   renderTheme = {
     colors,
     fontFamily: scales.FontFamilyTokens,
+    codeFontFamily: "monospace",
     fontWeight: scales.FontWeightTokens,
     fontSize: scales.FontSizeTokens,
     lineHeight: scales.LineHeightTokens,

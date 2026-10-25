@@ -8,7 +8,8 @@ import { useColorPickerContext } from "../hooks/use-color-picker-context.hook";
 import { ColorGradient } from "./gradient";
 
 export const ColorPickerHueSlider = memo(function ColorPickerHueSlider() {
-  const { hsva, disabled, size, gesture, motion } = useColorPickerContext();
+  const { hsva, disabled, size, tone, gesture, motion } =
+    useColorPickerContext();
   const trackContent = useMemo(() => <ColorGradient colors={HueStops} />, []);
   const handleComplete = useEventCallback((value: number) => {
     gesture.setHue(value);
@@ -17,6 +18,7 @@ export const ColorPickerHueSlider = memo(function ColorPickerHueSlider() {
 
   return (
     <Slider
+      tone={tone}
       min={0}
       max={360}
       step={1}

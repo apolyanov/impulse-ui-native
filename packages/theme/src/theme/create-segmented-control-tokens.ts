@@ -11,7 +11,7 @@ export function createSegmentedControlTokens(
 
   const neutral = tokens.colors.text.secondary;
   const neutralContrast = tokens.colors.text.inverse;
-  const neutralSoft = tokens.colors.surface.elevated.value;
+  const neutralSoft = tokens.colors.surface.subtle.value;
   const neutralSoftContrast = tokens.colors.text.primary;
   const subtle = tokens.colors.subtle.value;
 
@@ -20,7 +20,7 @@ export function createSegmentedControlTokens(
     borderWidth: tokens.borderSize.sm,
     itemBorderRadius: tokens.radii.md,
     itemBorderWidth: tokens.borderSize.sm,
-    rootBackgroundColor: tokens.colors.surface.subtle.value,
+    rootBackgroundColor: tokens.colors.surface.default.value,
     rootBorderColor: tokens.colors.border.default.value,
     rootGap: tokens.space.none,
     rootPadding: tokens.space.none,
@@ -107,7 +107,7 @@ export function createSegmentedControlTokens(
             },
             disabledSelected: {
               backgroundColor: tokens.colors.surface.subtle.value,
-              borderColor: tokens.colors.border.subtle.value,
+              borderColor: tokens.colors.border.default.value,
               color: tokens.colors.text.disabled,
             },
           },
@@ -120,7 +120,7 @@ export function createSegmentedControlTokens(
               color: tokens.colors.text.secondary,
             },
             selected: {
-              backgroundColor: tokens.colors.surface.elevated.value,
+              backgroundColor: transparent,
               borderColor: neutral,
               color: neutral,
             },
@@ -181,7 +181,7 @@ export function createSegmentedControlTokens(
             },
             disabledSelected: {
               backgroundColor: tokens.colors.surface.subtle.value,
-              borderColor: tokens.colors.border.subtle.value,
+              borderColor: tokens.colors.border.default.value,
               color: tokens.colors.text.disabled,
             },
           },
@@ -194,7 +194,7 @@ export function createSegmentedControlTokens(
               color: tokens.colors.text.secondary,
             },
             selected: {
-              backgroundColor: tokens.colors.surface.elevated.value,
+              backgroundColor: transparent,
               borderColor: primary,
               color: primary,
             },
@@ -255,7 +255,7 @@ export function createSegmentedControlTokens(
             },
             disabledSelected: {
               backgroundColor: tokens.colors.surface.subtle.value,
-              borderColor: tokens.colors.border.subtle.value,
+              borderColor: tokens.colors.border.default.value,
               color: tokens.colors.text.disabled,
             },
           },
@@ -268,7 +268,7 @@ export function createSegmentedControlTokens(
               color: tokens.colors.text.secondary,
             },
             selected: {
-              backgroundColor: tokens.colors.surface.elevated.value,
+              backgroundColor: transparent,
               borderColor: secondaryContrast,
               color: secondaryContrast,
             },

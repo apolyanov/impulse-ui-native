@@ -75,7 +75,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.subtle.value,
+            backgroundColor: "transparent",
             borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
@@ -98,7 +98,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
           },
           disabledSelected: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.default.value,
+            borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -143,7 +143,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.subtle.value,
+            backgroundColor: "transparent",
             borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
@@ -166,7 +166,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
           },
           disabledSelected: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.default.value,
+            borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
         },
@@ -211,7 +211,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
             color: tokens.colors.text.disabled,
           },
           disabledSelected: {
-            backgroundColor: tokens.colors.surface.subtle.value,
+            backgroundColor: "transparent",
             borderColor: tokens.colors.border.default.value,
             color: tokens.colors.text.disabled,
           },
@@ -234,7 +234,7 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
           },
           disabledSelected: {
             backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.default.value,
+            borderColor: tokens.colors.border.subtle.value,
             color: tokens.colors.text.disabled,
           },
         },

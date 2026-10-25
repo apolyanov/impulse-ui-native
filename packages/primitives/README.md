@@ -140,7 +140,7 @@ appearance, but does not inject label content.
 
 `Spinner` defaults to the primary theme tone and medium size. Use `tone="inverse"` on inverse surfaces, or provide `color` when the indicator must match contextual content.
 
-`Divider` defaults to a subtle horizontal separator. Use start/end insets to align it with surrounding content, switch to vertical orientation inside a container with a defined height, and use `color` only when the semantic tones do not fit the surrounding surface.
+`Divider` defaults to a primary horizontal separator. Use start/end insets to align it with surrounding content, switch to vertical orientation inside a container with a defined height, and use `color` only when the semantic tones do not fit the surrounding surface.
 
 `Avatar` supports `filled`, `outlined`, and `soft` display variants. It renders fallback content below its image so initials or a custom fallback remain visible while the image loads or when it fails. Avatar grouping and overflow counts are intentionally handled separately.
 
@@ -244,3 +244,14 @@ surface, initials, and border; images and presence/status colors retain their ow
 meaning. Avatar appearance tokens move to `components.avatar.colors[tone][variant]`.
 
 Badge, Tag, IconView, and field addon icons share the enabled variant/tone palette with Button and IconButton: primary soft uses secondary fill/contrast, secondary soft uses subtle fill with secondary contrast, and neutral soft uses subtle neutral fill with primary text.
+
+Selected control surfaces and disabled selected surfaces share the Button palette, including field borders, Tag borders, slider thumbs/bubbles, and segmented items. Entered text and validation retain their own semantic roles.
+
+## Repository palette consistency
+
+Spinner uses the shared primary/secondary/neutral stroke accents, plus inverse.
+Divider adds neutral and secondary tones alongside primary/inverse and the existing
+subtle/default/strong border-intensity aliases. Its default is primary.
+Feedback tone names are shared through FeedbackTone; generic brand tones through
+ComponentTone. Typography foregrounds and raw Icon color/fill remain explicit
+semantic or caller-selected colors, rather than a second tone API.

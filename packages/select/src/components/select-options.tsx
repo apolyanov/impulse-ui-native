@@ -16,7 +16,13 @@ import { SelectFlyoutOption } from "./select-flyout-option";
 export const SelectOptions = memo(function SelectOptions<
   Value extends PrimitiveValue,
 >(props: SelectOptionsProps<Value>) {
-  const { options, isSelected, onSelect, initialScrollToSelected } = props;
+  const {
+    options,
+    isSelected,
+    onSelect,
+    initialScrollToSelected,
+    tone = "neutral",
+  } = props;
 
   const initialSelection = useRef(isSelected);
 
@@ -52,13 +58,14 @@ export const SelectOptions = memo(function SelectOptions<
 
       return (
         <SelectFlyoutOption
+          tone={tone}
           option={item}
           selected={selected}
           onSelect={onSelect}
         />
       );
     },
-    [isSelected, onSelect],
+    [isSelected, onSelect, tone],
   );
 
   return (

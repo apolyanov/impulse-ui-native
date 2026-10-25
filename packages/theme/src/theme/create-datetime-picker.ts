@@ -11,22 +11,60 @@ export function createDatetimePickerTokens(
     day: {
       size: 40,
       borderRadius: tokens.radii.sm,
-      states: {
-        default: {
-          backgroundColor: "transparent",
-          color: tokens.colors.text.primary,
+      colors: {
+        neutral: {
+          default: {
+            backgroundColor: "transparent",
+            color: tokens.colors.text.primary,
+          },
+          outsideMonth: {
+            backgroundColor: "transparent",
+            color: tokens.colors.text.disabled,
+          },
+          range: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            color: tokens.colors.text.primary,
+          },
+          selected: {
+            backgroundColor: tokens.colors.text.secondary,
+            color: tokens.colors.text.inverse,
+          },
         },
-        outsideMonth: {
-          backgroundColor: "transparent",
-          color: tokens.colors.text.disabled,
+        primary: {
+          default: {
+            backgroundColor: "transparent",
+            color: tokens.colors.text.primary,
+          },
+          outsideMonth: {
+            backgroundColor: "transparent",
+            color: tokens.colors.text.disabled,
+          },
+          range: {
+            backgroundColor: tokens.colors.secondary.value,
+            color: tokens.colors.secondary.contrast,
+          },
+          selected: {
+            backgroundColor: tokens.colors.primary.value,
+            color: tokens.colors.primary.contrast,
+          },
         },
-        range: {
-          backgroundColor: tokens.colors.secondary.value,
-          color: tokens.colors.secondary.contrast,
-        },
-        selected: {
-          backgroundColor: tokens.colors.primary.value,
-          color: tokens.colors.primary.contrast,
+        secondary: {
+          default: {
+            backgroundColor: "transparent",
+            color: tokens.colors.text.primary,
+          },
+          outsideMonth: {
+            backgroundColor: "transparent",
+            color: tokens.colors.text.disabled,
+          },
+          range: {
+            backgroundColor: tokens.colors.subtle.value,
+            color: tokens.colors.secondary.contrast,
+          },
+          selected: {
+            backgroundColor: tokens.colors.secondary.value,
+            color: tokens.colors.secondary.contrast,
+          },
         },
       },
     },
@@ -43,7 +81,11 @@ export function createDatetimePickerTokens(
     flyoutActions: {
       gap: tokens.space.msm,
       buttonsGap: tokens.space.xs,
-      clearColor: tokens.colors.primary.value,
+      colors: {
+        neutral: { clearColor: tokens.colors.text.secondary },
+        primary: { clearColor: tokens.colors.primary.value },
+        secondary: { clearColor: tokens.colors.secondary.contrast },
+      },
     },
     quickDateOptions: {
       gap: tokens.space.xs,

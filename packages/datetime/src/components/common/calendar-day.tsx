@@ -4,11 +4,13 @@ import { StyleSheet } from "react-native";
 import { Pressable, Typography } from "@impulse-ui-native/primitives";
 import {
   AppTheme,
+  ComponentTone,
   getDatetimePickerDayStateTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
 interface CalendarDayProps {
+  tone?: ComponentTone;
   date: Date;
   isSelected?: boolean;
   isRangeStart?: boolean;
@@ -21,6 +23,7 @@ interface CalendarDayProps {
 export const CalendarDay = memo(function CalendarDay(props: CalendarDayProps) {
   const styles = useThemedStyles(themedStyles, props, [
     props.isSelected,
+    props.tone,
     props.isRangeStart,
     props.isInRange,
     props.isRangeEnd,
@@ -44,6 +47,7 @@ export const CalendarDay = memo(function CalendarDay(props: CalendarDayProps) {
 function themedStyles(
   theme: AppTheme,
   props: {
+    tone?: ComponentTone;
     isSelected?: boolean;
     isRangeStart?: boolean;
     isInRange?: boolean;
@@ -52,11 +56,14 @@ function themedStyles(
   },
 ) {
   const dayTokens = theme.components.datetimePicker.day;
-  const appearanceTokens = getDatetimePickerDayStateTokens(dayTokens.states, {
-    currentMonth: props.isCurrentMonth,
-    inRange: props.isInRange,
-    selected: props.isSelected || props.isRangeStart || props.isRangeEnd,
-  });
+  const appearanceTokens = getDatetimePickerDayStateTokens(
+    dayTokens.colors[props.tone ?? "neutral"],
+    {
+      currentMonth: props.isCurrentMonth,
+      inRange: props.isInRange,
+      selected: props.isSelected || props.isRangeStart || props.isRangeEnd,
+    },
+  );
 
   return StyleSheet.create({
     pressableStyles: {

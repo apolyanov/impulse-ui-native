@@ -31,6 +31,7 @@ export function useColorPicker({
   disabled = false,
   size = "medium",
   commitMode = "immediate",
+  tone = "primary",
 }: ColorPickerRootProps): ColorPickerContextData {
   const theme = useTheme();
   const [draft, setDraft] = useState<ColorPickerDraft>();
@@ -226,6 +227,7 @@ export function useColorPicker({
       disabled,
       size,
       commitMode,
+      tone,
       setColor,
       setHue,
       setAlpha,
@@ -244,6 +246,7 @@ export function useColorPicker({
       disabled,
       size,
       commitMode,
+      tone,
       setColor,
       setHue,
       setAlpha,

@@ -1,6 +1,6 @@
 # @impulse-ui-native/carousel
 
-Local package version: 14.1.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.1.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -100,6 +100,14 @@ Exercise Storybook on iOS and Android to validate snapping, resizing, preview
 bounds, centered alignment, midpoint transitions, empty/invalid indices, and
 native gestures.
 
+## Repository palette consistency
+
+Carousel accepts `tone="neutral" | "primary" | "secondary"` (default primary).
+It propagates to navigation IconButtons and active dots/segments; counters and
+unselected/disabled indicators remain neutral. The pagination choice continues to
+mean dots, segments, counter, or none. Indicator states move to
+carousel.indicator.colors[tone].
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -128,6 +136,7 @@ export const Carousel = memo(function Carousel({
   onIndexChange,
   disabled = false,
   pagination = "dots",
+  tone = "primary",
   showNavigation = true,
   peek = 0,
   slideAspectRatio = DefaultSlideAspectRatio,
@@ -159,6 +168,7 @@ export const Carousel = memo(function Carousel({
         disabled={disabled}
       />
       <CarouselControls
+        tone={tone}
         count={count}
         index={controller.displayedIndex}
         disabled={disabled}
@@ -196,6 +206,7 @@ export * from "./types";
 import type { ReactNode } from "react";
 
 import type { ViewProps } from "@impulse-ui-native/primitives";
+import type { ComponentTone } from "@impulse-ui-native/theme";
 
 export type CarouselPagination = "dots" | "segments" | "counter" | "none";
 
@@ -207,6 +218,7 @@ export interface CarouselProps extends ViewProps {
   onIndexChange?: (index: number) => void;
   disabled?: boolean;
   pagination?: CarouselPagination;
+  tone?: ComponentTone;
   showNavigation?: boolean;
   /** Visible neighboring-slide preview; the final slide previews its predecessor. */
   peek?: number;
@@ -228,6 +240,7 @@ export interface CarouselIndicatorProps {
   disabled: boolean;
   index: number;
   variant: "dots" | "segments";
+  tone: ComponentTone;
   onSelect: (index: number) => void;
 }
 ```

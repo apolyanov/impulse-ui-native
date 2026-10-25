@@ -7,7 +7,11 @@ export function createDataStateTokens(
     details: {
       gap: 10,
       iconSize: 150,
-      iconColor: tokens.colors.primary.value,
+      colors: {
+        neutral: { iconColor: tokens.colors.text.secondary },
+        primary: { iconColor: tokens.colors.primary.value },
+        secondary: { iconColor: tokens.colors.secondary.contrast },
+      },
     },
 
     actionsFooter: {
