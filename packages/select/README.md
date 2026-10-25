@@ -86,3 +86,11 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlInput.colors[tone][variant][state]`, and
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
+
+## Default trailing icon
+
+Select and MultiSelect display CaretDown while closed and CaretUp while the
+options flyout is open. Icons use `Control.Icon`, inheriting the field's variant,
+tone, and disabled/error appearance. Supply `SuffixIcon` to replace the caret or
+`Suffix` for custom suffix content, using the same composition model as the date
+pickers. A loading indicator takes precedence over the suffix while `loading`.

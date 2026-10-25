@@ -2,6 +2,8 @@ import type { PropsWithChildren } from "react";
 import { useMemo } from "react";
 
 import { memo } from "@impulse-ui-native/core";
+import { CaretDownIcon } from "@impulse-ui-native/icon/icons/caret-down";
+import { CaretUpIcon } from "@impulse-ui-native/icon/icons/caret-up";
 import { Control } from "@impulse-ui-native/primitives";
 
 import type { PrimitiveValue, SelectControlProps } from "../types";
@@ -10,6 +12,7 @@ export const SelectControl = memo(function SelectControlComponent<
   Value extends PrimitiveValue,
 >({
   loading,
+  open,
   PrefixIcon,
   Prefix,
   SuffixIcon,
@@ -17,6 +20,9 @@ export const SelectControl = memo(function SelectControlComponent<
   children,
   ...props
 }: PropsWithChildren<SelectControlProps<Value>>) {
+  const defaultSuffixIcon = open ? CaretUpIcon : CaretDownIcon;
+  const suffixIcon = SuffixIcon ?? defaultSuffixIcon;
+
   const prefix = useMemo(() => {
     if (Prefix) {
       return <Prefix />;
@@ -33,8 +39,8 @@ export const SelectControl = memo(function SelectControlComponent<
       return <Suffix />;
     }
 
-    return SuffixIcon ? <Control.Icon icon={SuffixIcon} /> : null;
-  }, [loading, Suffix, SuffixIcon]);
+    return <Control.Icon icon={suffixIcon} />;
+  }, [loading, Suffix, suffixIcon]);
 
   return (
     <Control.Field {...props} prefix={prefix} suffix={suffix}>

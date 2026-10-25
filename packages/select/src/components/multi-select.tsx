@@ -62,7 +62,7 @@ export const MultiSelect = memo(function MultiSelectComponent<
     });
 
   return (
-    <SelectControl {...rest} onPress={open}>
+    <SelectControl {...rest} open={isOpen} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}

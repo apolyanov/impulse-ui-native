@@ -26,6 +26,7 @@ export interface CommonSelectProps<Value>
 }
 
 export interface SelectControlProps<Value> extends CommonSelectProps<Value> {
+  open: boolean;
   onPress: PressableCoreProps["onPress"];
 }
 

@@ -393,3 +393,5 @@ presence status. Token maps are explicitly authored as `colors[tone][variant]`
 Tag's semantic prop is now `tone`, replacing `color`; `TagTone` replaces `TagColor`.
 It supports neutral, primary, secondary, error, warning, success, and info, with
 primary as the default. Feedback tones retain their previous appearance.
+
+Select and MultiSelect use a trailing CaretDown while closed and CaretUp while open. Override it through `SuffixIcon` or `Suffix`; loading takes precedence. The default icon inherits the field appearance through `Control.Icon`, following the date-picker addon composition model.

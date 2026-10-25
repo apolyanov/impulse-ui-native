@@ -43,7 +43,7 @@ export const Select = memo(function SelectComponent<
   const hasSelectedValue = selected !== null && selected !== undefined;
 
   return (
-    <SelectControl {...rest} onPress={open}>
+    <SelectControl {...rest} open={isOpen} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}

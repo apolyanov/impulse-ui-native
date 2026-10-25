@@ -1,6 +1,6 @@
 # @impulse-ui-native/select
 
-Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 14.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -93,6 +93,14 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
 
+## Default trailing icon
+
+Select and MultiSelect display CaretDown while closed and CaretUp while the
+options flyout is open. Icons use `Control.Icon`, inheriting the field's variant,
+tone, and disabled/error appearance. Supply `SuffixIcon` to replace the caret or
+`Suffix` for custom suffix content, using the same composition model as the date
+pickers. A loading indicator takes precedence over the suffix while `loading`.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -171,7 +179,7 @@ export const MultiSelect = memo(function MultiSelectComponent<
     });
 
   return (
-    <SelectControl {...rest} onPress={open}>
+    <SelectControl {...rest} open={isOpen} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -259,7 +267,7 @@ export const Select = memo(function SelectComponent<
   const hasSelectedValue = selected !== null && selected !== undefined;
 
   return (
-    <SelectControl {...rest} onPress={open}>
+    <SelectControl {...rest} open={isOpen} onPress={open}>
       {!hasSelected ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -325,6 +333,7 @@ export interface CommonSelectProps<Value>
 }
 
 export interface SelectControlProps<Value> extends CommonSelectProps<Value> {
+  open: boolean;
   onPress: PressableCoreProps["onPress"];
 }
 
