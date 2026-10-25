@@ -19,12 +19,13 @@ export const SliderThumbControl = memo(function SliderThumbControl({
   size,
   valueLabel,
   variant,
+  tone,
 }: SliderThumbProps) {
-  const styles = useThemedStyles(themedStyles, { disabled, size, variant }, [
-    disabled,
-    size,
-    variant,
-  ]);
+  const styles = useThemedStyles(
+    themedStyles,
+    { disabled, size, variant, tone },
+    [disabled, size, variant, tone],
+  );
 
   const thumbStyles = useMemo(
     () => [styles.container, positionStyle],
@@ -49,10 +50,10 @@ export const SliderThumbControl = memo(function SliderThumbControl({
 });
 
 function themedStyles(theme: AppTheme, props: SliderThumbThemeProps) {
-  const { disabled, size, variant } = props;
+  const { disabled, size, variant, tone } = props;
   const tokens = theme.components.slider;
   const sizeTokens = tokens.sizes[size];
-  const appearanceTokens = getControlStateTokens(tokens.variants[variant], {
+  const appearanceTokens = getControlStateTokens(tokens.colors[tone][variant], {
     disabled,
   });
   const thumbOuterSize = sizeTokens.thumbSize;

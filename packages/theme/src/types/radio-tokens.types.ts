@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   SelectionVisualState,
   VisualStateTokens,
@@ -29,5 +30,5 @@ export interface RadioTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: RadioSizeTokens;
-  variants: RadioVariantTokens;
+  colors: Record<ComponentTone, RadioVariantTokens>;
 }

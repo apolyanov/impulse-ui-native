@@ -39,3 +39,11 @@ export function NotificationsSwitch() {
 Use `defaultChecked` for uncontrolled state. The thumb position and track colors animate when the state changes.
 
 Set `loading` while an update is pending. Loading switches show an activity indicator and block further presses until loading ends. Disabled switches also block interaction.
+
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.

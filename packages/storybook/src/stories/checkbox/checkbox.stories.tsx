@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "@impulse-ui-native/checkbox";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
   SelectionVariantOptions,
 } from "@impulse-ui-native/storybook";
@@ -21,8 +22,15 @@ const meta = {
     disabled: false,
     size: "medium",
     variant: "filled",
+    tone: "primary",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description:
+        "Selects the neutral, primary, or secondary palette. Defaults to primary.",
+    },
     checked: {
       control: "select",
       options: [undefined, false, true, "indeterminate"],
@@ -61,6 +69,9 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const Neutral: Story = createCheckboxStory("Neutral");
+export const Secondary: Story = createCheckboxStory("Secondary");
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

@@ -1,6 +1,6 @@
 # @impulse-ui-native/radio
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -47,6 +47,14 @@ pressing it again does not clear the selection. The component accepts the
 shared `small`, `medium`, and `large` sizes and the `filled`, `outlined`, and
 `soft` selection variants.
 
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -90,6 +98,7 @@ export const Radio = memo(function Radio({
   size = "medium",
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: RadioProps) {
   const tokens = useComponentsTokens();
@@ -101,8 +110,8 @@ export const Radio = memo(function Radio({
   });
   const styles = useThemedStyles(
     themedStyles,
-    { checked, disabled, size, variant },
-    [checked, disabled, size, variant],
+    { checked, disabled, size, variant, tone },
+    [checked, disabled, size, variant, tone],
   );
 
   const radioTokens = tokens.radio;
@@ -138,12 +147,12 @@ export const Radio = memo(function Radio({
 });
 
 function themedStyles(theme: AppTheme, props: RadioThemeProps) {
-  const { checked, disabled, size, variant } = props;
+  const { checked, disabled, size, variant, tone } = props;
 
   const radioTokens = theme.components.radio;
   const sizeTokens = radioTokens.sizes[size];
   const appearanceTokens = getSelectionStateTokens(
-    radioTokens.variants[variant],
+    radioTokens.colors[tone][variant],
     { disabled, selected: checked },
   );
 
@@ -188,7 +197,11 @@ export * from "./radio.types";
 
 ```tsx
 import type { PressableCoreProps } from "@impulse-ui-native/primitives";
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export interface RadioProps extends Omit<
   PressableCoreProps,
@@ -199,6 +212,7 @@ export interface RadioProps extends Omit<
   onCheckedChange?: (checked: boolean) => void;
   size?: ComponentSize;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 export interface RadioThemeProps {
@@ -206,5 +220,6 @@ export interface RadioThemeProps {
   disabled?: boolean;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 ```

@@ -1,6 +1,6 @@
 # @impulse-ui-native/slider
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -98,6 +98,16 @@ before step snapping; keep React state updates in `onValueChange`.
 
 Slider accepts trackContent for gradient or other custom track visuals. It renders the supplied content inside the clipped track and omits the numeric active fill. Touch handling, thumb, and callbacks remain unchanged. The theme token components.slider.interactionMinHeight defaults to 44 for native touch targets.
 
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
+Both `Slider` and `RangeSlider` apply tone to the active track, every thumb, marks, labels, and value bubbles. Gesture and value semantics are unchanged.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -149,6 +159,7 @@ export const RangeSlider = memo(function RangeSlider({
   style,
   value,
   variant = "filled",
+  tone = "primary",
   ...props
 }: RangeSliderProps) {
   const slider = useRangeSlider({
@@ -178,6 +189,7 @@ export const RangeSlider = memo(function RangeSlider({
         showValueBubble={showValueBubble}
         size={size}
         variant={variant}
+        tone={tone}
       >
         <SliderThumbControl
           disabled={disabled}
@@ -186,6 +198,7 @@ export const RangeSlider = memo(function RangeSlider({
           size={size}
           valueLabel={slider.startThumb.valueLabel}
           variant={variant}
+          tone={tone}
         />
         <SliderThumbControl
           disabled={disabled}
@@ -194,6 +207,7 @@ export const RangeSlider = memo(function RangeSlider({
           size={size}
           valueLabel={slider.endThumb.valueLabel}
           variant={variant}
+          tone={tone}
         />
       </SliderTrack>
 
@@ -205,6 +219,7 @@ export const RangeSlider = memo(function RangeSlider({
         showMarkLabels={showMarkLabels}
         showMinMax={showMinMax}
         variant={variant}
+        tone={tone}
       />
     </View>
   );
@@ -252,6 +267,7 @@ export const Slider = memo(function Slider({
   trackContent,
   value,
   variant = "filled",
+  tone = "primary",
   ...props
 }: SliderProps) {
   const slider = useSlider({
@@ -282,6 +298,7 @@ export const Slider = memo(function Slider({
         size={size}
         trackContent={trackContent}
         variant={variant}
+        tone={tone}
       >
         <SliderThumbControl
           disabled={disabled}
@@ -290,6 +307,7 @@ export const Slider = memo(function Slider({
           size={size}
           valueLabel={slider.valueLabel}
           variant={variant}
+          tone={tone}
         />
       </SliderTrack>
 
@@ -301,6 +319,7 @@ export const Slider = memo(function Slider({
         showMarkLabels={showMarkLabels}
         showMinMax={showMinMax}
         variant={variant}
+        tone={tone}
       />
     </View>
   );
@@ -326,7 +345,11 @@ export * from "./slider.types";
 import type { ReactNode } from "react";
 import type { ViewProps } from "react-native";
 
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export type SliderValue = readonly [number, number];
 
@@ -344,6 +367,7 @@ interface SliderCommonProps extends ViewProps {
   size?: ComponentSize;
   step?: number;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 export interface SliderProps extends SliderCommonProps {

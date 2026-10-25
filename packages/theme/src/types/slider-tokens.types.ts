@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  ComponentTone,
   ControlVisualState,
   SelectionVariant,
   VisualStateTokens,
@@ -58,7 +59,7 @@ export interface SliderTokens {
   valueBubbleMinWidth: number;
   layouts: Record<SliderTrackLayout, SliderTrackLayoutTokens>;
   sizes: SliderSizeTokens;
-  variants: SliderVariantTokens;
+  colors: Record<ComponentTone, SliderVariantTokens>;
 }
 
 export interface SliderTrackTokenState {
@@ -66,6 +67,7 @@ export interface SliderTrackTokenState {
   layout: SliderTrackLayout;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export type ResolvedSliderTrackTokens = SliderTrackLayoutTokens &

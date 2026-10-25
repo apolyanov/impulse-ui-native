@@ -19,6 +19,36 @@ interface AvatarExampleDefinition {
 
 export const AvatarExampleDefinitions = [
   {
+    name: "Neutral",
+    title: "Neutral tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "neutral",
+        description: "Uses the neutral theme palette.",
+      },
+    ],
+    args: { initials: "AK", variant: "soft", tone: "neutral" },
+  },
+
+  {
+    name: "Secondary",
+    title: "Secondary tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Uses the secondary theme palette.",
+      },
+    ],
+    args: { initials: "AK", variant: "soft", tone: "secondary" },
+  },
+
+  {
     name: "Image",
     title: "Image avatar",
     description:

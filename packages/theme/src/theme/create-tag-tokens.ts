@@ -32,6 +32,44 @@ export function createTagTokens(tokens: PrimitiveThemeTokens): TagTokens {
     },
 
     colors: {
+      neutral: {
+        filled: {
+          default: {
+            backgroundColor: tokens.colors.text.secondary,
+            borderColor: tokens.colors.text.secondary,
+            color: tokens.colors.text.inverse,
+          },
+          disabled: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.strong.value,
+            color: tokens.colors.text.disabled,
+          },
+        },
+        outlined: {
+          default: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.text.secondary,
+            color: tokens.colors.text.secondary,
+          },
+          disabled: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: tokens.colors.text.disabled,
+          },
+        },
+        soft: {
+          default: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.surface.subtle.value,
+            color: tokens.colors.text.primary,
+          },
+          disabled: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.subtle.value,
+            color: tokens.colors.text.disabled,
+          },
+        },
+      },
       primary: {
         filled: {
           default: {

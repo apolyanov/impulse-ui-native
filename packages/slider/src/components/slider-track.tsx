@@ -23,6 +23,7 @@ export const SliderTrack = memo(function SliderTrack({
   gesture,
   trackContent,
   variant,
+  tone,
   ...interactionHandlers
 }: SliderTrackProps) {
   const hasStartMark = marks.some((mark) => mark.endpoint === "start");
@@ -38,8 +39,9 @@ export const SliderTrack = memo(function SliderTrack({
       layout,
       size,
       variant,
+      tone,
     },
-    [disabled, hasEndMark, hasStartMark, layout, size, variant],
+    [disabled, hasEndMark, hasStartMark, layout, size, variant, tone],
   );
 
   const activeTrackStyles = useMemo(
@@ -87,12 +89,14 @@ export const SliderTrack = memo(function SliderTrack({
 });
 
 function themedStyles(theme: AppTheme, props: SliderTrackThemeProps) {
-  const { disabled, hasEndMark, hasStartMark, layout, size, variant } = props;
+  const { disabled, hasEndMark, hasStartMark, layout, size, variant, tone } =
+    props;
   const tokens = getSliderTrackTokens(theme.components.slider, {
     disabled,
     layout,
     size,
     variant,
+    tone,
   });
   const thumbOuterSize = tokens.thumbSize;
   const interactionHeight = Math.max(

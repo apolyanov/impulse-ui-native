@@ -17,7 +17,7 @@ import type {
   DisplayVariant,
   FieldVariant,
 } from "../../../../packages/theme/src/types/components.types";
-import type { TagColor } from "../../../../packages/theme/src/types/tag-tokens.types";
+import type { TagTone } from "../../../../packages/theme/src/types/tag-tokens.types";
 
 export type NativeSize = ComponentSize;
 export type NativeVariant = ActionVariant;
@@ -114,7 +114,12 @@ export const WebIconButton = memo(function WebIconButton({
   );
 });
 
-const tagColors: Record<TagColor, Record<DisplayVariant, string>> = {
+const tagColors: Record<TagTone, Record<DisplayVariant, string>> = {
+  neutral: {
+    filled: "border-text-secondary bg-text-secondary text-text-inverse",
+    outlined: "border-text-secondary bg-transparent text-text-secondary",
+    soft: "border-surface-subtle bg-surface-subtle text-text-primary",
+  },
   primary: {
     filled: "border-primary bg-primary text-primary-contrast",
     outlined: "border-primary bg-transparent text-primary",
@@ -159,14 +164,14 @@ const tagSizes: Record<NativeSize, string> = {
 
 export function WebTag({
   children,
-  color = "primary",
+  tone = "primary",
   variant = "filled",
   size = "medium",
   disabled,
   closable,
 }: {
   children: ReactNode;
-  color?: TagColor;
+  tone?: TagTone;
   variant?: DisplayVariant;
   size?: NativeSize;
   disabled?: boolean;
@@ -177,7 +182,7 @@ export function WebTag({
   const tagClassName = classNames(
     "inline-flex items-center justify-center gap-xxs rounded-round border-sm",
     tagSizes[size],
-    tagColors[color][variant],
+    tagColors[tone][variant],
     disabled &&
       (variant === "outlined"
         ? "border-border-strong bg-transparent text-text-disabled"
@@ -201,6 +206,7 @@ const controlSizes: Record<NativeSize, string> = {
 };
 
 const controlVariants: Record<FieldVariant, string> = {
+  soft: "border-transparent bg-surface-subtle",
   filled: "border-transparent bg-surface-default",
   outlined: "border-border-default bg-transparent",
 };

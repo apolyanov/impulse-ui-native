@@ -10,7 +10,8 @@ import {
 import { TagDocumentation } from "./tag.documentation";
 import { TagExample, TagExampleDefinitions } from "./tag.examples";
 
-const TagColorOptions = [
+const TagToneOptions = [
+  "neutral",
   "primary",
   "secondary",
   "error",
@@ -26,7 +27,7 @@ const meta = {
     label: "Tag",
     size: "medium",
     variant: "filled",
-    color: "primary",
+    tone: "primary",
     closable: false,
     disabled: false,
   },
@@ -45,9 +46,9 @@ const meta = {
       options: DisplayVariantOptions,
       description: "Controls the tag visual emphasis and styling.",
     },
-    color: {
+    tone: {
       control: "select",
-      options: TagColorOptions,
+      options: TagToneOptions,
       description: "Controls the semantic color of the tag.",
     },
     closable: {
@@ -72,6 +73,8 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const Neutral: Story = createTagStory("Neutral");
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

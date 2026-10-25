@@ -32,6 +32,7 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
   style,
   value,
   variant = "filled",
+  tone = "primary",
   ...props
 }: SegmentedControlRootProps) {
   const [selectedValue, setSelectedValue] = useControllableState<string>({
@@ -62,6 +63,7 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
       selectedValue,
       size,
       variant,
+      tone,
       initialSelectedValue,
       initialScrollRef: initialScroll.targetRef,
       onInitialItemLayout: initialScroll.onTargetLayout,
@@ -72,6 +74,7 @@ export const SegmentedControlRoot = memo(function SegmentedControlRoot({
       selectedValue,
       size,
       variant,
+      tone,
       initialSelectedValue,
       initialScroll.targetRef,
       initialScroll.onTargetLayout,

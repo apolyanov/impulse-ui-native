@@ -5,7 +5,6 @@ import type {
   ViewStyle,
 } from "react-native";
 import { memo, useCallback, useMemo } from "react";
-import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
 import { useControllableState } from "@impulse-ui-native/core";
@@ -27,6 +26,7 @@ export const Switch = memo(function Switch({
   size = "medium",
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: SwitchProps) {
   const [checked, setChecked] = useControllableState<boolean>({
@@ -43,7 +43,7 @@ export const Switch = memo(function Switch({
     colors,
     loadingIndicatorColor,
     sizeTokens,
-  } = useSwitchTokens({ disabled: interactionDisabled, size, variant });
+  } = useSwitchTokens({ disabled: interactionDisabled, size, variant, tone });
   const styles = useThemedStyles(switchStyles, { size }, [size]);
   const { thumbStyle, trackStyle } = useSwitchAnimation({
     animationDuration,

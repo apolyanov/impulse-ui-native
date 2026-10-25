@@ -57,3 +57,15 @@ Later selection changes do not scroll again. Remount the root for a fresh initia
 position. A user drag cancels pending positioning. Custom zoom, content insets,
 and snapping are outside the initial-scroll helper's scope; use
 `initialScrollToSelected={false}` when managing those offsets yourself.
+
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
+Set `tone` on `SegmentedControl.Root`; all items inherit it through the group context, including custom item compositions. Nested roots own their own tone.
+
+The neutral soft selected item uses the elevated surface against the subtle group background so selection remains visible.

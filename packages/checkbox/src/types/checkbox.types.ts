@@ -1,5 +1,9 @@
 import type { PressableCoreProps } from "@impulse-ui-native/primitives";
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export type CheckboxState = boolean | "indeterminate";
 
@@ -12,6 +16,7 @@ export interface CheckboxProps extends Omit<
   onCheckedChange?: (checked: CheckboxState) => void;
   size?: ComponentSize;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 export interface CheckboxThemeProps {
@@ -19,4 +24,5 @@ export interface CheckboxThemeProps {
   disabled?: boolean;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
   SelectionVariantOptions,
 } from "@impulse-ui-native/storybook";
@@ -19,8 +20,15 @@ const meta = {
     loading: false,
     size: "medium",
     variant: "filled",
+    tone: "primary",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description:
+        "Selects the neutral, primary, or secondary palette. Defaults to primary.",
+    },
     checked: {
       control: "boolean",
       description: "Controls whether the switch is on.",
@@ -64,6 +72,9 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const Neutral: Story = createSwitchStory("Neutral");
+export const Secondary: Story = createSwitchStory("Secondary");
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

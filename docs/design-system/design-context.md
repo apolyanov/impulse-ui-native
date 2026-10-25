@@ -377,3 +377,19 @@ The status reference also records font scaling, overlay/back-stack policy, form 
 Suggested prompt to paste with this bundle:
 
 > We are designing a native iOS/Android application using ImpulseUI Native. Read design-context.md first, then use the package and token references when needed. Begin by defining the product's main journeys and screen map, then propose a cohesive design using existing components and semantic tokens. Distinguish current library capabilities from application-specific work. Annotate the design with component names, token paths, sizes, variants, and states. Use the current source contracts; do not invent props or assume web parity. Keep implementation for after we agree on the design. Product brief: [describe the application, users, and main tasks].
+
+### Selection and display tones
+
+Checkbox, Radio, Switch, SegmentedControl, Slider, RangeSlider, and Avatar accept
+`tone="neutral" | "primary" | "secondary"` independently of filled, outlined, and
+soft variants. All default to `primary` and preserve previous primary appearances.
+Selection controls use neutral disabled appearances regardless of tone. Set tone on
+SegmentedControl.Root; its items inherit it, while nested roots keep their own palette. Neutral soft segments use the elevated selected surface against the subtle group background.
+Slider and RangeSlider share tone across the active track, thumbs, marks, labels,
+and value bubbles. Avatar tone styles fallback content and borders, not images or
+presence status. Token maps are explicitly authored as `colors[tone][variant]`
+(replacing `variants[variant]`) and retain their existing state structure.
+
+Tag's semantic prop is now `tone`, replacing `color`; `TagTone` replaces `TagColor`.
+It supports neutral, primary, secondary, error, warning, success, and info, with
+primary as the default. Feedback tones retain their previous appearance.

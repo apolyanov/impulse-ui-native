@@ -3,7 +3,11 @@ import type { LayoutChangeEvent, ViewStyle } from "react-native";
 import type { Gesture } from "react-native-gesture-handler";
 import type { AnimatedStyle, SharedValue } from "react-native-reanimated";
 
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 import type {
   SliderMarkDefinition,
@@ -46,6 +50,7 @@ export interface SliderTrackProps extends SliderInteractionHandlers {
   showValueBubble: boolean;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export interface SliderThumbProps {
@@ -55,6 +60,7 @@ export interface SliderThumbProps {
   size: ComponentSize;
   valueLabel: string;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export interface SliderLabelsProps {
@@ -65,6 +71,7 @@ export interface SliderLabelsProps {
   showMarkLabels: boolean;
   showMinMax: boolean;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export interface UseSliderOptions {

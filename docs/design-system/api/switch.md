@@ -1,6 +1,6 @@
 # @impulse-ui-native/switch
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -46,6 +46,14 @@ Use `defaultChecked` for uncontrolled state. The thumb position and track colors
 
 Set `loading` while an update is pending. Loading switches show an activity indicator and block further presses until loading ends. Disabled switches also block interaction.
 
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -66,7 +74,6 @@ import type {
   ViewStyle,
 } from "react-native";
 import { memo, useCallback, useMemo } from "react";
-import { StyleSheet } from "react-native";
 import Animated from "react-native-reanimated";
 
 import { useControllableState } from "@impulse-ui-native/core";
@@ -88,6 +95,7 @@ export const Switch = memo(function Switch({
   size = "medium",
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: SwitchProps) {
   const [checked, setChecked] = useControllableState<boolean>({
@@ -104,7 +112,7 @@ export const Switch = memo(function Switch({
     colors,
     loadingIndicatorColor,
     sizeTokens,
-  } = useSwitchTokens({ disabled: interactionDisabled, size, variant });
+  } = useSwitchTokens({ disabled: interactionDisabled, size, variant, tone });
   const styles = useThemedStyles(switchStyles, { size }, [size]);
   const { thumbStyle, trackStyle } = useSwitchAnimation({
     animationDuration,
@@ -181,7 +189,11 @@ export * from "./switch.types";
 
 ```tsx
 import type { PressableCoreProps } from "@impulse-ui-native/primitives";
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export interface SwitchProps extends Omit<PressableCoreProps, "children"> {
   checked?: boolean;
@@ -189,6 +201,7 @@ export interface SwitchProps extends Omit<PressableCoreProps, "children"> {
   onCheckedChange?: (checked: boolean) => void;
   size?: ComponentSize;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 export interface SwitchThemeProps {

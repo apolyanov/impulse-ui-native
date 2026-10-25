@@ -6,6 +6,12 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
   const secondary = tokens.colors.secondary.value;
   const secondaryContrast = tokens.colors.secondary.contrast;
 
+  const neutral = tokens.colors.text.secondary;
+  const neutralContrast = tokens.colors.text.inverse;
+  const neutralSoft = tokens.colors.surface.subtle.value;
+  const neutralSoftContrast = tokens.colors.text.primary;
+  const subtle = tokens.colors.subtle.value;
+
   return {
     borderWidth: tokens.borderSize.md,
     borderRadius: tokens.radii.round,
@@ -28,71 +34,209 @@ export function createRadioTokens(tokens: PrimitiveThemeTokens): RadioTokens {
       },
     },
 
-    variants: {
-      filled: {
-        unselected: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.strong.value,
-          color: primaryContrast,
+    colors: {
+      neutral: {
+        filled: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: neutralContrast,
+          },
+          selected: {
+            backgroundColor: neutral,
+            borderColor: neutral,
+            color: neutralContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
-        selected: {
-          backgroundColor: primary,
-          borderColor: primary,
-          color: primaryContrast,
+        outlined: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: neutral,
+          },
+          selected: {
+            backgroundColor: "transparent",
+            borderColor: neutral,
+            color: neutral,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
-        disabledUnselected: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.default.value,
-          color: tokens.colors.text.disabled,
-        },
-        disabledSelected: {
-          backgroundColor: tokens.colors.surface.subtle.value,
-          borderColor: tokens.colors.border.default.value,
-          color: tokens.colors.text.disabled,
+        soft: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: neutralSoftContrast,
+          },
+          selected: {
+            backgroundColor: neutralSoft,
+            borderColor: neutralSoft,
+            color: neutralSoftContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
       },
-      outlined: {
-        unselected: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.strong.value,
-          color: primary,
+      primary: {
+        filled: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: primaryContrast,
+          },
+          selected: {
+            backgroundColor: primary,
+            borderColor: primary,
+            color: primaryContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
-        selected: {
-          backgroundColor: "transparent",
-          borderColor: primary,
-          color: primary,
+        outlined: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: primary,
+          },
+          selected: {
+            backgroundColor: "transparent",
+            borderColor: primary,
+            color: primary,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
-        disabledUnselected: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.default.value,
-          color: tokens.colors.text.disabled,
-        },
-        disabledSelected: {
-          backgroundColor: tokens.colors.surface.subtle.value,
-          borderColor: tokens.colors.border.default.value,
-          color: tokens.colors.text.disabled,
+        soft: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: secondaryContrast,
+          },
+          selected: {
+            backgroundColor: secondary,
+            borderColor: secondary,
+            color: secondaryContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
       },
-      soft: {
-        unselected: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.strong.value,
-          color: secondaryContrast,
+      secondary: {
+        filled: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: secondaryContrast,
+          },
+          selected: {
+            backgroundColor: secondary,
+            borderColor: secondary,
+            color: secondaryContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
-        selected: {
-          backgroundColor: secondary,
-          borderColor: secondary,
-          color: secondaryContrast,
+        outlined: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: secondaryContrast,
+          },
+          selected: {
+            backgroundColor: "transparent",
+            borderColor: secondaryContrast,
+            color: secondaryContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
-        disabledUnselected: {
-          backgroundColor: "transparent",
-          borderColor: tokens.colors.border.default.value,
-          color: tokens.colors.text.disabled,
-        },
-        disabledSelected: {
-          backgroundColor: tokens.colors.surface.subtle.value,
-          borderColor: tokens.colors.border.default.value,
-          color: tokens.colors.text.disabled,
+        soft: {
+          unselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.strong.value,
+            color: secondaryContrast,
+          },
+          selected: {
+            backgroundColor: subtle,
+            borderColor: subtle,
+            color: secondaryContrast,
+          },
+          disabledUnselected: {
+            backgroundColor: "transparent",
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
+          disabledSelected: {
+            backgroundColor: tokens.colors.surface.subtle.value,
+            borderColor: tokens.colors.border.default.value,
+            color: tokens.colors.text.disabled,
+          },
         },
       },
     },

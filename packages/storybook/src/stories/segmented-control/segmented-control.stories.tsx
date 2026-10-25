@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SegmentedControl } from "@impulse-ui-native/segmented-control";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
   SelectionVariantOptions,
 } from "@impulse-ui-native/storybook";
@@ -22,8 +23,15 @@ const meta = {
     overflow: "scroll",
     size: "medium",
     variant: "filled",
+    tone: "primary",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description:
+        "Selects the neutral, primary, or secondary palette. Defaults to primary.",
+    },
     value: {
       control: "text",
       description: "Controls the selected item value.",
@@ -62,6 +70,9 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const Neutral: Story = createSegmentedControlStory("Neutral");
+export const Secondary: Story = createSegmentedControlStory("Secondary");
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

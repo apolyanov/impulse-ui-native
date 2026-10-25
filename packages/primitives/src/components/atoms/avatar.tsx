@@ -18,13 +18,14 @@ export const Avatar = memo(function Avatar({
   statusColor,
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: AvatarProps) {
   const extractedStyleProps = useStyleProps(props);
   const styles = useThemedStyles(
     themedStyles,
-    { size, status, statusColor, variant },
-    [size, status, statusColor, variant],
+    { size, status, statusColor, variant, tone },
+    [size, status, statusColor, variant, tone],
   );
 
   const sourceKey = useMemo(() => JSON.stringify(source), [source]);
@@ -101,13 +102,14 @@ interface AvatarThemeProps {
   status: AvatarProps["status"];
   statusColor: AvatarProps["statusColor"];
   variant: NonNullable<AvatarProps["variant"]>;
+  tone: NonNullable<AvatarProps["tone"]>;
 }
 
 function themedStyles(theme: AppTheme, props: AvatarThemeProps) {
-  const { size, status, statusColor, variant } = props;
+  const { size, status, statusColor, variant, tone } = props;
   const avatarTokens = theme.components.avatar;
   const sizeTokens = avatarTokens.sizes[size];
-  const variantTokens = avatarTokens.variants[variant];
+  const variantTokens = avatarTokens.colors[tone][variant];
 
   return StyleSheet.create({
     container: {

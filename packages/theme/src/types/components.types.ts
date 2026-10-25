@@ -47,7 +47,9 @@ export interface SelectionItemState {
   selected: boolean;
 }
 
-export type ButtonTone = "neutral" | "primary" | "secondary";
+export type ComponentTone = "neutral" | "primary" | "secondary";
+
+export type ButtonTone = ComponentTone;
 
 export type ActionVariant = "filled" | "outlined" | "soft" | "ghost";
 
@@ -55,7 +57,7 @@ export type DisplayVariant = "filled" | "outlined" | "soft";
 
 export type FieldVariant = "filled" | "outlined" | "soft";
 
-export type FieldTone = "neutral" | "primary" | "secondary";
+export type FieldTone = ComponentTone;
 
 export type SelectionVariant = "filled" | "outlined" | "soft";
 

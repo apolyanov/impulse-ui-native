@@ -1,7 +1,11 @@
 import type { ComponentRef, RefObject } from "react";
 import type { View } from "react-native";
 
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export type SegmentedControlSelectValue = (value: string) => void;
 
@@ -11,6 +15,7 @@ export interface SegmentedControlContextData {
   selectedValue: string | undefined;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
   initialSelectedValue: string | undefined;
   initialScrollRef: RefObject<ComponentRef<typeof View> | null>;
   onInitialItemLayout: () => void;

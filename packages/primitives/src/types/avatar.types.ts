@@ -10,6 +10,7 @@ import type {
 import type {
   AvatarStatus,
   ComponentSize,
+  ComponentTone,
   DisplayVariant,
 } from "@impulse-ui-native/theme";
 
@@ -28,4 +29,5 @@ export interface AvatarProps extends Omit<ViewProps, "children"> {
   status?: AvatarStatus;
   statusColor?: ViewStyle["backgroundColor"];
   variant?: DisplayVariant;
+  tone?: ComponentTone;
 }

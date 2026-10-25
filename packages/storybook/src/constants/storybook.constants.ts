@@ -2,6 +2,7 @@ import type {
   ActionVariant,
   ButtonTone,
   ComponentSize,
+  ComponentTone,
   DisplayVariant,
   FieldTone,
   FieldVariant,
@@ -53,3 +54,9 @@ export const ButtonToneOptions = [
   "primary",
   "secondary",
 ] satisfies ButtonTone[];
+
+export const ComponentToneOptions = [
+  "neutral",
+  "primary",
+  "secondary",
+] satisfies ComponentTone[];

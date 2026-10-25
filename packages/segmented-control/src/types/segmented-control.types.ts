@@ -4,6 +4,7 @@ import type { PressableProps, ScrollViewProps } from "react-native";
 import type { IconProps } from "@impulse-ui-native/icon/types";
 import type {
   ComponentSize,
+  ComponentTone,
   SegmentedControlItemLayout,
   SelectionVariant,
 } from "@impulse-ui-native/theme";
@@ -22,6 +23,7 @@ interface SegmentedControlRootCommonProps extends Omit<
   overflow?: SegmentedControlOverflow;
   size?: ComponentSize;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 interface SegmentedControlControlledRootProps extends SegmentedControlRootCommonProps {
@@ -35,8 +37,7 @@ interface SegmentedControlUncontrolledRootProps extends SegmentedControlRootComm
 }
 
 export type SegmentedControlRootProps =
-  | SegmentedControlControlledRootProps
-  | SegmentedControlUncontrolledRootProps;
+  SegmentedControlControlledRootProps | SegmentedControlUncontrolledRootProps;
 
 export interface SegmentedControlItemProps extends Omit<
   PressableProps,
@@ -57,4 +58,5 @@ export interface SegmentedControlItemThemeProps {
   selected: boolean;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }

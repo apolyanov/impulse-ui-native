@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   SelectionVisualState,
   VisualStateTokens,
@@ -29,5 +30,5 @@ export interface CheckboxTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: CheckboxSizeTokens;
-  variants: CheckboxVariantTokens;
+  colors: Record<ComponentTone, CheckboxVariantTokens>;
 }

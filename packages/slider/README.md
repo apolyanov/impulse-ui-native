@@ -91,3 +91,13 @@ Reanimated visuals. The callback must be a worklet and runs on the UI thread
 before step snapping; keep React state updates in `onValueChange`.
 
 Slider accepts trackContent for gradient or other custom track visuals. It renders the supplied content inside the clipped track and omits the numeric active fill. Touch handling, thumb, and callbacks remain unchanged. The theme token components.slider.interactionMinHeight defaults to 44 for native touch targets.
+
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
+Both `Slider` and `RangeSlider` apply tone to the active track, every thumb, marks, labels, and value bubbles. Gesture and value semantics are unchanged.

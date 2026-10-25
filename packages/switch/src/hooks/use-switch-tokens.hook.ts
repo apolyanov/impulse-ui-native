@@ -1,6 +1,10 @@
 import { useMemo } from "react";
 
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 import {
   getAvailabilityStateTokens,
   useComponentsTokens,
@@ -19,17 +23,19 @@ interface UseSwitchTokensOptions {
   disabled: boolean;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export function useSwitchTokens({
   disabled,
   size,
   variant,
+  tone,
 }: UseSwitchTokensOptions) {
   const tokens = useComponentsTokens().switch;
   const sizeTokens = tokens.sizes[size];
   const colors: SwitchAnimationColors = getAvailabilityStateTokens(
-    tokens.variants[variant],
+    tokens.colors[tone][variant],
     { disabled },
   );
 

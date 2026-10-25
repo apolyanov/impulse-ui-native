@@ -1,6 +1,7 @@
 import type {
   AvailabilityVisualState,
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   VisualStateTokens,
 } from "./components.types";
@@ -38,5 +39,5 @@ export interface SwitchTokens {
   thumbBorderRadius: number;
   loadingIndicatorColor: string;
   sizes: SwitchSizeTokens;
-  variants: SwitchVariantTokens;
+  colors: Record<ComponentTone, SwitchVariantTokens>;
 }

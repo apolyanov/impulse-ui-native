@@ -36,6 +36,7 @@ export const Slider = memo(function Slider({
   trackContent,
   value,
   variant = "filled",
+  tone = "primary",
   ...props
 }: SliderProps) {
   const slider = useSlider({
@@ -66,6 +67,7 @@ export const Slider = memo(function Slider({
         size={size}
         trackContent={trackContent}
         variant={variant}
+        tone={tone}
       >
         <SliderThumbControl
           disabled={disabled}
@@ -74,6 +76,7 @@ export const Slider = memo(function Slider({
           size={size}
           valueLabel={slider.valueLabel}
           variant={variant}
+          tone={tone}
         />
       </SliderTrack>
 
@@ -85,6 +88,7 @@ export const Slider = memo(function Slider({
         showMarkLabels={showMarkLabels}
         showMinMax={showMinMax}
         variant={variant}
+        tone={tone}
       />
     </View>
   );

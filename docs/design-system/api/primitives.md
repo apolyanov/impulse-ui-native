@@ -1,6 +1,6 @@
 # @impulse-ui-native/primitives
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -74,7 +74,7 @@ export function ProfileSummary() {
     <View gap={space.md} padding={space.lg}>
       <Typography.Title3>Profile</Typography.Title3>
       <Avatar initials="AK" status="online" variant="soft" />
-      <Tag label="Active" color="success" />
+      <Tag label="Active" tone="success" />
       <Badge tone="success" variant="soft">
         Active
       </Badge>
@@ -230,6 +230,18 @@ Custom action tokens move from `variants[variant][state]` to
 explicitly for direct lookup. For custom Button children, style their foreground
 using the matching resolved action tokens; string children are styled automatically.
 
+## Tag and Avatar tones
+
+`Tag` now uses `tone` instead of `color`, with the exported `TagTone` type replacing
+`TagColor`. It supports `neutral`, `primary`, `secondary`, `error`, `warning`,
+`success`, and `info`; existing feedback palettes remain available. The default is
+`primary`. Use `<Tag label="Active" tone="success" />`.
+
+`Avatar` accepts `tone="neutral" | "primary" | "secondary"`, defaulting to
+`primary`, across filled, outlined, and soft variants. Tone affects the fallback
+surface, initials, and border; images and presence/status colors retain their own
+meaning. Avatar appearance tokens move to `components.avatar.colors[tone][variant]`.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -257,13 +269,14 @@ export const Avatar = memo(function Avatar({
   statusColor,
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: AvatarProps) {
   const extractedStyleProps = useStyleProps(props);
   const styles = useThemedStyles(
     themedStyles,
-    { size, status, statusColor, variant },
-    [size, status, statusColor, variant],
+    { size, status, statusColor, variant, tone },
+    [size, status, statusColor, variant, tone],
   );
 
   const sourceKey = useMemo(() => JSON.stringify(source), [source]);
@@ -340,13 +353,14 @@ interface AvatarThemeProps {
   status: AvatarProps["status"];
   statusColor: AvatarProps["statusColor"];
   variant: NonNullable<AvatarProps["variant"]>;
+  tone: NonNullable<AvatarProps["tone"]>;
 }
 
 function themedStyles(theme: AppTheme, props: AvatarThemeProps) {
-  const { size, status, statusColor, variant } = props;
+  const { size, status, statusColor, variant, tone } = props;
   const avatarTokens = theme.components.avatar;
   const sizeTokens = avatarTokens.sizes[size];
-  const variantTokens = avatarTokens.variants[variant];
+  const variantTokens = avatarTokens.colors[tone][variant];
 
   return StyleSheet.create({
     container: {
@@ -1124,7 +1138,7 @@ export const Tag = memo(function Tag({
   label,
   size = "medium",
   variant = "filled",
-  color = "primary",
+  tone = "primary",
   closable,
   disabled,
   onClose,
@@ -1140,9 +1154,9 @@ export const Tag = memo(function Tag({
       size,
       variant,
       disabled,
-      color,
+      tone,
     },
-    [size, variant, disabled, color],
+    [size, variant, disabled, tone],
   );
 
   const Container = onPress ? Pressable : View;
@@ -1168,12 +1182,12 @@ export const Tag = memo(function Tag({
 });
 
 function themedStyles(theme: AppTheme, props: TagThemeProps) {
-  const { size, variant, color, disabled } = props;
+  const { size, variant, tone, disabled } = props;
 
   const tagTokens = theme.components.tag;
   const sizeTokens = tagTokens.sizes[size];
   const appearanceTokens = getAvailabilityStateTokens(
-    tagTokens.colors[color][variant],
+    tagTokens.colors[tone][variant],
     { disabled },
   );
 
@@ -1693,6 +1707,7 @@ import type {
 import type {
   AvatarStatus,
   ComponentSize,
+  ComponentTone,
   DisplayVariant,
 } from "@impulse-ui-native/theme";
 
@@ -1711,6 +1726,7 @@ export interface AvatarProps extends Omit<ViewProps, "children"> {
   status?: AvatarStatus;
   statusColor?: ViewStyle["backgroundColor"];
   variant?: DisplayVariant;
+  tone?: ComponentTone;
 }
 ```
 
@@ -1968,15 +1984,15 @@ import { PressableProps, ViewStyle } from "react-native";
 import {
   ComponentSize,
   DisplayVariant,
-  TagColor,
-  TagColorTokens,
+  TagTone,
+  TagToneTokens,
 } from "@impulse-ui-native/theme";
 
 export interface TagProps {
   label: string;
   size?: ComponentSize;
   variant?: DisplayVariant;
-  color?: TagColor;
+  tone?: TagTone;
   closable?: boolean;
   disabled?: boolean;
   onClose?: () => void;
@@ -1987,7 +2003,7 @@ export interface TagProps {
 export interface TagThemeProps {
   size: ComponentSize;
   variant: DisplayVariant;
-  color: TagColor;
+  tone: TagTone;
   disabled?: boolean;
 }
 ```

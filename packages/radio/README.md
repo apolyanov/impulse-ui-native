@@ -40,3 +40,11 @@ Use `defaultChecked` for uncontrolled state. Pressing a radio selects it;
 pressing it again does not clear the selection. The component accepts the
 shared `small`, `medium`, and `large` sizes and the `filled`, `outlined`, and
 `soft` selection variants.
+
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.

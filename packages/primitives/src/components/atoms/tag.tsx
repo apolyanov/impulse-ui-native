@@ -18,7 +18,7 @@ export const Tag = memo(function Tag({
   label,
   size = "medium",
   variant = "filled",
-  color = "primary",
+  tone = "primary",
   closable,
   disabled,
   onClose,
@@ -34,9 +34,9 @@ export const Tag = memo(function Tag({
       size,
       variant,
       disabled,
-      color,
+      tone,
     },
-    [size, variant, disabled, color],
+    [size, variant, disabled, tone],
   );
 
   const Container = onPress ? Pressable : View;
@@ -62,12 +62,12 @@ export const Tag = memo(function Tag({
 });
 
 function themedStyles(theme: AppTheme, props: TagThemeProps) {
-  const { size, variant, color, disabled } = props;
+  const { size, variant, tone, disabled } = props;
 
   const tagTokens = theme.components.tag;
   const sizeTokens = tagTokens.sizes[size];
   const appearanceTokens = getAvailabilityStateTokens(
-    tagTokens.colors[color][variant],
+    tagTokens.colors[tone][variant],
     { disabled },
   );
 

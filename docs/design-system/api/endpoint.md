@@ -1,6 +1,6 @@
 # @impulse-ui-native/endpoint
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

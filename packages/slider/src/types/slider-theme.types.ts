@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   SliderTrackLayout,
 } from "@impulse-ui-native/theme";
@@ -7,6 +8,7 @@ import type {
 export interface SliderLabelsThemeProps {
   disabled: boolean;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export interface SliderThumbThemeProps extends SliderLabelsThemeProps {

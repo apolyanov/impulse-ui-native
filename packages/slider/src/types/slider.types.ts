@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 import type { ViewProps } from "react-native";
 
-import type { ComponentSize, SelectionVariant } from "@impulse-ui-native/theme";
+import type {
+  ComponentSize,
+  ComponentTone,
+  SelectionVariant,
+} from "@impulse-ui-native/theme";
 
 export type SliderValue = readonly [number, number];
 
@@ -19,6 +23,7 @@ interface SliderCommonProps extends ViewProps {
   size?: ComponentSize;
   step?: number;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 export interface SliderProps extends SliderCommonProps {

@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -915,6 +915,12 @@ export function createSegmentedControlTokens(
   const secondaryContrast = tokens.colors.secondary.contrast;
   const transparent = "transparent";
 
+  const neutral = tokens.colors.text.secondary;
+  const neutralContrast = tokens.colors.text.inverse;
+  const neutralSoft = tokens.colors.surface.elevated.value;
+  const neutralSoftContrast = tokens.colors.text.primary;
+  const subtle = tokens.colors.subtle.value;
+
   return {
     borderRadius: tokens.radii.md,
     borderWidth: tokens.borderSize.sm,
@@ -986,76 +992,226 @@ export function createSegmentedControlTokens(
         paddingHorizontal: tokens.space.sm,
       },
     },
-    variants: {
-      filled: {
-        states: {
-          unselected: {
-            backgroundColor: transparent,
-            borderColor: transparent,
-            color: tokens.colors.text.secondary,
+    colors: {
+      neutral: {
+        filled: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: neutral,
+              borderColor: neutral,
+              color: neutralContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: tokens.colors.surface.subtle.value,
+              borderColor: tokens.colors.border.subtle.value,
+              color: tokens.colors.text.disabled,
+            },
           },
-          selected: {
-            backgroundColor: primary,
-            borderColor: primary,
-            color: primaryContrast,
+        },
+        outlined: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: tokens.colors.surface.elevated.value,
+              borderColor: neutral,
+              color: neutral,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: transparent,
+              borderColor: tokens.colors.border.default.value,
+              color: tokens.colors.text.disabled,
+            },
           },
-          disabledUnselected: {
-            backgroundColor: transparent,
-            borderColor: transparent,
-            color: tokens.colors.text.disabled,
-          },
-          disabledSelected: {
-            backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.subtle.value,
-            color: tokens.colors.text.disabled,
+        },
+        soft: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: neutralSoft,
+              borderColor: neutralSoft,
+              color: neutralSoftContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: tokens.colors.surface.subtle.value,
+              borderColor: tokens.colors.border.subtle.value,
+              color: tokens.colors.text.disabled,
+            },
           },
         },
       },
-      outlined: {
-        states: {
-          unselected: {
-            backgroundColor: transparent,
-            borderColor: transparent,
-            color: tokens.colors.text.secondary,
+      primary: {
+        filled: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: primary,
+              borderColor: primary,
+              color: primaryContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: tokens.colors.surface.subtle.value,
+              borderColor: tokens.colors.border.subtle.value,
+              color: tokens.colors.text.disabled,
+            },
           },
-          selected: {
-            backgroundColor: tokens.colors.surface.elevated.value,
-            borderColor: primary,
-            color: primary,
+        },
+        outlined: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: tokens.colors.surface.elevated.value,
+              borderColor: primary,
+              color: primary,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: transparent,
+              borderColor: tokens.colors.border.default.value,
+              color: tokens.colors.text.disabled,
+            },
           },
-          disabledUnselected: {
-            backgroundColor: transparent,
-            borderColor: transparent,
-            color: tokens.colors.text.disabled,
-          },
-          disabledSelected: {
-            backgroundColor: transparent,
-            borderColor: tokens.colors.border.default.value,
-            color: tokens.colors.text.disabled,
+        },
+        soft: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: secondary,
+              borderColor: secondary,
+              color: secondaryContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: tokens.colors.surface.subtle.value,
+              borderColor: tokens.colors.border.subtle.value,
+              color: tokens.colors.text.disabled,
+            },
           },
         },
       },
-      soft: {
-        states: {
-          unselected: {
-            backgroundColor: transparent,
-            borderColor: transparent,
-            color: tokens.colors.text.secondary,
+      secondary: {
+        filled: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: secondary,
+              borderColor: secondary,
+              color: secondaryContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: tokens.colors.surface.subtle.value,
+              borderColor: tokens.colors.border.subtle.value,
+              color: tokens.colors.text.disabled,
+            },
           },
-          selected: {
-            backgroundColor: secondary,
-            borderColor: secondary,
-            color: secondaryContrast,
+        },
+        outlined: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: tokens.colors.surface.elevated.value,
+              borderColor: secondaryContrast,
+              color: secondaryContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: transparent,
+              borderColor: tokens.colors.border.default.value,
+              color: tokens.colors.text.disabled,
+            },
           },
-          disabledUnselected: {
-            backgroundColor: transparent,
-            borderColor: transparent,
-            color: tokens.colors.text.disabled,
-          },
-          disabledSelected: {
-            backgroundColor: tokens.colors.surface.subtle.value,
-            borderColor: tokens.colors.border.subtle.value,
-            color: tokens.colors.text.disabled,
+        },
+        soft: {
+          states: {
+            unselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.secondary,
+            },
+            selected: {
+              backgroundColor: subtle,
+              borderColor: subtle,
+              color: secondaryContrast,
+            },
+            disabledUnselected: {
+              backgroundColor: transparent,
+              borderColor: transparent,
+              color: tokens.colors.text.disabled,
+            },
+            disabledSelected: {
+              backgroundColor: tokens.colors.surface.subtle.value,
+              borderColor: tokens.colors.border.subtle.value,
+              color: tokens.colors.text.disabled,
+            },
           },
         },
       },
@@ -1108,137 +1264,407 @@ export function createSliderTokens(tokens: PrimitiveThemeTokens): SliderTokens {
         markSize: 8,
       },
     },
-    variants: {
-      filled: {
-        default: {
-          activeMarkColor: tokens.colors.primary.contrast,
-          activeTrackColor: tokens.colors.primary.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.primary.value,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.primary.value,
-          thumbBorderColor: tokens.colors.primary.value,
-          thumbBorderWidth: tokens.borderSize.sm,
-          thumbHighlightColor: tokens.colors.primary.contrast,
-          valueBubbleBackgroundColor: tokens.colors.primary.value,
-          valueBubbleBorderColor: tokens.colors.primary.value,
-          valueBubbleColor: tokens.colors.primary.contrast,
+    colors: {
+      neutral: {
+        filled: {
+          default: {
+            activeMarkColor: tokens.colors.text.inverse,
+            activeTrackColor: tokens.colors.text.secondary,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.secondary,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.text.secondary,
+            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.text.inverse,
+            valueBubbleBackgroundColor: tokens.colors.text.secondary,
+            valueBubbleBorderColor: tokens.colors.text.secondary,
+            valueBubbleColor: tokens.colors.text.inverse,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.text.inverse,
+            activeTrackColor: tokens.colors.text.secondary,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.secondary,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.text.secondary,
+            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.text.inverse,
+            valueBubbleBackgroundColor: tokens.colors.text.secondary,
+            valueBubbleBorderColor: tokens.colors.text.secondary,
+            valueBubbleColor: tokens.colors.text.inverse,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
-        focused: {
-          activeMarkColor: tokens.colors.primary.contrast,
-          activeTrackColor: tokens.colors.primary.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.primary.value,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.primary.value,
-          thumbBorderColor: tokens.colors.primary.value,
-          thumbBorderWidth: tokens.borderSize.sm,
-          thumbHighlightColor: tokens.colors.primary.contrast,
-          valueBubbleBackgroundColor: tokens.colors.primary.value,
-          valueBubbleBorderColor: tokens.colors.primary.value,
-          valueBubbleColor: tokens.colors.primary.contrast,
+        outlined: {
+          default: {
+            activeMarkColor: tokens.colors.text.inverse,
+            activeTrackColor: tokens.colors.text.secondary,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.secondary,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: "transparent",
+            valueBubbleBorderColor: tokens.colors.text.secondary,
+            valueBubbleColor: tokens.colors.text.secondary,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.text.inverse,
+            activeTrackColor: tokens.colors.text.secondary,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.secondary,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: "transparent",
+            valueBubbleBorderColor: tokens.colors.text.secondary,
+            valueBubbleColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
-        disabled: {
-          activeMarkColor: tokens.colors.surface.elevated.value,
-          activeTrackColor: tokens.colors.border.strong.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.text.disabled,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.border.strong.value,
-          thumbBorderColor: tokens.colors.border.strong.value,
-          thumbBorderWidth: tokens.borderSize.sm,
-          thumbHighlightColor: "transparent",
-          valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
-          valueBubbleBorderColor: tokens.colors.border.default.value,
-          valueBubbleColor: tokens.colors.text.disabled,
+        soft: {
+          default: {
+            activeMarkColor: tokens.colors.text.primary,
+            activeTrackColor: tokens.colors.surface.subtle.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.primary,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.text.secondary,
+            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.text.inverse,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
+            valueBubbleBorderColor: tokens.colors.surface.subtle.value,
+            valueBubbleColor: tokens.colors.text.primary,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.text.primary,
+            activeTrackColor: tokens.colors.surface.subtle.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.primary,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.text.secondary,
+            thumbBorderColor: tokens.colors.text.secondary,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.text.inverse,
+            valueBubbleBackgroundColor: tokens.colors.surface.subtle.value,
+            valueBubbleBorderColor: tokens.colors.surface.subtle.value,
+            valueBubbleColor: tokens.colors.text.primary,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
       },
-      outlined: {
-        default: {
-          activeMarkColor: tokens.colors.primary.contrast,
-          activeTrackColor: tokens.colors.primary.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.primary.value,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.surface.elevated.value,
-          thumbBorderColor: tokens.colors.primary.value,
-          thumbBorderWidth: tokens.borderSize.md,
-          thumbHighlightColor: "transparent",
-          valueBubbleBackgroundColor: "transparent",
-          valueBubbleBorderColor: tokens.colors.primary.value,
-          valueBubbleColor: tokens.colors.primary.value,
+      primary: {
+        filled: {
+          default: {
+            activeMarkColor: tokens.colors.primary.contrast,
+            activeTrackColor: tokens.colors.primary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.primary.value,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.primary.value,
+            thumbBorderColor: tokens.colors.primary.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.primary.contrast,
+            valueBubbleBackgroundColor: tokens.colors.primary.value,
+            valueBubbleBorderColor: tokens.colors.primary.value,
+            valueBubbleColor: tokens.colors.primary.contrast,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.primary.contrast,
+            activeTrackColor: tokens.colors.primary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.primary.value,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.primary.value,
+            thumbBorderColor: tokens.colors.primary.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.primary.contrast,
+            valueBubbleBackgroundColor: tokens.colors.primary.value,
+            valueBubbleBorderColor: tokens.colors.primary.value,
+            valueBubbleColor: tokens.colors.primary.contrast,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
-        focused: {
-          activeMarkColor: tokens.colors.primary.contrast,
-          activeTrackColor: tokens.colors.primary.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.primary.value,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.surface.elevated.value,
-          thumbBorderColor: tokens.colors.primary.value,
-          thumbBorderWidth: tokens.borderSize.md,
-          thumbHighlightColor: "transparent",
-          valueBubbleBackgroundColor: "transparent",
-          valueBubbleBorderColor: tokens.colors.primary.value,
-          valueBubbleColor: tokens.colors.primary.value,
+        outlined: {
+          default: {
+            activeMarkColor: tokens.colors.primary.contrast,
+            activeTrackColor: tokens.colors.primary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.primary.value,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBorderColor: tokens.colors.primary.value,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: "transparent",
+            valueBubbleBorderColor: tokens.colors.primary.value,
+            valueBubbleColor: tokens.colors.primary.value,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.primary.contrast,
+            activeTrackColor: tokens.colors.primary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.primary.value,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBorderColor: tokens.colors.primary.value,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: "transparent",
+            valueBubbleBorderColor: tokens.colors.primary.value,
+            valueBubbleColor: tokens.colors.primary.value,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
-        disabled: {
-          activeMarkColor: tokens.colors.surface.elevated.value,
-          activeTrackColor: tokens.colors.border.strong.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.text.disabled,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.border.strong.value,
-          thumbBorderColor: tokens.colors.border.strong.value,
-          thumbBorderWidth: tokens.borderSize.md,
-          thumbHighlightColor: "transparent",
-          valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
-          valueBubbleBorderColor: tokens.colors.border.default.value,
-          valueBubbleColor: tokens.colors.text.disabled,
+        soft: {
+          default: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.secondary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.contrast,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.accent.value,
+            thumbBorderColor: tokens.colors.accent.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.accent.contrast,
+            valueBubbleBackgroundColor: tokens.colors.secondary.value,
+            valueBubbleBorderColor: tokens.colors.secondary.value,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.secondary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.contrast,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.accent.value,
+            thumbBorderColor: tokens.colors.accent.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.accent.contrast,
+            valueBubbleBackgroundColor: tokens.colors.secondary.value,
+            valueBubbleBorderColor: tokens.colors.secondary.value,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
       },
-      soft: {
-        default: {
-          activeMarkColor: tokens.colors.secondary.contrast,
-          activeTrackColor: tokens.colors.secondary.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.secondary.contrast,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.accent.value,
-          thumbBorderColor: tokens.colors.accent.value,
-          thumbBorderWidth: tokens.borderSize.sm,
-          thumbHighlightColor: tokens.colors.accent.contrast,
-          valueBubbleBackgroundColor: tokens.colors.secondary.value,
-          valueBubbleBorderColor: tokens.colors.secondary.value,
-          valueBubbleColor: tokens.colors.secondary.contrast,
+      secondary: {
+        filled: {
+          default: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.secondary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.value,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.secondary.value,
+            thumbBorderColor: tokens.colors.secondary.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.secondary.contrast,
+            valueBubbleBackgroundColor: tokens.colors.secondary.value,
+            valueBubbleBorderColor: tokens.colors.secondary.value,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.secondary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.value,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.secondary.value,
+            thumbBorderColor: tokens.colors.secondary.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.secondary.contrast,
+            valueBubbleBackgroundColor: tokens.colors.secondary.value,
+            valueBubbleBorderColor: tokens.colors.secondary.value,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
-        focused: {
-          activeMarkColor: tokens.colors.secondary.contrast,
-          activeTrackColor: tokens.colors.secondary.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.secondary.contrast,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.accent.value,
-          thumbBorderColor: tokens.colors.accent.value,
-          thumbBorderWidth: tokens.borderSize.sm,
-          thumbHighlightColor: tokens.colors.accent.contrast,
-          valueBubbleBackgroundColor: tokens.colors.secondary.value,
-          valueBubbleBorderColor: tokens.colors.secondary.value,
-          valueBubbleColor: tokens.colors.secondary.contrast,
+        outlined: {
+          default: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.secondary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.contrast,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBorderColor: tokens.colors.secondary.contrast,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: "transparent",
+            valueBubbleBorderColor: tokens.colors.secondary.contrast,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.secondary.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.contrast,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.surface.elevated.value,
+            thumbBorderColor: tokens.colors.secondary.contrast,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: "transparent",
+            valueBubbleBorderColor: tokens.colors.secondary.contrast,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.md,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
-        disabled: {
-          activeMarkColor: tokens.colors.surface.elevated.value,
-          activeTrackColor: tokens.colors.border.strong.value,
-          inactiveTrackColor: tokens.colors.border.subtle.value,
-          labelColor: tokens.colors.text.disabled,
-          markColor: tokens.colors.text.primary,
-          thumbBackgroundColor: tokens.colors.border.strong.value,
-          thumbBorderColor: tokens.colors.border.strong.value,
-          thumbBorderWidth: tokens.borderSize.sm,
-          thumbHighlightColor: "transparent",
-          valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
-          valueBubbleBorderColor: tokens.colors.border.default.value,
-          valueBubbleColor: tokens.colors.text.disabled,
+        soft: {
+          default: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.subtle.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.contrast,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.secondary.contrast,
+            thumbBorderColor: tokens.colors.secondary.contrast,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.secondary.value,
+            valueBubbleBackgroundColor: tokens.colors.subtle.value,
+            valueBubbleBorderColor: tokens.colors.subtle.value,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          focused: {
+            activeMarkColor: tokens.colors.secondary.contrast,
+            activeTrackColor: tokens.colors.subtle.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.secondary.contrast,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.secondary.contrast,
+            thumbBorderColor: tokens.colors.secondary.contrast,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: tokens.colors.secondary.value,
+            valueBubbleBackgroundColor: tokens.colors.subtle.value,
+            valueBubbleBorderColor: tokens.colors.subtle.value,
+            valueBubbleColor: tokens.colors.secondary.contrast,
+          },
+          disabled: {
+            activeMarkColor: tokens.colors.surface.elevated.value,
+            activeTrackColor: tokens.colors.border.strong.value,
+            inactiveTrackColor: tokens.colors.border.subtle.value,
+            labelColor: tokens.colors.text.disabled,
+            markColor: tokens.colors.text.primary,
+            thumbBackgroundColor: tokens.colors.border.strong.value,
+            thumbBorderColor: tokens.colors.border.strong.value,
+            thumbBorderWidth: tokens.borderSize.sm,
+            thumbHighlightColor: "transparent",
+            valueBubbleBackgroundColor: tokens.colors.surface.elevated.value,
+            valueBubbleBorderColor: tokens.colors.border.default.value,
+            valueBubbleColor: tokens.colors.text.disabled,
+          },
         },
       },
     },
@@ -1924,7 +2350,11 @@ export interface AccordionTokens {
 ### packages/theme/src/types/avatar-tokens.types.ts
 
 ```tsx
-import type { ComponentSize, DisplayVariant } from "./components.types";
+import type {
+  ComponentSize,
+  ComponentTone,
+  DisplayVariant,
+} from "./components.types";
 
 export type AvatarStatus = "online" | "offline" | "away" | "busy";
 
@@ -1947,7 +2377,7 @@ export interface AvatarTokens {
   sizes: Record<ComponentSize, AvatarSizeTokens>;
   statusBorderColor: string;
   statusColors: Record<AvatarStatus, string>;
-  variants: Record<DisplayVariant, AvatarVariantTokens>;
+  colors: Record<ComponentTone, Record<DisplayVariant, AvatarVariantTokens>>;
 }
 ```
 
@@ -2214,6 +2644,7 @@ export interface ChartsTokens {
 ```tsx
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   SelectionVisualState,
   VisualStateTokens,
@@ -2243,7 +2674,7 @@ export interface CheckboxTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: CheckboxSizeTokens;
-  variants: CheckboxVariantTokens;
+  colors: Record<ComponentTone, CheckboxVariantTokens>;
 }
 ```
 
@@ -2368,7 +2799,9 @@ export interface SelectionItemState {
   selected: boolean;
 }
 
-export type ButtonTone = "neutral" | "primary" | "secondary";
+export type ComponentTone = "neutral" | "primary" | "secondary";
+
+export type ButtonTone = ComponentTone;
 
 export type ActionVariant = "filled" | "outlined" | "soft" | "ghost";
 
@@ -2376,7 +2809,7 @@ export type DisplayVariant = "filled" | "outlined" | "soft";
 
 export type FieldVariant = "filled" | "outlined" | "soft";
 
-export type FieldTone = "neutral" | "primary" | "secondary";
+export type FieldTone = ComponentTone;
 
 export type SelectionVariant = "filled" | "outlined" | "soft";
 
@@ -2977,6 +3410,7 @@ export interface ProgressTokens {
 ```tsx
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   SelectionVisualState,
   VisualStateTokens,
@@ -3006,7 +3440,7 @@ export interface RadioTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: RadioSizeTokens;
-  variants: RadioVariantTokens;
+  colors: Record<ComponentTone, RadioVariantTokens>;
 }
 ```
 
@@ -3015,6 +3449,7 @@ export interface RadioTokens {
 ```tsx
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionState,
   SelectionVariant,
   SelectionVisualState,
@@ -3067,13 +3502,17 @@ export interface SegmentedControlTokens {
   rootGap: number;
   rootPadding: number;
   sizes: SegmentedControlSizeTokens;
-  variants: Record<SelectionVariant, SegmentedControlVariantTokens>;
+  colors: Record<
+    ComponentTone,
+    Record<SelectionVariant, SegmentedControlVariantTokens>
+  >;
 }
 
 export interface SegmentedControlItemTokenState extends SelectionState {
   layout: SegmentedControlItemLayout;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export type ResolvedSegmentedControlItemTokens = Omit<
@@ -3174,6 +3613,7 @@ export interface SkeletonTokens {
 ```tsx
 import type {
   ComponentSize,
+  ComponentTone,
   ControlVisualState,
   SelectionVariant,
   VisualStateTokens,
@@ -3232,7 +3672,7 @@ export interface SliderTokens {
   valueBubbleMinWidth: number;
   layouts: Record<SliderTrackLayout, SliderTrackLayoutTokens>;
   sizes: SliderSizeTokens;
-  variants: SliderVariantTokens;
+  colors: Record<ComponentTone, SliderVariantTokens>;
 }
 
 export interface SliderTrackTokenState {
@@ -3240,6 +3680,7 @@ export interface SliderTrackTokenState {
   layout: SliderTrackLayout;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export type ResolvedSliderTrackTokens = SliderTrackLayoutTokens &
@@ -3330,6 +3771,7 @@ export type StylePropKey = keyof StyleProps;
 import type {
   AvailabilityVisualState,
   ComponentSize,
+  ComponentTone,
   SelectionVariant,
   VisualStateTokens,
 } from "./components.types";
@@ -3367,7 +3809,7 @@ export interface SwitchTokens {
   thumbBorderRadius: number;
   loadingIndicatorColor: string;
   sizes: SwitchSizeTokens;
-  variants: SwitchVariantTokens;
+  colors: Record<ComponentTone, SwitchVariantTokens>;
 }
 ```
 
@@ -3424,8 +3866,14 @@ import type {
   VisualStateTokens,
 } from "./components.types";
 
-export type TagColor =
-  "primary" | "secondary" | "error" | "warning" | "success" | "info";
+export type TagTone =
+  | "neutral"
+  | "primary"
+  | "secondary"
+  | "error"
+  | "warning"
+  | "success"
+  | "info";
 
 export type TagSizeTokens = Record<
   ComponentSize,
@@ -3448,7 +3896,7 @@ export type TagVariantTokens = Record<
   VisualStateTokens<AvailabilityVisualState, TagAppearanceTokens>
 >;
 
-export type TagColorTokens = Record<TagColor, TagVariantTokens>;
+export type TagToneTokens = Record<TagTone, TagVariantTokens>;
 
 export interface TagTokens {
   borderWidth: number;
@@ -3457,7 +3905,7 @@ export interface TagTokens {
   closeHitSlop: number;
   iconMarginLeft: number;
   sizes: TagSizeTokens;
-  colors: TagColorTokens;
+  colors: TagToneTokens;
 }
 ```
 
@@ -4157,10 +4605,10 @@ export function getSegmentedControlItemTokens(
   tokens: SegmentedControlTokens,
   state: SegmentedControlItemTokenState,
 ): ResolvedSegmentedControlItemTokens {
-  const { disabled, layout, selected, size, variant } = state;
+  const { disabled, layout, selected, size, variant, tone } = state;
   const { layouts, ...sizeTokens } = tokens.sizes[size];
   const appearanceTokens = getSelectionStateTokens(
-    tokens.variants[variant].states,
+    tokens.colors[tone][variant].states,
     { disabled, selected },
   );
 
@@ -4233,7 +4681,7 @@ export function getSliderTrackTokens(
   return {
     ...tokens.sizes[state.size],
     ...tokens.layouts[state.layout],
-    ...getControlStateTokens(tokens.variants[state.variant], {
+    ...getControlStateTokens(tokens.colors[state.tone][state.variant], {
       disabled: state.disabled,
     }),
     trackBorderRadius: tokens.trackBorderRadius,

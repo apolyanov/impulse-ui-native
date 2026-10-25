@@ -19,10 +19,12 @@ export const SliderLabels = memo(function SliderLabels({
   showMarkLabels,
   showMinMax,
   variant,
+  tone,
 }: SliderLabelsProps) {
-  const styles = useThemedStyles(themedStyles, { disabled, variant }, [
+  const styles = useThemedStyles(themedStyles, { disabled, variant, tone }, [
     disabled,
     variant,
+    tone,
   ]);
 
   const markLabelStyles = useMemo(
@@ -65,7 +67,7 @@ export const SliderLabels = memo(function SliderLabels({
 function themedStyles(theme: AppTheme, props: SliderLabelsThemeProps) {
   const tokens = theme.components.slider;
   const appearanceTokens = getControlStateTokens(
-    tokens.variants[props.variant],
+    tokens.colors[props.tone][props.variant],
     { disabled: props.disabled },
   );
 

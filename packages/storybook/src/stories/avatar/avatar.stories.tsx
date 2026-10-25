@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "@impulse-ui-native/primitives";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
   DisplayVariantOptions,
 } from "@impulse-ui-native/storybook";
@@ -17,8 +18,15 @@ const meta = {
     initials: "AK",
     size: "medium",
     variant: "filled",
+    tone: "primary",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description:
+        "Selects the neutral, primary, or secondary palette. Defaults to primary.",
+    },
     size: {
       control: "select",
       options: ComponentSizeOptions,
@@ -47,6 +55,9 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+export const Neutral: Story = createAvatarStory("Neutral");
+export const Secondary: Story = createAvatarStory("Secondary");
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

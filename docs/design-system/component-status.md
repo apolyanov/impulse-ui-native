@@ -55,40 +55,40 @@ Validate the new surface on iOS and Android.
 
 ### Content and composition
 
-| Component                 | Package                          | Status    | Storybook                 | Follow-up                                                                         |
-| ------------------------- | -------------------------------- | --------- | ------------------------- | --------------------------------------------------------------------------------- |
-| `Card` and compound parts | `@impulse-ui-native/card`        | Available | Yes                       | Expand native media and pressable-card composition examples.                      |
-| `List` and compound parts | `@impulse-ui-native/list`        | Available | Yes                       | Add realistic native row composition as usage grows.                              |
-| `FlatList`                | `@impulse-ui-native/flat-list`   | Extend    | Yes                       | Validate native initial positioning and fixed-row sizing on iOS/Android.          |
-| `ScrollView`              | `@impulse-ui-native/scroll-view` | Extend    | Via Tabs/SegmentedControl | Validate measured initial reveal and nested items on iOS/Android.                 |
-| `Avatar`                  | `@impulse-ui-native/primitives`  | Available | Yes                       | Validate image, initials, custom fallback, and status layouts under font scaling. |
-| `Badge`                   | `@impulse-ui-native/primitives`  | Available | Yes                       | Document prefix/suffix composition and the distinction from interactive `Tag`.    |
-| `Tag`                     | `@impulse-ui-native/primitives`  | Available | Yes                       | Clarify whole-label actions, close actions, and display-only usage.               |
-| `Divider`                 | `@impulse-ui-native/primitives`  | Available | Yes                       | Validate horizontal/vertical orientation and content insets.                      |
-| `Accordion`               | `@impulse-ui-native/accordion`   | Available | Yes                       | Validate nested content and dynamic-height transitions on devices.                |
+| Component                 | Package                          | Status    | Storybook                 | Follow-up                                                                                          |
+| ------------------------- | -------------------------------- | --------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
+| `Card` and compound parts | `@impulse-ui-native/card`        | Available | Yes                       | Expand native media and pressable-card composition examples.                                       |
+| `List` and compound parts | `@impulse-ui-native/list`        | Available | Yes                       | Add realistic native row composition as usage grows.                                               |
+| `FlatList`                | `@impulse-ui-native/flat-list`   | Extend    | Yes                       | Validate native initial positioning and fixed-row sizing on iOS/Android.                           |
+| `ScrollView`              | `@impulse-ui-native/scroll-view` | Extend    | Via Tabs/SegmentedControl | Validate measured initial reveal and nested items on iOS/Android.                                  |
+| `Avatar`                  | `@impulse-ui-native/primitives`  | Available | Yes                       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions. |
+| `Badge`                   | `@impulse-ui-native/primitives`  | Available | Yes                       | Document prefix/suffix composition and the distinction from interactive `Tag`.                     |
+| `Tag`                     | `@impulse-ui-native/primitives`  | Available | Yes                       | Uses tone in place of color; neutral and feedback palettes supported.                              |
+| `Divider`                 | `@impulse-ui-native/primitives`  | Available | Yes                       | Validate horizontal/vertical orientation and content insets.                                       |
+| `Accordion`               | `@impulse-ui-native/accordion`   | Available | Yes                       | Validate nested content and dynamic-height transitions on devices.                                 |
 
 ### Form controls
 
-| Component             | Package                                | Status    | Storybook | Follow-up                                                                                                                    |
-| --------------------- | -------------------------------------- | --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Control.Field, Control.Trigger, and Control.Icon share field composition; native validation and loading stories remain.      |
-| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Three field variants and neutral/primary/secondary tones implemented; validate native appearance and addon actions.          |
-| `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.                                           |
-| `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.                                               |
-| `Checkbox`            | `@impulse-ui-native/checkbox`          | Available | Yes       | Document checked, unchecked, and indeterminate field composition.                                                            |
-| `ColorPicker`         | `@impulse-ui-native/color-picker`      | Available | Yes       | Validate native spectrum/slider dragging, keyboard input, staging and font scaling on iOS/Android.                           |
-| `Radio`               | `@impulse-ui-native/radio`             | Available | Yes       | Document caller-managed mutual exclusion for groups of standalone radios.                                                    |
-| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Add labelled field composition and native loading-state examples.                                                            |
-| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate existing steps, marks, value bubbles, gestures, and thumb positioning on devices.                                   |
-| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Validate thumb interaction, clamping, and minimum step spacing on devices.                                                   |
-| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Validate measured initial selected-item reveal, controlled selection, disabled options, and scroll/clip overflow on devices. |
-| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, grouped/custom option rendering, and clearer async option states.                                                |
-| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selection limits, selected-item summaries, and large-list guidance.                                              |
-| `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date constraints, disabled dates, locale, and first-day-of-week controls.                                                |
-| `DateRangePicker`     | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range constraints and clearer incomplete/invalid range behavior.                                                         |
-| `DatetimePicker`      | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date/time constraints and locale/timezone guidance.                                                                      |
-| `DatetimeRangePicker` | `@impulse-ui-native/datetime`          | Extend    | Yes       | Define range validation and timezone/DST behavior.                                                                           |
-| `TimePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add interval, min/max time, and locale controls for hours/minutes/seconds.                                                   |
+| Component             | Package                                | Status    | Storybook | Follow-up                                                                                                               |
+| --------------------- | -------------------------------------- | --------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Control.Field, Control.Trigger, and Control.Icon share field composition; native validation and loading stories remain. |
+| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Three field variants and neutral/primary/secondary tones implemented; validate native appearance and addon actions.     |
+| `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.                                      |
+| `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.                                          |
+| `Checkbox`            | `@impulse-ui-native/checkbox`          | Available | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
+| `ColorPicker`         | `@impulse-ui-native/color-picker`      | Available | Yes       | Validate native spectrum/slider dragging, keyboard input, staging and font scaling on iOS/Android.                      |
+| `Radio`               | `@impulse-ui-native/radio`             | Available | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
+| `Switch`              | `@impulse-ui-native/switch`            | Available | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
+| `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
+| `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
+| `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
+| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, grouped/custom option rendering, and clearer async option states.                                           |
+| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selection limits, selected-item summaries, and large-list guidance.                                         |
+| `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date constraints, disabled dates, locale, and first-day-of-week controls.                                           |
+| `DateRangePicker`     | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range constraints and clearer incomplete/invalid range behavior.                                                    |
+| `DatetimePicker`      | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date/time constraints and locale/timezone guidance.                                                                 |
+| `DatetimeRangePicker` | `@impulse-ui-native/datetime`          | Extend    | Yes       | Define range validation and timezone/DST behavior.                                                                      |
+| `TimePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add interval, min/max time, and locale controls for hours/minutes/seconds.                                              |
 
 ### Feedback, state, and loading
 

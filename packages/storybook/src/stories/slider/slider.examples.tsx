@@ -33,6 +33,50 @@ const sharedMarks = [0, 25, 50, 75, 100] as const;
 
 export const SliderExampleDefinitions = [
   {
+    name: "Neutral",
+    title: "Neutral tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "neutral",
+        description: "Uses the neutral theme palette.",
+      },
+    ],
+    kind: "slider",
+    args: {
+      defaultValue: 60,
+      showValueBubble: true,
+      showMinMax: true,
+      variant: "soft",
+      tone: "neutral",
+    },
+  },
+
+  {
+    name: "Secondary",
+    title: "Secondary tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Uses the secondary theme palette.",
+      },
+    ],
+    kind: "slider",
+    args: {
+      defaultValue: 60,
+      showValueBubble: true,
+      showMinMax: true,
+      variant: "soft",
+      tone: "secondary",
+    },
+  },
+
+  {
     name: "Continuous",
     title: "Continuous slider",
     description:

@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Slider } from "@impulse-ui-native/slider";
 import {
   ComponentSizeOptions,
+  ComponentToneOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 
@@ -24,8 +25,15 @@ const meta = {
     size: "medium",
     step: 1,
     variant: "filled",
+    tone: "primary",
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ComponentToneOptions,
+      description:
+        "Selects the neutral, primary, or secondary palette. Defaults to primary.",
+    },
     value: {
       control: "number",
       description: "Controls the selected value.",
@@ -92,6 +100,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
+
+export const Neutral: Story = createSliderStory("Neutral");
+export const Secondary: Story = createSliderStory("Secondary");
 
 export const Documentation: Story = {
   render: function renderDocumentation() {

@@ -35,6 +35,7 @@ export const RangeSlider = memo(function RangeSlider({
   style,
   value,
   variant = "filled",
+  tone = "primary",
   ...props
 }: RangeSliderProps) {
   const slider = useRangeSlider({
@@ -64,6 +65,7 @@ export const RangeSlider = memo(function RangeSlider({
         showValueBubble={showValueBubble}
         size={size}
         variant={variant}
+        tone={tone}
       >
         <SliderThumbControl
           disabled={disabled}
@@ -72,6 +74,7 @@ export const RangeSlider = memo(function RangeSlider({
           size={size}
           valueLabel={slider.startThumb.valueLabel}
           variant={variant}
+          tone={tone}
         />
         <SliderThumbControl
           disabled={disabled}
@@ -80,6 +83,7 @@ export const RangeSlider = memo(function RangeSlider({
           size={size}
           valueLabel={slider.endThumb.valueLabel}
           variant={variant}
+          tone={tone}
         />
       </SliderTrack>
 
@@ -91,6 +95,7 @@ export const RangeSlider = memo(function RangeSlider({
         showMarkLabels={showMarkLabels}
         showMinMax={showMinMax}
         variant={variant}
+        tone={tone}
       />
     </View>
   );

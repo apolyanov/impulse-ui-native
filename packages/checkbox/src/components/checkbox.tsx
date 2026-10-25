@@ -35,6 +35,7 @@ export const Checkbox = memo(function Checkbox({
   size = "medium",
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: CheckboxProps) {
   const tokens = useComponentsTokens();
@@ -46,8 +47,8 @@ export const Checkbox = memo(function Checkbox({
   });
   const styles = useThemedStyles(
     themedStyles,
-    { checked, disabled, size, variant },
-    [checked, disabled, size, variant],
+    { checked, disabled, size, variant, tone },
+    [checked, disabled, size, variant, tone],
   );
 
   const checkboxTokens = tokens.checkbox;
@@ -92,13 +93,13 @@ export const Checkbox = memo(function Checkbox({
 });
 
 function themedStyles(theme: AppTheme, props: CheckboxThemeProps) {
-  const { checked, disabled, size, variant } = props;
+  const { checked, disabled, size, variant, tone } = props;
 
   const checkboxTokens = theme.components.checkbox;
   const sizeTokens = checkboxTokens.sizes[size];
   const selected = checked !== false;
   const appearanceTokens = getSelectionStateTokens(
-    checkboxTokens.variants[variant],
+    checkboxTokens.colors[tone][variant],
     { disabled, selected },
   );
 

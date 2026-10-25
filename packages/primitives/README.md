@@ -68,7 +68,7 @@ export function ProfileSummary() {
     <View gap={space.md} padding={space.lg}>
       <Typography.Title3>Profile</Typography.Title3>
       <Avatar initials="AK" status="online" variant="soft" />
-      <Tag label="Active" color="success" />
+      <Tag label="Active" tone="success" />
       <Badge tone="success" variant="soft">
         Active
       </Badge>
@@ -223,3 +223,15 @@ Custom action tokens move from `variants[variant][state]` to
 `components.iconButton.colors[tone][variant][state]`. Each map is authored
 explicitly for direct lookup. For custom Button children, style their foreground
 using the matching resolved action tokens; string children are styled automatically.
+
+## Tag and Avatar tones
+
+`Tag` now uses `tone` instead of `color`, with the exported `TagTone` type replacing
+`TagColor`. It supports `neutral`, `primary`, `secondary`, `error`, `warning`,
+`success`, and `info`; existing feedback palettes remain available. The default is
+`primary`. Use `<Tag label="Active" tone="success" />`.
+
+`Avatar` accepts `tone="neutral" | "primary" | "secondary"`, defaulting to
+`primary`, across filled, outlined, and soft variants. Tone affects the fallback
+surface, initials, and border; images and presence/status colors retain their own
+meaning. Avatar appearance tokens move to `components.avatar.colors[tone][variant]`.

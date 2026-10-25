@@ -5,7 +5,8 @@ import type {
   VisualStateTokens,
 } from "./components.types";
 
-export type TagColor =
+export type TagTone =
+  | "neutral"
   | "primary"
   | "secondary"
   | "error"
@@ -34,7 +35,7 @@ export type TagVariantTokens = Record<
   VisualStateTokens<AvailabilityVisualState, TagAppearanceTokens>
 >;
 
-export type TagColorTokens = Record<TagColor, TagVariantTokens>;
+export type TagToneTokens = Record<TagTone, TagVariantTokens>;
 
 export interface TagTokens {
   borderWidth: number;
@@ -43,5 +44,5 @@ export interface TagTokens {
   closeHitSlop: number;
   iconMarginLeft: number;
   sizes: TagSizeTokens;
-  colors: TagColorTokens;
+  colors: TagToneTokens;
 }

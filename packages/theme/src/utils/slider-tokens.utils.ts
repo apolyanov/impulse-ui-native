@@ -12,7 +12,7 @@ export function getSliderTrackTokens(
   return {
     ...tokens.sizes[state.size],
     ...tokens.layouts[state.layout],
-    ...getControlStateTokens(tokens.variants[state.variant], {
+    ...getControlStateTokens(tokens.colors[state.tone][state.variant], {
       disabled: state.disabled,
     }),
     trackBorderRadius: tokens.trackBorderRadius,

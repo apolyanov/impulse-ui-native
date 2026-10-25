@@ -1,5 +1,6 @@
 import type {
   ComponentSize,
+  ComponentTone,
   SelectionState,
   SelectionVariant,
   SelectionVisualState,
@@ -52,13 +53,17 @@ export interface SegmentedControlTokens {
   rootGap: number;
   rootPadding: number;
   sizes: SegmentedControlSizeTokens;
-  variants: Record<SelectionVariant, SegmentedControlVariantTokens>;
+  colors: Record<
+    ComponentTone,
+    Record<SelectionVariant, SegmentedControlVariantTokens>
+  >;
 }
 
 export interface SegmentedControlItemTokenState extends SelectionState {
   layout: SegmentedControlItemLayout;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 
 export type ResolvedSegmentedControlItemTokens = Omit<

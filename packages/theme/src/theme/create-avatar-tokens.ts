@@ -6,6 +6,12 @@ export function createAvatarTokens(tokens: PrimitiveThemeTokens): AvatarTokens {
   const secondary = tokens.colors.secondary.value;
   const secondaryContrast = tokens.colors.secondary.contrast;
 
+  const neutral = tokens.colors.text.secondary;
+  const neutralContrast = tokens.colors.text.inverse;
+  const neutralSoft = tokens.colors.surface.subtle.value;
+  const neutralSoftContrast = tokens.colors.text.primary;
+  const subtle = tokens.colors.subtle.value;
+
   return {
     borderWidth: tokens.borderSize.sm,
     fontFamily: tokens.fontFamily.normal[tokens.fontWeight.semiBold],
@@ -36,21 +42,57 @@ export function createAvatarTokens(tokens: PrimitiveThemeTokens): AvatarTokens {
       away: tokens.colors.feedback.warning.value,
       busy: tokens.colors.feedback.error.value,
     },
-    variants: {
-      filled: {
-        backgroundColor: primary,
-        borderColor: primary,
-        color: primaryContrast,
+    colors: {
+      neutral: {
+        filled: {
+          backgroundColor: neutral,
+          borderColor: neutral,
+          color: neutralContrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: neutral,
+          color: neutral,
+        },
+        soft: {
+          backgroundColor: neutralSoft,
+          borderColor: neutralSoft,
+          color: neutralSoftContrast,
+        },
       },
-      outlined: {
-        backgroundColor: "transparent",
-        borderColor: primary,
-        color: primary,
+      primary: {
+        filled: {
+          backgroundColor: primary,
+          borderColor: primary,
+          color: primaryContrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: primary,
+          color: primary,
+        },
+        soft: {
+          backgroundColor: secondary,
+          borderColor: secondary,
+          color: secondaryContrast,
+        },
       },
-      soft: {
-        backgroundColor: secondary,
-        borderColor: secondary,
-        color: secondaryContrast,
+      secondary: {
+        filled: {
+          backgroundColor: secondary,
+          borderColor: secondary,
+          color: secondaryContrast,
+        },
+        outlined: {
+          backgroundColor: "transparent",
+          borderColor: secondaryContrast,
+          color: secondaryContrast,
+        },
+        soft: {
+          backgroundColor: subtle,
+          borderColor: subtle,
+          color: secondaryContrast,
+        },
       },
     },
   };

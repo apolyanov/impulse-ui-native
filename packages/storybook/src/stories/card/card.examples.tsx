@@ -28,7 +28,7 @@ export const CardExampleDefinitions = [
         width="100%"
         maxWidth={360}
         header={<Typography.Title4>Workspace summary</Typography.Title4>}
-        footer={<Tag label="On track" color="success" size="small" />}
+        footer={<Tag label="On track" tone="success" size="small" />}
       >
         <Typography.Body>Twelve tasks are complete.</Typography.Body>
       </Card>
@@ -80,7 +80,7 @@ export const CardExampleDefinitions = [
           alignItems="center"
           justifyContent="space-between"
         >
-          <Tag label="On track" color="success" size="small" />
+          <Tag label="On track" tone="success" size="small" />
           <Button size="small" variant="ghost">
             View details
           </Button>

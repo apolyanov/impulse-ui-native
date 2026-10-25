@@ -1,6 +1,6 @@
 # @impulse-ui-native/segmented-control
 
-Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 13.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -64,6 +64,18 @@ position. A user drag cancels pending positioning. Custom zoom, content insets,
 and snapping are outside the initial-scroll helper's scope; use
 `initialScrollToSelected={false}` when managing those offsets yourself.
 
+## Tones
+
+Use `tone="neutral" | "primary" | "secondary"` independently of
+`variant="filled" | "outlined" | "soft"`. The default tone is `primary`,
+preserving existing appearances. Disabled styling remains neutral for all tones.
+Appearance tokens are explicit `colors[tone][variant]` maps under this component's
+theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
+Set `tone` on `SegmentedControl.Root`; all items inherit it through the group context, including custom item compositions. Nested roots own their own tone.
+
+The neutral soft selected item uses the elevated surface against the subtle group background so selection remains visible.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -108,6 +120,7 @@ import type { PressableProps, ScrollViewProps } from "react-native";
 import type { IconProps } from "@impulse-ui-native/icon/types";
 import type {
   ComponentSize,
+  ComponentTone,
   SegmentedControlItemLayout,
   SelectionVariant,
 } from "@impulse-ui-native/theme";
@@ -126,6 +139,7 @@ interface SegmentedControlRootCommonProps extends Omit<
   overflow?: SegmentedControlOverflow;
   size?: ComponentSize;
   variant?: SelectionVariant;
+  tone?: ComponentTone;
 }
 
 interface SegmentedControlControlledRootProps extends SegmentedControlRootCommonProps {
@@ -160,5 +174,6 @@ export interface SegmentedControlItemThemeProps {
   selected: boolean;
   size: ComponentSize;
   variant: SelectionVariant;
+  tone: ComponentTone;
 }
 ```

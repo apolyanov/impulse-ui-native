@@ -46,6 +46,36 @@ const iconItems: SegmentedControlExampleItem[] = [
 
 export const SegmentedControlExampleDefinitions = [
   {
+    name: "Neutral",
+    title: "Neutral tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "neutral",
+        description: "Uses the neutral theme palette.",
+      },
+    ],
+    args: { defaultValue: "week", variant: "soft", tone: "neutral" },
+  },
+
+  {
+    name: "Secondary",
+    title: "Secondary tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Uses the secondary theme palette.",
+      },
+    ],
+    args: { defaultValue: "week", variant: "soft", tone: "secondary" },
+  },
+
+  {
     name: "Default",
     title: "Default segmented control",
     description:
@@ -263,6 +293,7 @@ export const SegmentedControlExample = memo(function SegmentedControlExample({
       initialScrollToSelected={example.args.initialScrollToSelected}
       size={example.args.size}
       variant={example.args.variant}
+      tone={example.args.tone}
       value={controlledValue}
       onValueChange={setControlledValue}
     >

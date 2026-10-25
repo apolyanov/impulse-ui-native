@@ -18,6 +18,20 @@ interface TagExampleDefinition {
 
 export const TagExampleDefinitions = [
   {
+    name: "Neutral",
+    title: "Neutral tag",
+    description:
+      "A neutral tag for metadata without a brand or feedback accent.",
+    props: [
+      {
+        name: "tone",
+        value: "neutral",
+        description: "Uses the neutral palette.",
+      },
+    ],
+    args: { label: "Draft", tone: "neutral", variant: "soft" },
+  },
+  {
     name: "Filled",
     title: "Filled tag",
     description:
@@ -29,7 +43,7 @@ export const TagExampleDefinitions = [
         description: "Uses the highest-emphasis tag style.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -42,7 +56,7 @@ export const TagExampleDefinitions = [
     args: {
       label: "Filled",
       variant: "filled",
-      color: "primary",
+      tone: "primary",
       size: "medium",
     },
   },
@@ -58,7 +72,7 @@ export const TagExampleDefinitions = [
         description: "Adds a visible border while keeping the surface subtle.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -71,7 +85,7 @@ export const TagExampleDefinitions = [
     args: {
       label: "Outlined",
       variant: "outlined",
-      color: "primary",
+      tone: "primary",
       size: "medium",
     },
   },
@@ -87,7 +101,7 @@ export const TagExampleDefinitions = [
         description: "Uses a softer background for medium visual emphasis.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -100,7 +114,7 @@ export const TagExampleDefinitions = [
     args: {
       label: "Soft",
       variant: "soft",
-      color: "primary",
+      tone: "primary",
       size: "medium",
     },
   },
@@ -121,7 +135,7 @@ export const TagExampleDefinitions = [
         description: "Uses the highest-emphasis tag style.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -130,7 +144,7 @@ export const TagExampleDefinitions = [
       label: "Small",
       size: "small",
       variant: "filled",
-      color: "primary",
+      tone: "primary",
     },
   },
   {
@@ -150,7 +164,7 @@ export const TagExampleDefinitions = [
         description: "Uses the highest-emphasis tag style.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -159,7 +173,7 @@ export const TagExampleDefinitions = [
       label: "Medium",
       size: "medium",
       variant: "filled",
-      color: "primary",
+      tone: "primary",
     },
   },
   {
@@ -179,7 +193,7 @@ export const TagExampleDefinitions = [
         description: "Uses the highest-emphasis tag style.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -188,7 +202,7 @@ export const TagExampleDefinitions = [
       label: "Large",
       size: "large",
       variant: "filled",
-      color: "primary",
+      tone: "primary",
     },
   },
   {
@@ -198,7 +212,7 @@ export const TagExampleDefinitions = [
       "Use secondary tags for neutral metadata, supportive categories, or labels that should not compete with primary actions.",
     props: [
       {
-        name: "color",
+        name: "tone",
         value: "secondary",
         description: "Applies the secondary semantic color.",
       },
@@ -215,7 +229,7 @@ export const TagExampleDefinitions = [
     ],
     args: {
       label: "Secondary",
-      color: "secondary",
+      tone: "secondary",
       variant: "soft",
       size: "medium",
     },
@@ -227,7 +241,7 @@ export const TagExampleDefinitions = [
       "Use error tags for failed states, destructive categories, invalid information, or urgent negative feedback.",
     props: [
       {
-        name: "color",
+        name: "tone",
         value: "error",
         description: "Applies the error semantic color.",
       },
@@ -245,7 +259,7 @@ export const TagExampleDefinitions = [
     ],
     args: {
       label: "Error",
-      color: "error",
+      tone: "error",
       variant: "soft",
       size: "medium",
     },
@@ -257,7 +271,7 @@ export const TagExampleDefinitions = [
       "Use warning tags for attention states, pending review, unusual values, or information that needs caution.",
     props: [
       {
-        name: "color",
+        name: "tone",
         value: "warning",
         description: "Applies the warning semantic color.",
       },
@@ -274,7 +288,7 @@ export const TagExampleDefinitions = [
     ],
     args: {
       label: "Warning",
-      color: "warning",
+      tone: "warning",
       variant: "soft",
       size: "medium",
     },
@@ -286,7 +300,7 @@ export const TagExampleDefinitions = [
       "Use success tags for completed states, valid information, positive status, or healthy values.",
     props: [
       {
-        name: "color",
+        name: "tone",
         value: "success",
         description: "Applies the success semantic color.",
       },
@@ -303,7 +317,7 @@ export const TagExampleDefinitions = [
     ],
     args: {
       label: "Success",
-      color: "success",
+      tone: "success",
       variant: "soft",
       size: "medium",
     },
@@ -315,7 +329,7 @@ export const TagExampleDefinitions = [
       "Use info tags for informational states, hints, neutral system messages, or contextual metadata.",
     props: [
       {
-        name: "color",
+        name: "tone",
         value: "info",
         description: "Applies the info semantic color.",
       },
@@ -332,7 +346,7 @@ export const TagExampleDefinitions = [
     ],
     args: {
       label: "Info",
-      color: "info",
+      tone: "info",
       variant: "soft",
       size: "medium",
     },
@@ -365,7 +379,7 @@ export const TagExampleDefinitions = [
       closable: true,
       onClose: function onClose() {},
       variant: "soft",
-      color: "primary",
+      tone: "primary",
       size: "medium",
     },
   },
@@ -386,7 +400,7 @@ export const TagExampleDefinitions = [
         description: "Gives the interactive label a clear boundary.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -395,7 +409,7 @@ export const TagExampleDefinitions = [
       label: "Pressable",
       onPress: function onPress() {},
       variant: "outlined",
-      color: "primary",
+      tone: "primary",
       size: "medium",
     },
   },
@@ -416,7 +430,7 @@ export const TagExampleDefinitions = [
         description: "Keeps the tag in the filled visual style.",
       },
       {
-        name: "color",
+        name: "tone",
         value: "primary",
         description: "Applies the primary semantic color.",
       },
@@ -425,7 +439,7 @@ export const TagExampleDefinitions = [
       label: "Disabled",
       disabled: true,
       variant: "filled",
-      color: "primary",
+      tone: "primary",
       size: "medium",
     },
   },

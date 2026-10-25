@@ -41,6 +41,7 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
     selectedValue,
     size,
     variant,
+    tone,
     initialSelectedValue,
     initialScrollRef,
     onInitialItemLayout,
@@ -63,8 +64,9 @@ export const SegmentedControlItem = memo(function SegmentedControlItem({
       selected,
       size,
       variant,
+      tone,
     },
-    [layout, resolvedDisabled, size, selected, variant],
+    [layout, resolvedDisabled, size, selected, variant, tone],
   );
 
   const itemStyle = useCallback(

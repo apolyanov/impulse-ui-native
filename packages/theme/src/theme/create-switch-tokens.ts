@@ -6,6 +6,12 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
   const secondary = tokens.colors.secondary.value;
   const secondaryContrast = tokens.colors.secondary.contrast;
 
+  const neutral = tokens.colors.text.secondary;
+  const neutralContrast = tokens.colors.text.inverse;
+  const neutralSoft = tokens.colors.surface.subtle.value;
+  const neutralSoftContrast = tokens.colors.text.primary;
+  const subtle = tokens.colors.subtle.value;
+
   return {
     animationDuration: 180,
     borderWidth: tokens.borderSize.sm,
@@ -40,59 +46,173 @@ export function createSwitchTokens(tokens: PrimitiveThemeTokens): SwitchTokens {
       },
     },
 
-    variants: {
-      filled: {
-        default: {
-          activeBackgroundColor: primary,
-          activeBorderColor: primary,
-          activeThumbColor: primaryContrast,
-          inactiveBackgroundColor: tokens.colors.surface.subtle.value,
-          inactiveBorderColor: tokens.colors.border.strong.value,
-          inactiveThumbColor: tokens.colors.text.secondary,
+    colors: {
+      neutral: {
+        filled: {
+          default: {
+            activeBackgroundColor: neutral,
+            activeBorderColor: neutral,
+            activeThumbColor: neutralContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
         },
-        disabled: {
-          activeBackgroundColor: tokens.colors.surface.subtle.value,
-          activeBorderColor: tokens.colors.border.default.value,
-          activeThumbColor: tokens.colors.text.disabled,
-          inactiveBackgroundColor: tokens.colors.surface.subtle.value,
-          inactiveBorderColor: tokens.colors.border.default.value,
-          inactiveThumbColor: tokens.colors.text.disabled,
+        outlined: {
+          default: {
+            activeBackgroundColor: "transparent",
+            activeBorderColor: neutral,
+            activeThumbColor: neutral,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
+        },
+        soft: {
+          default: {
+            activeBackgroundColor: neutralSoft,
+            activeBorderColor: neutralSoft,
+            activeThumbColor: neutralSoftContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
         },
       },
-      outlined: {
-        default: {
-          activeBackgroundColor: "transparent",
-          activeBorderColor: primary,
-          activeThumbColor: primary,
-          inactiveBackgroundColor: tokens.colors.surface.subtle.value,
-          inactiveBorderColor: tokens.colors.border.strong.value,
-          inactiveThumbColor: tokens.colors.text.secondary,
+      primary: {
+        filled: {
+          default: {
+            activeBackgroundColor: primary,
+            activeBorderColor: primary,
+            activeThumbColor: primaryContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
         },
-        disabled: {
-          activeBackgroundColor: tokens.colors.surface.subtle.value,
-          activeBorderColor: tokens.colors.border.default.value,
-          activeThumbColor: tokens.colors.text.disabled,
-          inactiveBackgroundColor: tokens.colors.surface.subtle.value,
-          inactiveBorderColor: tokens.colors.border.default.value,
-          inactiveThumbColor: tokens.colors.text.disabled,
+        outlined: {
+          default: {
+            activeBackgroundColor: "transparent",
+            activeBorderColor: primary,
+            activeThumbColor: primary,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
+        },
+        soft: {
+          default: {
+            activeBackgroundColor: secondary,
+            activeBorderColor: secondary,
+            activeThumbColor: secondaryContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
         },
       },
-      soft: {
-        default: {
-          activeBackgroundColor: secondary,
-          activeBorderColor: secondary,
-          activeThumbColor: secondaryContrast,
-          inactiveBackgroundColor: tokens.colors.surface.subtle.value,
-          inactiveBorderColor: tokens.colors.border.strong.value,
-          inactiveThumbColor: tokens.colors.text.secondary,
+      secondary: {
+        filled: {
+          default: {
+            activeBackgroundColor: secondary,
+            activeBorderColor: secondary,
+            activeThumbColor: secondaryContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
         },
-        disabled: {
-          activeBackgroundColor: tokens.colors.surface.subtle.value,
-          activeBorderColor: tokens.colors.border.default.value,
-          activeThumbColor: tokens.colors.text.disabled,
-          inactiveBackgroundColor: tokens.colors.surface.subtle.value,
-          inactiveBorderColor: tokens.colors.border.default.value,
-          inactiveThumbColor: tokens.colors.text.disabled,
+        outlined: {
+          default: {
+            activeBackgroundColor: "transparent",
+            activeBorderColor: secondaryContrast,
+            activeThumbColor: secondaryContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
+        },
+        soft: {
+          default: {
+            activeBackgroundColor: subtle,
+            activeBorderColor: subtle,
+            activeThumbColor: secondaryContrast,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.strong.value,
+            inactiveThumbColor: tokens.colors.text.secondary,
+          },
+          disabled: {
+            activeBackgroundColor: tokens.colors.surface.subtle.value,
+            activeBorderColor: tokens.colors.border.default.value,
+            activeThumbColor: tokens.colors.text.disabled,
+            inactiveBackgroundColor: tokens.colors.surface.subtle.value,
+            inactiveBorderColor: tokens.colors.border.default.value,
+            inactiveThumbColor: tokens.colors.text.disabled,
+          },
         },
       },
     },

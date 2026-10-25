@@ -28,6 +28,7 @@ export const Radio = memo(function Radio({
   size = "medium",
   style,
   variant = "filled",
+  tone = "primary",
   ...props
 }: RadioProps) {
   const tokens = useComponentsTokens();
@@ -39,8 +40,8 @@ export const Radio = memo(function Radio({
   });
   const styles = useThemedStyles(
     themedStyles,
-    { checked, disabled, size, variant },
-    [checked, disabled, size, variant],
+    { checked, disabled, size, variant, tone },
+    [checked, disabled, size, variant, tone],
   );
 
   const radioTokens = tokens.radio;
@@ -76,12 +77,12 @@ export const Radio = memo(function Radio({
 });
 
 function themedStyles(theme: AppTheme, props: RadioThemeProps) {
-  const { checked, disabled, size, variant } = props;
+  const { checked, disabled, size, variant, tone } = props;
 
   const radioTokens = theme.components.radio;
   const sizeTokens = radioTokens.sizes[size];
   const appearanceTokens = getSelectionStateTokens(
-    radioTokens.variants[variant],
+    radioTokens.colors[tone][variant],
     { disabled, selected: checked },
   );
 

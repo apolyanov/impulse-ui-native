@@ -9,10 +9,10 @@ export function getSegmentedControlItemTokens(
   tokens: SegmentedControlTokens,
   state: SegmentedControlItemTokenState,
 ): ResolvedSegmentedControlItemTokens {
-  const { disabled, layout, selected, size, variant } = state;
+  const { disabled, layout, selected, size, variant, tone } = state;
   const { layouts, ...sizeTokens } = tokens.sizes[size];
   const appearanceTokens = getSelectionStateTokens(
-    tokens.variants[variant].states,
+    tokens.colors[tone][variant].states,
     { disabled, selected },
   );
 

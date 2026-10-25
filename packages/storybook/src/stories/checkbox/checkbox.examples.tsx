@@ -18,6 +18,36 @@ interface CheckboxExampleDefinition {
 
 export const CheckboxExampleDefinitions = [
   {
+    name: "Neutral",
+    title: "Neutral tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "neutral",
+        description: "Uses the neutral theme palette.",
+      },
+    ],
+    args: { defaultChecked: true, variant: "soft", tone: "neutral" },
+  },
+
+  {
+    name: "Secondary",
+    title: "Secondary tone",
+    description:
+      "Choose the palette independently of variant; disabled styling stays neutral.",
+    props: [
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Uses the secondary theme palette.",
+      },
+    ],
+    args: { defaultChecked: true, variant: "soft", tone: "secondary" },
+  },
+
+  {
     name: "Unchecked",
     title: "Unchecked checkbox",
     description:

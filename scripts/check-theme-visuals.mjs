@@ -144,7 +144,13 @@ for (const scheme of ["Light", "Dark"]) {
     );
   }
   const switches = generated.createSwitchTokens;
-  for (const [variant, states] of Object.entries(switches.variants)) {
+  for (const [variant, states] of Object.entries(switches.colors).flatMap(
+    ([tone, variants]) =>
+      Object.entries(variants).map(([variant, states]) => [
+        `${tone}/${variant}`,
+        states,
+      ]),
+  )) {
     for (const [state, appearance] of Object.entries(states)) {
       for (const selection of ["active", "inactive"]) {
         const background =
@@ -173,7 +179,13 @@ for (const scheme of ["Light", "Dark"]) {
   }
 
   const slider = generated.createSliderTokens;
-  for (const [variant, states] of Object.entries(slider.variants)) {
+  for (const [variant, states] of Object.entries(slider.colors).flatMap(
+    ([tone, variants]) =>
+      Object.entries(variants).map(([variant, states]) => [
+        `${tone}/${variant}`,
+        states,
+      ]),
+  )) {
     for (const [state, appearance] of Object.entries(states)) {
       checkPair(
         appearance.activeMarkColor,
