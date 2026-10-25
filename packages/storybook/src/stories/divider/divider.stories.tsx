@@ -12,7 +12,7 @@ const meta = {
   args: {
     inset: "none",
     orientation: "horizontal",
-    tone: "primary",
+    tone: "default",
   },
   argTypes: {
     orientation: {

@@ -438,7 +438,7 @@ for exact paths. Consumer-provided text/icon content still owns its foreground.
 
 ### Shared component defaults
 
-Defaults follow component roles. Rectangular fields (Input, Textarea, Select/MultiSelect, and date/time pickers) default to `size="medium"`, `variant="outlined"`, and `tone="neutral"`. Their standalone parts use neutral fallbacks and nested parts inherit the root tone. Buttons and accent controls default to `size="medium"`, `variant="filled"`, and `tone="primary"`. Divider defaults to primary. Explicit appearance props override defaults; equal variant/tone combinations share the same palette across roles. Internal secondary actions may explicitly use outlined styling.
+Defaults follow component roles. Rectangular fields (Input, Textarea, Select/MultiSelect, and date/time pickers) default to `size="medium"`, `variant="outlined"`, and `tone="neutral"`. Their standalone parts use neutral fallbacks and nested parts inherit the root tone. Buttons and accent controls default to `size="medium"`, `variant="filled"`, and `tone="primary"`. Divider defaults to `tone="default"` (the standard border color). Explicit appearance props override defaults; equal variant/tone combinations share the same palette across roles. Internal secondary actions may explicitly use outlined styling.
 
 Shape and semantic variants retain their own defaults: Progress uses linear, icon glyphs use regular, and Toast uses success from its feedback-only tones. These are distinct contracts rather than shared appearance axes.
 
