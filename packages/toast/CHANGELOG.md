@@ -1,5 +1,16 @@
 # @impulse-ui-native/toast
 
+## 14.0.0
+
+### Patch Changes
+
+- Updated dependencies [1bd67d1]
+  - @impulse-ui-native/theme@14.0.0
+  - @impulse-ui-native/primitives@14.0.0
+  - @impulse-ui-native/icon@14.0.0
+  - @impulse-ui-native/core@14.0.0
+  - @impulse-ui-native/overlay@14.0.0
+
 ## 13.0.0
 
 ### Patch Changes

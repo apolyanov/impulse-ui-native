@@ -1,5 +1,27 @@
 # @impulse-ui-native/slider
 
+## 14.0.0
+
+### Minor Changes
+
+- 1bd67d1: Add neutral, primary, and secondary tones to Avatar, Checkbox, Radio, Switch,
+  SegmentedControl, Slider, and RangeSlider. Preserve primary defaults, value
+  behavior, and neutral disabled appearances. SegmentedControl items inherit tone
+  from their Root; slider tracks, thumbs, marks, labels, and bubbles share tone.
+
+  Rename Tag color to tone and TagColor/TagColorTokens to TagTone/TagToneTokens.
+  Add neutral tags and retain the existing brand and feedback palettes.
+
+  Custom avatar, checkbox, radio, switch, segmentedControl, and slider appearance
+  tokens move from variants[variant] to explicit colors[tone][variant] maps.
+
+### Patch Changes
+
+- Updated dependencies [1bd67d1]
+  - @impulse-ui-native/theme@14.0.0
+  - @impulse-ui-native/primitives@14.0.0
+  - @impulse-ui-native/core@14.0.0
+
 ## 13.0.0
 
 ### Patch Changes

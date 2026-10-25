@@ -1,5 +1,11 @@
 # @impulse-ui-native/scroll-view
 
+## 14.0.0
+
+### Patch Changes
+
+- @impulse-ui-native/core@14.0.0
+
 ## 13.0.0
 
 ### Patch Changes
