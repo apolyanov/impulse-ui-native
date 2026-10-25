@@ -1,5 +1,29 @@
 # @impulse-ui-native/pagination
 
+## 15.0.0
+
+### Minor Changes
+
+- 5819eb6: Unify repository tone semantics and add tone inheritance to navigation, composed
+  pickers, Select options/tags, DataView actions/loaders, and ColorPicker controls.
+  Correct Progress secondary/neutral colors, add neutral/secondary Divider tones,
+  and make Toast actions follow their feedback tone. Preserve data colors, neutral
+  surfaces, value semantics, custom overrides, and existing inverse loading tones.
+
+  Move remaining scalar/state-only color tokens into explicit tone maps. Custom theme
+  paths for navigation, picker interiors, Select options, DataState icons, swatch rings,
+  and Toast action colors must be migrated as documented in the package READMEs.
+
+### Patch Changes
+
+- Updated dependencies [5819eb6]
+- Updated dependencies [5819eb6]
+- Updated dependencies [5819eb6]
+  - @impulse-ui-native/theme@15.0.0
+  - @impulse-ui-native/primitives@15.0.0
+  - @impulse-ui-native/icon@15.0.0
+  - @impulse-ui-native/core@15.0.0
+
 ## 14.1.1
 
 ### Patch Changes

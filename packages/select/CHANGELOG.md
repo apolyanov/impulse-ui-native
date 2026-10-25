@@ -1,5 +1,34 @@
 # @impulse-ui-native/select
 
+## 15.0.0
+
+### Patch Changes
+
+- 5819eb6: Use soft selected tags inside filled MultiSelect fields to separate them from the
+  field background while preserving tone. Disabled tags use outlined borders.
+  Add a filled MultiSelect story with selected values.
+- 5819eb6: Unify repository tone semantics and add tone inheritance to navigation, composed
+  pickers, Select options/tags, DataView actions/loaders, and ColorPicker controls.
+  Correct Progress secondary/neutral colors, add neutral/secondary Divider tones,
+  and make Toast actions follow their feedback tone. Preserve data colors, neutral
+  surfaces, value semantics, custom overrides, and existing inverse loading tones.
+
+  Move remaining scalar/state-only color tokens into explicit tone maps. Custom theme
+  paths for navigation, picker interiors, Select options, DataState icons, swatch rings,
+  and Toast action colors must be migrated as documented in the package READMEs.
+
+- Updated dependencies [5819eb6]
+- Updated dependencies [5819eb6]
+- Updated dependencies [5819eb6]
+  - @impulse-ui-native/theme@15.0.0
+  - @impulse-ui-native/primitives@15.0.0
+  - @impulse-ui-native/flyout@15.0.0
+  - @impulse-ui-native/icon@15.0.0
+  - @impulse-ui-native/input@15.0.0
+  - @impulse-ui-native/core@15.0.0
+  - @impulse-ui-native/portal@15.0.0
+  - @impulse-ui-native/flat-list@15.0.0
+
 ## 14.1.1
 
 ### Patch Changes

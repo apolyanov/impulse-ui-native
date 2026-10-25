@@ -1,5 +1,17 @@
 # @impulse-ui-native/checkbox
 
+## 15.0.0
+
+### Patch Changes
+
+- Updated dependencies [5819eb6]
+- Updated dependencies [5819eb6]
+- Updated dependencies [5819eb6]
+  - @impulse-ui-native/theme@15.0.0
+  - @impulse-ui-native/primitives@15.0.0
+  - @impulse-ui-native/icon@15.0.0
+  - @impulse-ui-native/core@15.0.0
+
 ## 14.1.1
 
 ### Patch Changes
