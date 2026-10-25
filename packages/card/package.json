@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/card",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "description": "Card components for ImpulseUI Native.",
   "keywords": [
     "react-native",

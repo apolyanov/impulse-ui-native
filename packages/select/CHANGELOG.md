@@ -1,5 +1,20 @@
 # @impulse-ui-native/select
 
+## 13.0.0
+
+### Patch Changes
+
+- Updated dependencies [8220ce3]
+- Updated dependencies [8220ce3]
+  - @impulse-ui-native/theme@13.0.0
+  - @impulse-ui-native/primitives@13.0.0
+  - @impulse-ui-native/flyout@13.0.0
+  - @impulse-ui-native/icon@13.0.0
+  - @impulse-ui-native/input@13.0.0
+  - @impulse-ui-native/core@13.0.0
+  - @impulse-ui-native/portal@13.0.0
+  - @impulse-ui-native/flat-list@13.0.0
+
 ## 12.0.0
 
 ### Minor Changes

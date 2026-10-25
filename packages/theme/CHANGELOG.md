@@ -1,5 +1,22 @@
 # @impulse-ui-native/theme
 
+## 13.0.0
+
+### Major Changes
+
+- 8220ce3: Add neutral, primary, and secondary tones to Button and IconButton across all
+  four action variants. Keep primary as the default with the existing appearances,
+  use neutral disabled tokens, and inherit the selected foreground in loading spinners.
+
+  Custom button and iconButton appearance tokens move from variants[variant][state]
+  to explicit colors[tone][variant][state] maps.
+
+### Patch Changes
+
+- 8220ce3: Use radii.md for rectangular field containers, matching Button and IconButton.
+  This applies to Input, Textarea, Select, date/time pickers, and ColorPicker inputs.
+  - @impulse-ui-native/core@13.0.0
+
 ## 12.0.0
 
 ### Major Changes

@@ -1,5 +1,16 @@
 # @impulse-ui-native/carousel
 
+## 13.0.0
+
+### Patch Changes
+
+- Updated dependencies [8220ce3]
+- Updated dependencies [8220ce3]
+  - @impulse-ui-native/theme@13.0.0
+  - @impulse-ui-native/primitives@13.0.0
+  - @impulse-ui-native/icon@13.0.0
+  - @impulse-ui-native/core@13.0.0
+
 ## 12.0.0
 
 ### Patch Changes

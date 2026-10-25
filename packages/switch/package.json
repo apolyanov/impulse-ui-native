@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/switch",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "description": "Animated switch controls for ImpulseUI Native applications.",
   "keywords": [
     "react-native",
