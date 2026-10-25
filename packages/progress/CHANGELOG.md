@@ -1,5 +1,12 @@
 # @impulse-ui-native/progress
 
+## 14.1.1
+
+### Patch Changes
+
+- Updated dependencies [a92c256]
+  - @impulse-ui-native/theme@14.1.1
+
 ## 14.1.0
 
 ### Patch Changes
