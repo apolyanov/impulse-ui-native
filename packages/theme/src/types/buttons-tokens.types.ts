@@ -1,6 +1,7 @@
 import type {
   ActionVariant,
   ActionVisualState,
+  ButtonTone,
   ComponentSize,
   VisualStateTokens,
 } from "./components.types";
@@ -43,12 +44,12 @@ export interface ButtonTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: ButtonSizeTokens;
-  variants: ButtonVariantTokens;
+  colors: Record<ButtonTone, ButtonVariantTokens>;
 }
 
 export interface IconButtonTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: IconButtonSizeTokens;
-  variants: IconButtonVariantTokens;
+  colors: Record<ButtonTone, IconButtonVariantTokens>;
 }

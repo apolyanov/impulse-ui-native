@@ -15,6 +15,7 @@ import { Typography } from "./typography";
 export const Button = memo(function Button({
   size = "medium",
   variant = "filled",
+  tone = "primary",
   disabled,
   loading = false,
   children,
@@ -23,8 +24,8 @@ export const Button = memo(function Button({
 }: PropsWithChildren<ButtonProps>) {
   const styles = useThemedStyles(
     themedStyles,
-    { size, variant, disabled, loading },
-    [size, variant, disabled, loading],
+    { size, variant, tone, disabled, loading },
+    [size, variant, tone, disabled, loading],
   );
 
   const interactionDisabled = disabled === true || loading;
@@ -54,12 +55,12 @@ export const Button = memo(function Button({
 });
 
 function themedStyles(theme: AppTheme, props: ButtonThemeProps) {
-  const { size, variant, disabled, loading } = props;
+  const { size, variant, tone, disabled, loading } = props;
 
   const buttonTokens = theme.components.button;
   const sizeTokens = buttonTokens.sizes[size];
   const appearanceTokens = getActionStateTokens(
-    buttonTokens.variants[variant],
+    buttonTokens.colors[tone][variant],
     {
       disabled,
       loading,

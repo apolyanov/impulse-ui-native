@@ -174,7 +174,7 @@ export function createControlContainerTokens(
 
   return {
     borderWidth: tokens.borderSize.sm,
-    borderRadius: tokens.radii.sm,
+    borderRadius: tokens.radii.md,
 
     sizes: {
       small: {

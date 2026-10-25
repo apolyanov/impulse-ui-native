@@ -19,6 +19,36 @@ interface IconButtonExampleDefinition {
 
 export const IconButtonExampleDefinitions = [
   {
+    name: "Neutral",
+    title: "Neutral tone",
+    description:
+      "Use tone to select a palette independently of the visual variant. Disabled buttons use neutral tokens and loading indicators inherit the selected foreground.",
+    props: [
+      {
+        name: "tone",
+        value: "neutral",
+        description: "Selects the neutral theme palette.",
+      },
+    ],
+    args: { tone: "neutral", variant: "soft", icon: SparkleIcon },
+  },
+
+  {
+    name: "Secondary",
+    title: "Secondary tone",
+    description:
+      "Use tone to select a palette independently of the visual variant. Disabled buttons use neutral tokens and loading indicators inherit the selected foreground.",
+    props: [
+      {
+        name: "tone",
+        value: "secondary",
+        description: "Selects the secondary theme palette.",
+      },
+    ],
+    args: { tone: "secondary", variant: "soft", icon: SparkleIcon },
+  },
+
+  {
     name: "Filled",
     title: "Filled icon button",
     description:

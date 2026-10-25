@@ -47,6 +47,8 @@ export interface SelectionItemState {
   selected: boolean;
 }
 
+export type ButtonTone = "neutral" | "primary" | "secondary";
+
 export type ActionVariant = "filled" | "outlined" | "soft" | "ghost";
 
 export type DisplayVariant = "filled" | "outlined" | "soft";

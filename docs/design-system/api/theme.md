@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -2027,6 +2027,7 @@ export interface BorderProps {
 import type {
   ActionVariant,
   ActionVisualState,
+  ButtonTone,
   ComponentSize,
   VisualStateTokens,
 } from "./components.types";
@@ -2069,14 +2070,14 @@ export interface ButtonTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: ButtonSizeTokens;
-  variants: ButtonVariantTokens;
+  colors: Record<ButtonTone, ButtonVariantTokens>;
 }
 
 export interface IconButtonTokens {
   borderWidth: number;
   borderRadius: number;
   sizes: IconButtonSizeTokens;
-  variants: IconButtonVariantTokens;
+  colors: Record<ButtonTone, IconButtonVariantTokens>;
 }
 ```
 
@@ -2366,6 +2367,8 @@ export type SelectionItemVisualState = "default" | "selected";
 export interface SelectionItemState {
   selected: boolean;
 }
+
+export type ButtonTone = "neutral" | "primary" | "secondary";
 
 export type ActionVariant = "filled" | "outlined" | "soft" | "ghost";
 

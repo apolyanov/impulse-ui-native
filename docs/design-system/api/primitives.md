@@ -1,6 +1,6 @@
 # @impulse-ui-native/primitives
 
-Local package version: 11.4.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 12.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -206,6 +206,29 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlInput.colors[tone][variant][state]`, and
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
+
+## Button tones
+
+`Button` and `IconButton` accept `tone="neutral" | "primary" | "secondary"`
+independently of `variant="filled" | "outlined" | "soft" | "ghost"`.
+The default tone is `primary`, preserving the existing default appearances.
+Neutral uses the neutral palette; secondary uses the secondary brand palette.
+Filled uses the tone fill and paired foreground, outlined uses a tone border,
+soft uses a subtle tone surface, and ghost uses tone content on a transparent surface.
+Loading indicators inherit the resolved foreground. Disabled appearances remain
+neutral and both disabled and loading states prevent interaction.
+
+```tsx
+<Button variant="soft" tone="neutral">Cancel</Button>
+<Button variant="filled" tone="primary">Save</Button>
+<IconButton icon={SparkleIcon} variant="outlined" tone="secondary" />
+```
+
+Custom action tokens move from `variants[variant][state]` to
+`components.button.colors[tone][variant][state]` and
+`components.iconButton.colors[tone][variant][state]`. Each map is authored
+explicitly for direct lookup. For custom Button children, style their foreground
+using the matching resolved action tokens; string children are styled automatically.
 
 ## Public export and source reference
 
@@ -528,6 +551,7 @@ import { Typography } from "./typography";
 export const Button = memo(function Button({
   size = "medium",
   variant = "filled",
+  tone = "primary",
   disabled,
   loading = false,
   children,
@@ -536,8 +560,8 @@ export const Button = memo(function Button({
 }: PropsWithChildren<ButtonProps>) {
   const styles = useThemedStyles(
     themedStyles,
-    { size, variant, disabled, loading },
-    [size, variant, disabled, loading],
+    { size, variant, tone, disabled, loading },
+    [size, variant, tone, disabled, loading],
   );
 
   const interactionDisabled = disabled === true || loading;
@@ -567,12 +591,12 @@ export const Button = memo(function Button({
 });
 
 function themedStyles(theme: AppTheme, props: ButtonThemeProps) {
-  const { size, variant, disabled, loading } = props;
+  const { size, variant, tone, disabled, loading } = props;
 
   const buttonTokens = theme.components.button;
   const sizeTokens = buttonTokens.sizes[size];
   const appearanceTokens = getActionStateTokens(
-    buttonTokens.variants[variant],
+    buttonTokens.colors[tone][variant],
     {
       disabled,
       loading,
@@ -697,6 +721,7 @@ import { Spinner } from "./spinner";
 export const IconButton = memo(function IconButton({
   size = "medium",
   variant = "filled",
+  tone = "primary",
   disabled,
   loading = false,
   style,
@@ -705,8 +730,8 @@ export const IconButton = memo(function IconButton({
 }: PropsWithChildren<IconButtonProps>) {
   const styles = useThemedStyles(
     themedStyles,
-    { size, variant, disabled, loading },
-    [size, variant, disabled, loading],
+    { size, variant, tone, disabled, loading },
+    [size, variant, tone, disabled, loading],
   );
 
   const interactionDisabled = disabled === true || loading;
@@ -732,12 +757,12 @@ export const IconButton = memo(function IconButton({
 });
 
 function themedStyles(theme: AppTheme, props: IconButtonThemeProps) {
-  const { size, variant, disabled, loading } = props;
+  const { size, variant, tone, disabled, loading } = props;
 
   const iconButtonTokens = theme.components.iconButton;
   const sizeTokens = iconButtonTokens.sizes[size];
   const appearanceTokens = getActionStateTokens(
-    iconButtonTokens.variants[variant],
+    iconButtonTokens.colors[tone][variant],
     { disabled, loading },
   );
 
@@ -1738,6 +1763,7 @@ import { PressableProps, StyleProp, ViewStyle } from "react-native";
 
 import {
   ActionVariant,
+  ButtonTone,
   ComponentSize,
   DimensionProps,
   FlexProps,
@@ -1749,6 +1775,7 @@ export interface ButtonProps
   extends PressableProps, DimensionProps, SpacingProps, ShadowProps {
   size?: ComponentSize;
   variant?: ActionVariant;
+  tone?: ButtonTone;
   disabled?: boolean;
   style?: ViewStyle;
   loading?: boolean;
@@ -1757,12 +1784,13 @@ export interface ButtonProps
 export interface ButtonThemeProps {
   size: ComponentSize;
   variant: ActionVariant;
+  tone: ButtonTone;
   disabled?: boolean;
   loading: boolean;
 }
 
 export interface PressableCoreProps
-  extends PressableProps, Omit<ButtonProps, "style">, FlexProps {
+  extends PressableProps, Omit<ButtonProps, "style" | "tone">, FlexProps {
   disabled?: boolean;
   pressedStyle?: StyleProp<ViewStyle>;
 }
@@ -1873,7 +1901,11 @@ export interface DividerProps extends Omit<ViewProps, "children" | "color"> {
 
 ```tsx
 import type { IconProps } from "@impulse-ui-native/icon/types";
-import { ActionVariant, ComponentSize } from "@impulse-ui-native/theme";
+import {
+  ActionVariant,
+  ButtonTone,
+  ComponentSize,
+} from "@impulse-ui-native/theme";
 
 import { ButtonProps } from "./button.types";
 
@@ -1884,6 +1916,7 @@ export interface IconButtonProps extends ButtonProps {
 export interface IconButtonThemeProps {
   size: ComponentSize;
   variant: ActionVariant;
+  tone: ButtonTone;
   disabled?: boolean;
   loading: boolean;
 }

@@ -1,5 +1,6 @@
 import type {
   ActionVariant,
+  ButtonTone,
   ComponentSize,
   DisplayVariant,
   FieldTone,
@@ -46,3 +47,9 @@ export const SelectionVariantOptions = [
 
 /** @deprecated Use the options for the relevant component family. */
 export const ComponentVariantOptions = ActionVariantOptions;
+
+export const ButtonToneOptions = [
+  "neutral",
+  "primary",
+  "secondary",
+] satisfies ButtonTone[];

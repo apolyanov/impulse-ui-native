@@ -4,10 +4,12 @@ import { SparkleIcon } from "@impulse-ui-native/icon/icons/sparkle";
 import { IconButton } from "@impulse-ui-native/primitives";
 import {
   ActionVariantOptions,
+  ButtonToneOptions,
   ComponentSizeOptions,
   createStoryDescription,
 } from "@impulse-ui-native/storybook";
 
+import { ButtonAppearanceExample } from "../button/button-appearance-example";
 import { IconButtonDocumentation } from "./icon-button.documentation";
 import {
   IconButtonExample,
@@ -21,10 +23,17 @@ const meta = {
     icon: SparkleIcon,
     size: "medium",
     variant: "filled",
+    tone: "primary",
     disabled: false,
     loading: false,
   },
   argTypes: {
+    tone: {
+      control: "select",
+      options: ButtonToneOptions,
+      description:
+        "Selects the neutral, primary, or secondary action palette. Defaults to primary.",
+    },
     size: {
       control: "select",
       options: ComponentSizeOptions,
@@ -56,6 +65,21 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const AppearanceMatrix: Story = {
+  render: function renderAppearanceMatrix(args) {
+    return (
+      <ButtonAppearanceExample
+        size={args.size}
+        disabled={args.disabled}
+        loading={args.loading}
+      />
+    );
+  },
+  parameters: createStoryDescription(
+    "All variant/tone combinations for Button and IconButton. Use size, disabled, and loading controls to compare states.",
+  ),
+};
+
 export const Documentation: Story = {
   render: function renderDocumentation() {
     return <IconButtonDocumentation />;
@@ -64,6 +88,9 @@ export const Documentation: Story = {
     "A complete usage guide for IconButton variants, sizes, states, and recommended usage patterns.",
   ),
 };
+
+export const Neutral: Story = createIconButtonStory("Neutral");
+export const Secondary: Story = createIconButtonStory("Secondary");
 
 export const Filled: Story = createIconButtonStory("Filled");
 export const Outlined: Story = createIconButtonStory("Outlined");

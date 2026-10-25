@@ -144,7 +144,8 @@ for (const scheme of ["light", "dark"]) {
     defaults.colors.surface.canvas.value,
   );
   assert.equal(
-    surfaceOverride.components.button.variants.filled.disabled.backgroundColor,
+    surfaceOverride.components.button.colors.primary.filled.disabled
+      .backgroundColor,
     "#234567",
   );
   assert.equal(surfaceOverride.components.card.backgroundColor, "#345678");

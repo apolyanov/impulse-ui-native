@@ -200,3 +200,26 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlInput.colors[tone][variant][state]`, and
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
+
+## Button tones
+
+`Button` and `IconButton` accept `tone="neutral" | "primary" | "secondary"`
+independently of `variant="filled" | "outlined" | "soft" | "ghost"`.
+The default tone is `primary`, preserving the existing default appearances.
+Neutral uses the neutral palette; secondary uses the secondary brand palette.
+Filled uses the tone fill and paired foreground, outlined uses a tone border,
+soft uses a subtle tone surface, and ghost uses tone content on a transparent surface.
+Loading indicators inherit the resolved foreground. Disabled appearances remain
+neutral and both disabled and loading states prevent interaction.
+
+```tsx
+<Button variant="soft" tone="neutral">Cancel</Button>
+<Button variant="filled" tone="primary">Save</Button>
+<IconButton icon={SparkleIcon} variant="outlined" tone="secondary" />
+```
+
+Custom action tokens move from `variants[variant][state]` to
+`components.button.colors[tone][variant][state]` and
+`components.iconButton.colors[tone][variant][state]`. Each map is authored
+explicitly for direct lookup. For custom Button children, style their foreground
+using the matching resolved action tokens; string children are styled automatically.

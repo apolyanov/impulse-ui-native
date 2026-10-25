@@ -15,6 +15,7 @@ import { Spinner } from "./spinner";
 export const IconButton = memo(function IconButton({
   size = "medium",
   variant = "filled",
+  tone = "primary",
   disabled,
   loading = false,
   style,
@@ -23,8 +24,8 @@ export const IconButton = memo(function IconButton({
 }: PropsWithChildren<IconButtonProps>) {
   const styles = useThemedStyles(
     themedStyles,
-    { size, variant, disabled, loading },
-    [size, variant, disabled, loading],
+    { size, variant, tone, disabled, loading },
+    [size, variant, tone, disabled, loading],
   );
 
   const interactionDisabled = disabled === true || loading;
@@ -50,12 +51,12 @@ export const IconButton = memo(function IconButton({
 });
 
 function themedStyles(theme: AppTheme, props: IconButtonThemeProps) {
-  const { size, variant, disabled, loading } = props;
+  const { size, variant, tone, disabled, loading } = props;
 
   const iconButtonTokens = theme.components.iconButton;
   const sizeTokens = iconButtonTokens.sizes[size];
   const appearanceTokens = getActionStateTokens(
-    iconButtonTokens.variants[variant],
+    iconButtonTokens.colors[tone][variant],
     { disabled, loading },
   );
 
