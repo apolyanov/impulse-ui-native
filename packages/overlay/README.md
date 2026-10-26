@@ -104,3 +104,7 @@ Registered components must forward onStatusChange to the shared lifecycle hook
 or report it themselves. Registrations may supply their own onStatusChange
 callback alongside the host's tracking. Store entries expose their latest optional
 status; host removal still happens through onCloseFinished.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/overlay.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

@@ -69,3 +69,7 @@ theme tokens, replacing `variants[variant]`. Geometry and value behavior are unc
 Set `tone` on `SegmentedControl.Root`; all items inherit it through the group context, including custom item compositions. Nested roots own their own tone.
 
 The root uses the default neutral surface. Selected items use the shared variant/tone palette: outlined is transparent and neutral soft uses the subtle surface, keeping selection visible against the root.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/segmented-control.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

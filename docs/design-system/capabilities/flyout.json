@@ -1,0 +1,934 @@
+{
+  "name": "@impulse-ui-native/flyout",
+  "slug": "flyout",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "compound",
+    "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
+    "features": [
+      "Callable sheet plus Root/Header/Title/Content/Handle parts.",
+      "Controlled open state, transition callbacks, safe-area layout and drag dismissal."
+    ],
+    "constraints": [
+      "Child-only parts do not generate header content; the convenience component supplies defaults.",
+      "Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
+    ],
+    "setup": [
+      "ThemeProvider, GestureHandlerRootView and SafeAreaProvider; Reanimated/Worklets setup.",
+      "Local portals additionally need PortalProvider/PortalsHost; registered sheets need OverlayProvider/OverlayHost."
+    ],
+    "recipes": ["details-dialog"]
+  },
+  "components": [
+    {
+      "name": "Flyout",
+      "source": {
+        "file": "packages/flyout/src/components/flyout.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "bottomOffset",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "header",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "layer",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "onClose",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 39
+          }
+        },
+        {
+          "name": "onCloseFinished",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 40
+          }
+        },
+        {
+          "name": "onOpen",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 37
+          }
+        },
+        {
+          "name": "onOpenFinished",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 38
+          }
+        },
+        {
+          "name": "onStatusChange",
+          "required": false,
+          "type": "OverlayStatusCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 41
+          }
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "placement",
+          "required": false,
+          "type": "\"bottom\" | \"top\" | undefined",
+          "choices": ["bottom", "top"],
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 10
+          }
+        },
+        {
+          "name": "title",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "topOffset",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 8
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "placement": {
+          "expression": "\"bottom\"",
+          "value": "bottom",
+          "source": {
+            "file": "packages/flyout/src/components/flyout.tsx",
+            "line": 14
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Flyout.Content",
+      "source": {
+        "file": "packages/flyout/src/components/content.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Flyout.Handle",
+      "source": {
+        "file": "packages/flyout/src/components/handle.tsx",
+        "line": 18
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "placement",
+          "required": false,
+          "type": "\"bottom\" | \"top\" | undefined",
+          "choices": ["bottom", "top"],
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "placement": {
+          "expression": "\"bottom\"",
+          "value": "bottom",
+          "source": {
+            "file": "packages/flyout/src/components/handle.tsx",
+            "line": 19
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Flyout.Header",
+      "source": {
+        "file": "packages/flyout/src/components/header.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Flyout.Root",
+      "source": {
+        "file": "packages/flyout/src/components/root.tsx",
+        "line": 23
+      },
+      "props": [
+        {
+          "name": "bottomOffset",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "layer",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "onClose",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 39
+          }
+        },
+        {
+          "name": "onCloseFinished",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 40
+          }
+        },
+        {
+          "name": "onOpen",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 37
+          }
+        },
+        {
+          "name": "onOpenFinished",
+          "required": false,
+          "type": "OverlayLifecycleCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 38
+          }
+        },
+        {
+          "name": "onStatusChange",
+          "required": false,
+          "type": "OverlayStatusCallback | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 41
+          }
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "placement",
+          "required": false,
+          "type": "\"bottom\" | \"top\" | undefined",
+          "choices": ["bottom", "top"],
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 10
+          }
+        },
+        {
+          "name": "topOffset",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 8
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "placement": {
+          "expression": "\"bottom\"",
+          "value": "bottom",
+          "source": {
+            "file": "packages/flyout/src/components/root.tsx",
+            "line": 27
+          }
+        },
+        "layer": {
+          "expression": "0",
+          "value": 0,
+          "source": {
+            "file": "packages/flyout/src/components/root.tsx",
+            "line": 28
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Flyout.Title",
+      "source": {
+        "file": "packages/flyout/src/components/title.tsx",
+        "line": 8
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "Flyout",
+      "kind": "value",
+      "source": {
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 8
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"@impulse-ui-native/toolkit\").FlyoutProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "FlyoutContentProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "FlyoutHandleProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 22
+      }
+    },
+    {
+      "name": "FlyoutHeaderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "FlyoutProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "FlyoutRootProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "FlyoutTitleProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 20
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/overlay": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-worklets": ">=0.5",
+    "react-native-safe-area-context": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/flyout.md",
+  "capabilityReference": "capabilities/flyout.md"
+}

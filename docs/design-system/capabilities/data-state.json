@@ -1,0 +1,801 @@
+{
+  "name": "@impulse-ui-native/data-state",
+  "slug": "data-state",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "presentation",
+    "chooseWhen": "Coordinate loading, empty, error and content states.",
+    "features": [
+      "DataView coordinates state copy/actions; standalone loading/empty/error views.",
+      "Custom loaders, state details and tone-aware icons/actions."
+    ],
+    "constraints": [
+      "Supply the state detail props required by DataView; flags are application data.",
+      "Custom loading/content components own their layout and may ignore tone."
+    ],
+    "setup": ["ThemeProvider; configure Reanimated and Worklets."],
+    "recipes": ["data-list"]
+  },
+  "components": [
+    {
+      "name": "DataView",
+      "source": {
+        "file": "packages/data-state/src/components/data-view.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 43
+          }
+        },
+        {
+          "name": "emptyViewProps",
+          "required": true,
+          "type": "StateViewProps",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "error",
+          "required": true,
+          "type": "Error | null",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 39
+          }
+        },
+        {
+          "name": "errorViewProps",
+          "required": true,
+          "type": "StateViewProps",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 44
+          }
+        },
+        {
+          "name": "isEmpty",
+          "required": true,
+          "type": "boolean",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 40
+          }
+        },
+        {
+          "name": "loading",
+          "required": true,
+          "type": "boolean",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 42
+          }
+        },
+        {
+          "name": "LoadingComponent",
+          "required": true,
+          "type": "ComponentType<{ tone?: ComponentTone; }>",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 41
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 38
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/data-state/src/components/data-view.tsx",
+            "line": 17
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "loading",
+          "error",
+          "isEmpty",
+          "LoadingComponent",
+          "errorViewProps",
+          "emptyViewProps"
+        ],
+        "mountPolicy": "Successful content stays mounted and hidden under the loader while loading without error/empty flags. Error/empty flags remove successful content.",
+        "statePrecedence": "Error and empty details can both render if both flags are active; applications should choose flags deliberately."
+      }
+    },
+    {
+      "name": "EmptyView",
+      "source": {
+        "file": "packages/data-state/src/components/empty-view.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "ErrorView",
+      "source": {
+        "file": "packages/data-state/src/components/error-view.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "LoadingView",
+      "source": {
+        "file": "packages/data-state/src/components/loading-view.tsx",
+        "line": 16
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "loading",
+          "required": true,
+          "type": "boolean",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "LoadingComponent",
+          "required": true,
+          "type": "ComponentType<{ tone?: ComponentTone; }>",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 31
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/data-state/src/components/loading-view.tsx",
+            "line": 19
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "DataView",
+      "kind": "value",
+      "source": {
+        "file": "packages/data-state/src/components/data-view.tsx",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "(props: DataViewProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DataViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 37
+      }
+    },
+    {
+      "name": "EmptyView",
+      "kind": "value",
+      "source": {
+        "file": "packages/data-state/src/components/empty-view.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"@impulse-ui-native/toolkit\").StateContainerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "EmptyViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 26
+      }
+    },
+    {
+      "name": "ErrorView",
+      "kind": "value",
+      "source": {
+        "file": "packages/data-state/src/components/error-view.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"@impulse-ui-native/toolkit\").StateContainerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ErrorViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 28
+      }
+    },
+    {
+      "name": "LoadingView",
+      "kind": "value",
+      "source": {
+        "file": "packages/data-state/src/components/loading-view.tsx",
+        "line": 16
+      },
+      "signatures": [
+        {
+          "text": "(props: LoadingViewProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "LoadingViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 30
+      }
+    },
+    {
+      "name": "StateActionsFooterProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "StateContainerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 22
+      }
+    },
+    {
+      "name": "StateViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/data-state/src/types/state-view.types.ts",
+        "line": 16
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/skeleton": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=3.6.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/data-state.md",
+  "capabilityReference": "capabilities/data-state.md"
+}

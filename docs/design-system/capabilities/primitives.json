@@ -1,0 +1,6605 @@
+{
+  "name": "@impulse-ui-native/primitives",
+  "slug": "primitives",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "foundation",
+    "chooseWhen": "Build layouts, typography, actions and custom field composition.",
+    "features": [
+      "View/Pressable/SafeAreaView, Typography presets, buttons and icon buttons.",
+      "Avatar, Badge, Tag, Divider, Spinner and compound Control parts."
+    ],
+    "constraints": [
+      "Button/IconButton default to medium/filled/primary; Control.Field defaults to medium/outlined/neutral; Divider tone defaults to default.",
+      "Typography is a preset namespace, not shared state. Control parts consume Control.Provider/Field context.",
+      "Custom React node content owns its own foreground styling; a string child can use the component text defaults."
+    ],
+    "setup": ["ThemeProvider; install the owning package peer dependencies."],
+    "recipes": ["app-shell", "profile-card", "field-appearances"]
+  },
+  "components": [
+    {
+      "name": "Avatar",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/avatar.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "fallback",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "imageProps",
+          "required": false,
+          "type": "AvatarImageProps | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "initials",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "source",
+          "required": false,
+          "type": "ImageSource | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 28
+          }
+        },
+        {
+          "name": "status",
+          "required": false,
+          "type": "AvatarStatus | undefined",
+          "choices": ["away", "busy", "offline", "online"],
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 29
+          }
+        },
+        {
+          "name": "statusColor",
+          "required": false,
+          "type": "____ColorValue_Internal | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "DisplayVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/avatar.types.ts",
+            "line": 31
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/avatar.tsx",
+            "line": 15
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/avatar.tsx",
+            "line": 20
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/avatar.tsx",
+            "line": 21
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    },
+    {
+      "name": "Badge",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/badge/root.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": true,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/primitives/src/types/badge.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/badge.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "BadgeTone | undefined",
+          "choices": [
+            "error",
+            "info",
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning"
+          ],
+          "source": {
+            "file": "packages/primitives/src/types/badge.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "DisplayVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/badge.types.ts",
+            "line": 28
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/badge/root.tsx",
+            "line": 23
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/badge/root.tsx",
+            "line": 27
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/badge/root.tsx",
+            "line": 28
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    },
+    {
+      "name": "Button",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/button.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "((string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ((state: PressableStateCallbackType) => React.ReactNode)) & (string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>)) | null | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "aspectRatio",
+        "elevation",
+        "height",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "width"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/button.tsx",
+            "line": 16
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/button.tsx",
+            "line": 17
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/button.tsx",
+            "line": 18
+          }
+        },
+        "loading": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/primitives/src/components/atoms/button.tsx",
+            "line": 20
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    },
+    {
+      "name": "Control.Addon",
+      "source": {
+        "file": "packages/primitives/src/components/controls/addon.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 64
+          }
+        },
+        {
+          "name": "hitSlop",
+          "required": false,
+          "type": "RectOrSize | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 65
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 66
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 109,
+      "defaults": {
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/primitives/src/components/controls/addon.tsx",
+            "line": 13
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "inheritance": "Appearance/disabled/error state comes from field context."
+      }
+    },
+    {
+      "name": "Control.Container",
+      "source": {
+        "file": "packages/primitives/src/components/controls/container.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+      }
+    },
+    {
+      "name": "Control.Error",
+      "source": {
+        "file": "packages/primitives/src/components/controls/error.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Control.Field",
+      "source": {
+        "file": "packages/primitives/src/components/controls/field.tsx",
+        "line": 13
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 51
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 52
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "prefix",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "suffix",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 54
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/controls/field.tsx",
+            "line": 22
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/primitives/src/components/controls/field.tsx",
+            "line": 24
+          }
+        },
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/primitives/src/components/controls/field.tsx",
+            "line": 25
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "outlined",
+          "tone": "neutral",
+          "size": "medium"
+        },
+        "valueContract": "Input/Textarea use native value/onChangeText; Control.Field supplies composition context, not a value model."
+      }
+    },
+    {
+      "name": "Control.Icon",
+      "source": {
+        "file": "packages/primitives/src/components/controls/icon.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/react-native-svg/lib/typescript/elements/G.d.ts",
+            "line": 6,
+            "external": true
+          }
+        },
+        {
+          "name": "icon",
+          "required": true,
+          "type": "ComponentType<SvgProps>",
+          "source": {
+            "file": "packages/icon/dist/types/icon.types.d.mts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => void) | undefined",
+          "source": {
+            "file": "node_modules/react-native-svg/lib/typescript/lib/extract/types.d.ts",
+            "line": 195,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => void) | undefined",
+          "source": {
+            "file": "node_modules/react-native-svg/lib/typescript/lib/extract/types.d.ts",
+            "line": 31,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => void) | undefined",
+          "source": {
+            "file": "node_modules/react-native-svg/lib/typescript/lib/extract/types.d.ts",
+            "line": 28,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "number | ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "openChoices": true,
+          "source": {
+            "file": "packages/icon/dist/types/icon.types.d.mts",
+            "line": 8
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/icon/dist/types/icon.types.d.mts",
+            "line": 12
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native-svg/lib/typescript/lib/extract/types.d.ts",
+            "line": 200,
+            "external": true
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "IconVariant | undefined",
+          "choices": ["bold", "duotone", "fill", "light", "regular", "thin"],
+          "source": {
+            "file": "packages/icon/dist/types/icon.types.d.mts",
+            "line": 10
+          }
+        }
+      ],
+      "styleProps": [
+        "color",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "height",
+        "letterSpacing",
+        "opacity",
+        "width"
+      ],
+      "inheritedNativePropCount": 165,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels.",
+        "semantics": "Its variant prop selects the glyph weight through IconProps. The field visual variant/tone come from Control context."
+      }
+    },
+    {
+      "name": "Control.Input",
+      "source": {
+        "file": "packages/primitives/src/components/controls/input.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 466,
+            "external": true
+          }
+        },
+        {
+          "name": "editable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 470,
+            "external": true
+          }
+        },
+        {
+          "name": "keyboardType",
+          "required": false,
+          "type": "KeyboardTypeOptions | undefined",
+          "choices": [
+            "ascii-capable",
+            "ascii-capable-number-pad",
+            "decimal-pad",
+            "default",
+            "email-address",
+            "name-phone-pad",
+            "number-pad",
+            "numbers-and-punctuation",
+            "numeric",
+            "phone-pad",
+            "twitter",
+            "url",
+            "visible-password",
+            "web-search"
+          ],
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 532,
+            "external": true
+          }
+        },
+        {
+          "name": "maxLength",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 545,
+            "external": true
+          }
+        },
+        {
+          "name": "multiline",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 550,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 288,
+            "external": true
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((e: TextInputChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 558,
+            "external": true
+          }
+        },
+        {
+          "name": "onChangeText",
+          "required": false,
+          "type": "((text: string) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 563,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 591,
+            "external": true
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 620,
+            "external": true
+          }
+        },
+        {
+          "name": "secureTextEntry",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 668,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 734,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 744,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": ["textAlign", "textAlignVertical"],
+      "inheritedNativePropCount": 164,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+      }
+    },
+    {
+      "name": "Control.Label",
+      "source": {
+        "file": "packages/primitives/src/components/controls/label.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "inheritance": "Appearance/disabled/error state comes from field context."
+      }
+    },
+    {
+      "name": "Control.Loader",
+      "source": {
+        "file": "packages/primitives/src/components/controls/loader.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/spinner.types.ts",
+            "line": 6
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "SpinnerTone | undefined",
+          "choices": ["inverse", "neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/spinner.types.ts",
+            "line": 7
+          }
+        }
+      ],
+      "styleProps": ["color"],
+      "inheritedNativePropCount": 112,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels.",
+        "semantics": "Uses the field addon foreground. An explicit color override can replace it; Spinner tone alone does not replace the supplied field foreground."
+      }
+    },
+    {
+      "name": "Control.Placeholder",
+      "source": {
+        "file": "packages/primitives/src/components/controls/placeholder.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+      }
+    },
+    {
+      "name": "Control.Provider",
+      "source": {
+        "file": "packages/primitives/src/components/controls/provider.tsx",
+        "line": 7
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": true,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": true,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "size",
+          "required": true,
+          "type": "ComponentSize",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "variant",
+          "required": true,
+          "type": "FieldVariant",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/controls/provider.tsx",
+            "line": 14
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/primitives/src/components/controls/provider.tsx",
+            "line": 15
+          }
+        },
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/primitives/src/components/controls/provider.tsx",
+            "line": 16
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Control.Root",
+      "source": {
+        "file": "packages/primitives/src/components/controls/root.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Control.Trigger",
+      "source": {
+        "file": "packages/primitives/src/components/controls/trigger.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode | ((state: PressableStateCallbackType) => React.ReactNode)",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 36,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "pressedStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "inheritance": "Appearance/disabled/error state comes from field context."
+      }
+    },
+    {
+      "name": "Control.Value",
+      "source": {
+        "file": "packages/primitives/src/components/controls/value.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+        "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+      }
+    },
+    {
+      "name": "Divider",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/divider.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "inset",
+          "required": false,
+          "type": "DividerInset | undefined",
+          "choices": ["both", "end", "none", "start"],
+          "source": {
+            "file": "packages/primitives/src/types/divider.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "orientation",
+          "required": false,
+          "type": "DividerOrientation | undefined",
+          "choices": ["horizontal", "vertical"],
+          "source": {
+            "file": "packages/primitives/src/types/divider.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "DividerTone | undefined",
+          "choices": [
+            "default",
+            "inverse",
+            "neutral",
+            "primary",
+            "secondary",
+            "strong",
+            "subtle"
+          ],
+          "source": {
+            "file": "packages/primitives/src/types/divider.types.ts",
+            "line": 15
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "inset": {
+          "expression": "\"none\"",
+          "value": "none",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/divider.tsx",
+            "line": 16
+          }
+        },
+        "orientation": {
+          "expression": "\"horizontal\"",
+          "value": "horizontal",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/divider.tsx",
+            "line": 17
+          }
+        },
+        "tone": {
+          "expression": "\"default\"",
+          "value": "default",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/divider.tsx",
+            "line": 19
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["tone"],
+        "expectedDefaults": {
+          "tone": "default"
+        },
+        "semantics": "Separator border-intensity tones include subtle/default/strong; primary is opt-in."
+      }
+    },
+    {
+      "name": "IconButton",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/icon-button.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "((string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ((state: PressableStateCallbackType) => React.ReactNode)) & (string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>)) | null | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "icon",
+          "required": true,
+          "type": "React.ComponentType<SvgProps>",
+          "source": {
+            "file": "packages/primitives/src/types/icon-button.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "aspectRatio",
+        "elevation",
+        "height",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "width"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/icon-button.tsx",
+            "line": 16
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/icon-button.tsx",
+            "line": 17
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/icon-button.tsx",
+            "line": 18
+          }
+        },
+        "loading": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/primitives/src/components/atoms/icon-button.tsx",
+            "line": 20
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    },
+    {
+      "name": "Pressable",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/pressable.tsx",
+        "line": 30
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode | ((state: PressableStateCallbackType) => React.ReactNode)",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 36,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "pressedStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 124,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "SafeAreaView",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/safe-area-view.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native-safe-area-context/lib/typescript/src/SafeArea.types.d.ts",
+            "line": 32,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 112,
+      "defaults": {
+        "mode": {
+          "expression": "\"padding\"",
+          "value": "padding",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/safe-area-view.tsx",
+            "line": 17
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Spinner",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/spinner.tsx",
+        "line": 9
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/spinner.types.ts",
+            "line": 6
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "SpinnerTone | undefined",
+          "choices": ["inverse", "neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/spinner.types.ts",
+            "line": 7
+          }
+        }
+      ],
+      "styleProps": ["color"],
+      "inheritedNativePropCount": 112,
+      "defaults": {
+        "animating": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/primitives/src/components/atoms/spinner.tsx",
+            "line": 10
+          }
+        },
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/spinner.tsx",
+            "line": 13
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/spinner.tsx",
+            "line": 15
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Tag",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/tag.tsx",
+        "line": 17
+      },
+      "props": [
+        {
+          "name": "closable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "label",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onClose",
+          "required": false,
+          "type": "(() => void) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 17
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "TagTone | undefined",
+          "choices": [
+            "error",
+            "info",
+            "neutral",
+            "primary",
+            "secondary",
+            "success",
+            "warning"
+          ],
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "DisplayVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/tag.types.ts",
+            "line": 13
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/tag.tsx",
+            "line": 19
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/tag.tsx",
+            "line": 20
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/primitives/src/components/atoms/tag.tsx",
+            "line": 21
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    },
+    {
+      "name": "Typography.Body",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 132
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.BodyLarge",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 122
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.BodySmall",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 142
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Caption",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 152
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Code",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 194
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.DisplayLarge",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.DisplayMedium",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 22
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.DisplaySmall",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 32
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Eyebrow",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 215
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Helper",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 184
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Label",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 162
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Master",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 4
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Overline",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 172
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Quote",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 204
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Subtitle1",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 102
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Subtitle2",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 112
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Title1",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 42
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Title2",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 52
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Title3",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 62
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Title4",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 72
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Title5",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 82
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Typography.Title6",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 92
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "View",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/view.tsx",
+        "line": 21
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 111,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "Avatar",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/avatar.tsx",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "(props: AvatarProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "AvatarImageProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/avatar.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "AvatarProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/avatar.types.ts",
+        "line": 23
+      }
+    },
+    {
+      "name": "Badge",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/badge/root.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "(props: BadgeProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "BadgeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/badge.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "BadgeThemeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/badge.types.ts",
+        "line": 31
+      }
+    },
+    {
+      "name": "Button",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/button.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "(props: ButtonProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ButtonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/button.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "ButtonThemeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/button.types.ts",
+        "line": 24
+      }
+    },
+    {
+      "name": "Control",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/controls/control.tsx",
+        "line": 15
+      }
+    },
+    {
+      "name": "ControlAddonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 63
+      }
+    },
+    {
+      "name": "ControlComponentCommonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "ControlComponentProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 30
+      }
+    },
+    {
+      "name": "ControlContainerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 42
+      }
+    },
+    {
+      "name": "ControlContextData",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 38
+      }
+    },
+    {
+      "name": "ControlErrorLabelProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 61
+      }
+    },
+    {
+      "name": "ControlFieldProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 48
+      }
+    },
+    {
+      "name": "ControlIconProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 46
+      }
+    },
+    {
+      "name": "ControlInputProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 69
+      }
+    },
+    {
+      "name": "ControlLabelProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 59
+      }
+    },
+    {
+      "name": "ControlLayoutProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "ControlLoaderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 75
+      }
+    },
+    {
+      "name": "ControlPlaceholderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 71
+      }
+    },
+    {
+      "name": "ControlTriggerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 44
+      }
+    },
+    {
+      "name": "ControlValueProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/control-components.types.ts",
+        "line": 73
+      }
+    },
+    {
+      "name": "createPreset",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/hocs/create-preset.hoc.tsx",
+        "line": 17
+      },
+      "signatures": [
+        {
+          "text": "(config: (theme: AppTheme) => TypographyProps & Pick<TextProps, \"color\">, key: TypographyPresetKey): import(\"react\").MemoExoticComponent<{ (props: TextProps): import(\"react\").JSX.Element; displayName: string; }>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "Divider",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/divider.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "(props: DividerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DividerInset",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/divider.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "DividerOrientation",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/divider.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "DividerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/divider.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "EdgeToShorthandKeyMap",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/constants/safe-area-view.constants.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "EdgeToSpacingKeyMap",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/constants/safe-area-view.constants.ts",
+        "line": 1
+      }
+    },
+    {
+      "name": "IconButton",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/icon-button.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "(props: IconButtonProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "IconButtonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/icon-button.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "IconButtonThemeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/icon-button.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "Pressable",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/pressable.tsx",
+        "line": 25
+      },
+      "signatures": [
+        {
+          "text": "(props: PressableCoreProps & RefAttributes<import(\"node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement\").default>): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PressableCoreProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/button.types.ts",
+        "line": 32
+      }
+    },
+    {
+      "name": "SafeAreaView",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/safe-area-view.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"react-native-safe-area-context\").NativeSafeAreaViewProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "SafeAreaViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/safe-area-view.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "Spinner",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/spinner.tsx",
+        "line": 9
+      },
+      "signatures": [
+        {
+          "text": "(props: SpinnerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "SpinnerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/spinner.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "Tag",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/tag.tsx",
+        "line": 17
+      },
+      "signatures": [
+        {
+          "text": "(props: TagProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "TagProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/tag.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "TagThemeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/tag.types.ts",
+        "line": 22
+      }
+    },
+    {
+      "name": "TextProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/typography.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "Typography",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 3
+      }
+    },
+    {
+      "name": "TypographyComponent",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/typography.tsx",
+        "line": 228
+      }
+    },
+    {
+      "name": "useControlContext",
+      "kind": "hook",
+      "source": {
+        "file": "packages/primitives/src/hooks/use-control-context.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(): ControlContextData",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "View",
+      "kind": "value",
+      "source": {
+        "file": "packages/primitives/src/components/atoms/view.tsx",
+        "line": 18
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"react-native\").ViewProps & import(\"@impulse-ui-native/theme\").SpacingProps & import(\"@impulse-ui-native/theme\").ColorProps & import(\"@impulse-ui-native/theme\").ShadowProps & import(\"@impulse-ui-native/theme\").BorderProps & import(\"@impulse-ui-native/theme\").FlexProps & import(\"@impulse-ui-native/theme\").DimensionProps & RefAttributes<import(\"node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement\").default>): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/view.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "ViewStyleProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/primitives/src/types/view.types.ts",
+        "line": 12
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-safe-area-context": ">=5.0.0",
+    "react-native-svg": ">=13.9.0"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/primitives.md",
+  "capabilityReference": "capabilities/primitives.md"
+}

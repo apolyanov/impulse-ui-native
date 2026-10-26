@@ -1,0 +1,1179 @@
+# @impulse-ui-native/toolkit: capability guide
+
+Consume most library packages through one application import.
+
+## Setup
+
+- Install toolkit and required peers for the features used; providers are still explicit.
+
+## Capabilities
+
+- Re-exports component, infrastructure, core and theme packages.
+
+## Boundaries and composition
+
+- Does not re-export icon or Storybook; use their owning packages.
+- Capability records are owned by individual packages; do not assume all exports share size/variant/tone.
+
+Exact contracts: [API reference](../api/toolkit.md). Machine facts: [package JSON](toolkit.json) or [full catalog](../capabilities.json).
+
+## Recipes
+
+- [app-shell](../recipes.md#app-shell)
+
+## Public components
+
+## Manifest peer requirements
+
+Optional refers to the package manifest; individual features may still require that peer at runtime.
+
+| Peer                             | Range      | Optional |
+| -------------------------------- | ---------- | -------- |
+| `@shopify/react-native-skia`     | `>=2`      | No       |
+| `react`                          | `>=18`     | No       |
+| `react-native`                   | `>=0.73`   | No       |
+| `react-native-gesture-handler`   | `>=2.0.0`  | No       |
+| `react-native-reanimated`        | `>=4`      | No       |
+| `react-native-safe-area-context` | `>=5.0.0`  | No       |
+| `react-native-svg`               | `>=13.9.0` | No       |
+| `react-native-worklets`          | `>=0.5`    | No       |
+
+This package has no directly owned visual components in its public root; use its exports below. Toolkit re-exports the owning packages.
+
+## Public exports
+
+- `Accordion` (value)
+- `AccordionContentProps` (type)
+- `AccordionIndicatorProps` (type)
+- `AccordionItemProps` (type)
+- `AccordionMultipleRootProps` (type)
+- `AccordionRootProps` (type)
+- `AccordionSingleRootProps` (type)
+- `AccordionTokens` (type)
+- `AccordionTriggerAppearanceTokens` (type)
+- `AccordionTriggerProps` (type)
+- `ActionAppearanceTokens` (type)
+- `ActionState` (type)
+- `ActionVariant` (type)
+- `ActionVisualState` (type)
+- `addDays` (value)
+  - `(date: Date, days: number): Date`
+- `applyTime` (value)
+  - `(date: Date, time: TimePickerValue \| null): Date`
+- `AppTheme` (type)
+- `AvailabilityState` (type)
+- `AvailabilityVisualState` (type)
+- `Avatar` (value)
+  - `(props: AvatarProps): import("react").ReactNode`
+- `AvatarImageProps` (type)
+- `AvatarProps` (type)
+- `AvatarSizeTokens` (type)
+- `AvatarStatus` (type)
+- `AvatarTokens` (type)
+- `AvatarVariantTokens` (type)
+- `AxisDefaultLabelGap` (value)
+- `AxisDefaultOpacity` (value)
+- `AxisDefaultTickLength` (value)
+- `AxisDefaultWidth` (value)
+- `AxisLayout` (type)
+- `AxisLineLayout` (type)
+- `AxisProps` (type)
+- `AxisTick` (type)
+- `AxisTickLayout` (type)
+- `Badge` (value)
+  - `(props: BadgeProps): import("react").ReactNode`
+- `BadgeColorTokens` (type)
+- `BadgeProps` (type)
+- `BadgeSizeTokens` (type)
+- `BadgeThemeProps` (type)
+- `BadgeTokens` (type)
+- `BadgeTone` (type)
+- `BadgeVariantTokens` (type)
+- `Bar` (value)
+  - `<X extends ChartXValue = string>(props: BarProps<X>): import("react").JSX.Element \| null`
+- `BarChart` (value)
+  - `<X extends ChartXValue = string>(props: BarChartProps<X>): import("react").JSX.Element`
+- `BarChartBarOptions` (type)
+- `BarChartCommonProps` (type)
+- `BarChartCoordinate` (type)
+- `BarChartDefaultCategoryPadding` (value)
+- `BarChartOrientation` (type)
+- `BarChartPoint` (type)
+- `BarChartProps` (type)
+- `BarChartScaleModel` (type)
+- `BarDefaultColor` (value)
+- `BarDefaultColors` (value)
+- `BarDefaultOpacity` (value)
+- `BarDefaultRadius` (value)
+- `BarProps` (type)
+- `BaseVariables` (type)
+- `BorderProps` (type)
+- `BorderSize` (type)
+- `BorderSizeKey` (type)
+- `BorderSizeTokens` (value)
+- `Button` (value)
+  - `(props: ButtonProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `ButtonProps` (type)
+- `ButtonSizeTokens` (type)
+- `ButtonThemeProps` (type)
+- `ButtonTokens` (type)
+- `ButtonTone` (type)
+- `ButtonVariantTokens` (type)
+- `CalendarDayState` (type)
+- `Card` (value)
+  - `(props: import("@impulse-ui-native/toolkit").CardProps): import("react").ReactNode`
+- `CardContentProps` (type)
+- `CardFooterProps` (type)
+- `CardHeaderProps` (type)
+- `CardMediaProps` (type)
+- `CardPressableProps` (type)
+- `CardProps` (type)
+- `CardRootProps` (type)
+- `CardSectionTokens` (type)
+- `CardTokens` (type)
+- `Carousel` (value)
+  - `(props: CarouselProps): import("react").ReactNode`
+- `CarouselCounterAppearanceTokens` (type)
+- `CarouselIndicatorAppearanceTokens` (type)
+- `CarouselPagination` (type)
+- `CarouselProps` (type)
+- `CarouselTokens` (type)
+- `CartesianChartDefaultInsets` (value)
+- `ChartAxisLabelOptions` (type)
+- `ChartAxisLineOptions` (type)
+- `ChartAxisOptions` (type)
+- `ChartAxisTickOptions` (type)
+- `ChartCartesianProps` (type)
+- `ChartCartesianScaleModel` (type)
+- `ChartColorPalette` (type)
+- `ChartColorTokens` (value)
+- `ChartContainerProps` (type)
+- `ChartGridLineOptions` (type)
+- `ChartGridOptions` (type)
+- `ChartHitTarget` (type)
+- `ChartInsets` (type)
+- `ChartLabelStyle` (type)
+- `ChartLayout` (type)
+- `ChartLegend` (value)
+  - `({ items, hiddenIds, onToggle, }: ChartLegendProps): import("react").JSX.Element`
+- `ChartLegendItem` (type)
+- `ChartLegendProps` (type)
+- `ChartNumericDomain` (type)
+- `ChartNumericScaleModel` (type)
+- `ChartPoint` (type)
+- `ChartPresentationProps` (type)
+- `ChartRect` (type)
+- `ChartScaleType` (type)
+- `ChartSelection` (type)
+- `ChartSelectionDetails` (type)
+- `ChartSize` (type)
+- `ChartsLabelTokens` (type)
+- `ChartsTokens` (type)
+- `ChartStrokeCap` (type)
+- `ChartStrokeJoin` (type)
+- `ChartStrokeStyle` (type)
+- `ChartTooltip` (value)
+  - `({ details, style, ...props }: ChartTooltipProps): import("react").JSX.Element`
+- `ChartTooltipProps` (type)
+- `ChartXAxisOptions` (type)
+- `ChartXValue` (type)
+- `ChartYAxisOptions` (type)
+- `Checkbox` (value)
+  - `(props: CheckboxProps): import("react").ReactNode`
+- `CheckboxAppearanceTokens` (type)
+- `CheckboxProps` (type)
+- `CheckboxSizeTokens` (type)
+- `CheckboxState` (type)
+- `CheckboxThemeProps` (type)
+- `CheckboxTokens` (type)
+- `CheckboxVariantTokens` (type)
+- `CodeFontFamilyToken` (value)
+- `ColorChannel` (type)
+- `ColorPair` (type)
+- `ColorPicker` (value)
+  - `(props: import("@impulse-ui-native/toolkit").ColorPickerProps): import("react").ReactNode`
+- `ColorPickerActionProps` (type)
+- `ColorPickerAlphaInputProps` (type)
+- `ColorPickerChannelInputProps` (type)
+- `ColorPickerCommitMode` (type)
+- `ColorPickerHexInputProps` (type)
+- `ColorPickerPreset` (type)
+- `ColorPickerProps` (type)
+- `ColorPickerRootProps` (type)
+- `ColorPickerSwatchProps` (type)
+- `ColorPickerTokens` (type)
+- `ColorProps` (type)
+- `ColorScheme` (type)
+- `CommonEndpointRequestProps` (type)
+- `CommonSelectProps` (type)
+- `ComponentSize` (type)
+- `ComponentsThemes` (type)
+- `ComponentsTokens` (type)
+- `ComponentTone` (type)
+- `ComponentVariant` (type)
+- `Control` (value)
+- `ControlAddonAppearanceTokens` (type)
+- `ControlAddonProps` (type)
+- `ControlAddonTokens` (type)
+- `ControlAddonVariantTokens` (type)
+- `ControlComponentCommonProps` (type)
+- `ControlComponentProps` (type)
+- `ControlContainerAppearanceTokens` (type)
+- `ControlContainerProps` (type)
+- `ControlContainerSizeTokens` (type)
+- `ControlContainerTokens` (type)
+- `ControlContainerVariantTokens` (type)
+- `ControlContextData` (type)
+- `ControlErrorLabelProps` (type)
+- `ControlErrorTokens` (type)
+- `ControlFieldProps` (type)
+- `ControlIconProps` (type)
+- `ControlInputAppearanceTokens` (type)
+- `ControlInputProps` (type)
+- `ControlInputSizeTokens` (type)
+- `ControlInputTokens` (type)
+- `ControlInputVariantTokens` (type)
+- `ControlLabelAppearanceTokens` (type)
+- `ControlLabelProps` (type)
+- `ControlLabelTokens` (type)
+- `ControlLayoutProps` (type)
+- `ControlLoaderProps` (type)
+- `ControlPlaceholderProps` (type)
+- `ControlState` (type)
+- `ControlTriggerProps` (type)
+- `ControlValueProps` (type)
+- `ControlVisualState` (type)
+- `CreateAxisLayoutProps` (type)
+- `createAxisTicks` (value)
+  - `<Value>(values: readonly Value[], scale: LineChartScale<Value>): AxisTick<Value>[]`
+- `createBarChartCoordinates` (value)
+  - `<X extends ChartXValue>(data: readonly BarChartPoint<X>[], xStartScale: LineChartScale<X>, yScale: LineChartScale<number>, baseline: number, width: number, offset?: number, orientation?: BarChartOrientation): BarChartCoordinate<X>[]`
+- `createBarChartHitTargets` (value)
+  - `<X extends ChartXValue>(coordinates: readonly BarChartCoordinate<X>[], color: string, seriesId?: string, label?: string, plot?: ChartRect, formatX?: (value: X) => string): ChartHitTarget[]`
+- `createBarChartModel` (value)
+  - `<X extends ChartXValue>(props: UseBarChartProps<X>, tokens?: ChartsTokens): UseBarChartResult<X>`
+- `createCalendarRange` (value)
+  - `(date: Date, previousRange?: TimeRange): TimeRange \| undefined`
+- `createCarouselTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): CarouselTokens`
+- `createChartLayout` (value)
+  - `(size: ChartSize, insets?: Partial<ChartInsets>, defaultInsets?: Partial<ChartInsets>): ChartLayout`
+- `createChartsLabelTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): ChartsLabelTokens`
+- `createChartsTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): ChartsTokens`
+- `createColorPickerTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): ColorPickerTokens`
+- `createComponentsTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): ComponentsTokens`
+- `createDrawableMultiBarChartSeries` (value)
+  - `<X extends ChartXValue>(series: MultiBarChartSeriesModel<X>, _index: number, tokens?: ChartsTokens): MultiBarChartSeriesModel<X>`
+- `createDrawableMultiLineChartSeries` (value)
+  - `<X extends ChartXValue>(series: MultiLineChartSeriesModel<X>, _index: number, _plot: ChartRect, tokens?: ChartsTokens): MultiLineChartSeriesModel<X>`
+- `createEndpointFactory` (value)
+  - `(client: Axios): { createMutation: <TData, TError = import("axios").AxiosError<unknown, any>, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>>(config: import("@impulse-ui-native/toolkit").EndpointRequest<TData, TError>) => import("@impulse-ui-native/toolkit").MutationFunction<TData, TError, TVariables>; createQuery: <TData, TError = import("axios").AxiosError<unknown, any>, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>>(config: import("@impulse-ui-native/toolkit").QueryEndpointRequest<TData, TError, TVariables>) => import("@impulse-ui-native/toolkit").QueryFunction<TData, TError, TVariables>; createInfiniteQuery: <TPage, TError = import("axios").AxiosError<unknown, any>, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>, TPageParam extends import("@impulse-ui-native/toolkit").PaginationParams = import("@impulse-ui-native/toolkit").PaginationParams, TQueryKey extends import("@tanstack/query-core").QueryKey = readonly unknown[]>(config: import("@impulse-ui-native/toolkit").InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<import("@tanstack/react-query").UseInfiniteQueryOptions<TPage, TError, import("@tanstack/query-core").InfiniteData<TPage>, TQueryKey, TPageParam>, "queryKey">) => import("@tanstack/react-query").UseInfiniteQueryResult<import("@tanstack/query-core").InfiniteData<TPage, unknown>, TError>; }`
+- `createHorizontalGridPath` (value)
+  - `<Value>(values: readonly Value[], scale: LineChartScale<Value>, plot: ChartRect): SkPath \| null`
+- `createInfiniteQueryFactory` (value)
+  - `(client: Axios): <TPage, TError = AxiosError, TVariables extends BaseVariables = BaseVariables, TPageParam extends PaginationParams = PaginationParams, TQueryKey extends QueryKey = QueryKey>(config: InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<UseInfiniteQueryOptions<TPage, TError, InfiniteData<TPage>, TQueryKey, TPageParam>, "queryKey">) => import("@tanstack/react-query").UseInfiniteQueryResult<InfiniteData<TPage, unknown>, TError>`
+- `createInfiniteRange` (value)
+  - `(max: number, repeats: number): any[]`
+- `createInsetRect` (value)
+  - `(rect: ChartRect, amount: number): ChartRect`
+- `createLineChartCoordinates` (value)
+  - `<X extends ChartXValue>(data: readonly LineChartPoint<X>[], xScale: LineChartScale<X>, yScale: LineChartScale<number>): LineChartCoordinate<X>[]`
+- `createLineChartHitTargets` (value)
+  - `<X extends ChartXValue>(coordinates: readonly LineChartCoordinate<X>[], color: string, seriesId?: string, label?: string, formatX?: (value: X) => string): ChartHitTarget[]`
+- `createLineChartModel` (value)
+  - `<X extends ChartXValue>(props: UseLineChartProps<X>): UseLineChartResult<X>`
+- `createLineChartScaleModel` (value)
+  - `<X extends ChartXValue>(props: UseLineChartProps<X>): Omit<UseLineChartResult<X>, "coordinates">`
+- `createLinePath` (value)
+  - `<X extends ChartXValue>(coordinates: readonly LineChartCoordinate<X>[], curve: LineChartCurve): SkPath \| null`
+- `createModalTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): ModalTokens`
+- `createMultiBarChartModel` (value)
+  - `<X extends ChartXValue>(props: UseMultiBarChartProps<X>, tokens?: ChartsTokens): UseMultiBarChartResult<X>`
+- `createMultiPieChartModel` (value)
+  - `(props: UseMultiPieChartProps, tokens?: ChartsTokens): UseMultiPieChartResult`
+- `createMutationFactory` (value)
+  - `(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: EndpointRequest<TData, TError>) => MutationFunction<TData, TError, TVariables>`
+- `createPaginationTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): PaginationTokens`
+- `createParagraphBuilder` (value)
+  - `(props: CreateParagraphBuilderProps): import("@shopify/react-native-skia").SkParagraphBuilder`
+- `createPieChartHitTargets` (value)
+  - `(coordinates: readonly PieChartCoordinate[], colors: readonly string[], seriesId?: string, label?: string): ChartHitTarget[]`
+- `createPieChartLegend` (value)
+  - `(data: readonly { id: string; label?: string; color?: string; }[], colors: readonly string[]): ChartLegendItem[]`
+- `createPieChartModel` (value)
+  - `(props: UsePieChartProps): PieChartModel`
+- `createPieChartRadii` (value)
+  - `(plot: ChartRect, innerRadiusRatio?: number, outerRadiusRatio?: number): { center: { x: number; y: number; }; innerRadius: number; outerRadius: number; }`
+- `createPieSlicePath` (value)
+  - `(coordinate: PieChartCoordinate, cornerRadius?: number): SkPath \| null`
+- `createPopoverTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): PopoverTokens`
+- `createPreset` (value)
+  - `(config: (theme: AppTheme) => TypographyProps & Pick<TextProps, "color">, key: TypographyPresetKey): import("react").MemoExoticComponent<{ (props: TextProps): import("react").JSX.Element; displayName: string; }>`
+- `createQueryFactory` (value)
+  - `(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: QueryEndpointRequest<TData, TError, TVariables>) => QueryFunction<TData, TError, TVariables>`
+- `createRequest` (value)
+  - `<TData, TError, TVariables extends BaseVariables>(client: Axios, config: CommonEndpointRequestProps<TData, TError>): (variables: TVariables) => Promise<TData>`
+- `createSegmentedControlTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): SegmentedControlTokens`
+- `createSliderTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): SliderTokens`
+- `createStyleKey` (value)
+  - `<Props extends object>(props: Props): string`
+- `createTabsTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): TabsTokens`
+- `createToastTokens` (value)
+  - `(tokens: PrimitiveThemeTokens): ToastTokens`
+- `createVerticalGridPath` (value)
+  - `<Value>(values: readonly Value[], scale: LineChartScale<Value>, plot: ChartRect): SkPath \| null`
+- `createXAxisLabelRect` (value)
+  - `(ticks: readonly AxisTick<unknown>[], index: number, region: ChartRect, offset: number): ChartRect`
+- `createXAxisLayout` (value)
+  - `<Value>(props: CreateAxisLayoutProps<Value>): AxisLayout<Value>`
+- `createYAxisLabelRect` (value)
+  - `(position: number, region: ChartRect, width: number, fontSize: number): ChartRect`
+- `createYAxisLayout` (value)
+  - `<Value = number>(props: CreateYAxisLayoutProps<Value>): AxisLayout<Value>`
+- `CreateYAxisLayoutProps` (type)
+- `DarkColors` (value)
+- `DarkTheme` (value)
+- `DataStateActionsFooterTokens` (type)
+- `DataStateContentTokens` (type)
+- `DataStateDetailsTokens` (type)
+- `DataStateLoadingTokens` (type)
+- `DataStateTokens` (type)
+- `DataView` (value)
+  - `(props: DataViewProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `DataViewProps` (type)
+- `DatePicker` (value)
+  - `(props: DatetimePickerProps): import("react").ReactNode`
+- `DatePickerFlyoutTokens` (type)
+- `DateRangePicker` (value)
+  - `(props: DatetimeRangePickerProps): import("react").ReactNode`
+- `DatetimePicker` (value)
+  - `(props: DatetimePickerProps): import("react").ReactNode`
+- `DatetimePickerCalendarTokens` (type)
+- `DatetimePickerCommonProps` (type)
+- `DatetimePickerDayAppearanceTokens` (type)
+- `DatetimePickerDayState` (type)
+- `DatetimePickerDayTokens` (type)
+- `DatetimePickerDayVisualState` (type)
+- `DatetimePickerFlyoutActionsTokens` (type)
+- `DatetimePickerFlyoutCommonProps` (type)
+- `DatetimePickerFlyoutTokens` (type)
+- `DatetimePickerProps` (type)
+- `DatetimePickerQuickDateOptionsTokens` (type)
+- `DatetimePickerTokens` (type)
+- `DatetimePickerVisibleDateSelectTokens` (type)
+- `DatetimeRangePicker` (value)
+  - `(props: DatetimeRangePickerProps): import("react").ReactNode`
+- `DatetimeRangePickerFlyoutTokens` (type)
+- `DatetimeRangePickerProps` (type)
+- `DeepPartial` (type)
+- `DefaultChartsTokens` (value)
+- `DimensionProps` (type)
+- `DisplayVariant` (type)
+- `Divider` (value)
+  - `(props: DividerProps): import("react").ReactNode`
+- `DividerInset` (type)
+- `DividerLayoutTokens` (type)
+- `DividerOrientation` (type)
+- `DividerProps` (type)
+- `DividerTokenInset` (type)
+- `DividerTokenOrientation` (type)
+- `DividerTokens` (type)
+- `DividerTokenState` (type)
+- `DividerTone` (type)
+- `EchoEventNames` (type)
+- `EchoEvents` (type)
+- `EchoInstance` (value)
+- `EchoListenerEntry` (type)
+- `EdgeToShorthandKeyMap` (value)
+- `EdgeToSpacingKeyMap` (value)
+- `EmptyView` (value)
+  - `(props: import("@impulse-ui-native/toolkit").StateContainerProps): import("react").ReactNode`
+- `EmptyViewProps` (type)
+- `endOfDay` (value)
+  - `(date: Date): Date`
+- `endOfWeek` (value)
+  - `(date: Date): Date`
+- `EndpointRequest` (type)
+- `ErrorView` (value)
+  - `(props: import("@impulse-ui-native/toolkit").StateContainerProps): import("react").ReactNode`
+- `ErrorViewProps` (type)
+- `ExtendedThemeColors` (type)
+- `extractStyleProps` (value)
+  - `<Props extends object>(props: Props): StyleProps`
+- `FeedbackTone` (type)
+- `FieldState` (type)
+- `FieldTone` (type)
+- `FieldVariant` (type)
+- `FieldVisualState` (type)
+- `findChartHitTarget` (value)
+  - `(point: ChartPoint, targets: readonly ChartHitTarget[], plot: ChartRect): ChartHitTarget \| null`
+- `fitLineCoordinatesToRect` (value)
+  - `<X extends ChartXValue>(coordinates: readonly LineChartCoordinate<X>[], source: ChartRect, target: ChartRect): LineChartCoordinate<X>[]`
+- `FlatList` (class)
+- `FlatListProps` (type)
+- `FlatListRef` (type)
+- `FlexProps` (type)
+- `Flyout` (value)
+  - `(props: import("@impulse-ui-native/toolkit").FlyoutProps): import("react").ReactNode`
+- `FlyoutContentProps` (type)
+- `FlyoutHandleProps` (type)
+- `FlyoutHandleTokens` (type)
+- `FlyoutHeaderProps` (type)
+- `FlyoutPlacement` (type)
+- `FlyoutPlacementTokens` (type)
+- `FlyoutProps` (type)
+- `FlyoutRootProps` (type)
+- `FlyoutTitleProps` (type)
+- `FlyoutTitleTokens` (type)
+- `FlyoutTokens` (type)
+- `FlyoutTokenState` (type)
+- `FontFamily` (type)
+- `FontFamilyTokens` (value)
+- `FontFamilyWeightsItalicTokens` (value)
+- `FontFamilyWeightsNormalTokens` (value)
+- `FontSize` (type)
+- `FontSizeTokens` (value)
+- `FontWeight` (type)
+- `FontWeightItalic` (type)
+- `FontWeightKeys` (type)
+- `FontWeightNormal` (type)
+- `FontWeightTokens` (value)
+- `FontWeightValue` (type)
+- `formatAxisTick` (value)
+  - `<Value>(value: Value, format?: (value: Value) => string): string`
+- `formatTimepickerValue` (value)
+  - `(value: TimePickerValue): string`
+- `FormField` (value)
+  - `(props: FormFieldProps): import("react").ReactNode`
+- `FormFieldControlProps` (type)
+- `FormFieldProps` (type)
+- `FormFieldRenderProps` (type)
+- `getActionStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<ActionVisualState, Tokens>, state: ActionState): Tokens`
+- `getAvailabilityStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<AvailabilityVisualState, Tokens>, state: AvailabilityState): Tokens`
+- `getCalendarDayState` (value)
+  - `({ date, visible, value, }: GetCalendarDayStateOptions): CalendarDayState`
+- `GetCalendarDayStateOptions` (type)
+- `getChartColor` (value)
+  - `(id: string, palette: readonly string[]): string`
+- `getClosestIndexByValue` (value)
+  - `(data: number[], value: number, currentIndex: number): number`
+- `getControlStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<ControlVisualState, Tokens>, state: ControlState): Tokens`
+- `getDateKey` (value)
+  - `(date: Date): string`
+- `getDatetimePickerDayStateTokens` (value)
+  - `(tokens: DatetimePickerDayTokens["colors"][ComponentTone], state: DatetimePickerDayState): DatetimePickerDayAppearanceTokens`
+- `getDayNames` (value)
+  - `(locale?: string, format?: "long" \| "short" \| "narrow"): string[]`
+- `getDividerTokens` (value)
+  - `(tokens: DividerTokens, state: DividerTokenState): ResolvedDividerTokens`
+- `getFieldStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<FieldVisualState, Tokens>, state: FieldState): Tokens`
+- `getFlyoutTokens` (value)
+  - `(tokens: FlyoutTokens, state: FlyoutTokenState): ResolvedFlyoutTokens`
+- `getInfiniteRangeInitialIndex` (value)
+  - `(max: number, targetValue: number, repeats: number): number`
+- `getInitialVisibleDate` (value)
+  - `(value?: TimeRange \| null, defaultValue?: TimeRange \| null): Date`
+- `getLabelTextAlign` (value)
+  - `(alignment: LabelHorizontalAlignment): TextAlign`
+- `getLabelY` (value)
+  - `(rect: ChartRect, paragraphHeight: number, alignment: LabelVerticalAlignment): number`
+- `getMonthCalendarMatrix` (value)
+  - `(year: number, month: number): Date[][]`
+- `getMonthNames` (value)
+  - `(locale?: string, format?: "long" \| "short" \| "narrow"): string[]`
+- `getPaginationStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<PaginationVisualState, Tokens>, state: PaginationState): Tokens`
+- `getQuickOptionKey` (value)
+  - `(value: Date \| TimeRange): string \| undefined`
+- `getSegmentedControlItemTokens` (value)
+  - `(tokens: SegmentedControlTokens, state: SegmentedControlItemTokenState): ResolvedSegmentedControlItemTokens`
+- `getSelectionItemStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<SelectionItemVisualState, Tokens>, state: SelectionItemState): Tokens`
+- `getSelectionStateTokens` (value)
+  - `<Tokens>(tokens: VisualStateTokens<SelectionVisualState, Tokens>, state: SelectionState): Tokens`
+- `getShadowStyle` (value)
+  - `(level: ShadowLevel \| undefined, position: ShadowPosition \| undefined, colors: ThemeColors, shadows?: ShadowScaleTokens): ViewStyle`
+- `getSliderTrackTokens` (value)
+  - `(tokens: SliderTokens, state: SliderTrackTokenState): ResolvedSliderTrackTokens`
+- `getTabsItemTokens` (value)
+  - `(tokens: TabsTokens, state: TabsItemTokenState): ResolvedTabsItemTokens`
+- `getYears` (value)
+  - `(): number[]`
+- `Grid` (value)
+  - `<X extends ChartXValue = number, Y extends ChartXValue = number>(props: GridProps<X, Y>): import("react").JSX.Element`
+- `GridDefaultOpacity` (value)
+- `GridDefaultWidth` (value)
+- `GridDefaultXVisible` (value)
+- `GridDefaultYVisible` (value)
+- `GridProps` (type)
+- `HostName` (type)
+- `IconButton` (value)
+  - `(props: IconButtonProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `IconButtonProps` (type)
+- `IconButtonSizeTokens` (type)
+- `IconButtonThemeProps` (type)
+- `IconButtonTokens` (type)
+- `IconButtonVariantTokens` (type)
+- `IconTokens` (type)
+- `IconView` (value)
+  - `(props: IconViewProps): import("react").ReactNode`
+- `IconViewProps` (type)
+- `IconViewThemeProps` (type)
+- `IconViewTokens` (type)
+- `inferChartScaleType` (value)
+  - `(values: readonly ChartXValue[]): "linear" \| "point" \| "time"`
+- `InfiniteQueryEndpointRequest` (type)
+- `InfiniteRangeItem` (type)
+- `Input` (value)
+  - `(props: InputProps): import("react").ReactNode`
+- `InputProps` (type)
+- `isAfterDay` (value)
+  - `(left: Date, right: Date): boolean`
+- `isBeforeDay` (value)
+  - `(left: Date, right: Date): boolean`
+- `isDateInMonth` (value)
+  - `(date: Date, monthDate: Date): boolean`
+- `isDateRange` (value)
+  - `(value: unknown): value is TimeRange`
+- `isInRange` (value)
+  - `(date: Date, rangeStart?: Date \| null, rangeEnd?: Date \| null): boolean`
+- `isObject` (value)
+  - `<Target>(value: Target \| undefined): value is (Target & object) \| (Target & null)`
+- `isRangeEnd` (value)
+  - `(date: Date, rangeEnd?: Date \| null): boolean`
+- `isRangeStart` (value)
+  - `(date: Date, rangeStart?: Date \| null): boolean`
+- `isSameChartSelection` (value)
+  - `(left: ChartSelection \| null, right: ChartSelection \| null): boolean`
+- `isSameDay` (value)
+  - `(left: Date, right: Date): boolean`
+- `isSelected` (value)
+  - `(date: Date, selected?: Date \| null, rangeStart?: Date \| null, rangeEnd?: Date \| null): boolean`
+- `isTimeRange` (value)
+  - `(value: unknown): value is TimeRange`
+- `Label` (value)
+  - `(props: LabelProps): import("react").JSX.Element \| null`
+- `LabelDefaultHorizontalAlignment` (value)
+- `LabelDefaultVerticalAlignment` (value)
+- `LabelHorizontalAlignment` (type)
+- `LabelProps` (type)
+- `LabelVerticalAlignment` (type)
+- `LetterSpacingKey` (type)
+- `LetterSpacings` (type)
+- `LetterSpacingTokens` (value)
+- `LightColors` (value)
+- `LightTheme` (value)
+- `Line` (value)
+  - `<X extends ChartXValue = number>(props: LineProps<X>): import("react").JSX.Element \| null`
+- `LineChart` (value)
+  - `<X extends ChartXValue = number>(props: LineChartProps<X>): import("react").JSX.Element`
+- `LineChartCommonProps` (type)
+- `LineChartCoordinate` (type)
+- `LineChartCurve` (type)
+- `LineChartDefaultNumericDomain` (value)
+- `LineChartDefaultTickCount` (value)
+- `LineChartLineOptions` (type)
+- `LineChartPoint` (type)
+- `LineChartProps` (type)
+- `LineChartScale` (type)
+- `LineChartXScaleModel` (type)
+- `LineDefaultCap` (value)
+- `LineDefaultColor` (value)
+- `LineDefaultColors` (value)
+- `LineDefaultCurve` (value)
+- `LineDefaultJoin` (value)
+- `LineDefaultOpacity` (value)
+- `LineDefaultWidth` (value)
+- `LineHeight` (type)
+- `LineHeightTokens` (value)
+- `LineProps` (type)
+- `List` (value)
+  - `(props: import("@impulse-ui-native/toolkit").ListProps): import("react").ReactNode`
+- `ListContentProps` (type)
+- `Listener` (type)
+- `ListEntryProps` (type)
+- `ListItemProps` (type)
+- `ListLeadingProps` (type)
+- `ListPressableProps` (type)
+- `ListProps` (type)
+- `ListRootProps` (type)
+- `ListTokens` (type)
+- `ListTrailingProps` (type)
+- `LoadingView` (value)
+  - `(props: LoadingViewProps): import("react").ReactNode`
+- `LoadingViewProps` (type)
+- `memo` (value)
+  - `<T extends ComponentType<any>>(component: T): T`
+- `merge` (value)
+  - `<Target>(target: Target, source?: DeepPartial<Target>): Target`
+- `Modal` (value)
+  - `(props: import("@impulse-ui-native/toolkit").ModalProps): import("react").ReactNode`
+- `ModalCloseProps` (type)
+- `ModalContentProps` (type)
+- `ModalContextValue` (type)
+- `ModalDescriptionProps` (type)
+- `ModalFooterProps` (type)
+- `ModalHeaderProps` (type)
+- `ModalLifecycleProps` (type)
+- `ModalProps` (type)
+- `ModalProviderProps` (type)
+- `ModalRootProps` (type)
+- `ModalSurfaceProps` (type)
+- `ModalTitleProps` (type)
+- `ModalTokens` (type)
+- `MultiBarChart` (value)
+  - `<X extends ChartXValue = string>(props: MultiBarChartProps<X>): import("react").JSX.Element`
+- `MultiBarChartDefaultSeriesPadding` (value)
+- `MultiBarChartProps` (type)
+- `MultiBarChartSeries` (type)
+- `MultiBarChartSeriesModel` (type)
+- `MultiLineChart` (value)
+  - `<X extends ChartXValue = number>(props: MultiLineChartProps<X>): import("react").JSX.Element`
+- `MultiLineChartBodyProps` (type)
+- `MultiLineChartProps` (type)
+- `MultiLineChartSeries` (type)
+- `MultiLineChartSeriesModel` (type)
+- `MultiPieChart` (value)
+  - `(props: MultiPieChartProps): import("react").JSX.Element`
+- `MultiPieChartProps` (type)
+- `MultiPieChartSeries` (type)
+- `MultiPieChartSeriesModel` (type)
+- `MultiPieDefaultRingPadding` (value)
+- `MultiSelect` (value)
+  - `<Value extends PrimitiveValue>(props: MultiSelectProps<Value>): import("react").JSX.Element`
+- `MultiSelectProps` (type)
+- `MutationFunction` (type)
+- `NeutralColor` (type)
+- `NeutralColorKey` (type)
+- `NeutralColorTokens` (value)
+- `normalizeRadiusRatio` (value)
+  - `(value: number): number`
+- `normalizeRange` (value)
+  - `(range: TimeRange \| null): TimeRange \| null`
+- `OpenOverlay` (type)
+- `OptionProps` (type)
+- `OverlayComponentProps` (type)
+- `OverlayContext` (value)
+  - `(props: import("react").ProviderProps<OverlayProviderValue \| undefined>): import("react").ReactNode`
+- `OverlayController` (type)
+- `OverlayEntry` (type)
+- `OverlayHost` (value)
+  - `(props: unknown): import("react").ReactNode`
+- `OverlayID` (type)
+- `OverlayLifecycle` (type)
+- `OverlayLifecycleCallback` (type)
+- `OverlayLifecycleOptions` (type)
+- `OverlayLifecycleProps` (type)
+- `OverlayLifecycleStatus` (type)
+- `OverlayListener` (type)
+- `OverlayOpenArguments` (type)
+- `OverlayOrder` (value)
+- `OverlayProvider` (value)
+  - `(props: OverlayProviderProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `OverlayProviderProps` (type)
+- `OverlayProviderValue` (type)
+- `OverlayRegistrationProps` (type)
+- `OverlayStatusCallback` (type)
+- `OverlayStore` (class)
+- `OverlayTimingOptions` (type)
+- `OverlayTitle` (type)
+- `OverlayTransitionCompletion` (type)
+- `OverlayTransitionHandler` (type)
+- `Pagination` (value)
+  - `(props: PaginationProps): import("react").ReactNode`
+- `PaginationAppearanceTokens` (type)
+- `PaginationButtonThemeProps` (type)
+- `PaginationCompactLabelFormatter` (type)
+- `PaginationItemValue` (type)
+- `PaginationParams` (type)
+- `PaginationProps` (type)
+- `PaginationSizeToken` (type)
+- `PaginationState` (type)
+- `PaginationThemeProps` (type)
+- `PaginationTokens` (type)
+- `PaginationVisualState` (type)
+- `ParamsSerializer` (value)
+- `PickerColumnType` (type)
+- `PickerFlyoutActions` (type)
+- `Pie` (value)
+  - `(props: PieProps): import("react").JSX.Element \| null`
+- `PieChart` (value)
+  - `(props: PieChartProps): import("react").JSX.Element`
+- `PieChartCommonProps` (type)
+- `PieChartCoordinate` (type)
+- `PieChartModel` (type)
+- `PieChartPoint` (type)
+- `PieChartProps` (type)
+- `PieChartSliceOptions` (type)
+- `PieDefaultColor` (value)
+- `PieDefaultColors` (value)
+- `PieDefaultCornerRadius` (value)
+- `PieDefaultEndAngle` (value)
+- `PieDefaultInnerRadius` (value)
+- `PieDefaultOpacity` (value)
+- `PieDefaultOuterRadius` (value)
+- `PieDefaultPadAngle` (value)
+- `PieDefaultStartAngle` (value)
+- `PieDefaultStrokeWidth` (value)
+- `PieProps` (type)
+- `Popover` (value)
+  - `(props: import("@impulse-ui-native/toolkit").PopoverProps): import("react").ReactNode`
+- `PopoverCloseProps` (type)
+- `PopoverContentProps` (type)
+- `PopoverDescriptionProps` (type)
+- `PopoverFooterProps` (type)
+- `PopoverHeaderProps` (type)
+- `PopoverPlacement` (type)
+- `PopoverProps` (type)
+- `PopoverRootProps` (type)
+- `PopoverTitleProps` (type)
+- `PopoverTokens` (type)
+- `PopoverTriggerProps` (type)
+- `Portal` (value)
+  - `(props: PortalProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `PortalEntry` (type)
+- `PortalHost` (value)
+  - `(props: PortalHostProps): import("react").ReactNode`
+- `PortalHostProps` (type)
+- `PortalID` (type)
+- `PortalProps` (type)
+- `PortalProvider` (value)
+  - `(props: PortalProviderProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `PortalProviderProps` (type)
+- `PortalProviderValue` (type)
+- `PortalsHost` (value)
+  - `(props: PortalsHostProps): import("react").ReactNode`
+- `PortalsHostProps` (type)
+- `PortalStore` (class)
+- `Pressable` (value)
+  - `(props: PressableCoreProps & RefAttributes<import("node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement").default>): import("react").ReactNode`
+- `PressableCoreProps` (type)
+- `PressableTokens` (type)
+- `PrimitiveThemeTokens` (type)
+- `PrimitiveValue` (type)
+- `Progress` (value)
+  - `(props: ProgressProps): import("react").ReactNode`
+- `ProgressColorTokens` (type)
+- `ProgressProps` (type)
+- `ProgressSizeTokens` (type)
+- `ProgressTokens` (type)
+- `ProgressTone` (type)
+- `ProgressVariant` (type)
+- `QueryEndpointRequest` (type)
+- `QueryFunction` (type)
+- `QueryParams` (type)
+- `QuickDateOption` (type)
+- `Radii` (type)
+- `RadiiBlob` (type)
+- `RadiiConditional` (type)
+- `RadiiDrawn` (type)
+- `RadiiTokens` (value)
+- `Radio` (value)
+  - `(props: RadioProps): import("react").ReactNode`
+- `RadioAppearanceTokens` (type)
+- `RadioProps` (type)
+- `RadioSizeTokens` (type)
+- `RadioThemeProps` (type)
+- `RadioTokens` (type)
+- `RadioVariantTokens` (type)
+- `RadiusBlobKey` (type)
+- `RadiusConditionalKey` (type)
+- `RadiusDrawnKey` (type)
+- `RadiusKey` (type)
+- `RangeSide` (type)
+- `RangeSlider` (value)
+  - `(props: RangeSliderProps): import("react").ReactNode`
+- `RangeSliderProps` (type)
+- `ResolvedDividerTokens` (type)
+- `ResolvedFlyoutTokens` (type)
+- `ResolvedGridLineOptions` (type)
+- `ResolvedSegmentedControlItemTokens` (type)
+- `ResolvedSliderTrackTokens` (type)
+- `ResolvedTabsItemTokens` (type)
+- `resolveGridLineOptions` (value)
+  - `(options: boolean \| ChartGridLineOptions \| undefined, defaultVisible: boolean, defaultColor: string, defaultWidth?: number): ResolvedGridLineOptions`
+- `resolverStateSetter` (value)
+  - `<Value>(nextValue: SetStateAction<Value>): (value: Value) => Value`
+- `RootPortalsHostName` (value)
+- `SafeAreaView` (value)
+  - `(props: import("react-native-safe-area-context").NativeSafeAreaViewProps): import("react").ReactNode`
+- `SafeAreaViewProps` (type)
+- `ScrollView` (value)
+  - `(props: Omit<ScrollViewProps, "ref"> & { ref?: React.Ref<ScrollViewInstance> \| undefined; }): React.ReactNode`
+- `ScrollViewProps` (type)
+- `SegmentedControl` (value)
+- `SegmentedControlAppearanceTokens` (type)
+- `SegmentedControlItemLayout` (type)
+- `SegmentedControlItemLayoutTokens` (type)
+- `SegmentedControlItemProps` (type)
+- `SegmentedControlItemThemeProps` (type)
+- `SegmentedControlItemTokenState` (type)
+- `SegmentedControlOverflow` (type)
+- `SegmentedControlRootProps` (type)
+- `SegmentedControlRootThemeProps` (type)
+- `SegmentedControlSizeToken` (type)
+- `SegmentedControlSizeTokens` (type)
+- `SegmentedControlTokens` (type)
+- `SegmentedControlVariantTokens` (type)
+- `Select` (value)
+  - `<Value extends PrimitiveValue>(props: SelectProps<Value>): import("react").JSX.Element`
+- `SelectControlProps` (type)
+- `SelectFlyoutProps` (type)
+- `SelectFn` (type)
+- `SelectionItemState` (type)
+- `SelectionItemVisualState` (type)
+- `SelectionState` (type)
+- `SelectionVariant` (type)
+- `SelectionVisualState` (type)
+- `SelectOption` (type)
+- `SelectOptionAppearanceTokens` (type)
+- `SelectOptionTokens` (type)
+- `SelectProps` (type)
+- `SelectTokens` (type)
+- `ShadowIntensity` (type)
+- `ShadowLevel` (type)
+- `ShadowPosition` (type)
+- `ShadowProps` (type)
+- `ShadowScale` (value)
+- `ShadowScaleTokens` (type)
+- `Skeleton` (value)
+- `SkeletonAvatarProps` (type)
+- `SkeletonBadgeProps` (type)
+- `SkeletonBoneProps` (type)
+- `SkeletonBoneTokens` (type)
+- `SkeletonButtonProps` (type)
+- `SkeletonCheckboxProps` (type)
+- `SkeletonContainerProps` (type)
+- `SkeletonControlProps` (type)
+- `SkeletonDividerProps` (type)
+- `SkeletonIconButtonProps` (type)
+- `SkeletonPaginationProps` (type)
+- `SkeletonProgressProps` (type)
+- `SkeletonRadioProps` (type)
+- `SkeletonSegmentedControlProps` (type)
+- `SkeletonSizedProps` (type)
+- `SkeletonSliderProps` (type)
+- `SkeletonSwitchProps` (type)
+- `SkeletonTagProps` (type)
+- `SkeletonTextareaProps` (type)
+- `SkeletonTextProps` (type)
+- `SkeletonTextTokens` (type)
+- `SkeletonTokens` (type)
+- `Slider` (value)
+  - `(props: SliderProps): import("react").ReactNode`
+- `SliderAppearanceTokens` (type)
+- `SliderProps` (type)
+- `SliderSizeTokens` (type)
+- `SliderThumb` (type)
+- `SliderTokens` (type)
+- `SliderTrackLayout` (type)
+- `SliderTrackLayoutTokens` (type)
+- `SliderTrackTokenState` (type)
+- `SliderValue` (type)
+- `SliderVariant` (type)
+- `SliderVariantTokens` (type)
+- `Space` (type)
+- `SpaceSizesKey` (type)
+- `SpaceTokens` (value)
+- `SpacingProps` (type)
+- `Spinner` (value)
+  - `(props: SpinnerProps): import("react").ReactNode`
+- `SpinnerProps` (type)
+- `SpinnerTokens` (type)
+- `SpinnerTone` (type)
+- `startOfDay` (value)
+  - `(date: Date): Date`
+- `startOfWeek` (value)
+  - `(date: Date): Date`
+- `StateActionsFooterProps` (type)
+- `StateContainerProps` (type)
+- `StateViewProps` (type)
+- `Step` (type)
+- `StepComponentProps` (type)
+- `Stepper` (value)
+  - `(props: StepperProps & import("react").RefAttributes<StepperRef>): import("react").ReactNode`
+- `StepperNavigationProps` (type)
+- `StepperNavigationTokens` (type)
+- `StepperProps` (type)
+- `StepperProvider` (value)
+  - `(props: Omit<StepperProviderData, "tone"> & { tone?: import("@impulse-ui-native/theme").ComponentTone; } & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `StepperProviderData` (type)
+- `StepperProviderProps` (type)
+- `StepperRef` (type)
+- `StepperTabsNavigation` (value)
+  - `(props: StepperNavigationProps & import("react").RefAttributes<StepperRef>): import("react").ReactNode`
+- `StepperTokens` (type)
+- `StylePropKey` (type)
+- `StyleProps` (type)
+- `StylePropsSet` (value)
+- `Switch` (value)
+  - `(props: SwitchProps): import("react").ReactNode`
+- `SwitchAppearanceTokens` (type)
+- `SwitchProps` (type)
+- `SwitchSizeTokens` (type)
+- `SwitchThemeProps` (type)
+- `SwitchTokens` (type)
+- `SwitchVariantTokens` (type)
+- `Tabs` (value)
+  - `(props: TabsProps): import("react").ReactNode`
+- `TabsItem` (type)
+- `TabsItemAppearanceTokens` (type)
+- `TabsItemTokenState` (type)
+- `TabsOverflow` (type)
+- `TabsProps` (type)
+- `TabsSizeTokens` (type)
+- `TabsTokens` (type)
+- `TabularNumsFeature` (value)
+- `Tag` (value)
+  - `(props: TagProps): import("react").ReactNode`
+- `TagAppearanceTokens` (type)
+- `TagProps` (type)
+- `TagSizeTokens` (type)
+- `TagThemeProps` (type)
+- `TagTokens` (type)
+- `TagTone` (type)
+- `TagToneTokens` (type)
+- `TagVariantTokens` (type)
+- `Textarea` (value)
+  - `(props: TextareaProps): import("react").ReactNode`
+- `TextareaAppearanceTokens` (type)
+- `TextareaProps` (type)
+- `TextareaSizeTokens` (type)
+- `TextareaTokens` (type)
+- `TextProps` (type)
+- `ThemeColors` (type)
+- `ThemeContextData` (type)
+- `ThemeProvider` (value)
+  - `(props: ThemeProviderProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+- `TimeFormat` (type)
+- `TimePicker` (value)
+  - `(props: TimePickerProps): import("react").ReactNode`
+- `TimePickerColumnAppearanceTokens` (type)
+- `TimePickerColumnsTokens` (type)
+- `TimePickerColumnTokens` (type)
+- `TimePickerFlyoutTokens` (type)
+- `TimePickerProps` (type)
+- `TimePickerTokens` (type)
+- `TimePickerValue` (type)
+- `TimeRange` (type)
+- `Toast` (value)
+  - `(props: import("@impulse-ui-native/toolkit").ToastProps): import("react").ReactNode`
+- `ToastActionProps` (type)
+- `ToastCloseProps` (type)
+- `ToastContentProps` (type)
+- `ToastContextValue` (type)
+- `ToastDescriptionProps` (type)
+- `ToastIconProps` (type)
+- `ToastPlacement` (type)
+- `ToastProps` (type)
+- `ToastRootProps` (type)
+- `ToastTitleProps` (type)
+- `ToastTokens` (type)
+- `ToastTone` (type)
+- `Tooltip` (value)
+  - `(props: TooltipProps): import("react").ReactNode`
+- `TooltipProps` (type)
+- `Typography` (value)
+- `TypographyComponent` (type)
+- `TypographyKey` (type)
+- `TypographyPresetKey` (type)
+- `TypographyProps` (type)
+- `useBackHandler` (hook)
+  - `(callback: () => boolean, enabled?: boolean): void`
+- `useBarChart` (hook)
+  - `<X extends ChartXValue = string>(props: UseBarChartProps<X>, tokens?: ChartsTokens): UseBarChartResult<X>`
+- `UseBarChartProps` (type)
+- `UseBarChartResult` (type)
+- `useBorder` (hook)
+  - `(): BorderSize`
+- `useChartCanvas` (hook)
+  - `(): { ref: import("react").RefObject<import("@shopify/react-native-skia").CanvasRef \| null>; size: ChartSize; onLayout: (event: Readonly<{ bubbles: boolean \| undefined; cancelable: boolean \| undefined; currentTarget: number \| import("react-native").HostInstance; defaultPrevented: boolean \| undefined; dispatchConfig: Readonly<{ registrationName: string; }>; eventPhase: number \| undefined; preventDefault: () => void; isDefaultPrevented: () => boolean; stopPropagation: () => void; isPropagationStopped: () => boolean; isTrusted: boolean \| undefined; nativeEvent: Readonly<{ layout: Readonly<{ x: number; y: number; width: number; height: number; }>; }>; persist: () => void; target: (number \| undefined) \| import("react-native").HostInstance; timeStamp: number; type: string \| undefined; }>) => void; }`
+- `useChartLayout` (hook)
+  - `(size: ChartSize, insets?: Partial<ChartInsets>, defaultInsets?: Partial<ChartInsets>): ChartLayout`
+- `useChartPresentation` (hook)
+  - `(props: ChartPresentationProps): { selection: ChartSelection \| null; hiddenIds: readonly string[]; hidden: Set<string>; selectAt: (point: ChartPoint, targets: readonly ChartHitTarget[], plot: ChartRect, clearOnMiss?: any) => boolean; clearSelection: () => void; toggle: (id: string) => void; }`
+- `useColors` (hook)
+  - `(): ThemeColors`
+- `useComponentsTokens` (hook)
+  - `(): import("@impulse-ui-native/toolkit").ComponentsTokens`
+- `useControlContext` (hook)
+  - `(): ControlContextData`
+- `useControllableState` (hook)
+  - `<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): [Value, (nextValue: SetStateAction<Value>) => void]`
+  - `<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): [Value, (nextValue: SetStateAction<Value>) => void]`
+  - `<Value>(props: { prop?: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): [Value \| undefined, (nextValue: SetStateAction<Value>) => void]`
+- `useEchoEmitter` (hook)
+  - `<Event extends EchoEventNames>(event: Event, data: EchoEvents[Event]): void`
+- `useEchoListener` (hook)
+  - `<Event extends EchoEventNames>(event: Event, callback: (data: EchoEvents[Event]) => void): void`
+- `useEventCallback` (hook)
+  - `<Handler extends (...args: any[]) => any>(handler: Handler): (...args: Parameters<Handler>) => ReturnType<Handler>`
+- `useFlatListInitialScroll` (hook)
+  - `<Item>(options: UseFlatListInitialScrollOptions): { initialScrollIndex: number \| undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> \| undefined, index: number) => { length: number; offset: number; index: number; }; }`
+- `UseFlatListInitialScrollOptions` (type)
+- `useHostPortals` (hook)
+  - `(name: HostName): import("@impulse-ui-native/toolkit").PortalEntry[]`
+- `useIsOpen` (hook)
+  - `(props?: UseIsOpenProps): { isOpen: boolean; isClosed: boolean; open: () => void; close: () => void; toggle: () => void; finishClose: () => void; }`
+- `useLineChart` (hook)
+  - `<X extends ChartXValue = number>(props: UseLineChartProps<X>): UseLineChartResult<X>`
+- `UseLineChartProps` (type)
+- `UseLineChartResult` (type)
+- `useModalContext` (hook)
+  - `(): import("@impulse-ui-native/toolkit").ModalContextValue`
+- `useMultiBarChart` (hook)
+  - `<X extends ChartXValue = string>(props: UseMultiBarChartProps<X>, tokens?: ChartsTokens): UseMultiBarChartResult<X>`
+- `UseMultiBarChartProps` (type)
+- `UseMultiBarChartResult` (type)
+- `useMultiLineChart` (hook)
+  - `<X extends ChartXValue = number>(props: UseMultiLineChartProps<X>): UseMultiLineChartResult<X>`
+- `UseMultiLineChartProps` (type)
+- `UseMultiLineChartResult` (type)
+- `useMultiPieChart` (hook)
+  - `(props: UseMultiPieChartProps, tokens?: ChartsTokens): UseMultiPieChartResult`
+- `UseMultiPieChartProps` (type)
+- `UseMultiPieChartResult` (type)
+- `useOverlayContext` (hook)
+  - `(): import("@impulse-ui-native/toolkit").OverlayProviderValue`
+- `useOverlayLayer` (hook)
+  - `(id: OverlayID, Component?: ComponentType<OverlayComponentProps>, order?: OverlayOrder): number`
+- `useOverlayLifecycle` (hook)
+  - `({ id, open, onOpen, onOpenFinished, onClose, onCloseFinished, onStatusChange, }: OverlayLifecycleProps, { ready, onEnter, onExit }?: OverlayLifecycleOptions): OverlayLifecycle`
+- `useOverlays` (hook)
+  - `(): readonly import("@impulse-ui-native/toolkit").OverlayEntry[]`
+- `useOverlayStatus` (hook)
+  - `(id: OverlayID): OverlayLifecycleStatus`
+- `useOverlayTiming` (hook)
+  - `({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import("@impulse-ui-native/toolkit").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import("@impulse-ui-native/toolkit").OverlayTransitionCompletion) => void; }; progress: import("react-native-reanimated").SharedValue<number>; }`
+- `usePieChart` (hook)
+  - `(props: UsePieChartProps): UsePieChartResult`
+- `UsePieChartProps` (type)
+- `UsePieChartResult` (type)
+- `usePortalChildren` (hook)
+  - `(id: PortalID, name: HostName): import("react").ReactNode`
+- `usePortalContext` (hook)
+  - `(): import("@impulse-ui-native/toolkit").PortalProviderValue`
+- `useRadii` (hook)
+  - `(): Radii`
+- `useScrollViewInitialScroll` (hook)
+  - `({ enabled, horizontal, contentOffset, onLayout, onContentSizeChange, onScrollBeginDrag, }?: UseScrollViewInitialScrollOptions): UseScrollViewInitialScrollResult`
+- `UseScrollViewInitialScrollOptions` (type)
+- `UseScrollViewInitialScrollResult` (type)
+- `UseSelectProps` (type)
+- `useSpace` (hook)
+  - `(): Space`
+- `useStepperContext` (hook)
+  - `(): StepperProviderData`
+- `useStyleProps` (hook)
+  - `<Props extends object>(props: Props): Partial<import("@impulse-ui-native/toolkit").SpacingProps & import("@impulse-ui-native/toolkit").ColorProps & import("@impulse-ui-native/toolkit").ShadowProps & import("@impulse-ui-native/toolkit").BorderProps & import("@impulse-ui-native/toolkit").TypographyProps & import("@impulse-ui-native/toolkit").FlexProps & import("@impulse-ui-native/toolkit").DimensionProps>`
+- `useTheme` (hook)
+  - `(): AppTheme`
+- `useThemeContext` (hook)
+  - `(): AppTheme`
+- `useThemedStyles` (hook)
+  - `<T extends NamedStyles<T>>(styledFunction: StyledFunctionNoProps<T>): ThemedStyles<T>`
+  - `<Props extends object, T extends NamedStyles<T>>(styledFunction: StyledFunctionWithProps<Props, T>, props: Props, dependencies: readonly unknown[]): ThemedStyles<T>`
+- `useTimer` (hook)
+  - `({ duration, callback, enabled, pauseOnBackground, }: UseTimerOptions): void`
+- `UseTimerOptions` (type)
+- `useWhyDidYouUpdate` (hook)
+  - `(name: string, props: Props): void`
+- `uuid` (value)
+  - `(): string`
+- `View` (value)
+  - `(props: import("react-native").ViewProps & import("@impulse-ui-native/theme").SpacingProps & import("@impulse-ui-native/theme").ColorProps & import("@impulse-ui-native/theme").ShadowProps & import("@impulse-ui-native/theme").BorderProps & import("@impulse-ui-native/theme").FlexProps & import("@impulse-ui-native/theme").DimensionProps & RefAttributes<import("node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement").default>): import("react").ReactNode`
+- `ViewProps` (type)
+- `ViewStyleProps` (type)
+- `VisualStateTokens` (type)
+- `XAxis` (value)
+  - `<X extends ChartXValue = number>(props: XAxisProps<X>): import("react").JSX.Element`
+- `XAxisProps` (type)
+- `YAxis` (value)
+  - `<Value = number>(props: YAxisProps<Value>): import("react").JSX.Element`
+- `YAxisProps` (type)
+
+### EchoInstance methods
+
+- `emit`
+  - `<Event extends EchoEventNames>(event: Event, data: EchoEvents[Event]): void`
+- `subscribe`
+  - `<Event extends EchoEventNames>(event: Event, callback: (data: EchoEvents[Event]) => void): () => void`
+
+### FlatList methods
+
+- `scrollToEnd`
+  - `(params?: null \| undefined \| { animated?: boolean \| undefined; }): void`
+- `scrollToIndex`
+  - `(params: { animated?: boolean \| undefined; index: number; viewOffset?: number \| undefined; viewPosition?: number \| undefined; }): void`
+- `scrollToItem`
+  - `(params: { animated?: boolean \| undefined; item: ItemT; viewOffset?: number \| undefined; viewPosition?: number \| undefined; }): void`
+- `scrollToOffset`
+  - `(params: { animated?: boolean \| undefined; offset: number; }): void`
+- `recordInteraction`
+  - `(): void`
+- `flashScrollIndicators`
+  - `(): void`
+- `getScrollResponder`
+  - `(): null \| undefined \| ScrollResponderType`
+- `getNativeScrollRef`
+  - `(): null \| undefined \| ScrollViewInstance`
+- `getScrollableNode`
+  - `(): any`
+- `setNativeProps`
+  - `(props: { [$$Key$$: string]: unknown; }): void`
+- `componentDidUpdate`
+  - `(prevProps: FlatListProps<ItemT>): void`
+- `render`
+  - `(): React.ReactNode`
+- `setState`
+  - `<K extends never>(state: {} \| ((prevState: Readonly<{}>, props: Readonly<import("react-native").FlatListProps<ItemT>>) => {} \| Pick<{}, K> \| null) \| Pick<{}, K> \| null, callback?: (() => void) \| undefined): void`
+- `forceUpdate`
+  - `(callback?: (() => void) \| undefined): void`
+
+### OverlayStore methods
+
+- `subscribeOverlays`
+  - `(): (listener: OverlayListener) => () => void`
+- `getOverlaysSnapshot`
+  - `(): () => readonly OverlayEntry[]`
+- `open`
+  - `(entry: OverlayEntry): void`
+- `close`
+  - `(id: OverlayID): void`
+- `setStatus`
+  - `(id: OverlayID, status: OverlayLifecycleStatus): void`
+- `remove`
+  - `(id: OverlayID): void`
+- `register`
+  - `<Props extends object = never>(registration: OverlayRegistrationProps<Props>): OverlayController<Props>`
+
+### PortalStore methods
+
+- `subscribePortal`
+  - `(id: PortalID, name: HostName): (listener: Listener) => () => void`
+- `subscribeHost`
+  - `(name: string): (listener: Listener) => () => void`
+- `getPortalsSnapshot`
+  - `(name: HostName): () => PortalEntry[]`
+- `getPortalSnapshot`
+  - `(id: PortalID, name: HostName): () => ReactNode`
+- `mount`
+  - `(id: PortalID, name: HostName, children: ReactNode): void`
+- `unmount`
+  - `(id: PortalID, name: HostName): void`
+- `update`
+  - `(id: PortalID, name: HostName, children: ReactNode): void`

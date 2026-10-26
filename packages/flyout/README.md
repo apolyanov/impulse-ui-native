@@ -82,3 +82,7 @@ after entry completes. Entry preparation includes the initial layout measurement
 `components.flyout.enterSpring` contains `damping`, `stiffness`, and `mass`
 (defaults 50, 300, and 1). `exitDuration` defaults to 150 ms. The enter spring
 also controls the return animation after a drag that does not dismiss the sheet.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/flyout.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

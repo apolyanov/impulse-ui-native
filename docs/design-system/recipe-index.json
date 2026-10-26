@@ -1,0 +1,851 @@
+[
+  {
+    "id": "app-shell",
+    "title": "Native application setup",
+    "packages": ["theme", "primitives", "portal", "overlay", "toolkit"],
+    "source": "recipes/app-shell.tsx",
+    "export": "AppShellRecipe",
+    "kind": "setup",
+    "story": null,
+    "steps": [
+      "Load configured fonts before rendering themed text.",
+      "Switch scheme explicitly; keep the portal and overlay stores stable."
+    ],
+    "screenshot": null,
+    "verification": "typechecked; setup or behavior example; no standalone visual capture",
+    "captures": []
+  },
+  {
+    "id": "account-form",
+    "title": "Account form",
+    "packages": ["input", "form-field", "checkbox", "radio", "switch"],
+    "source": "recipes/account-form.tsx",
+    "export": "AccountFormRecipe",
+    "kind": "visual",
+    "story": "AccountForm",
+    "steps": [
+      "Press Save with an empty name to inspect validation.",
+      "Edit text, toggle notifications and choose exactly one plan."
+    ],
+    "screenshot": "images/account-form-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/account-form-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "account-form",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "93b1fb9e4bae69583fbb40eed0d4e17612b2aaf932dbdd2b8edf36f1e9bb261e"
+      },
+      {
+        "file": "images/account-form-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "account-form",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "76d820e5fa9da7bf096b126c9270faa8b6cde01e125b711e4013a37915cd9825"
+      }
+    ]
+  },
+  {
+    "id": "filters",
+    "title": "Filter controls",
+    "packages": ["select", "slider", "segmented-control", "datetime"],
+    "source": "recipes/filters.tsx",
+    "export": "FiltersRecipe",
+    "kind": "visual",
+    "story": "Filters",
+    "steps": [
+      "Open Select/MultiSelect and the date-range flyout.",
+      "Change range slider endpoints and period selection."
+    ],
+    "screenshot": "images/filters-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/filters-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "filters",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "20dde29d29a95a48fdf52135ea40cb1e80e4d83278de75bb5fed1eeb03ccc0d7"
+      },
+      {
+        "file": "images/filters-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "filters",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "8e82abc1e1eff784d12e5cad2816489141ad551d0eb395ea6518a330d1a5a4ba"
+      }
+    ]
+  },
+  {
+    "id": "profile-card",
+    "title": "Profile card and status",
+    "packages": ["card", "primitives", "icon", "icon-view"],
+    "source": "recipes/profile-card.tsx",
+    "export": "ProfileCardRecipe",
+    "kind": "visual",
+    "story": "ProfileCard",
+    "steps": [
+      "Check title/body hierarchy, icon weight, avatar fallback and status labels."
+    ],
+    "screenshot": "images/profile-card-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/profile-card-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "profile-card",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "b201dbe29b3e016b4d54f71c5a447db4a655eb4ecba7bc3adf5e1fd4054686eb"
+      },
+      {
+        "file": "images/profile-card-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "profile-card",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "393ecb7ba2fc9ef717c75ff403cac91fda430a96f47151c0e8fe9aa5e7beebf2"
+      }
+    ]
+  },
+  {
+    "id": "data-list",
+    "title": "Loading, empty and paginated list",
+    "packages": [
+      "data-state",
+      "skeleton",
+      "list",
+      "flat-list",
+      "scroll-view",
+      "pagination"
+    ],
+    "source": "recipes/data-list.tsx",
+    "export": "DataListRecipe",
+    "kind": "visual",
+    "story": "DataList",
+    "steps": [
+      "Toggle loading and empty states.",
+      "Change page; ensure skeleton/content keep usable dimensions."
+    ],
+    "screenshot": "images/data-list-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/data-list-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "data-list",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "3fa6ec3f6b99315f443f95b3a6cc3cb76c3e492181b2c69d2590b0f18bf0aba0"
+      },
+      {
+        "file": "images/data-list-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "data-list",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "1be942ec4b86373b10c42ad06c1181899a50b345ce87b5c322dcd088fb15d9d0"
+      }
+    ]
+  },
+  {
+    "id": "product-carousel",
+    "title": "Workspace carousel",
+    "packages": ["carousel", "card"],
+    "source": "recipes/product-carousel.tsx",
+    "export": "ProductCarouselRecipe",
+    "kind": "visual",
+    "story": "ProductCarousel",
+    "steps": [
+      "Swipe to both ends, use arrows, and inspect peeking and adaptive pagination."
+    ],
+    "screenshot": "images/product-carousel-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/product-carousel-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "product-carousel",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "ff6e25af1bfdd7074762069e6993751e9e8b14d92fef011583fd994cea0021fa"
+      },
+      {
+        "file": "images/product-carousel-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "product-carousel",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "854b23b61309410590d8d24817aad655f942c3b2fc7bf9eedc157dd2a9443581"
+      }
+    ]
+  },
+  {
+    "id": "disclosure-settings",
+    "title": "Expandable settings",
+    "packages": ["accordion", "switch"],
+    "source": "recipes/disclosure-settings.tsx",
+    "export": "DisclosureSettingsRecipe",
+    "kind": "visual",
+    "story": "DisclosureSettings",
+    "steps": ["Expand/collapse both items and toggle the setting."],
+    "screenshot": "images/disclosure-settings-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/disclosure-settings-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "disclosure-settings",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "b2b6883d5069f7ad17068769369cf6c2815dcfe1d610e5950a78d65cc36be7d4"
+      },
+      {
+        "file": "images/disclosure-settings-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "disclosure-settings",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "4e0446270dfd56fe19aca5c6dd187987a2147e53170d97d0182aaca90a90e188"
+      }
+    ]
+  },
+  {
+    "id": "details-dialog",
+    "title": "Local dialog and sheet",
+    "packages": ["modal", "flyout", "portal"],
+    "source": "recipes/details-dialog.tsx",
+    "export": "DetailsDialogRecipe",
+    "kind": "visual",
+    "story": "DetailsDialog",
+    "steps": [
+      "Open each overlay, dismiss with its action/backdrop, then reopen.",
+      "Check top/bottom safe areas and keyboard/device behavior separately."
+    ],
+    "screenshot": "images/details-dialog-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified; open overlay content not captured",
+    "captures": [
+      {
+        "file": "images/details-dialog-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "details-dialog",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "2865bbaee819bada4bfa861987e25c4d155c0817e6f15465540c22c3c23b387a"
+      },
+      {
+        "file": "images/details-dialog-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "details-dialog",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "1a900146aa706b24a8f57e941fbd91d03b0a99c909f764168eff8e4d72143e94"
+      }
+    ]
+  },
+  {
+    "id": "anchored-actions",
+    "title": "Anchored menu and tooltip",
+    "packages": ["popover"],
+    "source": "recipes/anchored-actions.tsx",
+    "export": "AnchoredActionsRecipe",
+    "kind": "visual",
+    "story": "AnchoredActions",
+    "steps": [
+      "Open the menu and close it through its compound Close part.",
+      "Long press the tooltip trigger; inspect host-relative positioning."
+    ],
+    "screenshot": "images/anchored-actions-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified; open overlay content not captured",
+    "captures": [
+      {
+        "file": "images/anchored-actions-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "anchored-actions",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "8f5c8cf2672e8f8a3d6f445a37946a2559eb593af3f46804b76522bdfd6860a5"
+      },
+      {
+        "file": "images/anchored-actions-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "anchored-actions",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "690c9f571bf8d4bd1a7bbd2013dafa83494decb0f30de1fe43434d1a7dff717c"
+      }
+    ]
+  },
+  {
+    "id": "notifications",
+    "title": "Registered toast notification",
+    "packages": ["toast", "overlay"],
+    "source": "recipes/notifications.tsx",
+    "export": "NotificationsRecipe",
+    "kind": "visual",
+    "story": "Notifications",
+    "steps": [
+      "Open a notification, wait for timed dismissal, and reopen.",
+      "Background/foreground the host to exercise duration pausing."
+    ],
+    "screenshot": "images/notifications-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified; open overlay content not captured",
+    "captures": [
+      {
+        "file": "images/notifications-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "notifications",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "599fbd4b00b8c62b547961a3065a335927a5d5dcb20bcafbd243a8c02c55173e"
+      },
+      {
+        "file": "images/notifications-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "notifications",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "fc0f30419c82da4a50472473a0b37a3002624e67cbb6f7c64925457ab45cd423"
+      }
+    ]
+  },
+  {
+    "id": "metrics",
+    "title": "Chart and progress",
+    "packages": ["charts", "progress"],
+    "source": "recipes/metrics.tsx",
+    "export": "MetricsRecipe",
+    "kind": "visual",
+    "story": "Metrics",
+    "steps": [
+      "Check chart sizing and labels, then inspect touch selection.",
+      "Compare linear/circular geometry without confusing it with appearance variants."
+    ],
+    "screenshot": "images/metrics-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/metrics-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "metrics",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "c2df12e5099e3a2772d014bd3125ceefcc84d108121d5d319ceeb3a2d056bbb0"
+      },
+      {
+        "file": "images/metrics-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "metrics",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "9ad00dabe3d01e85246e5754166202aca930ae5b9dd862b1a9f786767e137683"
+      }
+    ]
+  },
+  {
+    "id": "color-settings",
+    "title": "Composed color editor",
+    "packages": ["color-picker"],
+    "source": "recipes/color-settings.tsx",
+    "export": "ColorSettingsRecipe",
+    "kind": "visual",
+    "story": "ColorSettings",
+    "steps": [
+      "Drag spectrum/hue/alpha, edit hex, and compare Cancel versus Apply."
+    ],
+    "screenshot": "images/color-settings-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/color-settings-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "color-settings",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "0a38377e42f743c9e65c74e67a1580f5fd2f72faed26e764f3d260c443347c2c"
+      },
+      {
+        "file": "images/color-settings-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "color-settings",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "51a4bc6379c53c91dce23270d78b3c8bf8cf68ae01ed57f988cacedf43576312"
+      }
+    ]
+  },
+  {
+    "id": "onboarding",
+    "title": "Tabs and controlled steps",
+    "packages": ["tabs", "stepper"],
+    "source": "recipes/onboarding.tsx",
+    "export": "OnboardingRecipe",
+    "kind": "visual",
+    "story": "Onboarding",
+    "steps": [
+      "Advance through steps and change tabs.",
+      "Only the active tab panel mounts; step index belongs to the recipe."
+    ],
+    "screenshot": "images/onboarding-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/onboarding-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "onboarding",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "2b44840013a20316e254f4b1e2748e4fe81a46f4f569b7439cfbd5e3e36a806f"
+      },
+      {
+        "file": "images/onboarding-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "onboarding",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "a25608f10f53d81d59879a1b7958c2bd0ca8628f946e65700fb7236b4b7b4e57"
+      }
+    ]
+  },
+  {
+    "id": "field-appearances",
+    "title": "Field and action appearance comparison",
+    "packages": ["input", "select", "datetime", "primitives", "theme"],
+    "source": "recipes/field-appearances.tsx",
+    "export": "FieldAppearancesRecipe",
+    "kind": "visual",
+    "story": "FieldAppearances",
+    "steps": [
+      "Compare all three variants and tones in both schemes.",
+      "Inspect selected MultiSelect tags; open DatePicker and check inherited variant/tone.",
+      "Use disabled/error controls; check field text, icons, placeholders and actions."
+    ],
+    "screenshot": "images/field-appearances-light.jpg",
+    "verification": "typechecked; native initial render visually inspected in light and dark; interactions unverified",
+    "captures": [
+      {
+        "file": "images/field-appearances-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "a5405f3c35807085e9994548bae90fd3cfc7cb31c2870145bc2a96e896b1c2be"
+      },
+      {
+        "file": "images/field-appearances-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "default"
+        },
+        "sha256": "2aeba0e6b4d34d78e69d2b432aeeac5dd2d7f2d6a76b8eaea53eb6516fb07cc4"
+      },
+      {
+        "file": "images/field-appearances-filled-primary-default-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "light",
+          "variant": "filled",
+          "tone": "primary",
+          "state": "default"
+        },
+        "sha256": "2f51731b9adebc4a7bfcd6ac23938957f2ea5d0c08a949cec930c52b318ff432"
+      },
+      {
+        "file": "images/field-appearances-filled-primary-default-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "dark",
+          "variant": "filled",
+          "tone": "primary",
+          "state": "default"
+        },
+        "sha256": "7837c36cb89a48596cc7954e913eefe7a3ecc47985038a230a4dad4a29458fdc"
+      },
+      {
+        "file": "images/field-appearances-soft-secondary-default-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "light",
+          "variant": "soft",
+          "tone": "secondary",
+          "state": "default"
+        },
+        "sha256": "f1d0924b31eadea5e9382c7b5f5c5c29fffed30969fe61b70340a57fabbce4fb"
+      },
+      {
+        "file": "images/field-appearances-soft-secondary-default-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "dark",
+          "variant": "soft",
+          "tone": "secondary",
+          "state": "default"
+        },
+        "sha256": "d41e08abbd2ca0fc59454fac90bb2be2e1f04eb03f2422d717dd41cc662f1f2c"
+      },
+      {
+        "file": "images/field-appearances-outlined-neutral-error-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "light",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "error"
+        },
+        "sha256": "10f59e8c5df902a77a30cbe0e6acb971a46d047ac5a05f556f01c6118e4f198b"
+      },
+      {
+        "file": "images/field-appearances-outlined-neutral-error-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "dark",
+          "variant": "outlined",
+          "tone": "neutral",
+          "state": "error"
+        },
+        "sha256": "7f5beb924131174b58c2b204a0abf0e4e1c12496899bb5ff610623202b903304"
+      },
+      {
+        "file": "images/field-appearances-filled-primary-disabled-light.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "light",
+          "variant": "filled",
+          "tone": "primary",
+          "state": "disabled"
+        },
+        "sha256": "8c131fb3ea4ab518164cc0af9592e2b8df0898ddb197480a03c7d0d15487d3c5"
+      },
+      {
+        "file": "images/field-appearances-filled-primary-disabled-dark.jpg",
+        "platform": "ios",
+        "device": "iPhone 18 Pro",
+        "os": "iOS 27.0",
+        "verifiedOn": "2026-10-26",
+        "verification": "visual-inspection",
+        "scope": "initial-render",
+        "params": {
+          "recipe": "field-appearances",
+          "scheme": "dark",
+          "variant": "filled",
+          "tone": "primary",
+          "state": "disabled"
+        },
+        "sha256": "c180637a27a9da4c8f7bed32c1bd0bd850fc524a14864d738577c440d65418a0"
+      }
+    ]
+  },
+  {
+    "id": "data-service",
+    "title": "Typed data and event integration",
+    "packages": ["endpoint", "echo", "core"],
+    "source": "recipes/data-service.ts",
+    "export": "createProjectService",
+    "kind": "infrastructure",
+    "story": null,
+    "steps": [
+      "Supply an Axios client and render generated hooks under QueryClientProvider.",
+      "Augment EchoEvents before emitting application-specific events; this recipe makes no request by itself."
+    ],
+    "screenshot": null,
+    "verification": "typechecked; setup or behavior example; no standalone visual capture",
+    "captures": []
+  },
+  {
+    "id": "story-authoring",
+    "title": "Typed native story metadata",
+    "packages": ["storybook"],
+    "source": "recipes/story-authoring.ts",
+    "export": "inputRecipeMeta",
+    "kind": "authoring",
+    "story": null,
+    "steps": [
+      "Use component-specific option arrays and the existing native host providers.",
+      "A story declaration is not a captured screenshot or a device verification."
+    ],
+    "screenshot": null,
+    "verification": "typechecked; setup or behavior example; no standalone visual capture",
+    "captures": []
+  }
+]

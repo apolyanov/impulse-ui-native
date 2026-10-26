@@ -1,0 +1,218 @@
+{
+  "name": "@impulse-ui-native/progress",
+  "slug": "progress",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "visualization",
+    "chooseWhen": "Show determinate progress or ongoing activity.",
+    "features": [
+      "Linear/circular shapes, determinate values and indeterminate animations.",
+      "Shared sizes and primary/secondary/neutral/inverse tones."
+    ],
+    "constraints": [
+      "variant means linear/circular geometry, not filled/outlined/soft.",
+      "No children/label slot is implied; add labels outside."
+    ],
+    "setup": ["ThemeProvider; SVG, Reanimated and Worklets configured."],
+    "recipes": ["metrics"]
+  },
+  "components": [
+    {
+      "name": "Progress",
+      "source": {
+        "file": "packages/progress/src/components/progress.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "max",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "min",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "SpinnerTone | undefined",
+          "choices": ["inverse", "neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "trackColor",
+          "required": false,
+          "type": "____ColorValue_Internal | undefined",
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ProgressVariant | undefined",
+          "choices": ["circular", "linear"],
+          "source": {
+            "file": "packages/progress/src/types/progress.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": ["color"],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "max": {
+          "expression": "100",
+          "value": 100,
+          "source": {
+            "file": "packages/progress/src/components/progress.tsx",
+            "line": 12
+          }
+        },
+        "min": {
+          "expression": "0",
+          "value": 0,
+          "source": {
+            "file": "packages/progress/src/components/progress.tsx",
+            "line": 13
+          }
+        },
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/progress/src/components/progress.tsx",
+            "line": 14
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/progress/src/components/progress.tsx",
+            "line": 15
+          }
+        },
+        "variant": {
+          "expression": "\"linear\"",
+          "value": "linear",
+          "source": {
+            "file": "packages/progress/src/components/progress.tsx",
+            "line": 18
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "value"],
+        "expectedDefaults": {
+          "variant": "linear",
+          "tone": "primary"
+        },
+        "semantics": "variant controls shape (linear/circular); tone controls indicator palette."
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "Progress",
+      "kind": "value",
+      "source": {
+        "file": "packages/progress/src/components/progress.tsx",
+        "line": 10
+      },
+      "signatures": [
+        {
+          "text": "(props: ProgressProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ProgressProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/progress/src/types/progress.types.ts",
+        "line": 9
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-svg": ">=13.9.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/progress.md",
+  "capabilityReference": "capabilities/progress.md"
+}

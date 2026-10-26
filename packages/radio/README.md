@@ -48,3 +48,7 @@ Use `tone="neutral" | "primary" | "secondary"` independently of
 preserving existing appearances. Disabled styling remains neutral for all tones.
 Appearance tokens are explicit `colors[tone][variant]` maps under this component's
 theme tokens, replacing `variants[variant]`. Geometry and value behavior are unchanged.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/radio.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

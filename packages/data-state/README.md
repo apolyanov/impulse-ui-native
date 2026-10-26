@@ -63,3 +63,7 @@ The icon accent and default action buttons use the same tone, with per-state ton
 overrides allowed in errorViewProps/emptyViewProps. LoadingView passes the optional
 tone prop to custom LoadingComponent; custom loaders decide how to consume it.
 Details icon tokens move to dataState.details.colors[tone]. Skeletons remain neutral.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/data-state.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

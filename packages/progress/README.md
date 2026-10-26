@@ -31,3 +31,7 @@ stroke palette shared with Spinner: primary uses primary.value over secondary.va
 secondary uses secondary.contrast over subtle.value; neutral uses text.secondary
 over surface.subtle; inverse retains its inverse-surface pairing. Explicit color
 and trackColor overrides still take precedence.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/progress.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

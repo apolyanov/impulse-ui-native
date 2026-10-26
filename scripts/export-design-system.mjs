@@ -5,13 +5,22 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
+import prettier from "prettier";
 import ts from "typescript";
+
+import { exportCapabilities } from "./design-system/capabilities.mjs";
+import { exportLearningReferences } from "./design-system/learning-references.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const output = path.join(root, "docs/design-system");
 const cache = new Map();
 const sources = new Map();
-const reviewDate = "2026-10-25";
+const reviewDate = "2026-10-26";
+const generated = new Map();
+const checkOnly = process.argv.includes("--check");
+read("scripts/export-design-system.mjs");
+read("scripts/design-system/capabilities.mjs");
+read("scripts/design-system/learning-references.mjs");
 
 read("pnpm-workspace.yaml");
 
@@ -73,9 +82,7 @@ function loadSource(relativePath) {
 }
 
 function write(filename, content) {
-  const target = path.join(output, filename);
-  fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, content.endsWith("\n") ? content : `${content}\n`);
+  generated.set(filename, content.endsWith("\n") ? content : `${content}\n`);
 }
 
 function flatten(value, prefix = "", result = new Map()) {
@@ -123,11 +130,14 @@ function walkExports(relativePath, result = new Map()) {
 }
 
 const toolkit = JSON.parse(read("packages/toolkit/package.json"));
-const packageNames = [
-  ...Object.keys(toolkit.dependencies).map((name) => name.split("/")[1]),
-  "toolkit",
-  "icon",
-].sort();
+const packageNames = fs
+  .readdirSync(path.join(root, "packages"))
+  .filter((name) =>
+    fs.existsSync(path.join(root, "packages", name, "package.json")),
+  )
+  .filter((name) => !JSON.parse(read(`packages/${name}/package.json`)).private)
+  .sort();
+const toolkitExports = read("packages/toolkit/src/index.ts");
 const { createComponentsTokens } = loadSource(
   "packages/theme/src/theme/tokens.theme.ts",
 );
@@ -183,6 +193,9 @@ for (const name of packageNames) {
         const resolved = path.posix.normalize(`packages/${name}/${target}`);
         const sibling = resolved.match(/^packages\/([^/]+)\/README\.md$/);
 
+        if (resolved.startsWith("docs/design-system/"))
+          return `](../${resolved.slice("docs/design-system/".length)})`;
+
         return sibling && packageNames.includes(sibling[1])
           ? `](${sibling[1]}.md)`
           : `](https://github.com/apolyanov/impulse-ui-native/blob/main/${resolved})`;
@@ -211,7 +224,7 @@ for (const name of packageNames) {
   inventory.push({
     name: manifest.name,
     version: manifest.version,
-    toolkitExport: name !== "icon" && name !== "toolkit",
+    toolkitExport: toolkitExports.includes(`"@impulse-ui-native/${name}"`),
     description: manifest.description,
     peerDependencies: manifest.peerDependencies ?? {},
     peerDependenciesMeta: manifest.peerDependenciesMeta ?? {},
@@ -249,7 +262,7 @@ write(
   [
     "# Package reference index",
     "",
-    "Every toolkit dependency, the toolkit itself, and the separate icon package are included. Each reference contains the package README and the root's reachable source export graph. Toolkit exports are cross-package re-exports; follow the owning package reference for implementation.",
+    "Every public library package is included, including Storybook authoring helpers, toolkit and the separate icon package. Each reference contains the package README and the root's reachable source export graph. Toolkit exports are cross-package re-exports; follow the owning package reference for implementation.",
     "",
     "| Package | Version | Toolkit re-export | Public modules | Reference |",
     "| --- | --- | --- | --- | --- |",
@@ -259,6 +272,18 @@ write(
     ),
   ].join("\n"),
 );
+
+const guidance = JSON.parse(
+  read("docs/design-system/source/package-guidance.json"),
+);
+const catalog = exportCapabilities({
+  root,
+  packageNames,
+  read,
+  write,
+  guidance,
+});
+const learning = exportLearningReferences({ root, catalog, read, write });
 
 write(
   "snapshot.json",
@@ -283,6 +308,54 @@ write(
   ),
 );
 
+const formatting = await prettier.resolveConfig(
+  path.join(root, "package.json"),
+);
+const stale = [];
+for (const [filename, content] of generated) {
+  const target = path.join(output, filename);
+  const formatted = await prettier.format(content, {
+    ...formatting,
+    filepath: target,
+  });
+  if (checkOnly) {
+    let existing = fs.existsSync(target) ? fs.readFileSync(target, "utf8") : "";
+    let expected = formatted;
+    if (filename === "snapshot.json" && existing) {
+      // A commit advances HEAD without changing the source contract.
+      const previous = JSON.parse(existing);
+      const next = JSON.parse(expected);
+      previous.gitCommit = next.gitCommit;
+      existing = JSON.stringify(previous);
+      expected = JSON.stringify(next);
+    }
+    if (existing !== expected) stale.push(filename);
+  } else {
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, formatted);
+  }
+}
+for (const directory of ["api", "capabilities"]) {
+  const folder = path.join(output, directory);
+  if (!fs.existsSync(folder)) continue;
+  for (const filename of fs
+    .readdirSync(folder)
+    .filter(
+      (name) =>
+        name.endsWith(".md") ||
+        (directory === "capabilities" && name.endsWith(".json")),
+    )) {
+    const relative = `${directory}/${filename}`;
+    if (generated.has(relative)) continue;
+    if (checkOnly) stale.push(relative);
+    else fs.unlinkSync(path.join(folder, filename));
+  }
+}
+assert.equal(
+  stale.length,
+  0,
+  `Stale generated references: ${stale.join(", ")}. Run node scripts/export-design-system.mjs.`,
+);
 console.log(
-  `Exported ${inventory.length} packages, ${Object.keys(themes.light.components).length} component token groups, and ${light.size} token leaves per scheme to docs/design-system.`,
+  `${checkOnly ? "Verified" : "Exported"} ${inventory.length} packages, ${catalog.packages.reduce((sum, pkg) => sum + pkg.components.length, 0)} component contracts ${learning.recipes} recipes, ${learning.visualCases} visual review cases and ${light.size} token leaves per scheme.`,
 );

@@ -1,6 +1,6 @@
 # Package reference index
 
-Every toolkit dependency, the toolkit itself, and the separate icon package are included. Each reference contains the package README and the root's reachable source export graph. Toolkit exports are cross-package re-exports; follow the owning package reference for implementation.
+Every public library package is included, including Storybook authoring helpers, toolkit and the separate icon package. Each reference contains the package README and the root's reachable source export graph. Toolkit exports are cross-package re-exports; follow the owning package reference for implementation.
 
 | Package                                | Version | Toolkit re-export | Public modules | Reference                                     |
 | -------------------------------------- | ------- | ----------------- | -------------- | --------------------------------------------- |
@@ -36,6 +36,7 @@ Every toolkit dependency, the toolkit itself, and the separate icon package are 
 | `@impulse-ui-native/skeleton`          | 15.0.1  | Yes               | 5              | [skeleton](api/skeleton.md)                   |
 | `@impulse-ui-native/slider`            | 15.0.1  | Yes               | 6              | [slider](api/slider.md)                       |
 | `@impulse-ui-native/stepper`           | 15.0.1  | Yes               | 8              | [stepper](api/stepper.md)                     |
+| `@impulse-ui-native/storybook`         | 15.0.1  | No                | 5              | [storybook](api/storybook.md)                 |
 | `@impulse-ui-native/switch`            | 15.0.1  | Yes               | 5              | [switch](api/switch.md)                       |
 | `@impulse-ui-native/tabs`              | 15.0.1  | Yes               | 5              | [tabs](api/tabs.md)                           |
 | `@impulse-ui-native/theme`             | 15.0.1  | Yes               | 92             | [theme](api/theme.md)                         |

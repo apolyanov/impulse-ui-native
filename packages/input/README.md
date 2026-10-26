@@ -78,3 +78,7 @@ Customize `components.controlContainer.colors[tone][variant][state]`,
 `controlInput.colors[tone][variant][state]`, and
 `controlAddon.colors[tone][variant][state]` together. These tone-aware maps replace
 the previous `variants[variant][state]` maps.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/input.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

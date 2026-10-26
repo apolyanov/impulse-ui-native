@@ -198,3 +198,7 @@ or verification requirements.
 6. Update `Last reviewed` after reviewing the relevant inventory.
 
 Appearance defaults follow component roles: fields and their composed parts use medium / outlined / neutral; buttons and accent controls use medium / filled / primary. Equal variant/tone combinations share palettes. Shape variants and feedback-only tone contracts keep their semantic defaults.
+
+## Agent-facing reference coverage
+
+All public library packages have source-derived capability records and authored package guidance under `docs/design-system/`. The native recipe gallery and direct preview route share typechecked examples; their existence does not upgrade component maturity or certify device behavior. `pnpm docs:check` verifies public source and recipes, documented default/prop assertions, package/story coverage, schema, links and generated-reference freshness. Native screenshots and interactions remain separately reviewed; see `docs/design-system/visual-reference.md`.

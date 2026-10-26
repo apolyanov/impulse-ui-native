@@ -103,3 +103,7 @@ theme tokens, replacing `variants[variant]`. Geometry and value behavior are unc
 Both `Slider` and `RangeSlider` apply tone to the active track, every thumb, marks, labels, and value bubbles. Gesture and value semantics are unchanged.
 
 Thumbs and value bubbles share the same variant/tone surface, border, and foreground palette as buttons. Outlined thumbs are transparent; active tracks use the outline stroke color. Disabled thumbs and bubbles use the shared neutral unavailable palette. Standalone labels use a readable tone accent.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/slider.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

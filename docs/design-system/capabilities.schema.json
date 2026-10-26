@@ -1,0 +1,336 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ImpulseUI Native capability catalog",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "platform",
+    "interpretation",
+    "packages"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "platform": {
+      "const": [
+        "ios",
+        "android"
+      ]
+    },
+    "interpretation": {
+      "type": "string"
+    },
+    "packages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/package"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "source": {
+      "type": "object",
+      "required": [
+        "file",
+        "line"
+      ],
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "external": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "prop": {
+      "type": "object",
+      "required": [
+        "name",
+        "required",
+        "type",
+        "source"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/source"
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "typeAbbreviated": {
+          "type": "boolean"
+        },
+        "openChoices": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "component": {
+      "type": "object",
+      "required": [
+        "name",
+        "source",
+        "props",
+        "styleProps",
+        "defaults",
+        "defaultResolution",
+        "inheritedNativePropCount"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/definitions/source"
+        },
+        "props": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/prop"
+          }
+        },
+        "styleProps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "inheritedNativePropCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "defaults": {
+          "type": "object"
+        },
+        "defaultResolution": {
+          "enum": [
+            "direct-source-only",
+            "not-statically-resolved"
+          ]
+        },
+        "guidance": {
+          "type": "object"
+        },
+        "typeParameters": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "propAlternatives": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "package": {
+      "type": "object",
+      "required": [
+        "name",
+        "slug",
+        "version",
+        "guidance",
+        "components",
+        "exports",
+        "dependencies",
+        "peerDependencies",
+        "reference",
+        "capabilityReference",
+        "peerDependenciesMeta"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "capabilityReference": {
+          "type": "string"
+        },
+        "guidance": {
+          "type": "object",
+          "required": [
+            "kind",
+            "chooseWhen",
+            "features",
+            "constraints",
+            "setup",
+            "recipes"
+          ],
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "chooseWhen": {
+              "type": "string"
+            },
+            "features": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "constraints": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "setup": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "recipes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/component"
+          }
+        },
+        "exports": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "kind"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "type",
+                  "value",
+                  "hook",
+                  "class"
+                ]
+              },
+              "source": {
+                "$ref": "#/definitions/source"
+              },
+              "signatures": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "text",
+                    "abbreviated"
+                  ],
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "abbreviated": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "members": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "source",
+                    "signatures"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "$ref": "#/definitions/source"
+                    },
+                    "signatures": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "text",
+                          "abbreviated"
+                        ],
+                        "properties": {
+                          "text": {
+                            "type": "string"
+                          },
+                          "abbreviated": {
+                            "type": "boolean"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "dependencies": {
+          "type": "object"
+        },
+        "peerDependencies": {
+          "type": "object"
+        },
+        "peerDependenciesMeta": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

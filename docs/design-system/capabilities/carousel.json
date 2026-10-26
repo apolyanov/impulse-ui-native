@@ -1,0 +1,328 @@
+{
+  "name": "@impulse-ui-native/carousel",
+  "slug": "carousel",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Browse a finite horizontal collection with snapping.",
+    "features": [
+      "One child per slide; controlled/uncontrolled index, peeking and navigation.",
+      "Adaptive dots/counter pagination and tone-aware controls."
+    ],
+    "constraints": [
+      "Finite collection, not an infinite virtualized pager.",
+      "Native ScrollView-based; no Gesture Handler or Reanimated setup is required by this package."
+    ],
+    "setup": ["ThemeProvider; install the owning package peer dependencies."],
+    "recipes": ["product-carousel"]
+  },
+  "components": [
+    {
+      "name": "Carousel",
+      "source": {
+        "file": "packages/carousel/src/components/carousel.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "defaultIndex",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "index",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onIndexChange",
+          "required": false,
+          "type": "((index: number) => void) | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "pagination",
+          "required": false,
+          "type": "CarouselPagination | undefined",
+          "choices": ["counter", "dots", "none", "segments"],
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "peek",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "showNavigation",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 17
+          }
+        },
+        {
+          "name": "slideAspectRatio",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/carousel/src/types/carousel.types.ts",
+            "line": 16
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "defaultIndex": {
+          "expression": "0",
+          "value": 0,
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 18
+          }
+        },
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 20
+          }
+        },
+        "pagination": {
+          "expression": "\"dots\"",
+          "value": "dots",
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 21
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 22
+          }
+        },
+        "showNavigation": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 23
+          }
+        },
+        "peek": {
+          "expression": "0",
+          "value": 0,
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 24
+          }
+        },
+        "slideAspectRatio": {
+          "expression": "DefaultSlideAspectRatio",
+          "source": {
+            "file": "packages/carousel/src/components/carousel.tsx",
+            "line": 25
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "Carousel",
+      "kind": "value",
+      "source": {
+        "file": "packages/carousel/src/components/carousel.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "(props: CarouselProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "CarouselPagination",
+      "kind": "type",
+      "source": {
+        "file": "packages/carousel/src/types/carousel.types.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "CarouselProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/carousel/src/types/carousel.types.ts",
+        "line": 8
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-svg": ">=13.9.0"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/carousel.md",
+  "capabilityReference": "capabilities/carousel.md"
+}

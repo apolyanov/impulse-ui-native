@@ -1,0 +1,686 @@
+{
+  "name": "@impulse-ui-native/select",
+  "slug": "select",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Choose one or multiple primitive values from a list.",
+    "features": [
+      "Select and MultiSelect; controlled/uncontrolled values and disabled options.",
+      "Caret defaults, initial-scroll-to-selection, loading and field addons."
+    ],
+    "constraints": [
+      "Options are label/value records with primitive values.",
+      "Defaults are outlined/neutral. Tone propagates to options and selected tags.",
+      "MultiSelect uses soft tags on filled fields and filled tags on outlined/soft fields; disabled tags are outlined and cannot be removed."
+    ],
+    "setup": [
+      "ThemeProvider, GestureHandlerRootView and SafeAreaProvider.",
+      "PortalProvider with stable PortalStore and PortalsHost; configure Gesture Handler, Reanimated and Worklets."
+    ],
+    "recipes": ["filters", "field-appearances"]
+  },
+  "components": [
+    {
+      "name": "MultiSelect",
+      "typeParameters": [
+        {
+          "name": "Value",
+          "constraint": "PrimitiveValue"
+        }
+      ],
+      "source": {
+        "file": "packages/select/src/components/multi-select.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "Value[] | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "initialScrollToSelected",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: Value[] | undefined) => void) | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "options",
+          "required": true,
+          "type": "SelectOption<Value>[]",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 44
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "Value[] | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/select/src/components/multi-select.tsx",
+            "line": 23
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/select/src/components/multi-select.tsx",
+            "line": 24
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "options",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "tone": "neutral"
+        },
+        "inheritedDefaults": {
+          "variant": "outlined",
+          "size": "medium",
+          "from": "Control.Field"
+        },
+        "valueContract": "Select holds one primitive or empty value; MultiSelect holds an array. Options are {label,value,disabled?}."
+      }
+    },
+    {
+      "name": "Select",
+      "typeParameters": [
+        {
+          "name": "Value",
+          "constraint": "PrimitiveValue"
+        }
+      ],
+      "source": {
+        "file": "packages/select/src/components/select.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "Value | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 39
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "initialScrollToSelected",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: Value | undefined) => void) | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "options",
+          "required": true,
+          "type": "SelectOption<Value>[]",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 37
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "Value | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 38
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/select/src/components/select.tsx",
+            "line": 20
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "options",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "tone": "neutral"
+        },
+        "inheritedDefaults": {
+          "variant": "outlined",
+          "size": "medium",
+          "from": "Control.Field"
+        },
+        "valueContract": "Select holds one primitive or empty value; MultiSelect holds an array. Options are {label,value,disabled?}."
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "CommonSelectProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 21
+      }
+    },
+    {
+      "name": "MultiSelect",
+      "kind": "value",
+      "source": {
+        "file": "packages/select/src/components/multi-select.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "<Value extends PrimitiveValue>(props: MultiSelectProps<Value>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "MultiSelectProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 42
+      }
+    },
+    {
+      "name": "OptionProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 59
+      }
+    },
+    {
+      "name": "PrimitiveValue",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "Select",
+      "kind": "value",
+      "source": {
+        "file": "packages/select/src/components/select.tsx",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "<Value extends PrimitiveValue>(props: SelectProps<Value>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "SelectControlProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 29
+      }
+    },
+    {
+      "name": "SelectFlyoutProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 49
+      }
+    },
+    {
+      "name": "SelectFn",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "SelectOption",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "SelectProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 34
+      }
+    },
+    {
+      "name": "UseSelectProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/select/src/types/select.types.ts",
+        "line": 65
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/input": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/flyout": "workspace:*",
+    "@impulse-ui-native/portal": "workspace:*",
+    "@impulse-ui-native/flat-list": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/select.md",
+  "capabilityReference": "capabilities/select.md"
+}

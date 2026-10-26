@@ -42,3 +42,7 @@ Use the same size for rendered rows and `itemSize`. For multiple columns, use th
 Initial positioning follows native FlatList's mount behavior. Remount the list when a fresh initial position is needed, and mount it after asynchronously loaded data is available. Changing the selected value after initialization does not scroll an existing list.
 
 Exports: `FlatList`, `useFlatListInitialScroll`, `FlatListProps`, `FlatListRef`, and `UseFlatListInitialScrollOptions`.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/flat-list.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

@@ -1,0 +1,119 @@
+{
+  "name": "@impulse-ui-native/echo",
+  "slug": "echo",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "infrastructure",
+    "chooseWhen": "Send typed events between disconnected React consumers.",
+    "features": [
+      "Shared EchoInstance plus emitter/listener hooks and typed event contracts."
+    ],
+    "constraints": [
+      "An event bus is not persistent application state; component subscriptions clean up on unmount.",
+      "Inspect EchoEvents before inventing event names or payloads."
+    ],
+    "setup": ["React; no visual provider."],
+    "recipes": ["data-service"]
+  },
+  "components": [],
+  "exports": [
+    {
+      "name": "EchoEventNames",
+      "kind": "type",
+      "source": {
+        "file": "packages/echo/src/types/echo.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "EchoEvents",
+      "kind": "type",
+      "source": {
+        "file": "packages/echo/src/types/echo.types.ts",
+        "line": 1
+      }
+    },
+    {
+      "name": "EchoInstance",
+      "kind": "value",
+      "source": {
+        "file": "packages/echo/src/singletons/echo.singleton.ts",
+        "line": 49
+      },
+      "members": [
+        {
+          "name": "emit",
+          "source": {
+            "file": "packages/echo/src/singletons/echo.singleton.ts",
+            "line": 10
+          },
+          "signatures": [
+            {
+              "text": "<Event extends EchoEventNames>(event: Event, data: EchoEvents[Event]): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "subscribe",
+          "source": {
+            "file": "packages/echo/src/singletons/echo.singleton.ts",
+            "line": 16
+          },
+          "signatures": [
+            {
+              "text": "<Event extends EchoEventNames>(event: Event, callback: (data: EchoEvents[Event]) => void): () => void",
+              "abbreviated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EchoListenerEntry",
+      "kind": "type",
+      "source": {
+        "file": "packages/echo/src/types/echo.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "useEchoEmitter",
+      "kind": "hook",
+      "source": {
+        "file": "packages/echo/src/hooks/use-echo-emitter.hook.ts",
+        "line": 4
+      },
+      "signatures": [
+        {
+          "text": "<Event extends EchoEventNames>(event: Event, data: EchoEvents[Event]): void",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useEchoListener",
+      "kind": "hook",
+      "source": {
+        "file": "packages/echo/src/hooks/use-echo-listener.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "<Event extends EchoEventNames>(event: Event, callback: (data: EchoEvents[Event]) => void): void",
+          "abbreviated": false
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/echo.md",
+  "capabilityReference": "capabilities/echo.md"
+}

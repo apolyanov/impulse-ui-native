@@ -695,6 +695,26 @@
     "reference": "api/stepper.md"
   },
   {
+    "name": "@impulse-ui-native/storybook",
+    "version": "15.0.1",
+    "toolkitExport": false,
+    "description": "Shared Storybook stories and configuration for ImpulseUI Native components.",
+    "peerDependencies": {
+      "react": ">=18",
+      "react-native": ">=0.73"
+    },
+    "peerDependenciesMeta": {},
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "react-native": "./src/index.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "publicSourceModules": 5,
+    "reference": "api/storybook.md"
+  },
+  {
     "name": "@impulse-ui-native/switch",
     "version": "15.0.1",
     "toolkitExport": true,

@@ -1,0 +1,1698 @@
+{
+  "name": "@impulse-ui-native/color-picker",
+  "slug": "color-picker",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "compound",
+    "chooseWhen": "Choose and edit a color inline.",
+    "features": [
+      "Immediate or confirm commit mode; controlled/uncontrolled color.",
+      "Spectrum, sliders, preview, channel/hex/alpha inputs, swatches and Apply/Cancel parts."
+    ],
+    "constraints": [
+      "Parts require ColorPicker.Root; the convenience component assembles a common layout.",
+      "Spectrum and selected color are data, not tone. Inputs inherit root tone; their field variant is independent.",
+      "Drag presentation freezes React field snapshots until release; native gesture validation is separate from typechecking."
+    ],
+    "setup": [
+      "ThemeProvider and GestureHandlerRootView.",
+      "Configure SVG, Gesture Handler, Reanimated and Worklets; no portal/overlay provider is needed."
+    ],
+    "recipes": ["color-settings"]
+  },
+  "components": [
+    {
+      "name": "ColorPicker",
+      "source": {
+        "file": "packages/color-picker/src/components/color-picker.tsx",
+        "line": 21
+      },
+      "props": [
+        {
+          "name": "commitMode",
+          "required": false,
+          "type": "ColorPickerCommitMode | undefined",
+          "choices": ["confirm", "immediate"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: string) => void) | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "presets",
+          "required": false,
+          "type": "readonly ColorPickerPreset[] | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 37
+          }
+        },
+        {
+          "name": "presetsLabel",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 39
+          }
+        },
+        {
+          "name": "showAlpha",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "showPresets",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 20
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "showAlpha": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/color-picker/src/components/color-picker.tsx",
+            "line": 22
+          }
+        },
+        "showPresets": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/color-picker/src/components/color-picker.tsx",
+            "line": 23
+          }
+        },
+        "presetsLabel": {
+          "expression": "\"Theme colors\"",
+          "value": "Theme colors",
+          "source": {
+            "file": "packages/color-picker/src/components/color-picker.tsx",
+            "line": 25
+          }
+        },
+        "commitMode": {
+          "expression": "\"immediate\"",
+          "value": "immediate",
+          "source": {
+            "file": "packages/color-picker/src/components/color-picker.tsx",
+            "line": 26
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "value",
+          "defaultValue",
+          "onChange",
+          "commitMode",
+          "tone"
+        ],
+        "valueContract": "Color strings; immediate commits during edits, confirm commits with Apply. Spectrum colors are data.",
+        "delegatedDefaults": {
+          "source": "packages/color-picker/src/hooks/use-color-picker.hook.ts",
+          "function": "useColorPicker",
+          "expected": {
+            "size": "medium",
+            "tone": "primary",
+            "commitMode": "immediate"
+          }
+        }
+      }
+    },
+    {
+      "name": "ColorPicker.AlphaInput",
+      "source": {
+        "file": "packages/color-picker/src/components/alpha-input.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 54
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.AlphaSlider",
+      "source": {
+        "file": "packages/color-picker/src/components/alpha-slider.tsx",
+        "line": 9
+      },
+      "props": [],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.Apply",
+      "source": {
+        "file": "packages/color-picker/src/components/apply.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "((string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ((state: PressableStateCallbackType) => React.ReactNode)) & (string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>)) | null | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "aspectRatio",
+        "elevation",
+        "height",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "width"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.Cancel",
+      "source": {
+        "file": "packages/color-picker/src/components/cancel.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "((string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ((state: PressableStateCallbackType) => React.ReactNode)) & (string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>)) | null | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "ViewStyle | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "aspectRatio",
+        "elevation",
+        "height",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "width"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.ChannelInput",
+      "source": {
+        "file": "packages/color-picker/src/components/channel-input.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "channel",
+          "required": true,
+          "type": "ColorChannel",
+          "choices": ["b", "g", "r"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.HexInput",
+      "source": {
+        "file": "packages/color-picker/src/components/hex-input.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "containerStyle",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/input/src/types/input.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "editable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 470,
+            "external": true
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "keyboardType",
+          "required": false,
+          "type": "KeyboardTypeOptions | undefined",
+          "choices": [
+            "ascii-capable",
+            "ascii-capable-number-pad",
+            "decimal-pad",
+            "default",
+            "email-address",
+            "name-phone-pad",
+            "number-pad",
+            "numbers-and-punctuation",
+            "numeric",
+            "phone-pad",
+            "twitter",
+            "url",
+            "visible-password",
+            "web-search"
+          ],
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 532,
+            "external": true
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "maxLength",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 545,
+            "external": true
+          }
+        },
+        {
+          "name": "multiline",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 550,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 288,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 591,
+            "external": true
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "secureTextEntry",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 668,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow.d.ts",
+            "line": 734,
+            "external": true
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 164,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.HueSlider",
+      "source": {
+        "file": "packages/color-picker/src/components/hue-slider.tsx",
+        "line": 10
+      },
+      "props": [],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.Preview",
+      "source": {
+        "file": "packages/color-picker/src/components/preview.tsx",
+        "line": 13
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.Root",
+      "source": {
+        "file": "packages/color-picker/src/components/root.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "commitMode",
+          "required": false,
+          "type": "ColorPickerCommitMode | undefined",
+          "choices": ["confirm", "immediate"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: string) => void) | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 20
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "delegatedDefaults": {
+          "source": "packages/color-picker/src/hooks/use-color-picker.hook.ts",
+          "function": "useColorPicker",
+          "expected": {
+            "size": "medium",
+            "tone": "primary",
+            "commitMode": "immediate"
+          }
+        }
+      }
+    },
+    {
+      "name": "ColorPicker.Spectrum",
+      "source": {
+        "file": "packages/color-picker/src/components/spectrum.tsx",
+        "line": 18
+      },
+      "props": [],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    },
+    {
+      "name": "ColorPicker.Swatch",
+      "source": {
+        "file": "packages/color-picker/src/components/swatch.tsx",
+        "line": 21
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/color-picker/src/types/color-picker.types.ts",
+            "line": 61
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "pressedStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+        "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "ColorChannel",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "ColorPicker",
+      "kind": "value",
+      "source": {
+        "file": "packages/color-picker/src/components/index.ts",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"@impulse-ui-native/toolkit\").ColorPickerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ColorPickerActionProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-picker.types.ts",
+        "line": 65
+      }
+    },
+    {
+      "name": "ColorPickerAlphaInputProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-picker.types.ts",
+        "line": 50
+      }
+    },
+    {
+      "name": "ColorPickerChannelInputProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-picker.types.ts",
+        "line": 42
+      }
+    },
+    {
+      "name": "ColorPickerCommitMode",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color.types.ts",
+        "line": 16
+      }
+    },
+    {
+      "name": "ColorPickerHexInputProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-input.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "ColorPickerPreset",
+      "kind": "type",
+      "source": {
+        "file": "packages/theme/src/types/color-picker-tokens.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "ColorPickerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-picker.types.ts",
+        "line": 29
+      }
+    },
+    {
+      "name": "ColorPickerRootProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-picker.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "ColorPickerSwatchProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/color-picker/src/types/color-picker.types.ts",
+        "line": 57
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/input": "workspace:*",
+    "@impulse-ui-native/slider": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-svg": ">=13.9.0",
+    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/color-picker.md",
+  "capabilityReference": "capabilities/color-picker.md"
+}

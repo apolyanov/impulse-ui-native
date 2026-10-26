@@ -110,3 +110,7 @@ Inputs, sliders, confirm actions, and selected swatch rings inherit it; explicit
 child tones override it. The hue/saturation spectrum, presets, alpha checkerboard,
 and user-selected color are data, so changing tone does not change those values.
 Selection ring tokens move to colorPicker.colors[tone].
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/color-picker.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

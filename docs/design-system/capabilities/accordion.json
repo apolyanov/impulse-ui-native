@@ -1,0 +1,586 @@
+{
+  "name": "@impulse-ui-native/accordion",
+  "slug": "accordion",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "compound",
+    "chooseWhen": "Reveal or collapse sections without changing screens.",
+    "features": [
+      "Single or multiple expansion; controlled/uncontrolled values.",
+      "Item-level disabling and animated content; custom trigger/indicator children."
+    ],
+    "constraints": [
+      "Root owns expansion; Item owns item context. Trigger, Indicator and Content require the matching Item.",
+      "There is no visual variant/tone axis; do not invent one."
+    ],
+    "setup": ["ThemeProvider; install the owning package peer dependencies."],
+    "recipes": ["disclosure-settings"]
+  },
+  "components": [
+    {
+      "name": "Accordion.Content",
+      "source": {
+        "file": "packages/accordion/src/components/content.tsx",
+        "line": 17
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Accordion.Item inside Accordion.Root",
+        "contentContract": "Render supplied children; the part does not invent label/icon content."
+      }
+    },
+    {
+      "name": "Accordion.Indicator",
+      "source": {
+        "file": "packages/accordion/src/components/indicator.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 42
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Accordion.Item inside Accordion.Root",
+        "contentContract": "Render supplied children; the part does not invent label/icon content."
+      }
+    },
+    {
+      "name": "Accordion.Item",
+      "source": {
+        "file": "packages/accordion/src/components/item.tsx",
+        "line": 13
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 29
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 31
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/accordion/src/components/item.tsx",
+            "line": 15
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Accordion.Root"
+      }
+    },
+    {
+      "name": "Accordion.Root",
+      "propAlternatives": [
+        {
+          "required": [],
+          "valueProps": [
+            {
+              "name": "defaultValue",
+              "required": false,
+              "type": "string | undefined",
+              "source": {
+                "file": "packages/accordion/src/types/accordion.types.ts",
+                "line": 11
+              }
+            },
+            {
+              "name": "type",
+              "required": false,
+              "type": "\"single\" | undefined",
+              "choices": ["single"],
+              "source": {
+                "file": "packages/accordion/src/types/accordion.types.ts",
+                "line": 13
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "type": "string | undefined",
+              "source": {
+                "file": "packages/accordion/src/types/accordion.types.ts",
+                "line": 14
+              }
+            }
+          ]
+        },
+        {
+          "required": ["type"],
+          "valueProps": [
+            {
+              "name": "defaultValue",
+              "required": false,
+              "type": "string[] | undefined",
+              "source": {
+                "file": "packages/accordion/src/types/accordion.types.ts",
+                "line": 18
+              }
+            },
+            {
+              "name": "type",
+              "required": true,
+              "type": "\"multiple\"",
+              "choices": ["multiple"],
+              "source": {
+                "file": "packages/accordion/src/types/accordion.types.ts",
+                "line": 20
+              }
+            },
+            {
+              "name": "value",
+              "required": false,
+              "type": "string[] | undefined",
+              "source": {
+                "file": "packages/accordion/src/types/accordion.types.ts",
+                "line": 21
+              }
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "packages/accordion/src/components/root.tsx",
+        "line": 21
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 5
+          }
+        },
+        {
+          "name": "collapsible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 6
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string | string[] | undefined",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "((value: string | undefined) => void) | ((value: string[]) => void) | undefined",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "type",
+          "required": false,
+          "type": "\"single\" | \"multiple\" | undefined",
+          "choices": ["multiple", "single"],
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string | string[] | undefined",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 14
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "collapsible": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/accordion/src/components/root.tsx",
+            "line": 23
+          }
+        },
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/accordion/src/components/root.tsx",
+            "line": 25
+          }
+        },
+        "type": {
+          "expression": "\"single\"",
+          "value": "single",
+          "source": {
+            "file": "packages/accordion/src/components/root.tsx",
+            "line": 28
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["type", "value", "defaultValue", "onValueChange"],
+        "valueContract": "Single mode uses string; multiple mode uses string[]."
+      }
+    },
+    {
+      "name": "Accordion.Trigger",
+      "source": {
+        "file": "packages/accordion/src/components/trigger.tsx",
+        "line": 22
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/accordion/src/types/accordion.types.ts",
+            "line": 38
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 124,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Accordion.Item inside Accordion.Root",
+        "contentContract": "Render supplied children; the part does not invent label/icon content."
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "Accordion",
+      "kind": "value",
+      "source": {
+        "file": "packages/accordion/src/components/accordion.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "AccordionContentProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 45
+      }
+    },
+    {
+      "name": "AccordionIndicatorProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 41
+      }
+    },
+    {
+      "name": "AccordionItemProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 28
+      }
+    },
+    {
+      "name": "AccordionMultipleRootProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "AccordionRootProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 24
+      }
+    },
+    {
+      "name": "AccordionSingleRootProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "AccordionTriggerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/accordion/src/types/accordion.types.ts",
+        "line": 34
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=3.6.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/accordion.md",
+  "capabilityReference": "capabilities/accordion.md"
+}

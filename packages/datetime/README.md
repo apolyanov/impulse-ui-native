@@ -71,3 +71,7 @@ inputs, selected time rows, Clear, Cancel, and Apply. Calendar selections use th
 shared filled palette and ranges use the soft palette. The field variant is inherited by month/year selects, nested time inputs, quick-date tags, and both action buttons across portals. Selected calendar days, date ranges, and time-wheel rows keep their selection-state appearance.
 Custom day states move to datetimePicker.day.colors[tone], time rows to
 timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/datetime.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

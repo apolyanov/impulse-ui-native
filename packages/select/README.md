@@ -103,3 +103,7 @@ disabled tags cannot be removed. The default is neutral. Selection indicator
 tokens move from select.option.states to select.option.colors[tone].
 
 MultiSelect selected tags use the same tone as the field: soft tags inside filled fields, and filled tags inside outlined/soft fields. Disabled tags use outlined styling and cannot be removed. This separates the selected values from the field surface without changing the shared palettes.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/select.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

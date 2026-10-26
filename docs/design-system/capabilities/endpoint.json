@@ -1,0 +1,185 @@
+{
+  "name": "@impulse-ui-native/endpoint",
+  "slug": "endpoint",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "infrastructure",
+    "chooseWhen": "Connect an Axios API client to TanStack Query.",
+    "features": [
+      "Query, infinite-query and mutation factories; imperative execute functions.",
+      "A shared endpoint factory binds a client."
+    ],
+    "constraints": [
+      "Use typed factory definitions rather than inventing URL/data props on visual components.",
+      "The application owns authentication, query keys, request types and error UX.",
+      "Standard query and mutation functions expose .execute; infinite-query factories return hooks only, without an imperative execute API."
+    ],
+    "setup": [
+      "Axios client and TanStack Query QueryClientProvider; install axios and @tanstack/react-query."
+    ],
+    "recipes": ["data-service"]
+  },
+  "components": [],
+  "exports": [
+    {
+      "name": "BaseVariables",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "CommonEndpointRequestProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 24
+      }
+    },
+    {
+      "name": "createEndpointFactory",
+      "kind": "value",
+      "source": {
+        "file": "packages/endpoint/src/factories/create-endpoint.factory.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(client: Axios): { createMutation: <TData, TError = import(\"axios\").AxiosError<unknown, any>, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>>(config: import(\"@impulse-ui-native/toolkit\").EndpointRequest<TData, TError>) => import(\"@impulse-ui-native/toolkit\").MutationFunction<TData, TError, TVariables>; createQuery: <TData, TError = import(\"axios\").AxiosError<unknown, any>, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>>(config: import(\"@impulse-ui-native/toolkit\").QueryEndpointRequest<TData, TError, TVariables>) => import(\"@impulse-ui-native/toolkit\").QueryFunction<TData, TError, TVariables>; createInfiniteQuery: <TPage, TError = import(\"axios\").AxiosError<unknown, any>, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>, TPageParam extends import(\"@impulse-ui-native/toolkit\").PaginationParams = import(\"@impulse-ui-native/toolkit\").PaginationParams, TQueryKey extends import(\"@tanstack/query-core\").QueryKey = readonly unknown[]>(config: import(\"@impulse-ui-native/toolkit\").InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<import(\"@tanstack/react-query\").UseInfiniteQueryOptions<TPage, TError, import(\"@tanstack/query-core\").InfiniteData<TPage>, TQueryKey, TPageParam>, \"queryKey\">) => import(\"@tanstack/react-query\").UseInfiniteQueryResult<import(\"@tanstack/query-core\").InfiniteData<TPage, unknown>, TError>; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createInfiniteQueryFactory",
+      "kind": "value",
+      "source": {
+        "file": "packages/endpoint/src/query/create-infinite-query.ts",
+        "line": 16
+      },
+      "signatures": [
+        {
+          "text": "(client: Axios): <TPage, TError = AxiosError, TVariables extends BaseVariables = BaseVariables, TPageParam extends PaginationParams = PaginationParams, TQueryKey extends QueryKey = QueryKey>(config: InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<UseInfiniteQueryOptions<TPage, TError, InfiniteData<TPage>, TQueryKey, TPageParam>, \"queryKey\">) => import(\"@tanstack/react-query\").UseInfiniteQueryResult<InfiniteData<TPage, unknown>, TError>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createMutationFactory",
+      "kind": "value",
+      "source": {
+        "file": "packages/endpoint/src/mutation/create-mutation.ts",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: EndpointRequest<TData, TError>) => MutationFunction<TData, TError, TVariables>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createQueryFactory",
+      "kind": "value",
+      "source": {
+        "file": "packages/endpoint/src/query/create-query.ts",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: QueryEndpointRequest<TData, TError, TVariables>) => QueryFunction<TData, TError, TVariables>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createRequest",
+      "kind": "value",
+      "source": {
+        "file": "packages/endpoint/src/utils/request.utils.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "<TData, TError, TVariables extends BaseVariables>(client: Axios, config: CommonEndpointRequestProps<TData, TError>): (variables: TVariables) => Promise<TData>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "EndpointRequest",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 60
+      }
+    },
+    {
+      "name": "InfiniteQueryEndpointRequest",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 47
+      }
+    },
+    {
+      "name": "MutationFunction",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/mutation.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "PaginationParams",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "ParamsSerializer",
+      "kind": "value",
+      "source": {
+        "file": "packages/endpoint/src/utils/params.utils.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "QueryEndpointRequest",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 35
+      }
+    },
+    {
+      "name": "QueryFunction",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/query.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "QueryParams",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/request.types.ts",
+        "line": 20
+      }
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "@tanstack/react-query": ">=5.0.0",
+    "axios": ">=1.6.0"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/endpoint.md",
+  "capabilityReference": "capabilities/endpoint.md"
+}

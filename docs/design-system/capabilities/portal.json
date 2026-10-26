@@ -1,0 +1,446 @@
+{
+  "name": "@impulse-ui-native/portal",
+  "slug": "portal",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "infrastructure",
+    "chooseWhen": "Render local content in a named host elsewhere in the tree.",
+    "features": [
+      "PortalStore, PortalProvider, Portal, PortalHost and PortalsHost."
+    ],
+    "constraints": [
+      "Portal name must match a mounted host under the same store.",
+      "Do not assume arbitrary React context survives relocation; pass/re-provide context where the component requires it."
+    ],
+    "setup": [
+      "PortalProvider with a stable PortalStore and PortalsHost. No ThemeProvider is needed for portal infrastructure."
+    ],
+    "recipes": ["app-shell", "details-dialog"]
+  },
+  "components": [
+    {
+      "name": "Portal",
+      "source": {
+        "file": "packages/portal/src/components/portal.tsx",
+        "line": 7
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "id",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/portal/src/types/portal.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "name",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/portal/src/types/portal.types.ts",
+            "line": 23
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "name": {
+          "expression": "RootPortalsHostName",
+          "value": "root",
+          "source": {
+            "file": "packages/portal/src/components/portal.tsx",
+            "line": 10
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "PortalHost",
+      "source": {
+        "file": "packages/portal/src/components/portal-host.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/portal/src/types/portal.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "name",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/portal/src/types/portal.types.ts",
+            "line": 28
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "PortalProvider",
+      "source": {
+        "file": "packages/portal/src/providers/portal.provider.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "store",
+          "required": true,
+          "type": "PortalStore",
+          "source": {
+            "file": "packages/portal/src/types/portal.types.ts",
+            "line": 14
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "PortalsHost",
+      "source": {
+        "file": "packages/portal/src/components/portals-host.tsx",
+        "line": 8
+      },
+      "props": [
+        {
+          "name": "name",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/portal/src/types/portal.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "HostName",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "Listener",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "Portal",
+      "kind": "value",
+      "source": {
+        "file": "packages/portal/src/components/portal.tsx",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "(props: PortalProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PortalEntry",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "PortalHost",
+      "kind": "value",
+      "source": {
+        "file": "packages/portal/src/components/portal-host.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: PortalHostProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PortalHostProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 26
+      }
+    },
+    {
+      "name": "PortalID",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "PortalProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 21
+      }
+    },
+    {
+      "name": "PortalProvider",
+      "kind": "value",
+      "source": {
+        "file": "packages/portal/src/providers/portal.provider.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: PortalProviderProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PortalProviderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "PortalProviderValue",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "PortalsHost",
+      "kind": "value",
+      "source": {
+        "file": "packages/portal/src/components/portals-host.tsx",
+        "line": 8
+      },
+      "signatures": [
+        {
+          "text": "(props: PortalsHostProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PortalsHostProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/portal/src/types/portal.types.ts",
+        "line": 31
+      }
+    },
+    {
+      "name": "PortalStore",
+      "kind": "class",
+      "source": {
+        "file": "packages/portal/src/stores/portal.store.ts",
+        "line": 5
+      },
+      "members": [
+        {
+          "name": "subscribePortal",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 19
+          },
+          "signatures": [
+            {
+              "text": "(id: PortalID, name: HostName): (listener: Listener) => () => void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "subscribeHost",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 39
+          },
+          "signatures": [
+            {
+              "text": "(name: string): (listener: Listener) => () => void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "getPortalsSnapshot",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 69
+          },
+          "signatures": [
+            {
+              "text": "(name: HostName): () => PortalEntry[]",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "getPortalSnapshot",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 73
+          },
+          "signatures": [
+            {
+              "text": "(id: PortalID, name: HostName): () => ReactNode",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "mount",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 77
+          },
+          "signatures": [
+            {
+              "text": "(id: PortalID, name: HostName, children: ReactNode): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "unmount",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 93
+          },
+          "signatures": [
+            {
+              "text": "(id: PortalID, name: HostName): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "source": {
+            "file": "packages/portal/src/stores/portal.store.ts",
+            "line": 110
+          },
+          "signatures": [
+            {
+              "text": "(id: PortalID, name: HostName, children: ReactNode): void",
+              "abbreviated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RootPortalsHostName",
+      "kind": "value",
+      "source": {
+        "file": "packages/portal/src/constants/portal.constants.ts",
+        "line": 1
+      }
+    },
+    {
+      "name": "useHostPortals",
+      "kind": "hook",
+      "source": {
+        "file": "packages/portal/src/hooks/use-host-portals.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(name: HostName): import(\"@impulse-ui-native/toolkit\").PortalEntry[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "usePortalChildren",
+      "kind": "hook",
+      "source": {
+        "file": "packages/portal/src/hooks/use-portal-children.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(id: PortalID, name: HostName): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "usePortalContext",
+      "kind": "hook",
+      "source": {
+        "file": "packages/portal/src/hooks/use-portal-context.hook.ts",
+        "line": 5
+      },
+      "signatures": [
+        {
+          "text": "(): import(\"@impulse-ui-native/toolkit\").PortalProviderValue",
+          "abbreviated": false
+        }
+      ]
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/portal.md",
+  "capabilityReference": "capabilities/portal.md"
+}

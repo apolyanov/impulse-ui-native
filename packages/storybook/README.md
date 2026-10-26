@@ -37,3 +37,11 @@ export default {
 ```
 
 The package source also contains the toolkit's stories and documentation screens for primitives, inputs, selection, date and time, feedback, navigation, overlays, portals, icons, and charts. Those files are discovered directly by the Storybook host and are not part of the public root export.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/storybook.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+## Library design recipes
+
+The native host includes **Design system/Recipes**: realistic forms, filters, cards, data states, overlays, charts, color editing, onboarding and a variant/tone comparison. Recipe TS/TSX source is maintained in `docs/design-system/recipes/` and compiled against the public library APIs by `pnpm docs:check`. These are application compositions, not additional public component exports. The host loads the configured Montserrat family before rendering previews.

@@ -1,0 +1,266 @@
+{
+  "name": "@impulse-ui-native/scroll-view",
+  "slug": "scroll-view",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "native-wrapper",
+    "chooseWhen": "Scroll content and reveal an initially selected measured child.",
+    "features": ["Native ScrollView and measured initial-scroll hook."],
+    "constraints": [
+      "No virtualization; use FlatList for large datasets.",
+      "Attach the helper refs and layout/content callbacks as documented; it is not scroll-to-index for unknown items."
+    ],
+    "setup": [
+      "React and React Native. No ThemeProvider is required by this wrapper."
+    ],
+    "recipes": ["data-list"]
+  },
+  "components": [
+    {
+      "name": "ScrollView",
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+        "line": 678,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 621,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 362,
+            "external": true
+          }
+        },
+        {
+          "name": "horizontal",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 409,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "React.Ref<ScrollViewInstance> | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 639,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 172,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "ScrollView.Context",
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+        "line": 636,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 546,
+            "external": true
+          }
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "Value",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 545,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "ScrollView.Context.Consumer",
+      "source": {
+        "file": "node_modules/@types/react/index.d.ts",
+        "line": 680,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": true,
+          "type": "(value: Value) => ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 555,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "ScrollView.Context.Provider",
+      "source": {
+        "file": "node_modules/@types/react/index.d.ts",
+        "line": 679,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 546,
+            "external": true
+          }
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "Value",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 545,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    }
+  ],
+  "exports": [
+    {
+      "name": "ScrollView",
+      "kind": "value",
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+        "line": 678,
+        "external": true
+      },
+      "signatures": [
+        {
+          "text": "(props: Omit<ScrollViewProps, \"ref\"> & { ref?: React.Ref<ScrollViewInstance> | undefined; }): React.ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ScrollViewProps",
+      "kind": "type",
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+        "line": 634,
+        "external": true
+      }
+    },
+    {
+      "name": "useScrollViewInitialScroll",
+      "kind": "hook",
+      "source": {
+        "file": "packages/scroll-view/src/hooks/use-scroll-view-initial-scroll.hook.ts",
+        "line": 20
+      },
+      "signatures": [
+        {
+          "text": "({ enabled, horizontal, contentOffset, onLayout, onContentSizeChange, onScrollBeginDrag, }?: UseScrollViewInitialScrollOptions): UseScrollViewInitialScrollResult",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseScrollViewInitialScrollOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/scroll-view/src/types/use-scroll-view-initial-scroll.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "UseScrollViewInitialScrollResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/scroll-view/src/types/use-scroll-view-initial-scroll.types.ts",
+        "line": 4
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/scroll-view.md",
+  "capabilityReference": "capabilities/scroll-view.md"
+}

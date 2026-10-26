@@ -1,0 +1,335 @@
+{
+  "name": "@impulse-ui-native/stepper",
+  "slug": "stepper",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Coordinate an application-owned multi-step flow.",
+    "features": [
+      "Controlled current step with next/previous/goto context and imperative ref.",
+      "Separate tabs-style step navigation; tone propagates to steps/navigation."
+    ],
+    "constraints": [
+      "Not a form validator or uncontrolled wizard.",
+      "Items supply Component functions; the application owns current and onChange."
+    ],
+    "setup": ["ThemeProvider; install the owning package peer dependencies."],
+    "recipes": ["onboarding"]
+  },
+  "components": [
+    {
+      "name": "Stepper",
+      "source": {
+        "file": "packages/stepper/src/components/stepper.tsx",
+        "line": 7
+      },
+      "props": [
+        {
+          "name": "current",
+          "required": true,
+          "type": "number",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "items",
+          "required": true,
+          "type": "Step[]",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "onChange",
+          "required": true,
+          "type": "(value: number) => void",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<StepperRef> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 1,
+      "defaults": {
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/stepper/src/components/stepper.tsx",
+            "line": 8
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "StepperProvider",
+      "source": {
+        "file": "packages/stepper/src/providers/stepper.provider.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "current",
+          "required": true,
+          "type": "number",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "goto",
+          "required": true,
+          "type": "(value: number) => void",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "next",
+          "required": true,
+          "type": "() => void",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "previous",
+          "required": true,
+          "type": "() => void",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 39
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "StepperTabsNavigation",
+      "source": {
+        "file": "packages/stepper/src/components/stepper-tabs-navigation.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "current",
+          "required": true,
+          "type": "number",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 29
+          }
+        },
+        {
+          "name": "items",
+          "required": true,
+          "type": "Step[]",
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<StepperRef> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 28
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 1,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "Step",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 16
+      }
+    },
+    {
+      "name": "StepComponentProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "Stepper",
+      "kind": "value",
+      "source": {
+        "file": "packages/stepper/src/components/stepper.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: StepperProps & import(\"react\").RefAttributes<StepperRef>): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "StepperNavigationProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 27
+      }
+    },
+    {
+      "name": "StepperProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 20
+      }
+    },
+    {
+      "name": "StepperProvider",
+      "kind": "value",
+      "source": {
+        "file": "packages/stepper/src/providers/stepper.provider.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: Omit<StepperProviderData, \"tone\"> & { tone?: import(\"@impulse-ui-native/theme\").ComponentTone; } & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "StepperProviderData",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 33
+      }
+    },
+    {
+      "name": "StepperProviderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 38
+      }
+    },
+    {
+      "name": "StepperRef",
+      "kind": "type",
+      "source": {
+        "file": "packages/stepper/src/types/stepper.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "StepperTabsNavigation",
+      "kind": "value",
+      "source": {
+        "file": "packages/stepper/src/components/stepper-tabs-navigation.tsx",
+        "line": 9
+      },
+      "signatures": [
+        {
+          "text": "(props: StepperNavigationProps & import(\"react\").RefAttributes<StepperRef>): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useStepperContext",
+      "kind": "hook",
+      "source": {
+        "file": "packages/stepper/src/providers/stepper.provider.tsx",
+        "line": 27
+      },
+      "signatures": [
+        {
+          "text": "(): StepperProviderData",
+          "abbreviated": false
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/stepper.md",
+  "capabilityReference": "capabilities/stepper.md"
+}

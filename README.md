@@ -28,7 +28,7 @@ Individual packages such as `@impulse-ui-native/select`, `@impulse-ui-native/the
 
 ## Documentation
 
-For designing an application in another project, use the portable [design-system reference](docs/design-system/README.md). It includes a design context brief, the current component and API catalog, complete light/dark token exports, and implementation constraints.
+For agents and application design, start with the [agent guide](docs/design-system/agent-guide.md) and [component chooser](docs/design-system/component-chooser.md). The portable [design-system reference](docs/design-system/README.md) covers all public packages with source-derived capability records, typechecked recipes, native preview links, complete light/dark tokens, and explicit verification boundaries. Use `pnpm docs:query --package input --component Input` for a compact contract and `pnpm docs:check` to check freshness.
 
 Component documentation lives in Storybook. Stories provide interactive examples, controls, component states, and generated API documentation.
 

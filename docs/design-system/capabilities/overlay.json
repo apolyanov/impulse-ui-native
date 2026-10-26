@@ -1,0 +1,567 @@
+{
+  "name": "@impulse-ui-native/overlay",
+  "slug": "overlay",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "infrastructure",
+    "chooseWhen": "Register and coordinate an application-wide overlay stack.",
+    "features": [
+      "OverlayStore, Provider/Host and typed registration.",
+      "Lifecycle, timing, status, layer and visibility hooks."
+    ],
+    "constraints": [
+      "Create stores outside repeated renders or once with lazy state.",
+      "OverlayHost renders registered overlays; it is separate from the Portal host."
+    ],
+    "setup": [
+      "OverlayProvider with a stable OverlayStore and OverlayHost; visual overlays require their own peers/providers."
+    ],
+    "recipes": ["app-shell", "notifications"]
+  },
+  "components": [
+    {
+      "name": "OverlayContext",
+      "source": {
+        "file": "packages/overlay/src/contexts/overlay.context.ts",
+        "line": 5
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 546,
+            "external": true
+          }
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "OverlayProviderValue | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 545,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "OverlayContext.Consumer",
+      "source": {
+        "file": "node_modules/@types/react/index.d.ts",
+        "line": 680,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": true,
+          "type": "(value: OverlayProviderValue | undefined) => ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 555,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "OverlayContext.Provider",
+      "source": {
+        "file": "node_modules/@types/react/index.d.ts",
+        "line": 679,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 546,
+            "external": true
+          }
+        },
+        {
+          "name": "value",
+          "required": true,
+          "type": "OverlayProviderValue | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 545,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "OverlayHost",
+      "source": {
+        "file": "packages/overlay/src/components/overlay-host.tsx",
+        "line": 6
+      },
+      "props": [],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "OverlayProvider",
+      "source": {
+        "file": "packages/overlay/src/providers/overlay.provider.tsx",
+        "line": 7
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "store",
+          "required": true,
+          "type": "OverlayStore",
+          "source": {
+            "file": "packages/overlay/src/types/overlay.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "OpenOverlay",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 67
+      }
+    },
+    {
+      "name": "OverlayComponentProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 31
+      }
+    },
+    {
+      "name": "OverlayContext",
+      "kind": "value",
+      "source": {
+        "file": "packages/overlay/src/contexts/overlay.context.ts",
+        "line": 5
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"react\").ProviderProps<OverlayProviderValue | undefined>): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "OverlayController",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 71
+      }
+    },
+    {
+      "name": "OverlayEntry",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 76
+      }
+    },
+    {
+      "name": "OverlayHost",
+      "kind": "value",
+      "source": {
+        "file": "packages/overlay/src/components/overlay-host.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: unknown): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "OverlayID",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "OverlayLifecycle",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 41
+      }
+    },
+    {
+      "name": "OverlayLifecycleCallback",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 16
+      }
+    },
+    {
+      "name": "OverlayLifecycleOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 28
+      }
+    },
+    {
+      "name": "OverlayLifecycleProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "OverlayLifecycleStatus",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "OverlayListener",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "OverlayOpenArguments",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 44
+      }
+    },
+    {
+      "name": "OverlayOrder",
+      "kind": "value",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "OverlayProvider",
+      "kind": "value",
+      "source": {
+        "file": "packages/overlay/src/providers/overlay.provider.tsx",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "(props: OverlayProviderProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "OverlayProviderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 20
+      }
+    },
+    {
+      "name": "OverlayProviderValue",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 24
+      }
+    },
+    {
+      "name": "OverlayRegistrationProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 54
+      }
+    },
+    {
+      "name": "OverlayStatusCallback",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "OverlayStore",
+      "kind": "class",
+      "source": {
+        "file": "packages/overlay/src/stores/overlay.store.ts",
+        "line": 11
+      },
+      "members": [
+        {
+          "name": "subscribeOverlays",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 17
+          },
+          "signatures": [
+            {
+              "text": "(): (listener: OverlayListener) => () => void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "getOverlaysSnapshot",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 27
+          },
+          "signatures": [
+            {
+              "text": "(): () => readonly OverlayEntry[]",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "open",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 31
+          },
+          "signatures": [
+            {
+              "text": "(entry: OverlayEntry): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "close",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 40
+          },
+          "signatures": [
+            {
+              "text": "(id: OverlayID): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "setStatus",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 55
+          },
+          "signatures": [
+            {
+              "text": "(id: OverlayID, status: OverlayLifecycleStatus): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "remove",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 67
+          },
+          "signatures": [
+            {
+              "text": "(id: OverlayID): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "register",
+          "source": {
+            "file": "packages/overlay/src/stores/overlay.store.ts",
+            "line": 75
+          },
+          "signatures": [
+            {
+              "text": "<Props extends object = never>(registration: OverlayRegistrationProps<Props>): OverlayController<Props>",
+              "abbreviated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OverlayTimingOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 36
+      }
+    },
+    {
+      "name": "OverlayTitle",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay.types.ts",
+        "line": 50
+      }
+    },
+    {
+      "name": "OverlayTransitionCompletion",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 21
+      }
+    },
+    {
+      "name": "OverlayTransitionHandler",
+      "kind": "type",
+      "source": {
+        "file": "packages/overlay/src/types/overlay-lifecycle.types.ts",
+        "line": 23
+      }
+    },
+    {
+      "name": "useOverlayContext",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlay-context.hook.ts",
+        "line": 5
+      },
+      "signatures": [
+        {
+          "text": "(): import(\"@impulse-ui-native/toolkit\").OverlayProviderValue",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useOverlayLayer",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlay-layer.hook.ts",
+        "line": 9
+      },
+      "signatures": [
+        {
+          "text": "(id: OverlayID, Component?: ComponentType<OverlayComponentProps>, order?: OverlayOrder): number",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useOverlayLifecycle",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlay-lifecycle.hook.ts",
+        "line": 12
+      },
+      "signatures": [
+        {
+          "text": "({ id, open, onOpen, onOpenFinished, onClose, onCloseFinished, onStatusChange, }: OverlayLifecycleProps, { ready, onEnter, onExit }?: OverlayLifecycleOptions): OverlayLifecycle",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useOverlays",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlays.hook.ts",
+        "line": 5
+      },
+      "signatures": [
+        {
+          "text": "(): readonly import(\"@impulse-ui-native/toolkit\").OverlayEntry[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useOverlayStatus",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlay-status.hook.ts",
+        "line": 4
+      },
+      "signatures": [
+        {
+          "text": "(id: OverlayID): OverlayLifecycleStatus",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useOverlayTiming",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlay-timing.hook.ts",
+        "line": 13
+      },
+      "signatures": [
+        {
+          "text": "({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; }; progress: import(\"react-native-reanimated\").SharedValue<number>; }",
+          "abbreviated": false
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=4",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/overlay.md",
+  "capabilityReference": "capabilities/overlay.md"
+}

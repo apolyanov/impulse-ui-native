@@ -1,0 +1,1951 @@
+{
+  "name": "@impulse-ui-native/datetime",
+  "slug": "datetime",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Pick a date, time, date-time or range.",
+    "features": [
+      "Five convenience pickers; value/defaultValue/onChange.",
+      "Draft selection with Apply/Cancel, Clear, quick options, month/year Selects and nested time fields."
+    ],
+    "constraints": [
+      "Fields default to outlined/neutral. Variant and tone cross the portal into selects, time fields, quick tags and actions.",
+      "Calendar/range and wheel selection states keep their own state styling. Values are Date/time objects, not arbitrary strings."
+    ],
+    "setup": [
+      "ThemeProvider, GestureHandlerRootView and SafeAreaProvider.",
+      "PortalProvider with a stable PortalStore and a mounted PortalsHost; configure Gesture Handler, Reanimated and Worklets."
+    ],
+    "recipes": ["filters"]
+  },
+  "components": [
+    {
+      "name": "DatePicker",
+      "source": {
+        "file": "packages/datetime/src/components/date/date-picker.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "clearable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/common.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "Date | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 5
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: Date | null) => void) | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 6
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "quickDateOptions",
+          "required": false,
+          "type": "QuickDateOption<Date>[] | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "Date | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 4
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "clearable": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/datetime/src/components/date/date-picker.tsx",
+            "line": 14
+          }
+        },
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/datetime/src/components/date/date-picker.tsx",
+            "line": 17
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/datetime/src/components/date/date-picker.tsx",
+            "line": 18
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "variant": "outlined",
+          "tone": "neutral"
+        },
+        "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+      }
+    },
+    {
+      "name": "DateRangePicker",
+      "source": {
+        "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "clearable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/common.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "TimeRange | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: TimeRange | null) => void) | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 10
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "quickDateOptions",
+          "required": false,
+          "type": "QuickDateOption<TimeRange>[] | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "TimeRange | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 8
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+            "line": 18
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+            "line": 19
+          }
+        },
+        "clearable": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+            "line": 21
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "variant": "outlined",
+          "tone": "neutral"
+        },
+        "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+      }
+    },
+    {
+      "name": "DatetimePicker",
+      "source": {
+        "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "clearable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/common.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "Date | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 5
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: Date | null) => void) | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 6
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "quickDateOptions",
+          "required": false,
+          "type": "QuickDateOption<Date>[] | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "Date | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-picker.types.ts",
+            "line": 4
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "clearable": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+            "line": 16
+          }
+        },
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+            "line": 19
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+            "line": 20
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "variant": "outlined",
+          "tone": "neutral"
+        },
+        "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+      }
+    },
+    {
+      "name": "DatetimeRangePicker",
+      "source": {
+        "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "clearable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/common.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "TimeRange | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: TimeRange | null) => void) | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 10
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "quickDateOptions",
+          "required": false,
+          "type": "QuickDateOption<TimeRange>[] | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "TimeRange | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+            "line": 8
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "clearable": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+            "line": 16
+          }
+        },
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+            "line": 19
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+            "line": 20
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "variant": "outlined",
+          "tone": "neutral"
+        },
+        "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+      }
+    },
+    {
+      "name": "TimePicker",
+      "source": {
+        "file": "packages/datetime/src/components/time/time-picker.tsx",
+        "line": 12
+      },
+      "props": [
+        {
+          "name": "clearable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/common.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "TimePickerValue | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/time-picker.types.ts",
+            "line": 8
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "error",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "label",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onChange",
+          "required": false,
+          "type": "((value: TimePickerValue | null) => void) | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/time-picker.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "onPressPrefix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "onPressSuffix",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "placeholder",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "Prefix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "PrefixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "Suffix",
+          "required": false,
+          "type": "ComponentType | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "SuffixIcon",
+          "required": false,
+          "type": "ComponentType<SvgProps> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "TimePickerValue | null | undefined",
+          "source": {
+            "file": "packages/datetime/src/types/time-picker.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "FieldVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 32
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "tone": {
+          "expression": "\"neutral\"",
+          "value": "neutral",
+          "source": {
+            "file": "packages/datetime/src/components/time/time-picker.tsx",
+            "line": 16
+          }
+        },
+        "variant": {
+          "expression": "\"outlined\"",
+          "value": "outlined",
+          "source": {
+            "file": "packages/datetime/src/components/time/time-picker.tsx",
+            "line": 17
+          }
+        },
+        "clearable": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/datetime/src/components/time/time-picker.tsx",
+            "line": 18
+          }
+        },
+        "PrefixIcon": {
+          "expression": "ClockIcon",
+          "source": {
+            "file": "packages/datetime/src/components/time/time-picker.tsx",
+            "line": 20
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": [
+          "variant",
+          "tone",
+          "value",
+          "defaultValue",
+          "onChange"
+        ],
+        "expectedDefaults": {
+          "variant": "outlined",
+          "tone": "neutral"
+        },
+        "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "addDays",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 185
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, days: number): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "applyTime",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 135
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, time: TimePickerValue | null): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "CalendarDayState",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "createCalendarRange",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 123
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, previousRange?: TimeRange): TimeRange | undefined",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createInfiniteRange",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 81
+      },
+      "signatures": [
+        {
+          "text": "(max: number, repeats: number): any[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DatePicker",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/components/date/date-picker.tsx",
+        "line": 10
+      },
+      "signatures": [
+        {
+          "text": "(props: DatetimePickerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DateRangePicker",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+        "line": 10
+      },
+      "signatures": [
+        {
+          "text": "(props: DatetimeRangePickerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DatetimePicker",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+        "line": 10
+      },
+      "signatures": [
+        {
+          "text": "(props: DatetimePickerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DatetimePickerCommonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 46
+      }
+    },
+    {
+      "name": "DatetimePickerFlyoutCommonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 51
+      }
+    },
+    {
+      "name": "DatetimePickerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/datetime-picker.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "DatetimeRangePicker",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+        "line": 10
+      },
+      "signatures": [
+        {
+          "text": "(props: DatetimeRangePickerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DatetimeRangePickerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/datetime-range-picker.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "endOfDay",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 174
+      },
+      "signatures": [
+        {
+          "text": "(date: Date): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "endOfWeek",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 203
+      },
+      "signatures": [
+        {
+          "text": "(date: Date): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "formatTimepickerValue",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 127
+      },
+      "signatures": [
+        {
+          "text": "(value: TimePickerValue): string",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getCalendarDayState",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 103
+      },
+      "signatures": [
+        {
+          "text": "({ date, visible, value, }: GetCalendarDayStateOptions): CalendarDayState",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "GetCalendarDayStateOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 12
+      }
+    },
+    {
+      "name": "getClosestIndexByValue",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 103
+      },
+      "signatures": [
+        {
+          "text": "(data: number[], value: number, currentIndex: number): number",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getDateKey",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 162
+      },
+      "signatures": [
+        {
+          "text": "(date: Date): string",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getDayNames",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "(locale?: string, format?: \"long\" | \"short\" | \"narrow\"): string[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getInfiniteRangeInitialIndex",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 92
+      },
+      "signatures": [
+        {
+          "text": "(max: number, targetValue: number, repeats: number): number",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getInitialVisibleDate",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 146
+      },
+      "signatures": [
+        {
+          "text": "(value?: TimeRange | null, defaultValue?: TimeRange | null): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getMonthCalendarMatrix",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 46
+      },
+      "signatures": [
+        {
+          "text": "(year: number, month: number): Date[][]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getMonthNames",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 3
+      },
+      "signatures": [
+        {
+          "text": "(locale?: string, format?: \"long\" | \"short\" | \"narrow\"): string[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getQuickOptionKey",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 150
+      },
+      "signatures": [
+        {
+          "text": "(value: Date | TimeRange): string | undefined",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getYears",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 33
+      },
+      "signatures": [
+        {
+          "text": "(): number[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "InfiniteRangeItem",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 26
+      }
+    },
+    {
+      "name": "isAfterDay",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 46
+      },
+      "signatures": [
+        {
+          "text": "(left: Date, right: Date): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isBeforeDay",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 42
+      },
+      "signatures": [
+        {
+          "text": "(left: Date, right: Date): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isDateInMonth",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 35
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, monthDate: Date): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isDateRange",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 160
+      },
+      "signatures": [
+        {
+          "text": "(value: unknown): value is TimeRange",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isInRange",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 66
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, rangeStart?: Date | null, rangeEnd?: Date | null): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isRangeEnd",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 58
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, rangeEnd?: Date | null): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isRangeStart",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 50
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, rangeStart?: Date | null): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isSameDay",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 27
+      },
+      "signatures": [
+        {
+          "text": "(left: Date, right: Date): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isSelected",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 82
+      },
+      "signatures": [
+        {
+          "text": "(date: Date, selected?: Date | null, rangeStart?: Date | null, rangeEnd?: Date | null): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isTimeRange",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/calendar-day.utils.ts",
+        "line": 18
+      },
+      "signatures": [
+        {
+          "text": "(value: unknown): value is TimeRange",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "normalizeRange",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 159
+      },
+      "signatures": [
+        {
+          "text": "(range: TimeRange | null): TimeRange | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PickerColumnType",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "PickerFlyoutActions",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 37
+      }
+    },
+    {
+      "name": "QuickDateOption",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 32
+      }
+    },
+    {
+      "name": "RangeSide",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "startOfDay",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 215
+      },
+      "signatures": [
+        {
+          "text": "(date: Date): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "startOfWeek",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/utils/datetime.utils.ts",
+        "line": 193
+      },
+      "signatures": [
+        {
+          "text": "(date: Date): Date",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "TimeFormat",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "TimePicker",
+      "kind": "value",
+      "source": {
+        "file": "packages/datetime/src/components/time/time-picker.tsx",
+        "line": 12
+      },
+      "signatures": [
+        {
+          "text": "(props: TimePickerProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "TimePickerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/time-picker.types.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "TimePickerValue",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "TimeRange",
+      "kind": "type",
+      "source": {
+        "file": "packages/datetime/src/types/common.types.ts",
+        "line": 21
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/flyout": "workspace:*",
+    "@impulse-ui-native/select": "workspace:*",
+    "@impulse-ui-native/portal": "workspace:*",
+    "@impulse-ui-native/flat-list": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/datetime.md",
+  "capabilityReference": "capabilities/datetime.md"
+}

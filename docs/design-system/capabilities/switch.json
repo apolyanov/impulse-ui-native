@@ -1,0 +1,334 @@
+{
+  "name": "@impulse-ui-native/switch",
+  "slug": "switch",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Toggle a persistent boolean setting.",
+    "features": [
+      "checked/defaultChecked/onCheckedChange; shared variants/tones and disabling."
+    ],
+    "constraints": [
+      "Provide adjacent label/help text; Switch does not render label children.",
+      "Application owns persistence; the control only emits the next checked state."
+    ],
+    "setup": ["ThemeProvider; Reanimated and Worklets configured."],
+    "recipes": ["account-form", "disclosure-settings"]
+  },
+  "components": [
+    {
+      "name": "Switch",
+      "source": {
+        "file": "packages/switch/src/components/switch.tsx",
+        "line": 18
+      },
+      "props": [
+        {
+          "name": "checked",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/switch/src/types/switch.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "defaultChecked",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/switch/src/types/switch.types.ts",
+            "line": 10
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onCheckedChange",
+          "required": false,
+          "type": "((checked: boolean) => void) | undefined",
+          "source": {
+            "file": "packages/switch/src/types/switch.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "pressedStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/switch/src/types/switch.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/switch/src/types/switch.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "SelectionVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/switch/src/types/switch.types.ts",
+            "line": 13
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {
+        "defaultChecked": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/switch/src/components/switch.tsx",
+            "line": 20
+          }
+        },
+        "loading": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/switch/src/components/switch.tsx",
+            "line": 23
+          }
+        },
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/switch/src/components/switch.tsx",
+            "line": 26
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/switch/src/components/switch.tsx",
+            "line": 28
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/switch/src/components/switch.tsx",
+            "line": 29
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "Switch",
+      "kind": "value",
+      "source": {
+        "file": "packages/switch/src/components/switch.tsx",
+        "line": 18
+      },
+      "signatures": [
+        {
+          "text": "(props: SwitchProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "SwitchProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/switch/src/types/switch.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "SwitchThemeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/switch/src/types/switch.types.ts",
+        "line": 17
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=3.6.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/switch.md",
+  "capabilityReference": "capabilities/switch.md"
+}

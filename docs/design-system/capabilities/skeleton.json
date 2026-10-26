@@ -1,0 +1,1833 @@
+{
+  "name": "@impulse-ui-native/skeleton",
+  "slug": "skeleton",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "compound",
+    "chooseWhen": "Represent the geometry of content while loading.",
+    "features": [
+      "Container, Bone, Text and token-matched component presets including Control, Button, Avatar, Slider and Textarea."
+    ],
+    "constraints": [
+      "Presets are placeholders, not disabled interactive components.",
+      "Match skeleton geometry to the content and use DataView/LoadingView to choose when to show it."
+    ],
+    "setup": ["ThemeProvider; Reanimated and Worklets configured."],
+    "recipes": ["data-list"]
+  },
+  "components": [
+    {
+      "name": "Skeleton.Avatar",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 21
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Badge",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 22
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Bone",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 23
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Button",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 24
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Checkbox",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 25
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Container",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 26
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Control",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 27
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Divider",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 28
+      },
+      "props": [
+        {
+          "name": "orientation",
+          "required": false,
+          "type": "DividerTokenOrientation | undefined",
+          "choices": ["horizontal", "vertical"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.IconButton",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 29
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Pagination",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 30
+      },
+      "props": [
+        {
+          "name": "itemCount",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 60
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Progress",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 31
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ProgressVariant | undefined",
+          "choices": ["circular", "linear"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 64
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Radio",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 32
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.SegmentedControl",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 33
+      },
+      "props": [
+        {
+          "name": "itemCount",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 68
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Slider",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 34
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Switch",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 35
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Tag",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 37
+      },
+      "props": [
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Text",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 36
+      },
+      "props": [
+        {
+          "name": "Component",
+          "required": true,
+          "type": "React.MemoExoticComponent<{ (props: TextProps): React.JSX.Element; displayName: string; }>",
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "text",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 25
+          }
+        }
+      ],
+      "styleProps": [
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Skeleton.Textarea",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 38
+      },
+      "props": [
+        {
+          "name": "rows",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 72
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/skeleton/src/types/skeleton.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    }
+  ],
+  "exports": [
+    {
+      "name": "Skeleton",
+      "kind": "value",
+      "source": {
+        "file": "packages/skeleton/src/components/skeleton.tsx",
+        "line": 20
+      }
+    },
+    {
+      "name": "SkeletonAvatarProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 37
+      }
+    },
+    {
+      "name": "SkeletonBadgeProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 39
+      }
+    },
+    {
+      "name": "SkeletonBoneProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "SkeletonButtonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 41
+      }
+    },
+    {
+      "name": "SkeletonCheckboxProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 43
+      }
+    },
+    {
+      "name": "SkeletonContainerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "SkeletonControlProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 45
+      }
+    },
+    {
+      "name": "SkeletonDividerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 55
+      }
+    },
+    {
+      "name": "SkeletonIconButtonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 47
+      }
+    },
+    {
+      "name": "SkeletonPaginationProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 59
+      }
+    },
+    {
+      "name": "SkeletonProgressProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 63
+      }
+    },
+    {
+      "name": "SkeletonRadioProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 49
+      }
+    },
+    {
+      "name": "SkeletonSegmentedControlProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 67
+      }
+    },
+    {
+      "name": "SkeletonSizedProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 33
+      }
+    },
+    {
+      "name": "SkeletonSliderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 51
+      }
+    },
+    {
+      "name": "SkeletonSwitchProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 53
+      }
+    },
+    {
+      "name": "SkeletonTagProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 29
+      }
+    },
+    {
+      "name": "SkeletonTextareaProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 71
+      }
+    },
+    {
+      "name": "SkeletonTextProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/skeleton/src/types/skeleton.types.ts",
+        "line": 24
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-reanimated": ">=3.6.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/skeleton.md",
+  "capabilityReference": "capabilities/skeleton.md"
+}

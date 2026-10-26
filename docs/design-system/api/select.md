@@ -110,6 +110,10 @@ tokens move from select.option.states to select.option.colors[tone].
 
 MultiSelect selected tags use the same tone as the field: soft tags inside filled fields, and filled tags inside outlined/soft fields. Disabled tags use outlined styling and cannot be removed. This separates the selected values from the field surface without changing the shared palettes.
 
+## Agent and design reference
+
+Start with the [capability guide](../capabilities/select.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.

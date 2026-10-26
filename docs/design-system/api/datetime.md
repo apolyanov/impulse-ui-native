@@ -78,6 +78,10 @@ shared filled palette and ranges use the soft palette. The field variant is inhe
 Custom day states move to datetimePicker.day.colors[tone], time rows to
 timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].
 
+## Agent and design reference
+
+Start with the [capability guide](../capabilities/datetime.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.

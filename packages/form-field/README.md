@@ -41,3 +41,7 @@ The render function receives:
 `FormField` renders validation feedback once outside the custom control. Use `invalid` only to map the field state into a control's own visual API; do not render the error a second time inside the control.
 
 An explicit `nativeID` can be provided when stable IDs are required; otherwise, `FormField` generates one with React `useId`.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/form-field.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

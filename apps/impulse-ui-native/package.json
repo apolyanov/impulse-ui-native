@@ -49,7 +49,9 @@
     "react-native-screens": "catalog:",
     "react-native-svg": "catalog:",
     "react-native-web": "catalog:",
-    "react-native-worklets": "catalog:"
+    "react-native-worklets": "catalog:",
+    "expo-font": "catalog:",
+    "@expo-google-fonts/montserrat": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

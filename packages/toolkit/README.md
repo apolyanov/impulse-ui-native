@@ -265,3 +265,7 @@ Modal is aggregated from `@impulse-ui-native/modal`. It supplies Root, Header, C
 ## Color picker
 
 ColorPicker selects custom colors with spectrum, hue, opacity, hex/RGB entry, and theme presets. It supports immediate or staged Apply/Cancel updates and exposes composable parts. See the [ColorPicker API](../color-picker/README.md).
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/toolkit.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

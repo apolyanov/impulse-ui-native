@@ -50,3 +50,7 @@ Skeleton colors, radii, line height, and gaps come from the active
 `ThemeProvider` component tokens. Composite layouts such as cards, accordions,
 steppers, and charts should be assembled from these presets and `Skeleton.Bone`
 so the placeholder preserves the application-specific layout.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/skeleton.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

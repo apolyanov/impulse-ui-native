@@ -44,3 +44,7 @@ Navigation inherits a surrounding Stepper tone unless explicitly overridden;
 standalone navigation accepts its own tone. Current/completed indicators use the
 shared accent and upcoming indicators use a neutral border color. Colors live in
 stepper.navigation.colors[tone].
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/stepper.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

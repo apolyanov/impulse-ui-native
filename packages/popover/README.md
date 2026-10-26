@@ -75,3 +75,7 @@ components.popover.surfaces.elevated customizations to the flat panel tokens
 and paddingVertical). Move inverse hint styling to components.popover.tooltip;
 its text color is named color. Customize Popover.Content directly for custom
 panel styling.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/popover.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

@@ -128,3 +128,7 @@ Toast keeps feedback tones (success, info, warning, error). The action foregroun
 now follows the same feedback tone as its icon; disabled actions remain neutral.
 Custom action colors move to toast.tones[tone].actionColor. The elevated surface,
 title, description, and close control keep their neutral semantic roles.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/toast.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

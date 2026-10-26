@@ -66,3 +66,7 @@ Tabs accepts `tone="neutral" | "primary" | "secondary"` (default primary).
 The selected label and underline share the tone accent used by Spinner; disabled
 states stay neutral. Custom label elements continue to own their text styling.
 Custom theme states move from tabs.states to tabs.colors[tone].
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/tabs.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

@@ -101,3 +101,7 @@ It propagates to navigation IconButtons and active dots/segments; counters and
 unselected/disabled indicators remain neutral. The pagination choice continues to
 mean dots, segments, counter, or none. Indicator states move to
 carousel.indicator.colors[tone].
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/carousel.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

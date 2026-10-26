@@ -47,3 +47,7 @@ function Screen() {
 ```
 
 Pass the same `name` to `Portal` and `PortalsHost` when you need more than one portal destination.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/portal.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

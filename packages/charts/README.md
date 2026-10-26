@@ -325,3 +325,7 @@ tests, then the package's `typecheck` and `build`. The test runner bundles real
 model code and pure theme factories without loading native rendering modules.
 Use the on-device Charts Storybook stories to verify touch behavior, font
 rendering, and layout on iOS and Android; model tests do not exercise native UI.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/charts.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

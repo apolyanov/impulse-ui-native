@@ -58,3 +58,7 @@ Pass `enabled: false` to skip positioning. Pass native `contentOffset` to both t
 Positioning happens once per mount. A user drag cancels pending positioning. Later selection and layout changes do not scroll again. Mount with the initial selection and content available, and remount when a fresh initial position is needed. This hook is for ordinary, unzoomed ScrollViews without automatic/custom content insets or snapping.
 
 Exports: `ScrollView`, `ScrollViewProps`, `useScrollViewInitialScroll`, and `UseScrollViewInitialScrollOptions`.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/scroll-view.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

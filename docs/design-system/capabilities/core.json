@@ -1,0 +1,210 @@
+{
+  "name": "@impulse-ui-native/core",
+  "slug": "core",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "infrastructure",
+    "chooseWhen": "Reuse state, timing and callback behavior in React.",
+    "features": [
+      "Controlled/uncontrolled state, open state, stable event callbacks and timers.",
+      "Hardware Back subscriptions, deep merging and small utility helpers."
+    ],
+    "constraints": [
+      "Nonvisual package; do not render hooks or utilities as UI.",
+      "useEventCallback intentionally reads the latest handler with stable identity. Timer callback changes preserve countdown; BackHandler uses the current callback without resubscribing."
+    ],
+    "setup": [
+      "React; native hooks also require React Native. No ThemeProvider."
+    ],
+    "recipes": ["data-service"]
+  },
+  "components": [],
+  "exports": [
+    {
+      "name": "DeepPartial",
+      "kind": "type",
+      "source": {
+        "file": "packages/core/src/types/utils.types.ts",
+        "line": 1
+      }
+    },
+    {
+      "name": "isObject",
+      "kind": "value",
+      "source": {
+        "file": "packages/core/src/utils/merge.utils.ts",
+        "line": 3
+      },
+      "signatures": [
+        {
+          "text": "<Target>(value: Target | undefined): value is (Target & object) | (Target & null)",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "memo",
+      "kind": "value",
+      "source": {
+        "file": "packages/core/src/utils/memo.utils.ts",
+        "line": 4
+      },
+      "signatures": [
+        {
+          "text": "<T extends ComponentType<any>>(component: T): T",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "merge",
+      "kind": "value",
+      "source": {
+        "file": "packages/core/src/utils/merge.utils.ts",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "<Target>(target: Target, source?: DeepPartial<Target>): Target",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "resolverStateSetter",
+      "kind": "value",
+      "source": {
+        "file": "packages/core/src/utils/hook.utils.ts",
+        "line": 3
+      },
+      "signatures": [
+        {
+          "text": "<Value>(nextValue: SetStateAction<Value>): (value: Value) => Value",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useBackHandler",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-back-handler.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(callback: () => boolean, enabled?: boolean): void",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useControllableState",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-controllable-state.hook.ts",
+        "line": 12
+      },
+      "signatures": [
+        {
+          "text": "<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): [Value, (nextValue: SetStateAction<Value>) => void]",
+          "abbreviated": false
+        },
+        {
+          "text": "<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): [Value, (nextValue: SetStateAction<Value>) => void]",
+          "abbreviated": false
+        },
+        {
+          "text": "<Value>(props: { prop?: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): [Value | undefined, (nextValue: SetStateAction<Value>) => void]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useEventCallback",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-event-callback.hook.ts",
+        "line": 3
+      },
+      "signatures": [
+        {
+          "text": "<Handler extends (...args: any[]) => any>(handler: Handler): (...args: Parameters<Handler>) => ReturnType<Handler>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useIsOpen",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-is-open.hook.ts",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "(props?: UseIsOpenProps): { isOpen: boolean; isClosed: boolean; open: () => void; close: () => void; toggle: () => void; finishClose: () => void; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useTimer",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-timer.hook.ts",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "({ duration, callback, enabled, pauseOnBackground, }: UseTimerOptions): void",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseTimerOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/core/src/types/use-timer.types.ts",
+        "line": 1
+      }
+    },
+    {
+      "name": "useWhyDidYouUpdate",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-why-did-you-update.hook.ts",
+        "line": 5
+      },
+      "signatures": [
+        {
+          "text": "(name: string, props: Props): void",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "uuid",
+      "kind": "value",
+      "source": {
+        "file": "packages/core/src/utils/uuid.utils.ts",
+        "line": 1
+      },
+      "signatures": [
+        {
+          "text": "(): string",
+          "abbreviated": false
+        }
+      ]
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/core.md",
+  "capabilityReference": "capabilities/core.md"
+}

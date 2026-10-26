@@ -1,0 +1,139 @@
+{
+  "name": "@impulse-ui-native/storybook",
+  "slug": "storybook",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "authoring",
+    "chooseWhen": "Author native component examples and discover supported options.",
+    "features": ["Description metadata helpers and shared option constants."],
+    "constraints": [
+      "Authoring package, not a component runtime; stories themselves are not public package exports.",
+      "Option arrays are not proof that every component supports every option; use component capability facts."
+    ],
+    "setup": [
+      "Install as a development dependency with the Storybook host; native preview uses the host providers."
+    ],
+    "recipes": ["story-authoring"]
+  },
+  "components": [],
+  "exports": [
+    {
+      "name": "ActionVariantOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "ButtonToneOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 52
+      }
+    },
+    {
+      "name": "ComponentSizeOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 12
+      }
+    },
+    {
+      "name": "ComponentToneOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 58
+      }
+    },
+    {
+      "name": "ComponentVariantOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 50
+      }
+    },
+    {
+      "name": "createComponentDescription",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/utils/storybook.utils.ts",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "(notes: string): { notes: string; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createStoryDescription",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/utils/storybook.utils.ts",
+        "line": 1
+      },
+      "signatures": [
+        {
+          "text": "(notes: string): { notes: string; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DisplayVariantOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 25
+      }
+    },
+    {
+      "name": "FieldToneOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 37
+      }
+    },
+    {
+      "name": "FieldVariantOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 31
+      }
+    },
+    {
+      "name": "SelectionVariantOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/storybook/src/constants/storybook.constants.ts",
+        "line": 43
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/card": "workspace:*",
+    "@impulse-ui-native/list": "workspace:*",
+    "@impulse-ui-native/progress": "workspace:*",
+    "@impulse-ui-native/flat-list": "workspace:*",
+    "@impulse-ui-native/color-picker": "workspace:*",
+    "@impulse-ui-native/icon-view": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/storybook.md",
+  "capabilityReference": "capabilities/storybook.md"
+}

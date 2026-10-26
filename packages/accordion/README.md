@@ -71,3 +71,7 @@ custom label, use the trigger state tokens for the desired text and icon colors.
 
 Migrate the removed `indicator` and `hideIndicator` props to explicit children.
 The indicator part does not choose an icon or replace empty supplied content.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/accordion.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

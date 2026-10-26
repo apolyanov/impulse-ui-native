@@ -192,3 +192,7 @@ Migration: replace `surface.primary` with `surface.canvas` for page backgrounds
 or `surface.subtle` for muted control fills. Replace `surface.secondary` with
 `surface.default` for content surfaces. Cards, lists, and accordions now use
 `default`; popovers use `elevated`.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/theme.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

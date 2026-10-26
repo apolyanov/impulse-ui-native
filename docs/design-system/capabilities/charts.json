@@ -1,0 +1,3949 @@
+{
+  "name": "@impulse-ui-native/charts",
+  "slug": "charts",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "visualization",
+    "chooseWhen": "Show numeric series with interactive native charts.",
+    "features": [
+      "Line, multi-line, bar, multi-bar, pie and multi-pie charts.",
+      "Axes, legends, tooltips and gesture-driven selection."
+    ],
+    "constraints": [
+      "Give the parent an explicit height; data models differ by chart family.",
+      "Series/data colors are independent of shared component tones; inspect exported series types."
+    ],
+    "setup": [
+      "ThemeProvider and GestureHandlerRootView.",
+      "Install/configure Skia, Gesture Handler, Reanimated and Worklets peers."
+    ],
+    "recipes": ["metrics"]
+  },
+  "components": [
+    {
+      "name": "Bar",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/primitives/bar.tsx",
+        "line": 8
+      },
+      "props": [
+        {
+          "name": "coordinates",
+          "required": true,
+          "type": "readonly BarChartCoordinate<X>[]",
+          "source": {
+            "file": "packages/charts/src/types/bar.types.ts",
+            "line": 9
+          }
+        },
+        {
+          "name": "radius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/bar.types.ts",
+            "line": 10
+          }
+        },
+        {
+          "name": "visible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 21
+          }
+        }
+      ],
+      "styleProps": ["color", "opacity"],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "color": {
+          "expression": "tokens.palette[0]",
+          "source": {
+            "file": "packages/charts/src/components/primitives/bar.tsx",
+            "line": 14
+          }
+        },
+        "opacity": {
+          "expression": "BarDefaultOpacity",
+          "value": 1,
+          "source": {
+            "file": "packages/charts/src/components/primitives/bar.tsx",
+            "line": 16
+          }
+        },
+        "radius": {
+          "expression": "tokens.bar.radius ?? BarDefaultRadius",
+          "source": {
+            "file": "packages/charts/src/components/primitives/bar.tsx",
+            "line": 17
+          }
+        },
+        "visible": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/charts/src/components/primitives/bar.tsx",
+            "line": 18
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "BarChart",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/bar-chart/bar-chart.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "bar",
+          "required": false,
+          "type": "BarChartBarOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 38
+          }
+        },
+        {
+          "name": "categoryPadding",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly BarChartPoint<X>[]",
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 37
+          }
+        },
+        {
+          "name": "defaultHiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "defaultSelection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "emptyContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 58
+          }
+        },
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 77
+          }
+        },
+        {
+          "name": "grid",
+          "required": false,
+          "type": "ChartGridOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 78
+          }
+        },
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "insets",
+          "required": false,
+          "type": "Partial<ChartInsets> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 73
+          }
+        },
+        {
+          "name": "interactive",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "legend",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "onHiddenIdsChange",
+          "required": false,
+          "type": "((ids: readonly string[]) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 57
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "required": false,
+          "type": "((selection: ChartSelection | null) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "orientation",
+          "required": false,
+          "type": "BarChartOrientation | undefined",
+          "choices": ["horizontal", "vertical"],
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "tooltip",
+          "required": false,
+          "type": "boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "xAxis",
+          "required": false,
+          "type": "ChartXAxisOptions<X> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 79
+          }
+        },
+        {
+          "name": "yAxis",
+          "required": false,
+          "type": "ChartYAxisOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 80
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "ChartLegend",
+      "source": {
+        "file": "packages/charts/src/components/chart-legend.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "items",
+          "required": true,
+          "type": "readonly ChartLegendItem[]",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "onToggle",
+          "required": false,
+          "type": "((id: string) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 36
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "ChartTooltip",
+      "source": {
+        "file": "packages/charts/src/components/chart-tooltip.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "details",
+          "required": true,
+          "type": "readonly ChartSelectionDetails[]",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 40
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Grid",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        },
+        {
+          "name": "Y",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/primitives/grid.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "options",
+          "required": false,
+          "type": "ChartGridOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 28
+          }
+        },
+        {
+          "name": "plot",
+          "required": true,
+          "type": "ChartRect",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 29
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "xScale",
+          "required": true,
+          "type": "LineChartScale<X>",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "xTicks",
+          "required": true,
+          "type": "readonly X[]",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "yScale",
+          "required": true,
+          "type": "LineChartScale<Y>",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "yTicks",
+          "required": true,
+          "type": "readonly Y[]",
+          "source": {
+            "file": "packages/charts/src/types/grid.types.ts",
+            "line": 33
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Label",
+      "source": {
+        "file": "packages/charts/src/components/primitives/label.tsx",
+        "line": 26
+      },
+      "props": [
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "horizontalAlign",
+          "required": false,
+          "type": "LabelHorizontalAlignment | undefined",
+          "choices": ["center", "left", "right"],
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "maxLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "rect",
+          "required": true,
+          "type": "ChartRect",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "rotation",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "text",
+          "required": true,
+          "type": "string",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 14
+          }
+        },
+        {
+          "name": "tnum",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "verticalAlign",
+          "required": false,
+          "type": "LabelVerticalAlignment | undefined",
+          "choices": ["bottom", "center", "top"],
+          "source": {
+            "file": "packages/charts/src/types/label.types.ts",
+            "line": 16
+          }
+        }
+      ],
+      "styleProps": ["color", "fontFamily", "fontSize", "fontWeight"],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "horizontalAlign": {
+          "expression": "LabelDefaultHorizontalAlignment",
+          "source": {
+            "file": "packages/charts/src/components/primitives/label.tsx",
+            "line": 33
+          }
+        },
+        "rotation": {
+          "expression": "0",
+          "value": 0,
+          "source": {
+            "file": "packages/charts/src/components/primitives/label.tsx",
+            "line": 35
+          }
+        },
+        "maxLines": {
+          "expression": "1",
+          "value": 1,
+          "source": {
+            "file": "packages/charts/src/components/primitives/label.tsx",
+            "line": 39
+          }
+        },
+        "verticalAlign": {
+          "expression": "LabelDefaultVerticalAlignment",
+          "source": {
+            "file": "packages/charts/src/components/primitives/label.tsx",
+            "line": 40
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Line",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/primitives/line.tsx",
+        "line": 21
+      },
+      "props": [
+        {
+          "name": "cap",
+          "required": false,
+          "type": "ChartStrokeCap | undefined",
+          "choices": ["butt", "round", "square"],
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 29
+          }
+        },
+        {
+          "name": "coordinates",
+          "required": true,
+          "type": "readonly LineChartCoordinate<X>[]",
+          "source": {
+            "file": "packages/charts/src/types/line.types.ts",
+            "line": 12
+          }
+        },
+        {
+          "name": "curve",
+          "required": false,
+          "type": "LineChartCurve | undefined",
+          "choices": ["linear", "monotone"],
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 28
+          }
+        },
+        {
+          "name": "dash",
+          "required": false,
+          "type": "readonly number[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/style.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "join",
+          "required": false,
+          "type": "ChartStrokeJoin | undefined",
+          "choices": ["bevel", "miter", "round"],
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/line.types.ts",
+            "line": 13
+          }
+        },
+        {
+          "name": "visible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 27
+          }
+        }
+      ],
+      "styleProps": ["color", "opacity", "width"],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "cap": {
+          "expression": "LineDefaultCap",
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 27
+          }
+        },
+        "color": {
+          "expression": "tokens.palette[0]",
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 28
+          }
+        },
+        "curve": {
+          "expression": "LineDefaultCurve",
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 30
+          }
+        },
+        "join": {
+          "expression": "LineDefaultJoin",
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 32
+          }
+        },
+        "opacity": {
+          "expression": "LineDefaultOpacity",
+          "value": 1,
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 33
+          }
+        },
+        "visible": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 34
+          }
+        },
+        "width": {
+          "expression": "tokens.line.width",
+          "source": {
+            "file": "packages/charts/src/components/primitives/line.tsx",
+            "line": 35
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "LineChart",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/line-chart/line-chart.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly LineChartPoint<X>[]",
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 42
+          }
+        },
+        {
+          "name": "defaultHiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "defaultSelection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "emptyContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 58
+          }
+        },
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 77
+          }
+        },
+        {
+          "name": "grid",
+          "required": false,
+          "type": "ChartGridOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 78
+          }
+        },
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "insets",
+          "required": false,
+          "type": "Partial<ChartInsets> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 73
+          }
+        },
+        {
+          "name": "interactive",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "legend",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "line",
+          "required": false,
+          "type": "LineChartLineOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 43
+          }
+        },
+        {
+          "name": "onHiddenIdsChange",
+          "required": false,
+          "type": "((ids: readonly string[]) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 57
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "required": false,
+          "type": "((selection: ChartSelection | null) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "tooltip",
+          "required": false,
+          "type": "boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "xAxis",
+          "required": false,
+          "type": "ChartXAxisOptions<X> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 79
+          }
+        },
+        {
+          "name": "xScaleType",
+          "required": false,
+          "type": "ChartScaleType | undefined",
+          "choices": ["linear", "point", "time"],
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 36
+          }
+        },
+        {
+          "name": "yAxis",
+          "required": false,
+          "type": "ChartYAxisOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 80
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "MultiBarChart",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/multi-bar-chart/multi-bar-chart.tsx",
+        "line": 17
+      },
+      "props": [
+        {
+          "name": "categoryPadding",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "defaultHiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "defaultSelection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "emptyContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 58
+          }
+        },
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 77
+          }
+        },
+        {
+          "name": "grid",
+          "required": false,
+          "type": "ChartGridOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 78
+          }
+        },
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "insets",
+          "required": false,
+          "type": "Partial<ChartInsets> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 73
+          }
+        },
+        {
+          "name": "interactive",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "legend",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "mode",
+          "required": false,
+          "type": "\"stacked\" | \"grouped\" | undefined",
+          "choices": ["grouped", "stacked"],
+          "source": {
+            "file": "packages/charts/src/types/multi-bar-chart.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "onHiddenIdsChange",
+          "required": false,
+          "type": "((ids: readonly string[]) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 57
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "required": false,
+          "type": "((selection: ChartSelection | null) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "orientation",
+          "required": false,
+          "type": "BarChartOrientation | undefined",
+          "choices": ["horizontal", "vertical"],
+          "source": {
+            "file": "packages/charts/src/types/bar-chart.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "series",
+          "required": true,
+          "type": "readonly MultiBarChartSeries<X>[]",
+          "source": {
+            "file": "packages/charts/src/types/multi-bar-chart.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "seriesPadding",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/multi-bar-chart.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "tooltip",
+          "required": false,
+          "type": "boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "xAxis",
+          "required": false,
+          "type": "ChartXAxisOptions<X> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 79
+          }
+        },
+        {
+          "name": "yAxis",
+          "required": false,
+          "type": "ChartYAxisOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 80
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "MultiLineChart",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/multi-line-chart/multi-line-chart.tsx",
+        "line": 18
+      },
+      "props": [
+        {
+          "name": "defaultHiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "defaultSelection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "emptyContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 58
+          }
+        },
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 77
+          }
+        },
+        {
+          "name": "grid",
+          "required": false,
+          "type": "ChartGridOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 78
+          }
+        },
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "insets",
+          "required": false,
+          "type": "Partial<ChartInsets> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 73
+          }
+        },
+        {
+          "name": "interactive",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "legend",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "onHiddenIdsChange",
+          "required": false,
+          "type": "((ids: readonly string[]) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 57
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "required": false,
+          "type": "((selection: ChartSelection | null) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "series",
+          "required": true,
+          "type": "readonly MultiLineChartSeries<X>[]",
+          "source": {
+            "file": "packages/charts/src/types/multi-line-chart.types.ts",
+            "line": 28
+          }
+        },
+        {
+          "name": "tooltip",
+          "required": false,
+          "type": "boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "xAxis",
+          "required": false,
+          "type": "ChartXAxisOptions<X> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 79
+          }
+        },
+        {
+          "name": "xScaleType",
+          "required": false,
+          "type": "ChartScaleType | undefined",
+          "choices": ["linear", "point", "time"],
+          "source": {
+            "file": "packages/charts/src/types/line-chart.types.ts",
+            "line": 36
+          }
+        },
+        {
+          "name": "yAxis",
+          "required": false,
+          "type": "ChartYAxisOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 80
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "MultiPieChart",
+      "source": {
+        "file": "packages/charts/src/components/multi-pie-chart/multi-pie-chart.tsx",
+        "line": 14
+      },
+      "props": [
+        {
+          "name": "defaultHiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "defaultSelection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "emptyContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 58
+          }
+        },
+        {
+          "name": "endAngle",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 36
+          }
+        },
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "innerRadius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "insets",
+          "required": false,
+          "type": "Partial<ChartInsets> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 73
+          }
+        },
+        {
+          "name": "interactive",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "legend",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "onHiddenIdsChange",
+          "required": false,
+          "type": "((ids: readonly string[]) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 57
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "required": false,
+          "type": "((selection: ChartSelection | null) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "outerRadius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "padAngle",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "ringPadding",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/multi-pie-chart.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "series",
+          "required": true,
+          "type": "readonly MultiPieChartSeries[]",
+          "source": {
+            "file": "packages/charts/src/types/multi-pie-chart.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "startAngle",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "tooltip",
+          "required": false,
+          "type": "boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 50
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Pie",
+      "source": {
+        "file": "packages/charts/src/components/primitives/pie.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "colors",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "coordinates",
+          "required": true,
+          "type": "readonly PieChartCoordinate[]",
+          "source": {
+            "file": "packages/charts/src/types/pie.types.ts",
+            "line": 6
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "strokeColor",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "strokeWidth",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 28
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/pie.types.ts",
+            "line": 7
+          }
+        },
+        {
+          "name": "visible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 23
+          }
+        }
+      ],
+      "styleProps": ["opacity"],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "colors": {
+          "expression": "tokens.palette",
+          "source": {
+            "file": "packages/charts/src/components/primitives/pie.tsx",
+            "line": 19
+          }
+        },
+        "cornerRadius": {
+          "expression": "tokens.pie.cornerRadius ?? PieDefaultCornerRadius",
+          "source": {
+            "file": "packages/charts/src/components/primitives/pie.tsx",
+            "line": 21
+          }
+        },
+        "opacity": {
+          "expression": "PieDefaultOpacity",
+          "value": 1,
+          "source": {
+            "file": "packages/charts/src/components/primitives/pie.tsx",
+            "line": 22
+          }
+        },
+        "strokeWidth": {
+          "expression": "PieDefaultStrokeWidth",
+          "value": 0,
+          "source": {
+            "file": "packages/charts/src/components/primitives/pie.tsx",
+            "line": 24
+          }
+        },
+        "visible": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/charts/src/components/primitives/pie.tsx",
+            "line": 25
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "PieChart",
+      "source": {
+        "file": "packages/charts/src/components/pie-chart/pie-chart.tsx",
+        "line": 15
+      },
+      "props": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly PieChartPoint[]",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 40
+          }
+        },
+        {
+          "name": "defaultHiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "defaultSelection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "emptyContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 58
+          }
+        },
+        {
+          "name": "endAngle",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 36
+          }
+        },
+        {
+          "name": "hiddenIds",
+          "required": false,
+          "type": "readonly string[] | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 55
+          }
+        },
+        {
+          "name": "innerRadius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 32
+          }
+        },
+        {
+          "name": "insets",
+          "required": false,
+          "type": "Partial<ChartInsets> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/common.types.ts",
+            "line": 73
+          }
+        },
+        {
+          "name": "interactive",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "legend",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 53
+          }
+        },
+        {
+          "name": "onHiddenIdsChange",
+          "required": false,
+          "type": "((ids: readonly string[]) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 57
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "required": false,
+          "type": "((selection: ChartSelection | null) => void) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "outerRadius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "padAngle",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "selection",
+          "required": false,
+          "type": "ChartSelection | null | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "slice",
+          "required": false,
+          "type": "PieChartSliceOptions | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 41
+          }
+        },
+        {
+          "name": "startAngle",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/pie-chart.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "tooltip",
+          "required": false,
+          "type": "boolean | ((details: readonly ChartSelectionDetails[]) => ReactNode) | undefined",
+          "source": {
+            "file": "packages/charts/src/types/chart-interaction.types.ts",
+            "line": 50
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "XAxis",
+      "typeParameters": [
+        {
+          "name": "X",
+          "constraint": "ChartXValue"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/primitives/x-axis.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 49
+          }
+        },
+        {
+          "name": "lineVisible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "options",
+          "required": false,
+          "type": "ChartAxisOptions<X> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "plot",
+          "required": true,
+          "type": "ChartRect",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "region",
+          "required": true,
+          "type": "ChartRect",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "scale",
+          "required": true,
+          "type": "LineChartScale<X>",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 44
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "ticks",
+          "required": true,
+          "type": "readonly X[]",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 43
+          }
+        },
+        {
+          "name": "tickVisible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 51
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "YAxis",
+      "typeParameters": [
+        {
+          "name": "Value",
+          "constraint": "unknown"
+        }
+      ],
+      "source": {
+        "file": "packages/charts/src/components/primitives/y-axis.tsx",
+        "line": 6
+      },
+      "props": [
+        {
+          "name": "fontManager",
+          "required": false,
+          "type": "SkTypefaceFontProvider | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 49
+          }
+        },
+        {
+          "name": "lineVisible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 50
+          }
+        },
+        {
+          "name": "options",
+          "required": false,
+          "type": "ChartAxisOptions<Value> | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "plot",
+          "required": true,
+          "type": "ChartRect",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "region",
+          "required": true,
+          "type": "ChartRect",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "scale",
+          "required": true,
+          "type": "LineChartScale<Value>",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 44
+          }
+        },
+        {
+          "name": "theme",
+          "required": true,
+          "type": "AppTheme",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "ticks",
+          "required": true,
+          "type": "readonly Value[]",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 43
+          }
+        },
+        {
+          "name": "tickVisible",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/charts/src/types/axis.types.ts",
+            "line": 51
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "AxisDefaultLabelGap",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/axis.constants.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "AxisDefaultOpacity",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/axis.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "AxisDefaultTickLength",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/axis.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "AxisDefaultWidth",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/axis.constants.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "AxisLayout",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 22
+      }
+    },
+    {
+      "name": "AxisLineLayout",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "AxisProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 42
+      }
+    },
+    {
+      "name": "AxisTick",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "AxisTickLayout",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "Bar",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/bar.tsx",
+        "line": 8
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = string>(props: BarProps<X>): import(\"react\").JSX.Element | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "BarChart",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/bar-chart/bar-chart.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = string>(props: BarChartProps<X>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "BarChartBarOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar-chart.types.ts",
+        "line": 20
+      }
+    },
+    {
+      "name": "BarChartCommonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar-chart.types.ts",
+        "line": 27
+      }
+    },
+    {
+      "name": "BarChartCoordinate",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar-chart.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "BarChartDefaultCategoryPadding",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/bar-chart.constants.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "BarChartOrientation",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar-chart.types.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "BarChartPoint",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar-chart.types.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "BarChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar-chart.types.ts",
+        "line": 34
+      }
+    },
+    {
+      "name": "BarChartScaleModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-scale.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "BarDefaultColor",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/bar.constants.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "BarDefaultColors",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/bar.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "BarDefaultOpacity",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/bar.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "BarDefaultRadius",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/bar.constants.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "BarProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/bar.types.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "CartesianChartDefaultInsets",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/chart-layout.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "ChartAxisLabelOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 60
+      }
+    },
+    {
+      "name": "ChartAxisLineOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 51
+      }
+    },
+    {
+      "name": "ChartAxisOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 41
+      }
+    },
+    {
+      "name": "ChartAxisTickOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 55
+      }
+    },
+    {
+      "name": "ChartCartesianProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 76
+      }
+    },
+    {
+      "name": "ChartCartesianScaleModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-scale.types.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "ChartContainerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 72
+      }
+    },
+    {
+      "name": "ChartGridLineOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/grid.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "ChartGridOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/grid.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "ChartHitTarget",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 20
+      }
+    },
+    {
+      "name": "ChartInsets",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "ChartLabelStyle",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/style.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "ChartLayout",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 33
+      }
+    },
+    {
+      "name": "ChartLegend",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/chart-legend.tsx",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "({ items, hiddenIds, onToggle, }: ChartLegendProps): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ChartLegendItem",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 26
+      }
+    },
+    {
+      "name": "ChartLegendProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 33
+      }
+    },
+    {
+      "name": "ChartNumericDomain",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "ChartNumericScaleModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-scale.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "ChartPoint",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 23
+      }
+    },
+    {
+      "name": "ChartPresentationProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 43
+      }
+    },
+    {
+      "name": "ChartRect",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 28
+      }
+    },
+    {
+      "name": "ChartScaleType",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "ChartSelection",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "ChartSelectionDetails",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "ChartSize",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "ChartStrokeCap",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/style.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "ChartStrokeJoin",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/style.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "ChartStrokeStyle",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/style.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "ChartTooltip",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/chart-tooltip.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "({ details, style, ...props }: ChartTooltipProps): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "ChartTooltipProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/chart-interaction.types.ts",
+        "line": 39
+      }
+    },
+    {
+      "name": "ChartXAxisOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 66
+      }
+    },
+    {
+      "name": "ChartXValue",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "ChartYAxisOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/common.types.ts",
+        "line": 68
+      }
+    },
+    {
+      "name": "CreateAxisLayoutProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 27
+      }
+    },
+    {
+      "name": "createAxisTicks",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/axis.util.ts",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "<Value>(values: readonly Value[], scale: LineChartScale<Value>): AxisTick<Value>[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createBarChartCoordinates",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/bar-chart.util.ts",
+        "line": 59
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(data: readonly BarChartPoint<X>[], xStartScale: LineChartScale<X>, yScale: LineChartScale<number>, baseline: number, width: number, offset?: number, orientation?: BarChartOrientation): BarChartCoordinate<X>[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createBarChartHitTargets",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-interaction.util.ts",
+        "line": 147
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(coordinates: readonly BarChartCoordinate<X>[], color: string, seriesId?: string, label?: string, plot?: ChartRect, formatX?: (value: X) => string): ChartHitTarget[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createBarChartModel",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/bar-chart.util.ts",
+        "line": 33
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(props: UseBarChartProps<X>, tokens?: ChartsTokens): UseBarChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createChartLayout",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-layout.util.ts",
+        "line": 4
+      },
+      "signatures": [
+        {
+          "text": "(size: ChartSize, insets?: Partial<ChartInsets>, defaultInsets?: Partial<ChartInsets>): ChartLayout",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createDrawableMultiBarChartSeries",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/multi-bar-chart.util.ts",
+        "line": 85
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(series: MultiBarChartSeriesModel<X>, _index: number, tokens?: ChartsTokens): MultiBarChartSeriesModel<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createDrawableMultiLineChartSeries",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/multi-line-chart.util.ts",
+        "line": 7
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(series: MultiLineChartSeriesModel<X>, _index: number, _plot: ChartRect, tokens?: ChartsTokens): MultiLineChartSeriesModel<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createHorizontalGridPath",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/grid.util.ts",
+        "line": 33
+      },
+      "signatures": [
+        {
+          "text": "<Value>(values: readonly Value[], scale: LineChartScale<Value>, plot: ChartRect): SkPath | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createInsetRect",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-layout.util.ts",
+        "line": 68
+      },
+      "signatures": [
+        {
+          "text": "(rect: ChartRect, amount: number): ChartRect",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createLineChartCoordinates",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/line-chart.util.ts",
+        "line": 102
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(data: readonly LineChartPoint<X>[], xScale: LineChartScale<X>, yScale: LineChartScale<number>): LineChartCoordinate<X>[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createLineChartHitTargets",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-interaction.util.ts",
+        "line": 117
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(coordinates: readonly LineChartCoordinate<X>[], color: string, seriesId?: string, label?: string, formatX?: (value: X) => string): ChartHitTarget[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createLineChartModel",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/line-chart.util.ts",
+        "line": 75
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(props: UseLineChartProps<X>): UseLineChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createLineChartScaleModel",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/line-chart.util.ts",
+        "line": 23
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(props: UseLineChartProps<X>): Omit<UseLineChartResult<X>, \"coordinates\">",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createLinePath",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/line.util.ts",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(coordinates: readonly LineChartCoordinate<X>[], curve: LineChartCurve): SkPath | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createMultiBarChartModel",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/multi-bar-chart.util.ts",
+        "line": 24
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(props: UseMultiBarChartProps<X>, tokens?: ChartsTokens): UseMultiBarChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createMultiPieChartModel",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/multi-pie-chart.util.ts",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "(props: UseMultiPieChartProps, tokens?: ChartsTokens): UseMultiPieChartResult",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createParagraphBuilder",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/paragraph-builder.util.ts",
+        "line": 12
+      },
+      "signatures": [
+        {
+          "text": "(props: CreateParagraphBuilderProps): import(\"@shopify/react-native-skia\").SkParagraphBuilder",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createPieChartHitTargets",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-interaction.util.ts",
+        "line": 185
+      },
+      "signatures": [
+        {
+          "text": "(coordinates: readonly PieChartCoordinate[], colors: readonly string[], seriesId?: string, label?: string): ChartHitTarget[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createPieChartLegend",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-interaction.util.ts",
+        "line": 211
+      },
+      "signatures": [
+        {
+          "text": "(data: readonly { id: string; label?: string; color?: string; }[], colors: readonly string[]): ChartLegendItem[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createPieChartModel",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/pie-chart.util.ts",
+        "line": 20
+      },
+      "signatures": [
+        {
+          "text": "(props: UsePieChartProps): PieChartModel",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createPieChartRadii",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/pie-chart.util.ts",
+        "line": 73
+      },
+      "signatures": [
+        {
+          "text": "(plot: ChartRect, innerRadiusRatio?: number, outerRadiusRatio?: number): { center: { x: number; y: number; }; innerRadius: number; outerRadius: number; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createPieSlicePath",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/pie.util.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(coordinate: PieChartCoordinate, cornerRadius?: number): SkPath | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createVerticalGridPath",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/grid.util.ts",
+        "line": 12
+      },
+      "signatures": [
+        {
+          "text": "<Value>(values: readonly Value[], scale: LineChartScale<Value>, plot: ChartRect): SkPath | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createXAxisLabelRect",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/axis.util.ts",
+        "line": 73
+      },
+      "signatures": [
+        {
+          "text": "(ticks: readonly AxisTick<unknown>[], index: number, region: ChartRect, offset: number): ChartRect",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createXAxisLayout",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/axis.util.ts",
+        "line": 26
+      },
+      "signatures": [
+        {
+          "text": "<Value>(props: CreateAxisLayoutProps<Value>): AxisLayout<Value>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createYAxisLabelRect",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/axis.util.ts",
+        "line": 102
+      },
+      "signatures": [
+        {
+          "text": "(position: number, region: ChartRect, width: number, fontSize: number): ChartRect",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "createYAxisLayout",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/axis.util.ts",
+        "line": 47
+      },
+      "signatures": [
+        {
+          "text": "<Value = number>(props: CreateYAxisLayoutProps<Value>): AxisLayout<Value>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "CreateYAxisLayoutProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 36
+      }
+    },
+    {
+      "name": "DefaultChartsTokens",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/charts.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "findChartHitTarget",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-interaction.util.ts",
+        "line": 48
+      },
+      "signatures": [
+        {
+          "text": "(point: ChartPoint, targets: readonly ChartHitTarget[], plot: ChartRect): ChartHitTarget | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "fitLineCoordinatesToRect",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/line.util.ts",
+        "line": 32
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue>(coordinates: readonly LineChartCoordinate<X>[], source: ChartRect, target: ChartRect): LineChartCoordinate<X>[]",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "formatAxisTick",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/axis.util.ts",
+        "line": 116
+      },
+      "signatures": [
+        {
+          "text": "<Value>(value: Value, format?: (value: Value) => string): string",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getChartColor",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-color.util.ts",
+        "line": 1
+      },
+      "signatures": [
+        {
+          "text": "(id: string, palette: readonly string[]): string",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getLabelTextAlign",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/label.util.ts",
+        "line": 9
+      },
+      "signatures": [
+        {
+          "text": "(alignment: LabelHorizontalAlignment): TextAlign",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "getLabelY",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/label.util.ts",
+        "line": 23
+      },
+      "signatures": [
+        {
+          "text": "(rect: ChartRect, paragraphHeight: number, alignment: LabelVerticalAlignment): number",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "Grid",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/grid.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number, Y extends ChartXValue = number>(props: GridProps<X, Y>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "GridDefaultOpacity",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/grid.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "GridDefaultWidth",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/grid.constants.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "GridDefaultXVisible",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/grid.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "GridDefaultYVisible",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/grid.constants.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "GridProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/grid.types.ts",
+        "line": 24
+      }
+    },
+    {
+      "name": "inferChartScaleType",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/line-chart.util.ts",
+        "line": 90
+      },
+      "signatures": [
+        {
+          "text": "(values: readonly ChartXValue[]): \"linear\" | \"point\" | \"time\"",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "isSameChartSelection",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/chart-interaction.util.ts",
+        "line": 17
+      },
+      "signatures": [
+        {
+          "text": "(left: ChartSelection | null, right: ChartSelection | null): boolean",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "Label",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/label.tsx",
+        "line": 26
+      },
+      "signatures": [
+        {
+          "text": "(props: LabelProps): import(\"react\").JSX.Element | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "LabelDefaultHorizontalAlignment",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/label.constants.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "LabelDefaultVerticalAlignment",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/label.constants.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "LabelHorizontalAlignment",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/label.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "LabelProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/label.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "LabelVerticalAlignment",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/label.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "Line",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/line.tsx",
+        "line": 21
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number>(props: LineProps<X>): import(\"react\").JSX.Element | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "LineChart",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/line-chart/line-chart.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number>(props: LineChartProps<X>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "LineChartCommonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 33
+      }
+    },
+    {
+      "name": "LineChartCoordinate",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "LineChartCurve",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "LineChartDefaultNumericDomain",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line-chart.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "LineChartDefaultTickCount",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line-chart.constants.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "LineChartLineOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 26
+      }
+    },
+    {
+      "name": "LineChartPoint",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "LineChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 39
+      }
+    },
+    {
+      "name": "LineChartScale",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line-chart.types.ts",
+        "line": 12
+      }
+    },
+    {
+      "name": "LineChartXScaleModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-line-chart.types.ts",
+        "line": 29
+      }
+    },
+    {
+      "name": "LineDefaultCap",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "LineDefaultColor",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "LineDefaultColors",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "LineDefaultCurve",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "LineDefaultJoin",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "LineDefaultOpacity",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "LineDefaultWidth",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/line.constants.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "LineProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/line.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "MultiBarChart",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/multi-bar-chart/multi-bar-chart.tsx",
+        "line": 17
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = string>(props: MultiBarChartProps<X>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "MultiBarChartDefaultSeriesPadding",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/bar-chart.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "MultiBarChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-bar-chart.types.ts",
+        "line": 22
+      }
+    },
+    {
+      "name": "MultiBarChartSeries",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-bar-chart.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "MultiBarChartSeriesModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-bar-chart.types.ts",
+        "line": 16
+      }
+    },
+    {
+      "name": "MultiLineChart",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/multi-line-chart/multi-line-chart.tsx",
+        "line": 18
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number>(props: MultiLineChartProps<X>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "MultiLineChartBodyProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-line-chart.types.ts",
+        "line": 31
+      }
+    },
+    {
+      "name": "MultiLineChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-line-chart.types.ts",
+        "line": 25
+      }
+    },
+    {
+      "name": "MultiLineChartSeries",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-line-chart.types.ts",
+        "line": 12
+      }
+    },
+    {
+      "name": "MultiLineChartSeriesModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-line-chart.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "MultiPieChart",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/multi-pie-chart/multi-pie-chart.tsx",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "(props: MultiPieChartProps): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "MultiPieChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-pie-chart.types.ts",
+        "line": 20
+      }
+    },
+    {
+      "name": "MultiPieChartSeries",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-pie-chart.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "MultiPieChartSeriesModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/multi-pie-chart.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "MultiPieDefaultRingPadding",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 13
+      }
+    },
+    {
+      "name": "normalizeRadiusRatio",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/pie-chart.util.ts",
+        "line": 103
+      },
+      "signatures": [
+        {
+          "text": "(value: number): number",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "Pie",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/pie.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "(props: PieProps): import(\"react\").JSX.Element | null",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PieChart",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/pie-chart/pie-chart.tsx",
+        "line": 15
+      },
+      "signatures": [
+        {
+          "text": "(props: PieChartProps): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PieChartCommonProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie-chart.types.ts",
+        "line": 31
+      }
+    },
+    {
+      "name": "PieChartCoordinate",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie-chart.types.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "PieChartModel",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie-chart.types.ts",
+        "line": 44
+      }
+    },
+    {
+      "name": "PieChartPoint",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie-chart.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "PieChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie-chart.types.ts",
+        "line": 39
+      }
+    },
+    {
+      "name": "PieChartSliceOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie-chart.types.ts",
+        "line": 22
+      }
+    },
+    {
+      "name": "PieDefaultColor",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 4
+      }
+    },
+    {
+      "name": "PieDefaultColors",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "PieDefaultCornerRadius",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "PieDefaultEndAngle",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 10
+      }
+    },
+    {
+      "name": "PieDefaultInnerRadius",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 6
+      }
+    },
+    {
+      "name": "PieDefaultOpacity",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "PieDefaultOuterRadius",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "PieDefaultPadAngle",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "PieDefaultStartAngle",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "PieDefaultStrokeWidth",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/pie.constants.ts",
+        "line": 12
+      }
+    },
+    {
+      "name": "PieProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/pie.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "ResolvedGridLineOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/grid.types.ts",
+        "line": 16
+      }
+    },
+    {
+      "name": "resolveGridLineOptions",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/utils/grid.util.ts",
+        "line": 54
+      },
+      "signatures": [
+        {
+          "text": "(options: boolean | ChartGridLineOptions | undefined, defaultVisible: boolean, defaultColor: string, defaultWidth?: number): ResolvedGridLineOptions",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "TabularNumsFeature",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/constants/label.constants.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "useBarChart",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-bar-chart.hook.ts",
+        "line": 16
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = string>(props: UseBarChartProps<X>, tokens?: ChartsTokens): UseBarChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseBarChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-bar-chart.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "UseBarChartResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-bar-chart.types.ts",
+        "line": 23
+      }
+    },
+    {
+      "name": "useChartCanvas",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-chart-canvas.hook.ts",
+        "line": 9
+      },
+      "signatures": [
+        {
+          "text": "(): { ref: import(\"react\").RefObject<import(\"@shopify/react-native-skia\").CanvasRef | null>; size: ChartSize; onLayout: (event: Readonly<{ bubbles: boolean | undefined; cancelable: boolean | undefined; currentTarget: number | import(\"react-native\").HostInstance; defaultPrevented: boolean | undefined; dispatchConfig: Readonly<{ registrationName: string; }>; eventPhase: number | undefined; preventDefault: () => void; isDefaultPrevented: () => boolean; stopPropagation: () => void; isPropagationStopped: () => boolean; isTrusted: boolean | undefined; nativeEvent: Readonly<{ layout: Readonly<{ x: number; y: number; width: number; height: number; }>; }>; persist: () => void; target: (number | undefined) | import(\"react-native\").HostInstance; timeStamp: number; type: string | undefined; }>) => void; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useChartLayout",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-chart-layout.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(size: ChartSize, insets?: Partial<ChartInsets>, defaultInsets?: Partial<ChartInsets>): ChartLayout",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useChartPresentation",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-chart-presentation.hook.ts",
+        "line": 20
+      },
+      "signatures": [
+        {
+          "text": "(props: ChartPresentationProps): { selection: ChartSelection | null; hiddenIds: readonly string[]; hidden: Set<string>; selectAt: (point: ChartPoint, targets: readonly ChartHitTarget[], plot: ChartRect, clearOnMiss?: any) => boolean; clearSelection: () => void; toggle: (id: string) => void; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "useLineChart",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-line-chart.hook.ts",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number>(props: UseLineChartProps<X>): UseLineChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseLineChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-line-chart.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "UseLineChartResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-line-chart.types.ts",
+        "line": 23
+      }
+    },
+    {
+      "name": "useMultiBarChart",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-multi-bar-chart.hook.ts",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = string>(props: UseMultiBarChartProps<X>, tokens?: ChartsTokens): UseMultiBarChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseMultiBarChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-multi-bar-chart.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "UseMultiBarChartResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-multi-bar-chart.types.ts",
+        "line": 24
+      }
+    },
+    {
+      "name": "useMultiLineChart",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-multi-line-chart.hook.ts",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number>(props: UseMultiLineChartProps<X>): UseMultiLineChartResult<X>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseMultiLineChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-multi-line-chart.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "UseMultiLineChartResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-multi-line-chart.types.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "useMultiPieChart",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-multi-pie-chart.hook.ts",
+        "line": 10
+      },
+      "signatures": [
+        {
+          "text": "(props: UseMultiPieChartProps, tokens?: ChartsTokens): UseMultiPieChartResult",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseMultiPieChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-multi-pie-chart.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "UseMultiPieChartResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-multi-pie-chart.types.ts",
+        "line": 18
+      }
+    },
+    {
+      "name": "usePieChart",
+      "kind": "hook",
+      "source": {
+        "file": "packages/charts/src/hooks/use-pie-chart.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "(props: UsePieChartProps): UsePieChartResult",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UsePieChartProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-pie-chart.types.ts",
+        "line": 8
+      }
+    },
+    {
+      "name": "UsePieChartResult",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/use-pie-chart.types.ts",
+        "line": 16
+      }
+    },
+    {
+      "name": "XAxis",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/x-axis.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "<X extends ChartXValue = number>(props: XAxisProps<X>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "XAxisProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 54
+      }
+    },
+    {
+      "name": "YAxis",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/primitives/y-axis.tsx",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "<Value = number>(props: YAxisProps<Value>): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "YAxisProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/axis.types.ts",
+        "line": 58
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "d3-array": "catalog:",
+    "d3-scale": "catalog:",
+    "d3-shape": "catalog:"
+  },
+  "peerDependencies": {
+    "@shopify/react-native-skia": ">=2",
+    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5",
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/charts.md",
+  "capabilityReference": "capabilities/charts.md"
+}

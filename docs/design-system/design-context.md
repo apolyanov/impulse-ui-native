@@ -1,5 +1,6 @@
 # ImpulseUI Native: context for designing a new application
 
+For component selection and implementation, start with [agent-guide.md](agent-guide.md), [component-chooser.md](component-chooser.md), and the matching [recipe](recipes.md). This document provides visual foundations; detailed source appendices are lookup material.
 This document is a portable design brief for **ImpulseUI Native**, reviewed from the local source on **2026-10-23**, toolkit version **11.3.1**. Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
 
 The application's product, users, navigation, content, brand changes, and screen layouts are still to be defined. The library supplies components and a visual system rather than a complete application template.

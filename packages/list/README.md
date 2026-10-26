@@ -46,3 +46,7 @@ import { Divider, Typography } from "@impulse-ui-native/primitives";
 All namespaced parts render supplied children and accept their underlying primitive props and style overrides. Leading and Trailing keep their natural size while Content fills remaining width. Parts can be used without Root for standalone rows. Tokens come from `theme.components.list`.
 
 List and its prop types are also exported by `@impulse-ui-native/toolkit`. Migrate imports from primitives to this package or the toolkit. Native Storybook covers ready-made rows and custom compositions.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/list.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

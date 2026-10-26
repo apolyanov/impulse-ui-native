@@ -50,7 +50,7 @@ export const DatetimePickerFlyoutActions = memo(
         <View flexDirection="row" gap={flyoutActionsTokens.buttonsGap}>
           <Button
             tone={tone}
-            variant={props.variant ?? "outlined"}
+            variant="outlined"
             style={styles.action}
             onPress={props.onPressCancel}
           >
@@ -58,7 +58,6 @@ export const DatetimePickerFlyoutActions = memo(
           </Button>
           <Button
             tone={tone}
-            variant={props.variant ?? "outlined"}
             style={styles.action}
             onPress={props.onPressApply}
           >

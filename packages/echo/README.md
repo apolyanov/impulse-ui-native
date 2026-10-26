@@ -50,3 +50,7 @@ TypeScript rejects unknown event names and payloads that do not match the event
 map.
 
 For non-component code, call `EchoInstance.emit` or `EchoInstance.subscribe` directly. `subscribe` returns its cleanup function.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/echo.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

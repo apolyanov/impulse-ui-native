@@ -1,0 +1,380 @@
+{
+  "name": "@impulse-ui-native/flat-list",
+  "slug": "flat-list",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "native-wrapper",
+    "chooseWhen": "Render long virtualized lists with known item layouts.",
+    "features": ["Native FlatList export and initial-scroll positioning hook."],
+    "constraints": [
+      "Native FlatList props are authoritative; this package does not manufacture List rows.",
+      "Use the initial-scroll helper when row sizes are known; use scroll-view for measured content."
+    ],
+    "setup": [
+      "React and React Native. No ThemeProvider is required by this wrapper."
+    ],
+    "recipes": ["data-list"]
+  },
+  "components": [
+    {
+      "name": "FlatList",
+      "typeParameters": [
+        {
+          "name": "ItemT",
+          "constraint": "unknown"
+        }
+      ],
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+        "line": 245,
+        "external": true
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 621,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 362,
+            "external": true
+          }
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "Readonly<ArrayLike<ItemT>> | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 23,
+            "external": true
+          }
+        },
+        {
+          "name": "horizontal",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 84,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "renderItem",
+          "required": false,
+          "type": "ListRenderItem<ItemT> | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 52,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 206,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    }
+  ],
+  "exports": [
+    {
+      "name": "FlatList",
+      "kind": "class",
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+        "line": 245,
+        "external": true
+      },
+      "members": [
+        {
+          "name": "scrollToEnd",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 249,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(params?: null | undefined | { animated?: boolean | undefined; }): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "scrollToIndex",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 260,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(params: { animated?: boolean | undefined; index: number; viewOffset?: number | undefined; viewPosition?: number | undefined; }): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "scrollToItem",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 272,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(params: { animated?: boolean | undefined; item: ItemT; viewOffset?: number | undefined; viewPosition?: number | undefined; }): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "scrollToOffset",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 283,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(params: { animated?: boolean | undefined; offset: number; }): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "recordInteraction",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 292,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "flashScrollIndicators",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 298,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "getScrollResponder",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 302,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(): null | undefined | ScrollResponderType",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "getNativeScrollRef",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 306,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(): null | undefined | ScrollViewInstance",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "getScrollableNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 307,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(): any",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "setNativeProps",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 308,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(props: { [$$Key$$: string]: unknown; }): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "componentDidUpdate",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 312,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(prevProps: FlatListProps<ItemT>): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "render",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 313,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(): React.ReactNode",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "setState",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 978,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "<K extends never>(state: {} | ((prevState: Readonly<{}>, props: Readonly<import(\"react-native\").FlatListProps<ItemT>>) => {} | Pick<{}, K> | null) | Pick<{}, K> | null, callback?: (() => void) | undefined): void",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "forceUpdate",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 983,
+            "external": true
+          },
+          "signatures": [
+            {
+              "text": "(callback?: (() => void) | undefined): void",
+              "abbreviated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FlatListProps",
+      "kind": "type",
+      "source": {
+        "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+        "line": 136,
+        "external": true
+      }
+    },
+    {
+      "name": "FlatListRef",
+      "kind": "type",
+      "source": {
+        "file": "packages/flat-list/src/types/flat-list.types.ts",
+        "line": 5
+      }
+    },
+    {
+      "name": "useFlatListInitialScroll",
+      "kind": "hook",
+      "source": {
+        "file": "packages/flat-list/src/hooks/use-flat-list-initial-scroll.hook.ts",
+        "line": 6
+      },
+      "signatures": [
+        {
+          "text": "<Item>(options: UseFlatListInitialScrollOptions): { initialScrollIndex: number | undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> | undefined, index: number) => { length: number; offset: number; index: number; }; }",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "UseFlatListInitialScrollOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/flat-list/src/types/flat-list.types.ts",
+        "line": 7
+      }
+    }
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/flat-list.md",
+  "capabilityReference": "capabilities/flat-list.md"
+}

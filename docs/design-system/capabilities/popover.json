@@ -1,0 +1,1586 @@
+{
+  "name": "@impulse-ui-native/popover",
+  "slug": "popover",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "compound",
+    "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",
+    "features": [
+      "Popover.Root/Trigger/Content and presentation parts; controlled/uncontrolled open.",
+      "Tooltip convenience component and host-relative positioning."
+    ],
+    "constraints": [
+      "Trigger/Content/Close require the same Popover.Root.",
+      "The portal host name must match; touch trigger modes differ from browser hover behavior."
+    ],
+    "setup": [
+      "ThemeProvider, SafeAreaProvider, PortalProvider and a matching PortalsHost.",
+      "Configure Reanimated/Worklets; see package peers."
+    ],
+    "recipes": ["anchored-actions"]
+  },
+  "components": [
+    {
+      "name": "Popover",
+      "source": {
+        "file": "packages/popover/src/components/popover.tsx",
+        "line": 16
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "contentProps",
+          "required": false,
+          "type": "ViewProps | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 48
+          }
+        },
+        {
+          "name": "defaultOpen",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "footer",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 44
+          }
+        },
+        {
+          "name": "header",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 43
+          }
+        },
+        {
+          "name": "hideClose",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "onOpenChange",
+          "required": false,
+          "type": "((open: boolean) => void) | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "placement",
+          "required": false,
+          "type": "PopoverPlacement | undefined",
+          "choices": ["bottom", "left", "right", "top"],
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "portalName",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "title",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 42
+          }
+        },
+        {
+          "name": "trigger",
+          "required": true,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "triggerProps",
+          "required": false,
+          "type": "PopoverTriggerProps | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 47
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "hideClose": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/popover/src/components/popover.tsx",
+            "line": 23
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Popover.Close",
+      "source": {
+        "file": "packages/popover/src/components/popover-close.tsx",
+        "line": 11
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "pressedStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Popover.Root",
+        "contentContract": "Render supplied children; portal Content re-provides its required context."
+      }
+    },
+    {
+      "name": "Popover.Content",
+      "source": {
+        "file": "packages/popover/src/components/popover-content.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Popover.Root",
+        "contentContract": "Render supplied children; portal Content re-provides its required context."
+      }
+    },
+    {
+      "name": "Popover.Description",
+      "source": {
+        "file": "packages/popover/src/components/popover-description.tsx",
+        "line": 8
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Popover.Footer",
+      "source": {
+        "file": "packages/popover/src/components/popover-footer.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Popover.Header",
+      "source": {
+        "file": "packages/popover/src/components/popover-header.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Popover.Root",
+      "source": {
+        "file": "packages/popover/src/components/popover-root.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "defaultOpen",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "onOpenChange",
+          "required": false,
+          "type": "((open: boolean) => void) | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "placement",
+          "required": false,
+          "type": "PopoverPlacement | undefined",
+          "choices": ["bottom", "left", "right", "top"],
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "portalName",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 25
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "defaultOpen": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/popover/src/components/popover-root.tsx",
+            "line": 13
+          }
+        },
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/popover/src/components/popover-root.tsx",
+            "line": 15
+          }
+        },
+        "placement": {
+          "expression": "\"bottom\"",
+          "value": "bottom",
+          "source": {
+            "file": "packages/popover/src/components/popover-root.tsx",
+            "line": 16
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Popover.Title",
+      "source": {
+        "file": "packages/popover/src/components/popover-title.tsx",
+        "line": 8
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 115,
+            "external": true
+          }
+        },
+        {
+          "name": "numberOfLines",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 138,
+            "external": true
+          }
+        },
+        {
+          "name": "numeric",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/typography.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 139,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 141,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 143,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____TextStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 172,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Text/TextProps.d.ts",
+            "line": 173,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "backgroundColor",
+        "bottom",
+        "color",
+        "columnGap",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "fontFamily",
+        "fontSize",
+        "fontStyle",
+        "fontVariant",
+        "fontWeight",
+        "gap",
+        "includeFontPadding",
+        "justifyContent",
+        "left",
+        "letterSpacing",
+        "lineHeight",
+        "opacity",
+        "position",
+        "right",
+        "rowGap",
+        "textAlign",
+        "textAlignVertical",
+        "textDecorationColor",
+        "textDecorationLine",
+        "textDecorationStyle",
+        "textTransform",
+        "top",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 65,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Popover.Trigger",
+      "source": {
+        "file": "packages/popover/src/components/popover-trigger.tsx",
+        "line": 10
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "loading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 75,
+            "external": true
+          }
+        },
+        {
+          "name": "onLongPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 87,
+            "external": true
+          }
+        },
+        {
+          "name": "onPress",
+          "required": false,
+          "type": "((event: GestureResponderEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 91,
+            "external": true
+          }
+        },
+        {
+          "name": "pressedStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | ((state: PressableStateCallbackType) => ViewStyleProp) | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 114,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/Pressable/Pressable.d.ts",
+            "line": 118,
+            "external": true
+          }
+        },
+        {
+          "name": "trigger",
+          "required": false,
+          "type": "\"press\" | \"longPress\" | undefined",
+          "choices": ["longPress", "press"],
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "ActionVariant | undefined",
+          "choices": ["filled", "ghost", "outlined", "soft"],
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 17
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 123,
+      "defaults": {
+        "trigger": {
+          "expression": "\"press\"",
+          "value": "press",
+          "source": {
+            "file": "packages/popover/src/components/popover-trigger.tsx",
+            "line": 11
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiresParent": "Popover.Root",
+        "contentContract": "Render supplied children; portal Content re-provides its required context."
+      }
+    },
+    {
+      "name": "Tooltip",
+      "source": {
+        "file": "packages/popover/src/components/tooltip.tsx",
+        "line": 19
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 1430,
+            "external": true
+          }
+        },
+        {
+          "name": "content",
+          "required": true,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 52
+          }
+        },
+        {
+          "name": "defaultOpen",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "duration",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 56
+          }
+        },
+        {
+          "name": "onOpenChange",
+          "required": false,
+          "type": "((open: boolean) => void) | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "open",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "placement",
+          "required": false,
+          "type": "PopoverPlacement | undefined",
+          "choices": ["bottom", "left", "right", "top"],
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "portalName",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "triggerProps",
+          "required": false,
+          "type": "PopoverTriggerProps | undefined",
+          "source": {
+            "file": "packages/popover/src/types/popover.types.ts",
+            "line": 53
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 0,
+      "defaults": {
+        "defaultOpen": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/popover/src/components/tooltip.tsx",
+            "line": 24
+          }
+        },
+        "placement": {
+          "expression": "\"top\"",
+          "value": "top",
+          "source": {
+            "file": "packages/popover/src/components/tooltip.tsx",
+            "line": 27
+          }
+        },
+        "duration": {
+          "expression": "TooltipDuration",
+          "value": 3000,
+          "source": {
+            "file": "packages/popover/src/components/tooltip.tsx",
+            "line": 28
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only"
+    }
+  ],
+  "exports": [
+    {
+      "name": "Popover",
+      "kind": "value",
+      "source": {
+        "file": "packages/popover/src/components/index.ts",
+        "line": 11
+      },
+      "signatures": [
+        {
+          "text": "(props: import(\"@impulse-ui-native/toolkit\").PopoverProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "PopoverCloseProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 38
+      }
+    },
+    {
+      "name": "PopoverContentProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 33
+      }
+    },
+    {
+      "name": "PopoverDescriptionProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 37
+      }
+    },
+    {
+      "name": "PopoverFooterProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 35
+      }
+    },
+    {
+      "name": "PopoverHeaderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 34
+      }
+    },
+    {
+      "name": "PopoverPlacement",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "PopoverProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 41
+      }
+    },
+    {
+      "name": "PopoverRootProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "PopoverTitleProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 36
+      }
+    },
+    {
+      "name": "PopoverTriggerProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 28
+      }
+    },
+    {
+      "name": "Tooltip",
+      "kind": "value",
+      "source": {
+        "file": "packages/popover/src/components/tooltip.tsx",
+        "line": 19
+      },
+      "signatures": [
+        {
+          "text": "(props: TooltipProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "TooltipProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/popover/src/types/popover.types.ts",
+        "line": 51
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/icon": "workspace:*",
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/portal": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-safe-area-context": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/popover.md",
+  "capabilityReference": "capabilities/popover.md"
+}

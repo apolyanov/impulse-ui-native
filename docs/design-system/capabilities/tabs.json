@@ -1,0 +1,365 @@
+{
+  "name": "@impulse-ui-native/tabs",
+  "slug": "tabs",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Switch between a few related content panels.",
+    "features": [
+      "Flat items API, controlled/uncontrolled value and disabled items.",
+      "Clip/scroll overflow; initially selected tab reveal and tone-aware underline."
+    ],
+    "constraints": [
+      "Only the active panel is rendered; preserve application state outside unmounted panels if necessary.",
+      "Tabs is not a Root/Item compound namespace and has no filled/outlined/soft variant axis."
+    ],
+    "setup": ["ThemeProvider; install the owning package peer dependencies."],
+    "recipes": ["onboarding"]
+  },
+  "components": [
+    {
+      "name": "Tabs",
+      "propAlternatives": [
+        {
+          "required": ["value", "items"],
+          "valueProps": [
+            {
+              "name": "value",
+              "required": true,
+              "type": "string",
+              "source": {
+                "file": "packages/tabs/src/types/tabs.types.ts",
+                "line": 29
+              }
+            },
+            {
+              "name": "defaultValue",
+              "required": false,
+              "type": "undefined",
+              "source": {
+                "file": "packages/tabs/src/types/tabs.types.ts",
+                "line": 30
+              }
+            }
+          ]
+        },
+        {
+          "required": ["items"],
+          "valueProps": [
+            {
+              "name": "value",
+              "required": false,
+              "type": "undefined",
+              "source": {
+                "file": "packages/tabs/src/types/tabs.types.ts",
+                "line": 34
+              }
+            },
+            {
+              "name": "defaultValue",
+              "required": false,
+              "type": "string | undefined",
+              "source": {
+                "file": "packages/tabs/src/types/tabs.types.ts",
+                "line": 35
+              }
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "packages/tabs/src/components/tabs.tsx",
+        "line": 16
+      },
+      "props": [
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 30
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "initialScrollToSelected",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "items",
+          "required": true,
+          "type": "readonly TabsItem[]",
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 17
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "((value: string) => void) | undefined",
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "panelStyle",
+          "required": false,
+          "type": "StyleProp<ViewStyle> | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/tabs/src/types/tabs.types.ts",
+            "line": 29
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/tabs/src/components/tabs.tsx",
+            "line": 19
+          }
+        },
+        "initialScrollToSelected": {
+          "expression": "true",
+          "value": true,
+          "source": {
+            "file": "packages/tabs/src/components/tabs.tsx",
+            "line": 20
+          }
+        },
+        "overflow": {
+          "expression": "\"scroll\"",
+          "value": "scroll",
+          "source": {
+            "file": "packages/tabs/src/components/tabs.tsx",
+            "line": 22
+          }
+        },
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/tabs/src/components/tabs.tsx",
+            "line": 24
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/tabs/src/components/tabs.tsx",
+            "line": 25
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["items", "value", "defaultValue", "onValueChange"],
+        "mountPolicy": "Only the active panel is rendered; items are a flat array, not Tabs.Item children."
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "Tabs",
+      "kind": "value",
+      "source": {
+        "file": "packages/tabs/src/components/tabs.tsx",
+        "line": 16
+      },
+      "signatures": [
+        {
+          "text": "(props: TabsProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "TabsItem",
+      "kind": "type",
+      "source": {
+        "file": "packages/tabs/src/types/tabs.types.ts",
+        "line": 7
+      }
+    },
+    {
+      "name": "TabsOverflow",
+      "kind": "type",
+      "source": {
+        "file": "packages/tabs/src/types/tabs.types.ts",
+        "line": 14
+      }
+    },
+    {
+      "name": "TabsProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/tabs/src/types/tabs.types.ts",
+        "line": 38
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*",
+    "@impulse-ui-native/scroll-view": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/tabs.md",
+  "capabilityReference": "capabilities/tabs.md"
+}

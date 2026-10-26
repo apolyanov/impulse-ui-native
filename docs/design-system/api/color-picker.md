@@ -117,6 +117,10 @@ child tones override it. The hue/saturation spectrum, presets, alpha checkerboar
 and user-selected color are data, so changing tone does not change those values.
 Selection ring tokens move to colorPicker.colors[tone].
 
+## Agent and design reference
+
+Start with the [capability guide](../capabilities/color-picker.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.

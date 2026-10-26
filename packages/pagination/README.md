@@ -46,3 +46,7 @@ Pagination accepts `tone="neutral" | "primary" | "secondary"` (default primary).
 The current page uses the shared filled Button palette. Disabled controls use the
 shared unavailable filled palette; unselected pages and compact counts remain
 neutral. Custom theme states move to pagination.colors[tone].
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/pagination.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

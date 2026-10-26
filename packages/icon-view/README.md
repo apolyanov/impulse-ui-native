@@ -44,3 +44,7 @@ props, which override the component's default container styles. Parent alignment
 applies normally. Styling comes from `theme.components.iconView`.
 
 Use IconButton when the icon is an action; IconView has no built-in press behavior.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/icon-view.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

@@ -35,7 +35,8 @@
         "resizeMode": "contain",
         "backgroundColor": "#ffffff"
       }
-    ]
+    ],
+    "./plugins/with-compatible-scene-delegate.cjs"
   ],
   "experiments": {
     "reactCompiler": true,

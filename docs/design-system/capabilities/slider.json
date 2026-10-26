@@ -1,0 +1,750 @@
+{
+  "name": "@impulse-ui-native/slider",
+  "slug": "slider",
+  "version": "15.0.1",
+  "guidance": {
+    "kind": "control",
+    "chooseWhen": "Adjust one numeric value or a numeric range.",
+    "features": [
+      "Slider/RangeSlider; marks, steps, labels and controlled/uncontrolled values.",
+      "Gesture callbacks and shared filled/outlined/soft variants and tones."
+    ],
+    "constraints": [
+      "Range values and callback payloads differ from single-value sliders; read SliderValue.",
+      "Numeric data and custom gradient tracks are distinct from tone; ensure min/max/step form valid bounds."
+    ],
+    "setup": [
+      "ThemeProvider and GestureHandlerRootView; Gesture Handler, Reanimated and Worklets configured."
+    ],
+    "recipes": ["filters"]
+  },
+  "components": [
+    {
+      "name": "RangeSlider",
+      "source": {
+        "file": "packages/slider/src/components/range-slider.tsx",
+        "line": 18
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "SliderValue | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 42
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "formatValue",
+          "required": false,
+          "type": "((value: number) => string) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "marks",
+          "required": false,
+          "type": "readonly number[] | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 17
+          }
+        },
+        {
+          "name": "max",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "min",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "minStepsBetweenThumbs",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 43
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onSlidingComplete",
+          "required": false,
+          "type": "((value: SliderValue) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 44
+          }
+        },
+        {
+          "name": "onSlidingStart",
+          "required": false,
+          "type": "((value: SliderValue) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 45
+          }
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "((value: SliderValue) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 46
+          }
+        },
+        {
+          "name": "showMarkLabels",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "showMinMax",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "showValueBubble",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "step",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "SliderValue | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 47
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "SelectionVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 25
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "defaultValue": {
+          "expression": "DefaultRangeValue",
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 19
+          }
+        },
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 20
+          }
+        },
+        "max": {
+          "expression": "DefaultMax",
+          "value": 100,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 23
+          }
+        },
+        "min": {
+          "expression": "DefaultMin",
+          "value": 0,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 24
+          }
+        },
+        "minStepsBetweenThumbs": {
+          "expression": "0",
+          "value": 0,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 25
+          }
+        },
+        "showMarkLabels": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 30
+          }
+        },
+        "showMinMax": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 31
+          }
+        },
+        "showValueBubble": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 32
+          }
+        },
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 33
+          }
+        },
+        "step": {
+          "expression": "DefaultStep",
+          "value": 1,
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 34
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 37
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/slider/src/components/range-slider.tsx",
+            "line": 38
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    },
+    {
+      "name": "Slider",
+      "source": {
+        "file": "packages/slider/src/components/slider.tsx",
+        "line": 18
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "defaultValue",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 34
+          }
+        },
+        {
+          "name": "disabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 15
+          }
+        },
+        {
+          "name": "formatValue",
+          "required": false,
+          "type": "((value: number) => string) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 16
+          }
+        },
+        {
+          "name": "marks",
+          "required": false,
+          "type": "readonly number[] | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 17
+          }
+        },
+        {
+          "name": "max",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 18
+          }
+        },
+        {
+          "name": "min",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 19
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "onSlidingComplete",
+          "required": false,
+          "type": "((value: number) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 35
+          }
+        },
+        {
+          "name": "onSlidingStart",
+          "required": false,
+          "type": "((value: number) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 36
+          }
+        },
+        {
+          "name": "onValueChange",
+          "required": false,
+          "type": "((value: number) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 37
+          }
+        },
+        {
+          "name": "onValueChangeWorklet",
+          "required": false,
+          "type": "((value: number) => void) | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "showMarkLabels",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 20
+          }
+        },
+        {
+          "name": "showMinMax",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 21
+          }
+        },
+        {
+          "name": "showValueBubble",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 22
+          }
+        },
+        {
+          "name": "size",
+          "required": false,
+          "type": "ComponentSize | undefined",
+          "choices": ["large", "medium", "small"],
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 23
+          }
+        },
+        {
+          "name": "step",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 24
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        },
+        {
+          "name": "tone",
+          "required": false,
+          "type": "ComponentTone | undefined",
+          "choices": ["neutral", "primary", "secondary"],
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 26
+          }
+        },
+        {
+          "name": "trackContent",
+          "required": false,
+          "type": "ReactNode",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 33
+          }
+        },
+        {
+          "name": "value",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 38
+          }
+        },
+        {
+          "name": "variant",
+          "required": false,
+          "type": "SelectionVariant | undefined",
+          "choices": ["filled", "outlined", "soft"],
+          "source": {
+            "file": "packages/slider/src/types/slider.types.ts",
+            "line": 25
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 110,
+      "defaults": {
+        "defaultValue": {
+          "expression": "DefaultValue",
+          "value": 0,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 19
+          }
+        },
+        "disabled": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 20
+          }
+        },
+        "max": {
+          "expression": "DefaultMax",
+          "value": 100,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 23
+          }
+        },
+        "min": {
+          "expression": "DefaultMin",
+          "value": 0,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 24
+          }
+        },
+        "showMarkLabels": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 30
+          }
+        },
+        "showMinMax": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 31
+          }
+        },
+        "showValueBubble": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 32
+          }
+        },
+        "size": {
+          "expression": "\"medium\"",
+          "value": "medium",
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 33
+          }
+        },
+        "step": {
+          "expression": "DefaultStep",
+          "value": 1,
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 34
+          }
+        },
+        "variant": {
+          "expression": "\"filled\"",
+          "value": "filled",
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 38
+          }
+        },
+        "tone": {
+          "expression": "\"primary\"",
+          "value": "primary",
+          "source": {
+            "file": "packages/slider/src/components/slider.tsx",
+            "line": 39
+          }
+        }
+      },
+      "defaultResolution": "direct-source-only",
+      "guidance": {
+        "requiredProps": ["variant", "tone", "size"],
+        "expectedDefaults": {
+          "variant": "filled",
+          "tone": "primary",
+          "size": "medium"
+        }
+      }
+    }
+  ],
+  "exports": [
+    {
+      "name": "RangeSlider",
+      "kind": "value",
+      "source": {
+        "file": "packages/slider/src/components/range-slider.tsx",
+        "line": 18
+      },
+      "signatures": [
+        {
+          "text": "(props: RangeSliderProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "RangeSliderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/slider/src/types/slider.types.ts",
+        "line": 41
+      }
+    },
+    {
+      "name": "Slider",
+      "kind": "value",
+      "source": {
+        "file": "packages/slider/src/components/slider.tsx",
+        "line": 18
+      },
+      "signatures": [
+        {
+          "text": "(props: SliderProps): import(\"react\").ReactNode",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "SliderProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/slider/src/types/slider.types.ts",
+        "line": 29
+      }
+    },
+    {
+      "name": "SliderThumb",
+      "kind": "type",
+      "source": {
+        "file": "packages/slider/src/types/slider.types.ts",
+        "line": 12
+      }
+    },
+    {
+      "name": "SliderValue",
+      "kind": "type",
+      "source": {
+        "file": "packages/slider/src/types/slider.types.ts",
+        "line": 10
+      }
+    }
+  ],
+  "dependencies": {
+    "@impulse-ui-native/core": "workspace:*",
+    "@impulse-ui-native/primitives": "workspace:*",
+    "@impulse-ui-native/theme": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5"
+  },
+  "peerDependenciesMeta": {},
+  "reference": "api/slider.md",
+  "capabilityReference": "capabilities/slider.md"
+}

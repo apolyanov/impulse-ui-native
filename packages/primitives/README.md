@@ -255,3 +255,7 @@ subtle/default/strong border-intensity aliases. Its default is `tone="default"`.
 Feedback tone names are shared through FeedbackTone; generic brand tones through
 ComponentTone. Typography foregrounds and raw Icon color/fill remain explicit
 semantic or caller-selected colors, rather than a second tone API.
+
+## Agent and design reference
+
+Start with the [capability guide](../../docs/design-system/capabilities/primitives.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.

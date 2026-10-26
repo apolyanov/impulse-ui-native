@@ -1,0 +1,1028 @@
+{
+  "packages": {
+    "accordion": {
+      "kind": "compound",
+      "chooseWhen": "Reveal or collapse sections without changing screens.",
+      "features": [
+        "Single or multiple expansion; controlled/uncontrolled values.",
+        "Item-level disabling and animated content; custom trigger/indicator children."
+      ],
+      "constraints": [
+        "Root owns expansion; Item owns item context. Trigger, Indicator and Content require the matching Item.",
+        "There is no visual variant/tone axis; do not invent one."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["disclosure-settings"]
+    },
+    "card": {
+      "kind": "presentation",
+      "chooseWhen": "Group related media, copy and actions on a surface.",
+      "features": [
+        "Callable convenience component with header/media/footer slots.",
+        "Root, Pressable, Header, Content, Footer and Media composition."
+      ],
+      "constraints": [
+        "Parts are child-only presentation; they do not manufacture titles or actions.",
+        "Use Card.Pressable for an interactive surface; appearance comes from tokens rather than variant/tone."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["profile-card", "product-carousel"]
+    },
+    "carousel": {
+      "kind": "control",
+      "chooseWhen": "Browse a finite horizontal collection with snapping.",
+      "features": [
+        "One child per slide; controlled/uncontrolled index, peeking and navigation.",
+        "Adaptive dots/counter pagination and tone-aware controls."
+      ],
+      "constraints": [
+        "Finite collection, not an infinite virtualized pager.",
+        "Native ScrollView-based; no Gesture Handler or Reanimated setup is required by this package."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["product-carousel"]
+    },
+    "charts": {
+      "kind": "visualization",
+      "chooseWhen": "Show numeric series with interactive native charts.",
+      "features": [
+        "Line, multi-line, bar, multi-bar, pie and multi-pie charts.",
+        "Axes, legends, tooltips and gesture-driven selection."
+      ],
+      "constraints": [
+        "Give the parent an explicit height; data models differ by chart family.",
+        "Series/data colors are independent of shared component tones; inspect exported series types."
+      ],
+      "setup": [
+        "ThemeProvider and GestureHandlerRootView.",
+        "Install/configure Skia, Gesture Handler, Reanimated and Worklets peers."
+      ],
+      "recipes": ["metrics"]
+    },
+    "checkbox": {
+      "kind": "control",
+      "chooseWhen": "Choose independent options or represent a mixed selection.",
+      "features": [
+        "checked/defaultChecked/onCheckedChange; boolean or indeterminate.",
+        "Shared size, filled/outlined/soft variants, tones and disabling."
+      ],
+      "constraints": [
+        "Render a visible label beside the control; Checkbox has no children/label API.",
+        "Group values and aggregate indeterminate state belong to the application."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["account-form"]
+    },
+    "color-picker": {
+      "kind": "compound",
+      "chooseWhen": "Choose and edit a color inline.",
+      "features": [
+        "Immediate or confirm commit mode; controlled/uncontrolled color.",
+        "Spectrum, sliders, preview, channel/hex/alpha inputs, swatches and Apply/Cancel parts."
+      ],
+      "constraints": [
+        "Parts require ColorPicker.Root; the convenience component assembles a common layout.",
+        "Spectrum and selected color are data, not tone. Inputs inherit root tone; their field variant is independent.",
+        "Drag presentation freezes React field snapshots until release; native gesture validation is separate from typechecking."
+      ],
+      "setup": [
+        "ThemeProvider and GestureHandlerRootView.",
+        "Configure SVG, Gesture Handler, Reanimated and Worklets; no portal/overlay provider is needed."
+      ],
+      "recipes": ["color-settings"]
+    },
+    "core": {
+      "kind": "infrastructure",
+      "chooseWhen": "Reuse state, timing and callback behavior in React.",
+      "features": [
+        "Controlled/uncontrolled state, open state, stable event callbacks and timers.",
+        "Hardware Back subscriptions, deep merging and small utility helpers."
+      ],
+      "constraints": [
+        "Nonvisual package; do not render hooks or utilities as UI.",
+        "useEventCallback intentionally reads the latest handler with stable identity. Timer callback changes preserve countdown; BackHandler uses the current callback without resubscribing."
+      ],
+      "setup": [
+        "React; native hooks also require React Native. No ThemeProvider."
+      ],
+      "recipes": ["data-service"]
+    },
+    "data-state": {
+      "kind": "presentation",
+      "chooseWhen": "Coordinate loading, empty, error and content states.",
+      "features": [
+        "DataView coordinates state copy/actions; standalone loading/empty/error views.",
+        "Custom loaders, state details and tone-aware icons/actions."
+      ],
+      "constraints": [
+        "Supply the state detail props required by DataView; flags are application data.",
+        "Custom loading/content components own their layout and may ignore tone."
+      ],
+      "setup": ["ThemeProvider; configure Reanimated and Worklets."],
+      "recipes": ["data-list"]
+    },
+    "datetime": {
+      "kind": "control",
+      "chooseWhen": "Pick a date, time, date-time or range.",
+      "features": [
+        "Five convenience pickers; value/defaultValue/onChange.",
+        "Draft selection with Apply/Cancel, Clear, quick options, month/year Selects and nested time fields."
+      ],
+      "constraints": [
+        "Fields default to outlined/neutral. Variant and tone cross the portal into selects, time fields, quick tags and actions.",
+        "Calendar/range and wheel selection states keep their own state styling. Values are Date/time objects, not arbitrary strings."
+      ],
+      "setup": [
+        "ThemeProvider, GestureHandlerRootView and SafeAreaProvider.",
+        "PortalProvider with a stable PortalStore and a mounted PortalsHost; configure Gesture Handler, Reanimated and Worklets."
+      ],
+      "recipes": ["filters"]
+    },
+    "echo": {
+      "kind": "infrastructure",
+      "chooseWhen": "Send typed events between disconnected React consumers.",
+      "features": [
+        "Shared EchoInstance plus emitter/listener hooks and typed event contracts."
+      ],
+      "constraints": [
+        "An event bus is not persistent application state; component subscriptions clean up on unmount.",
+        "Inspect EchoEvents before inventing event names or payloads."
+      ],
+      "setup": ["React; no visual provider."],
+      "recipes": ["data-service"]
+    },
+    "endpoint": {
+      "kind": "infrastructure",
+      "chooseWhen": "Connect an Axios API client to TanStack Query.",
+      "features": [
+        "Query, infinite-query and mutation factories; imperative execute functions.",
+        "A shared endpoint factory binds a client."
+      ],
+      "constraints": [
+        "Use typed factory definitions rather than inventing URL/data props on visual components.",
+        "The application owns authentication, query keys, request types and error UX.",
+        "Standard query and mutation functions expose .execute; infinite-query factories return hooks only, without an imperative execute API."
+      ],
+      "setup": [
+        "Axios client and TanStack Query QueryClientProvider; install axios and @tanstack/react-query."
+      ],
+      "recipes": ["data-service"]
+    },
+    "flat-list": {
+      "kind": "native-wrapper",
+      "chooseWhen": "Render long virtualized lists with known item layouts.",
+      "features": [
+        "Native FlatList export and initial-scroll positioning hook."
+      ],
+      "constraints": [
+        "Native FlatList props are authoritative; this package does not manufacture List rows.",
+        "Use the initial-scroll helper when row sizes are known; use scroll-view for measured content."
+      ],
+      "setup": [
+        "React and React Native. No ThemeProvider is required by this wrapper."
+      ],
+      "recipes": ["data-list"]
+    },
+    "flyout": {
+      "kind": "compound",
+      "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
+      "features": [
+        "Callable sheet plus Root/Header/Title/Content/Handle parts.",
+        "Controlled open state, transition callbacks, safe-area layout and drag dismissal."
+      ],
+      "constraints": [
+        "Child-only parts do not generate header content; the convenience component supplies defaults.",
+        "Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
+      ],
+      "setup": [
+        "ThemeProvider, GestureHandlerRootView and SafeAreaProvider; Reanimated/Worklets setup.",
+        "Local portals additionally need PortalProvider/PortalsHost; registered sheets need OverlayProvider/OverlayHost."
+      ],
+      "recipes": ["details-dialog"]
+    },
+    "form-field": {
+      "kind": "composition",
+      "chooseWhen": "Add a label, description and validation to a custom control.",
+      "features": [
+        "Render-prop children receive controlProps and invalid/required flags."
+      ],
+      "constraints": [
+        "Spread supplied controlProps into the custom control.",
+        "FormField does not own the control value or perform validation; do not duplicate labels already supplied to Input."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["account-form"]
+    },
+    "icon": {
+      "kind": "visualization",
+      "chooseWhen": "Render a named SVG glyph with an explicit visual weight.",
+      "features": [
+        "Shared Icon renderer, numeric/shared sizes and color/fill overrides.",
+        "Named icon subpaths with bold, duotone, fill, light, regular and thin weights."
+      ],
+      "constraints": [
+        "Import glyphs from per-icon subpaths; toolkit does not re-export icon.",
+        "Icon variant means glyph weight, not filled/outlined/soft component appearance. Raw icons do not have tone."
+      ],
+      "setup": [
+        "ThemeProvider and react-native-svg; use icon-catalog.md for exact entrypoints."
+      ],
+      "recipes": ["profile-card"]
+    },
+    "icon-view": {
+      "kind": "presentation",
+      "chooseWhen": "Show an icon on a noninteractive themed surface.",
+      "features": [
+        "Size, filled/outlined/soft variants and shared tones; IconButton-aligned geometry."
+      ],
+      "constraints": [
+        "Not pressable: use IconButton when the icon performs an action.",
+        "Supply the icon; do not assume children become the glyph."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["profile-card"]
+    },
+    "input": {
+      "kind": "control",
+      "chooseWhen": "Enter single-line or multiline text.",
+      "features": [
+        "Input uses native value/onChangeText/defaultValue; password and keyboard props.",
+        "Textarea supports character count and bounded auto-grow; shared labels/errors/addons."
+      ],
+      "constraints": [
+        "Fields default to medium/outlined/neutral; explicit props select other appearances.",
+        "Input onChange is a native event callback; use onChangeText for a string.",
+        "Prefix/Suffix components are caller-owned content; PrefixIcon/SuffixIcon use themed addon styling."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["account-form", "field-appearances"]
+    },
+    "list": {
+      "kind": "presentation",
+      "chooseWhen": "Present rows with leading content, text and trailing actions.",
+      "features": [
+        "Callable items renderer and Root/Item/Pressable/Leading/Content/Trailing parts."
+      ],
+      "constraints": [
+        "List does not implement selection state or virtualize a long dataset.",
+        "Render arbitrary content into child-only parts; combine with FlatList for scale."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["data-list"]
+    },
+    "modal": {
+      "kind": "compound",
+      "chooseWhen": "Request focused confirmation or show a compact dialog.",
+      "features": [
+        "Callable dialog plus Provider/Root/Header/Title/Description/Content/Footer/Close.",
+        "Local open/lifecycle props or global OverlayStore registration."
+      ],
+      "constraints": [
+        "Modal.Root and Modal.Close require Modal.Provider; Header/Content/Footer/Title/Description are presentation parts. Use the convenience component to assemble the provider and common structure.",
+        "Custom Close content must be supplied; the part does not manufacture an X icon."
+      ],
+      "setup": [
+        "ThemeProvider and SafeAreaProvider; configure Reanimated/Worklets.",
+        "Use PortalProvider/PortalsHost for local portals or OverlayProvider/OverlayHost for global registration."
+      ],
+      "recipes": ["details-dialog"]
+    },
+    "overlay": {
+      "kind": "infrastructure",
+      "chooseWhen": "Register and coordinate an application-wide overlay stack.",
+      "features": [
+        "OverlayStore, Provider/Host and typed registration.",
+        "Lifecycle, timing, status, layer and visibility hooks."
+      ],
+      "constraints": [
+        "Create stores outside repeated renders or once with lazy state.",
+        "OverlayHost renders registered overlays; it is separate from the Portal host."
+      ],
+      "setup": [
+        "OverlayProvider with a stable OverlayStore and OverlayHost; visual overlays require their own peers/providers."
+      ],
+      "recipes": ["app-shell", "notifications"]
+    },
+    "pagination": {
+      "kind": "control",
+      "chooseWhen": "Navigate numbered pages with a controlled or uncontrolled page.",
+      "features": [
+        "Full/compact/adaptive layout, counts and navigation buttons.",
+        "Shared sizes and tone-aware active page styling."
+      ],
+      "constraints": [
+        "Pagination changes page state; it does not fetch or slice data.",
+        "Read page/pageCount prop names instead of assuming value/items."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["data-list"]
+    },
+    "popover": {
+      "kind": "compound",
+      "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",
+      "features": [
+        "Popover.Root/Trigger/Content and presentation parts; controlled/uncontrolled open.",
+        "Tooltip convenience component and host-relative positioning."
+      ],
+      "constraints": [
+        "Trigger/Content/Close require the same Popover.Root.",
+        "The portal host name must match; touch trigger modes differ from browser hover behavior."
+      ],
+      "setup": [
+        "ThemeProvider, SafeAreaProvider, PortalProvider and a matching PortalsHost.",
+        "Configure Reanimated/Worklets; see package peers."
+      ],
+      "recipes": ["anchored-actions"]
+    },
+    "portal": {
+      "kind": "infrastructure",
+      "chooseWhen": "Render local content in a named host elsewhere in the tree.",
+      "features": [
+        "PortalStore, PortalProvider, Portal, PortalHost and PortalsHost."
+      ],
+      "constraints": [
+        "Portal name must match a mounted host under the same store.",
+        "Do not assume arbitrary React context survives relocation; pass/re-provide context where the component requires it."
+      ],
+      "setup": [
+        "PortalProvider with a stable PortalStore and PortalsHost. No ThemeProvider is needed for portal infrastructure."
+      ],
+      "recipes": ["app-shell", "details-dialog"]
+    },
+    "primitives": {
+      "kind": "foundation",
+      "chooseWhen": "Build layouts, typography, actions and custom field composition.",
+      "features": [
+        "View/Pressable/SafeAreaView, Typography presets, buttons and icon buttons.",
+        "Avatar, Badge, Tag, Divider, Spinner and compound Control parts."
+      ],
+      "constraints": [
+        "Button/IconButton default to medium/filled/primary; Control.Field defaults to medium/outlined/neutral; Divider tone defaults to default.",
+        "Typography is a preset namespace, not shared state. Control parts consume Control.Provider/Field context.",
+        "Custom React node content owns its own foreground styling; a string child can use the component text defaults."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["app-shell", "profile-card", "field-appearances"]
+    },
+    "progress": {
+      "kind": "visualization",
+      "chooseWhen": "Show determinate progress or ongoing activity.",
+      "features": [
+        "Linear/circular shapes, determinate values and indeterminate animations.",
+        "Shared sizes and primary/secondary/neutral/inverse tones."
+      ],
+      "constraints": [
+        "variant means linear/circular geometry, not filled/outlined/soft.",
+        "No children/label slot is implied; add labels outside."
+      ],
+      "setup": ["ThemeProvider; SVG, Reanimated and Worklets configured."],
+      "recipes": ["metrics"]
+    },
+    "radio": {
+      "kind": "control",
+      "chooseWhen": "Choose one option using application-owned grouping.",
+      "features": [
+        "checked/defaultChecked/onCheckedChange and shared appearance/disabling."
+      ],
+      "constraints": [
+        "There is no RadioGroup API; the application owns exclusivity.",
+        "Render a visible label beside the control."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["account-form"]
+    },
+    "scroll-view": {
+      "kind": "native-wrapper",
+      "chooseWhen": "Scroll content and reveal an initially selected measured child.",
+      "features": ["Native ScrollView and measured initial-scroll hook."],
+      "constraints": [
+        "No virtualization; use FlatList for large datasets.",
+        "Attach the helper refs and layout/content callbacks as documented; it is not scroll-to-index for unknown items."
+      ],
+      "setup": [
+        "React and React Native. No ThemeProvider is required by this wrapper."
+      ],
+      "recipes": ["data-list"]
+    },
+    "segmented-control": {
+      "kind": "compound",
+      "chooseWhen": "Choose one of a few adjacent options.",
+      "features": [
+        "Root owns a value; Item provides a value, text or custom children.",
+        "Root size/variant/tone and disabled state propagate to items."
+      ],
+      "constraints": [
+        "Items require the same Root; nested roots own independent state.",
+        "Controlled mode requires value and forbids defaultValue; uncontrolled mode requires defaultValue. Do not pass both."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["filters"]
+    },
+    "select": {
+      "kind": "control",
+      "chooseWhen": "Choose one or multiple primitive values from a list.",
+      "features": [
+        "Select and MultiSelect; controlled/uncontrolled values and disabled options.",
+        "Caret defaults, initial-scroll-to-selection, loading and field addons."
+      ],
+      "constraints": [
+        "Options are label/value records with primitive values.",
+        "Defaults are outlined/neutral. Tone propagates to options and selected tags.",
+        "MultiSelect uses soft tags on filled fields and filled tags on outlined/soft fields; disabled tags are outlined and cannot be removed."
+      ],
+      "setup": [
+        "ThemeProvider, GestureHandlerRootView and SafeAreaProvider.",
+        "PortalProvider with stable PortalStore and PortalsHost; configure Gesture Handler, Reanimated and Worklets."
+      ],
+      "recipes": ["filters", "field-appearances"]
+    },
+    "skeleton": {
+      "kind": "compound",
+      "chooseWhen": "Represent the geometry of content while loading.",
+      "features": [
+        "Container, Bone, Text and token-matched component presets including Control, Button, Avatar, Slider and Textarea."
+      ],
+      "constraints": [
+        "Presets are placeholders, not disabled interactive components.",
+        "Match skeleton geometry to the content and use DataView/LoadingView to choose when to show it."
+      ],
+      "setup": ["ThemeProvider; Reanimated and Worklets configured."],
+      "recipes": ["data-list"]
+    },
+    "slider": {
+      "kind": "control",
+      "chooseWhen": "Adjust one numeric value or a numeric range.",
+      "features": [
+        "Slider/RangeSlider; marks, steps, labels and controlled/uncontrolled values.",
+        "Gesture callbacks and shared filled/outlined/soft variants and tones."
+      ],
+      "constraints": [
+        "Range values and callback payloads differ from single-value sliders; read SliderValue.",
+        "Numeric data and custom gradient tracks are distinct from tone; ensure min/max/step form valid bounds."
+      ],
+      "setup": [
+        "ThemeProvider and GestureHandlerRootView; Gesture Handler, Reanimated and Worklets configured."
+      ],
+      "recipes": ["filters"]
+    },
+    "stepper": {
+      "kind": "control",
+      "chooseWhen": "Coordinate an application-owned multi-step flow.",
+      "features": [
+        "Controlled current step with next/previous/goto context and imperative ref.",
+        "Separate tabs-style step navigation; tone propagates to steps/navigation."
+      ],
+      "constraints": [
+        "Not a form validator or uncontrolled wizard.",
+        "Items supply Component functions; the application owns current and onChange."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["onboarding"]
+    },
+    "storybook": {
+      "kind": "authoring",
+      "chooseWhen": "Author native component examples and discover supported options.",
+      "features": ["Description metadata helpers and shared option constants."],
+      "constraints": [
+        "Authoring package, not a component runtime; stories themselves are not public package exports.",
+        "Option arrays are not proof that every component supports every option; use component capability facts."
+      ],
+      "setup": [
+        "Install as a development dependency with the Storybook host; native preview uses the host providers."
+      ],
+      "recipes": ["story-authoring"]
+    },
+    "switch": {
+      "kind": "control",
+      "chooseWhen": "Toggle a persistent boolean setting.",
+      "features": [
+        "checked/defaultChecked/onCheckedChange; shared variants/tones and disabling."
+      ],
+      "constraints": [
+        "Provide adjacent label/help text; Switch does not render label children.",
+        "Application owns persistence; the control only emits the next checked state."
+      ],
+      "setup": ["ThemeProvider; Reanimated and Worklets configured."],
+      "recipes": ["account-form", "disclosure-settings"]
+    },
+    "tabs": {
+      "kind": "control",
+      "chooseWhen": "Switch between a few related content panels.",
+      "features": [
+        "Flat items API, controlled/uncontrolled value and disabled items.",
+        "Clip/scroll overflow; initially selected tab reveal and tone-aware underline."
+      ],
+      "constraints": [
+        "Only the active panel is rendered; preserve application state outside unmounted panels if necessary.",
+        "Tabs is not a Root/Item compound namespace and has no filled/outlined/soft variant axis."
+      ],
+      "setup": ["ThemeProvider; install the owning package peer dependencies."],
+      "recipes": ["onboarding"]
+    },
+    "theme": {
+      "kind": "foundation",
+      "chooseWhen": "Configure shared visual tokens and light/dark schemes.",
+      "features": [
+        "ThemeProvider, theme/token hooks, primitive/component factories and style props.",
+        "Theme overrides including token maps; explicit scheme and code font."
+      ],
+      "constraints": [
+        "Application chooses scheme; do not assume automatic system following.",
+        "Overrides are not a component variant. Use semantic roles; preserve validation/disabled/data colors."
+      ],
+      "setup": [
+        "ThemeProvider wraps themed components. Native host must load the configured fonts; default body family is Montserrat."
+      ],
+      "recipes": ["app-shell", "field-appearances"]
+    },
+    "toast": {
+      "kind": "compound",
+      "chooseWhen": "Show a transient status message with optional action.",
+      "features": [
+        "Callable Toast with compound title/description/icon/action/close parts.",
+        "Overlay registration, timed dismissal with background pause and feedback tones."
+      ],
+      "constraints": [
+        "Tone is success/info/warning/error, not primary/neutral/secondary.",
+        "Custom compound parts need Toast.Root; store-owned lifetime belongs to the registered overlay."
+      ],
+      "setup": [
+        "ThemeProvider, SafeAreaProvider, OverlayProvider and OverlayHost; configure SVG, Reanimated and Worklets."
+      ],
+      "recipes": ["notifications"]
+    },
+    "toolkit": {
+      "kind": "aggregate",
+      "chooseWhen": "Consume most library packages through one application import.",
+      "features": [
+        "Re-exports component, infrastructure, core and theme packages."
+      ],
+      "constraints": [
+        "Does not re-export icon or Storybook; use their owning packages.",
+        "Capability records are owned by individual packages; do not assume all exports share size/variant/tone."
+      ],
+      "setup": [
+        "Install toolkit and required peers for the features used; providers are still explicit."
+      ],
+      "recipes": ["app-shell"]
+    }
+  },
+  "components": {
+    "Button": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "IconButton": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Tag": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Avatar": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Badge": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "IconView": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Checkbox": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Radio": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Switch": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Slider": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "RangeSlider": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "SegmentedControl.Root": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "filled",
+        "tone": "primary",
+        "size": "medium"
+      }
+    },
+    "Input": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral",
+        "size": "medium"
+      },
+      "valueContract": "Input/Textarea use native value/onChangeText; Control.Field supplies composition context, not a value model."
+    },
+    "Textarea": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral",
+        "size": "medium"
+      },
+      "valueContract": "Input/Textarea use native value/onChangeText; Control.Field supplies composition context, not a value model."
+    },
+    "Control.Field": {
+      "requiredProps": ["variant", "tone", "size"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral",
+        "size": "medium"
+      },
+      "valueContract": "Input/Textarea use native value/onChangeText; Control.Field supplies composition context, not a value model."
+    },
+    "DatePicker": {
+      "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral"
+      },
+      "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+      "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+    },
+    "DateRangePicker": {
+      "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral"
+      },
+      "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+      "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+    },
+    "DatetimePicker": {
+      "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral"
+      },
+      "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+      "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+    },
+    "DatetimeRangePicker": {
+      "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral"
+      },
+      "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+      "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+    },
+    "TimePicker": {
+      "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
+      "expectedDefaults": {
+        "variant": "outlined",
+        "tone": "neutral"
+      },
+      "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
+      "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+    },
+    "Select": {
+      "requiredProps": [
+        "variant",
+        "tone",
+        "options",
+        "value",
+        "defaultValue",
+        "onChange"
+      ],
+      "expectedDefaults": {
+        "tone": "neutral"
+      },
+      "inheritedDefaults": {
+        "variant": "outlined",
+        "size": "medium",
+        "from": "Control.Field"
+      },
+      "valueContract": "Select holds one primitive or empty value; MultiSelect holds an array. Options are {label,value,disabled?}."
+    },
+    "MultiSelect": {
+      "requiredProps": [
+        "variant",
+        "tone",
+        "options",
+        "value",
+        "defaultValue",
+        "onChange"
+      ],
+      "expectedDefaults": {
+        "tone": "neutral"
+      },
+      "inheritedDefaults": {
+        "variant": "outlined",
+        "size": "medium",
+        "from": "Control.Field"
+      },
+      "valueContract": "Select holds one primitive or empty value; MultiSelect holds an array. Options are {label,value,disabled?}."
+    },
+    "Divider": {
+      "requiredProps": ["tone"],
+      "expectedDefaults": {
+        "tone": "default"
+      },
+      "semantics": "Separator border-intensity tones include subtle/default/strong; primary is opt-in."
+    },
+    "Progress": {
+      "requiredProps": ["variant", "tone", "value"],
+      "expectedDefaults": {
+        "variant": "linear",
+        "tone": "primary"
+      },
+      "semantics": "variant controls shape (linear/circular); tone controls indicator palette."
+    },
+    "Tabs": {
+      "requiredProps": ["items", "value", "defaultValue", "onValueChange"],
+      "mountPolicy": "Only the active panel is rendered; items are a flat array, not Tabs.Item children."
+    },
+    "Accordion.Root": {
+      "requiredProps": ["type", "value", "defaultValue", "onValueChange"],
+      "valueContract": "Single mode uses string; multiple mode uses string[]."
+    },
+    "Accordion.Trigger": {
+      "requiresParent": "Accordion.Item inside Accordion.Root",
+      "contentContract": "Render supplied children; the part does not invent label/icon content."
+    },
+    "Accordion.Content": {
+      "requiresParent": "Accordion.Item inside Accordion.Root",
+      "contentContract": "Render supplied children; the part does not invent label/icon content."
+    },
+    "Accordion.Indicator": {
+      "requiresParent": "Accordion.Item inside Accordion.Root",
+      "contentContract": "Render supplied children; the part does not invent label/icon content."
+    },
+    "SegmentedControl.Item": {
+      "requiresParent": "SegmentedControl.Root",
+      "inheritance": "Root owns size, variant, tone and group disabled state."
+    },
+    "Popover.Trigger": {
+      "requiresParent": "Popover.Root",
+      "contentContract": "Render supplied children; portal Content re-provides its required context."
+    },
+    "Popover.Content": {
+      "requiresParent": "Popover.Root",
+      "contentContract": "Render supplied children; portal Content re-provides its required context."
+    },
+    "Popover.Close": {
+      "requiresParent": "Popover.Root",
+      "contentContract": "Render supplied children; portal Content re-provides its required context."
+    },
+    "ColorPicker.Spectrum": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.HexInput": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.ChannelInput": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.AlphaInput": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.HueSlider": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.AlphaSlider": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.Apply": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.Cancel": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.Swatch": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker.Preview": {
+      "requiresParent": "ColorPicker.Root (the convenience component supplies one)",
+      "inheritance": "Root owns color/commit mode/disabled/size/tone. Explicit child appearance props override supported inherited props."
+    },
+    "ColorPicker": {
+      "requiredProps": [
+        "value",
+        "defaultValue",
+        "onChange",
+        "commitMode",
+        "tone"
+      ],
+      "valueContract": "Color strings; immediate commits during edits, confirm commits with Apply. Spectrum colors are data.",
+      "delegatedDefaults": {
+        "source": "packages/color-picker/src/hooks/use-color-picker.hook.ts",
+        "function": "useColorPicker",
+        "expected": {
+          "size": "medium",
+          "tone": "primary",
+          "commitMode": "immediate"
+        }
+      }
+    },
+    "Control.Input": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+    },
+    "Control.Value": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+    },
+    "Control.Placeholder": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+    },
+    "Control.Icon": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels.",
+      "semantics": "Its variant prop selects the glyph weight through IconProps. The field visual variant/tone come from Control context."
+    },
+    "Control.Loader": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels.",
+      "semantics": "Uses the field addon foreground. An explicit color override can replace it; Spinner tone alone does not replace the supplied field foreground."
+    },
+    "Control.Container": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "contentContract": "Composition primitive; use Input/Select for assembled default icons and labels."
+    },
+    "Card.Root": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "Card.Pressable": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "Card.Header": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "Card.Content": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "Card.Footer": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "Card.Media": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "List.Root": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "List.Item": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "List.Pressable": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "List.Leading": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "List.Content": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "List.Trailing": {
+      "contentContract": "Child-only presentation. No shared selection state is implied by the dotted namespace."
+    },
+    "Toast": {
+      "requiredProps": ["tone"],
+      "expectedDefaults": {
+        "tone": "success"
+      },
+      "semantics": "Feedback tones only; not the shared brand tone axis."
+    },
+    "Toast.Title": {
+      "requiresParent": "Toast.Root (the convenience Toast supplies one)",
+      "contentContract": "Provide child content for composition parts; convenience Toast supplies its default icon/close content."
+    },
+    "Toast.Description": {
+      "requiresParent": "Toast.Root (the convenience Toast supplies one)",
+      "contentContract": "Provide child content for composition parts; convenience Toast supplies its default icon/close content."
+    },
+    "Toast.Content": {
+      "requiresParent": "Toast.Root (the convenience Toast supplies one)",
+      "contentContract": "Provide child content for composition parts; convenience Toast supplies its default icon/close content."
+    },
+    "Toast.Icon": {
+      "requiresParent": "Toast.Root (the convenience Toast supplies one)",
+      "contentContract": "Provide child content for composition parts; convenience Toast supplies its default icon/close content."
+    },
+    "Toast.Action": {
+      "requiresParent": "Toast.Root (the convenience Toast supplies one)",
+      "contentContract": "Provide child content for composition parts; convenience Toast supplies its default icon/close content.",
+      "contextOwnedAppearance": "Tone comes from Toast.Root; these are not standalone Button appearance controls."
+    },
+    "Toast.Close": {
+      "requiresParent": "Toast.Root (the convenience Toast supplies one)",
+      "contentContract": "Provide child content for composition parts; convenience Toast supplies its default icon/close content.",
+      "contextOwnedAppearance": "Tone comes from Toast.Root; these are not standalone Button appearance controls."
+    },
+    "Control.Trigger": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "inheritance": "Appearance/disabled/error state comes from field context."
+    },
+    "Control.Label": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "inheritance": "Appearance/disabled/error state comes from field context."
+    },
+    "Control.Addon": {
+      "requiresParent": "Control.Provider (normally supplied by Control.Field)",
+      "inheritance": "Appearance/disabled/error state comes from field context."
+    },
+    "Modal.Root": {
+      "requiresParent": "Modal.Provider"
+    },
+    "Modal.Close": {
+      "requiresParent": "Modal.Provider",
+      "contentContract": "Render supplied children; no automatic close icon."
+    },
+    "Accordion.Item": {
+      "requiresParent": "Accordion.Root"
+    },
+    "ColorPicker.Root": {
+      "delegatedDefaults": {
+        "source": "packages/color-picker/src/hooks/use-color-picker.hook.ts",
+        "function": "useColorPicker",
+        "expected": {
+          "size": "medium",
+          "tone": "primary",
+          "commitMode": "immediate"
+        }
+      }
+    },
+    "DataView": {
+      "requiredProps": [
+        "loading",
+        "error",
+        "isEmpty",
+        "LoadingComponent",
+        "errorViewProps",
+        "emptyViewProps"
+      ],
+      "mountPolicy": "Successful content stays mounted and hidden under the loader while loading without error/empty flags. Error/empty flags remove successful content.",
+      "statePrecedence": "Error and empty details can both render if both flags are active; applications should choose flags deliberately."
+    }
+  }
+}
