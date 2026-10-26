@@ -32,7 +32,6 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
     onPressClear,
     clearable,
     tone = "neutral",
-    variant = "outlined",
     ...rest
   } = props;
 
@@ -147,8 +146,6 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
           </View>
 
           <DatetimePickerFlyoutActions
-            variant={variant}
-            tone={tone}
             canClear={Boolean(value && clearable)}
             onPressApply={onPressApply}
             onPressCancel={onPressCancel}

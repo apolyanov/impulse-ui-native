@@ -3,17 +3,11 @@ import { memo, useCallback, useMemo } from "react";
 import { CalendarDotsIcon } from "@impulse-ui-native/icon/icons/calendar-dots";
 import { View } from "@impulse-ui-native/primitives";
 import { Select, SelectOption } from "@impulse-ui-native/select";
-import {
-  ComponentTone,
-  FieldVariant,
-  useComponentsTokens,
-} from "@impulse-ui-native/theme";
+import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { getMonthNames, getYears } from "../../utils";
 
 interface VisibleDateSelectProps {
-  tone?: ComponentTone;
-  variant?: FieldVariant;
   value: Date;
   defaultValue?: Date;
   onChange: (value: Date) => void;
@@ -72,8 +66,8 @@ export const VisibleDateSelect = memo(function VisibleDateSelect(
     <View flexDirection="row" gap={tokens.datetimePicker.visibleDateSelect.gap}>
       <View flex={1}>
         <Select
-          tone={props.tone}
-          variant={props.variant}
+          tone="neutral"
+          variant="outlined"
           options={monthOptions}
           value={props.value.getMonth()}
           defaultValue={defaultMonth}
@@ -85,8 +79,8 @@ export const VisibleDateSelect = memo(function VisibleDateSelect(
 
       <View flex={1}>
         <Select
-          tone={props.tone}
-          variant={props.variant}
+          tone="neutral"
+          variant="outlined"
           options={yearOptions}
           value={props.value.getFullYear()}
           defaultValue={defaultYear}

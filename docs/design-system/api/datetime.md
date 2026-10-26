@@ -82,6 +82,10 @@ timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].
 
 Start with the [capability guide](../capabilities/datetime.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
 
+### Flyout visual hierarchy
+
+`variant` styles the trigger field. Flyout surfaces and month/year fields remain neutral. Nested time fields use outlined/neutral styling; their wheel selections retain the parent selection tone. `tone` accents selected calendar days, time values and selected quick-date shortcuts. Unselected shortcuts are outlined/neutral; selected shortcuts are soft in the accent tone. Apply always uses filled/primary, Cancel outlined/neutral, and Clear neutral text. `pickerTone` can override the selection accent.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -108,7 +112,6 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
     tone = "neutral",
     variant = "outlined",
     pickerTone = tone,
-    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -142,7 +145,6 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
 
       <DatePickerFlyout
         tone={pickerTone}
-        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -187,7 +189,6 @@ export const DateRangePicker = memo(function DateRangePicker(
     tone = "neutral",
     variant = "outlined",
     pickerTone = tone,
-    pickerVariant = variant,
     quickDateOptions,
     clearable = true,
     ...rest
@@ -224,7 +225,6 @@ export const DateRangePicker = memo(function DateRangePicker(
 
       <DatePickerFlyout
         tone={pickerTone}
-        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -270,7 +270,6 @@ export const DatetimePicker = memo(function DatetimePicker(
     tone = "neutral",
     variant = "outlined",
     pickerTone = tone,
-    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -305,7 +304,6 @@ export const DatetimePicker = memo(function DatetimePicker(
 
       <DatetimePickerFlyout
         tone={pickerTone}
-        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -352,7 +350,6 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
     tone = "neutral",
     variant = "outlined",
     pickerTone = tone,
-    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -390,7 +387,6 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
 
       <DatetimeRangePickerFlyout
         tone={pickerTone}
-        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -447,7 +443,6 @@ export const TimePicker = memo(function TimePicker({
   tone = "neutral",
   variant = "outlined",
   pickerTone = tone,
-  pickerVariant = variant,
   clearable = true,
   onChange,
   PrefixIcon = ClockIcon,
@@ -484,7 +479,6 @@ export const TimePicker = memo(function TimePicker({
       ) : null}
       <TimePickerFlyout
         tone={pickerTone}
-        variant={pickerVariant}
         id={id}
         title="Time"
         open={isOpen}
@@ -513,7 +507,7 @@ export * from "./utils";
 ### packages/datetime/src/types/common.types.ts
 
 ```tsx
-import type { ComponentTone, FieldVariant } from "@impulse-ui-native/theme";
+import type { ComponentTone } from "@impulse-ui-native/theme";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
 import {
   ControlComponentCommonProps,
@@ -550,7 +544,6 @@ export interface QuickDateOption<Value> {
 }
 
 export interface PickerFlyoutActions {
-  variant?: FieldVariant;
   tone?: ComponentTone;
   clearable?: boolean;
   onPressApply?: PressableCoreProps["onPress"];
@@ -560,7 +553,6 @@ export interface PickerFlyoutActions {
 
 export interface DatetimePickerCommonProps
   extends Partial<ControlComponentProps>, ControlComponentCommonProps {
-  pickerVariant?: FieldVariant;
   pickerTone?: ComponentTone;
   clearable?: boolean;
 }
@@ -783,7 +775,7 @@ export function createCalendarRange(
 }
 
 export function getQuickOptionKey(value: Date | TimeRange) {
-  if ("start" in value && "end" in value) {
+  if ("start" in value || "end" in value) {
     return `${value.start?.toISOString()}-${value.end?.toISOString()}`;
   }
 

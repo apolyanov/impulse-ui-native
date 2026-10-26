@@ -116,7 +116,11 @@ for (const variant of ["filled", "outlined", "soft"]) {
       for (const type of ["DateControl", flyout]) {
         const node = nodes.find((item) => item.type === type);
         assert(node, `${name}: missing ${type}`);
-        assert.equal(node.props.variant, variant, `${name} -> ${type} variant`);
+        assert.equal(
+          node.props.variant,
+          type === "DateControl" ? variant : undefined,
+          `${name} -> ${type} variant`,
+        );
         assert.equal(node.props.tone, tone, `${name} -> ${type} tone`);
         checks++;
       }
@@ -128,7 +132,8 @@ for (const variant of ["filled", "outlined", "soft"]) {
       const Component = load(`packages/datetime/src/components/${file}.tsx`)[
         name
       ];
-      const nodes = descendants(Component(props));
+      const { variant: _triggerVariant, ...flyoutProps } = props;
+      const nodes = descendants(Component(flyoutProps));
       const children = nodes.filter((node) =>
         [
           "VisibleDateSelect",
@@ -139,12 +144,14 @@ for (const variant of ["filled", "outlined", "soft"]) {
       );
       assert(children.length > 0);
       for (const node of children) {
+        const nestedField = node.type === "TimePicker";
+        assert.equal(node.props.variant, nestedField ? "outlined" : undefined);
+        const accentContent = node.type === "QuickDateOptions";
         assert.equal(
-          node.props.variant,
-          variant,
-          `${name} -> ${node.type} variant`,
+          node.props.tone,
+          nestedField ? "neutral" : accentContent ? tone : undefined,
         );
-        assert.equal(node.props.tone, tone, `${name} -> ${node.type} tone`);
+        if (nestedField) assert.equal(node.props.pickerTone, tone);
         checks++;
       }
       assert.equal(
@@ -175,8 +182,10 @@ for (const variant of ["filled", "outlined", "soft"]) {
       );
       assert.equal(children.length, 2);
       for (const node of children) {
-        assert.equal(node.props.variant, variant);
-        assert.equal(node.props.tone, tone);
+        const isAction = childType === "Button";
+        const isApply = isAction && node.props.children === "Apply";
+        assert.equal(node.props.variant, isApply ? "filled" : "outlined");
+        assert.equal(node.props.tone, isApply ? "primary" : "neutral");
         checks++;
       }
     }
@@ -190,8 +199,26 @@ for (const variant of ["filled", "outlined", "soft"]) {
       "packages/datetime/src/components/common/quick-date-option-tag.tsx",
     );
     const tag = QuickDateOptionTag(tagNode.props);
-    assert.equal(tag.props.variant, variant);
-    assert.equal(tag.props.tone, tone);
+    assert.equal(tag.props.variant, "outlined");
+    assert.equal(tag.props.tone, "neutral");
+    const selectedTag = QuickDateOptionTag({
+      ...tagNode.props,
+      selected: true,
+    });
+    assert.equal(selectedTag.props.variant, "soft");
+    assert.equal(selectedTag.props.tone, tone);
+    const selectedNodes = descendants(
+      QuickDateOptions({
+        ...props,
+        value: props.quickDateOptions[0].value,
+        options: props.quickDateOptions,
+      }),
+    );
+    assert.equal(
+      selectedNodes.find((node) => node.type === "QuickDateOptionTag").props
+        .selected,
+      true,
+    );
     checks++;
   }
 }

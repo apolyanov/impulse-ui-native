@@ -148,7 +148,7 @@ export function createCalendarRange(
 }
 
 export function getQuickOptionKey(value: Date | TimeRange) {
-  if ("start" in value && "end" in value) {
+  if ("start" in value || "end" in value) {
     return `${value.start?.toISOString()}-${value.end?.toISOString()}`;
   }
 

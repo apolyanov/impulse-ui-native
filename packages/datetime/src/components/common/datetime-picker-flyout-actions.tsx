@@ -1,11 +1,7 @@
 import { memo } from "react";
 import { StyleSheet } from "react-native";
 
-import type {
-  AppTheme,
-  ComponentTone,
-  FieldVariant,
-} from "@impulse-ui-native/theme";
+import type { AppTheme } from "@impulse-ui-native/theme";
 import {
   Button,
   Pressable,
@@ -17,8 +13,6 @@ import { useComponentsTokens, useThemedStyles } from "@impulse-ui-native/theme";
 import { DatetimePickerFlyoutCommonProps } from "../../types";
 
 interface DatetimePickerFlyoutActionsProps {
-  tone?: ComponentTone;
-  variant?: FieldVariant;
   canClear?: boolean;
   onPressApply: DatetimePickerFlyoutCommonProps["onPressApply"];
   onPressCancel: DatetimePickerFlyoutCommonProps["onPressCancel"];
@@ -34,8 +28,7 @@ export const DatetimePickerFlyoutActions = memo(
 
     const flyoutActionsTokens = tokens.datetimePicker.flyoutActions;
 
-    const tone = props.tone ?? "neutral";
-    const clearColor = flyoutActionsTokens.colors[tone].clearColor;
+    const clearColor = flyoutActionsTokens.colors.neutral.clearColor;
 
     return (
       <View gap={flyoutActionsTokens.gap}>
@@ -49,7 +42,7 @@ export const DatetimePickerFlyoutActions = memo(
 
         <View flexDirection="row" gap={flyoutActionsTokens.buttonsGap}>
           <Button
-            tone={tone}
+            tone="neutral"
             variant="outlined"
             style={styles.action}
             onPress={props.onPressCancel}
@@ -57,7 +50,8 @@ export const DatetimePickerFlyoutActions = memo(
             Cancel
           </Button>
           <Button
-            tone={tone}
+            tone="primary"
+            variant="filled"
             style={styles.action}
             onPress={props.onPressApply}
           >

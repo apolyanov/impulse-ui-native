@@ -17,7 +17,6 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
     tone = "neutral",
     variant = "outlined",
     pickerTone = tone,
-    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -51,7 +50,6 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
 
       <DatePickerFlyout
         tone={pickerTone}
-        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"

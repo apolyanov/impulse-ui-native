@@ -75,3 +75,7 @@ timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].
 ## Agent and design reference
 
 Start with the [capability guide](../../docs/design-system/capabilities/datetime.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+### Flyout visual hierarchy
+
+`variant` styles the trigger field. Flyout surfaces and month/year fields remain neutral. Nested time fields use outlined/neutral styling; their wheel selections retain the parent selection tone. `tone` accents selected calendar days, time values and selected quick-date shortcuts. Unselected shortcuts are outlined/neutral; selected shortcuts are soft in the accent tone. Apply always uses filled/primary, Cancel outlined/neutral, and Clear neutral text. `pickerTone` can override the selection accent.

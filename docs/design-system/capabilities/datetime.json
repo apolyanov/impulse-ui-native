@@ -33,7 +33,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 50
+            "line": 48
           }
         },
         {
@@ -106,17 +106,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 49
-          }
-        },
-        {
-          "name": "pickerVariant",
-          "required": false,
-          "type": "FieldVariant | undefined",
-          "choices": ["filled", "outlined", "soft"],
-          "source": {
-            "file": "packages/datetime/src/types/common.types.ts",
-            "line": 48
+            "line": 47
           }
         },
         {
@@ -288,13 +278,6 @@
             "file": "packages/datetime/src/components/date/date-picker.tsx",
             "line": 19
           }
-        },
-        "pickerVariant": {
-          "expression": "variant",
-          "source": {
-            "file": "packages/datetime/src/components/date/date-picker.tsx",
-            "line": 20
-          }
         }
       },
       "defaultResolution": "direct-source-only",
@@ -311,7 +294,7 @@
           "tone": "neutral"
         },
         "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+        "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
       }
     },
     {
@@ -327,7 +310,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 50
+            "line": 48
           }
         },
         {
@@ -400,17 +383,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 49
-          }
-        },
-        {
-          "name": "pickerVariant",
-          "required": false,
-          "type": "FieldVariant | undefined",
-          "choices": ["filled", "outlined", "soft"],
-          "source": {
-            "file": "packages/datetime/src/types/common.types.ts",
-            "line": 48
+            "line": 47
           }
         },
         {
@@ -575,19 +548,12 @@
             "line": 20
           }
         },
-        "pickerVariant": {
-          "expression": "variant",
-          "source": {
-            "file": "packages/datetime/src/components/date/date-range-picker.tsx",
-            "line": 21
-          }
-        },
         "clearable": {
           "expression": "true",
           "value": true,
           "source": {
             "file": "packages/datetime/src/components/date/date-range-picker.tsx",
-            "line": 23
+            "line": 22
           }
         }
       },
@@ -605,7 +571,7 @@
           "tone": "neutral"
         },
         "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+        "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
       }
     },
     {
@@ -621,7 +587,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 50
+            "line": 48
           }
         },
         {
@@ -694,17 +660,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 49
-          }
-        },
-        {
-          "name": "pickerVariant",
-          "required": false,
-          "type": "FieldVariant | undefined",
-          "choices": ["filled", "outlined", "soft"],
-          "source": {
-            "file": "packages/datetime/src/types/common.types.ts",
-            "line": 48
+            "line": 47
           }
         },
         {
@@ -876,13 +832,6 @@
             "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
             "line": 21
           }
-        },
-        "pickerVariant": {
-          "expression": "variant",
-          "source": {
-            "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
-            "line": 22
-          }
         }
       },
       "defaultResolution": "direct-source-only",
@@ -899,7 +848,7 @@
           "tone": "neutral"
         },
         "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+        "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
       }
     },
     {
@@ -915,7 +864,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 50
+            "line": 48
           }
         },
         {
@@ -988,17 +937,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 49
-          }
-        },
-        {
-          "name": "pickerVariant",
-          "required": false,
-          "type": "FieldVariant | undefined",
-          "choices": ["filled", "outlined", "soft"],
-          "source": {
-            "file": "packages/datetime/src/types/common.types.ts",
-            "line": 48
+            "line": 47
           }
         },
         {
@@ -1170,13 +1109,6 @@
             "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
             "line": 21
           }
-        },
-        "pickerVariant": {
-          "expression": "variant",
-          "source": {
-            "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
-            "line": 22
-          }
         }
       },
       "defaultResolution": "direct-source-only",
@@ -1193,7 +1125,7 @@
           "tone": "neutral"
         },
         "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+        "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
       }
     },
     {
@@ -1209,7 +1141,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 50
+            "line": 48
           }
         },
         {
@@ -1282,17 +1214,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 49
-          }
-        },
-        {
-          "name": "pickerVariant",
-          "required": false,
-          "type": "FieldVariant | undefined",
-          "choices": ["filled", "outlined", "soft"],
-          "source": {
-            "file": "packages/datetime/src/types/common.types.ts",
-            "line": 48
+            "line": 47
           }
         },
         {
@@ -1448,26 +1370,19 @@
             "line": 18
           }
         },
-        "pickerVariant": {
-          "expression": "variant",
-          "source": {
-            "file": "packages/datetime/src/components/time/time-picker.tsx",
-            "line": 19
-          }
-        },
         "clearable": {
           "expression": "true",
           "value": true,
           "source": {
             "file": "packages/datetime/src/components/time/time-picker.tsx",
-            "line": 20
+            "line": 19
           }
         },
         "PrefixIcon": {
           "expression": "ClockIcon",
           "source": {
             "file": "packages/datetime/src/components/time/time-picker.tsx",
-            "line": 22
+            "line": 21
           }
         }
       },
@@ -1485,7 +1400,7 @@
           "tone": "neutral"
         },
         "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-        "inheritance": "variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling."
+        "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
       }
     }
   ],
@@ -1601,7 +1516,7 @@
       "kind": "type",
       "source": {
         "file": "packages/datetime/src/types/common.types.ts",
-        "line": 46
+        "line": 45
       }
     },
     {
@@ -1609,7 +1524,7 @@
       "kind": "type",
       "source": {
         "file": "packages/datetime/src/types/common.types.ts",
-        "line": 53
+        "line": 51
       }
     },
     {

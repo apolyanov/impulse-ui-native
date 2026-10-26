@@ -29,7 +29,6 @@ export const DatetimeRangePickerFlyout = memo(
       value,
       clearable,
       tone = "neutral",
-      variant = "outlined",
       quickDateOptions,
       onPressQuickDateOption,
       onChangeVisible,
@@ -77,12 +76,7 @@ export const DatetimeRangePickerFlyout = memo(
       <Portal>
         <Flyout {...rest}>
           <View gap={datetimeRangePickerTokens.gap}>
-            <VisibleDateSelect
-              variant={variant}
-              tone={tone}
-              value={visible}
-              onChange={onChangeVisible}
-            />
+            <VisibleDateSelect value={visible} onChange={onChangeVisible} />
             <Calendar
               tone={tone}
               value={value}
@@ -96,8 +90,9 @@ export const DatetimeRangePickerFlyout = memo(
             >
               <View flex={1}>
                 <TimePicker
-                  variant={variant}
-                  tone={tone}
+                  variant="outlined"
+                  tone="neutral"
+                  pickerTone={tone}
                   value={timeStartValue}
                   defaultValue={timeStartValue}
                   clearable={false}
@@ -108,8 +103,9 @@ export const DatetimeRangePickerFlyout = memo(
               </View>
               <View flex={1}>
                 <TimePicker
-                  variant={variant}
-                  tone={tone}
+                  variant="outlined"
+                  tone="neutral"
+                  pickerTone={tone}
                   value={timeEndValue}
                   defaultValue={timeEndValue}
                   clearable={false}
@@ -122,15 +118,13 @@ export const DatetimeRangePickerFlyout = memo(
 
             {hasQuickDateOptions ? (
               <QuickDateOptions
-                variant={variant}
+                value={value}
                 tone={tone}
                 options={quickDateOptions}
                 onPress={onPressQuickDateOption}
               />
             ) : null}
             <DatetimePickerFlyoutActions
-              variant={variant}
-              tone={tone}
               canClear={Boolean(value && clearable)}
               onPressApply={onPressApply}
               onPressCancel={onPressCancel}
