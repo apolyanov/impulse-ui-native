@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/echo",
   "slug": "echo",
-  "version": "15.0.3",
+  "version": "15.0.4",
   "guidance": {
     "kind": "infrastructure",
     "chooseWhen": "Send typed events between disconnected React consumers.",

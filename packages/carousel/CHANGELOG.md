@@ -1,5 +1,14 @@
 # @impulse-ui-native/carousel
 
+## 15.0.4
+
+### Patch Changes
+
+- @impulse-ui-native/core@15.0.4
+- @impulse-ui-native/icon@15.0.4
+- @impulse-ui-native/primitives@15.0.4
+- @impulse-ui-native/theme@15.0.4
+
 ## 15.0.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/slider",
-  "version": "15.0.3",
+  "version": "15.0.4",
   "description": "Slider and range slider controls for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/endpoint",
   "slug": "endpoint",
-  "version": "15.0.3",
+  "version": "15.0.4",
   "guidance": {
     "kind": "infrastructure",
     "chooseWhen": "Connect an Axios API client to TanStack Query.",

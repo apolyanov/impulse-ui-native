@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/skeleton",
   "slug": "skeleton",
-  "version": "15.0.3",
+  "version": "15.0.4",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Represent the geometry of content while loading.",

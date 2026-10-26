@@ -1,6 +1,6 @@
 # @impulse-ui-native/portal
 
-Local package version: 15.0.3. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 15.0.4. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

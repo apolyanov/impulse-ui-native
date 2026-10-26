@@ -1,5 +1,11 @@
 # @impulse-ui-native/progress
 
+## 15.0.4
+
+### Patch Changes
+
+- @impulse-ui-native/theme@15.0.4
+
 ## 15.0.3
 
 ### Patch Changes
