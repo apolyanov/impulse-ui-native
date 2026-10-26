@@ -1,7 +1,11 @@
 import { memo } from "react";
 import { StyleSheet } from "react-native";
 
-import type { AppTheme, ComponentTone } from "@impulse-ui-native/theme";
+import type {
+  AppTheme,
+  ComponentTone,
+  FieldVariant,
+} from "@impulse-ui-native/theme";
 import {
   Button,
   Pressable,
@@ -14,6 +18,7 @@ import { DatetimePickerFlyoutCommonProps } from "../../types";
 
 interface DatetimePickerFlyoutActionsProps {
   tone?: ComponentTone;
+  variant?: FieldVariant;
   canClear?: boolean;
   onPressApply: DatetimePickerFlyoutCommonProps["onPressApply"];
   onPressCancel: DatetimePickerFlyoutCommonProps["onPressCancel"];
@@ -45,14 +50,15 @@ export const DatetimePickerFlyoutActions = memo(
         <View flexDirection="row" gap={flyoutActionsTokens.buttonsGap}>
           <Button
             tone={tone}
+            variant={props.variant ?? "outlined"}
             style={styles.action}
             onPress={props.onPressCancel}
-            variant="outlined"
           >
             Cancel
           </Button>
           <Button
             tone={tone}
+            variant={props.variant ?? "outlined"}
             style={styles.action}
             onPress={props.onPressApply}
           >

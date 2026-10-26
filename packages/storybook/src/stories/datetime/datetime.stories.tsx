@@ -96,3 +96,13 @@ function createDatetimeStory(name: string): Story {
     parameters: createStoryDescription(example.description),
   };
 }
+
+export const FilledInheritance: Story = {
+  ...createDatetimeStory("DatetimeRange"),
+  args: { variant: "filled", tone: "primary" },
+};
+
+export const SoftInheritance: Story = {
+  ...createDatetimeStory("Datetime"),
+  args: { variant: "soft", tone: "secondary" },
+};

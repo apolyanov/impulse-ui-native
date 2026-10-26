@@ -17,6 +17,7 @@ export const DatetimePicker = memo(function DatetimePicker(
     onChange,
     placeholder,
     tone = "neutral",
+    variant = "outlined",
     quickDateOptions,
     ...rest
   } = props;
@@ -40,7 +41,7 @@ export const DatetimePicker = memo(function DatetimePicker(
   } = useDatetimePicker({ value, defaultValue, onChange });
 
   return (
-    <DateControl tone={tone} {...rest} onPress={onPressOpen}>
+    <DateControl variant={variant} tone={tone} {...rest} onPress={onPressOpen}>
       {selected === null ? (
         <Control.Placeholder>{placeholder}</Control.Placeholder>
       ) : null}
@@ -51,6 +52,7 @@ export const DatetimePicker = memo(function DatetimePicker(
 
       <DatetimePickerFlyout
         tone={tone}
+        variant={variant}
         id={id}
         open={isOpen}
         title="Date"

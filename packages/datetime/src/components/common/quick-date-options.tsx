@@ -1,37 +1,23 @@
 import { memo } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 
-import type { AppTheme, ComponentTone } from "@impulse-ui-native/theme";
-import { useEventCallback } from "@impulse-ui-native/core";
-import { Tag } from "@impulse-ui-native/primitives";
+import type {
+  AppTheme,
+  ComponentTone,
+  FieldVariant,
+} from "@impulse-ui-native/theme";
 import { useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { QuickDateOption, TimeRange } from "../../types";
 import { getQuickOptionKey } from "../../utils";
+import { QuickDateOptionTag } from "./quick-date-option-tag";
 
 interface QuickDateOptionsProps {
   tone?: ComponentTone;
+  variant?: FieldVariant;
   options: QuickDateOption<Date | TimeRange>[];
   onPress?: (date: QuickDateOption<Date | TimeRange>["value"]) => void;
 }
-
-interface QuickDateOptionTagProps {
-  tone?: ComponentTone;
-  option: QuickDateOption<Date | TimeRange>;
-  onPress?: QuickDateOptionsProps["onPress"];
-}
-
-const QuickDateOptionTag = memo(function QuickDateOptionTag(
-  props: QuickDateOptionTagProps,
-) {
-  const handlePress = useEventCallback(() =>
-    props.onPress?.(props.option.value),
-  );
-
-  return (
-    <Tag tone={props.tone} label={props.option.label} onPress={handlePress} />
-  );
-});
 
 export const QuickDateOptions = memo(function QuickDateOptions(
   props: QuickDateOptionsProps,
@@ -50,6 +36,7 @@ export const QuickDateOptions = memo(function QuickDateOptions(
         return (
           <QuickDateOptionTag
             tone={props.tone}
+            variant={props.variant}
             key={optionKey}
             option={option}
             onPress={props.onPress}

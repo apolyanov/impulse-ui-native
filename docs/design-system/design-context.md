@@ -443,3 +443,5 @@ Defaults follow component roles. Rectangular fields (Input, Textarea, Select/Mul
 Shape and semantic variants retain their own defaults: Progress uses linear, icon glyphs use regular, and Toast uses success from its feedback-only tones. These are distinct contracts rather than shared appearance axes.
 
 MultiSelect preserves the field tone for selected tags, using soft tags on filled fields and filled tags on outlined/soft fields. Disabled tags are outlined and non-removable. Nested tags deliberately use a complementary variant so their boundary remains visible.
+
+Date/time picker `variant` and `tone` propagate through portals into month/year Select fields, nested TimePickers, quick-date tags, and both Cancel/Apply buttons. Calendar day/range and time-wheel selection states remain distinct from field variants.

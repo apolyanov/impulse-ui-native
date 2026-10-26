@@ -29,6 +29,7 @@ export const DatetimeRangePickerFlyout = memo(
       value,
       clearable,
       tone = "neutral",
+      variant = "outlined",
       quickDateOptions,
       onPressQuickDateOption,
       onChangeVisible,
@@ -77,6 +78,7 @@ export const DatetimeRangePickerFlyout = memo(
         <Flyout {...rest}>
           <View gap={datetimeRangePickerTokens.gap}>
             <VisibleDateSelect
+              variant={variant}
               tone={tone}
               value={visible}
               onChange={onChangeVisible}
@@ -94,6 +96,7 @@ export const DatetimeRangePickerFlyout = memo(
             >
               <View flex={1}>
                 <TimePicker
+                  variant={variant}
                   tone={tone}
                   value={timeStartValue}
                   defaultValue={timeStartValue}
@@ -105,6 +108,7 @@ export const DatetimeRangePickerFlyout = memo(
               </View>
               <View flex={1}>
                 <TimePicker
+                  variant={variant}
                   tone={tone}
                   value={timeEndValue}
                   defaultValue={timeEndValue}
@@ -118,12 +122,14 @@ export const DatetimeRangePickerFlyout = memo(
 
             {hasQuickDateOptions ? (
               <QuickDateOptions
+                variant={variant}
                 tone={tone}
                 options={quickDateOptions}
                 onPress={onPressQuickDateOption}
               />
             ) : null}
             <DatetimePickerFlyoutActions
+              variant={variant}
               tone={tone}
               canClear={Boolean(value && clearable)}
               onPressApply={onPressApply}

@@ -1,6 +1,6 @@
 # @impulse-ui-native/flat-list
 
-Local package version: 15.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 15.0.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

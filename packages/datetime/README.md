@@ -68,7 +68,6 @@ the previous `variants[variant][state]` maps.
 The field tone (default neutral) is explicitly passed through portals into
 calendar selections, range fills, month/year selects, quick-date tags, nested time
 inputs, selected time rows, Clear, Cancel, and Apply. Calendar selections use the
-shared filled palette and ranges use the soft palette. Field variant remains a
-field appearance; selected days and action buttons retain their semantic roles.
+shared filled palette and ranges use the soft palette. The field variant is inherited by month/year selects, nested time inputs, quick-date tags, and both action buttons across portals. Selected calendar days, date ranges, and time-wheel rows keep their selection-state appearance.
 Custom day states move to datetimePicker.day.colors[tone], time rows to
 timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].

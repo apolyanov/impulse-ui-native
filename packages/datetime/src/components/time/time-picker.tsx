@@ -14,6 +14,7 @@ export const TimePicker = memo(function TimePicker({
   defaultValue,
   placeholder,
   tone = "neutral",
+  variant = "outlined",
   clearable = true,
   onChange,
   PrefixIcon = ClockIcon,
@@ -37,6 +38,7 @@ export const TimePicker = memo(function TimePicker({
   return (
     <DateControl
       tone={tone}
+      variant={variant}
       {...props}
       PrefixIcon={PrefixIcon}
       onPress={onPressOpen}
@@ -49,6 +51,7 @@ export const TimePicker = memo(function TimePicker({
       ) : null}
       <TimePickerFlyout
         tone={tone}
+        variant={variant}
         id={id}
         title="Time"
         open={isOpen}

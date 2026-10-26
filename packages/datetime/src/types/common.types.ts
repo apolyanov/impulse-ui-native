@@ -1,4 +1,4 @@
-import type { ComponentTone } from "@impulse-ui-native/theme";
+import type { ComponentTone, FieldVariant } from "@impulse-ui-native/theme";
 import { FlyoutProps } from "@impulse-ui-native/flyout";
 import {
   ControlComponentCommonProps,
@@ -35,6 +35,7 @@ export interface QuickDateOption<Value> {
 }
 
 export interface PickerFlyoutActions {
+  variant?: FieldVariant;
   tone?: ComponentTone;
   clearable?: boolean;
   onPressApply?: PressableCoreProps["onPress"];
