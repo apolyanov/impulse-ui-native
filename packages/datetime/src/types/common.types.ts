@@ -45,6 +45,8 @@ export interface PickerFlyoutActions {
 
 export interface DatetimePickerCommonProps
   extends Partial<ControlComponentProps>, ControlComponentCommonProps {
+  pickerVariant?: FieldVariant;
+  pickerTone?: ComponentTone;
   clearable?: boolean;
 }
 

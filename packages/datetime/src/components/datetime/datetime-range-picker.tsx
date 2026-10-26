@@ -18,6 +18,8 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
     placeholder,
     tone = "neutral",
     variant = "outlined",
+    pickerTone = tone,
+    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -54,8 +56,8 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
       ) : null}
 
       <DatetimeRangePickerFlyout
-        tone={tone}
-        variant={variant}
+        tone={pickerTone}
+        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
