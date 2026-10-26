@@ -64,6 +64,33 @@ export function exportLearningReferences({ root, catalog, read, write }) {
   read("apps/impulse-ui-native/app.json");
   read("apps/impulse-ui-native/plugins/with-compatible-scene-delegate.cjs");
   read("apps/impulse-ui-native/constants/recipe-fonts.constants.ts");
+  read("apps/impulse-ui-native/app/picker-comparison.tsx");
+  read(
+    "packages/storybook/src/stories/design-system/picker-comparison.preview.tsx",
+  );
+  const comparison = JSON.parse(
+    read("docs/design-system/picker-comparison.json"),
+  );
+  assert.equal(comparison.status, "design-review-only");
+  assert.equal(comparison.captures.length, 12);
+  const comparisonCases = new Set();
+  for (const capture of comparison.captures) {
+    assert(["light", "dark"].includes(capture.scheme));
+    assert(["consistent", "inherited"].includes(capture.policy));
+    assert(["outlined", "filled", "soft"].includes(capture.variant));
+    comparisonCases.add(
+      [capture.scheme, capture.policy, capture.variant].join("/"),
+    );
+    const bytes = fs.readFileSync(
+      path.join(root, "docs/design-system", capture.file),
+    );
+    assert.equal(
+      createHash("sha256").update(bytes).digest("hex"),
+      capture.sha256,
+      `Comparison capture changed without review: ${capture.file}`,
+    );
+  }
+  assert.equal(comparisonCases.size, 12);
   const galleryExports = storyExports(read(galleryFile), galleryFile);
   for (const recipe of recipes) {
     assert(/^[a-z][a-z-]+$/.test(recipe.id), `Invalid recipe ID ${recipe.id}`);
@@ -319,6 +346,8 @@ export function exportLearningReferences({ root, catalog, read, write }) {
         (entry) =>
           `| \`${entry.package}\` | ${entry.cases.length || "setup/behavior"} | ${entry.stories.map((story) => `[${story.title}](https://github.com/apolyanov/impulse-ui-native/blob/main/${story.source}) (${story.exports.join(", ")})`).join("; ") || "See recipe/setup"} | ${entry.recipes.map((id) => `[${id}](recipes.md#${id})`).join(", ")} |`,
       ),
+      "",
+      "Open-flyout design review: [picker hierarchy comparison](picker-comparison.md) includes 12 additional inspected iOS frames across two policies, three trigger variants and both schemes. The consistent outlined/neutral editor is selected; inherited frames are retained for historical comparison.",
       "",
       "## Capture workflow",
       "",

@@ -65,10 +65,9 @@ the previous `variants[variant][state]` maps.
 
 ## Repository palette consistency
 
-The field tone (default neutral) is explicitly passed through portals into
-calendar selections, range fills, month/year selects, quick-date tags, nested time
-inputs, selected time rows, Clear, Cancel, and Apply. Calendar selections use the
-shared filled palette and ranges use the soft palette. The field variant is inherited by month/year selects, nested time inputs, quick-date tags, and both action buttons across portals. Selected calendar days, date ranges, and time-wheel rows keep their selection-state appearance.
+The field tone (default neutral) is passed through portals into calendar selections,
+range fills and selected time rows. Calendar selections use the shared filled palette and ranges use the
+soft palette. Month/year and nested time fields always use outlined/neutral, independent of trigger appearance.
 Custom day states move to datetimePicker.day.colors[tone], time rows to
 timePicker.column.colors[tone], and clear colors to flyoutActions.colors[tone].
 
@@ -78,4 +77,4 @@ Start with the [capability guide](../../docs/design-system/capabilities/datetime
 
 ### Flyout visual hierarchy
 
-`variant` styles the trigger field. Flyout surfaces and month/year fields remain neutral. Nested time fields use outlined/neutral styling; their wheel selections retain the parent selection tone. `tone` accents selected calendar days, time values and selected quick-date shortcuts. Unselected shortcuts are outlined/neutral; selected shortcuts are soft in the accent tone. Apply always uses filled/primary, Cancel outlined/neutral, and Clear neutral text. `pickerTone` can override the selection accent.
+`variant` styles the trigger only. Flyout surfaces remain neutral. Month/year and nested time fields always use outlined/neutral; their wheel selections retain the parent selection tone. `tone` accents selected calendar days, time values and selected quick-date shortcuts. Unselected shortcuts are outlined/neutral; selected shortcuts are soft in the accent tone. Apply always uses filled/primary, Cancel outlined/primary, and Clear primary text. `pickerTone` can override the selection accent.

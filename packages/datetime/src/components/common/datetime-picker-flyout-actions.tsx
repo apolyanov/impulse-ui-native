@@ -28,7 +28,7 @@ export const DatetimePickerFlyoutActions = memo(
 
     const flyoutActionsTokens = tokens.datetimePicker.flyoutActions;
 
-    const clearColor = flyoutActionsTokens.colors.neutral.clearColor;
+    const clearColor = flyoutActionsTokens.colors.primary.clearColor;
 
     return (
       <View gap={flyoutActionsTokens.gap}>
@@ -42,7 +42,6 @@ export const DatetimePickerFlyoutActions = memo(
 
         <View flexDirection="row" gap={flyoutActionsTokens.buttonsGap}>
           <Button
-            tone="neutral"
             variant="outlined"
             style={styles.action}
             onPress={props.onPressCancel}
@@ -50,7 +49,6 @@ export const DatetimePickerFlyoutActions = memo(
             Cancel
           </Button>
           <Button
-            tone="primary"
             variant="filled"
             style={styles.action}
             onPress={props.onPressApply}

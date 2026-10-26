@@ -31,3 +31,5 @@ The preview route is a development aid. A compiled bundle or registered story do
 The `with-compatible-scene-delegate` Expo config plugin synchronizes the scene manifest with an explicit Objective-C `SceneDelegate` name when the native project declares one. Regenerate the iOS native configuration and rebuild the development client after changing native configuration; an already installed client does not pick up plist fixes from Metro. Standard Swift module-qualified scene delegates remain unchanged.
 
 Inspected iOS frames and remaining verification scope are recorded in [the native verification report](../../docs/design-system/native-verification.md).
+
+For open picker hierarchy review, use **Design system/Picker hierarchy comparison**, or `impulseuinative://picker-comparison?variant=filled&tone=primary&scheme=light`. The live fixture uses the selected outlined/neutral editor. The [native screenshot comparison](../../docs/design-system/picker-comparison.md) records scope and captures. Historical inherited-variant frames are retained in the screenshot comparison.

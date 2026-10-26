@@ -129,7 +129,7 @@
         "Draft selection with Apply/Cancel, Clear, quick options, month/year Selects and nested time fields."
       ],
       "constraints": [
-        "Fields default to outlined/neutral. Variant and tone cross the portal into selects, time fields, quick tags and actions.",
+        "Fields default to outlined/neutral. Trigger appearance stays on the trigger; internal month/year/time fields are always outlined/neutral. Tone accents selections and selected quick tags; actions retain their own hierarchy.",
         "Calendar/range and wheel selection states keep their own state styling. Values are Date/time objects, not arbitrary strings."
       ],
       "setup": [
@@ -698,7 +698,7 @@
         "tone": "neutral"
       },
       "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-      "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
+      "inheritance": "Variant styles the trigger only. Flyout surfaces stay neutral; month/year and time fields always use outlined/neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/primary; Clear uses primary text."
     },
     "DateRangePicker": {
       "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
@@ -707,7 +707,7 @@
         "tone": "neutral"
       },
       "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-      "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
+      "inheritance": "Variant styles the trigger only. Flyout surfaces stay neutral; month/year and time fields always use outlined/neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/primary; Clear uses primary text."
     },
     "DatetimePicker": {
       "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
@@ -716,7 +716,7 @@
         "tone": "neutral"
       },
       "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-      "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
+      "inheritance": "Variant styles the trigger only. Flyout surfaces stay neutral; month/year and time fields always use outlined/neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/primary; Clear uses primary text."
     },
     "DatetimeRangePicker": {
       "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
@@ -725,7 +725,7 @@
         "tone": "neutral"
       },
       "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-      "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
+      "inheritance": "Variant styles the trigger only. Flyout surfaces stay neutral; month/year and time fields always use outlined/neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/primary; Clear uses primary text."
     },
     "TimePicker": {
       "requiredProps": ["variant", "tone", "value", "defaultValue", "onChange"],
@@ -734,7 +734,7 @@
         "tone": "neutral"
       },
       "valueContract": "Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.",
-      "inheritance": "Variant styles the trigger only. Flyout surfaces and navigation fields stay neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/neutral; Clear is neutral."
+      "inheritance": "Variant styles the trigger only. Flyout surfaces stay neutral; month/year and time fields always use outlined/neutral; tone accents calendar/wheel selections and selected soft quick-option tags. Nested time fields are outlined/neutral and retain the selection accent in their own flyouts. Apply is filled/primary; Cancel is outlined/primary; Clear uses primary text."
     },
     "Select": {
       "requiredProps": [

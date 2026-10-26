@@ -185,7 +185,10 @@ for (const variant of ["filled", "outlined", "soft"]) {
         const isAction = childType === "Button";
         const isApply = isAction && node.props.children === "Apply";
         assert.equal(node.props.variant, isApply ? "filled" : "outlined");
-        assert.equal(node.props.tone, isApply ? "primary" : "neutral");
+        assert.equal(
+          node.props.tone ?? "primary",
+          isAction ? "primary" : "neutral",
+        );
         checks++;
       }
     }

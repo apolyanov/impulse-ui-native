@@ -20,7 +20,9 @@ export const StorybookThemeFrame = memo(function StorybookThemeFrame({
   onToggleScheme,
 }: StorybookThemeFrameProps) {
   const { colors, space, borderSize } = useTheme();
-  const showToolbar = usePathname() !== "/design-system";
+  const pathname = usePathname();
+  const showToolbar =
+    pathname !== "/design-system" && pathname !== "/picker-comparison";
 
   return (
     <View flex={1} backgroundColor={colors.surface.canvas.value}>
