@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/modal",
   "slug": "modal",
-  "version": "15.0.2",
+  "version": "15.0.3",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Request focused confirmation or show a compact dialog.",

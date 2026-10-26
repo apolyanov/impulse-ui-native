@@ -36,7 +36,7 @@ Optional refers to the package manifest; individual features may still require t
 
 ### DatePicker
 
-Source: `packages/datetime/src/components/date/date-picker.tsx:10`. Direct defaults: `clearable=true`, `tone="neutral"`, `variant="outlined"`.
+Source: `packages/datetime/src/components/date/date-picker.tsx:10`. Direct defaults: `clearable=true`, `tone="neutral"`, `variant="outlined"`, `pickerTone=tone`, `pickerVariant=variant`.
 
 - **valueContract**: Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.
 - **inheritance**: variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling.
@@ -51,6 +51,8 @@ Source: `packages/datetime/src/components/date/date-picker.tsx:10`. Direct defau
 | `onChange`         | No       | `((value: Date \| null) => void) \| undefined`             |
 | `onPressPrefix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `pickerTone`       | No       | `neutral / primary / secondary`                            |
+| `pickerVariant`    | No       | `filled / outlined / soft`                                 |
 | `placeholder`      | No       | `string \| undefined`                                      |
 | `Prefix`           | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`       | No       | `ComponentType<SvgProps> \| undefined`                     |
@@ -66,7 +68,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 
 ### DateRangePicker
 
-Source: `packages/datetime/src/components/date/date-range-picker.tsx:10`. Direct defaults: `tone="neutral"`, `variant="outlined"`, `clearable=true`.
+Source: `packages/datetime/src/components/date/date-range-picker.tsx:10`. Direct defaults: `tone="neutral"`, `variant="outlined"`, `pickerTone=tone`, `pickerVariant=variant`, `clearable=true`.
 
 - **valueContract**: Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.
 - **inheritance**: variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling.
@@ -81,6 +83,8 @@ Source: `packages/datetime/src/components/date/date-range-picker.tsx:10`. Direct
 | `onChange`         | No       | `((value: TimeRange \| null) => void) \| undefined`        |
 | `onPressPrefix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `pickerTone`       | No       | `neutral / primary / secondary`                            |
+| `pickerVariant`    | No       | `filled / outlined / soft`                                 |
 | `placeholder`      | No       | `string \| undefined`                                      |
 | `Prefix`           | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`       | No       | `ComponentType<SvgProps> \| undefined`                     |
@@ -96,7 +100,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 
 ### DatetimePicker
 
-Source: `packages/datetime/src/components/datetime/datetime-picker.tsx:10`. Direct defaults: `clearable=true`, `tone="neutral"`, `variant="outlined"`.
+Source: `packages/datetime/src/components/datetime/datetime-picker.tsx:10`. Direct defaults: `clearable=true`, `tone="neutral"`, `variant="outlined"`, `pickerTone=tone`, `pickerVariant=variant`.
 
 - **valueContract**: Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.
 - **inheritance**: variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling.
@@ -111,6 +115,8 @@ Source: `packages/datetime/src/components/datetime/datetime-picker.tsx:10`. Dire
 | `onChange`         | No       | `((value: Date \| null) => void) \| undefined`             |
 | `onPressPrefix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `pickerTone`       | No       | `neutral / primary / secondary`                            |
+| `pickerVariant`    | No       | `filled / outlined / soft`                                 |
 | `placeholder`      | No       | `string \| undefined`                                      |
 | `Prefix`           | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`       | No       | `ComponentType<SvgProps> \| undefined`                     |
@@ -126,7 +132,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 
 ### DatetimeRangePicker
 
-Source: `packages/datetime/src/components/datetime/datetime-range-picker.tsx:10`. Direct defaults: `clearable=true`, `tone="neutral"`, `variant="outlined"`.
+Source: `packages/datetime/src/components/datetime/datetime-range-picker.tsx:10`. Direct defaults: `clearable=true`, `tone="neutral"`, `variant="outlined"`, `pickerTone=tone`, `pickerVariant=variant`.
 
 - **valueContract**: Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.
 - **inheritance**: variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling.
@@ -141,6 +147,8 @@ Source: `packages/datetime/src/components/datetime/datetime-range-picker.tsx:10`
 | `onChange`         | No       | `((value: TimeRange \| null) => void) \| undefined`        |
 | `onPressPrefix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix`    | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `pickerTone`       | No       | `neutral / primary / secondary`                            |
+| `pickerVariant`    | No       | `filled / outlined / soft`                                 |
 | `placeholder`      | No       | `string \| undefined`                                      |
 | `Prefix`           | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`       | No       | `ComponentType<SvgProps> \| undefined`                     |
@@ -156,7 +164,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 
 ### TimePicker
 
-Source: `packages/datetime/src/components/time/time-picker.tsx:12`. Direct defaults: `tone="neutral"`, `variant="outlined"`, `clearable=true`, `PrefixIcon=ClockIcon`.
+Source: `packages/datetime/src/components/time/time-picker.tsx:12`. Direct defaults: `tone="neutral"`, `variant="outlined"`, `pickerTone=tone`, `pickerVariant=variant`, `clearable=true`, `PrefixIcon=ClockIcon`.
 
 - **valueContract**: Stage a draft in the flyout; Apply commits, Cancel discards. Clear edits the draft.
 - **inheritance**: variant/tone -> month/year selects, nested time fields, quick-option tags, Cancel/Apply. Calendar and wheel selections retain their state styling.
@@ -171,6 +179,8 @@ Source: `packages/datetime/src/components/time/time-picker.tsx:12`. Direct defau
 | `onChange`      | No       | `((value: TimePickerValue \| null) => void) \| undefined`  |
 | `onPressPrefix` | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix` | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `pickerTone`    | No       | `neutral / primary / secondary`                            |
+| `pickerVariant` | No       | `filled / outlined / soft`                                 |
 | `placeholder`   | No       | `string \| undefined`                                      |
 | `Prefix`        | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`    | No       | `ComponentType<SvgProps> \| undefined`                     |

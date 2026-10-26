@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/pagination",
   "slug": "pagination",
-  "version": "15.0.2",
+  "version": "15.0.3",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Navigate numbered pages with a controlled or uncontrolled page.",

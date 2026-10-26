@@ -1,5 +1,11 @@
 # @impulse-ui-native/flat-list
 
+## 15.0.3
+
+### Patch Changes
+
+- Adding datepicker tone and variant props
+
 ## 15.0.2
 
 ## 15.0.1

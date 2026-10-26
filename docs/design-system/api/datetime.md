@@ -1,6 +1,6 @@
 # @impulse-ui-native/datetime
 
-Local package version: 15.0.2. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 15.0.3. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -107,6 +107,8 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
     placeholder,
     tone = "neutral",
     variant = "outlined",
+    pickerTone = tone,
+    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -139,8 +141,8 @@ export const DatePicker = memo(function DatePicker(props: DatetimePickerProps) {
       ) : null}
 
       <DatePickerFlyout
-        tone={tone}
-        variant={variant}
+        tone={pickerTone}
+        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -184,6 +186,8 @@ export const DateRangePicker = memo(function DateRangePicker(
     placeholder,
     tone = "neutral",
     variant = "outlined",
+    pickerTone = tone,
+    pickerVariant = variant,
     quickDateOptions,
     clearable = true,
     ...rest
@@ -219,8 +223,8 @@ export const DateRangePicker = memo(function DateRangePicker(
       ) : null}
 
       <DatePickerFlyout
-        tone={tone}
-        variant={variant}
+        tone={pickerTone}
+        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -265,6 +269,8 @@ export const DatetimePicker = memo(function DatetimePicker(
     placeholder,
     tone = "neutral",
     variant = "outlined",
+    pickerTone = tone,
+    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -298,8 +304,8 @@ export const DatetimePicker = memo(function DatetimePicker(
       ) : null}
 
       <DatetimePickerFlyout
-        tone={tone}
-        variant={variant}
+        tone={pickerTone}
+        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -345,6 +351,8 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
     placeholder,
     tone = "neutral",
     variant = "outlined",
+    pickerTone = tone,
+    pickerVariant = variant,
     quickDateOptions,
     ...rest
   } = props;
@@ -381,8 +389,8 @@ export const DatetimeRangePicker = memo(function DatetimeRangePicker(
       ) : null}
 
       <DatetimeRangePickerFlyout
-        tone={tone}
-        variant={variant}
+        tone={pickerTone}
+        variant={pickerVariant}
         id={id}
         open={isOpen}
         title="Date"
@@ -438,6 +446,8 @@ export const TimePicker = memo(function TimePicker({
   placeholder,
   tone = "neutral",
   variant = "outlined",
+  pickerTone = tone,
+  pickerVariant = variant,
   clearable = true,
   onChange,
   PrefixIcon = ClockIcon,
@@ -473,8 +483,8 @@ export const TimePicker = memo(function TimePicker({
         <Control.Value>{formatTimepickerValue(selected)}</Control.Value>
       ) : null}
       <TimePickerFlyout
-        tone={tone}
-        variant={variant}
+        tone={pickerTone}
+        variant={pickerVariant}
         id={id}
         title="Time"
         open={isOpen}
@@ -550,6 +560,8 @@ export interface PickerFlyoutActions {
 
 export interface DatetimePickerCommonProps
   extends Partial<ControlComponentProps>, ControlComponentCommonProps {
+  pickerVariant?: FieldVariant;
+  pickerTone?: ComponentTone;
   clearable?: boolean;
 }
 

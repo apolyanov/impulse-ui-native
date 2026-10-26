@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/accordion",
   "slug": "accordion",
-  "version": "15.0.2",
+  "version": "15.0.3",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Reveal or collapse sections without changing screens.",

@@ -6,7 +6,7 @@
     {
       "name": "@impulse-ui-native/accordion",
       "slug": "accordion",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Reveal or collapse sections without changing screens.",
@@ -594,7 +594,7 @@
     {
       "name": "@impulse-ui-native/card",
       "slug": "card",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Group related media, copy and actions on a surface.",
@@ -1598,7 +1598,7 @@
     {
       "name": "@impulse-ui-native/carousel",
       "slug": "carousel",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Browse a finite horizontal collection with snapping.",
@@ -1928,7 +1928,7 @@
     {
       "name": "@impulse-ui-native/charts",
       "slug": "charts",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "visualization",
         "chooseWhen": "Show numeric series with interactive native charts.",
@@ -5877,7 +5877,7 @@
     {
       "name": "@impulse-ui-native/checkbox",
       "slug": "checkbox",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Choose independent options or represent a mixed selection.",
@@ -6208,7 +6208,7 @@
     {
       "name": "@impulse-ui-native/color-picker",
       "slug": "color-picker",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Choose and edit a color inline.",
@@ -7906,7 +7906,7 @@
     {
       "name": "@impulse-ui-native/core",
       "slug": "core",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Reuse state, timing and callback behavior in React.",
@@ -8116,7 +8116,7 @@
     {
       "name": "@impulse-ui-native/data-state",
       "slug": "data-state",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Coordinate loading, empty, error and content states.",
@@ -8917,7 +8917,7 @@
     {
       "name": "@impulse-ui-native/datetime",
       "slug": "datetime",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Pick a date, time, date-time or range.",
@@ -8949,7 +8949,7 @@
               "type": "boolean | undefined",
               "source": {
                 "file": "packages/datetime/src/types/common.types.ts",
-                "line": 48
+                "line": 50
               }
             },
             {
@@ -9013,6 +9013,26 @@
               "source": {
                 "file": "packages/primitives/src/types/control-components.types.ts",
                 "line": 27
+              }
+            },
+            {
+              "name": "pickerTone",
+              "required": false,
+              "type": "ComponentTone | undefined",
+              "choices": ["neutral", "primary", "secondary"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 49
+              }
+            },
+            {
+              "name": "pickerVariant",
+              "required": false,
+              "type": "FieldVariant | undefined",
+              "choices": ["filled", "outlined", "soft"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 48
               }
             },
             {
@@ -9177,6 +9197,20 @@
                 "file": "packages/datetime/src/components/date/date-picker.tsx",
                 "line": 18
               }
+            },
+            "pickerTone": {
+              "expression": "tone",
+              "source": {
+                "file": "packages/datetime/src/components/date/date-picker.tsx",
+                "line": 19
+              }
+            },
+            "pickerVariant": {
+              "expression": "variant",
+              "source": {
+                "file": "packages/datetime/src/components/date/date-picker.tsx",
+                "line": 20
+              }
             }
           },
           "defaultResolution": "direct-source-only",
@@ -9209,7 +9243,7 @@
               "type": "boolean | undefined",
               "source": {
                 "file": "packages/datetime/src/types/common.types.ts",
-                "line": 48
+                "line": 50
               }
             },
             {
@@ -9273,6 +9307,26 @@
               "source": {
                 "file": "packages/primitives/src/types/control-components.types.ts",
                 "line": 27
+              }
+            },
+            {
+              "name": "pickerTone",
+              "required": false,
+              "type": "ComponentTone | undefined",
+              "choices": ["neutral", "primary", "secondary"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 49
+              }
+            },
+            {
+              "name": "pickerVariant",
+              "required": false,
+              "type": "FieldVariant | undefined",
+              "choices": ["filled", "outlined", "soft"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 48
               }
             },
             {
@@ -9430,12 +9484,26 @@
                 "line": 19
               }
             },
+            "pickerTone": {
+              "expression": "tone",
+              "source": {
+                "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+                "line": 20
+              }
+            },
+            "pickerVariant": {
+              "expression": "variant",
+              "source": {
+                "file": "packages/datetime/src/components/date/date-range-picker.tsx",
+                "line": 21
+              }
+            },
             "clearable": {
               "expression": "true",
               "value": true,
               "source": {
                 "file": "packages/datetime/src/components/date/date-range-picker.tsx",
-                "line": 21
+                "line": 23
               }
             }
           },
@@ -9469,7 +9537,7 @@
               "type": "boolean | undefined",
               "source": {
                 "file": "packages/datetime/src/types/common.types.ts",
-                "line": 48
+                "line": 50
               }
             },
             {
@@ -9533,6 +9601,26 @@
               "source": {
                 "file": "packages/primitives/src/types/control-components.types.ts",
                 "line": 27
+              }
+            },
+            {
+              "name": "pickerTone",
+              "required": false,
+              "type": "ComponentTone | undefined",
+              "choices": ["neutral", "primary", "secondary"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 49
+              }
+            },
+            {
+              "name": "pickerVariant",
+              "required": false,
+              "type": "FieldVariant | undefined",
+              "choices": ["filled", "outlined", "soft"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 48
               }
             },
             {
@@ -9697,6 +9785,20 @@
                 "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
                 "line": 20
               }
+            },
+            "pickerTone": {
+              "expression": "tone",
+              "source": {
+                "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+                "line": 21
+              }
+            },
+            "pickerVariant": {
+              "expression": "variant",
+              "source": {
+                "file": "packages/datetime/src/components/datetime/datetime-picker.tsx",
+                "line": 22
+              }
             }
           },
           "defaultResolution": "direct-source-only",
@@ -9729,7 +9831,7 @@
               "type": "boolean | undefined",
               "source": {
                 "file": "packages/datetime/src/types/common.types.ts",
-                "line": 48
+                "line": 50
               }
             },
             {
@@ -9793,6 +9895,26 @@
               "source": {
                 "file": "packages/primitives/src/types/control-components.types.ts",
                 "line": 27
+              }
+            },
+            {
+              "name": "pickerTone",
+              "required": false,
+              "type": "ComponentTone | undefined",
+              "choices": ["neutral", "primary", "secondary"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 49
+              }
+            },
+            {
+              "name": "pickerVariant",
+              "required": false,
+              "type": "FieldVariant | undefined",
+              "choices": ["filled", "outlined", "soft"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 48
               }
             },
             {
@@ -9957,6 +10079,20 @@
                 "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
                 "line": 20
               }
+            },
+            "pickerTone": {
+              "expression": "tone",
+              "source": {
+                "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+                "line": 21
+              }
+            },
+            "pickerVariant": {
+              "expression": "variant",
+              "source": {
+                "file": "packages/datetime/src/components/datetime/datetime-range-picker.tsx",
+                "line": 22
+              }
             }
           },
           "defaultResolution": "direct-source-only",
@@ -9989,7 +10125,7 @@
               "type": "boolean | undefined",
               "source": {
                 "file": "packages/datetime/src/types/common.types.ts",
-                "line": 48
+                "line": 50
               }
             },
             {
@@ -10053,6 +10189,26 @@
               "source": {
                 "file": "packages/primitives/src/types/control-components.types.ts",
                 "line": 27
+              }
+            },
+            {
+              "name": "pickerTone",
+              "required": false,
+              "type": "ComponentTone | undefined",
+              "choices": ["neutral", "primary", "secondary"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 49
+              }
+            },
+            {
+              "name": "pickerVariant",
+              "required": false,
+              "type": "FieldVariant | undefined",
+              "choices": ["filled", "outlined", "soft"],
+              "source": {
+                "file": "packages/datetime/src/types/common.types.ts",
+                "line": 48
               }
             },
             {
@@ -10201,19 +10357,33 @@
                 "line": 17
               }
             },
+            "pickerTone": {
+              "expression": "tone",
+              "source": {
+                "file": "packages/datetime/src/components/time/time-picker.tsx",
+                "line": 18
+              }
+            },
+            "pickerVariant": {
+              "expression": "variant",
+              "source": {
+                "file": "packages/datetime/src/components/time/time-picker.tsx",
+                "line": 19
+              }
+            },
             "clearable": {
               "expression": "true",
               "value": true,
               "source": {
                 "file": "packages/datetime/src/components/time/time-picker.tsx",
-                "line": 18
+                "line": 20
               }
             },
             "PrefixIcon": {
               "expression": "ClockIcon",
               "source": {
                 "file": "packages/datetime/src/components/time/time-picker.tsx",
-                "line": 20
+                "line": 22
               }
             }
           },
@@ -10355,7 +10525,7 @@
           "kind": "type",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 51
+            "line": 53
           }
         },
         {
@@ -10868,7 +11038,7 @@
     {
       "name": "@impulse-ui-native/echo",
       "slug": "echo",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Send typed events between disconnected React consumers.",
@@ -10987,7 +11157,7 @@
     {
       "name": "@impulse-ui-native/endpoint",
       "slug": "endpoint",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Connect an Axios API client to TanStack Query.",
@@ -11172,7 +11342,7 @@
     {
       "name": "@impulse-ui-native/flat-list",
       "slug": "flat-list",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "native-wrapper",
         "chooseWhen": "Render long virtualized lists with known item layouts.",
@@ -11554,7 +11724,7 @@
     {
       "name": "@impulse-ui-native/flyout",
       "slug": "flyout",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
@@ -12488,7 +12658,7 @@
     {
       "name": "@impulse-ui-native/form-field",
       "slug": "form-field",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "composition",
         "chooseWhen": "Add a label, description and validation to a custom control.",
@@ -12745,7 +12915,7 @@
     {
       "name": "@impulse-ui-native/icon",
       "slug": "icon",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "visualization",
         "chooseWhen": "Render a named SVG glyph with an explicit visual weight.",
@@ -12958,7 +13128,7 @@
     {
       "name": "@impulse-ui-native/icon-view",
       "slug": "icon-view",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Show an icon on a noninteractive themed surface.",
@@ -13228,7 +13398,7 @@
     {
       "name": "@impulse-ui-native/input",
       "slug": "input",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Enter single-line or multiline text.",
@@ -14092,7 +14262,7 @@
     {
       "name": "@impulse-ui-native/list",
       "slug": "list",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Present rows with leading content, text and trailing actions.",
@@ -15132,7 +15302,7 @@
     {
       "name": "@impulse-ui-native/modal",
       "slug": "modal",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Request focused confirmation or show a compact dialog.",
@@ -16616,7 +16786,7 @@
     {
       "name": "@impulse-ui-native/overlay",
       "slug": "overlay",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Register and coordinate an application-wide overlay stack.",
@@ -17183,7 +17353,7 @@
     {
       "name": "@impulse-ui-native/pagination",
       "slug": "pagination",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Navigate numbered pages with a controlled or uncontrolled page.",
@@ -17462,7 +17632,7 @@
     {
       "name": "@impulse-ui-native/popover",
       "slug": "popover",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",
@@ -19048,7 +19218,7 @@
     {
       "name": "@impulse-ui-native/portal",
       "slug": "portal",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Render local content in a named host elsewhere in the tree.",
@@ -19494,7 +19664,7 @@
     {
       "name": "@impulse-ui-native/primitives",
       "slug": "primitives",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "foundation",
         "chooseWhen": "Build layouts, typography, actions and custom field composition.",
@@ -26108,7 +26278,7 @@
     {
       "name": "@impulse-ui-native/progress",
       "slug": "progress",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "visualization",
         "chooseWhen": "Show determinate progress or ongoing activity.",
@@ -26326,7 +26496,7 @@
     {
       "name": "@impulse-ui-native/radio",
       "slug": "radio",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Choose one option using application-owned grouping.",
@@ -26643,7 +26813,7 @@
     {
       "name": "@impulse-ui-native/scroll-view",
       "slug": "scroll-view",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "native-wrapper",
         "chooseWhen": "Scroll content and reveal an initially selected measured child.",
@@ -26909,7 +27079,7 @@
     {
       "name": "@impulse-ui-native/segmented-control",
       "slug": "segmented-control",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Choose one of a few adjacent options.",
@@ -27356,7 +27526,7 @@
     {
       "name": "@impulse-ui-native/select",
       "slug": "select",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Choose one or multiple primitive values from a list.",
@@ -28042,7 +28212,7 @@
     {
       "name": "@impulse-ui-native/skeleton",
       "slug": "skeleton",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Represent the geometry of content while loading.",
@@ -29875,7 +30045,7 @@
     {
       "name": "@impulse-ui-native/slider",
       "slug": "slider",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Adjust one numeric value or a numeric range.",
@@ -30625,7 +30795,7 @@
     {
       "name": "@impulse-ui-native/stepper",
       "slug": "stepper",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Coordinate an application-owned multi-step flow.",
@@ -30962,7 +31132,7 @@
     {
       "name": "@impulse-ui-native/storybook",
       "slug": "storybook",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "authoring",
         "chooseWhen": "Author native component examples and discover supported options.",
@@ -31103,7 +31273,7 @@
     {
       "name": "@impulse-ui-native/switch",
       "slug": "switch",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Toggle a persistent boolean setting.",
@@ -31437,7 +31607,7 @@
     {
       "name": "@impulse-ui-native/tabs",
       "slug": "tabs",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Switch between a few related content panels.",
@@ -31809,7 +31979,7 @@
     {
       "name": "@impulse-ui-native/theme",
       "slug": "theme",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "foundation",
         "chooseWhen": "Configure shared visual tokens and light/dark schemes.",
@@ -34360,7 +34530,7 @@
     {
       "name": "@impulse-ui-native/toast",
       "slug": "toast",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Show a transient status message with optional action.",
@@ -35681,7 +35851,7 @@
     {
       "name": "@impulse-ui-native/toolkit",
       "slug": "toolkit",
-      "version": "15.0.2",
+      "version": "15.0.3",
       "guidance": {
         "kind": "aggregate",
         "chooseWhen": "Consume most library packages through one application import.",
@@ -38158,7 +38328,7 @@
           "kind": "type",
           "source": {
             "file": "packages/datetime/src/types/common.types.ts",
-            "line": 51
+            "line": 53
           }
         },
         {

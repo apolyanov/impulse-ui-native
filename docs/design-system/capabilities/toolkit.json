@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toolkit",
   "slug": "toolkit",
-  "version": "15.0.2",
+  "version": "15.0.3",
   "guidance": {
     "kind": "aggregate",
     "chooseWhen": "Consume most library packages through one application import.",
@@ -2478,7 +2478,7 @@
       "kind": "type",
       "source": {
         "file": "packages/datetime/src/types/common.types.ts",
-        "line": 51
+        "line": 53
       }
     },
     {

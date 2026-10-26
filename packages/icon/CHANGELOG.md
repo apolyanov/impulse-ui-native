@@ -1,5 +1,13 @@
 # @impulse-ui-native/icon
 
+## 15.0.3
+
+### Patch Changes
+
+- Adding datepicker tone and variant props
+- Updated dependencies
+  - @impulse-ui-native/theme@15.0.3
+
 ## 15.0.2
 
 ### Patch Changes

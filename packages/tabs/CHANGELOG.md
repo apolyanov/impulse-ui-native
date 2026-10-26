@@ -1,5 +1,16 @@
 # @impulse-ui-native/tabs
 
+## 15.0.3
+
+### Patch Changes
+
+- Adding datepicker tone and variant props
+- Updated dependencies
+  - @impulse-ui-native/core@15.0.3
+  - @impulse-ui-native/primitives@15.0.3
+  - @impulse-ui-native/scroll-view@15.0.3
+  - @impulse-ui-native/theme@15.0.3
+
 ## 15.0.2
 
 ### Patch Changes
