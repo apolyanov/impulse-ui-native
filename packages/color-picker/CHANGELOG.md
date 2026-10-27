@@ -1,5 +1,16 @@
 # @impulse-ui-native/color-picker
 
+## 15.0.5
+
+### Patch Changes
+
+- @impulse-ui-native/core@15.0.5
+- @impulse-ui-native/icon@15.0.5
+- @impulse-ui-native/input@15.0.5
+- @impulse-ui-native/primitives@15.0.5
+- @impulse-ui-native/slider@15.0.5
+- @impulse-ui-native/theme@15.0.5
+
 ## 15.0.4
 
 ### Patch Changes

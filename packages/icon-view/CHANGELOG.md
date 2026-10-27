@@ -1,5 +1,13 @@
 # @impulse-ui-native/icon-view
 
+## 15.0.5
+
+### Patch Changes
+
+- @impulse-ui-native/icon@15.0.5
+- @impulse-ui-native/primitives@15.0.5
+- @impulse-ui-native/theme@15.0.5
+
 ## 15.0.4
 
 ### Patch Changes

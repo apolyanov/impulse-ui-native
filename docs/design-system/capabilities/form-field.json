@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/form-field",
   "slug": "form-field",
-  "version": "15.0.4",
+  "version": "15.0.5",
   "guidance": {
     "kind": "composition",
     "chooseWhen": "Add a label, description and validation to a custom control.",

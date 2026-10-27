@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/list",
   "slug": "list",
-  "version": "15.0.4",
+  "version": "15.0.5",
   "guidance": {
     "kind": "presentation",
     "chooseWhen": "Present rows with leading content, text and trailing actions.",

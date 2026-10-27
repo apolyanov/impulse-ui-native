@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/overlay",
   "slug": "overlay",
-  "version": "15.0.4",
+  "version": "15.0.5",
   "guidance": {
     "kind": "infrastructure",
     "chooseWhen": "Register and coordinate an application-wide overlay stack.",

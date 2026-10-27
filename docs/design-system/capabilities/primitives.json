@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/primitives",
   "slug": "primitives",
-  "version": "15.0.4",
+  "version": "15.0.5",
   "guidance": {
     "kind": "foundation",
     "chooseWhen": "Build layouts, typography, actions and custom field composition.",

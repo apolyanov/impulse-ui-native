@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/checkbox",
   "slug": "checkbox",
-  "version": "15.0.4",
+  "version": "15.0.5",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Choose independent options or represent a mixed selection.",
