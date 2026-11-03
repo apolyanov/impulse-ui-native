@@ -6,9 +6,13 @@ import {
   FlatList,
   useFlatListInitialScroll,
 } from "@impulse-ui-native/flat-list";
+import { MagnifyingGlassIcon } from "@impulse-ui-native/icon/icons/magnifying-glass";
+import { Input } from "@impulse-ui-native/input";
+import { Spinner, Typography, View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { SelectOptionsProps } from "../types/select-options.types";
+import { useSelectSearch } from "../hooks/use-select-search.hook";
 import { PrimitiveValue, SelectOption } from "../types";
 import { getOptionId } from "../utils";
 import { SelectFlyoutOption } from "./select-flyout-option";
@@ -22,15 +26,32 @@ export const SelectOptions = memo(function SelectOptions<
     onSelect,
     initialScrollToSelected,
     tone = "neutral",
+    searchable = false,
+    searchValue,
+    onSearchChange,
+    optionsLoading = false,
   } = props;
 
   const initialSelection = useRef(isSelected);
 
-  const { select: tokens } = useComponentsTokens();
+  const { select: tokens, controlContainer } = useComponentsTokens();
+  const { query, setQuery, normalizedQuery, visibleOptions, showEmptyState } =
+    useSelectSearch({
+      options,
+      searchable,
+      searchValue,
+      onSearchChange,
+      optionsLoading,
+    });
 
   const optionHeight = tokens.option.height;
   const optionsHeight = options.length * optionHeight;
-  const canScroll = optionsHeight > tokens.flyoutHeight;
+  const searchHeight = searchable
+    ? controlContainer.sizes.medium.height + tokens.option.padding * 2
+    : 0;
+  const loadingHeight = optionsLoading ? tokens.option.height : 0;
+  const availableHeight = tokens.flyoutHeight - searchHeight - loadingHeight;
+  const canScroll = optionsHeight > availableHeight;
 
   const selectedIndex = useMemo(
     () =>
@@ -44,7 +65,10 @@ export const SelectOptions = memo(function SelectOptions<
   );
 
   const shouldScrollToSelected =
-    initialScrollToSelected && canScroll && selectedIndex >= 0;
+    initialScrollToSelected &&
+    !normalizedQuery &&
+    canScroll &&
+    selectedIndex >= 0;
   const initialScrollIndex = shouldScrollToSelected ? selectedIndex : undefined;
 
   const initialScroll = useFlatListInitialScroll<SelectOption<Value>>({
@@ -69,19 +93,46 @@ export const SelectOptions = memo(function SelectOptions<
   );
 
   return (
-    <FlatList
-      {...initialScroll}
-      data={options}
-      renderItem={renderItem}
-      keyExtractor={getOptionId}
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}
-      keyboardShouldPersistTaps="handled"
-      removeClippedSubviews
-      windowSize={5}
-      initialNumToRender={12}
-      maxToRenderPerBatch={12}
-      updateCellsBatchingPeriod={32}
-    />
+    <View flex={1}>
+      {searchable ? (
+        <View padding={tokens.option.padding}>
+          <Input
+            PrefixIcon={MagnifyingGlassIcon}
+            placeholder="Search options"
+            value={query}
+            onChangeText={setQuery}
+          />
+        </View>
+      ) : null}
+      {optionsLoading ? (
+        <View
+          height={tokens.option.height}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Spinner tone={tone} />
+        </View>
+      ) : null}
+      {showEmptyState ? (
+        <View padding={tokens.option.padding}>
+          <Typography.Body>No options found</Typography.Body>
+        </View>
+      ) : null}
+      <FlatList
+        key={normalizedQuery}
+        {...initialScroll}
+        data={visibleOptions}
+        renderItem={renderItem}
+        keyExtractor={getOptionId}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+        removeClippedSubviews
+        windowSize={5}
+        initialNumToRender={12}
+        maxToRenderPerBatch={12}
+        updateCellsBatchingPeriod={32}
+      />
+    </View>
   );
 });

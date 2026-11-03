@@ -8,6 +8,7 @@ import {
   FieldVariantOptions,
 } from "@impulse-ui-native/storybook";
 
+import { SelectControlledSearchExample } from "./select-controlled-search-example";
 import { SelectInitialScrollExample } from "./select-initial-scroll-example";
 import { SelectLayoutExample } from "./select-layout-example";
 import { SelectDocumentation } from "./select.documentation";
@@ -29,6 +30,24 @@ const meta = {
     loading: false,
   },
   argTypes: {
+    optionsLoading: {
+      control: "boolean",
+      description:
+        "Shows flyout progress while search and options remain interactive.",
+    },
+    searchValue: {
+      control: "text",
+      description:
+        "Controls the query and renders supplied options without local filtering.",
+    },
+    onSearchChange: {
+      control: false,
+      description: "Reports edits to the search query.",
+    },
+    searchable: {
+      control: "boolean",
+      description: "Shows a label search field in the options flyout.",
+    },
     tone: {
       control: "select",
       options: FieldToneOptions,
@@ -92,6 +111,22 @@ export const Documentation: Story = {
 
 export const SoftPrimary: Story = createSelectStory("Soft primary");
 export const FilledSecondary: Story = createSelectStory("Filled secondary");
+
+export const ControlledSearch: Story = {
+  render: function renderControlledSearch() {
+    return <SelectControlledSearchExample />;
+  },
+  parameters: createStoryDescription(
+    "The caller owns the query and results. Search software to find Engineering through an external alias; supplied results are not filtered again.",
+  ),
+};
+
+export const OptionsLoading: Story = createSelectStory("Options loading");
+
+export const Searchable: Story = createSelectStory("Searchable");
+export const SearchableMultiple: Story = createSelectStory(
+  "Searchable multiple",
+);
 
 export const Single: Story = createSelectStory("Single");
 export const Layout: Story = {

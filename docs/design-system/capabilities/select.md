@@ -10,7 +10,7 @@ Choose one or multiple primitive values from a list.
 ## Capabilities
 
 - Select and MultiSelect; controlled/uncontrolled values and disabled options.
-- Caret defaults, initial-scroll-to-selection, loading and field addons.
+- Caret defaults, initial-scroll-to-selection, loading and field addons. searchable=true adds case-insensitive label filtering, an outlined/neutral search Input and an empty result message; uncontrolled queries reset on opening. Controlled searchValue/onSearchChange displays supplied options without local filtering; optionsLoading shows flyout progress while keeping search and results interactive. Controlled queries are reset by the caller. Selected labels still require their records in options.
 
 ## Boundaries and composition
 
@@ -38,7 +38,7 @@ Optional refers to the package manifest; individual features may still require t
 
 ### MultiSelect
 
-Source: `packages/select/src/components/multi-select.tsx:14`. Direct defaults: `tone="neutral"`, `variant="outlined"`.
+Source: `packages/select/src/components/multi-select.tsx:14`. Direct defaults: `tone="neutral"`, `variant="outlined"`, `searchable=false`.
 
 - **inheritedDefaults**: {"variant":"outlined","size":"medium","from":"Control.Field"}
 - **valueContract**: Select holds one primitive or empty value; MultiSelect holds an array. Options are {label,value,disabled?}.
@@ -56,10 +56,14 @@ Generic parameters: `Value extends PrimitiveValue`.
 | `onChange`                | No       | `((value: Value[] \| undefined) => void) \| undefined`     |
 | `onPressPrefix`           | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix`           | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `onSearchChange`          | No       | `((value: string) => void) \| undefined`                   |
 | `options`                 | Yes      | `SelectOption<Value>[]`                                    |
+| `optionsLoading`          | No       | `boolean \| undefined`                                     |
 | `placeholder`             | No       | `string \| undefined`                                      |
 | `Prefix`                  | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`              | No       | `ComponentType<SvgProps> \| undefined`                     |
+| `searchable`              | No       | `boolean \| undefined`                                     |
+| `searchValue`             | No       | `string \| undefined`                                      |
 | `size`                    | No       | `large / medium / small`                                   |
 | `Suffix`                  | No       | `ComponentType \| undefined`                               |
 | `SuffixIcon`              | No       | `ComponentType<SvgProps> \| undefined`                     |
@@ -71,7 +75,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 
 ### Select
 
-Source: `packages/select/src/components/select.tsx:11`. Direct defaults: `tone="neutral"`.
+Source: `packages/select/src/components/select.tsx:11`. Direct defaults: `tone="neutral"`, `searchable=false`.
 
 - **inheritedDefaults**: {"variant":"outlined","size":"medium","from":"Control.Field"}
 - **valueContract**: Select holds one primitive or empty value; MultiSelect holds an array. Options are {label,value,disabled?}.
@@ -89,10 +93,14 @@ Generic parameters: `Value extends PrimitiveValue`.
 | `onChange`                | No       | `((value: Value \| undefined) => void) \| undefined`       |
 | `onPressPrefix`           | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
 | `onPressSuffix`           | No       | `((event: GestureResponderEvent) => unknown) \| undefined` |
+| `onSearchChange`          | No       | `((value: string) => void) \| undefined`                   |
 | `options`                 | Yes      | `SelectOption<Value>[]`                                    |
+| `optionsLoading`          | No       | `boolean \| undefined`                                     |
 | `placeholder`             | No       | `string \| undefined`                                      |
 | `Prefix`                  | No       | `ComponentType \| undefined`                               |
 | `PrefixIcon`              | No       | `ComponentType<SvgProps> \| undefined`                     |
+| `searchable`              | No       | `boolean \| undefined`                                     |
+| `searchValue`             | No       | `string \| undefined`                                      |
 | `size`                    | No       | `large / medium / small`                                   |
 | `Suffix`                  | No       | `ComponentType \| undefined`                               |
 | `SuffixIcon`              | No       | `ComponentType<SvgProps> \| undefined`                     |

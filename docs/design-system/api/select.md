@@ -63,6 +63,33 @@ Both controls support controlled `value` and uncontrolled `defaultValue` usage. 
 
 On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Lists that fit within the flyout stay at the top so all rows remain visible. Longer lists use native initial scrolling to reveal the opening selection. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default), also supplied to native `getItemLayout`. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.
 
+Set `searchable` on either control to show a search field above the options:
+
+```tsx
+<Select options={options} searchable />
+<MultiSelect options={options} searchable />
+```
+
+Search matches option labels case-insensitively and ignores surrounding whitespace. Filtering preserves selected values and disabled options. A query with no matches displays “No options found”. An uncontrolled query resets on each opening. Search is disabled by default; the search field uses the standard outlined/neutral Input appearance.
+
+### External search and option loading
+
+Provide `searchValue` and `onSearchChange` to control the query. With `searchValue` supplied (including an empty string), the flyout displays `options` as provided without local filtering. The caller owns fetching, debouncing, request cancellation, and resetting the controlled query.
+
+```tsx
+<Select
+  searchable
+  searchValue={search}
+  onSearchChange={setSearch}
+  options={results}
+  optionsLoading={isFetching}
+/>
+```
+
+`optionsLoading` shows a spinner above the current results and suppresses the empty result message while fetching. Search and existing results remain interactive. It is independent of the trigger's `loading` prop and also works without `searchable`. Using `onSearchChange` alone observes an uncontrolled query and retains local filtering.
+
+Selection values are preserved when results change, but their labels still come from `options`. Keep selected records in the supplied options if their labels must remain visible; selected-option caching is not built in.
+
 ## Field layout
 
 Select and MultiSelect accept flex, dimension, and spacing props on the outer
@@ -153,6 +180,10 @@ export const MultiSelect = memo(function MultiSelectComponent<
     tone = "neutral",
     variant = "outlined",
     initialScrollToSelected,
+    searchable = false,
+    searchValue,
+    onSearchChange,
+    optionsLoading,
     ...rest
   } = props;
 
@@ -216,6 +247,10 @@ export const MultiSelect = memo(function MultiSelectComponent<
         title="Options"
         open={isOpen}
         options={options}
+        searchable={searchable}
+        searchValue={searchValue}
+        onSearchChange={onSearchChange}
+        optionsLoading={optionsLoading}
         initialScrollToSelected={initialScrollToSelected}
         isSelected={isSelected}
         onCloseFinished={close}
@@ -250,6 +285,10 @@ export const Select = memo(function SelectComponent<
     placeholder,
     tone = "neutral",
     initialScrollToSelected,
+    searchable = false,
+    searchValue,
+    onSearchChange,
+    optionsLoading,
     ...rest
   } = props;
 
@@ -288,6 +327,10 @@ export const Select = memo(function SelectComponent<
         title="Options"
         open={isOpen}
         options={options}
+        searchable={searchable}
+        searchValue={searchValue}
+        onSearchChange={onSearchChange}
+        optionsLoading={optionsLoading}
         initialScrollToSelected={initialScrollToSelected}
         isSelected={isSelected}
         onCloseFinished={close}
@@ -337,6 +380,14 @@ export type SelectOption<Value> = {
 export interface CommonSelectProps<Value>
   extends Partial<ControlComponentProps>, ControlComponentCommonProps {
   loading?: boolean;
+  /** Show a label search field in the options flyout. Defaults to false. */
+  searchable?: boolean;
+  /** Controlled query. When supplied, options are rendered without local filtering. */
+  searchValue?: string;
+  /** Called when the user edits the search query. */
+  onSearchChange?: (value: string) => void;
+  /** Show progress in the options flyout without disabling search. */
+  optionsLoading?: boolean;
   /** Reveal the selection on each opening. Defaults to true. */
   initialScrollToSelected?: boolean;
   onChange?: (value: Value | undefined) => void;
@@ -366,6 +417,13 @@ export interface SelectFlyoutProps<
   Value extends PrimitiveValue,
 > extends FlyoutProps {
   tone?: ComponentTone;
+  searchable?: boolean;
+  /** Controlled query. When supplied, options are rendered without local filtering. */
+  searchValue?: string;
+  /** Called when the user edits the search query. */
+  onSearchChange?: (value: string) => void;
+  /** Show progress in the options flyout without disabling search. */
+  optionsLoading?: boolean;
   options: SelectOption<Value>[];
   initialScrollToSelected?: boolean;
   isSelected: (value: Value) => boolean;

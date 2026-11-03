@@ -18,6 +18,10 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
     isSelected,
     onSelect,
     initialScrollToSelected = true,
+    searchable = false,
+    searchValue,
+    onSearchChange,
+    optionsLoading,
     ...rest
   } = props;
 
@@ -37,6 +41,10 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
       <Flyout {...rest} onOpen={handleOpen}>
         <View height={tokens.select.flyoutHeight}>
           <SelectOptions
+            searchable={searchable}
+            searchValue={searchValue}
+            onSearchChange={onSearchChange}
+            optionsLoading={optionsLoading}
             tone={tone}
             key={openingKey}
             options={options}

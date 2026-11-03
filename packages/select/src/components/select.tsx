@@ -19,6 +19,10 @@ export const Select = memo(function SelectComponent<
     placeholder,
     tone = "neutral",
     initialScrollToSelected,
+    searchable = false,
+    searchValue,
+    onSearchChange,
+    optionsLoading,
     ...rest
   } = props;
 
@@ -57,6 +61,10 @@ export const Select = memo(function SelectComponent<
         title="Options"
         open={isOpen}
         options={options}
+        searchable={searchable}
+        searchValue={searchValue}
+        onSearchChange={onSearchChange}
+        optionsLoading={optionsLoading}
         initialScrollToSelected={initialScrollToSelected}
         isSelected={isSelected}
         onCloseFinished={close}

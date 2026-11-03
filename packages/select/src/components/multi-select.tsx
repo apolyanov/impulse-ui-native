@@ -23,6 +23,10 @@ export const MultiSelect = memo(function MultiSelectComponent<
     tone = "neutral",
     variant = "outlined",
     initialScrollToSelected,
+    searchable = false,
+    searchValue,
+    onSearchChange,
+    optionsLoading,
     ...rest
   } = props;
 
@@ -86,6 +90,10 @@ export const MultiSelect = memo(function MultiSelectComponent<
         title="Options"
         open={isOpen}
         options={options}
+        searchable={searchable}
+        searchValue={searchValue}
+        onSearchChange={onSearchChange}
+        optionsLoading={optionsLoading}
         initialScrollToSelected={initialScrollToSelected}
         isSelected={isSelected}
         onCloseFinished={close}

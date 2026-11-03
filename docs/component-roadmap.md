@@ -82,8 +82,8 @@ Validate the new surface on iOS and Android.
 | `Slider`              | `@impulse-ui-native/slider`            | Extend    | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
 | `RangeSlider`         | `@impulse-ui-native/slider`            | Extend    | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
 | `SegmentedControl`    | `@impulse-ui-native/segmented-control` | Available | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |
-| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, grouped/custom option rendering, and clearer async option states.                                           |
-| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Add search, selection limits, selected-item summaries, and large-list guidance.                                         |
+| `Select`              | `@impulse-ui-native/select`            | Extend    | Yes       | Search implemented; add grouped/custom option rendering and clearer async option states.                                |
+| `MultiSelect`         | `@impulse-ui-native/select`            | Extend    | Yes       | Search implemented; add selection limits, selected-item summaries, and large-list guidance.                             |
 | `DatePicker`          | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date constraints, disabled dates, locale, and first-day-of-week controls.                                           |
 | `DateRangePicker`     | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add range constraints and clearer incomplete/invalid range behavior.                                                    |
 | `DatetimePicker`      | `@impulse-ui-native/datetime`          | Extend    | Yes       | Add date/time constraints and locale/timezone guidance.                                                                 |
@@ -164,7 +164,7 @@ in candidate tables. No new component is currently marked **Planned**.
 ### Priority 1: extend existing APIs
 
 - [ ] Add picker constraints and locale/timezone contracts.
-- [ ] Add Select search, richer option composition, and MultiSelect limits.
+- [ ] Add richer Select option composition and MultiSelect limits (search implemented).
 - [ ] Complete `StepperTabsNavigation` and define step validation behavior.
 - [ ] Add Flyout snap points and native scroll coordination.
 - [ ] Establish shared chart interaction, selection, tooltip, and legend APIs.

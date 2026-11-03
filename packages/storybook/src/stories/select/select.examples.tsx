@@ -32,6 +32,8 @@ type SelectStoryArgs = Pick<
   | "error"
   | "label"
   | "placeholder"
+  | "searchable"
+  | "optionsLoading"
 > & {
   options: SelectOption<PrimitiveValue>[];
 };
@@ -44,6 +46,52 @@ export const SelectStoryOptions = [
 ];
 
 export const SelectExampleDefinitions = [
+  {
+    name: "Options loading",
+    title: "Loading search results",
+    description:
+      "Flyout progress keeps the search field and existing options interactive, without changing the trigger loading state.",
+    props: [
+      {
+        name: "optionsLoading",
+        value: "true",
+        description:
+          "Shows progress above the results and suppresses empty-result feedback.",
+      },
+    ],
+    args: { searchable: true, optionsLoading: true },
+    renderPreview: (args) => <Select {...args} />,
+  },
+  {
+    name: "Searchable",
+    title: "Searchable",
+    description:
+      "Filter labels without changing the selection. Try a query with no matches, clear it, and reopen to reset the search.",
+    props: [
+      {
+        name: "searchable",
+        value: "true",
+        description: "Shows a label search field in the flyout.",
+      },
+    ],
+    args: { searchable: true },
+    renderPreview: (args) => <Select {...args} />,
+  },
+  {
+    name: "Searchable multiple",
+    title: "Searchable multiple",
+    description:
+      "Filter labels without changing the selection. Try a query with no matches, clear it, and reopen to reset the search.",
+    props: [
+      {
+        name: "searchable",
+        value: "true",
+        description: "Shows a label search field in the flyout.",
+      },
+    ],
+    args: { searchable: true },
+    renderPreview: (args) => <MultiSelect {...args} />,
+  },
   {
     name: "Soft primary",
     title: "Soft primary field",

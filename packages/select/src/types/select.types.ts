@@ -21,6 +21,14 @@ export type SelectOption<Value> = {
 export interface CommonSelectProps<Value>
   extends Partial<ControlComponentProps>, ControlComponentCommonProps {
   loading?: boolean;
+  /** Show a label search field in the options flyout. Defaults to false. */
+  searchable?: boolean;
+  /** Controlled query. When supplied, options are rendered without local filtering. */
+  searchValue?: string;
+  /** Called when the user edits the search query. */
+  onSearchChange?: (value: string) => void;
+  /** Show progress in the options flyout without disabling search. */
+  optionsLoading?: boolean;
   /** Reveal the selection on each opening. Defaults to true. */
   initialScrollToSelected?: boolean;
   onChange?: (value: Value | undefined) => void;
@@ -50,6 +58,13 @@ export interface SelectFlyoutProps<
   Value extends PrimitiveValue,
 > extends FlyoutProps {
   tone?: ComponentTone;
+  searchable?: boolean;
+  /** Controlled query. When supplied, options are rendered without local filtering. */
+  searchValue?: string;
+  /** Called when the user edits the search query. */
+  onSearchChange?: (value: string) => void;
+  /** Show progress in the options flyout without disabling search. */
+  optionsLoading?: boolean;
   options: SelectOption<Value>[];
   initialScrollToSelected?: boolean;
   isSelected: (value: Value) => boolean;

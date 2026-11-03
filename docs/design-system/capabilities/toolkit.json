@@ -4888,7 +4888,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 42
+        "line": 50
       }
     },
     {
@@ -4964,7 +4964,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 59
+        "line": 74
       }
     },
     {
@@ -6440,7 +6440,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 29
+        "line": 37
       }
     },
     {
@@ -6448,7 +6448,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 49
+        "line": 57
       }
     },
     {
@@ -6528,7 +6528,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 34
+        "line": 42
       }
     },
     {
@@ -8274,7 +8274,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 65
+        "line": 80
       }
     },
     {

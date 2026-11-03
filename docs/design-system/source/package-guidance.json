@@ -423,7 +423,7 @@
       "chooseWhen": "Choose one or multiple primitive values from a list.",
       "features": [
         "Select and MultiSelect; controlled/uncontrolled values and disabled options.",
-        "Caret defaults, initial-scroll-to-selection, loading and field addons."
+        "Caret defaults, initial-scroll-to-selection, loading and field addons. searchable=true adds case-insensitive label filtering, an outlined/neutral search Input and an empty result message; uncontrolled queries reset on opening. Controlled searchValue/onSearchChange displays supplied options without local filtering; optionsLoading shows flyout progress while keeping search and results interactive. Controlled queries are reset by the caller. Selected labels still require their records in options."
       ],
       "constraints": [
         "Options are label/value records with primitive values.",

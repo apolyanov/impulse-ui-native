@@ -7,7 +7,7 @@
     "chooseWhen": "Choose one or multiple primitive values from a list.",
     "features": [
       "Select and MultiSelect; controlled/uncontrolled values and disabled options.",
-      "Caret defaults, initial-scroll-to-selection, loading and field addons."
+      "Caret defaults, initial-scroll-to-selection, loading and field addons. searchable=true adds case-insensitive label filtering, an outlined/neutral search Input and an empty result message; uncontrolled queries reset on opening. Controlled searchValue/onSearchChange displays supplied options without local filtering; optionsLoading shows flyout progress while keeping search and results interactive. Controlled queries are reset by the caller. Selected labels still require their records in options."
     ],
     "constraints": [
       "Options are label/value records with primitive values.",
@@ -40,7 +40,7 @@
           "type": "Value[] | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 46
+            "line": 54
           }
         },
         {
@@ -67,7 +67,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 25
+            "line": 33
           }
         },
         {
@@ -94,7 +94,7 @@
           "type": "((value: Value[] | undefined) => void) | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 26
+            "line": 34
           }
         },
         {
@@ -116,12 +116,30 @@
           }
         },
         {
+          "name": "onSearchChange",
+          "required": false,
+          "type": "((value: string) => void) | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 29
+          }
+        },
+        {
           "name": "options",
           "required": true,
           "type": "SelectOption<Value>[]",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 44
+            "line": 52
+          }
+        },
+        {
+          "name": "optionsLoading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 31
           }
         },
         {
@@ -149,6 +167,24 @@
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
             "line": 22
+          }
+        },
+        {
+          "name": "searchable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "searchValue",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 27
           }
         },
         {
@@ -195,7 +231,7 @@
           "type": "Value[] | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 45
+            "line": 53
           }
         },
         {
@@ -269,6 +305,14 @@
             "file": "packages/select/src/components/multi-select.tsx",
             "line": 24
           }
+        },
+        "searchable": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/select/src/components/multi-select.tsx",
+            "line": 26
+          }
         }
       },
       "defaultResolution": "direct-source-only",
@@ -311,7 +355,7 @@
           "type": "Value | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 39
+            "line": 47
           }
         },
         {
@@ -338,7 +382,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 25
+            "line": 33
           }
         },
         {
@@ -365,7 +409,7 @@
           "type": "((value: Value | undefined) => void) | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 26
+            "line": 34
           }
         },
         {
@@ -387,12 +431,30 @@
           }
         },
         {
+          "name": "onSearchChange",
+          "required": false,
+          "type": "((value: string) => void) | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 29
+          }
+        },
+        {
           "name": "options",
           "required": true,
           "type": "SelectOption<Value>[]",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 37
+            "line": 45
+          }
+        },
+        {
+          "name": "optionsLoading",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 31
           }
         },
         {
@@ -420,6 +482,24 @@
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
             "line": 22
+          }
+        },
+        {
+          "name": "searchable",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 25
+          }
+        },
+        {
+          "name": "searchValue",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "packages/select/src/types/select.types.ts",
+            "line": 27
           }
         },
         {
@@ -466,7 +546,7 @@
           "type": "Value | undefined",
           "source": {
             "file": "packages/select/src/types/select.types.ts",
-            "line": 38
+            "line": 46
           }
         },
         {
@@ -532,6 +612,14 @@
             "file": "packages/select/src/components/select.tsx",
             "line": 20
           }
+        },
+        "searchable": {
+          "expression": "false",
+          "value": false,
+          "source": {
+            "file": "packages/select/src/components/select.tsx",
+            "line": 22
+          }
         }
       },
       "defaultResolution": "direct-source-only",
@@ -584,7 +672,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 42
+        "line": 50
       }
     },
     {
@@ -592,7 +680,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 59
+        "line": 74
       }
     },
     {
@@ -622,7 +710,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 29
+        "line": 37
       }
     },
     {
@@ -630,7 +718,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 49
+        "line": 57
       }
     },
     {
@@ -654,7 +742,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 34
+        "line": 42
       }
     },
     {
@@ -662,7 +750,7 @@
       "kind": "type",
       "source": {
         "file": "packages/select/src/types/select.types.ts",
-        "line": 65
+        "line": 80
       }
     }
   ],

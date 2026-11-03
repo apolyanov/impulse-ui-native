@@ -57,6 +57,33 @@ Both controls support controlled `value` and uncontrolled `defaultValue` usage. 
 
 On each opening, Select reveals its selected option. MultiSelect reveals the first selected option in list order. Lists that fit within the flyout stay at the top so all rows remain visible. Longer lists use native initial scrolling to reveal the opening selection. Options are single-line rows with a fixed `theme.components.select.option.height` (56 by default), also supplied to native `getItemLayout`. Long labels truncate at the end. Selection changes while open do not change the opening target. Set `initialScrollToSelected={false}` to retain the normal starting position.
 
+Set `searchable` on either control to show a search field above the options:
+
+```tsx
+<Select options={options} searchable />
+<MultiSelect options={options} searchable />
+```
+
+Search matches option labels case-insensitively and ignores surrounding whitespace. Filtering preserves selected values and disabled options. A query with no matches displays “No options found”. An uncontrolled query resets on each opening. Search is disabled by default; the search field uses the standard outlined/neutral Input appearance.
+
+### External search and option loading
+
+Provide `searchValue` and `onSearchChange` to control the query. With `searchValue` supplied (including an empty string), the flyout displays `options` as provided without local filtering. The caller owns fetching, debouncing, request cancellation, and resetting the controlled query.
+
+```tsx
+<Select
+  searchable
+  searchValue={search}
+  onSearchChange={setSearch}
+  options={results}
+  optionsLoading={isFetching}
+/>
+```
+
+`optionsLoading` shows a spinner above the current results and suppresses the empty result message while fetching. Search and existing results remain interactive. It is independent of the trigger's `loading` prop and also works without `searchable`. Using `onSearchChange` alone observes an uncontrolled query and retains local filtering.
+
+Selection values are preserved when results change, but their labels still come from `options`. Keep selected records in the supplied options if their labels must remain visible; selected-option caching is not built in.
+
 ## Field layout
 
 Select and MultiSelect accept flex, dimension, and spacing props on the outer
