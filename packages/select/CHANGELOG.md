@@ -1,5 +1,47 @@
 # @impulse-ui-native/select
 
+## 16.0.0
+
+### Minor Changes
+
+- 89cb141: Add Flyout.KeyboardAwareView, a single shrinkable body View that reserves keyboard
+  overlap as animated bottom padding. Root stays attached to its placement edge;
+  keyboard movement does not translate the sheet. Body padding can grow the sheet
+  to its normal height cap; supplied scroll containers shrink after that. Account for safe area and placement offsets,
+  support enabled/keyboardOffset and native refs, and restore natural sizing when
+  the keyboard closes. Use the body for Select options.
+
+  Install react-native-keyboard-controller and wrap the application and Portal/Overlay
+  hosts in KeyboardProvider, then rebuild the native app. Keyboard-aware bodies do
+  not automatically scroll focused inputs or dismiss the keyboard.
+
+- 31122a6: Add optional searchable flyouts to Select and MultiSelect with case-insensitive label filtering and empty result feedback. Expose searchValue/onSearchChange for externally managed search and optionsLoading for flyout progress.
+
+### Patch Changes
+
+- 89cb141: Render Flyout body children directly instead of inserting Content. Existing static
+  bodies must use Flyout.Content explicitly to retain padding. Add Flyout.ScrollView
+  with native props/ref and themed content padding. Constrain the whole sheet and
+  update dismissal measurements after resizing. Migrate Select and picker bodies.
+
+  Simplify Root to one animated pressable backdrop and one animated sheet with safe-area padding. Handle inherits Root placement; remove its redundant placement prop. Keep measured height in a shared value, honor offsets during exit, and remove redundant body wrappers from built-in consumers.
+
+  Initialize the hidden sheet from its first layout instead of passing screen dimensions into its animation lifecycle. Read animation tokens in the lifecycle hook directly.
+
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [e8320c9]
+  - @impulse-ui-native/flyout@16.0.0
+  - @impulse-ui-native/theme@16.0.0
+  - @impulse-ui-native/icon@16.0.0
+  - @impulse-ui-native/input@16.0.0
+  - @impulse-ui-native/primitives@16.0.0
+  - @impulse-ui-native/core@16.0.0
+  - @impulse-ui-native/portal@16.0.0
+  - @impulse-ui-native/flat-list@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes

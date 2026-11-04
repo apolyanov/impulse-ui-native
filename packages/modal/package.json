@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/modal",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "description": "Compound modal dialogs with local and OverlayHost lifecycle support.",
   "keywords": [
     "react-native",

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/flat-list",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "description": "Native FlatList and a small hook for initial positioning with known row sizes.",
   "keywords": [
     "react-native",

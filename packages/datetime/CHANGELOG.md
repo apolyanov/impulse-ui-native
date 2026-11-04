@@ -1,5 +1,33 @@
 # @impulse-ui-native/datetime
 
+## 16.0.0
+
+### Patch Changes
+
+- 89cb141: Render Flyout body children directly instead of inserting Content. Existing static
+  bodies must use Flyout.Content explicitly to retain padding. Add Flyout.ScrollView
+  with native props/ref and themed content padding. Constrain the whole sheet and
+  update dismissal measurements after resizing. Migrate Select and picker bodies.
+
+  Simplify Root to one animated pressable backdrop and one animated sheet with safe-area padding. Handle inherits Root placement; remove its redundant placement prop. Keep measured height in a shared value, honor offsets during exit, and remove redundant body wrappers from built-in consumers.
+
+  Initialize the hidden sheet from its first layout instead of passing screen dimensions into its animation lifecycle. Read animation tokens in the lifecycle hook directly.
+
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [e8320c9]
+- Updated dependencies [31122a6]
+  - @impulse-ui-native/flyout@16.0.0
+  - @impulse-ui-native/select@16.0.0
+  - @impulse-ui-native/theme@16.0.0
+  - @impulse-ui-native/icon@16.0.0
+  - @impulse-ui-native/primitives@16.0.0
+  - @impulse-ui-native/core@16.0.0
+  - @impulse-ui-native/portal@16.0.0
+  - @impulse-ui-native/flat-list@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes

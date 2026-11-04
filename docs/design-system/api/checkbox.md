@@ -1,6 +1,6 @@
 # @impulse-ui-native/checkbox
 
-Local package version: 15.0.5. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 16.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

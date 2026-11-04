@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/flyout",
   "slug": "flyout",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
