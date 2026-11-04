@@ -1,103 +1,57 @@
-import type { Edge } from "react-native-safe-area-context";
-import { Fragment, memo, useMemo } from "react";
-import { StyleSheet, useWindowDimensions, View } from "react-native";
+import { memo, useMemo } from "react";
+import { StyleSheet, useWindowDimensions } from "react-native";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
-import { Pressable } from "@impulse-ui-native/primitives";
-import {
-  getFlyoutTokens,
-  useTheme,
-  useThemedStyles,
-} from "@impulse-ui-native/theme";
+import { getFlyoutTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { FlyoutRootProps } from "../types";
-import type { FlyoutPlacementThemeProps } from "../types/flyout-theme.types";
-import { FlyoutDragContext } from "../contexts/flyout-drag.context";
+import type { FlyoutRootThemeProps } from "../types/flyout-theme.types";
+import { FlyoutContext } from "../contexts/flyout.context";
 import { useFlyoutLifecycle } from "../hooks";
+import { FlyoutBackdrop } from "./backdrop";
 
-export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
-  const {
-    id,
-    children,
-    placement = "bottom",
-    layer = 0,
-    style,
-    open,
-    topOffset,
-    bottomOffset,
-    onCloseFinished,
-    onClose,
-    onOpen,
-    onOpenFinished,
-    onStatusChange,
-  } = props;
-
-  const theme = useTheme();
+export const FlyoutRoot = memo(function FlyoutRoot({
+  children,
+  placement = "bottom",
+  layer = 0,
+  style,
+  topOffset = 0,
+  bottomOffset = 0,
+  ...lifecycleProps
+}: FlyoutRootProps) {
   const insets = useSafeAreaInsets();
-
-  const windowDimensions = useWindowDimensions();
-
-  const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
-
-  const placementOffset = placement === "top" ? topOffset : bottomOffset;
-  const screenHeight = windowDimensions.height;
-  const zIndex = flyoutTokens.zIndexBase + layer;
-
-  const styles = useThemedStyles(themedStyles, { placement }, [placement]);
+  const { height: screenHeight } = useWindowDimensions();
+  const offset = placement === "top" ? topOffset : bottomOffset;
+  const styles = useThemedStyles(
+    themedStyles,
+    { placement, offset, screenHeight, layer, insets },
+    [placement, offset, screenHeight, layer, insets],
+  );
 
   const {
     close,
     dragGesture,
     hasMeasured,
-    isTouchable,
+    measuredHeight,
+    interactive,
     mounted,
     onLayout,
     opacity,
     translateY,
   } = useFlyoutLifecycle({
-    id,
-    open,
+    ...lifecycleProps,
     placement,
-    screenHeight,
-    safeAreaInset: insets[placement],
-    overlayVisibleOpacity: flyoutTokens.overlayVisibleOpacity,
-    onClose,
-    onCloseFinished,
-    onOpen,
-    onOpenFinished,
-    onStatusChange,
+    offset,
   });
 
-  const animatedStyle = useAnimatedStyle(() => {
-    const offset =
-      placement === "bottom" ? -(placementOffset ?? 0) : (placementOffset ?? 0);
-
-    return {
-      transform: [{ translateY: translateY.value + offset }],
-      zIndex,
-    };
-  });
-
-  const overlayStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-    zIndex,
-    backgroundColor: flyoutTokens.overlayColor,
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
   }));
-
-  const edges = useMemo<Edge[]>(() => {
-    return [placement, "left", "right"];
-  }, [placement]);
-
-  const overlayContainerStyle = useMemo(
-    () => [StyleSheet.absoluteFill, overlayStyle],
-    [overlayStyle],
-  );
-
+  const backdropStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+  }));
   const containerStyle = useMemo(
     () => [
       styles.container,
@@ -105,55 +59,87 @@ export const FlyoutRoot = memo(function FlyoutRoot(props: FlyoutRootProps) {
       !hasMeasured && styles.hidden,
       animatedStyle,
     ],
-    [animatedStyle, hasMeasured, style, styles.container, styles.hidden],
+    [styles.container, styles.hidden, style, hasMeasured, animatedStyle],
   );
+  const overlayStyle = useMemo(
+    () => [styles.backdrop, backdropStyle],
+    [styles.backdrop, backdropStyle],
+  );
+  const context = useMemo(
+    () => ({
+      dragGesture,
+      placement,
+      offset,
+      screenHeight,
+      measuredHeight,
+      maxHeight: styles.container.maxHeight,
+    }),
+    [
+      dragGesture,
+      placement,
+      offset,
+      screenHeight,
+      measuredHeight,
+      styles.container.maxHeight,
+    ],
+  );
+  const pointerEvents = interactive ? "auto" : "none";
 
   if (!mounted) {
     return null;
   }
 
   return (
-    <Fragment>
+    <FlyoutContext.Provider value={context}>
+      <FlyoutBackdrop
+        onPress={close}
+        pointerEvents={pointerEvents}
+        style={overlayStyle}
+      />
       <Animated.View
-        pointerEvents={isTouchable ? "auto" : "none"}
-        style={overlayContainerStyle}
+        onLayout={onLayout}
+        pointerEvents={pointerEvents}
+        style={containerStyle}
       >
-        <Pressable onPress={close} style={StyleSheet.absoluteFill} />
+        {children}
       </Animated.View>
-
-      <FlyoutDragContext.Provider value={dragGesture}>
-        <Animated.View onLayout={onLayout} style={containerStyle}>
-          <View pointerEvents="none" style={styles.surface} />
-          <SafeAreaView edges={edges}>{children}</SafeAreaView>
-        </Animated.View>
-      </FlyoutDragContext.Provider>
-    </Fragment>
+    </FlyoutContext.Provider>
   );
 });
 
-function themedStyles(theme: AppTheme, props: FlyoutPlacementThemeProps) {
-  const { placement } = props;
-  const flyoutTokens = getFlyoutTokens(theme.components.flyout, { placement });
-  const { top, bottom, ...surfaceShape } = flyoutTokens.container;
-  const handleHeight = flyoutTokens.handleContainer.height;
+function themedStyles(
+  theme: AppTheme,
+  { placement, offset, screenHeight, layer, insets }: FlyoutRootThemeProps,
+) {
+  const tokens = getFlyoutTokens(theme.components.flyout, { placement });
+  const zIndex = tokens.zIndexBase + layer;
+  const oppositeInset = placement === "bottom" ? insets.top : insets.bottom;
+  const availableHeight = screenHeight - oppositeInset - offset;
+  const maxHeight = Math.max(
+    0,
+    Math.min(screenHeight * tokens.maxHeightRatio, availableHeight),
+  );
 
   return StyleSheet.create({
     container: {
+      ...tokens.container,
       position: "absolute",
       left: 0,
       right: 0,
-      top,
-      bottom,
+      zIndex,
+      [placement]: offset,
+      maxHeight,
+      paddingBottom: placement === "bottom" ? insets.bottom : 0,
+      paddingLeft: insets.left,
+      paddingRight: insets.right,
+      paddingTop: placement === "top" ? insets.top : 0,
+      backgroundColor: tokens.backgroundColor,
     },
-    surface: {
+    backdrop: {
       ...StyleSheet.absoluteFill,
-      top: placement === "bottom" ? handleHeight : 0,
-      bottom: placement === "top" ? handleHeight : 0,
-      backgroundColor: flyoutTokens.backgroundColor,
-      ...surfaceShape,
+      zIndex,
+      backgroundColor: tokens.overlayColor,
     },
-    hidden: {
-      opacity: flyoutTokens.hiddenOpacity,
-    },
+    hidden: { opacity: tokens.hiddenOpacity },
   });
 }

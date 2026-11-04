@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { ScrollViewProps } from "react-native";
 
 import type { OverlayComponentProps } from "@impulse-ui-native/overlay";
 import type { TextProps, ViewProps } from "@impulse-ui-native/primitives";
@@ -19,6 +20,13 @@ export type FlyoutHeaderProps = ViewProps;
 export type FlyoutContentProps = ViewProps;
 export type FlyoutTitleProps = TextProps;
 
-export interface FlyoutHandleProps extends ViewProps {
-  placement?: FlyoutRootProps["placement"];
+export type FlyoutHandleProps = ViewProps;
+
+export type FlyoutScrollViewProps = ScrollViewProps;
+
+export interface FlyoutKeyboardAwareViewProps extends ViewProps {
+  /** Reserve keyboard overlap inside the body without translating the sheet. Defaults to true. */
+  enabled?: boolean;
+  /** Additional space above the keyboard, in logical units. Defaults to components.flyout.keyboardOffset (8). */
+  keyboardOffset?: number;
 }

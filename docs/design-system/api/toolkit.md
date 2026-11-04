@@ -276,6 +276,8 @@ ColorPicker selects custom colors with spectrum, hue, opacity, hex/RGB entry, an
 
 Start with the [capability guide](../capabilities/toolkit.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
 
+Flyout keyboard-aware bodies and Select require `react-native-keyboard-controller` and an application-level `KeyboardProvider` covering Portal/Overlay hosts. Rebuild the native app after installing it. See the [Flyout keyboard setup](https://github.com/apolyanov/impulse-ui-native/blob/main/packages/flyout/README.md#keyboard-aware-body).
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.

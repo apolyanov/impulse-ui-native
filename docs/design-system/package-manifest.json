@@ -265,7 +265,8 @@
       "react-native-reanimated": ">=4.0.0",
       "react-native-gesture-handler": ">=2.0.0",
       "react-native-worklets": ">=0.5",
-      "react-native-safe-area-context": ">=5.0.0"
+      "react-native-safe-area-context": ">=5.0.0",
+      "react-native-keyboard-controller": ">=1.22.0"
     },
     "peerDependenciesMeta": {},
     "exports": {
@@ -813,7 +814,8 @@
       "react-native-reanimated": ">=4",
       "react-native-safe-area-context": ">=5.0.0",
       "react-native-svg": ">=13.9.0",
-      "react-native-worklets": ">=0.5"
+      "react-native-worklets": ">=0.5",
+      "react-native-keyboard-controller": ">=1.22.0"
     },
     "peerDependenciesMeta": {},
     "exports": {

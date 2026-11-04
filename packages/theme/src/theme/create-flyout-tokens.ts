@@ -16,6 +16,7 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
 
     backgroundColor: tokens.colors.surface.elevated.value,
     contentPaddingHorizontal: tokens.space.sm,
+    keyboardOffset: tokens.space.xs,
 
     hiddenOpacity: 0,
 

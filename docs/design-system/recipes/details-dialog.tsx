@@ -32,10 +32,12 @@ export function DetailsDialogRecipe() {
           open={open === "sheet"}
           onClose={close}
         >
-          <Typography.Body>
-            Sheet content is supplied by the application.
-          </Typography.Body>
-          <Button onPress={close}>Done</Button>
+          <Flyout.Content>
+            <Typography.Body>
+              Sheet content is supplied by the application.
+            </Typography.Body>
+            <Button onPress={close}>Done</Button>
+          </Flyout.Content>
         </Flyout>
       </Portal>
     </View>

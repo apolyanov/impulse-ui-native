@@ -75,7 +75,7 @@ export const DatetimeRangePickerFlyout = memo(
     return (
       <Portal>
         <Flyout {...rest}>
-          <View gap={datetimeRangePickerTokens.gap}>
+          <Flyout.Content gap={datetimeRangePickerTokens.gap}>
             <VisibleDateSelect value={visible} onChange={onChangeVisible} />
             <Calendar
               tone={tone}
@@ -130,7 +130,7 @@ export const DatetimeRangePickerFlyout = memo(
               onPressCancel={onPressCancel}
               onPressClear={onPressClear}
             />
-          </View>
+          </Flyout.Content>
         </Flyout>
       </Portal>
     );

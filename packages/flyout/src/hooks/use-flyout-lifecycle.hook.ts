@@ -21,28 +21,24 @@ import type { FlyoutProps } from "../types";
 
 interface UseFlyoutLifecycleProps extends OverlayLifecycleProps {
   placement: NonNullable<FlyoutProps["placement"]>;
-  screenHeight: number;
-  safeAreaInset: number;
-  overlayVisibleOpacity: number;
+  offset: number;
 }
 
 export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
-  const { placement, screenHeight, safeAreaInset, overlayVisibleOpacity } =
-    props;
-  const [measuredHeight, setMeasuredHeight] = useState<number | null>(null);
+  const { placement, offset } = props;
+  const direction = placement === "top" ? -1 : 1;
+  const [hasMeasured, setHasMeasured] = useState(false);
 
-  const tokens = useComponentsTokens();
-  const enterSpring = tokens.flyout.enterSpring;
+  const { flyout: tokens } = useComponentsTokens();
+  const { enterSpring, overlayVisibleOpacity } = tokens;
   const exitAnimationConfig = useMemo(
-    () => ({ duration: tokens.flyout.exitDuration }),
-    [tokens.flyout.exitDuration],
+    () => ({ duration: tokens.exitDuration }),
+    [tokens.exitDuration],
   );
 
-  const translateY = useSharedValue(
-    placement === "top" ? -screenHeight : screenHeight,
-  );
+  const translateY = useSharedValue(0);
   const opacity = useSharedValue(0);
-  const hasMeasured = measuredHeight !== null;
+  const measuredHeight = useSharedValue(0);
 
   const enter = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
@@ -58,13 +54,13 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   );
   const exit = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
-      if (measuredHeight === null) {
+      if (!hasMeasured) {
         complete(transitionId);
 
         return;
       }
 
-      const target = placement === "top" ? -measuredHeight : measuredHeight;
+      const target = direction * (measuredHeight.value + offset);
       translateY.set(
         withTiming(target, exitAnimationConfig, (finished) => {
           if (finished) {
@@ -81,9 +77,9 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     [hasMeasured, enter, exit],
   );
   const finishClose = useEventCallback((id: string) => {
-    setMeasuredHeight(null);
-    translateY.set(placement === "top" ? -screenHeight : screenHeight);
-    opacity.set(0);
+    setHasMeasured(false);
+    // Keep the exited geometry until React unmounts the sheet.
+    // The next opening prepares its position from a fresh layout.
 
     props.onCloseFinished?.(id);
   });
@@ -92,41 +88,36 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     [props, finishClose],
   );
   const lifecycle = useOverlayLifecycle(lifecycleProps, options);
-  const { close, status, mounted, interactive } = lifecycle;
+  const { close, status, mounted } = lifecycle;
 
   const onLayout = useEventCallback((event: LayoutChangeEvent) => {
-    if (!mounted || measuredHeight !== null) {
+    if (!mounted) {
       return;
     }
 
-    const height = event.nativeEvent.layout.height + safeAreaInset;
-    translateY.set(placement === "top" ? -height : height);
+    const height = event.nativeEvent.layout.height;
+    measuredHeight.set(height);
 
-    setMeasuredHeight(height);
+    if (!hasMeasured) {
+      // The sheet stays hidden until this starting position is ready.
+      translateY.set(direction * (height + offset));
+      setHasMeasured(true);
+    }
   });
 
   const dragGesture = useMemo(
     () =>
       Gesture.Pan()
-        .enabled(status === "open" && hasMeasured)
+        .enabled(status === "open")
         .onUpdate((event) => {
-          translateY.set(
-            placement === "bottom"
-              ? Math.max(0, event.translationY)
-              : Math.min(0, event.translationY),
-          );
+          const distance = Math.max(0, direction * event.translationY);
+          translateY.set(direction * distance);
         })
         .onEnd((event) => {
-          if (measuredHeight === null) {
-            return;
-          }
-
+          const distance = direction * event.translationY;
+          const velocity = direction * event.velocityY;
           const shouldClose =
-            placement === "bottom"
-              ? event.translationY > measuredHeight * 0.5 ||
-                event.velocityY > 1500
-              : event.translationY < -measuredHeight * 0.5 ||
-                event.velocityY < -1500;
+            distance > measuredHeight.value * 0.5 || velocity > 1500;
 
           if (shouldClose) {
             scheduleOnRN(close);
@@ -135,19 +126,8 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
           }
 
           translateY.set(withSpring(0, enterSpring));
-          opacity.set(withSpring(overlayVisibleOpacity, enterSpring));
         }),
-    [
-      status,
-      hasMeasured,
-      measuredHeight,
-      placement,
-      close,
-      translateY,
-      opacity,
-      overlayVisibleOpacity,
-      enterSpring,
-    ],
+    [status, measuredHeight, direction, close, translateY, enterSpring],
   );
 
   useEffect(
@@ -163,7 +143,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
       ...lifecycle,
       dragGesture,
       hasMeasured,
-      isTouchable: interactive,
+      measuredHeight,
       onLayout,
       opacity,
       translateY,
@@ -172,7 +152,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
       lifecycle,
       dragGesture,
       hasMeasured,
-      interactive,
+      measuredHeight,
       onLayout,
       opacity,
       translateY,

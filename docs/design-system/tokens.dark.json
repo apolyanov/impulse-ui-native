@@ -3688,6 +3688,7 @@
       "overlayVisibleOpacity": 0.4,
       "backgroundColor": "#343a40",
       "contentPaddingHorizontal": 16,
+      "keyboardOffset": 8,
       "hiddenOpacity": 0,
       "title": {
         "paddingVertical": 16,

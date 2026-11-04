@@ -204,7 +204,7 @@ The toolkit aggregates the following component families. Each package reference 
 | Data states           | `LoadingView`, `EmptyView`, `ErrorView`, coordinating `DataView`                                        | [data-state](api/data-state.md)                                             |
 | Notifications         | `Toast` and compound parts, placement, stacking, actions, timeout                                       | [toast](api/toast.md)                                                       |
 | Dialogs               | `Modal` with Root, Header, Content, Footer, Title, Description; local/global presentation               | [modal](api/modal.md)                                                       |
-| Sheets                | `Flyout` and compound parts, top/bottom placement, gestures                                             | [flyout](api/flyout.md)                                                     |
+| Sheets                | `Flyout` and compound parts, top/bottom placement, gestures, opt-in `KeyboardAwareView`                 | [flyout](api/flyout.md)                                                     |
 | Anchored content      | Compound `Popover`, `Tooltip`, anchor positioning and safe-area collision handling                      | [popover](api/popover.md)                                                   |
 | Charts                | `LineChart`, `MultiLineChart`, `BarChart`, `MultiBarChart`, `PieChart`, `MultiPieChart`                 | [charts](api/charts.md)                                                     |
 | Chart composition     | `Bar`, `Grid`, `Label`, `Line`, `Pie`, `XAxis`, `YAxis`; selection, legends and tooltips vary by family | [charts](api/charts.md)                                                     |

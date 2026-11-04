@@ -269,3 +269,5 @@ ColorPicker selects custom colors with spectrum, hue, opacity, hex/RGB entry, an
 ## Agent and design reference
 
 Start with the [capability guide](../../docs/design-system/capabilities/toolkit.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+Flyout keyboard-aware bodies and Select require `react-native-keyboard-controller` and an application-level `KeyboardProvider` covering Portal/Overlay hosts. Rebuild the native app after installing it. See the [Flyout keyboard setup](../flyout/README.md#keyboard-aware-body).

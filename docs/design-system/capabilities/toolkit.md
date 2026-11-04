@@ -27,16 +27,17 @@ Exact contracts: [API reference](../api/toolkit.md). Machine facts: [package JSO
 
 Optional refers to the package manifest; individual features may still require that peer at runtime.
 
-| Peer                             | Range      | Optional |
-| -------------------------------- | ---------- | -------- |
-| `@shopify/react-native-skia`     | `>=2`      | No       |
-| `react`                          | `>=18`     | No       |
-| `react-native`                   | `>=0.73`   | No       |
-| `react-native-gesture-handler`   | `>=2.0.0`  | No       |
-| `react-native-reanimated`        | `>=4`      | No       |
-| `react-native-safe-area-context` | `>=5.0.0`  | No       |
-| `react-native-svg`               | `>=13.9.0` | No       |
-| `react-native-worklets`          | `>=0.5`    | No       |
+| Peer                               | Range      | Optional |
+| ---------------------------------- | ---------- | -------- |
+| `@shopify/react-native-skia`       | `>=2`      | No       |
+| `react`                            | `>=18`     | No       |
+| `react-native`                     | `>=0.73`   | No       |
+| `react-native-gesture-handler`     | `>=2.0.0`  | No       |
+| `react-native-reanimated`          | `>=4`      | No       |
+| `react-native-safe-area-context`   | `>=5.0.0`  | No       |
+| `react-native-svg`                 | `>=13.9.0` | No       |
+| `react-native-worklets`            | `>=0.5`    | No       |
+| `react-native-keyboard-controller` | `>=1.22.0` | No       |
 
 This package has no directly owned visual components in its public root; use its exports below. Toolkit re-exports the owning packages.
 
@@ -429,10 +430,12 @@ This package has no directly owned visual components in its public root; use its
 - `FlyoutHandleProps` (type)
 - `FlyoutHandleTokens` (type)
 - `FlyoutHeaderProps` (type)
+- `FlyoutKeyboardAwareViewProps` (type)
 - `FlyoutPlacement` (type)
 - `FlyoutPlacementTokens` (type)
 - `FlyoutProps` (type)
 - `FlyoutRootProps` (type)
+- `FlyoutScrollViewProps` (type)
 - `FlyoutTitleProps` (type)
 - `FlyoutTitleTokens` (type)
 - `FlyoutTokens` (type)

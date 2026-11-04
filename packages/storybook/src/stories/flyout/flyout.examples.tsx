@@ -11,9 +11,38 @@ interface FlyoutExampleDefinition {
   props: StoryExamplePropDefinition[];
   placement: "top" | "bottom";
   compound?: boolean;
+  scrollable?: boolean;
+  keyboardAware?: boolean;
 }
 
 export const FlyoutExampleDefinitions = [
+  {
+    name: "KeyboardAwareTop",
+    title: "Keyboard-aware top flyout",
+    description:
+      "The sheet stays attached to the top edge while the body reserves overlapping keyboard space. Focus reveal adds space.sm clearance to keep the input border visible. Toggle field count and close while the keyboard is visible.",
+    props: [],
+    placement: "top",
+    keyboardAware: true,
+  },
+  {
+    name: "Scrollable",
+    title: "Scrollable body",
+    description:
+      "Flyout.ScrollView is a direct child. The header and handle stay fixed while the body scrolls. Toggle field count to check resizing and dismissal geometry.",
+    props: [],
+    placement: "bottom",
+    scrollable: true,
+  },
+  {
+    name: "KeyboardAware",
+    title: "Keyboard-aware body",
+    description:
+      "Flyout.KeyboardAwareView reserves keyboard space inside the body. The sheet stays attached to the bottom edge and can grow upward. Focus reveal adds space.sm clearance below the input. Check focused fields and dismissal with the native keyboard open.",
+    props: [],
+    placement: "bottom",
+    keyboardAware: true,
+  },
   {
     name: "CompoundBottom",
     title: "Compound bottom flyout",
@@ -27,7 +56,7 @@ export const FlyoutExampleDefinitions = [
     name: "CompoundTop",
     title: "Compound top flyout",
     description:
-      "Pass the top placement to Root and Handle. Keep the Portal mounted around Root.",
+      "Handle inherits placement from Root. Keep the Portal mounted around Root.",
     props: [],
     placement: "top",
     compound: true,
@@ -86,6 +115,8 @@ export const FlyoutExample = memo(function FlyoutExample({
       <FlyoutPreview
         placement={example.placement}
         compound={example.compound}
+        scrollable={example.scrollable}
+        keyboardAware={example.keyboardAware}
       />
     </StoryExample>
   );

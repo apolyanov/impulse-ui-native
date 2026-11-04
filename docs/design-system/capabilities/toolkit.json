@@ -3152,7 +3152,7 @@
       "kind": "value",
       "source": {
         "file": "packages/flyout/src/components/index.ts",
-        "line": 8
+        "line": 11
       },
       "signatures": [
         {
@@ -3166,7 +3166,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 19
+        "line": 20
       }
     },
     {
@@ -3174,7 +3174,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 22
+        "line": 23
       }
     },
     {
@@ -3190,7 +3190,15 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 18
+        "line": 19
+      }
+    },
+    {
+      "name": "FlyoutKeyboardAwareViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 27
       }
     },
     {
@@ -3214,7 +3222,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 13
+        "line": 14
       }
     },
     {
@@ -3222,7 +3230,15 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 6
+        "line": 7
+      }
+    },
+    {
+      "name": "FlyoutScrollViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 25
       }
     },
     {
@@ -3230,7 +3246,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 20
+        "line": 21
       }
     },
     {
@@ -3254,7 +3270,7 @@
       "kind": "type",
       "source": {
         "file": "packages/theme/src/types/flyout-tokens.types.ts",
-        "line": 54
+        "line": 55
       }
     },
     {
@@ -6192,7 +6208,7 @@
       "kind": "type",
       "source": {
         "file": "packages/theme/src/types/flyout-tokens.types.ts",
-        "line": 58
+        "line": 59
       }
     },
     {
@@ -8543,7 +8559,8 @@
     "react-native-reanimated": ">=4",
     "react-native-safe-area-context": ">=5.0.0",
     "react-native-svg": ">=13.9.0",
-    "react-native-worklets": ">=0.5"
+    "react-native-worklets": ">=0.5",
+    "react-native-keyboard-controller": ">=1.22.0"
   },
   "peerDependenciesMeta": {},
   "reference": "api/toolkit.md",

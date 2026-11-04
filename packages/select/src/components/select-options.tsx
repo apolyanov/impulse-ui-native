@@ -6,6 +6,7 @@ import {
   FlatList,
   useFlatListInitialScroll,
 } from "@impulse-ui-native/flat-list";
+import { Flyout } from "@impulse-ui-native/flyout";
 import { MagnifyingGlassIcon } from "@impulse-ui-native/icon/icons/magnifying-glass";
 import { Input } from "@impulse-ui-native/input";
 import { Spinner, Typography, View } from "@impulse-ui-native/primitives";
@@ -34,7 +35,7 @@ export const SelectOptions = memo(function SelectOptions<
 
   const initialSelection = useRef(isSelected);
 
-  const { select: tokens, controlContainer } = useComponentsTokens();
+  const { select: tokens, controlContainer, flyout } = useComponentsTokens();
   const { query, setQuery, normalizedQuery, visibleOptions, showEmptyState } =
     useSelectSearch({
       options,
@@ -43,6 +44,15 @@ export const SelectOptions = memo(function SelectOptions<
       onSearchChange,
       optionsLoading,
     });
+
+  const containerStyle = useMemo(
+    () => ({
+      height: tokens.flyoutHeight,
+      flexShrink: 1,
+      paddingHorizontal: flyout.contentPaddingHorizontal,
+    }),
+    [tokens.flyoutHeight, flyout.contentPaddingHorizontal],
+  );
 
   const optionHeight = tokens.option.height;
   const optionsHeight = options.length * optionHeight;
@@ -93,7 +103,7 @@ export const SelectOptions = memo(function SelectOptions<
   );
 
   return (
-    <View flex={1}>
+    <Flyout.KeyboardAwareView style={containerStyle}>
       {searchable ? (
         <View padding={tokens.option.padding}>
           <Input
@@ -133,6 +143,6 @@ export const SelectOptions = memo(function SelectOptions<
         maxToRenderPerBatch={12}
         updateCellsBatchingPeriod={32}
       />
-    </View>
+    </Flyout.KeyboardAwareView>
   );
 });

@@ -6,15 +6,15 @@
     "kind": "compound",
     "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
     "features": [
-      "Callable sheet plus Root/Header/Title/Content/Handle parts.",
+      "Callable sheet plus Root/Header/Title/Content/ScrollView/KeyboardAwareView/Handle parts; body children render directly.",
       "Controlled open state, transition callbacks, safe-area layout and drag dismissal."
     ],
     "constraints": [
       "Child-only parts do not generate header content; the convenience component supplies defaults.",
-      "Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
+      "Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
     ],
     "setup": [
-      "ThemeProvider, GestureHandlerRootView and SafeAreaProvider; Reanimated/Worklets setup.",
+      "ThemeProvider, GestureHandlerRootView and SafeAreaProvider; Reanimated/Worklets setup. KeyboardAwareView also requires react-native-keyboard-controller native setup and KeyboardProvider above Portal/Overlay hosts.",
       "Local portals additionally need PortalProvider/PortalsHost; registered sheets need OverlayProvider/OverlayHost."
     ],
     "recipes": ["details-dialog"]
@@ -24,7 +24,7 @@
       "name": "Flyout",
       "source": {
         "file": "packages/flyout/src/components/flyout.tsx",
-        "line": 10
+        "line": 9
       },
       "props": [
         {
@@ -33,7 +33,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 9
+            "line": 10
           }
         },
         {
@@ -51,7 +51,7 @@
           "type": "ReactNode",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 15
+            "line": 16
           }
         },
         {
@@ -133,7 +133,7 @@
           "choices": ["bottom", "top"],
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 7
+            "line": 8
           }
         },
         {
@@ -144,7 +144,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 10
+            "line": 11
           }
         },
         {
@@ -153,7 +153,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 14
+            "line": 15
           }
         },
         {
@@ -162,7 +162,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 8
+            "line": 9
           }
         }
       ],
@@ -174,7 +174,7 @@
           "value": "bottom",
           "source": {
             "file": "packages/flyout/src/components/flyout.tsx",
-            "line": 14
+            "line": 13
           }
         }
       },
@@ -183,8 +183,8 @@
     {
       "name": "Flyout.Content",
       "source": {
-        "file": "packages/flyout/src/components/content.tsx",
-        "line": 11
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 15
       },
       "props": [
         {
@@ -301,12 +301,12 @@
       ],
       "inheritedNativePropCount": 110,
       "defaults": {},
-      "defaultResolution": "direct-source-only"
+      "defaultResolution": "not-statically-resolved"
     },
     {
       "name": "Flyout.Handle",
       "source": {
-        "file": "packages/flyout/src/components/handle.tsx",
+        "file": "packages/flyout/src/components/index.ts",
         "line": 18
       },
       "props": [
@@ -331,16 +331,6 @@
           }
         },
         {
-          "name": "placement",
-          "required": false,
-          "type": "\"bottom\" | \"top\" | undefined",
-          "choices": ["bottom", "top"],
-          "source": {
-            "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 23
-          }
-        },
-        {
           "name": "style",
           "required": false,
           "type": "____ViewStyleProp_Internal | undefined",
@@ -433,23 +423,14 @@
         "zIndex"
       ],
       "inheritedNativePropCount": 110,
-      "defaults": {
-        "placement": {
-          "expression": "\"bottom\"",
-          "value": "bottom",
-          "source": {
-            "file": "packages/flyout/src/components/handle.tsx",
-            "line": 19
-          }
-        }
-      },
-      "defaultResolution": "direct-source-only"
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
     },
     {
       "name": "Flyout.Header",
       "source": {
-        "file": "packages/flyout/src/components/header.tsx",
-        "line": 10
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 13
       },
       "props": [
         {
@@ -566,13 +547,164 @@
       ],
       "inheritedNativePropCount": 110,
       "defaults": {},
-      "defaultResolution": "direct-source-only"
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Flyout.KeyboardAwareView",
+      "source": {
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 17
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 392,
+            "external": true
+          }
+        },
+        {
+          "name": "enabled",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 29
+          }
+        },
+        {
+          "name": "keyboardOffset",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 111,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
     },
     {
       "name": "Flyout.Root",
       "source": {
-        "file": "packages/flyout/src/components/root.tsx",
-        "line": 23
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 12
       },
       "props": [
         {
@@ -581,7 +713,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 9
+            "line": 10
           }
         },
         {
@@ -672,7 +804,7 @@
           "choices": ["bottom", "top"],
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 7
+            "line": 8
           }
         },
         {
@@ -683,7 +815,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 10
+            "line": 11
           }
         },
         {
@@ -692,37 +824,107 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 8
+            "line": 9
           }
         }
       ],
       "styleProps": [],
       "inheritedNativePropCount": 0,
-      "defaults": {
-        "placement": {
-          "expression": "\"bottom\"",
-          "value": "bottom",
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
+    },
+    {
+      "name": "Flyout.ScrollView",
+      "source": {
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 16
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
           "source": {
-            "file": "packages/flyout/src/components/root.tsx",
-            "line": 27
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 621,
+            "external": true
           }
         },
-        "layer": {
-          "expression": "0",
-          "value": 0,
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
           "source": {
-            "file": "packages/flyout/src/components/root.tsx",
-            "line": 28
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 362,
+            "external": true
+          }
+        },
+        {
+          "name": "horizontal",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 409,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ScrollViewInstance> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
           }
         }
-      },
-      "defaultResolution": "direct-source-only"
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 173,
+      "defaults": {},
+      "defaultResolution": "not-statically-resolved"
     },
     {
       "name": "Flyout.Title",
       "source": {
-        "file": "packages/flyout/src/components/title.tsx",
-        "line": 8
+        "file": "packages/flyout/src/components/index.ts",
+        "line": 14
       },
       "props": [
         {
@@ -847,7 +1049,7 @@
       ],
       "inheritedNativePropCount": 65,
       "defaults": {},
-      "defaultResolution": "direct-source-only"
+      "defaultResolution": "not-statically-resolved"
     }
   ],
   "exports": [
@@ -856,7 +1058,7 @@
       "kind": "value",
       "source": {
         "file": "packages/flyout/src/components/index.ts",
-        "line": 8
+        "line": 11
       },
       "signatures": [
         {
@@ -870,7 +1072,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 19
+        "line": 20
       }
     },
     {
@@ -878,7 +1080,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 22
+        "line": 23
       }
     },
     {
@@ -886,7 +1088,15 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 18
+        "line": 19
+      }
+    },
+    {
+      "name": "FlyoutKeyboardAwareViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 27
       }
     },
     {
@@ -894,7 +1104,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 13
+        "line": 14
       }
     },
     {
@@ -902,7 +1112,15 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 6
+        "line": 7
+      }
+    },
+    {
+      "name": "FlyoutScrollViewProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 25
       }
     },
     {
@@ -910,7 +1128,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 20
+        "line": 21
       }
     }
   ],
@@ -926,7 +1144,8 @@
     "react-native-reanimated": ">=4.0.0",
     "react-native-gesture-handler": ">=2.0.0",
     "react-native-worklets": ">=0.5",
-    "react-native-safe-area-context": ">=5.0.0"
+    "react-native-safe-area-context": ">=5.0.0",
+    "react-native-keyboard-controller": ">=1.22.0"
   },
   "peerDependenciesMeta": {},
   "reference": "api/flyout.md",

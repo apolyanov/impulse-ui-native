@@ -1947,6 +1947,7 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.flyout.overlayVisibleOpacity`                                                         | `0.4`                               | `0.4`                               |
 | `components.flyout.backgroundColor`                                                               | `"#ffffff"`                         | `"#343a40"`                         |
 | `components.flyout.contentPaddingHorizontal`                                                      | `16`                                | `16`                                |
+| `components.flyout.keyboardOffset`                                                                | `8`                                 | `8`                                 |
 | `components.flyout.hiddenOpacity`                                                                 | `0`                                 | `0`                                 |
 | `components.flyout.title.paddingVertical`                                                         | `16`                                | `16`                                |
 | `components.flyout.title.paddingHorizontal`                                                       | `16`                                | `16`                                |

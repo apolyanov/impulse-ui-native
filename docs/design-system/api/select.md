@@ -11,8 +11,10 @@ Single- and multi-value select controls that present their options in a themed f
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/select react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets
+pnpm add @impulse-ui-native/select react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets react-native-keyboard-controller
 ```
+
+Wrap the application and its Portal/Overlay hosts in `KeyboardProvider` from `react-native-keyboard-controller` and rebuild the native app after installation. The options body uses Flyout.KeyboardAwareView so searchable options stay above the keyboard.
 
 Complete the Gesture Handler, Reanimated, Worklets, and Safe Area Context setup required by your React Native or Expo project. The simplest application setup is to use `ThemeProvider`, wrap the app with `GestureHandlerRootView` and `SafeAreaProvider`, and mount one `PortalsHost` inside a `PortalProvider` at the application root.
 

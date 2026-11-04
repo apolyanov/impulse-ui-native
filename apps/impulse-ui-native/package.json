@@ -51,7 +51,8 @@
     "react-native-web": "catalog:",
     "react-native-worklets": "catalog:",
     "expo-font": "catalog:",
-    "@expo-google-fonts/montserrat": "catalog:"
+    "@expo-google-fonts/montserrat": "catalog:",
+    "react-native-keyboard-controller": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

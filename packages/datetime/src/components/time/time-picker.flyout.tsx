@@ -97,7 +97,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
   return (
     <Portal>
       <Flyout {...rest}>
-        <View gap={timePickerTokens.flyout.gap}>
+        <Flyout.Content gap={timePickerTokens.flyout.gap}>
           <View
             height={timePickerTokens.columns.height}
             gap={timePickerTokens.columns.gap}
@@ -151,7 +151,7 @@ export const TimePickerFlyout = memo(function TimePickerFlyout(
             onPressCancel={onPressCancel}
             onPressClear={onPressClear}
           />
-        </View>
+        </Flyout.Content>
       </Flyout>
     </Portal>
   );

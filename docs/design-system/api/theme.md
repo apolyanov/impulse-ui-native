@@ -3293,6 +3293,7 @@ export interface FlyoutTokens {
 
   backgroundColor: string;
   contentPaddingHorizontal: number;
+  keyboardOffset: number;
 
   hiddenOpacity: number;
 

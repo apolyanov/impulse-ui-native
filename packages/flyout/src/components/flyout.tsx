@@ -1,7 +1,6 @@
 import { memo } from "react";
 
 import type { FlyoutProps } from "../types";
-import { FlyoutContent } from "./content";
 import { FlyoutHandle } from "./handle";
 import { FlyoutHeader } from "./header";
 import { FlyoutRoot } from "./root";
@@ -14,19 +13,20 @@ export const FlyoutComponent = memo(function Flyout({
   placement = "bottom",
   ...props
 }: FlyoutProps) {
-  const showTitle = !header && title;
+  const hasHeader = header !== null && header !== undefined;
+  const showTitle = !hasHeader && title !== null && title !== undefined;
 
   return (
     <FlyoutRoot {...props} placement={placement}>
-      {placement === "bottom" ? <FlyoutHandle placement={placement} /> : null}
-      {header ? <FlyoutHeader>{header}</FlyoutHeader> : null}
+      {placement === "bottom" ? <FlyoutHandle /> : null}
+      {hasHeader ? <FlyoutHeader>{header}</FlyoutHeader> : null}
       {showTitle ? (
         <FlyoutHeader>
           <FlyoutTitle>{title}</FlyoutTitle>
         </FlyoutHeader>
       ) : null}
-      <FlyoutContent>{children}</FlyoutContent>
-      {placement === "top" ? <FlyoutHandle placement={placement} /> : null}
+      {children}
+      {placement === "top" ? <FlyoutHandle /> : null}
     </FlyoutRoot>
   );
 });

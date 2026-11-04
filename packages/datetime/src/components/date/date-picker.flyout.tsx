@@ -2,7 +2,6 @@ import { memo } from "react";
 
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
-import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { DatetimePickerFlyoutCommonProps, TimeRange } from "../../types";
@@ -42,7 +41,7 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
   return (
     <Portal>
       <Flyout {...rest}>
-        <View gap={datePickerTokens.gap}>
+        <Flyout.Content gap={datePickerTokens.gap}>
           <VisibleDateSelect value={visible} onChange={onChangeVisible} />
 
           <Calendar
@@ -67,7 +66,7 @@ export const DatePickerFlyout = memo(function DatePickerFlyout(
             onPressCancel={onPressCancel}
             onPressClear={onPressClear}
           />
-        </View>
+        </Flyout.Content>
       </Flyout>
     </Portal>
   );

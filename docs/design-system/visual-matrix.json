@@ -27006,6 +27006,9 @@
           "title": "Components/Flyout",
           "exports": [
             "Documentation",
+            "Scrollable",
+            "KeyboardAwareTop",
+            "KeyboardAware",
             "Bottom",
             "Top",
             "CompoundBottom",
@@ -27137,6 +27140,22 @@
           "captureStatus": "not-captured"
         },
         {
+          "id": "flyout/Flyout.KeyboardAwareView/light/default",
+          "component": "Flyout.KeyboardAwareView",
+          "scheme": "light",
+          "props": {},
+          "state": "default",
+          "captureStatus": "not-captured"
+        },
+        {
+          "id": "flyout/Flyout.KeyboardAwareView/dark/default",
+          "component": "Flyout.KeyboardAwareView",
+          "scheme": "dark",
+          "props": {},
+          "state": "default",
+          "captureStatus": "not-captured"
+        },
+        {
           "id": "flyout/Flyout.Root/light/default",
           "component": "Flyout.Root",
           "scheme": "light",
@@ -27170,6 +27189,22 @@
             "open": true
           },
           "state": "open",
+          "captureStatus": "not-captured"
+        },
+        {
+          "id": "flyout/Flyout.ScrollView/light/default",
+          "component": "Flyout.ScrollView",
+          "scheme": "light",
+          "props": {},
+          "state": "default",
+          "captureStatus": "not-captured"
+        },
+        {
+          "id": "flyout/Flyout.ScrollView/dark/default",
+          "component": "Flyout.ScrollView",
+          "scheme": "dark",
+          "props": {},
+          "state": "default",
           "captureStatus": "not-captured"
         },
         {

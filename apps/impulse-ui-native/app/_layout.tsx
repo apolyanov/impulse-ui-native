@@ -1,4 +1,5 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 
@@ -22,20 +23,22 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <OverlayProvider store={overlayStore}>
-          <PortalProvider store={portalStore}>
-            <StorybookThemeProvider
-              overlays={
-                <>
-                  <OverlayHost />
-                  <PortalsHost />
-                </>
-              }
-            >
-              <Stack screenOptions={{ headerShown: false }} />
-            </StorybookThemeProvider>
-          </PortalProvider>
-        </OverlayProvider>
+        <KeyboardProvider>
+          <OverlayProvider store={overlayStore}>
+            <PortalProvider store={portalStore}>
+              <StorybookThemeProvider
+                overlays={
+                  <>
+                    <OverlayHost />
+                    <PortalsHost />
+                  </>
+                }
+              >
+                <Stack screenOptions={{ headerShown: false }} />
+              </StorybookThemeProvider>
+            </PortalProvider>
+          </OverlayProvider>
+        </KeyboardProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

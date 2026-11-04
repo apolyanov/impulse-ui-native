@@ -3,8 +3,6 @@ import { useState } from "react";
 import { memo, useEventCallback } from "@impulse-ui-native/core";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
-import { View } from "@impulse-ui-native/primitives";
-import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { PrimitiveValue, SelectFlyoutProps } from "../types";
 import { SelectOptions } from "./select-options";
@@ -27,8 +25,6 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
 
   const [openingKey, setOpeningKey] = useState(0);
 
-  const tokens = useComponentsTokens();
-
   const handleOpen = useEventCallback((id: string) => {
     setOpeningKey((key) => key + 1);
     rest.onOpen?.(id);
@@ -39,20 +35,18 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
   return (
     <Portal>
       <Flyout {...rest} onOpen={handleOpen}>
-        <View height={tokens.select.flyoutHeight}>
-          <SelectOptions
-            searchable={searchable}
-            searchValue={searchValue}
-            onSearchChange={onSearchChange}
-            optionsLoading={optionsLoading}
-            tone={tone}
-            key={openingKey}
-            options={options}
-            isSelected={isSelected}
-            onSelect={onSelect}
-            initialScrollToSelected={shouldScrollToSelected}
-          />
-        </View>
+        <SelectOptions
+          searchable={searchable}
+          searchValue={searchValue}
+          onSearchChange={onSearchChange}
+          optionsLoading={optionsLoading}
+          tone={tone}
+          key={openingKey}
+          options={options}
+          isSelected={isSelected}
+          onSelect={onSelect}
+          initialScrollToSelected={shouldScrollToSelected}
+        />
       </Flyout>
     </Portal>
   );
