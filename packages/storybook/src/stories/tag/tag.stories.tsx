@@ -76,6 +76,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Neutral: Story = createTagStory("Neutral");
 
+export const LongText: Story = createTagStory("LongText");
+
 export const Documentation: Story = {
   render: function renderDocumentation() {
     return <TagDocumentation />;

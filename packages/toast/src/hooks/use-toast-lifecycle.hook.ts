@@ -4,7 +4,7 @@ import { useEventCallback, useTimer } from "@impulse-ui-native/core";
 import {
   useOverlayContext,
   useOverlayLifecycle,
-  useOverlayTiming,
+  useOverlaySpring,
 } from "@impulse-ui-native/overlay";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
@@ -14,7 +14,7 @@ export function useToastLifecycle(props: ToastRootProps, duration: number) {
   const { id, open = true } = props;
   const { store } = useOverlayContext();
   const tokens = useComponentsTokens().toast;
-  const { options, progress } = useOverlayTiming(tokens);
+  const { options, progress } = useOverlaySpring(tokens);
   const lifecycle = useOverlayLifecycle({ ...props, open }, options);
   const close = useEventCallback(() => store.close(id));
 

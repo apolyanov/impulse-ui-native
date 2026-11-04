@@ -5,8 +5,8 @@ export function createFlyoutTokens(tokens: PrimitiveThemeTokens): FlyoutTokens {
   const handleContainerHeight = 32;
 
   return {
-    enterSpring: { damping: 50, stiffness: 300, mass: 1 },
-    exitDuration: 150,
+    enterSpring: { damping: 35, stiffness: 300, mass: 1 },
+    exitDuration: 280,
     zIndexBase: 100,
 
     maxHeightRatio: 0.7,

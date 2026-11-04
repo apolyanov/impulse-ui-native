@@ -146,6 +146,8 @@ appearance, but does not inject label content.
 
 Use `Badge` for compact states and metadata. It supports `filled`, `outlined`, and `soft` display variants and semantic tones. Its addons follow Input: use `PrefixIcon` or `Prefix`, `SuffixIcon` or `Suffix`, and optionally `onPressPrefix` or `onPressSuffix`. A custom component takes precedence over its corresponding icon. Use `Tag` when the whole label needs built-in press or close behavior.
 
+Badge text and Tag labels stay on one line and truncate with a trailing ellipsis when constrained by available width. Their containers shrink within rows while icons and close actions retain their space. Use `style.width` or `style.maxWidth` for a specific limit; custom Badge children own their text overflow behavior.
+
 Badges follow their parent's `alignItems` for cross-axis alignment. For example,
 use `alignItems="center"` on a column to center badges horizontally. Use
 `alignSelf` on a badge when it needs a different alignment from its siblings.

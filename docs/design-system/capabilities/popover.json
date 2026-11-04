@@ -7,7 +7,7 @@
     "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",
     "features": [
       "Popover.Root/Trigger/Content and presentation parts; controlled/uncontrolled open.",
-      "Tooltip convenience component and host-relative positioning."
+      "Tooltip convenience component, host-relative positioning, and measured spring transitions with retained exits."
     ],
     "constraints": [
       "Trigger/Content/Close require the same Popover.Root.",
@@ -370,7 +370,7 @@
       "name": "Popover.Content",
       "source": {
         "file": "packages/popover/src/components/popover-content.tsx",
-        "line": 10
+        "line": 16
       },
       "props": [
         {
@@ -1573,12 +1573,15 @@
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
-    "@impulse-ui-native/portal": "workspace:*"
+    "@impulse-ui-native/portal": "workspace:*",
+    "@impulse-ui-native/overlay": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.73",
-    "react-native-safe-area-context": ">=5.0.0"
+    "react-native-safe-area-context": ">=5.0.0",
+    "react-native-reanimated": ">=4",
+    "react-native-worklets": ">=0.5"
   },
   "peerDependenciesMeta": {},
   "reference": "api/popover.md",

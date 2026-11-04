@@ -11649,7 +11649,7 @@
         ],
         "constraints": [
           "Child-only parts do not generate header content; the convenience component supplies defaults.",
-          "Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
+          "Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. Avoidance waits for valid layout measurements. Active avoidance expects numeric padding; percentage padding is preserved while inactive. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
         ],
         "setup": [
           "ThemeProvider, GestureHandlerRootView and SafeAreaProvider; Reanimated/Worklets setup. KeyboardAwareView also requires react-native-keyboard-controller native setup and KeyboardProvider above Portal/Overlay hosts.",
@@ -11671,7 +11671,7 @@
               "type": "number | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 10
+                "line": 17
               }
             },
             {
@@ -11689,7 +11689,7 @@
               "type": "ReactNode",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 16
+                "line": 23
               }
             },
             {
@@ -11767,11 +11767,11 @@
             {
               "name": "placement",
               "required": false,
-              "type": "\"bottom\" | \"top\" | undefined",
+              "type": "FlyoutPlacement | undefined",
               "choices": ["bottom", "top"],
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 8
+                "line": 15
               }
             },
             {
@@ -11782,7 +11782,7 @@
               "openChoices": true,
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 11
+                "line": 18
               }
             },
             {
@@ -11791,7 +11791,7 @@
               "type": "string | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 15
+                "line": 22
               }
             },
             {
@@ -11800,7 +11800,7 @@
               "type": "number | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 9
+                "line": 16
               }
             }
           ],
@@ -11821,8 +11821,8 @@
         {
           "name": "Flyout.Content",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 15
+            "file": "packages/flyout/src/components/content.tsx",
+            "line": 8
           },
           "props": [
             {
@@ -11939,13 +11939,13 @@
           ],
           "inheritedNativePropCount": 110,
           "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaultResolution": "direct-source-only"
         },
         {
           "name": "Flyout.Handle",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 18
+            "file": "packages/flyout/src/components/handle.tsx",
+            "line": 10
           },
           "props": [
             {
@@ -12062,13 +12062,13 @@
           ],
           "inheritedNativePropCount": 110,
           "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaultResolution": "direct-source-only"
         },
         {
           "name": "Flyout.Header",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 13
+            "file": "packages/flyout/src/components/header.tsx",
+            "line": 8
           },
           "props": [
             {
@@ -12185,13 +12185,13 @@
           ],
           "inheritedNativePropCount": 110,
           "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaultResolution": "direct-source-only"
         },
         {
           "name": "Flyout.KeyboardAwareView",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 17
+            "file": "packages/flyout/src/components/keyboard-aware-view.tsx",
+            "line": 29
           },
           "props": [
             {
@@ -12210,7 +12210,7 @@
               "type": "boolean | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 29
+                "line": 36
               }
             },
             {
@@ -12219,7 +12219,7 @@
               "type": "number | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 31
+                "line": 38
               }
             },
             {
@@ -12335,14 +12335,23 @@
             "zIndex"
           ],
           "inheritedNativePropCount": 111,
-          "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaults": {
+            "enabled": {
+              "expression": "true",
+              "value": true,
+              "source": {
+                "file": "packages/flyout/src/components/keyboard-aware-view.tsx",
+                "line": 31
+              }
+            }
+          },
+          "defaultResolution": "direct-source-only"
         },
         {
           "name": "Flyout.Root",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 12
+            "file": "packages/flyout/src/components/root.tsx",
+            "line": 7
           },
           "props": [
             {
@@ -12351,7 +12360,7 @@
               "type": "number | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 10
+                "line": 17
               }
             },
             {
@@ -12438,11 +12447,11 @@
             {
               "name": "placement",
               "required": false,
-              "type": "\"bottom\" | \"top\" | undefined",
+              "type": "FlyoutPlacement | undefined",
               "choices": ["bottom", "top"],
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 8
+                "line": 15
               }
             },
             {
@@ -12453,7 +12462,7 @@
               "openChoices": true,
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 11
+                "line": 18
               }
             },
             {
@@ -12462,20 +12471,53 @@
               "type": "number | undefined",
               "source": {
                 "file": "packages/flyout/src/types/flyout.types.ts",
-                "line": 9
+                "line": 16
               }
             }
           ],
           "styleProps": [],
           "inheritedNativePropCount": 0,
-          "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaults": {
+            "placement": {
+              "expression": "\"bottom\"",
+              "value": "bottom",
+              "source": {
+                "file": "packages/flyout/src/components/root.tsx",
+                "line": 9
+              }
+            },
+            "layer": {
+              "expression": "0",
+              "value": 0,
+              "source": {
+                "file": "packages/flyout/src/components/root.tsx",
+                "line": 10
+              }
+            },
+            "topOffset": {
+              "expression": "0",
+              "value": 0,
+              "source": {
+                "file": "packages/flyout/src/components/root.tsx",
+                "line": 12
+              }
+            },
+            "bottomOffset": {
+              "expression": "0",
+              "value": 0,
+              "source": {
+                "file": "packages/flyout/src/components/root.tsx",
+                "line": 13
+              }
+            }
+          },
+          "defaultResolution": "direct-source-only"
         },
         {
           "name": "Flyout.ScrollView",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 16
+            "file": "packages/flyout/src/components/scroll-view.tsx",
+            "line": 12
           },
           "props": [
             {
@@ -12556,13 +12598,13 @@
           "styleProps": [],
           "inheritedNativePropCount": 173,
           "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaultResolution": "direct-source-only"
         },
         {
           "name": "Flyout.Title",
           "source": {
-            "file": "packages/flyout/src/components/index.ts",
-            "line": 14
+            "file": "packages/flyout/src/components/title.tsx",
+            "line": 8
           },
           "props": [
             {
@@ -12687,7 +12729,7 @@
           ],
           "inheritedNativePropCount": 65,
           "defaults": {},
-          "defaultResolution": "not-statically-resolved"
+          "defaultResolution": "direct-source-only"
         }
       ],
       "exports": [
@@ -12696,7 +12738,7 @@
           "kind": "value",
           "source": {
             "file": "packages/flyout/src/components/index.ts",
-            "line": 11
+            "line": 10
           },
           "signatures": [
             {
@@ -12710,7 +12752,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 20
+            "line": 27
           }
         },
         {
@@ -12718,7 +12760,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 23
+            "line": 30
           }
         },
         {
@@ -12726,7 +12768,15 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 19
+            "line": 26
+          }
+        },
+        {
+          "name": "FlyoutKeyboardAwareViewComponent",
+          "kind": "type",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 41
           }
         },
         {
@@ -12734,7 +12784,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 27
+            "line": 34
           }
         },
         {
@@ -12742,7 +12792,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 14
+            "line": 21
           }
         },
         {
@@ -12750,7 +12800,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 7
+            "line": 14
           }
         },
         {
@@ -12758,7 +12808,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 25
+            "line": 32
           }
         },
         {
@@ -12766,7 +12816,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 21
+            "line": 28
           }
         }
       ],
@@ -17443,6 +17493,20 @@
           ]
         },
         {
+          "name": "useOverlaySpring",
+          "kind": "hook",
+          "source": {
+            "file": "packages/overlay/src/hooks/use-overlay-spring.hook.ts",
+            "line": 5
+          },
+          "signatures": [
+            {
+              "text": "(options: OverlayTimingOptions): import(\"../types/overlay-animation.types\").OverlayAnimation",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
           "name": "useOverlayStatus",
           "kind": "hook",
           "source": {
@@ -17461,11 +17525,11 @@
           "kind": "hook",
           "source": {
             "file": "packages/overlay/src/hooks/use-overlay-timing.hook.ts",
-            "line": 13
+            "line": 4
           },
           "signatures": [
             {
-              "text": "({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; }; progress: import(\"react-native-reanimated\").SharedValue<number>; }",
+              "text": "(options: OverlayTimingOptions): import(\"../types/overlay-animation.types\").OverlayAnimation",
               "abbreviated": false
             }
           ]
@@ -17772,7 +17836,7 @@
         "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",
         "features": [
           "Popover.Root/Trigger/Content and presentation parts; controlled/uncontrolled open.",
-          "Tooltip convenience component and host-relative positioning."
+          "Tooltip convenience component, host-relative positioning, and measured spring transitions with retained exits."
         ],
         "constraints": [
           "Trigger/Content/Close require the same Popover.Root.",
@@ -18135,7 +18199,7 @@
           "name": "Popover.Content",
           "source": {
             "file": "packages/popover/src/components/popover-content.tsx",
-            "line": 10
+            "line": 16
           },
           "props": [
             {
@@ -19338,12 +19402,15 @@
         "@impulse-ui-native/core": "workspace:*",
         "@impulse-ui-native/theme": "workspace:*",
         "@impulse-ui-native/primitives": "workspace:*",
-        "@impulse-ui-native/portal": "workspace:*"
+        "@impulse-ui-native/portal": "workspace:*",
+        "@impulse-ui-native/overlay": "workspace:*"
       },
       "peerDependencies": {
         "react": ">=18",
         "react-native": ">=0.73",
-        "react-native-safe-area-context": ">=5.0.0"
+        "react-native-safe-area-context": ">=5.0.0",
+        "react-native-reanimated": ">=4",
+        "react-native-worklets": ">=0.5"
       },
       "peerDependenciesMeta": {},
       "reference": "api/popover.md",
@@ -22866,7 +22933,7 @@
               "value": "medium",
               "source": {
                 "file": "packages/primitives/src/components/atoms/tag.tsx",
-                "line": 19
+                "line": 20
               }
             },
             "variant": {
@@ -22874,7 +22941,7 @@
               "value": "filled",
               "source": {
                 "file": "packages/primitives/src/components/atoms/tag.tsx",
-                "line": 20
+                "line": 21
               }
             },
             "tone": {
@@ -22882,7 +22949,7 @@
               "value": "primary",
               "source": {
                 "file": "packages/primitives/src/components/atoms/tag.tsx",
-                "line": 21
+                "line": 22
               }
             }
           },
@@ -33302,6 +33369,14 @@
           }
         },
         {
+          "name": "FlyoutSpringTokens",
+          "kind": "type",
+          "source": {
+            "file": "packages/theme/src/types/flyout-tokens.types.ts",
+            "line": 34
+          }
+        },
+        {
           "name": "FlyoutTitleTokens",
           "kind": "type",
           "source": {
@@ -33314,7 +33389,7 @@
           "kind": "type",
           "source": {
             "file": "packages/theme/src/types/flyout-tokens.types.ts",
-            "line": 34
+            "line": 40
           }
         },
         {
@@ -33322,7 +33397,7 @@
           "kind": "type",
           "source": {
             "file": "packages/theme/src/types/flyout-tokens.types.ts",
-            "line": 55
+            "line": 62
           }
         },
         {
@@ -33974,7 +34049,7 @@
           "kind": "type",
           "source": {
             "file": "packages/theme/src/types/flyout-tokens.types.ts",
-            "line": 59
+            "line": 66
           }
         },
         {
@@ -39224,7 +39299,7 @@
           "kind": "value",
           "source": {
             "file": "packages/flyout/src/components/index.ts",
-            "line": 11
+            "line": 10
           },
           "signatures": [
             {
@@ -39238,7 +39313,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 20
+            "line": 27
           }
         },
         {
@@ -39246,7 +39321,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 23
+            "line": 30
           }
         },
         {
@@ -39262,7 +39337,15 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 19
+            "line": 26
+          }
+        },
+        {
+          "name": "FlyoutKeyboardAwareViewComponent",
+          "kind": "type",
+          "source": {
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 41
           }
         },
         {
@@ -39270,7 +39353,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 27
+            "line": 34
           }
         },
         {
@@ -39294,7 +39377,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 14
+            "line": 21
           }
         },
         {
@@ -39302,7 +39385,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 7
+            "line": 14
           }
         },
         {
@@ -39310,7 +39393,15 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 25
+            "line": 32
+          }
+        },
+        {
+          "name": "FlyoutSpringTokens",
+          "kind": "type",
+          "source": {
+            "file": "packages/theme/src/types/flyout-tokens.types.ts",
+            "line": 34
           }
         },
         {
@@ -39318,7 +39409,7 @@
           "kind": "type",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 21
+            "line": 28
           }
         },
         {
@@ -39334,7 +39425,7 @@
           "kind": "type",
           "source": {
             "file": "packages/theme/src/types/flyout-tokens.types.ts",
-            "line": 34
+            "line": 40
           }
         },
         {
@@ -39342,7 +39433,7 @@
           "kind": "type",
           "source": {
             "file": "packages/theme/src/types/flyout-tokens.types.ts",
-            "line": 55
+            "line": 62
           }
         },
         {
@@ -42280,7 +42371,7 @@
           "kind": "type",
           "source": {
             "file": "packages/theme/src/types/flyout-tokens.types.ts",
-            "line": 59
+            "line": 66
           }
         },
         {
@@ -44228,6 +44319,20 @@
           ]
         },
         {
+          "name": "useOverlaySpring",
+          "kind": "hook",
+          "source": {
+            "file": "packages/overlay/src/hooks/use-overlay-spring.hook.ts",
+            "line": 5
+          },
+          "signatures": [
+            {
+              "text": "(options: OverlayTimingOptions): import(\"../types/overlay-animation.types\").OverlayAnimation",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
           "name": "useOverlayStatus",
           "kind": "hook",
           "source": {
@@ -44246,11 +44351,11 @@
           "kind": "hook",
           "source": {
             "file": "packages/overlay/src/hooks/use-overlay-timing.hook.ts",
-            "line": 13
+            "line": 4
           },
           "signatures": [
             {
-              "text": "({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; }; progress: import(\"react-native-reanimated\").SharedValue<number>; }",
+              "text": "(options: OverlayTimingOptions): import(\"../types/overlay-animation.types\").OverlayAnimation",
               "abbreviated": false
             }
           ]

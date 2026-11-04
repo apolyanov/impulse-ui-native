@@ -12,6 +12,7 @@ function createHarness(placement = "bottom", offset = 0) {
   let refIndex = 0;
   let stateUpdates = 0;
   const animationCallbacks = [];
+  const springs = [];
   const rnCallbacks = [];
   const completed = [];
   const notifications = [];
@@ -36,7 +37,10 @@ function createHarness(placement = "bottom", offset = 0) {
   });
   const gesture = {};
   for (const name of ["enabled", "onUpdate", "onEnd"])
-    gesture[name] = () => gesture;
+    gesture[name] = (callback) => {
+      gesture[name + "Callback"] = callback;
+      return gesture;
+    };
   const mocks = {
     react: {
       useState: () => [
@@ -53,6 +57,10 @@ function createHarness(placement = "bottom", offset = 0) {
       },
       useMemo: (factory) => factory(),
       useEffect: () => {},
+    },
+    "../constants/flyout-gesture.constants": {
+      FlyoutDismissDistanceRatio: 0.5,
+      FlyoutDismissVelocity: 1500,
     },
     "@impulse-ui-native/core": { useEventCallback: (callback) => callback },
     "@impulse-ui-native/theme": {
@@ -90,7 +98,11 @@ function createHarness(placement = "bottom", offset = 0) {
         };
         return shared[index];
       },
-      withSpring: (target) => target,
+      withSpring: (target, config, callback) => {
+        springs.push({ target, config });
+        if (callback) animationCallbacks.push(callback);
+        return target;
+      },
       withTiming: (target, _config, callback) => {
         if (callback) animationCallbacks.push(callback);
         return target;
@@ -105,12 +117,14 @@ function createHarness(placement = "bottom", offset = 0) {
     },
   });
   return {
+    springs,
+    gesture,
     completed,
     notifications,
     get stateUpdates() {
       return stateUpdates;
     },
-    render() {
+    render(callbacks = {}) {
       sharedIndex = 0;
       refIndex = 0;
       return exports.useFlyoutLifecycle({
@@ -118,10 +132,14 @@ function createHarness(placement = "bottom", offset = 0) {
         open: true,
         placement,
         offset,
+        onClose: callbacks.onClose,
+        onStatusChange: callbacks.onStatusChange,
         onCloseFinished: (id) => notifications.push(id),
       });
     },
     exit() {
+      overlayProps.onStatusChange("sheet", "closing");
+      overlayProps.onClose?.("sheet");
       options.onExit(7, (id) => {
         completed.push(id);
         overlayProps.onCloseFinished("sheet");
@@ -133,8 +151,13 @@ function createHarness(placement = "bottom", offset = 0) {
     flushRN() {
       while (rnCallbacks.length) rnCallbacks.shift()();
     },
+    open() {
+      overlayProps.onStatusChange("sheet", "opening");
+    },
     enter() {
+      overlayProps.onStatusChange("sheet", "opening");
       options.onEnter(8, () => {});
+      animationCallbacks.shift()?.(true);
     },
     unmount() {
       mounted = false;
@@ -175,6 +198,7 @@ test("reopening prepares a fresh height and position before entry", () => {
   harness.flushRN();
   lifecycle = harness.render();
   assert.equal(lifecycle.hasMeasured, false);
+  harness.open();
   lifecycle.onLayout({ nativeEvent: { layout: { height: 180 } } });
   assert.equal(lifecycle.translateY.value, 188);
   assert.equal(lifecycle.measuredHeight.value, 180);
@@ -225,4 +249,54 @@ test("duplicate layouts prepare once and do not resend height to the UI thread",
   assert.equal(harness.stateUpdates, 1);
   assert.equal(lifecycle.measuredHeight.writes, 2);
   assert.equal(lifecycle.translateY.writes, 1);
+});
+
+for (const placement of ["top", "bottom"]) {
+  test(`${placement} dismissal and spring back retain gesture release velocity`, () => {
+    const harness = createHarness(placement);
+    const lifecycle = harness.render();
+    lifecycle.onLayout({ nativeEvent: { layout: { height: 400 } } });
+    harness.render();
+    const direction = placement === "top" ? -1 : 1;
+    harness.gesture.onEndCallback({
+      translationY: direction * 20,
+      velocityY: direction * 300,
+    });
+    assert.equal(harness.springs.at(-1).config.velocity, direction * 300);
+    harness.gesture.onEndCallback({
+      translationY: direction * 250,
+      velocityY: direction * 900,
+    });
+    harness.exit();
+    assert.equal(harness.springs.at(-1).config.velocity, direction * 900);
+    assert.equal(harness.springs.at(-1).config.dampingRatio, 1);
+    harness.exit();
+    assert.equal(harness.springs.at(-1).config.velocity, 0);
+  });
+}
+
+test("close captures expanded geometry before consumers dismiss the keyboard and retains it through exit", () => {
+  const harness = createHarness();
+  let lifecycle = harness.render();
+  lifecycle.onLayout({ nativeEvent: { layout: { height: 520 } } });
+  lifecycle = harness.render({
+    onStatusChange: (_id, status) => {
+      if (status === "closing")
+        assert.equal(lifecycle.closingHeight.value, 520);
+    },
+    onClose: () => {
+      assert.equal(lifecycle.closingHeight.value, 520);
+      lifecycle.onLayout({ nativeEvent: { layout: { height: 200 } } });
+    },
+  });
+  harness.exit();
+  assert.equal(lifecycle.measuredHeight.value, 520);
+  assert.equal(lifecycle.translateY.value, 520);
+  harness.finishAnimation();
+  harness.flushRN();
+  assert.equal(lifecycle.closingHeight.value, 520);
+  harness.render().onLayout({ nativeEvent: { layout: { height: 200 } } });
+  assert.equal(lifecycle.measuredHeight.value, 520);
+  harness.enter();
+  assert.equal(lifecycle.closingHeight.value, 0);
 });

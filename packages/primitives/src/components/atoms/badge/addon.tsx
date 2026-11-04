@@ -1,21 +1,10 @@
-import type { ComponentType } from "react";
 import { memo, useMemo } from "react";
 
-import type { IconProps } from "@impulse-ui-native/icon/types";
 import { Icon } from "@impulse-ui-native/icon";
 
-import type { PressableCoreProps } from "../../../types";
+import type { BadgeAddonProps } from "../../../types/badge-addon.types";
 import { Pressable } from "../pressable";
 import { View } from "../view";
-
-interface BadgeAddonProps {
-  color: string | undefined;
-  Content: ComponentType | undefined;
-  hitSlop: number;
-  iconSize: number;
-  IconComponent: IconProps["icon"] | undefined;
-  onPress: PressableCoreProps["onPress"] | undefined;
-}
 
 export const BadgeAddon = memo(function BadgeAddon({
   color,

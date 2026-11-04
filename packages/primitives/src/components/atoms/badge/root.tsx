@@ -63,7 +63,7 @@ export const BadgeRoot = memo(function BadgeRoot({
       />
 
       {isTextChild ? (
-        <Text numberOfLines={1} style={styles.label}>
+        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.label}>
           {children}
         </Text>
       ) : (
@@ -93,7 +93,8 @@ function themedStyles(theme: AppTheme, props: BadgeThemeProps) {
     container: {
       alignItems: "center",
       flexDirection: "row",
-      flexShrink: 0,
+      flexShrink: 1,
+      maxWidth: "100%",
       justifyContent: "center",
 
       borderRadius: badgeTokens.borderRadius,
@@ -108,6 +109,8 @@ function themedStyles(theme: AppTheme, props: BadgeThemeProps) {
     },
 
     label: {
+      flexShrink: 1,
+      minWidth: 0,
       textAlign: "center",
 
       fontFamily: badgeTokens.fontFamily,

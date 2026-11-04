@@ -524,6 +524,20 @@
       ]
     },
     {
+      "name": "useOverlaySpring",
+      "kind": "hook",
+      "source": {
+        "file": "packages/overlay/src/hooks/use-overlay-spring.hook.ts",
+        "line": 5
+      },
+      "signatures": [
+        {
+          "text": "(options: OverlayTimingOptions): import(\"../types/overlay-animation.types\").OverlayAnimation",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
       "name": "useOverlayStatus",
       "kind": "hook",
       "source": {
@@ -542,11 +556,11 @@
       "kind": "hook",
       "source": {
         "file": "packages/overlay/src/hooks/use-overlay-timing.hook.ts",
-        "line": 13
+        "line": 4
       },
       "signatures": [
         {
-          "text": "({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import(\"@impulse-ui-native/toolkit\").OverlayTransitionCompletion) => void; }; progress: import(\"react-native-reanimated\").SharedValue<number>; }",
+          "text": "(options: OverlayTimingOptions): import(\"../types/overlay-animation.types\").OverlayAnimation",
           "abbreviated": false
         }
       ]

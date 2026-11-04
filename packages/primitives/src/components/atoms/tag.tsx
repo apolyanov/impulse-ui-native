@@ -1,21 +1,22 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { Icon } from "@impulse-ui-native/icon";
 import { XCircleIcon } from "@impulse-ui-native/icon/icons/x-circle";
 import {
-  AppTheme,
   getAvailabilityStateTokens,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
-import { TagProps, TagThemeProps } from "../../types";
+import type { TagProps, TagThemeProps } from "../../types";
 import { Pressable } from "./pressable";
 import { Typography } from "./typography";
 
 export const Tag = memo(function Tag({
   label,
+  style,
   size = "medium",
   variant = "filled",
   tone = "primary",
@@ -39,13 +40,23 @@ export const Tag = memo(function Tag({
     [size, variant, disabled, tone],
   );
 
+  const containerStyle = useMemo(
+    () => [styles.container, style],
+    [styles.container, style],
+  );
   const Container = onPress ? Pressable : View;
 
   const showClose = closable && !disabled && onClose;
 
   return (
-    <Container onPress={onPress} disabled={disabled} style={styles.container}>
-      <Typography.Caption style={styles.label}>{label}</Typography.Caption>
+    <Container onPress={onPress} disabled={disabled} style={containerStyle}>
+      <Typography.Caption
+        numberOfLines={1}
+        ellipsizeMode="tail"
+        style={styles.label}
+      >
+        {label}
+      </Typography.Caption>
 
       {showClose ? (
         <Pressable onPress={onClose} hitSlop={tagTokens.closeHitSlop}>
@@ -77,6 +88,8 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
       alignItems: "center",
       justifyContent: "center",
       alignSelf: "flex-start",
+      flexShrink: 1,
+      maxWidth: "100%",
 
       height: sizeTokens.height,
       paddingHorizontal: sizeTokens.paddingHorizontal,
@@ -91,6 +104,8 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
     },
 
     label: {
+      flexShrink: 1,
+      minWidth: 0,
       fontSize: sizeTokens.fontSize,
       color: appearanceTokens.color,
     },

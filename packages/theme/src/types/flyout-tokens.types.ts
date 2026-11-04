@@ -31,8 +31,15 @@ export interface FlyoutTitleTokens {
   lineHeight: number;
 }
 
+export interface FlyoutSpringTokens {
+  damping: number;
+  stiffness: number;
+  mass: number;
+}
+
 export interface FlyoutTokens {
-  enterSpring: { damping: number; stiffness: number; mass: number };
+  enterSpring: FlyoutSpringTokens;
+  /** Perceptual exit spring duration in milliseconds; settling takes longer. */
   exitDuration: number;
   zIndexBase: number;
 

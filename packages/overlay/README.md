@@ -108,3 +108,5 @@ status; host removal still happens through onCloseFinished.
 ## Agent and design reference
 
 Start with the [capability guide](../../docs/design-system/capabilities/overlay.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+`useOverlaySpring({ enterDuration, exitDuration })` supplies critically damped transition handlers and shared `progress` for `useOverlayLifecycle`. Durations are perceptual milliseconds; completion waits for spring settling. Retargeting uses the existing shared value, cancelled animations do not complete a transition, and unmount cancels animation. `useOverlayTiming` remains available for fixed-duration transitions.

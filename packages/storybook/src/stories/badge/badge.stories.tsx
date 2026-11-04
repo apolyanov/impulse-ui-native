@@ -86,6 +86,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const LongText: Story = createBadgeStory("LongText");
+
 export const Documentation: Story = {
   render: function renderDocumentation() {
     return <BadgeDocumentation />;

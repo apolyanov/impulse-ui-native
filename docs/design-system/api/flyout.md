@@ -87,11 +87,11 @@ Root uses the shared useOverlayLifecycle hook. Observe the preparation, entry,
 open, and exit stages through onStatusChange(id, status). Dragging is enabled
 after entry completes. Entry preparation includes the initial layout measurement. After exit completes, the sheet keeps its offscreen position and measured height until unmount; the next opening prepares fresh geometry.
 
+When closing with the keyboard visible, Flyout retains the expanded sheet height and keyboard-aware body padding until exit finishes. Keyboard dismissal or close callbacks therefore do not collapse the sheet before it moves offscreen. Opening again releases the retained layout and follows the current keyboard state.
+
 ## Theme motion
 
-`components.flyout.enterSpring` contains `damping`, `stiffness`, and `mass`
-(defaults 50, 300, and 1). `exitDuration` defaults to 150 ms. The enter spring
-also controls the return animation after a drag that does not dismiss the sheet.
+Flyout uses a nearly critically damped entrance spring and a critically damped exit spring. `components.flyout.enterSpring` configures damping, stiffness, and mass (35, 300, and 1 by default), including spring-back after a drag. `exitDuration` is a perceptual spring duration (280 ms by default), not a fixed unmount deadline. Dismissal and spring-back carry gesture release velocity; closing retains the exited geometry until unmount.
 
 ## Agent and design reference
 
@@ -142,7 +142,7 @@ container gets a smaller viewport. Small forms can therefore gain keyboard space
 without losing their entire viewport.
 
 Both placements use the body's position within the sheet to calculate overlap.
-A top body already above the keyboard needs no adjustment. Existing safe-area
+Avoidance waits for valid sheet and body measurements before reserving space. A top body already above the keyboard needs no adjustment. Existing safe-area
 space, placement offsets, and siblings below the body are included in that
 calculation. Explicit numeric body heights grow by the keyboard padding and
 restore when the keyboard closes.
@@ -151,7 +151,7 @@ restore when the keyboard closes.
 gap follows keyboard animation progress inside the body and disappears when the
 keyboard closes. The `keyboardOffset` prop overrides it; set it to `0` for no gap.
 Set `enabled` to false to disable avoidance and restore the authored body layout.
-The body returns to its normal height and padding after the keyboard closes.
+The body returns to its normal height and padding after the keyboard closes. Use numeric padding values (including theme spacing tokens) for active keyboard avoidance; percentage padding is preserved while avoidance is inactive.
 
 Use a shrinkable ScrollView or virtualized list when content can exceed the
 remaining viewport. KeyboardAwareView does not scroll a focused field into view
@@ -203,16 +203,7 @@ import { FlyoutRoot } from "./root";
 import { FlyoutScrollView } from "./scroll-view";
 import { FlyoutTitle } from "./title";
 
-// Keep native ref types named so declarations do not expose RN private types.
-export const Flyout: typeof FlyoutComponent & {
-  Root: typeof FlyoutRoot;
-  Header: typeof FlyoutHeader;
-  Title: typeof FlyoutTitle;
-  Content: typeof FlyoutContent;
-  ScrollView: typeof FlyoutScrollView;
-  KeyboardAwareView: typeof FlyoutKeyboardAwareView;
-  Handle: typeof FlyoutHandle;
-} = Object.assign(FlyoutComponent, {
+export const Flyout = Object.assign(FlyoutComponent, {
   Root: FlyoutRoot,
   Header: FlyoutHeader,
   Title: FlyoutTitle,
@@ -233,14 +224,21 @@ export * from "./types";
 ### packages/flyout/src/types/flyout.types.ts
 
 ```tsx
-import type { ReactNode } from "react";
-import type { ScrollViewProps } from "react-native";
+import type {
+  ComponentRef,
+  NamedExoticComponent,
+  PropsWithoutRef,
+  ReactNode,
+  RefAttributes,
+} from "react";
+import type { View as NativeView, ScrollViewProps } from "react-native";
 
 import type { OverlayComponentProps } from "@impulse-ui-native/overlay";
 import type { TextProps, ViewProps } from "@impulse-ui-native/primitives";
+import type { FlyoutPlacement } from "@impulse-ui-native/theme";
 
 export interface FlyoutRootProps extends Omit<OverlayComponentProps, "title"> {
-  placement?: "top" | "bottom";
+  placement?: FlyoutPlacement;
   topOffset?: number;
   bottomOffset?: number;
   style?: ViewProps["style"];
@@ -265,6 +263,11 @@ export interface FlyoutKeyboardAwareViewProps extends ViewProps {
   /** Additional space above the keyboard, in logical units. Defaults to components.flyout.keyboardOffset (8). */
   keyboardOffset?: number;
 }
+
+export type FlyoutKeyboardAwareViewComponent = NamedExoticComponent<
+  PropsWithoutRef<FlyoutKeyboardAwareViewProps> &
+    RefAttributes<ComponentRef<typeof NativeView>>
+>;
 ```
 
 ### packages/flyout/src/types/index.ts

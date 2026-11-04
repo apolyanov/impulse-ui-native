@@ -1,7 +1,9 @@
 import type { ComponentSize } from "./components.types";
 
 export interface ModalTokens {
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   enterDuration: number;
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   exitDuration: number;
   zIndexBase: number;
   overlayColor: string;

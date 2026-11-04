@@ -1102,6 +1102,14 @@
       }
     },
     {
+      "name": "FlyoutSpringTokens",
+      "kind": "type",
+      "source": {
+        "file": "packages/theme/src/types/flyout-tokens.types.ts",
+        "line": 34
+      }
+    },
+    {
       "name": "FlyoutTitleTokens",
       "kind": "type",
       "source": {
@@ -1114,7 +1122,7 @@
       "kind": "type",
       "source": {
         "file": "packages/theme/src/types/flyout-tokens.types.ts",
-        "line": 34
+        "line": 40
       }
     },
     {
@@ -1122,7 +1130,7 @@
       "kind": "type",
       "source": {
         "file": "packages/theme/src/types/flyout-tokens.types.ts",
-        "line": 55
+        "line": 62
       }
     },
     {
@@ -1774,7 +1782,7 @@
       "kind": "type",
       "source": {
         "file": "packages/theme/src/types/flyout-tokens.types.ts",
-        "line": 59
+        "line": 66
       }
     },
     {

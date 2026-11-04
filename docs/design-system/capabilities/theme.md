@@ -180,6 +180,7 @@ Style props: none detected. Additional inherited native props: 0. See exact API 
 - `FlyoutHandleTokens` (type)
 - `FlyoutPlacement` (type)
 - `FlyoutPlacementTokens` (type)
+- `FlyoutSpringTokens` (type)
 - `FlyoutTitleTokens` (type)
 - `FlyoutTokens` (type)
 - `FlyoutTokenState` (type)

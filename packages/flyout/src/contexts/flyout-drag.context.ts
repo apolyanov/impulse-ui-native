@@ -1,12 +1,7 @@
-import type { Gesture } from "react-native-gesture-handler";
 import { createContext } from "react";
 
-import type { FlyoutRootProps } from "../types";
+import type { FlyoutDragContextValue } from "../types/flyout-context.types";
 
 export const FlyoutDragContext = createContext<
-  | {
-      dragGesture: ReturnType<typeof Gesture.Pan>;
-      placement: NonNullable<FlyoutRootProps["placement"]>;
-    }
-  | undefined
+  FlyoutDragContextValue | undefined
 >(undefined);

@@ -283,8 +283,8 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.charts.tooltip.borderRadius`                                                          | `4`                                 | `4`                                 |
 | `components.charts.tooltip.padding`                                                               | `8`                                 | `8`                                 |
 | `components.charts.tooltip.gap`                                                                   | `8`                                 | `8`                                 |
-| `components.modal.enterDuration`                                                                  | `180`                               | `180`                               |
-| `components.modal.exitDuration`                                                                   | `150`                               | `150`                               |
+| `components.modal.enterDuration`                                                                  | `300`                               | `300`                               |
+| `components.modal.exitDuration`                                                                   | `220`                               | `220`                               |
 | `components.modal.zIndexBase`                                                                     | `100`                               | `100`                               |
 | `components.modal.overlayColor`                                                                   | `"#343a40"`                         | `"#adb5bd"`                         |
 | `components.modal.overlayVisibleOpacity`                                                          | `0.4`                               | `0.4`                               |
@@ -307,8 +307,8 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.modal.sizes.small.maxWidth`                                                           | `320`                               | `320`                               |
 | `components.modal.sizes.medium.maxWidth`                                                          | `440`                               | `440`                               |
 | `components.modal.sizes.large.maxWidth`                                                           | `640`                               | `640`                               |
-| `components.toast.enterDuration`                                                                  | `180`                               | `180`                               |
-| `components.toast.exitDuration`                                                                   | `150`                               | `150`                               |
+| `components.toast.enterDuration`                                                                  | `260`                               | `260`                               |
+| `components.toast.exitDuration`                                                                   | `220`                               | `220`                               |
 | `components.toast.stackDuration`                                                                  | `220`                               | `220`                               |
 | `components.toast.actionFontWeight`                                                               | `600`                               | `600`                               |
 | `components.toast.backgroundColor`                                                                | `"#ffffff"`                         | `"#343a40"`                         |
@@ -347,6 +347,9 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.toast.tones.error.value`                                                              | `"#c92a2a"`                         | `"#ff8787"`                         |
 | `components.toast.tones.error.contrast`                                                           | `"#fff5f5"`                         | `"#3b1515"`                         |
 | `components.toast.tones.error.actionColor`                                                        | `"#c92a2a"`                         | `"#ff8787"`                         |
+| `components.popover.enterDuration`                                                                | `240`                               | `240`                               |
+| `components.popover.exitDuration`                                                                 | `180`                               | `180`                               |
+| `components.popover.closedScale`                                                                  | `0.96`                              | `0.96`                              |
 | `components.popover.zIndexBase`                                                                   | `3000`                              | `3000`                              |
 | `components.popover.gap`                                                                          | `8`                                 | `8`                                 |
 | `components.popover.edgeOffset`                                                                   | `16`                                | `16`                                |
@@ -1937,10 +1940,10 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.timePicker.columns.indicatorTop`                                                      | `100`                               | `100`                               |
 | `components.timePicker.columns.indicatorBorderRadius`                                             | `100000`                            | `100000`                            |
 | `components.timePicker.columns.indicatorBackgroundColor`                                          | `"#f1f3f5"`                         | `"#16191d"`                         |
-| `components.flyout.enterSpring.damping`                                                           | `50`                                | `50`                                |
+| `components.flyout.enterSpring.damping`                                                           | `35`                                | `35`                                |
 | `components.flyout.enterSpring.stiffness`                                                         | `300`                               | `300`                               |
 | `components.flyout.enterSpring.mass`                                                              | `1`                                 | `1`                                 |
-| `components.flyout.exitDuration`                                                                  | `150`                               | `150`                               |
+| `components.flyout.exitDuration`                                                                  | `280`                               | `280`                               |
 | `components.flyout.zIndexBase`                                                                    | `100`                               | `100`                               |
 | `components.flyout.maxHeightRatio`                                                                | `0.7`                               | `0.7`                               |
 | `components.flyout.overlayColor`                                                                  | `"#343a40"`                         | `"#adb5bd"`                         |

@@ -1,4 +1,8 @@
 export interface PopoverTokens {
+  /** Perceptual spring durations in milliseconds. */
+  enterDuration: number;
+  exitDuration: number;
+  closedScale: number;
   zIndexBase: number;
   gap: number;
   edgeOffset: number;

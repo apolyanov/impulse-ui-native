@@ -10,21 +10,25 @@ import {
 import { scheduleOnRN } from "react-native-worklets";
 
 import type {
-  OverlayLifecycleProps,
+  OverlayLifecycleStatus,
   OverlayTransitionHandler,
 } from "@impulse-ui-native/overlay";
 import { useEventCallback } from "@impulse-ui-native/core";
 import { useOverlayLifecycle } from "@impulse-ui-native/overlay";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
-import type { FlyoutProps } from "../types";
+import type {
+  FlyoutLifecycle,
+  UseFlyoutLifecycleProps,
+} from "../types/flyout-lifecycle.types";
+import {
+  FlyoutDismissDistanceRatio,
+  FlyoutDismissVelocity,
+} from "../constants/flyout-gesture.constants";
 
-interface UseFlyoutLifecycleProps extends OverlayLifecycleProps {
-  placement: NonNullable<FlyoutProps["placement"]>;
-  offset: number;
-}
-
-export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
+export function useFlyoutLifecycle(
+  props: UseFlyoutLifecycleProps,
+): FlyoutLifecycle {
   const { placement, offset } = props;
   const direction = placement === "top" ? -1 : 1;
   const [hasMeasured, setHasMeasured] = useState(false);
@@ -32,14 +36,12 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
   const { flyout: tokens } = useComponentsTokens();
   const { enterSpring, overlayVisibleOpacity } = tokens;
-  const exitAnimationConfig = useMemo(
-    () => ({ duration: tokens.exitDuration }),
-    [tokens.exitDuration],
-  );
 
   const translateY = useSharedValue(0);
   const opacity = useSharedValue(0);
   const measuredHeight = useSharedValue(0);
+  const releaseVelocity = useSharedValue(0);
+  const closingHeight = useSharedValue(0);
 
   const enter = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
@@ -63,19 +65,36 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
       const target = direction * (measuredHeight.value + offset);
       translateY.set(
-        withTiming(target, exitAnimationConfig, (finished) => {
-          if (finished) {
-            scheduleOnRN(complete, transitionId);
-          }
-        }),
+        withSpring(
+          target,
+          {
+            duration: tokens.exitDuration,
+            dampingRatio: 1,
+            velocity: releaseVelocity.value,
+          },
+          (finished) => {
+            if (finished) {
+              scheduleOnRN(complete, transitionId);
+            }
+          },
+        ),
       );
-      opacity.set(withTiming(0, exitAnimationConfig));
+      releaseVelocity.set(0);
+      opacity.set(withTiming(0, { duration: tokens.exitDuration }));
     },
   );
 
   const options = useMemo(
     () => ({ ready: hasMeasured, onEnter: enter, onExit: exit }),
     [hasMeasured, enter, exit],
+  );
+  const handleStatusChange = useEventCallback(
+    (id: string, status: OverlayLifecycleStatus) => {
+      // Capture before consumer callbacks can dismiss the keyboard or reset content.
+      if (status === "closing") closingHeight.set(measuredHeight.value);
+      else if (status === "opening") closingHeight.set(0);
+      props.onStatusChange?.(id, status);
+    },
   );
   const finishClose = useEventCallback((id: string) => {
     setHasMeasured(false);
@@ -85,15 +104,18 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
 
     props.onCloseFinished?.(id);
   });
-  const lifecycleProps = useMemo(
-    () => ({ ...props, onCloseFinished: finishClose }),
-    [props, finishClose],
+  const lifecycle = useOverlayLifecycle(
+    {
+      ...props,
+      onStatusChange: handleStatusChange,
+      onCloseFinished: finishClose,
+    },
+    options,
   );
-  const lifecycle = useOverlayLifecycle(lifecycleProps, options);
   const { close, status, mounted } = lifecycle;
 
   const onLayout = useEventCallback((event: LayoutChangeEvent) => {
-    if (!mounted) {
+    if (!mounted || closingHeight.value > 0) {
       return;
     }
 
@@ -123,17 +145,29 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
           const distance = direction * event.translationY;
           const velocity = direction * event.velocityY;
           const shouldClose =
-            distance > measuredHeight.value * 0.5 || velocity > 1500;
+            distance > measuredHeight.value * FlyoutDismissDistanceRatio ||
+            velocity > FlyoutDismissVelocity;
 
           if (shouldClose) {
+            releaseVelocity.set(event.velocityY);
             scheduleOnRN(close);
 
             return;
           }
 
-          translateY.set(withSpring(0, enterSpring));
+          translateY.set(
+            withSpring(0, { ...enterSpring, velocity: event.velocityY }),
+          );
         }),
-    [status, measuredHeight, direction, close, translateY, enterSpring],
+    [
+      status,
+      measuredHeight,
+      direction,
+      close,
+      translateY,
+      enterSpring,
+      releaseVelocity,
+    ],
   );
 
   useEffect(
@@ -147,6 +181,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   return useMemo(
     () => ({
       ...lifecycle,
+      closingHeight,
       dragGesture,
       hasMeasured,
       measuredHeight,
@@ -156,6 +191,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     }),
     [
       lifecycle,
+      closingHeight,
       dragGesture,
       hasMeasured,
       measuredHeight,

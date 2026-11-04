@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
-import type { PopoverRect } from "../types/popover.types";
+import type { PopoverMeasurement } from "../types/popover-position.types";
 import { AnchorMeasureInterval } from "../constants/popover.constants";
 import { equalRects } from "../utils/popover-position.utils";
 import { usePopoverContext } from "./use-popover-context.hook";
@@ -18,10 +18,9 @@ export function usePopoverPosition(
   const window = useWindowDimensions();
   const insets = useSafeAreaInsets();
 
-  const [measurement, setMeasurement] = useState<{
-    anchor: PopoverRect;
-    host: PopoverRect;
-  } | null>(null);
+  const [measurement, setMeasurement] = useState<PopoverMeasurement | null>(
+    null,
+  );
 
   const tokens = useComponentsTokens().popover;
 

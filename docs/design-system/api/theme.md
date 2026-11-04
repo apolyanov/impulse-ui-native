@@ -791,8 +791,8 @@ import type { ModalTokens, PrimitiveThemeTokens } from "../types";
 
 export function createModalTokens(tokens: PrimitiveThemeTokens): ModalTokens {
   return {
-    enterDuration: 180,
-    exitDuration: 150,
+    enterDuration: 300,
+    exitDuration: 220,
     zIndexBase: 100,
     overlayColor: tokens.colors.text.tertiary,
     overlayVisibleOpacity: 0.4,
@@ -934,6 +934,9 @@ export function createPopoverTokens(
   tokens: PrimitiveThemeTokens,
 ): PopoverTokens {
   return {
+    enterDuration: 240,
+    exitDuration: 180,
+    closedScale: 0.96,
     zIndexBase: 3000,
     gap: tokens.space.xs,
     edgeOffset: tokens.space.sm,
@@ -1850,8 +1853,8 @@ import type { PrimitiveThemeTokens, ToastTokens } from "../types";
 
 export function createToastTokens(tokens: PrimitiveThemeTokens): ToastTokens {
   return {
-    enterDuration: 180,
-    exitDuration: 150,
+    enterDuration: 260,
+    exitDuration: 220,
     stackDuration: 220,
     actionFontWeight: tokens.fontWeight.semiBold,
     backgroundColor: tokens.colors.surface.elevated.value,
@@ -3281,8 +3284,15 @@ export interface FlyoutTitleTokens {
   lineHeight: number;
 }
 
+export interface FlyoutSpringTokens {
+  damping: number;
+  stiffness: number;
+  mass: number;
+}
+
 export interface FlyoutTokens {
-  enterSpring: { damping: number; stiffness: number; mass: number };
+  enterSpring: FlyoutSpringTokens;
+  /** Perceptual exit spring duration in milliseconds; settling takes longer. */
   exitDuration: number;
   zIndexBase: number;
 
@@ -3409,7 +3419,9 @@ export interface ListTokens {
 import type { ComponentSize } from "./components.types";
 
 export interface ModalTokens {
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   enterDuration: number;
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   exitDuration: number;
   zIndexBase: number;
   overlayColor: string;
@@ -3486,6 +3498,10 @@ export interface PaginationTokens {
 
 ```tsx
 export interface PopoverTokens {
+  /** Perceptual spring durations in milliseconds. */
+  enterDuration: number;
+  exitDuration: number;
+  closedScale: number;
   zIndexBase: number;
   gap: number;
   edgeOffset: number;
@@ -4345,7 +4361,9 @@ import type { FontWeightValue } from "./tokens.types";
 export type ToastTone = FeedbackTone;
 
 export interface ToastTokens {
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   enterDuration: number;
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   exitDuration: number;
   stackDuration: number;
   actionFontWeight: FontWeightValue;

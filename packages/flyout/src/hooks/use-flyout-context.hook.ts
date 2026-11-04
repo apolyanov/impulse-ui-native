@@ -6,7 +6,9 @@ export function useFlyoutContext() {
   const context = useContext(FlyoutContext);
 
   if (!context) {
-    throw new Error("Flyout parts must be rendered inside Flyout.Root");
+    throw new Error(
+      "Flyout.KeyboardAwareView must be rendered inside Flyout.Root",
+    );
   }
 
   return context;

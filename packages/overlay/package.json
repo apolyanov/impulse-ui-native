@@ -30,7 +30,8 @@
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore",
+    "test": "node --test ../../scripts/overlay-animation-tests.mjs"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",

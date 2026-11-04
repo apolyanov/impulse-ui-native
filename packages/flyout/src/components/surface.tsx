@@ -7,7 +7,7 @@ import type { AppTheme } from "@impulse-ui-native/theme";
 import { getFlyoutTokens, useThemedStyles } from "@impulse-ui-native/theme";
 
 import type { FlyoutSurfaceProps } from "../types/flyout-surface.types";
-import type { FlyoutRootThemeProps } from "../types/flyout-theme.types";
+import type { FlyoutSurfaceThemeProps } from "../types/flyout-theme.types";
 import { FlyoutDragContext } from "../contexts/flyout-drag.context";
 import { FlyoutContext } from "../contexts/flyout.context";
 import { FlyoutBackdrop } from "./backdrop";
@@ -30,6 +30,7 @@ export const FlyoutSurface = memo(function FlyoutSurface({
 
   const {
     close,
+    closingHeight,
     dragGesture,
     hasMeasured,
     measuredHeight,
@@ -39,8 +40,10 @@ export const FlyoutSurface = memo(function FlyoutSurface({
     translateY,
   } = lifecycle;
 
+  const authoredHeight = StyleSheet.flatten([style])?.height;
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: translateY.value }],
+    height: closingHeight.value > 0 ? closingHeight.value : authoredHeight,
   }));
   const backdropStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,
@@ -64,6 +67,7 @@ export const FlyoutSurface = memo(function FlyoutSurface({
       offset,
       screenHeight,
       measuredHeight,
+      closingHeight,
       maxHeight: styles.container.maxHeight,
     }),
     [
@@ -71,6 +75,7 @@ export const FlyoutSurface = memo(function FlyoutSurface({
       offset,
       screenHeight,
       measuredHeight,
+      closingHeight,
       styles.container.maxHeight,
     ],
   );
@@ -102,7 +107,7 @@ export const FlyoutSurface = memo(function FlyoutSurface({
 
 function themedStyles(
   theme: AppTheme,
-  { placement, offset, screenHeight, layer, insets }: FlyoutRootThemeProps,
+  { placement, offset, screenHeight, layer, insets }: FlyoutSurfaceThemeProps,
 ) {
   const tokens = getFlyoutTokens(theme.components.flyout, { placement });
   const zIndex = tokens.zIndexBase + layer;

@@ -21,6 +21,19 @@ interface BadgeExampleDefinition {
 
 export const BadgeExampleDefinitions = [
   {
+    name: "LongText",
+    title: "Long text",
+    description:
+      "Labels stay on one line and truncate with an ellipsis within the available width, keeping actions visible.",
+    props: [{ name: "style", value: "{ maxWidth: 180 }" }],
+    args: {
+      children: "A very long label that should stay inside its container",
+      style: { maxWidth: 180 },
+      PrefixIcon: UserCircleIcon,
+      SuffixIcon: XCircleIcon,
+    },
+  },
+  {
     name: "Filled",
     title: "Filled badge",
     description:

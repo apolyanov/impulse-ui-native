@@ -23,7 +23,9 @@ export const ModalRoot = memo(function ModalRoot({
     layer,
   ]);
 
-  const overlayStyle = useAnimatedStyle(() => ({ opacity: progress.value }));
+  const overlayStyle = useAnimatedStyle(() => ({
+    opacity: Math.max(0, Math.min(1, progress.value)),
+  }));
   const surfaceStyle = useAnimatedStyle(() => ({
     transform: [
       { scale: tokens.closedScale + (1 - tokens.closedScale) * progress.value },

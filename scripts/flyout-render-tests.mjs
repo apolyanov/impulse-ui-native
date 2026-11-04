@@ -6,8 +6,9 @@ import { fileURLToPath } from "node:url";
 import { runInNewContext } from "node:vm";
 import React from "react";
 import * as jsxRuntime from "react/jsx-runtime";
-import Reconciler from "react-reconciler";
 import ts from "typescript";
+
+import { createRenderer } from "./helpers/react-renderer.mjs";
 
 // Real React reconciliation; native hosts, gestures, and Reanimated are stubbed.
 // Counts are render regressions, not on-device timing/FPS measurements.
@@ -15,69 +16,6 @@ const repo = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const lightTheme = JSON.parse(
   readFileSync(resolve(repo, "docs/design-system/tokens.light.json"), "utf8"),
 );
-
-function createRenderer() {
-  let priority = 0;
-  const context = {};
-  const append = (parent, child) => parent.children.push(child);
-  const remove = (parent, child) =>
-    parent.children.splice(parent.children.indexOf(child), 1);
-  const renderer = Reconciler({
-    supportsMutation: true,
-    isPrimaryRenderer: false,
-    supportsMicrotasks: true,
-    scheduleMicrotask: queueMicrotask,
-    now: Date.now,
-    getRootHostContext: () => context,
-    getChildHostContext: () => context,
-    getPublicInstance: (instance) => instance,
-    prepareForCommit: () => null,
-    resetAfterCommit() {},
-    createInstance: (type, props) => ({ type, props, children: [] }),
-    createTextInstance: (text) => ({ text }),
-    appendInitialChild: append,
-    appendChild: append,
-    appendChildToContainer: append,
-    removeChild: remove,
-    removeChildFromContainer: remove,
-    shouldSetTextContent: () => false,
-    finalizeInitialChildren: () => false,
-    commitUpdate() {},
-    commitTextUpdate() {},
-    clearContainer(parent) {
-      parent.children = [];
-    },
-    setCurrentUpdatePriority(value) {
-      priority = value;
-    },
-    getCurrentUpdatePriority: () => priority,
-    resolveUpdatePriority: () => 32,
-    maySuspendCommit: () => false,
-    preloadInstance: () => true,
-    detachDeletedInstance() {},
-    resetFormInstance() {},
-  });
-  const errors = [];
-  const fail = (error) => errors.push(error);
-  const root = renderer.createContainer(
-    { children: [] },
-    0,
-    null,
-    false,
-    null,
-    "",
-    fail,
-    fail,
-    fail,
-    null,
-  );
-  return (element) => {
-    renderer.updateContainerSync(element, root, null, null);
-    renderer.flushSyncWork();
-    renderer.flushPassiveEffects();
-    if (errors.length) throw errors.shift();
-  };
-}
 
 function createHarness(mounted = true) {
   const counts = {};
@@ -90,6 +28,7 @@ function createHarness(mounted = true) {
   const insets = { top: 44, bottom: 34, left: 0, right: 0 };
   const keyboard = { height: { value: 0 }, progress: { value: 0 } };
   const measuredHeight = { value: 450 };
+  const closingHeight = { value: 0 };
   const translateY = { value: 0 };
   const opacity = { value: 0.4 };
   const noop = () => {};
@@ -144,6 +83,7 @@ function createHarness(mounted = true) {
         };
         return ref.current;
       },
+      useAnimatedReaction: () => {},
       useAnimatedStyle: () => React.useMemo(() => ({}), []),
     },
     "@impulse-ui-native/primitives": {
@@ -221,6 +161,7 @@ function createHarness(mounted = true) {
                 dragGesture,
                 hasMeasured: true,
                 measuredHeight,
+                closingHeight,
                 interactive: open,
                 mounted,
                 onLayout: noop,

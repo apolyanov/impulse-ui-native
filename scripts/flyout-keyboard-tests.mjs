@@ -20,6 +20,25 @@ const { outputText } = ts.transpileModule(source, {
 const { getFlyoutKeyboardBodyInset } = await import(
   `data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`
 );
+const paddingSource = readFileSync(
+  new URL(
+    "../packages/flyout/src/utils/get-flyout-keyboard-body-padding.utils.ts",
+    import.meta.url,
+  ),
+  "utf8",
+);
+const paddingExports = {};
+const paddingCompiled = ts.transpileModule(paddingSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS },
+}).outputText;
+runInNewContext(paddingCompiled, {
+  exports: paddingExports,
+  require: (name) => {
+    assert.equal(name, "./get-flyout-keyboard-body-inset.utils");
+    return { getFlyoutKeyboardBodyInset };
+  },
+});
+const { getFlyoutKeyboardBodyPadding } = paddingExports;
 const defaults = {
   placement: "bottom",
   offset: 0,
@@ -81,10 +100,14 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
     offset: 0,
     screenHeight: 800,
     measuredHeight,
+    closingHeight: { value: 0 },
     maxHeight: 560,
     ...contextOverrides,
   };
   let frame;
+  const shared = [];
+  let sharedIndex = 0;
+  let reaction;
   let lastFrameRef;
   let frameWrites = 0;
   let animate;
@@ -126,18 +149,23 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
         animate = callback;
         return "animated-style";
       },
+      useAnimatedReaction: (prepare, react) => {
+        reaction = () => react(prepare());
+      },
       useSharedValue: (initial) => {
-        frame ??= {
+        const index = sharedIndex++;
+        shared[index] ??= {
           value: initial,
           get() {
             return this.value;
           },
           set(value) {
-            frameWrites++;
+            if (index === 0) frameWrites++;
             this.value = value;
           },
         };
-        return frame;
+        frame = shared[0];
+        return shared[index];
       },
     },
     "@impulse-ui-native/core": { useEventCallback: (callback) => callback },
@@ -149,8 +177,8 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
       useStyleProps: () => ({}),
     },
     "../hooks": { useFlyoutContext: () => context },
-    "../utils/get-flyout-keyboard-body-inset.utils": {
-      getFlyoutKeyboardBodyInset,
+    "../utils/get-flyout-keyboard-body-padding.utils": {
+      getFlyoutKeyboardBodyPadding,
     },
   };
   runInNewContext(compiled, {
@@ -169,6 +197,7 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
     },
     context,
     render(props = {}, ref = null) {
+      sharedIndex = 0;
       view = exports.FlyoutKeyboardAwareView(props, ref);
       return view;
     },
@@ -176,6 +205,7 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
       view.props.onLayout({ nativeEvent: { layout } });
     },
     style() {
+      reaction();
       return animate();
     },
   };
@@ -306,3 +336,40 @@ test("duplicate body layouts keep the worklet frame stable and still notify cons
   body.layout({ y: 70, height: 350 });
   assert.equal(body.frameWrites, 2);
 });
+
+test("keyboard avoidance waits for valid sheet and body measurements", () => {
+  assert.equal(inset({ keyboardHeight: 600, sheetHeight: 0 }), 0);
+  assert.equal(inset({ keyboardHeight: 600, frame: { y: 0, height: 0 } }), 0);
+  assert.equal(inset({ keyboardHeight: 600, sheetHeight: -1 }), 0);
+});
+
+test("inactive avoidance preserves percentage padding instead of overwriting it with zero", () => {
+  const body = createBodyHarness();
+  body.render({ style: { paddingBottom: "10%" } });
+  body.layout();
+  assert.equal(body.style().paddingBottom, "10%");
+  body.height.value = -320;
+  body.progress.value = 1;
+  body.render({ enabled: false, style: { paddingBottom: "10%" } });
+  assert.equal(body.style().paddingBottom, "10%");
+});
+
+for (const authoredHeight of [undefined, 160]) {
+  test(`closing retains keyboard padding and body height (${authoredHeight ?? "auto"}) until reopening`, () => {
+    const body = createBodyHarness();
+    body.render({ style: { height: authoredHeight, paddingBottom: 12 } });
+    body.layout();
+    body.height.value = -320;
+    body.progress.value = 1;
+    const expanded = body.style();
+    body.context.closingHeight.value = 520;
+    body.height.value = 0;
+    body.progress.value = 0;
+    assert.deepEqual(body.style(), expanded);
+    body.layout({ y: 66, height: 200 });
+    assert.deepEqual(body.style(), expanded);
+    body.context.closingHeight.value = 0;
+    assert.equal(body.style().paddingBottom, 12);
+    assert.equal(body.style().height, authoredHeight ?? "auto");
+  });
+}

@@ -1,9 +1,9 @@
 import type { EdgeInsets } from "react-native-safe-area-context";
 
-import type { FlyoutRootProps } from "./flyout.types";
+import type { FlyoutPlacement } from "@impulse-ui-native/theme";
 
-export interface FlyoutRootThemeProps {
-  placement: NonNullable<FlyoutRootProps["placement"]>;
+export interface FlyoutSurfaceThemeProps {
+  placement: FlyoutPlacement;
   layer: number;
   offset: number;
   screenHeight: number;

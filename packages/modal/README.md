@@ -145,8 +145,7 @@ local status with onStatusChange(id, status), or hosted status with useOverlaySt
 
 ## Theme motion
 
-`components.modal.enterDuration` and `exitDuration` control the fade/scale
-transition timing. Defaults remain 180 ms and 150 ms.
+Modal uses a critically damped spring for its restrained scale and fade transition. `enterDuration` / `exitDuration` are perceptual spring durations (300 / 220 ms by default); lifecycle completion waits for settling. Interrupted transitions retarget the current progress.
 
 ## Agent and design reference
 

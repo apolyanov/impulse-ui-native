@@ -1,14 +1,10 @@
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import type { View as NativeView, ViewStyle } from "react-native";
 import { forwardRef, memo, useMemo, useRef } from "react";
 import { StyleSheet } from "react-native";
 import { useReanimatedKeyboardAnimation } from "react-native-keyboard-controller";
 import Animated, {
+  useAnimatedReaction,
   useAnimatedStyle,
   useSharedValue,
 } from "react-native-reanimated";
@@ -20,14 +16,15 @@ import {
   useTheme,
 } from "@impulse-ui-native/theme";
 
-import type { FlyoutKeyboardAwareViewProps } from "../types";
+import type {
+  FlyoutKeyboardAwareViewComponent,
+  FlyoutKeyboardAwareViewProps,
+} from "../types";
+import type { FlyoutKeyboardBodyFrame } from "../types/flyout-keyboard.types";
 import { useFlyoutContext } from "../hooks";
-import { getFlyoutKeyboardBodyInset } from "../utils/get-flyout-keyboard-body-inset.utils";
+import { getFlyoutKeyboardBodyPadding } from "../utils/get-flyout-keyboard-body-padding.utils";
 
-export const FlyoutKeyboardAwareView: NamedExoticComponent<
-  PropsWithoutRef<FlyoutKeyboardAwareViewProps> &
-    RefAttributes<ComponentRef<typeof NativeView>>
-> = memo(
+export const FlyoutKeyboardAwareView: FlyoutKeyboardAwareViewComponent = memo(
   forwardRef<ComponentRef<typeof NativeView>, FlyoutKeyboardAwareViewProps>(
     function FlyoutKeyboardAwareView(
       {
@@ -41,13 +38,23 @@ export const FlyoutKeyboardAwareView: NamedExoticComponent<
       },
       ref,
     ) {
-      const { placement, offset, screenHeight, measuredHeight, maxHeight } =
-        useFlyoutContext();
+      const {
+        placement,
+        offset,
+        screenHeight,
+        measuredHeight,
+        maxHeight,
+        closingHeight,
+      } = useFlyoutContext();
       const { height, progress } = useReanimatedKeyboardAnimation();
       const theme = useTheme();
       const tokens = theme.components.flyout;
-      const lastFrame = useRef<{ y: number; height: number } | null>(null);
-      const frame = useSharedValue({ y: 0, height: 0 });
+      const lastFrame = useRef<FlyoutKeyboardBodyFrame | null>(null);
+      const frame = useSharedValue<FlyoutKeyboardBodyFrame>({
+        y: 0,
+        height: 0,
+      });
+      const keyboardPadding = useSharedValue(0);
       const styleProps = useStyleProps(props);
       const resolvedStyle = useMemo(
         () =>
@@ -82,38 +89,38 @@ export const FlyoutKeyboardAwareView: NamedExoticComponent<
       const paddingBottom =
         typeof authoredPaddingBottom === "number" ? authoredPaddingBottom : 0;
 
-      const animatedStyle = useAnimatedStyle<ViewStyle>(() => {
-        const keyboardHeight = enabled ? Math.max(0, -height.value) : 0;
-        const inset = getFlyoutKeyboardBodyInset({
-          placement,
-          offset,
-          screenHeight,
-          sheetHeight: measuredHeight.value,
-          frame: frame.value,
-          keyboardHeight,
-          gap: Math.max(0, resolvedKeyboardOffset) * progress.value,
-        });
-        const spaceBelowBody = Math.max(
-          0,
-          measuredHeight.value - frame.value.y - frame.value.height,
-        );
-        const maximumBodyHeight = Math.max(
-          0,
-          maxHeight - frame.value.y - spaceBelowBody,
-        );
-        const availablePadding = Math.max(
-          0,
-          maximumBodyHeight - paddingTop - paddingBottom,
-        );
-        const keyboardPadding = Math.min(inset, availablePadding);
+      useAnimatedReaction(
+        () => {
+          if (closingHeight.value > 0) return null;
+          const keyboardHeight = enabled ? Math.max(0, -height.value) : 0;
+          return getFlyoutKeyboardBodyPadding({
+            placement,
+            offset,
+            screenHeight,
+            sheetHeight: measuredHeight.value,
+            frame: frame.value,
+            keyboardHeight,
+            gap: Math.max(0, resolvedKeyboardOffset) * progress.value,
+            maxHeight,
+            paddingTop,
+            paddingBottom,
+          });
+        },
+        (nextPadding) => {
+          if (nextPadding !== null) keyboardPadding.set(nextPadding);
+        },
+      );
 
+      const animatedStyle = useAnimatedStyle<ViewStyle>(() => {
+        const padding = keyboardPadding.value;
         return {
           // Explicit body heights grow with the inset; Root still caps the whole sheet.
           height:
             typeof authoredHeight === "number"
-              ? authoredHeight + keyboardPadding
+              ? authoredHeight + padding
               : authoredHeight,
-          paddingBottom: paddingBottom + keyboardPadding,
+          paddingBottom:
+            padding > 0 ? paddingBottom + padding : authoredPaddingBottom,
         };
       });
       const bodyStyle = useMemo(

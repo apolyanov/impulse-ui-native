@@ -10,7 +10,7 @@ Anchor contextual actions or a tooltip to a trigger.
 ## Capabilities
 
 - Popover.Root/Trigger/Content and presentation parts; controlled/uncontrolled open.
-- Tooltip convenience component and host-relative positioning.
+- Tooltip convenience component, host-relative positioning, and measured spring transitions with retained exits.
 
 ## Boundaries and composition
 
@@ -34,6 +34,8 @@ Optional refers to the package manifest; individual features may still require t
 | `react`                          | `>=18`    | No       |
 | `react-native`                   | `>=0.73`  | No       |
 | `react-native-safe-area-context` | `>=5.0.0` | No       |
+| `react-native-reanimated`        | `>=4`     | No       |
+| `react-native-worklets`          | `>=0.5`   | No       |
 
 ### Popover
 
@@ -83,7 +85,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Popover.Content
 
-Source: `packages/popover/src/components/popover-content.tsx:10`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/popover/src/components/popover-content.tsx:16`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 - **requiresParent**: Popover.Root
 - **contentContract**: Render supplied children; portal Content re-provides its required context.

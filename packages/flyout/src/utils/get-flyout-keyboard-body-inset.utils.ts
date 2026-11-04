@@ -11,7 +11,7 @@ export function getFlyoutKeyboardBodyInset({
 }: FlyoutKeyboardBodyInsetOptions): number {
   "worklet";
 
-  if (keyboardHeight <= 0) {
+  if (keyboardHeight <= 0 || sheetHeight <= 0 || frame.height <= 0) {
     return 0;
   }
 

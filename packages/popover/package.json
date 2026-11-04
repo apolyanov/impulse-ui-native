@@ -30,14 +30,16 @@
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
-    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore",
+    "test": "node --test ../../scripts/popover-motion-tests.mjs"
   },
   "dependencies": {
     "@impulse-ui-native/icon": "workspace:*",
     "@impulse-ui-native/core": "workspace:*",
     "@impulse-ui-native/theme": "workspace:*",
     "@impulse-ui-native/primitives": "workspace:*",
-    "@impulse-ui-native/portal": "workspace:*"
+    "@impulse-ui-native/portal": "workspace:*",
+    "@impulse-ui-native/overlay": "workspace:*"
   },
   "devDependencies": {
     "@impulse-ui-native/eslint-config": "workspace:*",
@@ -49,12 +51,17 @@
     "react": "catalog:react19",
     "react-native": "catalog:",
     "react-native-safe-area-context": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-worklets": "catalog:",
+    "react-reconciler": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-native": ">=0.73",
-    "react-native-safe-area-context": ">=5.0.0"
+    "react-native-safe-area-context": ">=5.0.0",
+    "react-native-reanimated": ">=4",
+    "react-native-worklets": ">=0.5"
   },
   "publishConfig": {
     "access": "public",

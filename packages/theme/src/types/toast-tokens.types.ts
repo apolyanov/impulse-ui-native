@@ -5,7 +5,9 @@ import type { FontWeightValue } from "./tokens.types";
 export type ToastTone = FeedbackTone;
 
 export interface ToastTokens {
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   enterDuration: number;
+  /** Perceptual spring duration in milliseconds; settling takes longer. */
   exitDuration: number;
   stackDuration: number;
   actionFontWeight: FontWeightValue;

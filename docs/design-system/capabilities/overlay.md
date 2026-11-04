@@ -126,10 +126,12 @@ Style props: none detected. Additional inherited native props: 0. See exact API 
   - `({ id, open, onOpen, onOpenFinished, onClose, onCloseFinished, onStatusChange, }: OverlayLifecycleProps, { ready, onEnter, onExit }?: OverlayLifecycleOptions): OverlayLifecycle`
 - `useOverlays` (hook)
   - `(): readonly import("@impulse-ui-native/toolkit").OverlayEntry[]`
+- `useOverlaySpring` (hook)
+  - `(options: OverlayTimingOptions): import("../types/overlay-animation.types").OverlayAnimation`
 - `useOverlayStatus` (hook)
   - `(id: OverlayID): OverlayLifecycleStatus`
 - `useOverlayTiming` (hook)
-  - `({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import("@impulse-ui-native/toolkit").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import("@impulse-ui-native/toolkit").OverlayTransitionCompletion) => void; }; progress: import("react-native-reanimated").SharedValue<number>; }`
+  - `(options: OverlayTimingOptions): import("../types/overlay-animation.types").OverlayAnimation`
 
 ### OverlayStore methods
 

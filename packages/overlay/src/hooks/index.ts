@@ -4,3 +4,4 @@ export * from "./use-overlays.hook";
 export * from "./use-overlay-lifecycle.hook";
 export * from "./use-overlay-status.hook";
 export * from "./use-overlay-timing.hook";
+export * from "./use-overlay-spring.hook";

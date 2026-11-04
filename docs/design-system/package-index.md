@@ -23,7 +23,7 @@ Every public library package is included, including Storybook authoring helpers,
 | `@impulse-ui-native/input`             | 16.0.0  | Yes               | 7              | [input](api/input.md)                         |
 | `@impulse-ui-native/list`              | 16.0.0  | Yes               | 4              | [list](api/list.md)                           |
 | `@impulse-ui-native/modal`             | 16.0.0  | Yes               | 5              | [modal](api/modal.md)                         |
-| `@impulse-ui-native/overlay`           | 16.0.0  | Yes               | 19             | [overlay](api/overlay.md)                     |
+| `@impulse-ui-native/overlay`           | 16.0.0  | Yes               | 20             | [overlay](api/overlay.md)                     |
 | `@impulse-ui-native/pagination`        | 16.0.0  | Yes               | 5              | [pagination](api/pagination.md)               |
 | `@impulse-ui-native/popover`           | 16.0.0  | Yes               | 5              | [popover](api/popover.md)                     |
 | `@impulse-ui-native/portal`            | 16.0.0  | Yes               | 17             | [portal](api/portal.md)                       |

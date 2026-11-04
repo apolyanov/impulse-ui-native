@@ -37700,6 +37700,7 @@
           "source": "packages/storybook/src/stories/badge/badge.stories.tsx",
           "title": "Components/Badge",
           "exports": [
+            "LongText",
             "Documentation",
             "Filled",
             "Outlined",
@@ -37807,6 +37808,7 @@
           "title": "Components/Tag",
           "exports": [
             "Neutral",
+            "LongText",
             "Documentation",
             "Filled",
             "Outlined",

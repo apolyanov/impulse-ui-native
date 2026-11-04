@@ -422,8 +422,8 @@
       }
     },
     "modal": {
-      "enterDuration": 180,
-      "exitDuration": 150,
+      "enterDuration": 300,
+      "exitDuration": 220,
       "zIndexBase": 100,
       "overlayColor": "#343a40",
       "overlayVisibleOpacity": 0.4,
@@ -456,8 +456,8 @@
       }
     },
     "toast": {
-      "enterDuration": 180,
-      "exitDuration": 150,
+      "enterDuration": 260,
+      "exitDuration": 220,
       "stackDuration": 220,
       "actionFontWeight": 600,
       "backgroundColor": "#ffffff",
@@ -508,6 +508,9 @@
       }
     },
     "popover": {
+      "enterDuration": 240,
+      "exitDuration": 180,
+      "closedScale": 0.96,
       "zIndexBase": 3000,
       "gap": 8,
       "edgeOffset": 16,
@@ -3677,11 +3680,11 @@
     },
     "flyout": {
       "enterSpring": {
-        "damping": 50,
+        "damping": 35,
         "stiffness": 300,
         "mass": 1
       },
-      "exitDuration": 150,
+      "exitDuration": 280,
       "zIndexBase": 100,
       "maxHeightRatio": 0.7,
       "overlayColor": "#343a40",

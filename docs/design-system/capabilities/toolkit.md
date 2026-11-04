@@ -430,12 +430,14 @@ This package has no directly owned visual components in its public root; use its
 - `FlyoutHandleProps` (type)
 - `FlyoutHandleTokens` (type)
 - `FlyoutHeaderProps` (type)
+- `FlyoutKeyboardAwareViewComponent` (type)
 - `FlyoutKeyboardAwareViewProps` (type)
 - `FlyoutPlacement` (type)
 - `FlyoutPlacementTokens` (type)
 - `FlyoutProps` (type)
 - `FlyoutRootProps` (type)
 - `FlyoutScrollViewProps` (type)
+- `FlyoutSpringTokens` (type)
 - `FlyoutTitleProps` (type)
 - `FlyoutTitleTokens` (type)
 - `FlyoutTokens` (type)
@@ -1058,10 +1060,12 @@ This package has no directly owned visual components in its public root; use its
   - `({ id, open, onOpen, onOpenFinished, onClose, onCloseFinished, onStatusChange, }: OverlayLifecycleProps, { ready, onEnter, onExit }?: OverlayLifecycleOptions): OverlayLifecycle`
 - `useOverlays` (hook)
   - `(): readonly import("@impulse-ui-native/toolkit").OverlayEntry[]`
+- `useOverlaySpring` (hook)
+  - `(options: OverlayTimingOptions): import("../types/overlay-animation.types").OverlayAnimation`
 - `useOverlayStatus` (hook)
   - `(id: OverlayID): OverlayLifecycleStatus`
 - `useOverlayTiming` (hook)
-  - `({ enterDuration, exitDuration, }: OverlayTimingOptions): { options: { onEnter: (transitionId: number, complete: import("@impulse-ui-native/toolkit").OverlayTransitionCompletion) => void; onExit: (transitionId: number, complete: import("@impulse-ui-native/toolkit").OverlayTransitionCompletion) => void; }; progress: import("react-native-reanimated").SharedValue<number>; }`
+  - `(options: OverlayTimingOptions): import("../types/overlay-animation.types").OverlayAnimation`
 - `usePieChart` (hook)
   - `(props: UsePieChartProps): UsePieChartResult`
 - `UsePieChartProps` (type)

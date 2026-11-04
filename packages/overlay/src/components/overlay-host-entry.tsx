@@ -2,13 +2,9 @@ import { memo } from "react";
 
 import { useEventCallback } from "@impulse-ui-native/core";
 
-import type { OverlayEntry, OverlayLifecycleStatus } from "../types";
+import type { OverlayLifecycleStatus } from "../types";
+import type { OverlayHostEntryProps } from "../types/overlay-host-entry.types";
 import { useOverlayContext } from "../hooks";
-
-interface OverlayHostEntryProps {
-  entry: OverlayEntry;
-  layer: number;
-}
 
 export const OverlayHostEntry = memo(function OverlayHostEntry({
   entry,

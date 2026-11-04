@@ -3060,7 +3060,7 @@
           "value": "medium",
           "source": {
             "file": "packages/primitives/src/components/atoms/tag.tsx",
-            "line": 19
+            "line": 20
           }
         },
         "variant": {
@@ -3068,7 +3068,7 @@
           "value": "filled",
           "source": {
             "file": "packages/primitives/src/components/atoms/tag.tsx",
-            "line": 20
+            "line": 21
           }
         },
         "tone": {
@@ -3076,7 +3076,7 @@
           "value": "primary",
           "source": {
             "file": "packages/primitives/src/components/atoms/tag.tsx",
-            "line": 21
+            "line": 22
           }
         }
       },

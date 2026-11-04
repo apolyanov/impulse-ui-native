@@ -18,6 +18,19 @@ interface TagExampleDefinition {
 
 export const TagExampleDefinitions = [
   {
+    name: "LongText",
+    title: "Long text",
+    description:
+      "Labels stay on one line and truncate with an ellipsis within the available width, keeping actions visible.",
+    props: [{ name: "style", value: "{ maxWidth: 180 }" }],
+    args: {
+      label: "A very long label that should stay inside its container",
+      style: { maxWidth: 180 },
+      closable: true,
+      onClose: function onClose() {},
+    },
+  },
+  {
     name: "Neutral",
     title: "Neutral tag",
     description:

@@ -152,6 +152,8 @@ appearance, but does not inject label content.
 
 Use `Badge` for compact states and metadata. It supports `filled`, `outlined`, and `soft` display variants and semantic tones. Its addons follow Input: use `PrefixIcon` or `Prefix`, `SuffixIcon` or `Suffix`, and optionally `onPressPrefix` or `onPressSuffix`. A custom component takes precedence over its corresponding icon. Use `Tag` when the whole label needs built-in press or close behavior.
 
+Badge text and Tag labels stay on one line and truncate with a trailing ellipsis when constrained by available width. Their containers shrink within rows while icons and close actions retain their space. Use `style.width` or `style.maxWidth` for a specific limit; custom Badge children own their text overflow behavior.
+
 Badges follow their parent's `alignItems` for cross-axis alignment. For example,
 use `alignItems="center"` on a column to center badges horizontally. Use
 `alignSelf` on a badge when it needs a different alignment from its siblings.
@@ -512,7 +514,7 @@ export const BadgeRoot = memo(function BadgeRoot({
       />
 
       {isTextChild ? (
-        <Text numberOfLines={1} style={styles.label}>
+        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.label}>
           {children}
         </Text>
       ) : (
@@ -542,7 +544,8 @@ function themedStyles(theme: AppTheme, props: BadgeThemeProps) {
     container: {
       alignItems: "center",
       flexDirection: "row",
-      flexShrink: 0,
+      flexShrink: 1,
+      maxWidth: "100%",
       justifyContent: "center",
 
       borderRadius: badgeTokens.borderRadius,
@@ -557,6 +560,8 @@ function themedStyles(theme: AppTheme, props: BadgeThemeProps) {
     },
 
     label: {
+      flexShrink: 1,
+      minWidth: 0,
       textAlign: "center",
 
       fontFamily: badgeTokens.fontFamily,
@@ -1142,24 +1147,25 @@ function themedStyles(theme: AppTheme, props: SpinnerThemeProps) {
 ### packages/primitives/src/components/atoms/tag.tsx
 
 ```tsx
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 
+import type { AppTheme } from "@impulse-ui-native/theme";
 import { Icon } from "@impulse-ui-native/icon";
 import { XCircleIcon } from "@impulse-ui-native/icon/icons/x-circle";
 import {
-  AppTheme,
   getAvailabilityStateTokens,
   useComponentsTokens,
   useThemedStyles,
 } from "@impulse-ui-native/theme";
 
-import { TagProps, TagThemeProps } from "../../types";
+import type { TagProps, TagThemeProps } from "../../types";
 import { Pressable } from "./pressable";
 import { Typography } from "./typography";
 
 export const Tag = memo(function Tag({
   label,
+  style,
   size = "medium",
   variant = "filled",
   tone = "primary",
@@ -1183,13 +1189,23 @@ export const Tag = memo(function Tag({
     [size, variant, disabled, tone],
   );
 
+  const containerStyle = useMemo(
+    () => [styles.container, style],
+    [styles.container, style],
+  );
   const Container = onPress ? Pressable : View;
 
   const showClose = closable && !disabled && onClose;
 
   return (
-    <Container onPress={onPress} disabled={disabled} style={styles.container}>
-      <Typography.Caption style={styles.label}>{label}</Typography.Caption>
+    <Container onPress={onPress} disabled={disabled} style={containerStyle}>
+      <Typography.Caption
+        numberOfLines={1}
+        ellipsizeMode="tail"
+        style={styles.label}
+      >
+        {label}
+      </Typography.Caption>
 
       {showClose ? (
         <Pressable onPress={onClose} hitSlop={tagTokens.closeHitSlop}>
@@ -1221,6 +1237,8 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
       alignItems: "center",
       justifyContent: "center",
       alignSelf: "flex-start",
+      flexShrink: 1,
+      maxWidth: "100%",
 
       height: sizeTokens.height,
       paddingHorizontal: sizeTokens.paddingHorizontal,
@@ -1235,6 +1253,8 @@ function themedStyles(theme: AppTheme, props: TagThemeProps) {
     },
 
     label: {
+      flexShrink: 1,
+      minWidth: 0,
       fontSize: sizeTokens.fontSize,
       color: appearanceTokens.color,
     },

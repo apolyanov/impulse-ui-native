@@ -4,6 +4,9 @@ export function createPopoverTokens(
   tokens: PrimitiveThemeTokens,
 ): PopoverTokens {
   return {
+    enterDuration: 240,
+    exitDuration: 180,
+    closedScale: 0.96,
     zIndexBase: 3000,
     gap: tokens.space.xs,
     edgeOffset: tokens.space.sm,

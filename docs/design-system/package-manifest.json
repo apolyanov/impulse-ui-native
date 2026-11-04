@@ -258,7 +258,7 @@
     "name": "@impulse-ui-native/flyout",
     "version": "16.0.0",
     "toolkitExport": true,
-    "description": "Flyout, popover, and overlay components for ImpulseUI Native applications.",
+    "description": "Composable, gesture-enabled flyout sheets for React Native applications.",
     "peerDependencies": {
       "react": ">=18",
       "react-native": ">=0.73",
@@ -439,7 +439,7 @@
         "import": "./dist/index.js"
       }
     },
-    "publicSourceModules": 19,
+    "publicSourceModules": 20,
     "reference": "api/overlay.md"
   },
   {
@@ -471,7 +471,9 @@
     "peerDependencies": {
       "react": ">=18",
       "react-native": ">=0.73",
-      "react-native-safe-area-context": ">=5.0.0"
+      "react-native-safe-area-context": ">=5.0.0",
+      "react-native-reanimated": ">=4",
+      "react-native-worklets": ">=0.5"
     },
     "peerDependenciesMeta": {},
     "exports": {

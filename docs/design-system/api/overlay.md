@@ -115,6 +115,8 @@ status; host removal still happens through onCloseFinished.
 
 Start with the [capability guide](../capabilities/overlay.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
 
+`useOverlaySpring({ enterDuration, exitDuration })` supplies critically damped transition handlers and shared `progress` for `useOverlayLifecycle`. Durations are perceptual milliseconds; completion waits for spring settling. Retargeting uses the existing shared value, cancelled animations do not complete a transition, and unmount cancels animation. `useOverlayTiming` remains available for fixed-duration transitions.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.
@@ -169,6 +171,7 @@ export * from "./use-overlays.hook";
 export * from "./use-overlay-lifecycle.hook";
 export * from "./use-overlay-status.hook";
 export * from "./use-overlay-timing.hook";
+export * from "./use-overlay-spring.hook";
 ```
 
 ### packages/overlay/src/hooks/use-overlay-context.hook.ts
@@ -400,6 +403,18 @@ export function useOverlayLifecycle(
 }
 ```
 
+### packages/overlay/src/hooks/use-overlay-spring.hook.ts
+
+```tsx
+import type { OverlayTimingOptions } from "../types";
+import { useOverlayAnimation } from "./use-overlay-animation.hook";
+
+/** Critically damped motion; durations describe perceived motion rather than settling time. */
+export function useOverlaySpring(options: OverlayTimingOptions) {
+  return useOverlayAnimation(options, "spring");
+}
+```
+
 ### packages/overlay/src/hooks/use-overlay-status.hook.ts
 
 ```tsx
@@ -416,54 +431,11 @@ export function useOverlayStatus(id: OverlayID): OverlayLifecycleStatus {
 ### packages/overlay/src/hooks/use-overlay-timing.hook.ts
 
 ```tsx
-import { useEffect, useMemo } from "react";
-import {
-  cancelAnimation,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
-import { scheduleOnRN } from "react-native-worklets";
+import type { OverlayTimingOptions } from "../types";
+import { useOverlayAnimation } from "./use-overlay-animation.hook";
 
-import { useEventCallback } from "@impulse-ui-native/core";
-
-import type { OverlayTimingOptions, OverlayTransitionHandler } from "../types";
-
-export function useOverlayTiming({
-  enterDuration,
-  exitDuration,
-}: OverlayTimingOptions) {
-  const progress = useSharedValue(0);
-
-  const enter = useEventCallback<OverlayTransitionHandler>(
-    (transitionId, complete) => {
-      progress.set(
-        withTiming(1, { duration: enterDuration }, (finished) => {
-          if (finished) {
-            scheduleOnRN(complete, transitionId);
-          }
-        }),
-      );
-    },
-  );
-  const exit = useEventCallback<OverlayTransitionHandler>(
-    (transitionId, complete) => {
-      progress.set(
-        withTiming(0, { duration: exitDuration }, (finished) => {
-          if (finished) {
-            scheduleOnRN(complete, transitionId);
-          }
-        }),
-      );
-    },
-  );
-  const options = useMemo(
-    () => ({ onEnter: enter, onExit: exit }),
-    [enter, exit],
-  );
-
-  useEffect(() => () => cancelAnimation(progress), [progress]);
-
-  return useMemo(() => ({ options, progress }), [options, progress]);
+export function useOverlayTiming(options: OverlayTimingOptions) {
+  return useOverlayAnimation(options, "timing");
 }
 ```
 

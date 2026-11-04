@@ -15,7 +15,7 @@ Show a top or bottom gesture-dismissable sheet.
 ## Boundaries and composition
 
 - Child-only parts do not generate header content; the convenience component supplies defaults.
-- Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly.
+- Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. Avoidance waits for valid layout measurements. Active avoidance expects numeric padding; percentage padding is preserved while inactive. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly.
 
 Exact contracts: [API reference](../api/flyout.md). Machine facts: [package JSON](flyout.json) or [full catalog](../capabilities.json).
 
@@ -65,7 +65,7 @@ Style props: none detected. Additional inherited native props: 0. See exact API 
 
 ### Flyout.Content
 
-Source: `packages/flyout/src/components/index.ts:15`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/content.tsx:8`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop       | Required | Type / choices                                         |
 | ---------- | -------- | ------------------------------------------------------ |
@@ -78,7 +78,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Flyout.Handle
 
-Source: `packages/flyout/src/components/index.ts:18`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/handle.tsx:10`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop       | Required | Type / choices                                         |
 | ---------- | -------- | ------------------------------------------------------ |
@@ -91,7 +91,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Flyout.Header
 
-Source: `packages/flyout/src/components/index.ts:13`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/header.tsx:8`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop       | Required | Type / choices                                         |
 | ---------- | -------- | ------------------------------------------------------ |
@@ -104,7 +104,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Flyout.KeyboardAwareView
 
-Source: `packages/flyout/src/components/index.ts:17`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/keyboard-aware-view.tsx:29`. Direct defaults: `enabled=true`.
 
 | Prop             | Required | Type / choices                                         |
 | ---------------- | -------- | ------------------------------------------------------ |
@@ -120,7 +120,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Flyout.Root
 
-Source: `packages/flyout/src/components/index.ts:12`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/root.tsx:7`. Direct defaults: `placement="bottom"`, `layer=0`, `topOffset=0`, `bottomOffset=0`.
 
 | Prop              | Required | Type / choices                            |
 | ----------------- | -------- | ----------------------------------------- |
@@ -142,7 +142,7 @@ Style props: none detected. Additional inherited native props: 0. See exact API 
 
 ### Flyout.ScrollView
 
-Source: `packages/flyout/src/components/index.ts:16`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/scroll-view.tsx:12`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop                    | Required | Type / choices                                         |
 | ----------------------- | -------- | ------------------------------------------------------ |
@@ -158,7 +158,7 @@ Style props: none detected. Additional inherited native props: 173. See exact AP
 
 ### Flyout.Title
 
-Source: `packages/flyout/src/components/index.ts:14`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/title.tsx:8`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop            | Required | Type / choices                                             |
 | --------------- | -------- | ---------------------------------------------------------- |
@@ -180,6 +180,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `backgroundColor`, `bott
 - `FlyoutContentProps` (type)
 - `FlyoutHandleProps` (type)
 - `FlyoutHeaderProps` (type)
+- `FlyoutKeyboardAwareViewComponent` (type)
 - `FlyoutKeyboardAwareViewProps` (type)
 - `FlyoutProps` (type)
 - `FlyoutRootProps` (type)

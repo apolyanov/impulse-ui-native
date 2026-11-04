@@ -123,10 +123,7 @@ The duration timer starts when status reaches open.
 
 ## Theme motion and action typography
 
-`components.toast.enterDuration`, `exitDuration`, and `stackDuration` configure
-the transitions (180 ms, 150 ms, and 220 ms by default).
-`actionFontWeight` defaults to the primitive theme semi-bold weight. The
-`duration` prop still controls auto-dismiss independently of animation timing.
+Toast uses critically damped springs for entry, exit, and stack movement. `enterDuration` / `exitDuration` / `stackDuration` are perceptual durations (260 / 220 / 220 ms). Stack scaling originates at the screen edge matching placement. The dismissal timer starts after entry settles. `duration` controls auto-dismiss independently of animation timing. `actionFontWeight` defaults to the primitive theme semi-bold weight.
 
 ## Repository palette consistency
 

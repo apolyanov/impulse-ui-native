@@ -1,14 +1,14 @@
 # @impulse-ui-native/popover
 
-Native anchored overlays with theme tokens and Portal rendering. Tooltip and Popover share measurement and collision handling; no Overlay store or animation runtime is required.
+Native anchored overlays with theme tokens and Portal rendering. Tooltip and Popover share measurement and collision handling; no Overlay store is required. Motion uses Reanimated and Worklets.
 
 ## Installation and providers
 
 ```sh
-pnpm add @impulse-ui-native/popover @impulse-ui-native/portal @impulse-ui-native/theme react-native-safe-area-context
+pnpm add @impulse-ui-native/popover @impulse-ui-native/portal @impulse-ui-native/theme react-native-safe-area-context react-native-reanimated react-native-worklets
 ```
 
-Install `SafeAreaProvider`, `ThemeProvider`, and `PortalProvider` at the app root. Render `PortalsHost` last, inside a full-screen native View and the same theme/safe-area providers. Create the `PortalStore` once outside render. A custom `portalName` must match its host's `name`. Positioning measures both anchor and host in window coordinates, so an inset host also works within its own bounds.
+Configure Reanimated/Worklets in the native host. Install `SafeAreaProvider`, `ThemeProvider`, and `PortalProvider` at the app root. Render `PortalsHost` last, inside a full-screen native View and the same theme/safe-area providers. Create the `PortalStore` once outside render. A custom `portalName` must match its host's `name`. Positioning measures both anchor and host in window coordinates, so an inset host also works within its own bounds.
 
 ## Compound popover
 
@@ -79,3 +79,5 @@ panel styling.
 ## Agent and design reference
 
 Start with the [capability guide](../../docs/design-system/capabilities/popover.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+Popover and Tooltip use a restrained, critically damped scale and fade from the edge facing the anchor, respecting the resolved collision placement. Entry waits for measurement, and content remains mounted until exit settles. `enterDuration` / `exitDuration` are perceptual spring durations (240 / 180 ms); `closedScale` defaults to 0.96. Install `react-native-reanimated` and `react-native-worklets` in the native host.

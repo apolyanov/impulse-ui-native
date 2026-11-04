@@ -1,12 +1,14 @@
-import type { useFlyoutLifecycle } from "../hooks/use-flyout-lifecycle.hook";
+import type { FlyoutPlacement } from "@impulse-ui-native/theme";
+
+import type { FlyoutLifecycle } from "./flyout-lifecycle.types";
 import type { FlyoutRootProps } from "./flyout.types";
 
 export interface FlyoutSurfaceProps extends Pick<
   FlyoutRootProps,
   "children" | "style"
 > {
-  placement: NonNullable<FlyoutRootProps["placement"]>;
+  placement: FlyoutPlacement;
   offset: number;
   layer: number;
-  lifecycle: ReturnType<typeof useFlyoutLifecycle>;
+  lifecycle: FlyoutLifecycle;
 }

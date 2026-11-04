@@ -4,7 +4,7 @@ import Animated, {
   cancelAnimation,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withSpring,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -42,7 +42,7 @@ export const ToastRoot = memo(function ToastRoot(props: ToastRootProps) {
   );
   const animatedDepth = useSharedValue(stackDepth);
   const animatedStyle = useAnimatedStyle(() => ({
-    opacity: progress.value,
+    opacity: Math.max(0, Math.min(1, progress.value)),
     transform: [
       {
         translateY:
@@ -71,7 +71,7 @@ export const ToastRoot = memo(function ToastRoot(props: ToastRootProps) {
         [placement]:
           insets[placement] +
           (placement === "top" ? tokens.topOffset : tokens.edgeOffset),
-        transformOrigin: "center top",
+        transformOrigin: placement === "top" ? "center top" : "center bottom",
         zIndex: tokens.zIndexBase + layer,
       },
       animatedStyle,
@@ -80,12 +80,13 @@ export const ToastRoot = memo(function ToastRoot(props: ToastRootProps) {
   );
 
   useEffect(() => {
-    animatedDepth.value = withTiming(stackDepth, {
+    animatedDepth.value = withSpring(stackDepth, {
       duration: tokens.stackDuration,
+      dampingRatio: 1,
     });
-
-    return () => cancelAnimation(animatedDepth);
   }, [animatedDepth, stackDepth, tokens.stackDuration]);
+
+  useEffect(() => () => cancelAnimation(animatedDepth), [animatedDepth]);
 
   if (!lifecycle.mounted) {
     return null;

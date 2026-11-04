@@ -1,11 +1,19 @@
 import type { SharedValue } from "react-native-reanimated";
 
-import type { FlyoutRootProps } from "./flyout.types";
+import type { FlyoutPlacement } from "@impulse-ui-native/theme";
+
+import type { FlyoutDragGesture } from "./flyout-lifecycle.types";
 
 export type FlyoutContextValue = {
   measuredHeight: SharedValue<number>;
+  closingHeight: SharedValue<number>;
   offset: number;
   screenHeight: number;
   maxHeight: number;
-  placement: NonNullable<FlyoutRootProps["placement"]>;
+  placement: FlyoutPlacement;
+};
+
+export type FlyoutDragContextValue = {
+  dragGesture: FlyoutDragGesture;
+  placement: FlyoutPlacement;
 };
