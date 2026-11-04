@@ -5,12 +5,12 @@ import { View } from "@impulse-ui-native/primitives";
 import { getFlyoutTokens, useComponentsTokens } from "@impulse-ui-native/theme";
 
 import type { FlyoutHandleProps } from "../types";
-import { useFlyoutContext } from "../hooks";
+import { useFlyoutDragContext } from "../hooks";
 
 export const FlyoutHandle = memo(function FlyoutHandle(
   props: FlyoutHandleProps,
 ) {
-  const context = useFlyoutContext();
+  const context = useFlyoutDragContext();
   const { flyout } = useComponentsTokens();
   const tokens = getFlyoutTokens(flyout, { placement: context.placement });
 

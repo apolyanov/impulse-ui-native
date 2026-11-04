@@ -5,7 +5,7 @@ import type {
   RefAttributes,
 } from "react";
 import type { View as NativeView, ViewStyle } from "react-native";
-import { forwardRef, memo, useMemo } from "react";
+import { forwardRef, memo, useMemo, useRef } from "react";
 import { StyleSheet } from "react-native";
 import { useReanimatedKeyboardAnimation } from "react-native-keyboard-controller";
 import Animated, {
@@ -46,6 +46,7 @@ export const FlyoutKeyboardAwareView: NamedExoticComponent<
       const { height, progress } = useReanimatedKeyboardAnimation();
       const theme = useTheme();
       const tokens = theme.components.flyout;
+      const lastFrame = useRef<{ y: number; height: number } | null>(null);
       const frame = useSharedValue({ y: 0, height: 0 });
       const styleProps = useStyleProps(props);
       const resolvedStyle = useMemo(
@@ -127,7 +128,12 @@ export const FlyoutKeyboardAwareView: NamedExoticComponent<
         NonNullable<FlyoutKeyboardAwareViewProps["onLayout"]>
       >((event) => {
         const layout = event.nativeEvent.layout;
-        frame.set({ y: layout.y, height: layout.height });
+        const previous = lastFrame.current;
+        if (previous?.y !== layout.y || previous.height !== layout.height) {
+          const next = { y: layout.y, height: layout.height };
+          lastFrame.current = next;
+          frame.set(next);
+        }
         onLayout?.(event);
       });
 

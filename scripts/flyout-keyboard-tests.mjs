@@ -85,6 +85,8 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
     ...contextOverrides,
   };
   let frame;
+  let lastFrameRef;
+  let frameWrites = 0;
   let animate;
   const exports = {};
   const bodySource = readFileSync(
@@ -106,6 +108,7 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
       memo: (component) => component,
       forwardRef: (render) => render,
       useMemo: (factory) => factory(),
+      useRef: (initial) => (lastFrameRef ??= { current: initial }),
     },
     "react/jsx-runtime": { jsx: (type, props) => ({ type, props }) },
     "react-native": {
@@ -130,6 +133,7 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
             return this.value;
           },
           set(value) {
+            frameWrites++;
             this.value = value;
           },
         };
@@ -160,6 +164,9 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
   return {
     height,
     progress,
+    get frameWrites() {
+      return frameWrites;
+    },
     context,
     render(props = {}, ref = null) {
       view = exports.FlyoutKeyboardAwareView(props, ref);
@@ -285,4 +292,17 @@ test("short form can grow upward without feedback or loss of its content space",
   body.layout({ y: 66, height: 380 });
   assert.equal(body.style().paddingBottom, 294);
   assert.equal(380 - body.style().paddingBottom, 86);
+});
+
+test("duplicate body layouts keep the worklet frame stable and still notify consumers", () => {
+  const body = createBodyHarness();
+  let callbacks = 0;
+  body.render({ onLayout: () => callbacks++ });
+  body.layout();
+  body.layout();
+  body.layout();
+  assert.equal(body.frameWrites, 1);
+  assert.equal(callbacks, 3);
+  body.layout({ y: 70, height: 350 });
+  assert.equal(body.frameWrites, 2);
 });

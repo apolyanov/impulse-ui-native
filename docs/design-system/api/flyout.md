@@ -162,6 +162,31 @@ on iOS and Android devices.
 
 Run `pnpm --filter @impulse-ui-native/flyout test` for body layout and exit/unmount regression tests with mocked React/Reanimated hooks. These do not exercise native keyboard events or gesture recognition.
 
+## Render behavior
+
+Keyboard movement, drag position, and measured geometry live in Reanimated shared
+values. Layout updates do not set React state after the first measurement of an
+opening. Repeated identical layout events do not resend geometry to the UI thread.
+
+Viewport, safe-area, and surface style subscriptions are mounted only while the
+sheet is visible. Closed roots keep lifecycle state without subscribing to viewport
+changes. Callback-only updates can skip the memoized surface when body props stay
+stable. This separation adds no native layout containers.
+
+Handle subscribes to gesture/placement changes separately from KeyboardAwareView's
+layout context. Opening/closing gesture changes do not invalidate the keyboard
+body's context. The convenience header is memoized by its supplied header/title.
+Theme and relevant geometry changes still update affected parts normally.
+
+Keep expensive body elements and reference-valued props stable in the calling
+screen when their inputs have not changed; new consumer children/props still
+participate in normal React updates. The Storybook preview memoizes its assembled
+body so its visibility toggle does not recreate unchanged form elements.
+
+`pnpm --filter @impulse-ui-native/flyout test` includes real React render-count
+regressions with native/animation stubs. These verify reconciliation behavior,
+not on-device frame timing or GPU performance.
+
 ## Public export and source reference
 
 The following modules are reachable through relative re-exports from this package's root. Their imports refer to the original package layout. This appendix preserves exact prop contracts, composition namespaces, defaults, hooks, and behavior for an implementing agent; it is reference text, not standalone executable code. An exported module may also contain private declarations. Internal modules that are only imported are not copied. React Native and dependency types remain defined by those dependencies.

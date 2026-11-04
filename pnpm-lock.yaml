@@ -296,6 +296,9 @@ catalogs:
     react-native-worklets:
       specifier: 0.13.0
       version: 0.13.0
+    react-reconciler:
+      specifier: 0.31.0
+      version: 0.31.0
     tailwindcss:
       specifier: ^4.1.18
       version: 4.3.3
@@ -1254,6 +1257,9 @@ importers:
       react-native-worklets:
         specifier: 'catalog:'
         version: 0.13.0(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(react-native@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(@react-native/metro-config@0.88.0(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@types/react@19.3.0)(react@19.3.0)(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1)
+      react-reconciler:
+        specifier: 'catalog:'
+        version: 0.31.0(react@19.3.0)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3

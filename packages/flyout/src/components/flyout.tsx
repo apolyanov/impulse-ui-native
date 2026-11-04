@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 import type { FlyoutProps } from "../types";
 import { FlyoutHandle } from "./handle";
@@ -13,20 +13,36 @@ export const FlyoutComponent = memo(function Flyout({
   placement = "bottom",
   ...props
 }: FlyoutProps) {
-  const hasHeader = header !== null && header !== undefined;
-  const showTitle = !hasHeader && title !== null && title !== undefined;
+  const headerContent = useMemo(() => {
+    const hasHeader = header !== null && header !== undefined;
+    const hasTitle = title !== null && title !== undefined;
+
+    if (hasHeader) {
+      return <FlyoutHeader>{header}</FlyoutHeader>;
+    }
+
+    return hasTitle ? (
+      <FlyoutHeader>
+        <FlyoutTitle>{title}</FlyoutTitle>
+      </FlyoutHeader>
+    ) : null;
+  }, [header, title]);
+
+  const content = useMemo(
+    () => (
+      <>
+        {placement === "bottom" ? <FlyoutHandle /> : null}
+        {headerContent}
+        {children}
+        {placement === "top" ? <FlyoutHandle /> : null}
+      </>
+    ),
+    [placement, headerContent, children],
+  );
 
   return (
     <FlyoutRoot {...props} placement={placement}>
-      {placement === "bottom" ? <FlyoutHandle /> : null}
-      {hasHeader ? <FlyoutHeader>{header}</FlyoutHeader> : null}
-      {showTitle ? (
-        <FlyoutHeader>
-          <FlyoutTitle>{title}</FlyoutTitle>
-        </FlyoutHeader>
-      ) : null}
-      {children}
-      {placement === "top" ? <FlyoutHandle /> : null}
+      {content}
     </FlyoutRoot>
   );
 });

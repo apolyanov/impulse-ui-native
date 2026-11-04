@@ -1,5 +1,5 @@
 import type { LayoutChangeEvent } from "react-native";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Gesture } from "react-native-gesture-handler";
 import {
   cancelAnimation,
@@ -28,6 +28,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   const { placement, offset } = props;
   const direction = placement === "top" ? -1 : 1;
   const [hasMeasured, setHasMeasured] = useState(false);
+  const lastMeasuredHeight = useRef<number | null>(null);
 
   const { flyout: tokens } = useComponentsTokens();
   const { enterSpring, overlayVisibleOpacity } = tokens;
@@ -78,6 +79,7 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
   );
   const finishClose = useEventCallback((id: string) => {
     setHasMeasured(false);
+    lastMeasuredHeight.current = null;
     // Keep the exited geometry until React unmounts the sheet.
     // The next opening prepares its position from a fresh layout.
 
@@ -96,9 +98,13 @@ export function useFlyoutLifecycle(props: UseFlyoutLifecycleProps) {
     }
 
     const height = event.nativeEvent.layout.height;
-    measuredHeight.set(height);
+    const firstMeasurement = lastMeasuredHeight.current === null;
+    if (lastMeasuredHeight.current !== height) {
+      lastMeasuredHeight.current = height;
+      measuredHeight.set(height);
+    }
 
-    if (!hasMeasured) {
+    if (firstMeasurement) {
       // The sheet stays hidden until this starting position is ready.
       translateY.set(direction * (height + offset));
       setHasMeasured(true);

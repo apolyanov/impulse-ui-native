@@ -8,6 +8,9 @@ import ts from "typescript";
 // React commits and native layout/animation rendering are not simulated.
 function createHarness(placement = "bottom", offset = 0) {
   const shared = [];
+  const refs = [];
+  let refIndex = 0;
+  let stateUpdates = 0;
   const animationCallbacks = [];
   const rnCallbacks = [];
   const completed = [];
@@ -40,8 +43,14 @@ function createHarness(placement = "bottom", offset = 0) {
         measured,
         (value) => {
           measured = value;
+          stateUpdates++;
         },
       ],
+      useRef: (initial) => {
+        const index = refIndex++;
+        refs[index] ??= { current: initial };
+        return refs[index];
+      },
       useMemo: (factory) => factory(),
       useEffect: () => {},
     },
@@ -73,7 +82,9 @@ function createHarness(placement = "bottom", offset = 0) {
         const index = sharedIndex++;
         shared[index] ??= {
           value: initial,
+          writes: 0,
           set(value) {
+            this.writes++;
             this.value = value;
           },
         };
@@ -96,8 +107,12 @@ function createHarness(placement = "bottom", offset = 0) {
   return {
     completed,
     notifications,
+    get stateUpdates() {
+      return stateUpdates;
+    },
     render() {
       sharedIndex = 0;
+      refIndex = 0;
       return exports.useFlyoutLifecycle({
         id: "sheet",
         open: true,
@@ -194,4 +209,20 @@ test("layout events after unmount cannot replace the retained exit geometry", ()
   lifecycle.onLayout({ nativeEvent: { layout: { height: 40 } } });
   assert.equal(lifecycle.measuredHeight.value, 320);
   assert.equal(lifecycle.translateY.value, 320);
+});
+
+test("duplicate layouts prepare once and do not resend height to the UI thread", () => {
+  const harness = createHarness();
+  const lifecycle = harness.render();
+  const event = { nativeEvent: { layout: { height: 320 } } };
+  lifecycle.onLayout(event);
+  lifecycle.onLayout(event);
+  lifecycle.onLayout(event);
+  assert.equal(harness.stateUpdates, 1);
+  assert.equal(lifecycle.measuredHeight.writes, 1);
+  assert.equal(lifecycle.translateY.writes, 1);
+  harness.render().onLayout({ nativeEvent: { layout: { height: 400 } } });
+  assert.equal(harness.stateUpdates, 1);
+  assert.equal(lifecycle.measuredHeight.writes, 2);
+  assert.equal(lifecycle.translateY.writes, 1);
 });

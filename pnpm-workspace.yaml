@@ -74,6 +74,7 @@ catalog:
   react: 19.3.0
   react-dom: 19.3.0
   react-i18next: ^16.5.0
+  react-reconciler: 0.31.0
   react-native: 0.88.0
   react-native-gesture-handler: ~3.3.0
   react-native-keyboard-controller: 1.22.7
@@ -120,6 +121,6 @@ overrides:
   react-docgen-typescript: 2.2.2
 
 patchedDependencies:
-  '@changesets/cli@2.31.1': patches/@changesets__cli@2.31.1.patch
+  "@changesets/cli@2.31.1": patches/@changesets__cli@2.31.1.patch
 publicHoistPattern:
   - "@ianvs/prettier-plugin-sort-imports"

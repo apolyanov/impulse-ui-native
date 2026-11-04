@@ -32,7 +32,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore",
-    "test": "node --test ../../scripts/flyout-keyboard-tests.mjs ../../scripts/flyout-lifecycle-tests.mjs"
+    "test": "node --test ../../scripts/flyout-keyboard-tests.mjs ../../scripts/flyout-lifecycle-tests.mjs ../../scripts/flyout-render-tests.mjs"
   },
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
@@ -54,7 +54,8 @@
     "react-native-safe-area-context": "catalog:",
     "react-native-worklets": "catalog:",
     "typescript": "catalog:",
-    "react-native-keyboard-controller": "catalog:"
+    "react-native-keyboard-controller": "catalog:",
+    "react-reconciler": "catalog:"
   },
   "peerDependencies": {
     "react": ">=18",

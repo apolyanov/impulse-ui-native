@@ -85,32 +85,47 @@ export const FlyoutPreview = memo(function FlyoutPreview({
     [close, toggleContent, resizeLabel, fieldCount, onFocusInput, onBlurInput],
   );
 
-  const body = keyboardAware ? (
-    <Flyout.KeyboardAwareView>
-      <Flyout.ScrollView
-        ref={scrollRef}
-        contentContainerStyle={scrollContentStyle}
-        onLayout={onLayout}
-        onContentSizeChange={onContentSizeChange}
-        onScroll={onScroll}
-        scrollEventThrottle={16}
-      >
-        {scrollContent}
-      </Flyout.ScrollView>
-    </Flyout.KeyboardAwareView>
-  ) : scrollable ? (
-    <Flyout.ScrollView
-      ref={scrollRef}
-      contentContainerStyle={scrollContentStyle}
-      onLayout={onLayout}
-      onContentSizeChange={onContentSizeChange}
-      onScroll={onScroll}
-      scrollEventThrottle={16}
-    >
-      {scrollContent}
-    </Flyout.ScrollView>
-  ) : (
-    <Flyout.Content style={staticContentStyle}>{content}</Flyout.Content>
+  const body = useMemo(
+    () =>
+      keyboardAware ? (
+        <Flyout.KeyboardAwareView>
+          <Flyout.ScrollView
+            ref={scrollRef}
+            contentContainerStyle={scrollContentStyle}
+            onLayout={onLayout}
+            onContentSizeChange={onContentSizeChange}
+            onScroll={onScroll}
+            scrollEventThrottle={16}
+          >
+            {scrollContent}
+          </Flyout.ScrollView>
+        </Flyout.KeyboardAwareView>
+      ) : scrollable ? (
+        <Flyout.ScrollView
+          ref={scrollRef}
+          contentContainerStyle={scrollContentStyle}
+          onLayout={onLayout}
+          onContentSizeChange={onContentSizeChange}
+          onScroll={onScroll}
+          scrollEventThrottle={16}
+        >
+          {scrollContent}
+        </Flyout.ScrollView>
+      ) : (
+        <Flyout.Content style={staticContentStyle}>{content}</Flyout.Content>
+      ),
+    [
+      keyboardAware,
+      scrollable,
+      scrollRef,
+      scrollContentStyle,
+      onLayout,
+      onContentSizeChange,
+      onScroll,
+      scrollContent,
+      staticContentStyle,
+      content,
+    ],
   );
 
   return (
