@@ -1,5 +1,64 @@
 # @impulse-ui-native/toolkit
 
+## 16.0.0
+
+### Minor Changes
+
+- 89cb141: Add Flyout.KeyboardAwareView, a single shrinkable body View that reserves keyboard
+  overlap as animated bottom padding. Root stays attached to its placement edge;
+  keyboard movement does not translate the sheet. Body padding can grow the sheet
+  to its normal height cap; supplied scroll containers shrink after that. Account for safe area and placement offsets,
+  support enabled/keyboardOffset and native refs, and restore natural sizing when
+  the keyboard closes. Use the body for Select options.
+
+  Install react-native-keyboard-controller and wrap the application and Portal/Overlay
+  hosts in KeyboardProvider, then rebuild the native app. Keyboard-aware bodies do
+  not automatically scroll focused inputs or dismiss the keyboard.
+
+### Patch Changes
+
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [89cb141]
+- Updated dependencies [e8320c9]
+- Updated dependencies [31122a6]
+  - @impulse-ui-native/flyout@16.0.0
+  - @impulse-ui-native/select@16.0.0
+  - @impulse-ui-native/datetime@16.0.0
+  - @impulse-ui-native/theme@16.0.0
+  - @impulse-ui-native/accordion@16.0.0
+  - @impulse-ui-native/card@16.0.0
+  - @impulse-ui-native/carousel@16.0.0
+  - @impulse-ui-native/charts@16.0.0
+  - @impulse-ui-native/checkbox@16.0.0
+  - @impulse-ui-native/color-picker@16.0.0
+  - @impulse-ui-native/data-state@16.0.0
+  - @impulse-ui-native/form-field@16.0.0
+  - @impulse-ui-native/icon-view@16.0.0
+  - @impulse-ui-native/input@16.0.0
+  - @impulse-ui-native/list@16.0.0
+  - @impulse-ui-native/modal@16.0.0
+  - @impulse-ui-native/pagination@16.0.0
+  - @impulse-ui-native/popover@16.0.0
+  - @impulse-ui-native/primitives@16.0.0
+  - @impulse-ui-native/progress@16.0.0
+  - @impulse-ui-native/radio@16.0.0
+  - @impulse-ui-native/segmented-control@16.0.0
+  - @impulse-ui-native/skeleton@16.0.0
+  - @impulse-ui-native/slider@16.0.0
+  - @impulse-ui-native/stepper@16.0.0
+  - @impulse-ui-native/switch@16.0.0
+  - @impulse-ui-native/tabs@16.0.0
+  - @impulse-ui-native/toast@16.0.0
+  - @impulse-ui-native/core@16.0.0
+  - @impulse-ui-native/echo@16.0.0
+  - @impulse-ui-native/endpoint@16.0.0
+  - @impulse-ui-native/overlay@16.0.0
+  - @impulse-ui-native/portal@16.0.0
+  - @impulse-ui-native/flat-list@16.0.0
+  - @impulse-ui-native/scroll-view@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 # @impulse-ui-native/storybook
 
+## 16.0.0
+
+### Patch Changes
+
+- Updated dependencies [89cb141]
+  - @impulse-ui-native/theme@16.0.0
+  - @impulse-ui-native/card@16.0.0
+  - @impulse-ui-native/color-picker@16.0.0
+  - @impulse-ui-native/icon@16.0.0
+  - @impulse-ui-native/icon-view@16.0.0
+  - @impulse-ui-native/list@16.0.0
+  - @impulse-ui-native/primitives@16.0.0
+  - @impulse-ui-native/progress@16.0.0
+  - @impulse-ui-native/flat-list@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes

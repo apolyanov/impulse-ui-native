@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/data-state",
   "slug": "data-state",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "guidance": {
     "kind": "presentation",
     "chooseWhen": "Coordinate loading, empty, error and content states.",

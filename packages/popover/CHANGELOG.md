@@ -1,5 +1,16 @@
 # @impulse-ui-native/popover
 
+## 16.0.0
+
+### Patch Changes
+
+- Updated dependencies [89cb141]
+  - @impulse-ui-native/theme@16.0.0
+  - @impulse-ui-native/icon@16.0.0
+  - @impulse-ui-native/primitives@16.0.0
+  - @impulse-ui-native/core@16.0.0
+  - @impulse-ui-native/portal@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes

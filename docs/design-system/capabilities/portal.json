@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/portal",
   "slug": "portal",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "guidance": {
     "kind": "infrastructure",
     "chooseWhen": "Render local content in a named host elsewhere in the tree.",

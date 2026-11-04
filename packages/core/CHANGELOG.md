@@ -1,5 +1,7 @@
 # @impulse-ui-native/core
 
+## 16.0.0
+
 ## 15.0.5
 
 ## 15.0.4

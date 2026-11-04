@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/stepper",
-  "version": "15.0.5",
+  "version": "16.0.0",
   "description": "Stepper and progress components for ImpulseUI Native applications.",
   "keywords": [
     "react-native",

@@ -1,5 +1,55 @@
 # @impulse-ui-native/flyout
 
+## 16.0.0
+
+### Major Changes
+
+- 89cb141: Render Flyout body children directly instead of inserting Content. Existing static
+  bodies must use Flyout.Content explicitly to retain padding. Add Flyout.ScrollView
+  with native props/ref and themed content padding. Constrain the whole sheet and
+  update dismissal measurements after resizing. Migrate Select and picker bodies.
+
+  Simplify Root to one animated pressable backdrop and one animated sheet with safe-area padding. Handle inherits Root placement; remove its redundant placement prop. Keep measured height in a shared value, honor offsets during exit, and remove redundant body wrappers from built-in consumers.
+
+  Initialize the hidden sheet from its first layout instead of passing screen dimensions into its animation lifecycle. Read animation tokens in the lifecycle hook directly.
+
+### Minor Changes
+
+- 89cb141: Add Flyout.KeyboardAwareView, a single shrinkable body View that reserves keyboard
+  overlap as animated bottom padding. Root stays attached to its placement edge;
+  keyboard movement does not translate the sheet. Body padding can grow the sheet
+  to its normal height cap; supplied scroll containers shrink after that. Account for safe area and placement offsets,
+  support enabled/keyboardOffset and native refs, and restore natural sizing when
+  the keyboard closes. Use the body for Select options.
+
+  Install react-native-keyboard-controller and wrap the application and Portal/Overlay
+  hosts in KeyboardProvider, then rebuild the native app. Keyboard-aware bodies do
+  not automatically scroll focused inputs or dismiss the keyboard.
+
+### Patch Changes
+
+- 89cb141: Keep the final offscreen translation and measured height after exit completion
+  until the sheet unmounts. Prepare fresh geometry on the next opening instead of
+  resetting a still-mounted native view to its visible position.
+- 89cb141: Add components.flyout.keyboardOffset, sourced from space.xs (8 logical units),
+  as the default gap during keyboard avoidance. The gap follows keyboard animation
+  progress and disappears when closed. An explicit keyboardOffset prop overrides
+  the token, including zero to remove the gap.
+- e8320c9: Separate drag and layout context subscriptions so gesture lifecycle changes do
+  not rerender the keyboard-aware body. Memoize the convenience header, prepare
+  opening geometry once per opening, and skip duplicate root/body layout writes
+  without suppressing consumer layout callbacks. Preserve theme/geometry updates
+  and the offscreen exit state until unmount.
+
+  Mount viewport/safe-area subscriptions only with the visible private surface, and
+  keep assembled presentation children stable across lifecycle callback updates.
+
+- Updated dependencies [89cb141]
+  - @impulse-ui-native/theme@16.0.0
+  - @impulse-ui-native/primitives@16.0.0
+  - @impulse-ui-native/core@16.0.0
+  - @impulse-ui-native/overlay@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes

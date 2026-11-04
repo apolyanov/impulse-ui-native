@@ -1,5 +1,18 @@
 # @impulse-ui-native/theme
 
+## 16.0.0
+
+### Minor Changes
+
+- 89cb141: Add components.flyout.keyboardOffset, sourced from space.xs (8 logical units),
+  as the default gap during keyboard avoidance. The gap follows keyboard animation
+  progress and disappears when closed. An explicit keyboardOffset prop overrides
+  the token, including zero to remove the gap.
+
+### Patch Changes
+
+- @impulse-ui-native/core@16.0.0
+
 ## 15.0.5
 
 ### Patch Changes
