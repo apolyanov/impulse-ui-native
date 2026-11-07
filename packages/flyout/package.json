@@ -32,7 +32,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "pnpm exec eslint . --fix",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore",
-    "test": "node --test ../../scripts/flyout-keyboard-tests.mjs ../../scripts/flyout-lifecycle-tests.mjs ../../scripts/flyout-render-tests.mjs"
+    "test": "node --test ../../scripts/flyout-keyboard-tests.mjs ../../scripts/flyout-lifecycle-tests.mjs ../../scripts/flyout-render-tests.mjs ../../scripts/flyout-scroll-tests.mjs"
   },
   "dependencies": {
     "@impulse-ui-native/theme": "workspace:*",
@@ -61,7 +61,7 @@
     "react": ">=18",
     "react-native": ">=0.73",
     "react-native-reanimated": ">=4.0.0",
-    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-gesture-handler": ">=3.0.0",
     "react-native-worklets": ">=0.5",
     "react-native-safe-area-context": ">=5.0.0",
     "react-native-keyboard-controller": ">=1.22.0"

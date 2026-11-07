@@ -12,10 +12,20 @@ interface FlyoutExampleDefinition {
   placement: "top" | "bottom";
   compound?: boolean;
   scrollable?: boolean;
+  virtualized?: boolean;
   keyboardAware?: boolean;
 }
 
 export const FlyoutExampleDefinitions = [
+  {
+    name: "FlatList",
+    title: "Virtualized list body",
+    description:
+      "Flyout.FlatList wraps the native FlatList. Swipe down at the top to drag the sheet. A swipe begun farther down keeps scrolling until release, even after reaching the top. The 100 rows remain virtualized.",
+    props: [],
+    placement: "bottom",
+    virtualized: true,
+  },
   {
     name: "KeyboardAwareTop",
     title: "Keyboard-aware top flyout",
@@ -29,7 +39,7 @@ export const FlyoutExampleDefinitions = [
     name: "Scrollable",
     title: "Scrollable body",
     description:
-      "Flyout.ScrollView is a direct child. The header and handle stay fixed while the body scrolls. Toggle field count to check resizing and dismissal geometry.",
+      "Flyout.ScrollView is a direct child. The header and handle stay fixed while the body scrolls. At the top, swipe down to drag or dismiss the sheet. Scroll down first, then swipe down: the content keeps scrolling even if it reaches the top; release and start a fresh downward swipe to drag the sheet. Toggle field count to check resizing.",
     props: [],
     placement: "bottom",
     scrollable: true,
@@ -116,6 +126,7 @@ export const FlyoutExample = memo(function FlyoutExample({
         placement={example.placement}
         compound={example.compound}
         scrollable={example.scrollable}
+        virtualized={example.virtualized}
         keyboardAware={example.keyboardAware}
       />
     </StoryExample>

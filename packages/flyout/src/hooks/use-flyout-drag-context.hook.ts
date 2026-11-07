@@ -6,7 +6,9 @@ export function useFlyoutDragContext() {
   const context = useContext(FlyoutDragContext);
 
   if (!context) {
-    throw new Error("Flyout.Handle must be rendered inside Flyout.Root");
+    throw new Error(
+      "Flyout.Handle and Flyout.ScrollView must be rendered inside Flyout.Root",
+    );
   }
 
   return context;

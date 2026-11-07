@@ -6,12 +6,12 @@
     "kind": "compound",
     "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
     "features": [
-      "Callable sheet plus Root/Header/Title/Content/ScrollView/KeyboardAwareView/Handle parts; body children render directly.",
-      "Controlled open state, transition callbacks, safe-area layout and drag dismissal."
+      "Callable sheet plus Root/Header/Title/Content/ScrollView/FlatList/KeyboardAwareView/Handle parts; body children render directly.",
+      "Controlled open state, transition callbacks, safe-area layout and drag dismissal. Bottom Flyout.ScrollView and Flyout.FlatList transfer downward swipes begun at the scroll top to sheet dragging; swipes begun below the top remain scrolling until release. Explicit contentInset.top is respected; horizontal scrolling and top-sheet content keep native gestures. Flyout.FlatList is a thin native FlatList wrapper preserving item types, list props, virtualization and native refs. Plain ScrollView and custom virtualized lists do not opt into this behavior."
     ],
     "constraints": [
       "Child-only parts do not generate header content; the convenience component supplies defaults.",
-      "Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. Avoidance waits for valid layout measurements. Active avoidance expects numeric padding; percentage padding is preserved while inactive. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
+      "Use Content for static padding, ScrollView for scrolling, FlatList for a virtualized body, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. Avoidance waits for valid layout measurements. Active avoidance expects numeric padding; percentage padding is preserved while inactive. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly."
     ],
     "setup": [
       "ThemeProvider, GestureHandlerRootView and SafeAreaProvider; Reanimated/Worklets setup. KeyboardAwareView also requires react-native-keyboard-controller native setup and KeyboardProvider above Portal/Overlay hosts.",
@@ -33,7 +33,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 17
+            "line": 23
           }
         },
         {
@@ -51,7 +51,7 @@
           "type": "ReactNode",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 23
+            "line": 29
           }
         },
         {
@@ -133,7 +133,7 @@
           "choices": ["bottom", "top"],
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 15
+            "line": 21
           }
         },
         {
@@ -144,7 +144,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 18
+            "line": 24
           }
         },
         {
@@ -153,7 +153,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 22
+            "line": 28
           }
         },
         {
@@ -162,7 +162,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 16
+            "line": 22
           }
         }
       ],
@@ -301,6 +301,128 @@
       ],
       "inheritedNativePropCount": 110,
       "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "Flyout.FlatList",
+      "typeParameters": [
+        {
+          "name": "Item",
+          "constraint": "unknown"
+        }
+      ],
+      "source": {
+        "file": "packages/flyout/src/components/flat-list.tsx",
+        "line": 13
+      },
+      "props": [
+        {
+          "name": "children",
+          "required": false,
+          "type": "React.ReactNode",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 621,
+            "external": true
+          }
+        },
+        {
+          "name": "contentContainerStyle",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/ScrollView/ScrollView.d.ts",
+            "line": 362,
+            "external": true
+          }
+        },
+        {
+          "name": "data",
+          "required": true,
+          "type": "Readonly<ArrayLike<Item>> | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 23,
+            "external": true
+          }
+        },
+        {
+          "name": "horizontal",
+          "required": false,
+          "type": "boolean | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 84,
+            "external": true
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<FlatList<Item>> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
+          "name": "renderItem",
+          "required": false,
+          "type": "ListRenderItem<Item> | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Lists/FlatList.d.ts",
+            "line": 52,
+            "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [],
+      "inheritedNativePropCount": 207,
+      "defaults": {
+        "scrollEventThrottle": {
+          "expression": "16",
+          "value": 16,
+          "source": {
+            "file": "packages/flyout/src/components/flat-list.tsx",
+            "line": 20
+          }
+        }
+      },
       "defaultResolution": "direct-source-only"
     },
     {
@@ -553,7 +675,7 @@
       "name": "Flyout.KeyboardAwareView",
       "source": {
         "file": "packages/flyout/src/components/keyboard-aware-view.tsx",
-        "line": 29
+        "line": 14
       },
       "props": [
         {
@@ -572,7 +694,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 36
+            "line": 48
           }
         },
         {
@@ -581,7 +703,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 38
+            "line": 50
           }
         },
         {
@@ -703,7 +825,7 @@
           "value": true,
           "source": {
             "file": "packages/flyout/src/components/keyboard-aware-view.tsx",
-            "line": 31
+            "line": 16
           }
         }
       },
@@ -722,7 +844,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 17
+            "line": 23
           }
         },
         {
@@ -813,7 +935,7 @@
           "choices": ["bottom", "top"],
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 15
+            "line": 21
           }
         },
         {
@@ -824,7 +946,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 18
+            "line": 24
           }
         },
         {
@@ -833,7 +955,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 16
+            "line": 22
           }
         }
       ],
@@ -879,7 +1001,7 @@
       "name": "Flyout.ScrollView",
       "source": {
         "file": "packages/flyout/src/components/scroll-view.tsx",
-        "line": 12
+        "line": 15
       },
       "props": [
         {
@@ -959,7 +1081,16 @@
       ],
       "styleProps": [],
       "inheritedNativePropCount": 173,
-      "defaults": {},
+      "defaults": {
+        "scrollEventThrottle": {
+          "expression": "16",
+          "value": 16,
+          "source": {
+            "file": "packages/flyout/src/components/scroll-view.tsx",
+            "line": 22
+          }
+        }
+      },
       "defaultResolution": "direct-source-only"
     },
     {
@@ -1100,7 +1231,7 @@
       "kind": "value",
       "source": {
         "file": "packages/flyout/src/components/index.ts",
-        "line": 10
+        "line": 11
       },
       "signatures": [
         {
@@ -1114,7 +1245,23 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 27
+        "line": 33
+      }
+    },
+    {
+      "name": "FlyoutFlatListComponent",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 40
+      }
+    },
+    {
+      "name": "FlyoutFlatListProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/flyout/src/types/flyout.types.ts",
+        "line": 39
       }
     },
     {
@@ -1122,7 +1269,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 30
+        "line": 36
       }
     },
     {
@@ -1130,7 +1277,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 26
+        "line": 32
       }
     },
     {
@@ -1138,7 +1285,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 41
+        "line": 53
       }
     },
     {
@@ -1146,7 +1293,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 34
+        "line": 46
       }
     },
     {
@@ -1154,7 +1301,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 21
+        "line": 27
       }
     },
     {
@@ -1162,7 +1309,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 14
+        "line": 20
       }
     },
     {
@@ -1170,7 +1317,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 32
+        "line": 38
       }
     },
     {
@@ -1178,7 +1325,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 28
+        "line": 34
       }
     }
   ],
@@ -1192,7 +1339,7 @@
     "react": ">=18",
     "react-native": ">=0.73",
     "react-native-reanimated": ">=4.0.0",
-    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-gesture-handler": ">=3.0.0",
     "react-native-worklets": ">=0.5",
     "react-native-safe-area-context": ">=5.0.0",
     "react-native-keyboard-controller": ">=1.22.0"

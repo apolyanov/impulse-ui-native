@@ -1,6 +1,15 @@
-import type { LayoutRectangle } from "react-native";
+import type { LayoutRectangle, ViewStyle } from "react-native";
 
 import type { FlyoutPlacement } from "@impulse-ui-native/theme";
+
+import type { FlyoutKeyboardAwareViewProps } from "./index";
+
+export interface FlyoutKeyboardBodyOptions {
+  enabled: boolean;
+  keyboardOffset: FlyoutKeyboardAwareViewProps["keyboardOffset"];
+  resolvedStyle: ViewStyle;
+  onLayout: FlyoutKeyboardAwareViewProps["onLayout"];
+}
 
 export type FlyoutKeyboardBodyFrame = Pick<LayoutRectangle, "y" | "height">;
 

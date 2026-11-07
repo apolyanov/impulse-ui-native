@@ -14,14 +14,15 @@ A token-driven, gesture-enabled sheet that can enter from the top or bottom of t
 pnpm add @impulse-ui-native/flyout react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-worklets react-native-keyboard-controller
 ```
 
-This package uses React Native Gesture Handler, Reanimated, Safe Area Context, Worklets, and Keyboard Controller. Complete their native setup and render the flyout inside both `GestureHandlerRootView` and `SafeAreaProvider`.
+This package requires React Native Gesture Handler 3 or newer and uses its hook API (`usePanGesture`, `useNativeGesture`, and `useExclusiveGestures`), along with Reanimated, Safe Area Context, Worklets, and Keyboard Controller. Complete their native setup and render the flyout inside both `GestureHandlerRootView` and `SafeAreaProvider`.
 
 ## Main exports
 
-- `Flyout` supplies the header/title and handle, rendering body children directly. A supplied non-nullish `header` replaces the generated title header. Choose Content, ScrollView, or a custom body container explicitly.
+- `Flyout` supplies the header/title and handle, rendering body children directly. A supplied non-nullish `header` replaces the generated title header. Choose Content, ScrollView, FlatList, or a custom body container explicitly.
 - `Flyout.Root` is the main sheet container and owns the overlay, gestures, safe-area padding, and lifecycle animations. It renders supplied children without generating presentation parts.
 - `Flyout.Header`, `Flyout.Title`, and `Flyout.Content` render supplied children. Header and Content accept primitive View props; Title accepts primitive Text props.
-- `Flyout.ScrollView` accepts native ScrollView props and a native ref, adds themed horizontal content padding, and shrinks within the sheet. Override padding through `contentContainerStyle`; keyboard taps default to `handled`.
+- `Flyout.ScrollView` accepts native ScrollView props and a native ref, adds themed horizontal content padding, and shrinks within the sheet. Override padding through `contentContainerStyle`; keyboard taps default to `handled`. For bottom sheets, a downward swipe that begins at the vertical scroll top drags the sheet; a swipe begun below the top remains a scroll for its entire duration, even after reaching the top. Upward swipes and horizontal ScrollViews scroll normally. Explicit `contentInset.top` is included in the top boundary.
+- `Flyout.FlatList` wraps React Native FlatList with the same padding, shrinkable layout, and scrolling/drag rules as ScrollView. It preserves native list props, item-type inference, virtualization, and the FlatList ref (including `scrollToIndex` and `scrollToOffset`). Render it directly as the body; do not nest it inside ScrollView.
 - `Flyout.KeyboardAwareView` is an opt-in keyboard-aware body. It accepts primitive View props and a native ref, defaults to `enabled={true}` and the theme's `keyboardOffset` (8), and renders one shrinkable View. Avoidance stays inside the body; Root remains attached to its placement edge and may grow with the content.
 - `Flyout.Handle` renders the themed drag indicator and owns the sheet's drag gesture. It inherits placement from Root, so configure placement only on the sheet.
 - `FlyoutProps` adds `placement`, `topOffset`, and `bottomOffset` to the common overlay contract.
@@ -44,7 +45,22 @@ import { Flyout } from "@impulse-ui-native/flyout";
 </Flyout>;
 ```
 
-The overlay closes the sheet when pressed. Dragging the handle past half the measured sheet height, or swiping it sufficiently fast toward the edge, closes it as well. Content gestures remain available to FlatList, ScrollView, and other interactive children.
+The overlay closes the sheet when pressed. Dragging the handle past half the measured sheet height, or swiping it sufficiently fast toward the edge, closes it as well. Flyout.ScrollView uses the same dismissal thresholds and spring-back behavior for downward swipes begun at the top of a bottom sheet. Flyout.FlatList shares this coordination. Plain native ScrollViews, FlatLists, and custom scroll containers retain their own gestures and do not opt into this coordination.
+
+### Virtualized body
+
+```tsx
+<Flyout id="results" title="Results" open={open} onClose={close}>
+  <Flyout.FlatList
+    ref={listRef}
+    data={items}
+    renderItem={renderItem}
+    keyExtractor={keyExtractor}
+  />
+</Flyout>
+```
+
+Use a native `FlatList<Item>` ref for `listRef`. List props and callbacks pass through unchanged; `contentContainerStyle` overrides the themed content padding.
 
 ## Compound composition
 
@@ -70,10 +86,10 @@ import { Portal } from "@impulse-ui-native/portal";
 ```
 
 Keep the external Portal mounted; Root handles mounting its visible content through
-the existing lifecycle. For top placement, set `placement="top"` on Root; Handle inherits it. Root provides the drag gesture and placement internally; no separate provider is required.
-Include Handle to enable drag dismissal; omitting it leaves backdrop and programmatic dismissal available.
+the existing lifecycle. For top placement, set `placement="top"` on Root; Handle inherits it. Root provides shared drag configuration and placement internally; no separate provider is required.
+Include Handle to enable drag dismissal from the indicator. Flyout.ScrollView and Flyout.FlatList also enable drag dismissal from the top of bottom-sheet content, independently of Handle. Top sheets retain handle-only drag dismissal. Backdrop and programmatic dismissal remain available.
 The handle is inside the sheet surface and native touch bounds.
-Root caps the entire sheet, including the header, handle, and safe-area padding, at 70% of the window by default, further limited by the opposite safe area and the placement offset. Content is a shrinkable regular View with horizontal padding; it does not scroll. Use ScrollView for overflowing content. Root remeasures after body resizing without restarting entry.
+Root caps the entire sheet, including the header, handle, and safe-area padding, at 70% of the window by default, further limited by the opposite safe area and the placement offset. Content is a shrinkable regular View with horizontal padding; it does not scroll. Use ScrollView for overflowing content, or FlatList for a virtualized body. Root remeasures after body resizing without restarting entry.
 Root accepts native `style`; the presentation parts accept primitive style props.
 Root renders only two native elements: an animated pressable backdrop and an animated sheet. Safe-area padding, sizing, measurement, and translation all live on that sheet; supplied body containers are its direct children.
 Use Content itself for body layout (for example, `gap`), and ScrollView's `contentContainerStyle` for scrollable layout, rather than adding a View just for spacing.
@@ -91,7 +107,7 @@ When closing with the keyboard visible, Flyout retains the expanded sheet height
 
 ## Theme motion
 
-Flyout uses a nearly critically damped entrance spring and a critically damped exit spring. `components.flyout.enterSpring` configures damping, stiffness, and mass (35, 300, and 1 by default), including spring-back after a drag. `exitDuration` is a perceptual spring duration (280 ms by default), not a fixed unmount deadline. Dismissal and spring-back carry gesture release velocity; closing retains the exited geometry until unmount.
+Flyout uses a nearly critically damped entrance spring and a critically damped exit spring. `components.flyout.enterSpring` configures damping, stiffness, and mass (35, 300, and 1 by default), including spring-back after a drag. `exitDuration` is a perceptual spring duration (280 ms by default), not a fixed unmount deadline. Drag gestures are enabled as soon as the measured sheet becomes interactive, including during entry. A drag interrupts the entrance translation at its current position; opening completion follows the backdrop animation so an interrupted translation cannot leave the lifecycle stuck opening. Closing and closed sheets do not accept new drags. Dismissal and spring-back carry gesture release velocity; closing retains the exited geometry until unmount.
 
 ## Agent and design reference
 
@@ -195,6 +211,7 @@ The following modules are reachable through relative re-exports from this packag
 
 ```tsx
 import { FlyoutContent } from "./content";
+import { FlyoutFlatList } from "./flat-list";
 import { FlyoutComponent } from "./flyout";
 import { FlyoutHandle } from "./handle";
 import { FlyoutHeader } from "./header";
@@ -209,6 +226,7 @@ export const Flyout = Object.assign(FlyoutComponent, {
   Title: FlyoutTitle,
   Content: FlyoutContent,
   ScrollView: FlyoutScrollView,
+  FlatList: FlyoutFlatList,
   KeyboardAwareView: FlyoutKeyboardAwareView,
   Handle: FlyoutHandle,
 });
@@ -228,10 +246,16 @@ import type {
   ComponentRef,
   NamedExoticComponent,
   PropsWithoutRef,
+  ReactElement,
   ReactNode,
   RefAttributes,
 } from "react";
-import type { View as NativeView, ScrollViewProps } from "react-native";
+import type {
+  FlatList,
+  FlatListProps,
+  View as NativeView,
+  ScrollViewProps,
+} from "react-native";
 
 import type { OverlayComponentProps } from "@impulse-ui-native/overlay";
 import type { TextProps, ViewProps } from "@impulse-ui-native/primitives";
@@ -256,6 +280,12 @@ export type FlyoutTitleProps = TextProps;
 export type FlyoutHandleProps = ViewProps;
 
 export type FlyoutScrollViewProps = ScrollViewProps;
+export type FlyoutFlatListProps<Item> = FlatListProps<Item>;
+export interface FlyoutFlatListComponent {
+  <Item>(
+    props: FlyoutFlatListProps<Item> & RefAttributes<FlatList<Item>>,
+  ): ReactElement | null;
+}
 
 export interface FlyoutKeyboardAwareViewProps extends ViewProps {
   /** Reserve keyboard overlap inside the body without translating the sheet. Defaults to true. */

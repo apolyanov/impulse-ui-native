@@ -32,6 +32,7 @@ export const FlyoutSurface = memo(function FlyoutSurface({
     close,
     closingHeight,
     dragGesture,
+    dragGestureConfig,
     hasMeasured,
     measuredHeight,
     interactive,
@@ -80,8 +81,8 @@ export const FlyoutSurface = memo(function FlyoutSurface({
     ],
   );
   const dragContext = useMemo(
-    () => ({ dragGesture, placement }),
-    [dragGesture, placement],
+    () => ({ dragGesture, dragGestureConfig, placement }),
+    [dragGesture, dragGestureConfig, placement],
   );
   const pointerEvents = interactive ? "auto" : "none";
 

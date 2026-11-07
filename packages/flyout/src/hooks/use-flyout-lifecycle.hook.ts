@@ -1,6 +1,7 @@
 import type { LayoutChangeEvent } from "react-native";
+import type { PanGestureConfig } from "react-native-gesture-handler";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Gesture } from "react-native-gesture-handler";
+import { usePanGesture } from "react-native-gesture-handler";
 import {
   cancelAnimation,
   useSharedValue,
@@ -42,17 +43,19 @@ export function useFlyoutLifecycle(
   const measuredHeight = useSharedValue(0);
   const releaseVelocity = useSharedValue(0);
   const closingHeight = useSharedValue(0);
+  const dragStart = useSharedValue(0);
 
   const enter = useEventCallback<OverlayTransitionHandler>(
     (transitionId, complete) => {
-      translateY.set(
-        withSpring(0, enterSpring, (finished) => {
+      translateY.set(withSpring(0, enterSpring));
+      // Entry can finish even when a drag takes over the sheet's translation.
+      opacity.set(
+        withSpring(overlayVisibleOpacity, enterSpring, (finished) => {
           if (finished) {
             scheduleOnRN(complete, transitionId);
           }
         }),
       );
-      opacity.set(withSpring(overlayVisibleOpacity, enterSpring));
     },
   );
   const exit = useEventCallback<OverlayTransitionHandler>(
@@ -112,7 +115,7 @@ export function useFlyoutLifecycle(
     },
     options,
   );
-  const { close, status, mounted } = lifecycle;
+  const { close, interactive, mounted } = lifecycle;
 
   const onLayout = useEventCallback((event: LayoutChangeEvent) => {
     if (!mounted || closingHeight.value > 0) {
@@ -133,34 +136,49 @@ export function useFlyoutLifecycle(
     }
   });
 
-  const dragGesture = useMemo(
-    () =>
-      Gesture.Pan()
-        .enabled(status === "open")
-        .onUpdate((event) => {
-          const distance = Math.max(0, direction * event.translationY);
-          translateY.set(direction * distance);
-        })
-        .onEnd((event) => {
-          const distance = direction * event.translationY;
-          const velocity = direction * event.velocityY;
-          const shouldClose =
-            distance > measuredHeight.value * FlyoutDismissDistanceRatio ||
-            velocity > FlyoutDismissVelocity;
-
-          if (shouldClose) {
-            releaseVelocity.set(event.velocityY);
-            scheduleOnRN(close);
-
-            return;
+  const dragGestureConfig = useMemo<PanGestureConfig>(
+    () => ({
+      enabled: interactive,
+      onActivate: () => {
+        "worklet";
+        dragStart.set(translateY.value);
+        cancelAnimation(translateY);
+      },
+      onUpdate: (event) => {
+        "worklet";
+        const distance = Math.max(
+          0,
+          direction * (dragStart.value + event.translationY),
+        );
+        translateY.set(direction * distance);
+      },
+      onDeactivate: (event) => {
+        "worklet";
+        if (event.canceled) {
+          if (closingHeight.value === 0) {
+            translateY.set(withSpring(0, enterSpring));
           }
-
-          translateY.set(
-            withSpring(0, { ...enterSpring, velocity: event.velocityY }),
-          );
-        }),
+          return;
+        }
+        const distance = direction * (dragStart.value + event.translationY);
+        const velocity = direction * event.velocityY;
+        const shouldClose =
+          distance > measuredHeight.value * FlyoutDismissDistanceRatio ||
+          velocity > FlyoutDismissVelocity;
+        if (shouldClose) {
+          releaseVelocity.set(event.velocityY);
+          scheduleOnRN(close);
+          return;
+        }
+        translateY.set(
+          withSpring(0, { ...enterSpring, velocity: event.velocityY }),
+        );
+      },
+    }),
     [
-      status,
+      interactive,
+      dragStart,
+      closingHeight,
       measuredHeight,
       direction,
       close,
@@ -169,6 +187,7 @@ export function useFlyoutLifecycle(
       releaseVelocity,
     ],
   );
+  const dragGesture = usePanGesture(dragGestureConfig);
 
   useEffect(
     () => () => {
@@ -182,6 +201,7 @@ export function useFlyoutLifecycle(
     () => ({
       ...lifecycle,
       closingHeight,
+      dragGestureConfig,
       dragGesture,
       hasMeasured,
       measuredHeight,
@@ -192,6 +212,7 @@ export function useFlyoutLifecycle(
     [
       lifecycle,
       closingHeight,
+      dragGestureConfig,
       dragGesture,
       hasMeasured,
       measuredHeight,

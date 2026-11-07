@@ -24,6 +24,8 @@ export const Documentation: Story = {
   },
 };
 
+export const FlatList: Story = createFlyoutStory("FlatList");
+
 export const Scrollable: Story = createFlyoutStory("Scrollable");
 export const KeyboardAwareTop: Story = createFlyoutStory("KeyboardAwareTop");
 export const KeyboardAware: Story = createFlyoutStory("KeyboardAware");

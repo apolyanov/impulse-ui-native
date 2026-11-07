@@ -181,6 +181,31 @@ function createBodyHarness(themeKeyboardOffset = 8, contextOverrides = {}) {
       getFlyoutKeyboardBodyPadding,
     },
   };
+  mocks["./use-flyout-context.hook"] = mocks["../hooks"];
+  for (const hook of [
+    "use-flyout-keyboard-body-style",
+    "use-flyout-keyboard-body",
+  ]) {
+    const source = readFileSync(
+      new URL(`../packages/flyout/src/hooks/${hook}.hook.ts`, import.meta.url),
+      "utf8",
+    );
+    const hookExports = {};
+    const output = ts.transpileModule(source, {
+      compilerOptions: {
+        module: ts.ModuleKind.CommonJS,
+        target: ts.ScriptTarget.ES2020,
+      },
+    }).outputText;
+    runInNewContext(output, {
+      exports: hookExports,
+      require: (name) => {
+        assert.ok(name in mocks, `Unexpected import: ${name}`);
+        return mocks[name];
+      },
+    });
+    Object.assign(mocks["../hooks"], hookExports);
+  }
   runInNewContext(compiled, {
     exports,
     require: (name) => {

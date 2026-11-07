@@ -1,4 +1,5 @@
 import { FlyoutContent } from "./content";
+import { FlyoutFlatList } from "./flat-list";
 import { FlyoutComponent } from "./flyout";
 import { FlyoutHandle } from "./handle";
 import { FlyoutHeader } from "./header";
@@ -13,6 +14,7 @@ export const Flyout = Object.assign(FlyoutComponent, {
   Title: FlyoutTitle,
   Content: FlyoutContent,
   ScrollView: FlyoutScrollView,
+  FlatList: FlyoutFlatList,
   KeyboardAwareView: FlyoutKeyboardAwareView,
   Handle: FlyoutHandle,
 });

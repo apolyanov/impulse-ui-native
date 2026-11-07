@@ -11,6 +11,7 @@ function createHarness(placement = "bottom", offset = 0) {
   const refs = [];
   let refIndex = 0;
   let stateUpdates = 0;
+  let closeRequests = 0;
   const animationCallbacks = [];
   const springs = [];
   const rnCallbacks = [];
@@ -19,6 +20,8 @@ function createHarness(placement = "bottom", offset = 0) {
   let measured = false;
   let sharedIndex = 0;
   let mounted = true;
+  let status = "open";
+  const cancelledAnimations = [];
   let overlayProps;
   let options;
   const exports = {};
@@ -36,11 +39,6 @@ function createHarness(placement = "bottom", offset = 0) {
     },
   });
   const gesture = {};
-  for (const name of ["enabled", "onUpdate", "onEnd"])
-    gesture[name] = (callback) => {
-      gesture[name + "Callback"] = callback;
-      return gesture;
-    };
   const mocks = {
     react: {
       useState: () => [
@@ -76,16 +74,30 @@ function createHarness(placement = "bottom", offset = 0) {
       useOverlayLifecycle: (props, config) => {
         overlayProps = props;
         options = config;
-        return { mounted, status: "open", interactive: true, close: () => {} };
+        return {
+          mounted,
+          status,
+          interactive: measured && (status === "opening" || status === "open"),
+          close: () => {
+            closeRequests++;
+          },
+        };
       },
     },
-    "react-native-gesture-handler": { Gesture: { Pan: () => gesture } },
+    "react-native-gesture-handler": {
+      usePanGesture: (config) => {
+        Object.assign(gesture, config);
+        return gesture;
+      },
+    },
     "react-native-worklets": {
       scheduleOnRN: (callback, ...args) =>
         rnCallbacks.push(() => callback(...args)),
     },
     "react-native-reanimated": {
-      cancelAnimation: () => {},
+      cancelAnimation: (value) => {
+        cancelledAnimations.push(value);
+      },
       useSharedValue: (initial) => {
         const index = sharedIndex++;
         shared[index] ??= {
@@ -118,9 +130,16 @@ function createHarness(placement = "bottom", offset = 0) {
   });
   return {
     springs,
+    cancelledAnimations,
+    setStatus(next) {
+      status = next;
+    },
     gesture,
     completed,
     notifications,
+    get closeRequests() {
+      return closeRequests;
+    },
     get stateUpdates() {
       return stateUpdates;
     },
@@ -154,10 +173,10 @@ function createHarness(placement = "bottom", offset = 0) {
     open() {
       overlayProps.onStatusChange("sheet", "opening");
     },
-    enter() {
+    enter(complete = () => {}, finish = true) {
       overlayProps.onStatusChange("sheet", "opening");
-      options.onEnter(8, () => {});
-      animationCallbacks.shift()?.(true);
+      options.onEnter(8, complete);
+      if (finish) animationCallbacks.shift()?.(true);
     },
     unmount() {
       mounted = false;
@@ -258,14 +277,16 @@ for (const placement of ["top", "bottom"]) {
     lifecycle.onLayout({ nativeEvent: { layout: { height: 400 } } });
     harness.render();
     const direction = placement === "top" ? -1 : 1;
-    harness.gesture.onEndCallback({
+    harness.gesture.onDeactivate({
       translationY: direction * 20,
       velocityY: direction * 300,
+      canceled: false,
     });
     assert.equal(harness.springs.at(-1).config.velocity, direction * 300);
-    harness.gesture.onEndCallback({
+    harness.gesture.onDeactivate({
       translationY: direction * 250,
       velocityY: direction * 900,
+      canceled: false,
     });
     harness.exit();
     assert.equal(harness.springs.at(-1).config.velocity, direction * 900);
@@ -299,4 +320,80 @@ test("close captures expanded geometry before consumers dismiss the keyboard and
   assert.equal(lifecycle.measuredHeight.value, 520);
   harness.enter();
   assert.equal(lifecycle.closingHeight.value, 0);
+});
+
+test("cancelled active drags spring back without requesting dismissal", () => {
+  const h = createHarness();
+  const lifecycle = h.render();
+  lifecycle.onLayout({ nativeEvent: { layout: { height: 400 } } });
+  h.gesture.onUpdate({ translationY: 80 });
+  h.gesture.onDeactivate({
+    translationY: 300,
+    velocityY: 2000,
+    canceled: true,
+  });
+  assert.equal(lifecycle.translateY.value, 0);
+  assert.equal(h.springs.at(-1).target, 0);
+});
+
+test("cancelling a drag while closing does not reset the retained exit position", () => {
+  const h = createHarness();
+  const lifecycle = h.render();
+  lifecycle.onLayout({ nativeEvent: { layout: { height: 400 } } });
+  h.exit();
+  const position = lifecycle.translateY.value;
+  h.gesture.onDeactivate({ canceled: true });
+  assert.equal(lifecycle.translateY.value, position);
+});
+
+test("opening sheets accept the first drag and retain their current entrance position", () => {
+  const h = createHarness();
+  h.setStatus("opening");
+  let lifecycle = h.render();
+  assert.equal(h.gesture.enabled, false);
+  lifecycle.onLayout({ nativeEvent: { layout: { height: 400 } } });
+  lifecycle = h.render();
+  assert.equal(h.gesture.enabled, true);
+  const entered = [];
+  h.enter((id) => entered.push(id), false);
+  // Simulate a frame partway through the entrance spring.
+  lifecycle.translateY.set(90);
+  h.gesture.onActivate();
+  assert.equal(h.cancelledAnimations.at(-1), lifecycle.translateY);
+  h.gesture.onUpdate({ translationY: 24 });
+  assert.equal(lifecycle.translateY.value, 114);
+  // The independent opacity animation completes opening despite the interrupted translation.
+  h.finishAnimation();
+  h.flushRN();
+  assert.deepEqual(entered, [8]);
+  h.gesture.onDeactivate({ translationY: 24, velocityY: 300, canceled: false });
+  assert.equal(lifecycle.translateY.value, 0);
+});
+
+test("closing and closed sheets do not accept new drags", () => {
+  const h = createHarness();
+  h.render().onLayout({ nativeEvent: { layout: { height: 400 } } });
+  for (const status of ["closing", "closed"]) {
+    h.setStatus(status);
+    h.render();
+    assert.equal(h.gesture.enabled, false);
+  }
+});
+
+test("a downward drag can dismiss while the entrance animation is still running", () => {
+  const h = createHarness();
+  h.setStatus("opening");
+  h.render().onLayout({ nativeEvent: { layout: { height: 400 } } });
+  const lifecycle = h.render();
+  h.enter(() => {}, false);
+  lifecycle.translateY.set(90);
+  h.gesture.onActivate();
+  h.gesture.onUpdate({ translationY: 130 });
+  h.gesture.onDeactivate({
+    translationY: 130,
+    velocityY: 300,
+    canceled: false,
+  });
+  h.flushRN();
+  assert.equal(h.closeRequests, 1);
 });

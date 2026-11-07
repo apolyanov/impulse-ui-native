@@ -32,7 +32,7 @@ Optional refers to the package manifest; individual features may still require t
 | `@shopify/react-native-skia`       | `>=2`      | No       |
 | `react`                            | `>=18`     | No       |
 | `react-native`                     | `>=0.73`   | No       |
-| `react-native-gesture-handler`     | `>=2.0.0`  | No       |
+| `react-native-gesture-handler`     | `>=3.0.0`  | No       |
 | `react-native-reanimated`          | `>=4`      | No       |
 | `react-native-safe-area-context`   | `>=5.0.0`  | No       |
 | `react-native-svg`                 | `>=13.9.0` | No       |
@@ -427,6 +427,8 @@ This package has no directly owned visual components in its public root; use its
 - `Flyout` (value)
   - `(props: import("@impulse-ui-native/toolkit").FlyoutProps): import("react").ReactNode`
 - `FlyoutContentProps` (type)
+- `FlyoutFlatListComponent` (type)
+- `FlyoutFlatListProps` (type)
 - `FlyoutHandleProps` (type)
 - `FlyoutHandleTokens` (type)
 - `FlyoutHeaderProps` (type)

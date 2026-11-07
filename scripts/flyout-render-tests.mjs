@@ -144,6 +144,12 @@ function createHarness(mounted = true) {
       if (specifier in mocks) return mocks[specifier];
       if (specifier === "../hooks")
         return {
+          useFlyoutKeyboardBodyStyle: load(
+            "packages/flyout/src/hooks/use-flyout-keyboard-body-style.hook.ts",
+          ).useFlyoutKeyboardBodyStyle,
+          useFlyoutKeyboardBody: load(
+            "packages/flyout/src/hooks/use-flyout-keyboard-body.hook.ts",
+          ).useFlyoutKeyboardBody,
           useFlyoutContext: load(
             "packages/flyout/src/hooks/use-flyout-context.hook.ts",
           ).useFlyoutContext,

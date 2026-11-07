@@ -9,13 +9,13 @@ Show a top or bottom gesture-dismissable sheet.
 
 ## Capabilities
 
-- Callable sheet plus Root/Header/Title/Content/ScrollView/KeyboardAwareView/Handle parts; body children render directly.
-- Controlled open state, transition callbacks, safe-area layout and drag dismissal.
+- Callable sheet plus Root/Header/Title/Content/ScrollView/FlatList/KeyboardAwareView/Handle parts; body children render directly.
+- Controlled open state, transition callbacks, safe-area layout and drag dismissal. Bottom Flyout.ScrollView and Flyout.FlatList transfer downward swipes begun at the scroll top to sheet dragging; swipes begun below the top remain scrolling until release. Explicit contentInset.top is respected; horizontal scrolling and top-sheet content keep native gestures. Flyout.FlatList is a thin native FlatList wrapper preserving item types, list props, virtualization and native refs. Plain ScrollView and custom virtualized lists do not opt into this behavior.
 
 ## Boundaries and composition
 
 - Child-only parts do not generate header content; the convenience component supplies defaults.
-- Use Content for static padding, ScrollView for scrolling, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. Avoidance waits for valid layout measurements. Active avoidance expects numeric padding; percentage padding is preserved while inactive. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly.
+- Use Content for static padding, ScrollView for scrolling, FlatList for a virtualized body, or a direct KeyboardAwareView body child to reserve keyboard overlap inside the body. KeyboardAwareView renders one View; it adds no scroll container; animated keyboard padding reflows its content and may grow the sheet up to its normal height cap. Avoidance waits for valid layout measurements. Active avoidance expects numeric padding; percentage padding is preserved while inactive. enabled defaults to true; keyboardOffset defaults to components.flyout.keyboardOffset, sourced from space.xs (8 logical units). The gap follows keyboard animation progress and is absent while closed; keyboardOffset=0 removes it. Root stays attached to its placement edge with no keyboard translation. Body padding can grow the sheet, with header and handle reflowing naturally; the scroll viewport shrinks once the sheet reaches its height cap. Overlap accounts for safe area, placement offset and siblings below the body. Normal body sizing returns when the keyboard closes. Focused-field scrolling belongs to the chosen scroll container. Root renders one backdrop and one sheet; safe-area padding is on the sheet itself. Handle inherits Root placement. Root caps the whole sheet at 70% of window height and tracks resizing without rebuilding its drag gesture. Custom containers own padding and keyboard behavior. Flyout does not itself imply a global registration or portal: choose local Portal or OverlayHost explicitly.
 
 Exact contracts: [API reference](../api/flyout.md). Machine facts: [package JSON](flyout.json) or [full catalog](../capabilities.json).
 
@@ -34,7 +34,7 @@ Optional refers to the package manifest; individual features may still require t
 | `react`                            | `>=18`     | No       |
 | `react-native`                     | `>=0.73`   | No       |
 | `react-native-reanimated`          | `>=4.0.0`  | No       |
-| `react-native-gesture-handler`     | `>=2.0.0`  | No       |
+| `react-native-gesture-handler`     | `>=3.0.0`  | No       |
 | `react-native-worklets`            | `>=0.5`    | No       |
 | `react-native-safe-area-context`   | `>=5.0.0`  | No       |
 | `react-native-keyboard-controller` | `>=1.22.0` | No       |
@@ -76,6 +76,26 @@ Source: `packages/flyout/src/components/content.tsx:8`. Direct defaults: not sta
 
 Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 110. See exact API types for these inherited contracts.
 
+### Flyout.FlatList
+
+Source: `packages/flyout/src/components/flat-list.tsx:13`. Direct defaults: `scrollEventThrottle=16`.
+
+Generic parameters: `Item extends unknown`.
+
+| Prop                    | Required | Type / choices                                         |
+| ----------------------- | -------- | ------------------------------------------------------ |
+| `children`              | No       | `React.ReactNode`                                      |
+| `contentContainerStyle` | No       | `____ViewStyleProp_Internal \| undefined`              |
+| `data`                  | Yes      | `Readonly<ArrayLike<Item>> \| undefined`               |
+| `horizontal`            | No       | `boolean \| undefined`                                 |
+| `onLayout`              | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`                   | No       | `Ref<FlatList<Item>> \| undefined`                     |
+| `renderItem`            | No       | `ListRenderItem<Item> \| undefined`                    |
+| `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
+| `testID`                | No       | `string \| undefined`                                  |
+
+Style props: none detected. Additional inherited native props: 207. See exact API types for these inherited contracts.
+
 ### Flyout.Handle
 
 Source: `packages/flyout/src/components/handle.tsx:10`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
@@ -104,7 +124,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Flyout.KeyboardAwareView
 
-Source: `packages/flyout/src/components/keyboard-aware-view.tsx:29`. Direct defaults: `enabled=true`.
+Source: `packages/flyout/src/components/keyboard-aware-view.tsx:14`. Direct defaults: `enabled=true`.
 
 | Prop             | Required | Type / choices                                         |
 | ---------------- | -------- | ------------------------------------------------------ |
@@ -142,7 +162,7 @@ Style props: none detected. Additional inherited native props: 0. See exact API 
 
 ### Flyout.ScrollView
 
-Source: `packages/flyout/src/components/scroll-view.tsx:12`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/flyout/src/components/scroll-view.tsx:15`. Direct defaults: `scrollEventThrottle=16`.
 
 | Prop                    | Required | Type / choices                                         |
 | ----------------------- | -------- | ------------------------------------------------------ |
@@ -178,6 +198,8 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `backgroundColor`, `bott
 - `Flyout` (value)
   - `(props: import("@impulse-ui-native/toolkit").FlyoutProps): import("react").ReactNode`
 - `FlyoutContentProps` (type)
+- `FlyoutFlatListComponent` (type)
+- `FlyoutFlatListProps` (type)
 - `FlyoutHandleProps` (type)
 - `FlyoutHeaderProps` (type)
 - `FlyoutKeyboardAwareViewComponent` (type)

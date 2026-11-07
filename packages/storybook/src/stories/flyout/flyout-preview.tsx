@@ -1,4 +1,5 @@
-import { memo, useCallback, useMemo, useState } from "react";
+import type { FlatList, ListRenderItem } from "react-native";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
 
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Input } from "@impulse-ui-native/input";
@@ -12,6 +13,7 @@ interface FlyoutPreviewProps {
   placement: "top" | "bottom";
   compound?: boolean;
   scrollable?: boolean;
+  virtualized?: boolean;
   keyboardAware?: boolean;
 }
 
@@ -19,11 +21,13 @@ export const FlyoutPreview = memo(function FlyoutPreview({
   placement,
   compound,
   scrollable,
+  virtualized,
   keyboardAware,
 }: FlyoutPreviewProps) {
   const space = useSpace();
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(true);
+  const listRef = useRef<FlatList<number>>(null);
   const {
     scrollRef,
     onFocusInput,
@@ -85,9 +89,30 @@ export const FlyoutPreview = memo(function FlyoutPreview({
     [close, toggleContent, resizeLabel, fieldCount, onFocusInput, onBlurInput],
   );
 
+  const rows = useMemo(
+    () => Array.from({ length: 100 }, (_, index) => index + 1),
+    [],
+  );
+  const renderRow = useCallback<ListRenderItem<number>>(
+    ({ item }) => (
+      <View paddingVertical={space.sm}>
+        <Typography.Body>Row {item}</Typography.Body>
+      </View>
+    ),
+    [space.sm],
+  );
+  const rowKey = useCallback((item: number) => String(item), []);
+
   const body = useMemo(
     () =>
-      keyboardAware ? (
+      virtualized ? (
+        <Flyout.FlatList
+          ref={listRef}
+          data={rows}
+          renderItem={renderRow}
+          keyExtractor={rowKey}
+        />
+      ) : keyboardAware ? (
         <Flyout.KeyboardAwareView>
           <Flyout.ScrollView
             ref={scrollRef}
@@ -115,6 +140,11 @@ export const FlyoutPreview = memo(function FlyoutPreview({
         <Flyout.Content style={staticContentStyle}>{content}</Flyout.Content>
       ),
     [
+      virtualized,
+      listRef,
+      rows,
+      renderRow,
+      rowKey,
       keyboardAware,
       scrollable,
       scrollRef,
