@@ -1,5 +1,19 @@
 # @impulse-ui-native/toast
 
+## 17.0.0
+
+### Patch Changes
+
+- 692223c: Apply restrained spring motion across layers, preserve Flyout gesture release velocity, and animate measured Popover/Tooltip entry and retained exits without extra native containers. Add useOverlaySpring while retaining useOverlayTiming. Layer duration tokens now represent perceptual spring durations; lifecycle callbacks wait for settling. Popover requires Reanimated and Worklets peers.
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+  - @impulse-ui-native/primitives@17.0.0
+  - @impulse-ui-native/overlay@17.0.0
+  - @impulse-ui-native/theme@17.0.0
+  - @impulse-ui-native/icon@17.0.0
+  - @impulse-ui-native/core@17.0.0
+
 ## 16.0.0
 
 ### Patch Changes

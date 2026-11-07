@@ -1,5 +1,17 @@
 # @impulse-ui-native/primitives
 
+## 17.0.0
+
+### Patch Changes
+
+- 692223c: Keep Badge and Tag labels within available width with single-line trailing ellipsis. Allow containers and labels to shrink while preserving addon space, and honor Tag's existing style prop for width constraints.
+- 692223c: Share layer animation progress, completion and cancellation handling between timing and spring hooks. Extract capped keyboard padding geometry into a reusable worklet, remove ineffective lifecycle memoization, consolidate Popover placement styling, and keep implementation contracts in dedicated type files. Preserve motion, keyboard exit geometry and text truncation behavior.
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+  - @impulse-ui-native/theme@17.0.0
+  - @impulse-ui-native/icon@17.0.0
+  - @impulse-ui-native/core@17.0.0
+
 ## 16.0.0
 
 ### Patch Changes

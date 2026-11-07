@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/datetime",
   "slug": "datetime",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Pick a date, time, date-time or range.",

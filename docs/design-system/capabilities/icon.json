@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/icon",
   "slug": "icon",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "guidance": {
     "kind": "visualization",
     "chooseWhen": "Render a named SVG glyph with an explicit visual weight.",

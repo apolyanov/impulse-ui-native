@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/popover",
   "slug": "popover",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",

@@ -1,5 +1,62 @@
 # @impulse-ui-native/toolkit
 
+## 17.0.0
+
+### Minor Changes
+
+- fa34bce: Allow downward swipes that begin at the top of a bottom Flyout.ScrollView to drag and dismiss the sheet. Keep swipes begun below the top with native scrolling until release, and restore the sheet after cancelled drags.
+
+  Use the Gesture Handler 3 hook API and exported PanGesture type instead of the deprecated gesture builders. Require Gesture Handler 3 or newer for Flyout and its toolkit aggregation.
+
+  Allow drags during entry as soon as the measured sheet is interactive, retaining the current sheet position when a drag interrupts the entrance spring.
+
+  Add Flyout.FlatList, a thin native FlatList wrapper with shared scroll/drag coordination, themed padding, native list props and generic refs.
+
+### Patch Changes
+
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+- Updated dependencies [fa34bce]
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+  - @impulse-ui-native/primitives@17.0.0
+  - @impulse-ui-native/flyout@17.0.0
+  - @impulse-ui-native/overlay@17.0.0
+  - @impulse-ui-native/theme@17.0.0
+  - @impulse-ui-native/modal@17.0.0
+  - @impulse-ui-native/toast@17.0.0
+  - @impulse-ui-native/popover@17.0.0
+  - @impulse-ui-native/accordion@17.0.0
+  - @impulse-ui-native/card@17.0.0
+  - @impulse-ui-native/carousel@17.0.0
+  - @impulse-ui-native/charts@17.0.0
+  - @impulse-ui-native/checkbox@17.0.0
+  - @impulse-ui-native/color-picker@17.0.0
+  - @impulse-ui-native/data-state@17.0.0
+  - @impulse-ui-native/datetime@17.0.0
+  - @impulse-ui-native/form-field@17.0.0
+  - @impulse-ui-native/icon-view@17.0.0
+  - @impulse-ui-native/input@17.0.0
+  - @impulse-ui-native/list@17.0.0
+  - @impulse-ui-native/pagination@17.0.0
+  - @impulse-ui-native/radio@17.0.0
+  - @impulse-ui-native/segmented-control@17.0.0
+  - @impulse-ui-native/select@17.0.0
+  - @impulse-ui-native/skeleton@17.0.0
+  - @impulse-ui-native/slider@17.0.0
+  - @impulse-ui-native/stepper@17.0.0
+  - @impulse-ui-native/switch@17.0.0
+  - @impulse-ui-native/tabs@17.0.0
+  - @impulse-ui-native/progress@17.0.0
+  - @impulse-ui-native/core@17.0.0
+  - @impulse-ui-native/echo@17.0.0
+  - @impulse-ui-native/endpoint@17.0.0
+  - @impulse-ui-native/portal@17.0.0
+  - @impulse-ui-native/flat-list@17.0.0
+  - @impulse-ui-native/scroll-view@17.0.0
+
 ## 16.0.0
 
 ### Minor Changes

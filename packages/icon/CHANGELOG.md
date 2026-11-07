@@ -1,5 +1,13 @@
 # @impulse-ui-native/icon
 
+## 17.0.0
+
+### Patch Changes
+
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+  - @impulse-ui-native/theme@17.0.0
+
 ## 16.0.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/flyout",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "description": "Composable, gesture-enabled flyout sheets for React Native applications.",
   "keywords": [
     "react-native",

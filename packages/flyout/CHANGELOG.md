@@ -1,5 +1,38 @@
 # @impulse-ui-native/flyout
 
+## 17.0.0
+
+### Minor Changes
+
+- fa34bce: Allow downward swipes that begin at the top of a bottom Flyout.ScrollView to drag and dismiss the sheet. Keep swipes begun below the top with native scrolling until release, and restore the sheet after cancelled drags.
+
+  Use the Gesture Handler 3 hook API and exported PanGesture type instead of the deprecated gesture builders. Require Gesture Handler 3 or newer for Flyout and its toolkit aggregation.
+
+  Allow drags during entry as soon as the measured sheet is interactive, retaining the current sheet position when a drag interrupts the entrance spring.
+
+  Add Flyout.FlatList, a thin native FlatList wrapper with shared scroll/drag coordination, themed padding, native list props and generic refs.
+
+### Patch Changes
+
+- 692223c: Infer the compound Flyout API directly from Object.assign. Name the keyboard-aware
+  view's component type at its declaration boundary so native refs remain portable
+  without duplicating the compound member map.
+- 692223c: Separate drag-context, lifecycle, and keyboard-frame types from implementations;
+  use named lifecycle contracts instead of deriving surface props from the hook.
+  Reuse the theme placement type and name gesture dismissal constants. Wait for
+  valid layout measurements before applying keyboard avoidance, preserve authored
+  padding while avoidance is inactive, and clarify package metadata and errors.
+- 692223c: Capture the expanded sheet height before close callbacks and retain keyboard body padding through dismissal. Ignore closing layout updates and release retained geometry on opening, preventing the sheet from collapsing to its pre-keyboard height before exit.
+- 692223c: Apply restrained spring motion across layers, preserve Flyout gesture release velocity, and animate measured Popover/Tooltip entry and retained exits without extra native containers. Add useOverlaySpring while retaining useOverlayTiming. Layer duration tokens now represent perceptual spring durations; lifecycle callbacks wait for settling. Popover requires Reanimated and Worklets peers.
+- 692223c: Share layer animation progress, completion and cancellation handling between timing and spring hooks. Extract capped keyboard padding geometry into a reusable worklet, remove ineffective lifecycle memoization, consolidate Popover placement styling, and keep implementation contracts in dedicated type files. Preserve motion, keyboard exit geometry and text truncation behavior.
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+- Updated dependencies [692223c]
+  - @impulse-ui-native/primitives@17.0.0
+  - @impulse-ui-native/overlay@17.0.0
+  - @impulse-ui-native/theme@17.0.0
+  - @impulse-ui-native/core@17.0.0
+
 ## 16.0.0
 
 ### Major Changes

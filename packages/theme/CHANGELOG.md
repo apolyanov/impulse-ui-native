@@ -1,5 +1,16 @@
 # @impulse-ui-native/theme
 
+## 17.0.0
+
+### Minor Changes
+
+- 692223c: Apply restrained spring motion across layers, preserve Flyout gesture release velocity, and animate measured Popover/Tooltip entry and retained exits without extra native containers. Add useOverlaySpring while retaining useOverlayTiming. Layer duration tokens now represent perceptual spring durations; lifecycle callbacks wait for settling. Popover requires Reanimated and Worklets peers.
+
+### Patch Changes
+
+- 692223c: Share layer animation progress, completion and cancellation handling between timing and spring hooks. Extract capped keyboard padding geometry into a reusable worklet, remove ineffective lifecycle memoization, consolidate Popover placement styling, and keep implementation contracts in dedicated type files. Preserve motion, keyboard exit geometry and text truncation behavior.
+  - @impulse-ui-native/core@17.0.0
+
 ## 16.0.0
 
 ### Minor Changes
