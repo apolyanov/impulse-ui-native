@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/radio",
   "slug": "radio",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Choose one option using application-owned grouping.",

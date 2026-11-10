@@ -1,5 +1,46 @@
 # @impulse-ui-native/toolkit
 
+## 17.1.0
+
+### Patch Changes
+
+- Updated dependencies [116963a]
+  - @impulse-ui-native/primitives@17.1.0
+  - @impulse-ui-native/accordion@17.1.0
+  - @impulse-ui-native/card@17.1.0
+  - @impulse-ui-native/carousel@17.1.0
+  - @impulse-ui-native/charts@17.1.0
+  - @impulse-ui-native/checkbox@17.1.0
+  - @impulse-ui-native/color-picker@17.1.0
+  - @impulse-ui-native/data-state@17.1.0
+  - @impulse-ui-native/datetime@17.1.0
+  - @impulse-ui-native/flyout@17.1.0
+  - @impulse-ui-native/form-field@17.1.0
+  - @impulse-ui-native/icon-view@17.1.0
+  - @impulse-ui-native/input@17.1.0
+  - @impulse-ui-native/list@17.1.0
+  - @impulse-ui-native/modal@17.1.0
+  - @impulse-ui-native/pagination@17.1.0
+  - @impulse-ui-native/popover@17.1.0
+  - @impulse-ui-native/radio@17.1.0
+  - @impulse-ui-native/segmented-control@17.1.0
+  - @impulse-ui-native/select@17.1.0
+  - @impulse-ui-native/skeleton@17.1.0
+  - @impulse-ui-native/slider@17.1.0
+  - @impulse-ui-native/stepper@17.1.0
+  - @impulse-ui-native/switch@17.1.0
+  - @impulse-ui-native/tabs@17.1.0
+  - @impulse-ui-native/toast@17.1.0
+  - @impulse-ui-native/core@17.1.0
+  - @impulse-ui-native/echo@17.1.0
+  - @impulse-ui-native/endpoint@17.1.0
+  - @impulse-ui-native/overlay@17.1.0
+  - @impulse-ui-native/portal@17.1.0
+  - @impulse-ui-native/theme@17.1.0
+  - @impulse-ui-native/progress@17.1.0
+  - @impulse-ui-native/flat-list@17.1.0
+  - @impulse-ui-native/scroll-view@17.1.0
+
 ## 17.0.0
 
 ### Minor Changes

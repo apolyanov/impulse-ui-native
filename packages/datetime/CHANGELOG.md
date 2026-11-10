@@ -1,5 +1,19 @@
 # @impulse-ui-native/datetime
 
+## 17.1.0
+
+### Patch Changes
+
+- Updated dependencies [116963a]
+  - @impulse-ui-native/primitives@17.1.0
+  - @impulse-ui-native/flyout@17.1.0
+  - @impulse-ui-native/select@17.1.0
+  - @impulse-ui-native/core@17.1.0
+  - @impulse-ui-native/icon@17.1.0
+  - @impulse-ui-native/portal@17.1.0
+  - @impulse-ui-native/theme@17.1.0
+  - @impulse-ui-native/flat-list@17.1.0
+
 ## 17.0.0
 
 ### Patch Changes

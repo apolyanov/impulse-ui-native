@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/theme",
   "slug": "theme",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "foundation",
     "chooseWhen": "Configure shared visual tokens and light/dark schemes.",

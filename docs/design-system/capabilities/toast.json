@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toast",
   "slug": "toast",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Show a transient status message with optional action.",
@@ -674,7 +674,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -755,7 +755,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -1101,7 +1115,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -1182,7 +1196,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",

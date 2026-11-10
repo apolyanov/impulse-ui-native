@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/primitives",
   "slug": "primitives",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "foundation",
     "chooseWhen": "Build layouts, typography, actions and custom field composition.",
@@ -11,7 +11,7 @@
     ],
     "constraints": [
       "Button/IconButton default to medium/filled/primary; Control.Field defaults to medium/outlined/neutral; Divider tone defaults to default.",
-      "Typography is a preset namespace, not shared state. Control parts consume Control.Provider/Field context.",
+      "Typography is a preset namespace, not shared state. All presets accept View-compatible margin and padding props; explicit style values take precedence. Control parts consume Control.Provider/Field context.",
       "Custom React node content owns its own foreground styling; a string child can use the component text defaults."
     ],
     "setup": ["ThemeProvider; install the owning package peer dependencies."],
@@ -3123,7 +3123,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3204,7 +3204,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -3254,7 +3268,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3335,7 +3349,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -3385,7 +3413,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3466,7 +3494,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -3516,7 +3558,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3597,7 +3639,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -3647,7 +3703,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3728,7 +3784,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -3778,7 +3848,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3859,7 +3929,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -3909,7 +3993,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -3990,7 +4074,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4040,7 +4138,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4121,7 +4219,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4171,7 +4283,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4252,7 +4364,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4302,7 +4428,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4383,7 +4509,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4433,7 +4573,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4514,7 +4654,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4564,7 +4718,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4645,7 +4799,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4695,7 +4863,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4776,7 +4944,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4826,7 +5008,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -4907,7 +5089,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -4957,7 +5153,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5038,7 +5234,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5088,7 +5298,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5169,7 +5379,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5219,7 +5443,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5300,7 +5524,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5350,7 +5588,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5431,7 +5669,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5481,7 +5733,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5562,7 +5814,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5612,7 +5878,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5693,7 +5959,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5743,7 +6023,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5824,7 +6104,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -5874,7 +6168,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -5955,7 +6249,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -6524,7 +6832,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/typography.types.ts",
-        "line": 9
+        "line": 10
       }
     },
     {

@@ -43,7 +43,7 @@ an implemented component unavailable.
 | `ThemeProvider`                | `@impulse-ui-native/theme`      | Available | Indirect  | Add a dedicated token gallery, including canvas, subtle, default, and elevated surface overrides.                 |
 | `View`                         | `@impulse-ui-native/primitives` | Available | Yes       | Keep native layout and spacing examples current.                                                                  |
 | `SafeAreaView`                 | `@impulse-ui-native/primitives` | Extend    | No        | Add stories for safe-area edges and themed spacing.                                                               |
-| `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Audit font scaling, truncation and selection on devices.                                                          |
+| `Typography`                   | `@impulse-ui-native/primitives` | Available | Yes       | Direct margin and padding props match View. Audit font scaling, truncation and selection on devices.              |
 | `Pressable`                    | `@impulse-ui-native/primitives` | Available | Yes       | All View styling props supported; validate native pressed and disabled feedback.                                  |
 | `Button`                       | `@impulse-ui-native/primitives` | Available | Yes       | Neutral, primary, and secondary tones implemented; validate native action content and loading transitions.        |
 | `IconButton`                   | `@impulse-ui-native/primitives` | Available | Yes       | Neutral, primary, and secondary tones implemented; validate native size, variant, loading, and disabled examples. |

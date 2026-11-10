@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/flyout",
   "slug": "flyout",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
@@ -1126,7 +1126,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -1207,7 +1207,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",

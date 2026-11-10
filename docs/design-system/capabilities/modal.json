@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/modal",
   "slug": "modal",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Request focused confirmation or show a compact dialog.",
@@ -622,7 +622,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -703,7 +703,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",
@@ -1239,7 +1253,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/typography.types.ts",
-            "line": 11
+            "line": 12
           }
         },
         {
@@ -1320,7 +1334,21 @@
         "left",
         "letterSpacing",
         "lineHeight",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
         "opacity",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
         "position",
         "right",
         "rowGap",

@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/scroll-view",
   "slug": "scroll-view",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "native-wrapper",
     "chooseWhen": "Scroll content and reveal an initially selected measured child.",

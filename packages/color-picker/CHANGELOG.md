@@ -1,5 +1,17 @@
 # @impulse-ui-native/color-picker
 
+## 17.1.0
+
+### Patch Changes
+
+- Updated dependencies [116963a]
+  - @impulse-ui-native/primitives@17.1.0
+  - @impulse-ui-native/input@17.1.0
+  - @impulse-ui-native/slider@17.1.0
+  - @impulse-ui-native/core@17.1.0
+  - @impulse-ui-native/icon@17.1.0
+  - @impulse-ui-native/theme@17.1.0
+
 ## 17.0.0
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toolkit",
   "slug": "toolkit",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "aggregate",
     "chooseWhen": "Consume most library packages through one application import.",
@@ -7450,7 +7450,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/typography.types.ts",
-        "line": 9
+        "line": 10
       }
     },
     {

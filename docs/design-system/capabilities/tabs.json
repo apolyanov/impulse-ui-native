@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/tabs",
   "slug": "tabs",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Switch between a few related content panels.",

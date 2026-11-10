@@ -1,5 +1,15 @@
 # @impulse-ui-native/tabs
 
+## 17.1.0
+
+### Patch Changes
+
+- Updated dependencies [116963a]
+  - @impulse-ui-native/primitives@17.1.0
+  - @impulse-ui-native/core@17.1.0
+  - @impulse-ui-native/theme@17.1.0
+  - @impulse-ui-native/scroll-view@17.1.0
+
 ## 17.0.0
 
 ### Patch Changes

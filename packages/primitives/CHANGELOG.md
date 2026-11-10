@@ -1,5 +1,17 @@
 # @impulse-ui-native/primitives
 
+## 17.1.0
+
+### Minor Changes
+
+- 116963a: Expose View-compatible margin and padding props on every Typography preset.
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.1.0
+- @impulse-ui-native/icon@17.1.0
+- @impulse-ui-native/theme@17.1.0
+
 ## 17.0.0
 
 ### Patch Changes

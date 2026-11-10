@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/color-picker",
   "slug": "color-picker",
-  "version": "17.0.0",
+  "version": "17.1.0",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Choose and edit a color inline.",
