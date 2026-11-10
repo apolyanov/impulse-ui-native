@@ -358,7 +358,7 @@
       ],
       "constraints": [
         "Button/IconButton default to medium/filled/primary; Control.Field defaults to medium/outlined/neutral; Divider tone defaults to default.",
-        "Typography is a preset namespace, not shared state. Control parts consume Control.Provider/Field context.",
+        "Typography is a preset namespace, not shared state. All presets accept View-compatible margin and padding props; explicit style values take precedence. Control parts consume Control.Provider/Field context.",
         "Custom React node content owns its own foreground styling; a string child can use the component text defaults."
       ],
       "setup": ["ThemeProvider; install the owning package peer dependencies."],

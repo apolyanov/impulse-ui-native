@@ -20,7 +20,7 @@ pnpm add react-native-safe-area-context react-native-svg
 
 - `View` adds theme spacing, dimensions, flex, borders, colors, and shadow props to React Native's view.
 - `SafeAreaView` maps safe-area edges to the theme spacing scale.
-- `Typography` exposes named text presets such as `DisplayLarge`, `Title1`, `Body`, `Caption`, and `Code`.
+- `Typography` exposes named text presets such as `DisplayLarge`, `Title1`, `Body`, `Caption`, and `Code`. All presets accept the same direct margin and padding props as `View`, including side, horizontal, and vertical props. Explicit `style` values take precedence.
 - `Button`, `IconButton`, and `Pressable` provide themed interaction primitives.
 - `Tag` labels categories, filters, and metadata, with optional press and close behavior.
 - `Badge` provides compact semantic labels with visual variants and Input-style prefix and suffix addons.
@@ -30,6 +30,14 @@ pnpm add react-native-safe-area-context react-native-svg
 - `Control` is a compound control system with `Provider`, `Root`, `Label`, `Container`, `Addon`, `Input`, `Placeholder`, `Value`, `Loader`, and `Error` parts.
 - `createPreset` creates reusable themed typography presets.
 - Public prop types describe every primitive and control part.
+
+All Typography presets support direct spacing props:
+
+```tsx
+<Typography.Body marginBottom={8} paddingHorizontal={16}>
+  Spaced text
+</Typography.Body>
+```
 
 Typography presets update their colors with the active theme:
 
