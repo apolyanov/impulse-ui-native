@@ -1,5 +1,15 @@
 # @impulse-ui-native/modal
 
+## 17.2.0
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.2.0
+- @impulse-ui-native/icon@17.2.0
+- @impulse-ui-native/overlay@17.2.0
+- @impulse-ui-native/primitives@17.2.0
+- @impulse-ui-native/theme@17.2.0
+
 ## 17.1.0
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/select",
   "slug": "select",
-  "version": "17.1.0",
+  "version": "17.2.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Choose one or multiple primitive values from a list.",

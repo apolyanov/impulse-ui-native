@@ -1,5 +1,20 @@
 # @impulse-ui-native/select
 
+## 17.2.0
+
+### Patch Changes
+
+- 6b266a8: Expose a list ref and explicit `scrollToInitialIndex` operation from the initial-scroll hook. Replace Select opening/search remount keys with native scrolling, and refresh the selected target on each opening.
+- Updated dependencies [6b266a8]
+  - @impulse-ui-native/flat-list@17.2.0
+  - @impulse-ui-native/core@17.2.0
+  - @impulse-ui-native/flyout@17.2.0
+  - @impulse-ui-native/icon@17.2.0
+  - @impulse-ui-native/input@17.2.0
+  - @impulse-ui-native/portal@17.2.0
+  - @impulse-ui-native/primitives@17.2.0
+  - @impulse-ui-native/theme@17.2.0
+
 ## 17.1.0
 
 ### Patch Changes

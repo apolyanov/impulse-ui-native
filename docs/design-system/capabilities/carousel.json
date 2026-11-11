@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/carousel",
   "slug": "carousel",
-  "version": "17.1.0",
+  "version": "17.2.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Browse a finite horizontal collection with snapping.",

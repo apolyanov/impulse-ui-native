@@ -1,5 +1,11 @@
 # @impulse-ui-native/flat-list
 
+## 17.2.0
+
+### Minor Changes
+
+- 6b266a8: Expose a list ref and explicit `scrollToInitialIndex` operation from the initial-scroll hook. Replace Select opening/search remount keys with native scrolling, and refresh the selected target on each opening.
+
 ## 17.1.0
 
 ## 17.0.0

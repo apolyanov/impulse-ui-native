@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/input",
   "slug": "input",
-  "version": "17.1.0",
+  "version": "17.2.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Enter single-line or multiline text.",

@@ -1,5 +1,7 @@
 # @impulse-ui-native/portal
 
+## 17.2.0
+
 ## 17.1.0
 
 ## 17.0.0
