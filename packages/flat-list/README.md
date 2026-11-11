@@ -19,7 +19,7 @@ import {
 } from "@impulse-ui-native/flat-list";
 
 function OptionsList({ options, selectedIndex, rowHeight, renderItem }) {
-  const initialScroll = useFlatListInitialScroll({
+  const { scrollToInitialIndex, ...initialScroll } = useFlatListInitialScroll({
     itemSize: rowHeight,
     initialScrollIndex: selectedIndex,
   });
@@ -28,7 +28,7 @@ function OptionsList({ options, selectedIndex, rowHeight, renderItem }) {
 }
 ```
 
-The hook returns only native `initialScrollIndex` and a stable `getItemLayout`. FlatList itself performs initial scrolling and virtualization. `FlatList` is the native component, so all native props, callbacks, and refs work directly.
+Destructure `scrollToInitialIndex` before spreading the remaining result onto the list. The remaining props are a list `ref`, native `initialScrollIndex`, and a stable `getItemLayout`. Call `scrollToInitialIndex()` to reposition an existing list without animation, using the latest target index. FlatList itself performs initial scrolling and virtualization. `FlatList` is the native component, so all native props, callbacks, and refs work directly.
 
 | Hook option          | Meaning                                                                            |
 | -------------------- | ---------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ The hook returns only native `initialScrollIndex` and a stable `getItemLayout`. 
 
 Use the same size for rendered rows and `itemSize`. For multiple columns, use the native row index, not an individual item index. For rows with different known sizes, provide your own accurate native `getItemLayout` instead of this fixed-size helper.
 
-Initial positioning follows native FlatList's mount behavior. Remount the list when a fresh initial position is needed, and mount it after asynchronously loaded data is available. Changing the selected value after initialization does not scroll an existing list.
+Initial positioning follows native FlatList's mount behavior. For asynchronous data, mount the list after data is available, or call `scrollToInitialIndex()` once the target row is available and the list has laid out. Changing the target index alone does not scroll an existing list; call the method explicitly when repositioning is intended. An omitted or negative target is ignored. If you supply your own list ref, use its native scrolling methods instead.
 
 Exports: `FlatList`, `useFlatListInitialScroll`, `FlatListProps`, `FlatListRef`, and `UseFlatListInitialScrollOptions`.
 

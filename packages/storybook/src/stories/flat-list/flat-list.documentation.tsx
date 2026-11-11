@@ -10,13 +10,13 @@ export function FlatListDocumentation() {
     >
       <Typography.Body>
         Give the hook the actual fixed row height, or width for horizontal
-        lists. Spread its result onto FlatList. Native FlatList handles initial
-        positioning.
+        lists. Destructure scrollToInitialIndex and spread the remaining props
+        onto FlatList. Native FlatList handles initial positioning.
       </Typography.Body>
       <Typography.Body>
-        Remount to apply a fresh initial index. For asynchronous data, mount
-        after options are available. Native props, refs, and callbacks work
-        directly.
+        Call scrollToInitialIndex to reposition the existing list. For
+        asynchronous data, mount after options are available. Native props,
+        refs, and callbacks work directly.
       </Typography.Body>
     </StoryDocumentationPage>
   );

@@ -172,7 +172,7 @@
       "kind": "native-wrapper",
       "chooseWhen": "Render long virtualized lists with known item layouts.",
       "features": [
-        "Native FlatList export and initial-scroll positioning hook."
+        "Native FlatList export and initial-scroll positioning hook with an explicit scrollToInitialIndex operation."
       ],
       "constraints": [
         "Native FlatList props are authoritative; this package does not manufacture List rows.",

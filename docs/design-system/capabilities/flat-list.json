@@ -5,7 +5,9 @@
   "guidance": {
     "kind": "native-wrapper",
     "chooseWhen": "Render long virtualized lists with known item layouts.",
-    "features": ["Native FlatList export and initial-scroll positioning hook."],
+    "features": [
+      "Native FlatList export and initial-scroll positioning hook with an explicit scrollToInitialIndex operation."
+    ],
     "constraints": [
       "Native FlatList props are authoritative; this package does not manufacture List rows.",
       "Use the initial-scroll helper when row sizes are known; use scroll-view for measured content."
@@ -355,7 +357,7 @@
       },
       "signatures": [
         {
-          "text": "<Item>(options: UseFlatListInitialScrollOptions): { initialScrollIndex: number | undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> | undefined, index: number) => { length: number; offset: number; index: number; }; }",
+          "text": "<Item>(options: UseFlatListInitialScrollOptions): { ref: import(\"react\").RefObject<FlatList<Item> | null>; initialScrollIndex: number | undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> | undefined, index: number) => { length: number; offset: number; index: number; }; scrollToInitialIndex: () => void; }",
           "abbreviated": false
         }
       ]

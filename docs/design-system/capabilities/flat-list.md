@@ -8,7 +8,7 @@ Render long virtualized lists with known item layouts.
 
 ## Capabilities
 
-- Native FlatList export and initial-scroll positioning hook.
+- Native FlatList export and initial-scroll positioning hook with an explicit scrollToInitialIndex operation.
 
 ## Boundaries and composition
 
@@ -57,7 +57,7 @@ Style props: none detected. Additional inherited native props: 206. See exact AP
 - `FlatListProps` (type)
 - `FlatListRef` (type)
 - `useFlatListInitialScroll` (hook)
-  - `<Item>(options: UseFlatListInitialScrollOptions): { initialScrollIndex: number \| undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> \| undefined, index: number) => { length: number; offset: number; index: number; }; }`
+  - `<Item>(options: UseFlatListInitialScrollOptions): { ref: import("react").RefObject<FlatList<Item> \| null>; initialScrollIndex: number \| undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> \| undefined, index: number) => { length: number; offset: number; index: number; }; scrollToInitialIndex: () => void; }`
 - `UseFlatListInitialScrollOptions` (type)
 
 ### FlatList methods

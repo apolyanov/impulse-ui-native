@@ -1,7 +1,7 @@
 import type { ListRenderItemInfo } from "react-native";
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 
-import { memo } from "@impulse-ui-native/core";
+import { memo, useEventCallback } from "@impulse-ui-native/core";
 import {
   FlatList,
   useFlatListInitialScroll,
@@ -33,8 +33,6 @@ export const SelectOptions = memo(function SelectOptions<
     optionsLoading = false,
   } = props;
 
-  const initialSelection = useRef(isSelected);
-
   const { select: tokens, controlContainer, flyout } = useComponentsTokens();
   const { query, setQuery, normalizedQuery, visibleOptions, showEmptyState } =
     useSelectSearch({
@@ -63,27 +61,30 @@ export const SelectOptions = memo(function SelectOptions<
   const availableHeight = tokens.flyoutHeight - searchHeight - loadingHeight;
   const canScroll = optionsHeight > availableHeight;
 
-  const selectedIndex = useMemo(
-    () =>
-      options.findIndex(
-        (option) =>
-          option.value !== null &&
-          option.value !== undefined &&
-          initialSelection.current(option.value),
-      ),
-    [options],
+  const selectedIndex = options.findIndex(
+    (option) =>
+      option.value !== null &&
+      option.value !== undefined &&
+      isSelected(option.value),
   );
-
   const shouldScrollToSelected =
     initialScrollToSelected &&
     !normalizedQuery &&
     canScroll &&
     selectedIndex >= 0;
-  const initialScrollIndex = shouldScrollToSelected ? selectedIndex : undefined;
+  const initialScrollIndex = shouldScrollToSelected ? selectedIndex : 0;
 
-  const initialScroll = useFlatListInitialScroll<SelectOption<Value>>({
+  const { scrollToInitialIndex, ...initialScroll } = useFlatListInitialScroll<
+    SelectOption<Value>
+  >({
     itemSize: optionHeight,
     initialScrollIndex,
+  });
+
+  const resetScroll = useEventCallback(() => {
+    if (!optionsLoading && visibleOptions.length > 0) {
+      scrollToInitialIndex();
+    }
   });
 
   const renderItem = useCallback(
@@ -101,6 +102,16 @@ export const SelectOptions = memo(function SelectOptions<
     },
     [isSelected, onSelect, tone],
   );
+
+  useEffect(() => {
+    resetScroll();
+  }, [
+    initialScrollToSelected,
+    normalizedQuery,
+    options,
+    optionsLoading,
+    resetScroll,
+  ]);
 
   return (
     <Flyout.KeyboardAwareView style={containerStyle}>
@@ -129,8 +140,8 @@ export const SelectOptions = memo(function SelectOptions<
         </View>
       ) : null}
       <FlatList
-        key={normalizedQuery}
         {...initialScroll}
+        onLayout={resetScroll}
         data={visibleOptions}
         renderItem={renderItem}
         keyExtractor={getOptionId}

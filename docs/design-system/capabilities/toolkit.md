@@ -1030,7 +1030,7 @@ This package has no directly owned visual components in its public root; use its
 - `useEventCallback` (hook)
   - `<Handler extends (...args: any[]) => any>(handler: Handler): (...args: Parameters<Handler>) => ReturnType<Handler>`
 - `useFlatListInitialScroll` (hook)
-  - `<Item>(options: UseFlatListInitialScrollOptions): { initialScrollIndex: number \| undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> \| undefined, index: number) => { length: number; offset: number; index: number; }; }`
+  - `<Item>(options: UseFlatListInitialScrollOptions): { ref: import("react").RefObject<FlatList<Item> \| null>; initialScrollIndex: number \| undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> \| undefined, index: number) => { length: number; offset: number; index: number; }; scrollToInitialIndex: () => void; }`
 - `UseFlatListInitialScrollOptions` (type)
 - `useHostPortals` (hook)
   - `(name: HostName): import("@impulse-ui-native/toolkit").PortalEntry[]`

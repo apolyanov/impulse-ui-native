@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-import { memo, useEventCallback } from "@impulse-ui-native/core";
+import { memo } from "@impulse-ui-native/core";
 import { Flyout } from "@impulse-ui-native/flyout";
 import { Portal } from "@impulse-ui-native/portal";
 
@@ -23,25 +21,17 @@ export const SelectFlyout = memo(function SelectFlyoutContent<
     ...rest
   } = props;
 
-  const [openingKey, setOpeningKey] = useState(0);
-
-  const handleOpen = useEventCallback((id: string) => {
-    setOpeningKey((key) => key + 1);
-    rest.onOpen?.(id);
-  });
-
   const shouldScrollToSelected = Boolean(rest.open) && initialScrollToSelected;
 
   return (
     <Portal>
-      <Flyout {...rest} onOpen={handleOpen}>
+      <Flyout {...rest}>
         <SelectOptions
           searchable={searchable}
           searchValue={searchValue}
           onSearchChange={onSearchChange}
           optionsLoading={optionsLoading}
           tone={tone}
-          key={openingKey}
           options={options}
           isSelected={isSelected}
           onSelect={onSelect}

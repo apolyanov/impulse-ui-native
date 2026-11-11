@@ -63,10 +63,11 @@ export const PickerColumn = memo(function PickerColumn(
   const initialRenderCount = visibleRowCount * renderWindowSize + 1;
   const firstRenderIndex = Math.max(0, initialIndex - visibleRowCount);
 
-  const initialScroll = useFlatListInitialScroll<number>({
-    itemSize: columnTokens.itemHeight,
-    initialScrollIndex: firstRenderIndex,
-  });
+  const { initialScrollIndex: firstScrollIndex, getItemLayout } =
+    useFlatListInitialScroll<number>({
+      itemSize: columnTokens.itemHeight,
+      initialScrollIndex: firstRenderIndex,
+    });
 
   // Position the wheel on mount instead of scrolling after its first layout.
   const initialContentOffset = useMemo(
@@ -172,7 +173,8 @@ export const PickerColumn = memo(function PickerColumn(
         overflow="hidden"
       >
         <FlatList
-          {...initialScroll}
+          initialScrollIndex={firstScrollIndex}
+          getItemLayout={getItemLayout}
           contentOffset={initialContentOffset}
           ref={listRef}
           data={data}

@@ -7956,7 +7956,7 @@
       },
       "signatures": [
         {
-          "text": "<Item>(options: UseFlatListInitialScrollOptions): { initialScrollIndex: number | undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> | undefined, index: number) => { length: number; offset: number; index: number; }; }",
+          "text": "<Item>(options: UseFlatListInitialScrollOptions): { ref: import(\"react\").RefObject<FlatList<Item> | null>; initialScrollIndex: number | undefined; getItemLayout: (data: Readonly<ArrayLike<Item>> | undefined, index: number) => { length: number; offset: number; index: number; }; scrollToInitialIndex: () => void; }",
           "abbreviated": false
         }
       ]

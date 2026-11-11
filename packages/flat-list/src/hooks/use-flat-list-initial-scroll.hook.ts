@@ -1,5 +1,5 @@
-import type { FlatListProps } from "react-native";
-import { useCallback } from "react";
+import type { FlatList, FlatListProps } from "react-native";
+import { useCallback, useRef } from "react";
 
 import type { UseFlatListInitialScrollOptions } from "../types";
 
@@ -13,6 +13,16 @@ export function useFlatListInitialScroll<Item>(
     headerSize = 0,
   } = options;
 
+  const ref = useRef<FlatList<Item>>(null);
+
+  const scrollToInitialIndex = useCallback(() => {
+    if (initialScrollIndex == null || initialScrollIndex < 0) {
+      return;
+    }
+
+    ref.current?.scrollToIndex({ index: initialScrollIndex, animated: false });
+  }, [initialScrollIndex]);
+
   const getItemLayout = useCallback<
     NonNullable<FlatListProps<Item>["getItemLayout"]>
   >(
@@ -24,5 +34,10 @@ export function useFlatListInitialScroll<Item>(
     [itemSize, separatorSize, headerSize],
   );
 
-  return { initialScrollIndex: initialScrollIndex ?? undefined, getItemLayout };
+  return {
+    ref,
+    initialScrollIndex: initialScrollIndex ?? undefined,
+    getItemLayout,
+    scrollToInitialIndex,
+  };
 }

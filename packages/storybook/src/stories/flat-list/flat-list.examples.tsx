@@ -23,38 +23,43 @@ export const FlatListExample = memo(function FlatListExample({
   const colors = useColors();
   const space = useSpace();
 
-  const [mountKey, setMountKey] = useState(0);
   const [loaded, setLoaded] = useState(mode !== "delayed");
 
   const horizontal = mode === "horizontal";
   const extent = horizontal ? space.xxl * 3 : space.xxl;
-  const initialScroll = useFlatListInitialScroll({
+  const { scrollToInitialIndex, ...initialScroll } = useFlatListInitialScroll<
+    (typeof FlatListExampleItems)[number]
+  >({
     itemSize: extent,
     initialScrollIndex: FlatListExampleTarget,
   });
 
-  const handleReset = useCallback(() => setMountKey((value) => value + 1), []);
   const handleLoad = useCallback(() => setLoaded(true), []);
   const keyExtractor = useCallback(
     (item: (typeof FlatListExampleItems)[number]) => item.id,
     [],
   );
   const renderItem = useCallback(
-    ({ index }: ListRenderItemInfo<(typeof FlatListExampleItems)[number]>) => (
-      <View
-        height={horizontal ? undefined : extent}
-        width={horizontal ? extent : undefined}
-        padding={space.xs}
-        justifyContent="center"
-        backgroundColor={
-          index === FlatListExampleTarget
-            ? colors.surface.default.value
-            : colors.surface.canvas.value
-        }
-      >
-        <Typography.Body numberOfLines={1}>Option {index}</Typography.Body>
-      </View>
-    ),
+    ({ index }: ListRenderItemInfo<(typeof FlatListExampleItems)[number]>) => {
+      const height = horizontal ? undefined : extent;
+      const width = horizontal ? extent : undefined;
+      const backgroundColor =
+        index === FlatListExampleTarget
+          ? colors.surface.default.value
+          : colors.surface.canvas.value;
+
+      return (
+        <View
+          height={height}
+          width={width}
+          padding={space.xs}
+          justifyContent="center"
+          backgroundColor={backgroundColor}
+        >
+          <Typography.Body numberOfLines={1}>Option {index}</Typography.Body>
+        </View>
+      );
+    },
     [
       horizontal,
       extent,
@@ -68,18 +73,17 @@ export const FlatListExample = memo(function FlatListExample({
     <View flex={1} padding={space.sm} gap={space.sm}>
       <Typography.Title4>{mode} initial positioning</Typography.Title4>
       <Typography.Body>
-        Native FlatList starts at option {FlatListExampleTarget}. Reset remounts
-        the list to apply its initial index again.
+        Native FlatList starts at option {FlatListExampleTarget}. Reset scrolls
+        the existing list back to that option.
       </Typography.Body>
       <View flexDirection="row" gap={space.sm}>
-        <Button onPress={handleReset}>Reset</Button>
+        <Button onPress={scrollToInitialIndex}>Reset</Button>
         {!loaded ? <Button onPress={handleLoad}>Load options</Button> : null}
       </View>
       <View height={space.xxl * 5}>
         {loaded ? (
           <FlatList
             {...initialScroll}
-            key={mountKey}
             data={FlatListExampleItems}
             renderItem={renderItem}
             keyExtractor={keyExtractor}
