@@ -33,3 +33,11 @@ pnpm --filter @impulse-ui-native/site build
 ```
 
 Production Docker and Traefik deployment instructions are maintained in the [repository README](../../README.md#deploy-the-website).
+
+## Keeping public documentation current
+
+Review `lib/component-catalog.ts` against package exports and source whenever public capabilities change. Keep `lib/site-data.ts`, the Button API example in `lib/components/landing-page.tsx`, and both `app/llms*.txt/route.ts` resources aligned. Update `project.lastReviewed` after a content audit.
+
+The documentation entry point is the [design and application reference](../../docs/design-system/README.md), with task-based component selection, package capability guides, resolved tokens, and typechecked recipes. Package READMEs cover installation and setup; native Storybook demonstrates interactions. These references describe repository source, so users must check their installed version. The site API example uses the repository toolkit version; registry badges may show a different published version.
+
+Documentation destinations are shared in `documentationLinks` in `lib/site-data.ts`. Verify footer links point to their named resource rather than the repository homepage. Pure theme definitions are imported from source, so token displays follow the library without copying snapshots into the site.

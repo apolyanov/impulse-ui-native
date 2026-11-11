@@ -216,11 +216,15 @@ Theme overrides are deep partials. Hooks including `useTheme`, `useColors`, `use
 
 - Foundations: theme tokens and hooks, shared types, styling utilities, and core helpers.
 - Primitives: `View`, `SafeAreaView`, typography presets, `Pressable`, `Button`, `IconButton`, `Tag`, and compound control primitives.
-- Inputs: `Input`, `Select`, and `MultiSelect`.
+- Inputs: `Input`, `Textarea`, `FormField`, `Select`, and `MultiSelect`.
+- Selection: `Checkbox`, `Radio`, `Switch`, `SegmentedControl`, `Slider`, and `RangeSlider`.
+- Native scrolling: `FlatList`, `ScrollView`, `useFlatListInitialScroll`, and `useScrollViewInitialScroll`.
+- Color selection: [`ColorPicker`](../color-picker/README.md) with spectrum, hue, opacity, hex/RGB entry, theme presets, immediate or staged Apply/Cancel updates, and composable parts.
+- Content: `Card` and `List`, with ready-made components and namespaced composition APIs from their dedicated packages; `Accordion`, `Carousel`, and non-pressable `IconView` surfaces.
 - Date and time: `DatePicker`, `DateRangePicker`, `DatetimePicker`, `DatetimeRangePicker`, and `TimePicker`.
 - Charts: line, bar, pie, multi-series chart components, axes, grids, labels, hooks, and utilities.
-- Feedback: `Skeleton`, `DataView`, `LoadingView`, `EmptyView`, and `ErrorView`.
-- Navigation and overlays: `Pagination`, `Stepper`, `Flyout`, `OverlayHost`, `OverlayProvider`, `OverlayStore`, overlay registration types, `Portal`, `PortalProvider`, `PortalStore`, and portal hosts.
+- Feedback: `Progress`, `Skeleton`, `DataView`, `LoadingView`, `EmptyView`, `ErrorView`, and `Toast`.
+- Navigation and overlays: `Tabs`, `Pagination`, `Stepper`, `Modal`, `Flyout`, `Popover`, `Tooltip`, `OverlayHost`, `OverlayProvider`, `OverlayStore`, overlay registration types, `Portal`, `PortalProvider`, `PortalStore`, and portal hosts.
 - Data utilities: `EchoInstance`, echo hooks, and typed Axios/TanStack Query endpoint factories.
 
 ## Icons
@@ -244,6 +248,7 @@ The toolkit uses ES modules and declares itself side-effect free, allowing compa
 
 ## Troubleshooting
 
+- Select and keyboard-aware Flyout bodies require `react-native-keyboard-controller` and an application-level `KeyboardProvider` covering Portal/Overlay hosts. Rebuild the native app after installing it. See the [Flyout keyboard setup](../flyout/README.md#keyboard-aware-body).
 - If gestures do not respond, verify that `GestureHandlerRootView` is the outermost application view and has `flex: 1`.
 - If a registered flyout does not appear, verify that one `OverlayHost` is mounted inside the matching `OverlayProvider`.
 - If portal content does not appear, verify that `PortalProvider` and `PortalsHost` use the same stable store and host name.
@@ -254,20 +259,10 @@ The toolkit uses ES modules and declares itself side-effect free, allowing compa
 
 The source, package-specific guides, Storybook examples, and issue tracker are available at [github.com/apolyanov/impulse-ui-native](https://github.com/apolyanov/impulse-ui-native).
 
-## License
-
-Impulse UI Native is released under the [MIT license](./LICENSE).
-
-Card, List, and Progress are aggregated from `@impulse-ui-native/card`, `@impulse-ui-native/list`, and `@impulse-ui-native/progress`. Their namespaced composition APIs remain available alongside the ready-made Card and List components.
-
-Modal is aggregated from `@impulse-ui-native/modal`. It supplies Root, Header, Content, Footer, Title, and Description, with a convenience Modal composition supporting controlled local Portal usage and global OverlayHost registration.
-
-## Color picker
-
-ColorPicker selects custom colors with spectrum, hue, opacity, hex/RGB entry, and theme presets. It supports immediate or staged Apply/Cancel updates and exposes composable parts. See the [ColorPicker API](../color-picker/README.md).
-
 ## Agent and design reference
 
 Start with the [capability guide](../../docs/design-system/capabilities/toolkit.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
 
-Flyout keyboard-aware bodies and Select require `react-native-keyboard-controller` and an application-level `KeyboardProvider` covering Portal/Overlay hosts. Rebuild the native app after installing it. See the [Flyout keyboard setup](../flyout/README.md#keyboard-aware-body).
+## License
+
+Impulse UI Native is released under the [MIT license](./LICENSE).

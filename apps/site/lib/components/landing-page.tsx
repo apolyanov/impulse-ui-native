@@ -4,6 +4,7 @@ import { GithubLogoIcon, ImpulseUINativeLogoIcon } from "@/lib/icons";
 import { SystemIcon } from "@/lib/icons/system-icon";
 import {
   componentTokenNames,
+  documentationLinks,
   primitiveTokenExample,
   primitiveTokenGroups,
   project,
@@ -384,7 +385,7 @@ const architectureLayers = [
     [
       "components.button.sizes",
       "components.tag.colors",
-      "components.controlContainer.variants",
+      "components.controlContainer.colors",
     ],
   ],
   [
@@ -457,8 +458,9 @@ export function ArchitectureSection() {
 const buttonApi = [
   ["size", '"small" | "medium" | "large"', '"medium"'],
   ["variant", '"filled" | "outlined" | "soft" | "ghost"', '"filled"'],
+  ["tone", '"neutral" | "primary" | "secondary"', '"primary"'],
   ["loading", "boolean", "false"],
-  ["disabled", "boolean", "false"],
+  ["disabled", "boolean", "undefined"],
   ["onPress", "PressableProps['onPress']", "–"],
   ["shadow", '"none" | "xs" | "sm" | "md" | "lg" | "xl"', "–"],
 ] as const;
@@ -512,7 +514,7 @@ export function DeveloperExperienceSection() {
                 <code className="text-xsm font-bold">{"<Button />"}</code>
               </div>
               <span className="text-[10px] text-text-disabled">
-                <PackageVersion prefix="Actual v" suffix=" API" />
+                Repository v{project.version} API
               </span>
             </div>
             <div className="hidden grid-cols-[0.8fr_1.8fr_0.7fr] gap-xs border-b border-border-subtle bg-surface-canvas px-sm py-xs text-[10px] font-semiBold uppercase text-text-disabled sm:grid">
@@ -616,9 +618,39 @@ export function ContributeSection() {
 
 export function DocsAndFooter() {
   const groups = [
-    ["Learn", ["Documentation", "Components", "Tokens", "Theming"]],
-    ["Community", ["GitHub", "Contributing", "Issues", "Discussions"]],
-    ["Project", ["Changelog", "Roadmap", "License", "Brand"]],
+    [
+      "Learn",
+      [
+        { label: "Documentation", href: documentationLinks.guide },
+        { label: "Components", href: "#components" },
+        { label: "Tokens", href: "#tokens" },
+        { label: "Theming", href: "#theming" },
+      ],
+    ],
+    [
+      "Build",
+      [
+        { label: "Application setup", href: documentationLinks.setup },
+        { label: "Component chooser", href: documentationLinks.chooser },
+        { label: "Recipes", href: documentationLinks.recipes },
+        { label: "Issues", href: `${project.repository}/issues` },
+      ],
+    ],
+    [
+      "Project",
+      [
+        { label: "GitHub", href: project.repository },
+        {
+          label: "Changelog",
+          href: `${project.repository}/blob/main/packages/toolkit/CHANGELOG.md`,
+        },
+        {
+          label: "Roadmap",
+          href: `${project.repository}/blob/main/docs/component-roadmap.md`,
+        },
+        { label: "License", href: project.licenseUrl },
+      ],
+    ],
   ] as const;
 
   return (
@@ -633,13 +665,14 @@ export function DocsAndFooter() {
             <span className="text-primary">stay coherent.</span>
           </h2>
           <p className="mx-auto mt-sm max-w-2xl text-body-large text-white/60">
-            Start with tokens, compose with components, and shape the system
-            around your product.
+            Start with application setup, choose components by task, and follow
+            source-derived API guides and typechecked recipes. Use native
+            Storybook to explore interactions on iOS and Android.
           </p>
           <div className="mt-md flex flex-wrap justify-center gap-xs">
             <a
               className={`${actionBase} border-primary bg-primary text-primary-contrast`}
-              href={project.repository}
+              href={documentationLinks.guide}
             >
               Read documentation
               <SystemIcon className="size-sm" name="arrow" />
@@ -687,16 +720,12 @@ export function DocsAndFooter() {
               </p>
               <ul className="mt-sm space-y-xs">
                 {items.map((item) => (
-                  <li key={item}>
+                  <li key={item.label}>
                     <a
                       className="inline-flex min-h-11 items-center text-body-small transition-colors hover:text-primary"
-                      href={
-                        item === "License"
-                          ? project.licenseUrl
-                          : project.repository
-                      }
+                      href={item.href}
                     >
-                      {item}
+                      {item.label}
                     </a>
                   </li>
                 ))}

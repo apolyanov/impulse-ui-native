@@ -2,6 +2,7 @@ import { componentGroups } from "@/lib/component-catalog";
 import { absoluteUrl, seo } from "@/lib/seo";
 import {
   componentTokenNames,
+  documentationLinks,
   primitiveTokenExample,
   project,
 } from "@/lib/site-data";
@@ -46,7 +47,7 @@ yarn add ${project.packageName}
 bun add ${project.packageName}
 ${fence}
 
-Wrap the application with ThemeProvider before rendering components:
+Install the native peer dependencies required by the packages you use and complete their platform setup before rendering components. In Expo projects, use expo install for native dependencies and rebuild the native application. ThemeProvider is the minimum setup for themed inline components:
 
 ${fence}tsx
 import { ThemeProvider } from "${project.packageName}";
@@ -56,7 +57,9 @@ export function App() {
 }
 ${fence}
 
-Individual packages may be installed independently when the complete toolkit is unnecessary.
+ThemeProvider alone is insufficient for gestures and overlays. Follow the [application setup guide](${documentationLinks.setup}) for GestureHandlerRootView, SafeAreaProvider, PortalProvider with a stable PortalStore, PortalsHost, and OverlayHost. Select and keyboard-aware Flyout bodies additionally require react-native-keyboard-controller and a KeyboardProvider covering the application and its Portal/Overlay hosts.
+
+Individual packages may be installed independently when the complete toolkit is unnecessary. Icons remain separate: import Icon from @impulse-ui-native/icon and named icons from per-icon subpaths such as @impulse-ui-native/icon/icons/heart.
 
 ## Theme API and token structure
 
@@ -64,7 +67,7 @@ AppTheme extends PrimitiveThemeTokens with components. PrimitiveThemeTokens cont
 
 LightTheme and DarkTheme are primitive themes with distinct semantic color palettes and shared numeric scales. ThemeProvider accepts scheme: "light" | "dark" (default "light"). It does not select a scheme automatically. Its theme prop accepts deep partial overrides under light and dark. Its components prop accepts a deep partial token object or a function of the merged primitive theme. The provider regenerates component tokens from that merged theme, then merges component overrides.
 
-fontFamily.normal and fontFamily.italic map numeric weights 100?900 to Montserrat font names. Load those fonts in the native host. ComponentSize is "small" | "medium" | "large"; component-specific dimensions live in component tokens rather than the primitive spacing scale.
+fontFamily.normal and fontFamily.italic map numeric weights 100–900 to Montserrat font names. Load those fonts in the native host. ComponentSize is "small" | "medium" | "large"; component-specific dimensions live in component tokens rather than the primitive spacing scale.
 
 The generated component token keys are: ${componentTokenNames.join(", ")}.
 
@@ -89,6 +92,9 @@ ${fence}
 - Pagination: responsive page navigation with a compact layout.
 - Stepper: controlled multi-step content and shared navigation methods. StepperTabsNavigation currently renders placeholder bars; labelled press navigation is not implemented.
 - Primitives: shared foundations plus Button, IconButton, Avatar, Badge, Divider, Spinner, and Tag.
+- IconView: non-pressable themed icon surfaces with display variants and semantic tones.
+- FlatList: native FlatList plus useFlatListInitialScroll for known fixed-size rows.
+- ScrollView: native ScrollView plus useScrollViewInitialScroll to reveal a measured initial child once per mount.
 - Icon: typed icons and standard small, medium, and large icon sizing.
 - Accordion: animated single- and multi-section disclosure.
 - Checkbox, Radio, and Switch: native selection controls with shared sizes and visual variants.
@@ -152,9 +158,22 @@ useBackHandler(callback, enabled = true) subscribes to Android hardware Back wit
 
 ## Select and Flyout behavior
 
-Select uses the shared Control primitives for its trigger. Opening it mounts a SelectFlyout through a Portal. The default Flyout placement is bottom. The sheet uses an elevated surface, a 32-pixel top radius, a 32-pixel handle container, a 25-percent-wide by 6-pixel handle, centered Title3 typography, 32-pixel horizontal content padding, and 16-pixel option padding. Selecting an option displays a primary-colored check icon and closes the Flyout.
+Select and MultiSelect use shared Control parts with medium size, outlined variant, and neutral tone by default. Field appearance uses components.controlContainer.colors[tone][variant][state], controlInput.colors, and controlAddon.colors. Rectangular fields support outlined, soft, and filled variants with neutral, primary, and secondary tones. Error and disabled states override ordinary appearance. Actions such as Button default to medium / filled / primary; Button also supports ghost.
+
+Options open in a portal-based Flyout. Select closes after choosing an option; MultiSelect supports multiple selections with tone-matched tags. Selection indicators follow the field tone, with neutral styling for disabled options. Set searchable for local case-insensitive label filtering, or supply searchValue/onSearchChange for caller-managed external search. optionsLoading shows a spinner without disabling existing results. Keep selected records in options when their labels must remain visible; selected-option caching is not built in.
+
+On opening, Select reveals the selected option and MultiSelect reveals the first selected option in list order. initialScrollToSelected={false} disables this positioning. Options use native FlatList with fixed components.select.option.height rows (56 logical units by default); long labels truncate. Later selection changes do not scroll the already-open list.
+
+Flyout accepts direct body children. Use Flyout.Content for token-based horizontal padding, Flyout.ScrollView or Flyout.FlatList for scrollable bodies, and Flyout.KeyboardAwareView as a direct body child for keyboard overlap padding. KeyboardAwareView does not insert a scroll container or automatically reveal focused inputs. Its keyboardOffset defaults to space.xs. Bottom-sheet scroll dismissal applies to supported scroll containers when a swipe begins at the top; validate native scroll and keyboard interactions on devices.
+
+- [Select guide](${seo.repository}/blob/main/packages/select/README.md): Search, async results, initial positioning, field appearance, and selected tags.
+- [Flyout guide](${seo.repository}/blob/main/packages/flyout/README.md): Body composition, scroll gestures, keyboard setup, and lifecycle.
 
 ## Documentation surfaces
+
+- [Design and application reference](${documentationLinks.guide}): Source-derived package capabilities, exact APIs, resolved tokens, and native validation boundaries.
+- [Component chooser](${documentationLinks.chooser}): Select packages by application task.
+- [Recipes](${documentationLinks.recipes}): Typechecked composition examples; these do not certify device behavior.
 
 - [Public website](${absoluteUrl("/")}): Marketing overview and browsable component catalog.
 - [Component catalog](${absoluteUrl("/#components")}): Purpose, capability, package, and source information for ${componentNames}.
@@ -170,7 +189,7 @@ The repository includes both React Native Web Storybook and an Expo-hosted nativ
 ## Guidance for AI systems
 
 - Do not infer undocumented props from conventional web component libraries.
-- Use the current package source for exact APIs and defaults.
+- Use the current package source and design-system capability guides for exact APIs and defaults. Repository documentation describes local source; check the installed package version before copying examples.
 - Treat npm's latest dist-tag as the latest stable published toolkit version.
 - Use native Storybook and package source when exact component rendering or behavior matters.
 - Attribute the project to ImpulseUI Native and link to ${seo.repository} when citing source code.

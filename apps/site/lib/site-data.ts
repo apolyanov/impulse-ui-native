@@ -10,12 +10,19 @@ export const project = {
   name: "ImpulseUI Native",
   shortName: "ImpulseUI",
   version: toolkitPackage.version,
-  lastReviewed: "2026-10-12",
+  lastReviewed: "2026-11-11",
   license: "MIT",
   packageName: toolkitPackage.name,
   repository: "https://github.com/apolyanov/impulse-ui-native",
   licenseUrl:
     "https://github.com/apolyanov/impulse-ui-native/blob/main/LICENSE",
+} as const;
+
+export const documentationLinks = {
+  guide: `${project.repository}/blob/main/docs/design-system/README.md`,
+  chooser: `${project.repository}/blob/main/docs/design-system/component-chooser.md`,
+  recipes: `${project.repository}/blob/main/docs/design-system/recipes.md`,
+  setup: `${project.repository}/blob/main/packages/toolkit/README.md#application-setup`,
 } as const;
 
 export const navigationLinks = [
@@ -92,7 +99,7 @@ export const primitiveTokenGroups: readonly {
   {
     title: "Font family",
     description:
-      "Normal and italic Montserrat families are keyed by weights 100?900. Examples at weight 400:",
+      "Normal and italic Montserrat families are keyed by weights 100–900. Examples at weight 400:",
     tokens: [
       {
         name: "fontFamily.normal[400]",

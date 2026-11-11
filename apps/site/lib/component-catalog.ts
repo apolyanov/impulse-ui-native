@@ -30,6 +30,22 @@ export const componentGroups = [
         tags: ["Layout", "Safe area"],
       },
       {
+        name: "FlatList",
+        description:
+          "Virtualize native rows with fixed-size initial positioning through useFlatListInitialScroll.",
+        packageName: "@impulse-ui-native/flat-list",
+        sourcePath: "flat-list/src/index.ts",
+        tags: ["Native list", "Virtualized"],
+      },
+      {
+        name: "ScrollView",
+        description:
+          "Scroll native content and reveal an initially selected child using measured layout.",
+        packageName: "@impulse-ui-native/scroll-view",
+        sourcePath: "scroll-view/src/index.ts",
+        tags: ["Native scroll", "Measured layout"],
+      },
+      {
         name: "Typography",
         description:
           "Render text through shared Montserrat presets, weights, and semantic colors.",
@@ -132,7 +148,7 @@ export const componentGroups = [
       {
         name: "Select",
         description:
-          "Choose one value through a themed control and native flyout.",
+          "Choose one value in a searchable native flyout with external search and loading support.",
         packageName: "@impulse-ui-native/select",
         sourcePath: "select/src/components/select.tsx",
         tags: ["Interactive", "Flyout"],
@@ -140,7 +156,7 @@ export const componentGroups = [
       {
         name: "MultiSelect",
         description:
-          "Choose multiple values with disabled options and a native flyout.",
+          "Choose multiple values with searchable options, loading feedback, and tone-matched tags.",
         packageName: "@impulse-ui-native/select",
         sourcePath: "select/src/components/multi-select.tsx",
         tags: ["Interactive", "Multiple values"],
@@ -237,6 +253,14 @@ export const componentGroups = [
         packageName: "@impulse-ui-native/primitives",
         sourcePath: "primitives/src/components/atoms/avatar.tsx",
         tags: ["Identity", "3 variants"],
+      },
+      {
+        name: "IconView",
+        description:
+          "Display a non-pressable icon surface with shared sizes, variants, and semantic tones.",
+        packageName: "@impulse-ui-native/icon-view",
+        sourcePath: "icon-view/src/components/icon-view.tsx",
+        tags: ["Display", "Icons"],
       },
       {
         name: "Card",
@@ -403,7 +427,7 @@ export const componentGroups = [
       {
         name: "Flyout",
         description:
-          "Present top or bottom sheets with a backdrop, drag handle, safe-area padding, and gesture dismissal.",
+          "Present top or bottom sheets with keyboard-aware bodies, scroll containers, and gesture dismissal.",
         packageName: "@impulse-ui-native/flyout",
         sourcePath: "flyout/src/components/flyout.tsx",
         tags: ["Overlay", "Animated"],

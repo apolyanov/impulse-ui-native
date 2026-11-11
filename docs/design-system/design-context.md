@@ -1,7 +1,7 @@
 # ImpulseUI Native: context for designing a new application
 
 For component selection and implementation, start with [agent-guide.md](agent-guide.md), [component-chooser.md](component-chooser.md), and the matching [recipe](recipes.md). This document provides visual foundations; detailed source appendices are lookup material.
-This document is a portable design brief for **ImpulseUI Native**, reviewed from the local source on **2026-10-23**, toolkit version **11.3.1**. Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
+This document is a portable design brief for **ImpulseUI Native**, with source provenance and the local toolkit version recorded in [snapshot.json](snapshot.json). Use it before designing screens in another project. Exact APIs and all resolved tokens accompany it in this bundle. The source is a React Native library for **iOS and Android**. The repository also has a browser Storybook preview and a Next.js marketing site; neither establishes web feature parity for the library.
 
 The application's product, users, navigation, content, brand changes, and screen layouts are still to be defined. The library supplies components and a visual system rather than a complete application template.
 
@@ -341,15 +341,16 @@ The full application's provider/host hierarchy is:
 ```text
 GestureHandlerRootView (flex: 1)
   SafeAreaProvider
-    ThemeProvider
-      OverlayProvider (stable OverlayStore)
-        PortalProvider (stable PortalStore)
-          navigator or app content
-          OverlayHost
-          PortalsHost
+    KeyboardProvider
+      ThemeProvider
+        OverlayProvider (stable OverlayStore)
+          PortalProvider (stable PortalStore)
+            navigator or app content
+            OverlayHost
+            PortalsHost
 ```
 
-Create stores outside render and mount the matching providers and global hosts once at the root. Selects/date pickers use the portal infrastructure. Gesture, font, and native peer setup remain application work. Use the full setup example in `api/toolkit.md` during implementation.
+Create stores outside render and mount the matching providers and global hosts once at the root. Selects/date pickers use the portal infrastructure. Select and keyboard-aware Flyout bodies require react-native-keyboard-controller native setup and a KeyboardProvider covering the Portal/Overlay hosts. Gesture, font, and native peer setup remain application work. Use the full setup example in `api/toolkit.md` during implementation.
 
 ## 11. Current limits that affect designs
 
@@ -357,9 +358,9 @@ Separate exported capability from unfinished behavior:
 
 - **Tabs:** only the active panel is mounted. Switching unmounts local panel state; there is no keep-mounted, panel caching, prerendering, or lazy-loading mode. Place state above the panel if it must survive switching.
 - **StepperTabsNavigation:** currently renders equal-width placeholder bars. Labels, active-step styling, press navigation, and its advertised ref behavior are unfinished. Do not base a finished step-navigation design on those being built in.
-- **Select/MultiSelect:** search, richer grouped/custom option presentation, async option states, and selection limits are roadmap extensions rather than established built-in features.
+- **Select/MultiSelect:** local label search, caller-managed external search, loading feedback, and initial selected-option positioning are supported. Grouped/custom option presentation and selection limits still require application work. Keep selected records in options to preserve their labels; selected-option caching is not built in.
 - **Date/time pickers:** constraint, locale, first-day-of-week, timezone/DST, and range-validation contracts need extension or clarification. Do not infer these from a picker name.
-- **Flyout:** snap points and stronger scroll/gesture coordination remain follow-up work.
+- **Flyout:** supported bottom-sheet ScrollView/FlatList bodies coordinate dismissal for downward swipes begun at the scroll top. KeyboardAwareView reserves keyboard overlap but does not scroll focused inputs into view. Snap points remain follow-up work; validate scroll, keyboard, and gesture interactions on devices.
 - **Carousel:** autoplay is deferred. Native snapping, resizing, preview and controlled-alignment behavior still need device validation.
 - **Charts:** exported families are line, bar, pie, and their multi-series variants. Area, scatter, and sparkline families are candidates. Exact selection, legend, orientation, and tooltip features vary by family.
 - **DataView:** successful-state children stay mounted and visually hidden under the loader during loading; plan loaded content height to avoid surrounding layout shifts.
