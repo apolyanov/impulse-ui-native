@@ -12,6 +12,7 @@ export interface ChartsLabelTokens {
 
 export interface ChartsTokens {
   palette: ChartColorPalette;
+  distribution?: { height: number; radius: number; backgroundColor: string };
   insets: { top: number; right: number; bottom: number; left: number };
   axis: { width: number; tickLength: number; labelGap: number };
   grid: { width: number };

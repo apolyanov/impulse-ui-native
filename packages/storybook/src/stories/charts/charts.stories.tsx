@@ -6,6 +6,7 @@ import { createStoryDescription } from "@impulse-ui-native/storybook";
 import { ChartsConsistencyExample } from "./charts-consistency.example";
 import { ChartsDocumentation } from "./charts.documentation";
 import { ChartExample, ChartExampleDefinitions } from "./charts.examples";
+import { DistributionBarExample } from "./distribution-bar.example";
 
 const meta = {
   title: "Components/Charts",
@@ -64,3 +65,9 @@ function createChartStory(name: string): Story {
     parameters: createStoryDescription(example.description),
   };
 }
+
+export const Distribution: Story = {
+  render: function renderDistribution() {
+    return <DistributionBarExample />;
+  },
+};

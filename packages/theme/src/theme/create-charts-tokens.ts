@@ -8,6 +8,11 @@ import { ChartColorTokens } from "./chart-color-tokens";
 export function createChartsTokens(tokens: PrimitiveThemeTokens): ChartsTokens {
   return {
     palette: ChartColorTokens,
+    distribution: {
+      height: tokens.space.md,
+      radius: tokens.radii.sm,
+      backgroundColor: tokens.colors.surface.subtle.value,
+    },
     insets: {
       top: tokens.space.md,
       right: tokens.space.md,

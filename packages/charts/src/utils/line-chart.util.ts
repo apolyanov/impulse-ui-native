@@ -155,10 +155,6 @@ function createXScale<X extends ChartXValue>(
         : ([new Date(0), new Date(1)] as const);
     const d3Scale = scaleTime().domain(domain).range(range);
 
-    if (continuousTickCount > 0) {
-      d3Scale.nice(continuousTickCount);
-    }
-
     return {
       domain: d3Scale.domain() as X[],
       ticks: d3Scale.ticks(continuousTickCount) as X[],
@@ -177,7 +173,7 @@ function createXScale<X extends ChartXValue>(
     getNumericDomain(numbers),
     range,
     continuousTickCount,
-    true,
+    false,
   );
 
   return {

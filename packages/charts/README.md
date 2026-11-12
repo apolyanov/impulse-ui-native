@@ -188,6 +188,10 @@ import { LineChart } from "@impulse-ui-native/charts";
 />;
 ```
 
+Numeric and time X domains use the exact data bounds without rounding outward.
+Automatic Y domains round outward to readable tick boundaries; custom Y domains
+preserve their bounds. This applies to both line and multi-line charts.
+
 Input order determines line connections. Sort numeric/time data by X before
 using `curve="monotone"` in the `line` options; categorical order follows the
 first occurrence of each category. Null/non-finite Y values create gaps.
@@ -329,3 +333,33 @@ rendering, and layout on iOS and Android; model tests do not exercise native UI.
 ## Agent and design reference
 
 Start with the [capability guide](../../docs/design-system/capabilities/charts.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../../docs/design-system/component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+## Distribution bar
+
+Use `DistributionBar` for a horizontal part-to-whole visualization, such as a
+category breakdown. Positive finite values fill the entire width in input order.
+No axes, domain, insets, or category padding are needed.
+
+```tsx
+import { DistributionBar } from "@impulse-ui-native/charts";
+
+<DistributionBar
+  radius={0}
+  data={Categories.map((category, index) => ({
+    id: category.name,
+    value: category.value,
+    color: palette[index],
+  }))}
+/>;
+```
+
+IDs must be unique and stable. Explicit colors override the stable ID-based chart
+palette. Zero, negative, and non-finite values are omitted; empty input shows only
+the track. A single positive value fills the width. All values represent portions
+of the supplied total; this is not a progress indicator toward a separate target.
+
+The default height, outer radius, and empty background come from
+`components.charts.distribution`. Set `radius={0}` for square edges or override
+native View `style` for dimensions. Internal joins are flush and square; only the
+outer container clips corners. The component is static and has no built-in
+selection, tooltip, or legend. It uses native views rather than a Skia canvas.

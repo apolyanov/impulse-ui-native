@@ -46,7 +46,7 @@
       "kind": "visualization",
       "chooseWhen": "Show numeric series with interactive native charts.",
       "features": [
-        "Line, multi-line, bar, multi-bar, pie and multi-pie charts.",
+        "Line, multi-line, bar, multi-bar, pie and multi-pie charts; DistributionBar for full-width part-to-whole breakdowns.",
         "Axes, legends, tooltips and gesture-driven selection."
       ],
       "constraints": [

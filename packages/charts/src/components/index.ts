@@ -7,3 +7,4 @@ export { MultiLineChart } from "./multi-line-chart";
 export { MultiPieChart } from "./multi-pie-chart";
 export { PieChart } from "./pie-chart";
 export * from "./primitives";
+export { DistributionBar } from "./distribution-bar";

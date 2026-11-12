@@ -132,6 +132,7 @@ Validate the new surface on iOS and Android.
 | `MultiLineChart`                                        | `@impulse-ui-native/charts` | Extend | Yes        | Shared category tooltips and toggleable legends implemented; add richer overlap styling.      |
 | `BarChart`                                              | `@impulse-ui-native/charts` | Extend | Yes        | Selection and horizontal orientation implemented; add configurable value labels.              |
 | `MultiBarChart`                                         | `@impulse-ui-native/charts` | Extend | Yes        | Grouped/stacked modes, horizontal orientation, selection, and toggleable legends implemented. |
+| `DistributionBar` | `@impulse-ui-native/charts` | Available | Yes | Static proportional segments with theme defaults; native visual validation pending. |
 | `PieChart`                                              | `@impulse-ui-native/charts` | Extend | Yes        | Selection, toggleable legends, and empty-data guidance implemented; add on-slice labels.      |
 | `MultiPieChart`                                         | `@impulse-ui-native/charts` | Extend | Yes        | Ring legends/toggling and interactive slice details implemented; add on-ring labels.          |
 | `Bar`, `Grid`, `Label`, `Line`, `Pie`, `XAxis`, `YAxis` | `@impulse-ui-native/charts` | Extend | Via charts | Composition contracts documented; add dedicated primitive examples.                           |

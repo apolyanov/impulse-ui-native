@@ -20,3 +20,4 @@ export * from "./use-multi-bar-chart.types";
 export * from "./use-multi-line-chart.types";
 export * from "./use-multi-pie-chart.types";
 export * from "./use-pie-chart.types";
+export * from "./distribution-bar.types";

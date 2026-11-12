@@ -37,6 +37,7 @@ import {
   createLineChartModel,
   createLineChartScaleModel,
 } from "../src/utils/line-chart.util";
+import { getDistributionBarSegments } from "../src/utils/distribution-bar.util";
 import { getIsolatedLineCoordinates } from "../src/utils/line-coordinates.util";
 import { createMultiBarChartModel } from "../src/utils/multi-bar-chart.util";
 import { createDrawableMultiLineChartSeries } from "../src/utils/multi-line-chart.util";
@@ -61,6 +62,26 @@ test("line scales infer categorical, numeric and date data", () => {
       model.coordinates.every((point) => point.x !== null && point.y !== null),
     );
     assert.ok(model.yDomain[0] < model.yDomain[1]);
+  }
+});
+
+test("continuous line X domains preserve data bounds independently of tick count", () => {
+  for (const values of [
+    [3.7, 97.2],
+    [new Date(1234), new Date(9876)],
+  ]) {
+    for (const tickCount of [0, 3, 5]) {
+      const model = createLineChartModel({
+        plot,
+        data: values.map((x, index) => ({ x, y: index === 0 ? 3.7 : 97.2 })),
+        xAxis: { tickCount },
+      });
+
+      assert.deepEqual(model.xDomain, values);
+      assert.equal(model.coordinates[0]?.x, plot.x);
+      assert.equal(model.coordinates[1]?.x, plot.x + plot.width);
+      assert.deepEqual(model.yDomain, [0, 100]);
+    }
   }
 });
 
@@ -825,4 +846,39 @@ test("continuous axes keep their default tick target", () => {
     assert.deepEqual(implicit.xTicks, explicit.xTicks);
     assert.deepEqual(implicit.yTicks, explicit.yTicks);
   }
+});
+
+test("distribution bars normalize positive values and omit invalid portions", () => {
+  const segments = getDistributionBarSegments([
+    { id: "a", value: 30 },
+    { id: "b", value: 70, color: "red" },
+    { id: "zero", value: 0 },
+    { id: "negative", value: -4 },
+    { id: "nan", value: NaN },
+    { id: "infinite", value: Infinity },
+  ]);
+  assert.deepEqual(
+    segments.map((item) => item.id),
+    ["a", "b"],
+  );
+  assert.ok(Math.abs(segments[0]!.fraction - 0.3) < 1e-12);
+  assert.ok(Math.abs(segments[1]!.fraction - 0.7) < 1e-12);
+  assert.equal(segments[1]!.color, "red");
+  assert.deepEqual(getDistributionBarSegments([]), []);
+  assert.deepEqual(getDistributionBarSegments([{ id: "zero", value: 0 }]), []);
+  assert.equal(
+    getDistributionBarSegments([{ id: "only", value: 7 }])[0]?.fraction,
+    1,
+  );
+});
+
+test("distribution fractions remain finite when raw totals would overflow", () => {
+  const segments = getDistributionBarSegments([
+    { id: "a", value: Number.MAX_VALUE },
+    { id: "b", value: Number.MAX_VALUE },
+  ]);
+  assert.deepEqual(
+    segments.map((item) => item.fraction),
+    [0.5, 0.5],
+  );
 });
