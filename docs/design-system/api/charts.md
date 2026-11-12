@@ -1,6 +1,6 @@
 # @impulse-ui-native/charts
 
-Local package version: 17.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 17.3.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -194,6 +194,10 @@ import { LineChart } from "@impulse-ui-native/charts";
 />;
 ```
 
+Numeric and time X domains use the exact data bounds without rounding outward.
+Automatic Y domains round outward to readable tick boundaries; custom Y domains
+preserve their bounds. This applies to both line and multi-line charts.
+
 Input order determines line connections. Sort numeric/time data by X before
 using `curve="monotone"` in the `line` options; categorical order follows the
 first occurrence of each category. Null/non-finite Y values create gaps.
@@ -335,6 +339,36 @@ rendering, and layout on iOS and Android; model tests do not exercise native UI.
 ## Agent and design reference
 
 Start with the [capability guide](../capabilities/charts.md) for supported exports, props, defaults, composition rules, setup, and recipes. Use the [component chooser](../component-chooser.md) to select a package. These references describe the repository source; verify your installed package version before copying examples.
+
+## Distribution bar
+
+Use `DistributionBar` for a horizontal part-to-whole visualization, such as a
+category breakdown. Positive finite values fill the entire width in input order.
+No axes, domain, insets, or category padding are needed.
+
+```tsx
+import { DistributionBar } from "@impulse-ui-native/charts";
+
+<DistributionBar
+  radius={0}
+  data={Categories.map((category, index) => ({
+    id: category.name,
+    value: category.value,
+    color: palette[index],
+  }))}
+/>;
+```
+
+IDs must be unique and stable. Explicit colors override the stable ID-based chart
+palette. Zero, negative, and non-finite values are omitted; empty input shows only
+the track. A single positive value fills the width. All values represent portions
+of the supplied total; this is not a progress indicator toward a separate target.
+
+The default height, outer radius, and empty background come from
+`components.charts.distribution`. Set `radius={0}` for square edges or override
+native View `style` for dimensions. Internal joins are flush and square; only the
+outer container clips corners. The component is static and has no built-in
+selection, tooltip, or legend. It uses native views rather than a Skia canvas.
 
 ## Public export and source reference
 
@@ -525,6 +559,72 @@ function themedStyles(theme: AppTheme) {
 }
 ```
 
+### packages/charts/src/components/distribution-bar.tsx
+
+```tsx
+import { useMemo } from "react";
+import { StyleSheet } from "react-native";
+
+import type { AppTheme } from "@impulse-ui-native/theme";
+import { memo } from "@impulse-ui-native/core";
+import { View } from "@impulse-ui-native/primitives";
+import { useTheme, useThemedStyles } from "@impulse-ui-native/theme";
+
+import type { DistributionBarProps } from "../types/distribution-bar.types";
+import { getChartColor } from "../utils/chart-color.util";
+import { getDistributionBarSegments } from "../utils/distribution-bar.util";
+
+export const DistributionBar = memo(function DistributionBar({
+  data,
+  radius,
+  style,
+  ...props
+}: DistributionBarProps) {
+  const theme = useTheme();
+  const styles = useThemedStyles(themedStyles);
+  const segments = useMemo(() => getDistributionBarSegments(data), [data]);
+  const containerStyle = useMemo(
+    () => [
+      styles.container,
+      radius === undefined ? undefined : { borderRadius: radius },
+      style,
+    ],
+    [styles.container, radius, style],
+  );
+
+  return (
+    <View {...props} style={containerStyle}>
+      {segments.map((item) => {
+        const backgroundColor =
+          item.color ?? getChartColor(item.id, theme.components.charts.palette);
+        const segmentStyle = {
+          flexBasis: 0,
+          flexGrow: item.fraction,
+          backgroundColor,
+        };
+
+        return <View key={item.id} style={segmentStyle} />;
+      })}
+    </View>
+  );
+});
+
+function themedStyles(theme: AppTheme) {
+  const tokens = theme.components.charts.distribution;
+
+  return StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      overflow: "hidden",
+      height: tokens?.height ?? theme.space.md,
+      borderRadius: tokens?.radius ?? theme.radii.sm,
+      backgroundColor:
+        tokens?.backgroundColor ?? theme.colors.surface.subtle.value,
+    },
+  });
+}
+```
+
 ### packages/charts/src/components/index.ts
 
 ```tsx
@@ -537,6 +637,7 @@ export { MultiLineChart } from "./multi-line-chart";
 export { MultiPieChart } from "./multi-pie-chart";
 export { PieChart } from "./pie-chart";
 export * from "./primitives";
+export { DistributionBar } from "./distribution-bar";
 ```
 
 ### packages/charts/src/components/line-chart/index.ts
@@ -2295,6 +2396,25 @@ export interface ChartCartesianProps<X> extends ChartContainerProps {
 }
 ```
 
+### packages/charts/src/types/distribution-bar.types.ts
+
+```tsx
+import type { ViewProps } from "@impulse-ui-native/primitives";
+
+export interface DistributionBarItem {
+  /** Unique, stable identifier. */
+  id: string;
+  value: number;
+  color?: string;
+}
+
+export interface DistributionBarProps extends Omit<ViewProps, "children"> {
+  data: readonly DistributionBarItem[];
+  /** Outer corner radius. Defaults to the chart distribution token. */
+  radius?: number;
+}
+```
+
 ### packages/charts/src/types/grid.types.ts
 
 ```tsx
@@ -2360,6 +2480,7 @@ export * from "./use-multi-bar-chart.types";
 export * from "./use-multi-line-chart.types";
 export * from "./use-multi-pie-chart.types";
 export * from "./use-pie-chart.types";
+export * from "./distribution-bar.types";
 ```
 
 ### packages/charts/src/types/label.types.ts
@@ -3880,10 +4001,6 @@ function createXScale<X extends ChartXValue>(
         : ([new Date(0), new Date(1)] as const);
     const d3Scale = scaleTime().domain(domain).range(range);
 
-    if (continuousTickCount > 0) {
-      d3Scale.nice(continuousTickCount);
-    }
-
     return {
       domain: d3Scale.domain() as X[],
       ticks: d3Scale.ticks(continuousTickCount) as X[],
@@ -3902,7 +4019,7 @@ function createXScale<X extends ChartXValue>(
     getNumericDomain(numbers),
     range,
     continuousTickCount,
-    true,
+    false,
   );
 
   return {

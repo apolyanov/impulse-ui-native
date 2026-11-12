@@ -6,7 +6,7 @@
     {
       "name": "@impulse-ui-native/accordion",
       "slug": "accordion",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Reveal or collapse sections without changing screens.",
@@ -594,7 +594,7 @@
     {
       "name": "@impulse-ui-native/card",
       "slug": "card",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Group related media, copy and actions on a surface.",
@@ -1598,7 +1598,7 @@
     {
       "name": "@impulse-ui-native/carousel",
       "slug": "carousel",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Browse a finite horizontal collection with snapping.",
@@ -1928,12 +1928,12 @@
     {
       "name": "@impulse-ui-native/charts",
       "slug": "charts",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "visualization",
         "chooseWhen": "Show numeric series with interactive native charts.",
         "features": [
-          "Line, multi-line, bar, multi-bar, pie and multi-pie charts.",
+          "Line, multi-line, bar, multi-bar, pie and multi-pie charts; DistributionBar for full-width part-to-whole breakdowns.",
           "Axes, legends, tooltips and gesture-driven selection."
         ],
         "constraints": [
@@ -2288,6 +2288,137 @@
                 "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
                 "line": 46,
                 "external": true
+              }
+            },
+            {
+              "name": "style",
+              "required": false,
+              "type": "____ViewStyleProp_Internal | undefined",
+              "choices": [""],
+              "openChoices": true,
+              "source": {
+                "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+                "line": 393,
+                "external": true
+              }
+            },
+            {
+              "name": "testID",
+              "required": false,
+              "type": "string | undefined",
+              "source": {
+                "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+                "line": 426,
+                "external": true
+              }
+            }
+          ],
+          "styleProps": [
+            "alignContent",
+            "alignItems",
+            "alignSelf",
+            "aspectRatio",
+            "backgroundColor",
+            "borderBottomColor",
+            "borderBottomLeftRadius",
+            "borderBottomRightRadius",
+            "borderBottomWidth",
+            "borderColor",
+            "borderLeftColor",
+            "borderLeftWidth",
+            "borderRadius",
+            "borderRightColor",
+            "borderRightWidth",
+            "borderStyle",
+            "borderTopColor",
+            "borderTopLeftRadius",
+            "borderTopRightRadius",
+            "borderTopWidth",
+            "borderWidth",
+            "bottom",
+            "color",
+            "columnGap",
+            "elevation",
+            "flex",
+            "flexBasis",
+            "flexDirection",
+            "flexGrow",
+            "flexShrink",
+            "flexWrap",
+            "gap",
+            "height",
+            "justifyContent",
+            "left",
+            "margin",
+            "marginBottom",
+            "marginHorizontal",
+            "marginLeft",
+            "marginRight",
+            "marginTop",
+            "marginVertical",
+            "maxHeight",
+            "maxWidth",
+            "minHeight",
+            "minWidth",
+            "opacity",
+            "overflow",
+            "padding",
+            "paddingBottom",
+            "paddingHorizontal",
+            "paddingLeft",
+            "paddingRight",
+            "paddingTop",
+            "paddingVertical",
+            "position",
+            "right",
+            "rowGap",
+            "shadow",
+            "shadowColor",
+            "shadowOffset",
+            "shadowOpacity",
+            "shadowPosition",
+            "shadowRadius",
+            "top",
+            "width",
+            "zIndex"
+          ],
+          "inheritedNativePropCount": 110,
+          "defaults": {},
+          "defaultResolution": "direct-source-only"
+        },
+        {
+          "name": "DistributionBar",
+          "source": {
+            "file": "packages/charts/src/components/distribution-bar.tsx",
+            "line": 13
+          },
+          "props": [
+            {
+              "name": "data",
+              "required": true,
+              "type": "readonly DistributionBarItem[]",
+              "source": {
+                "file": "packages/charts/src/types/distribution-bar.types.ts",
+                "line": 11
+              }
+            },
+            {
+              "name": "onLayout",
+              "required": false,
+              "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+              "source": {
+                "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+                "line": 46,
+                "external": true
+              }
+            },
+            {
+              "name": "radius",
+              "required": false,
+              "type": "number | undefined",
+              "source": {
+                "file": "packages/charts/src/types/distribution-bar.types.ts",
+                "line": 13
               }
             },
             {
@@ -4850,6 +4981,36 @@
           }
         },
         {
+          "name": "DistributionBar",
+          "kind": "value",
+          "source": {
+            "file": "packages/charts/src/components/distribution-bar.tsx",
+            "line": 13
+          },
+          "signatures": [
+            {
+              "text": "({ data, radius, style, ...props }: DistributionBarProps): import(\"react\").JSX.Element",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "DistributionBarItem",
+          "kind": "type",
+          "source": {
+            "file": "packages/charts/src/types/distribution-bar.types.ts",
+            "line": 3
+          }
+        },
+        {
+          "name": "DistributionBarProps",
+          "kind": "type",
+          "source": {
+            "file": "packages/charts/src/types/distribution-bar.types.ts",
+            "line": 10
+          }
+        },
+        {
           "name": "findChartHitTarget",
           "kind": "value",
           "source": {
@@ -5877,7 +6038,7 @@
     {
       "name": "@impulse-ui-native/checkbox",
       "slug": "checkbox",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Choose independent options or represent a mixed selection.",
@@ -6208,7 +6369,7 @@
     {
       "name": "@impulse-ui-native/color-picker",
       "slug": "color-picker",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Choose and edit a color inline.",
@@ -7906,7 +8067,7 @@
     {
       "name": "@impulse-ui-native/core",
       "slug": "core",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Reuse state, timing and callback behavior in React.",
@@ -8116,7 +8277,7 @@
     {
       "name": "@impulse-ui-native/data-state",
       "slug": "data-state",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Coordinate loading, empty, error and content states.",
@@ -8917,7 +9078,7 @@
     {
       "name": "@impulse-ui-native/datetime",
       "slug": "datetime",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Pick a date, time, date-time or range.",
@@ -10953,7 +11114,7 @@
     {
       "name": "@impulse-ui-native/echo",
       "slug": "echo",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Send typed events between disconnected React consumers.",
@@ -11072,7 +11233,7 @@
     {
       "name": "@impulse-ui-native/endpoint",
       "slug": "endpoint",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Connect an Axios API client to TanStack Query.",
@@ -11257,7 +11418,7 @@
     {
       "name": "@impulse-ui-native/flat-list",
       "slug": "flat-list",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "native-wrapper",
         "chooseWhen": "Render long virtualized lists with known item layouts.",
@@ -11639,7 +11800,7 @@
     {
       "name": "@impulse-ui-native/flyout",
       "slug": "flyout",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Show a top or bottom gesture-dismissable sheet.",
@@ -13003,7 +13164,7 @@
     {
       "name": "@impulse-ui-native/form-field",
       "slug": "form-field",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "composition",
         "chooseWhen": "Add a label, description and validation to a custom control.",
@@ -13260,7 +13421,7 @@
     {
       "name": "@impulse-ui-native/icon",
       "slug": "icon",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "visualization",
         "chooseWhen": "Render a named SVG glyph with an explicit visual weight.",
@@ -13473,7 +13634,7 @@
     {
       "name": "@impulse-ui-native/icon-view",
       "slug": "icon-view",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Show an icon on a noninteractive themed surface.",
@@ -13743,7 +13904,7 @@
     {
       "name": "@impulse-ui-native/input",
       "slug": "input",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Enter single-line or multiline text.",
@@ -14607,7 +14768,7 @@
     {
       "name": "@impulse-ui-native/list",
       "slug": "list",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "presentation",
         "chooseWhen": "Present rows with leading content, text and trailing actions.",
@@ -15647,7 +15808,7 @@
     {
       "name": "@impulse-ui-native/modal",
       "slug": "modal",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Request focused confirmation or show a compact dialog.",
@@ -17159,7 +17320,7 @@
     {
       "name": "@impulse-ui-native/overlay",
       "slug": "overlay",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Register and coordinate an application-wide overlay stack.",
@@ -17740,7 +17901,7 @@
     {
       "name": "@impulse-ui-native/pagination",
       "slug": "pagination",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Navigate numbered pages with a controlled or uncontrolled page.",
@@ -18019,7 +18180,7 @@
     {
       "name": "@impulse-ui-native/popover",
       "slug": "popover",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Anchor contextual actions or a tooltip to a trigger.",
@@ -19636,7 +19797,7 @@
     {
       "name": "@impulse-ui-native/portal",
       "slug": "portal",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "infrastructure",
         "chooseWhen": "Render local content in a named host elsewhere in the tree.",
@@ -20082,7 +20243,7 @@
     {
       "name": "@impulse-ui-native/primitives",
       "slug": "primitives",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "foundation",
         "chooseWhen": "Build layouts, typography, actions and custom field composition.",
@@ -27004,7 +27165,7 @@
     {
       "name": "@impulse-ui-native/progress",
       "slug": "progress",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "visualization",
         "chooseWhen": "Show determinate progress or ongoing activity.",
@@ -27222,7 +27383,7 @@
     {
       "name": "@impulse-ui-native/radio",
       "slug": "radio",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Choose one option using application-owned grouping.",
@@ -27539,7 +27700,7 @@
     {
       "name": "@impulse-ui-native/scroll-view",
       "slug": "scroll-view",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "native-wrapper",
         "chooseWhen": "Scroll content and reveal an initially selected measured child.",
@@ -27805,7 +27966,7 @@
     {
       "name": "@impulse-ui-native/segmented-control",
       "slug": "segmented-control",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Choose one of a few adjacent options.",
@@ -28252,7 +28413,7 @@
     {
       "name": "@impulse-ui-native/select",
       "slug": "select",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Choose one or multiple primitive values from a list.",
@@ -29026,7 +29187,7 @@
     {
       "name": "@impulse-ui-native/skeleton",
       "slug": "skeleton",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Represent the geometry of content while loading.",
@@ -30859,7 +31020,7 @@
     {
       "name": "@impulse-ui-native/slider",
       "slug": "slider",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Adjust one numeric value or a numeric range.",
@@ -31609,7 +31770,7 @@
     {
       "name": "@impulse-ui-native/stepper",
       "slug": "stepper",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Coordinate an application-owned multi-step flow.",
@@ -31946,7 +32107,7 @@
     {
       "name": "@impulse-ui-native/storybook",
       "slug": "storybook",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "authoring",
         "chooseWhen": "Author native component examples and discover supported options.",
@@ -32087,7 +32248,7 @@
     {
       "name": "@impulse-ui-native/switch",
       "slug": "switch",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Toggle a persistent boolean setting.",
@@ -32421,7 +32582,7 @@
     {
       "name": "@impulse-ui-native/tabs",
       "slug": "tabs",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "control",
         "chooseWhen": "Switch between a few related content panels.",
@@ -32793,7 +32954,7 @@
     {
       "name": "@impulse-ui-native/theme",
       "slug": "theme",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "foundation",
         "chooseWhen": "Configure shared visual tokens and light/dark schemes.",
@@ -33420,7 +33581,7 @@
           "kind": "value",
           "source": {
             "file": "packages/theme/src/theme/create-charts-tokens.ts",
-            "line": 48
+            "line": 53
           },
           "signatures": [
             {
@@ -35352,7 +35513,7 @@
     {
       "name": "@impulse-ui-native/toast",
       "slug": "toast",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "compound",
         "chooseWhen": "Show a transient status message with optional action.",
@@ -36701,7 +36862,7 @@
     {
       "name": "@impulse-ui-native/toolkit",
       "slug": "toolkit",
-      "version": "17.2.0",
+      "version": "17.3.0",
       "guidance": {
         "kind": "aggregate",
         "chooseWhen": "Consume most library packages through one application import.",
@@ -38412,7 +38573,7 @@
           "kind": "value",
           "source": {
             "file": "packages/theme/src/theme/create-charts-tokens.ts",
-            "line": 48
+            "line": 53
           },
           "signatures": [
             {
@@ -39281,6 +39442,36 @@
           "source": {
             "file": "packages/theme/src/types/components.types.ts",
             "line": 58
+          }
+        },
+        {
+          "name": "DistributionBar",
+          "kind": "value",
+          "source": {
+            "file": "packages/charts/src/components/distribution-bar.tsx",
+            "line": 13
+          },
+          "signatures": [
+            {
+              "text": "({ data, radius, style, ...props }: DistributionBarProps): import(\"react\").JSX.Element",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "DistributionBarItem",
+          "kind": "type",
+          "source": {
+            "file": "packages/charts/src/types/distribution-bar.types.ts",
+            "line": 3
+          }
+        },
+        {
+          "name": "DistributionBarProps",
+          "kind": "type",
+          "source": {
+            "file": "packages/charts/src/types/distribution-bar.types.ts",
+            "line": 10
           }
         },
         {

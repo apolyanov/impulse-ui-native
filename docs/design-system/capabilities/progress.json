@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/progress",
   "slug": "progress",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "guidance": {
     "kind": "visualization",
     "chooseWhen": "Show determinate progress or ongoing activity.",

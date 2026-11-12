@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/icon-view",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "description": "A themed, non-pressable icon surface for ImpulseUI Native.",
   "keywords": [
     "react-native",

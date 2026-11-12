@@ -1,5 +1,19 @@
 # @impulse-ui-native/charts
 
+## 17.3.0
+
+### Minor Changes
+
+- ba9b38e: Add DistributionBar for proportional horizontal segments that fill their container without axes or manual domains, with theme defaults for height, radius, and empty background.
+
+### Patch Changes
+
+- ba9b38e: Preserve exact numeric and time X bounds in line and multi-line charts instead of rounding outward.
+- Updated dependencies [ba9b38e]
+  - @impulse-ui-native/theme@17.3.0
+  - @impulse-ui-native/primitives@17.3.0
+  - @impulse-ui-native/core@17.3.0
+
 ## 17.2.0
 
 ### Patch Changes

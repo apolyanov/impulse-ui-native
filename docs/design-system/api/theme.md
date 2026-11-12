@@ -1,6 +1,6 @@
 # @impulse-ui-native/theme
 
-Local package version: 17.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 17.3.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -647,6 +647,11 @@ import { ChartColorTokens } from "./chart-color-tokens";
 export function createChartsTokens(tokens: PrimitiveThemeTokens): ChartsTokens {
   return {
     palette: ChartColorTokens,
+    distribution: {
+      height: tokens.space.md,
+      radius: tokens.radii.sm,
+      backgroundColor: tokens.colors.surface.subtle.value,
+    },
     insets: {
       top: tokens.space.md,
       right: tokens.space.md,
@@ -2743,6 +2748,7 @@ export interface ChartsLabelTokens {
 
 export interface ChartsTokens {
   palette: ChartColorPalette;
+  distribution?: { height: number; radius: number; backgroundColor: string };
   insets: { top: number; right: number; bottom: number; left: number };
   axis: { width: number; tickLength: number; labelGap: number };
   grid: { width: number };

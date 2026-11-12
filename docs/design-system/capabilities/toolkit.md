@@ -380,6 +380,10 @@ This package has no directly owned visual components in its public root; use its
 - `DefaultChartsTokens` (value)
 - `DimensionProps` (type)
 - `DisplayVariant` (type)
+- `DistributionBar` (value)
+  - `({ data, radius, style, ...props }: DistributionBarProps): import("react").JSX.Element`
+- `DistributionBarItem` (type)
+- `DistributionBarProps` (type)
 - `Divider` (value)
   - `(props: DividerProps): import("react").ReactNode`
 - `DividerInset` (type)

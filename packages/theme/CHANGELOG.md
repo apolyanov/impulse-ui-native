@@ -1,5 +1,15 @@
 # @impulse-ui-native/theme
 
+## 17.3.0
+
+### Minor Changes
+
+- ba9b38e: Add DistributionBar for proportional horizontal segments that fill their container without axes or manual domains, with theme defaults for height, radius, and empty background.
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.3.0
+
 ## 17.2.0
 
 ### Patch Changes

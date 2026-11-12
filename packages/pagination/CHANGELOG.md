@@ -1,5 +1,15 @@
 # @impulse-ui-native/pagination
 
+## 17.3.0
+
+### Patch Changes
+
+- Updated dependencies [ba9b38e]
+  - @impulse-ui-native/theme@17.3.0
+  - @impulse-ui-native/icon@17.3.0
+  - @impulse-ui-native/primitives@17.3.0
+  - @impulse-ui-native/core@17.3.0
+
 ## 17.2.0
 
 ### Patch Changes

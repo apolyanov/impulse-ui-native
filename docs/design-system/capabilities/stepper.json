@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/stepper",
   "slug": "stepper",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Coordinate an application-owned multi-step flow.",

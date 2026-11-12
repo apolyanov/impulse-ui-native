@@ -250,6 +250,9 @@ The JSON files preserve the nested structure; this table is a searchable flatten
 | `components.charts.palette.12`                                                                    | `"#0284c7"`                         | `"#0284c7"`                         |
 | `components.charts.palette.13`                                                                    | `"#7c3aed"`                         | `"#7c3aed"`                         |
 | `components.charts.palette.14`                                                                    | `"#9f5f3f"`                         | `"#9f5f3f"`                         |
+| `components.charts.distribution.height`                                                           | `32`                                | `32`                                |
+| `components.charts.distribution.radius`                                                           | `4`                                 | `4`                                 |
+| `components.charts.distribution.backgroundColor`                                                  | `"#f1f3f5"`                         | `"#16191d"`                         |
 | `components.charts.insets.top`                                                                    | `32`                                | `32`                                |
 | `components.charts.insets.right`                                                                  | `32`                                | `32`                                |
 | `components.charts.insets.bottom`                                                                 | `32`                                | `32`                                |

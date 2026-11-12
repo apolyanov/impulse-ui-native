@@ -9,7 +9,7 @@ Show numeric series with interactive native charts.
 
 ## Capabilities
 
-- Line, multi-line, bar, multi-bar, pie and multi-pie charts.
+- Line, multi-line, bar, multi-bar, pie and multi-pie charts; DistributionBar for full-width part-to-whole breakdowns.
 - Axes, legends, tooltips and gesture-driven selection.
 
 ## Boundaries and composition
@@ -103,6 +103,20 @@ Source: `packages/charts/src/components/chart-tooltip.tsx:14`. Direct defaults: 
 | ---------- | -------- | ------------------------------------------------------ |
 | `details`  | Yes      | `readonly ChartSelectionDetails[]`                     |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
+| `testID`   | No       | `string \| undefined`                                  |
+
+Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 110. See exact API types for these inherited contracts.
+
+### DistributionBar
+
+Source: `packages/charts/src/components/distribution-bar.tsx:13`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+
+| Prop       | Required | Type / choices                                         |
+| ---------- | -------- | ------------------------------------------------------ |
+| `data`     | Yes      | `readonly DistributionBarItem[]`                       |
+| `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `radius`   | No       | `number \| undefined`                                  |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -481,6 +495,10 @@ Style props: none detected. Additional inherited native props: 0. See exact API 
   - `<Value = number>(props: CreateYAxisLayoutProps<Value>): AxisLayout<Value>`
 - `CreateYAxisLayoutProps` (type)
 - `DefaultChartsTokens` (value)
+- `DistributionBar` (value)
+  - `({ data, radius, style, ...props }: DistributionBarProps): import("react").JSX.Element`
+- `DistributionBarItem` (type)
+- `DistributionBarProps` (type)
 - `findChartHitTarget` (value)
   - `(point: ChartPoint, targets: readonly ChartHitTarget[], plot: ChartRect): ChartHitTarget \| null`
 - `fitLineCoordinatesToRect` (value)

@@ -1,12 +1,12 @@
 {
   "name": "@impulse-ui-native/charts",
   "slug": "charts",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "guidance": {
     "kind": "visualization",
     "chooseWhen": "Show numeric series with interactive native charts.",
     "features": [
-      "Line, multi-line, bar, multi-bar, pie and multi-pie charts.",
+      "Line, multi-line, bar, multi-bar, pie and multi-pie charts; DistributionBar for full-width part-to-whole breakdowns.",
       "Axes, legends, tooltips and gesture-driven selection."
     ],
     "constraints": [
@@ -361,6 +361,137 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "style",
+          "required": false,
+          "type": "____ViewStyleProp_Internal | undefined",
+          "choices": [""],
+          "openChoices": true,
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 393,
+            "external": true
+          }
+        },
+        {
+          "name": "testID",
+          "required": false,
+          "type": "string | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 426,
+            "external": true
+          }
+        }
+      ],
+      "styleProps": [
+        "alignContent",
+        "alignItems",
+        "alignSelf",
+        "aspectRatio",
+        "backgroundColor",
+        "borderBottomColor",
+        "borderBottomLeftRadius",
+        "borderBottomRightRadius",
+        "borderBottomWidth",
+        "borderColor",
+        "borderLeftColor",
+        "borderLeftWidth",
+        "borderRadius",
+        "borderRightColor",
+        "borderRightWidth",
+        "borderStyle",
+        "borderTopColor",
+        "borderTopLeftRadius",
+        "borderTopRightRadius",
+        "borderTopWidth",
+        "borderWidth",
+        "bottom",
+        "color",
+        "columnGap",
+        "elevation",
+        "flex",
+        "flexBasis",
+        "flexDirection",
+        "flexGrow",
+        "flexShrink",
+        "flexWrap",
+        "gap",
+        "height",
+        "justifyContent",
+        "left",
+        "margin",
+        "marginBottom",
+        "marginHorizontal",
+        "marginLeft",
+        "marginRight",
+        "marginTop",
+        "marginVertical",
+        "maxHeight",
+        "maxWidth",
+        "minHeight",
+        "minWidth",
+        "opacity",
+        "overflow",
+        "padding",
+        "paddingBottom",
+        "paddingHorizontal",
+        "paddingLeft",
+        "paddingRight",
+        "paddingTop",
+        "paddingVertical",
+        "position",
+        "right",
+        "rowGap",
+        "shadow",
+        "shadowColor",
+        "shadowOffset",
+        "shadowOpacity",
+        "shadowPosition",
+        "shadowRadius",
+        "top",
+        "width",
+        "zIndex"
+      ],
+      "inheritedNativePropCount": 110,
+      "defaults": {},
+      "defaultResolution": "direct-source-only"
+    },
+    {
+      "name": "DistributionBar",
+      "source": {
+        "file": "packages/charts/src/components/distribution-bar.tsx",
+        "line": 13
+      },
+      "props": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "readonly DistributionBarItem[]",
+          "source": {
+            "file": "packages/charts/src/types/distribution-bar.types.ts",
+            "line": 11
+          }
+        },
+        {
+          "name": "onLayout",
+          "required": false,
+          "type": "((event: LayoutChangeEvent) => unknown) | undefined",
+          "source": {
+            "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
+            "line": 46,
+            "external": true
+          }
+        },
+        {
+          "name": "radius",
+          "required": false,
+          "type": "number | undefined",
+          "source": {
+            "file": "packages/charts/src/types/distribution-bar.types.ts",
+            "line": 13
           }
         },
         {
@@ -2920,6 +3051,36 @@
       "source": {
         "file": "packages/charts/src/constants/charts.constants.ts",
         "line": 4
+      }
+    },
+    {
+      "name": "DistributionBar",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/distribution-bar.tsx",
+        "line": 13
+      },
+      "signatures": [
+        {
+          "text": "({ data, radius, style, ...props }: DistributionBarProps): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DistributionBarItem",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/distribution-bar.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "DistributionBarProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/distribution-bar.types.ts",
+        "line": 10
       }
     },
     {

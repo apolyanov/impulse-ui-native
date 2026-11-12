@@ -367,6 +367,11 @@
         "#7c3aed",
         "#9f5f3f"
       ],
+      "distribution": {
+        "height": 32,
+        "radius": 4,
+        "backgroundColor": "#f1f3f5"
+      },
       "insets": {
         "top": 32,
         "right": 32,

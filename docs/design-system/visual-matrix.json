@@ -599,7 +599,8 @@
             "Time",
             "Single",
             "NoGrid",
-            "Empty"
+            "Empty",
+            "Distribution"
           ],
           "directory": "charts"
         }
@@ -701,6 +702,22 @@
         {
           "id": "charts/ChartTooltip/dark/default",
           "component": "ChartTooltip",
+          "scheme": "dark",
+          "props": {},
+          "state": "default",
+          "captureStatus": "not-captured"
+        },
+        {
+          "id": "charts/DistributionBar/light/default",
+          "component": "DistributionBar",
+          "scheme": "light",
+          "props": {},
+          "state": "default",
+          "captureStatus": "not-captured"
+        },
+        {
+          "id": "charts/DistributionBar/dark/default",
+          "component": "DistributionBar",
           "scheme": "dark",
           "props": {},
           "state": "default",

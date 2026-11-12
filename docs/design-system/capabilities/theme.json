@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/theme",
   "slug": "theme",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "guidance": {
     "kind": "foundation",
     "chooseWhen": "Configure shared visual tokens and light/dark schemes.",
@@ -628,7 +628,7 @@
       "kind": "value",
       "source": {
         "file": "packages/theme/src/theme/create-charts-tokens.ts",
-        "line": 48
+        "line": 53
       },
       "signatures": [
         {

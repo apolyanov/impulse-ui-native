@@ -1,6 +1,6 @@
 # @impulse-ui-native/skeleton
 
-Local package version: 17.2.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 17.3.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

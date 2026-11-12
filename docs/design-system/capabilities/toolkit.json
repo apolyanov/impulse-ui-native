@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toolkit",
   "slug": "toolkit",
-  "version": "17.2.0",
+  "version": "17.3.0",
   "guidance": {
     "kind": "aggregate",
     "chooseWhen": "Consume most library packages through one application import.",
@@ -1712,7 +1712,7 @@
       "kind": "value",
       "source": {
         "file": "packages/theme/src/theme/create-charts-tokens.ts",
-        "line": 48
+        "line": 53
       },
       "signatures": [
         {
@@ -2581,6 +2581,36 @@
       "source": {
         "file": "packages/theme/src/types/components.types.ts",
         "line": 58
+      }
+    },
+    {
+      "name": "DistributionBar",
+      "kind": "value",
+      "source": {
+        "file": "packages/charts/src/components/distribution-bar.tsx",
+        "line": 13
+      },
+      "signatures": [
+        {
+          "text": "({ data, radius, style, ...props }: DistributionBarProps): import(\"react\").JSX.Element",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
+      "name": "DistributionBarItem",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/distribution-bar.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "DistributionBarProps",
+      "kind": "type",
+      "source": {
+        "file": "packages/charts/src/types/distribution-bar.types.ts",
+        "line": 10
       }
     },
     {
