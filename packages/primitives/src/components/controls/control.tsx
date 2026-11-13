@@ -12,7 +12,21 @@ import { ControlRoot } from "./root";
 import { ControlTrigger } from "./trigger";
 import { ControlValue } from "./value";
 
-export const Control = {
+export const Control: {
+  Field: typeof ControlField;
+  Trigger: typeof ControlTrigger;
+  Icon: typeof ControlIcon;
+  Container: typeof ControlContainer;
+  Provider: typeof ControlProvider;
+  Root: typeof ControlRoot;
+  Label: typeof ControlLabel;
+  Error: typeof ControlError;
+  Addon: typeof ControlAddon;
+  Input: typeof ControlInput;
+  Placeholder: typeof ControlPlaceholder;
+  Value: typeof ControlValue;
+  Loader: typeof ControlLoader;
+} = {
   Field: ControlField,
   Trigger: ControlTrigger,
   Icon: ControlIcon,

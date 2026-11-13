@@ -9,6 +9,7 @@ Enter single-line or multiline text.
 ## Capabilities
 
 - Input uses native value/onChangeText/defaultValue; password and keyboard props.
+- Input forwards object/callback refs to the native TextInput; connect React Hook Form Controller field.ref for invalid-field focus and setFocus.
 - Textarea supports character count and bounded auto-grow; shared labels/errors/addons.
 
 ## Boundaries and composition
@@ -37,7 +38,7 @@ Optional refers to the package manifest; individual features may still require t
 
 ### Input
 
-Source: `packages/input/src/components/input.tsx:16`. Direct defaults: `size="medium"`, `variant="outlined"`, `tone="neutral"`.
+Source: `packages/input/src/components/input.tsx:27`. Direct defaults: `size="medium"`, `variant="outlined"`, `tone="neutral"`.
 
 - **valueContract**: Input/Textarea use native value/onChangeText; Control.Field supplies composition context, not a value model.
 
@@ -63,6 +64,7 @@ Source: `packages/input/src/components/input.tsx:16`. Direct defaults: `size="me
 | `placeholder`     | No       | `string \| undefined`                                                                                                                                                                                            |
 | `Prefix`          | No       | `ComponentType \| undefined`                                                                                                                                                                                     |
 | `PrefixIcon`      | No       | `ComponentType<SvgProps> \| undefined`                                                                                                                                                                           |
+| `ref`             | No       | `Ref<_TextInputInstance> \| undefined`                                                                                                                                                                           |
 | `secureTextEntry` | No       | `boolean \| undefined`                                                                                                                                                                                           |
 | `size`            | No       | `large / medium / small`                                                                                                                                                                                         |
 | `style`           | No       | `____TextStyleProp_Internal \| undefined`                                                                                                                                                                        |
@@ -73,7 +75,7 @@ Source: `packages/input/src/components/input.tsx:16`. Direct defaults: `size="me
 | `value`           | No       | `string \| undefined`                                                                                                                                                                                            |
 | `variant`         | No       | `filled / outlined / soft`                                                                                                                                                                                       |
 
-Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`, `columnGap`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `textAlign`, `textAlignVertical`, `top`, `width`, `zIndex`. Additional inherited native props: 164. See exact API types for these inherited contracts.
+Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`, `columnGap`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `textAlign`, `textAlignVertical`, `top`, `width`, `zIndex`. Additional inherited native props: 165. See exact API types for these inherited contracts.
 
 ### Textarea
 
@@ -113,7 +115,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 ## Public exports
 
 - `Input` (value)
-  - `(props: InputProps): import("react").ReactNode`
+  - `(props: InputProps & RefAttributes<import("node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow")._TextInputInstance>): import("react").ReactNode`
 - `InputProps` (type)
 - `Textarea` (value)
   - `(props: TextareaProps): import("react").ReactNode`

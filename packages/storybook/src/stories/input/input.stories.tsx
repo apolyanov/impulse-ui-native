@@ -9,6 +9,7 @@ import {
 } from "@impulse-ui-native/storybook";
 
 import { InputAppearanceExample } from "./input-appearance-example";
+import { InputFocusExample } from "./input-focus-example";
 import { InputDocumentation } from "./input.documentation";
 import { InputExample, InputExampleDefinitions } from "./input.examples";
 
@@ -92,6 +93,15 @@ export const Default: Story = createInputStory("Default");
 export const WithError: Story = createInputStory("Error");
 export const Password: Story = createInputStory("Password");
 export const Disabled: Story = createInputStory("Disabled");
+
+export const NativeRef: Story = {
+  render: function renderNativeRef() {
+    return <InputFocusExample />;
+  },
+  parameters: createStoryDescription(
+    "Press Focus email to focus the native TextInput through Input's ref. React Hook Form can use the same ref for invalid-field focus.",
+  ),
+};
 
 function createInputStory(name: string): Story {
   const example = InputExampleDefinitions.find((item) => item.name === name);

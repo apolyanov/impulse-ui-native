@@ -29398,7 +29398,8 @@
             "Default",
             "WithError",
             "Password",
-            "Disabled"
+            "Disabled",
+            "NativeRef"
           ],
           "directory": "input"
         }

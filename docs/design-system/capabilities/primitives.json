@@ -1250,7 +1250,7 @@
       "name": "Control.Input",
       "source": {
         "file": "packages/primitives/src/components/controls/input.tsx",
-        "line": 11
+        "line": 22
       },
       "props": [
         {
@@ -1390,6 +1390,16 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<_TextInputInstance> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
           "name": "secureTextEntry",
           "required": false,
           "type": "boolean | undefined",
@@ -1433,7 +1443,7 @@
         }
       ],
       "styleProps": ["textAlign", "textAlignVertical"],
-      "inheritedNativePropCount": 164,
+      "inheritedNativePropCount": 165,
       "defaults": {},
       "defaultResolution": "direct-source-only",
       "guidance": {

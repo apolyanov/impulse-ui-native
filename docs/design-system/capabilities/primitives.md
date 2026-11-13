@@ -199,7 +199,7 @@ Style props: `color`, `fontFamily`, `fontSize`, `fontStyle`, `fontVariant`, `fon
 
 ### Control.Input
 
-Source: `packages/primitives/src/components/controls/input.tsx:11`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/primitives/src/components/controls/input.tsx:22`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 - **requiresParent**: Control.Provider (normally supplied by Control.Field)
 - **contentContract**: Composition primitive; use Input/Select for assembled default icons and labels.
@@ -218,12 +218,13 @@ Source: `packages/primitives/src/components/controls/input.tsx:11`. Direct defau
 | `onLayout`        | No       | `((event: LayoutChangeEvent) => unknown) \| undefined`                                                                                                                                                           |
 | `onPress`         | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                                                                                                                                       |
 | `placeholder`     | No       | `string \| undefined`                                                                                                                                                                                            |
+| `ref`             | No       | `Ref<_TextInputInstance> \| undefined`                                                                                                                                                                           |
 | `secureTextEntry` | No       | `boolean \| undefined`                                                                                                                                                                                           |
 | `style`           | No       | `____TextStyleProp_Internal \| undefined`                                                                                                                                                                        |
 | `testID`          | No       | `string \| undefined`                                                                                                                                                                                            |
 | `value`           | No       | `string \| undefined`                                                                                                                                                                                            |
 
-Style props: `textAlign`, `textAlignVertical`. Additional inherited native props: 164. See exact API types for these inherited contracts.
+Style props: `textAlign`, `textAlignVertical`. Additional inherited native props: 165. See exact API types for these inherited contracts.
 
 ### Control.Label
 

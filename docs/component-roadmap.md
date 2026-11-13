@@ -72,7 +72,7 @@ Validate the new surface on iOS and Android.
 | Component             | Package                                | Status    | Storybook | Follow-up                                                                                                               |
 | --------------------- | -------------------------------------- | --------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Compound `Control`    | `@impulse-ui-native/primitives`        | Extend    | Indirect  | Control.Field, Control.Trigger, and Control.Icon share field composition; native validation and loading stories remain. |
-| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Three field variants and neutral/primary/secondary tones implemented; validate native appearance and addon actions.     |
+| `Input`               | `@impulse-ui-native/input`             | Available | Yes       | Native TextInput refs support imperative/form-library focus; validate native appearance, focus, and addon actions.     |
 | `Textarea`            | `@impulse-ui-native/input`             | Available | Yes       | Validate character counts, errors, and bounded auto-grow with the native keyboard.                                      |
 | `FormField`           | `@impulse-ui-native/form-field`        | Available | Yes       | Add realistic render-prop integration with custom controls and form libraries.                                          |
 | `Checkbox`            | `@impulse-ui-native/checkbox`          | Available | Yes       | Neutral/primary/secondary tones implemented; validate native appearance and existing interactions.                      |

@@ -107,6 +107,10 @@ export function ProfileSummary() {
 
 Use the compound `Control` when building a custom field that should share the same label, addon, error, size, and variant behavior as `Input` and `Select`.
 
+`Control.Input` forwards its ref to the native React Native `TextInput`. Pass an
+object or callback ref to access native methods such as `focus()`, `blur()`, and
+`clear()`, or connect a form library's field ref.
+
 `Control.Trigger` combines the field container's themed geometry with a
 Pressable. It respects group and local disabling and accepts supplied children,
 style props, and function-valued pressable styles. `Control.Icon` renders a
@@ -1571,7 +1575,21 @@ import { ControlRoot } from "./root";
 import { ControlTrigger } from "./trigger";
 import { ControlValue } from "./value";
 
-export const Control = {
+export const Control: {
+  Field: typeof ControlField;
+  Trigger: typeof ControlTrigger;
+  Icon: typeof ControlIcon;
+  Container: typeof ControlContainer;
+  Provider: typeof ControlProvider;
+  Root: typeof ControlRoot;
+  Label: typeof ControlLabel;
+  Error: typeof ControlError;
+  Addon: typeof ControlAddon;
+  Input: typeof ControlInput;
+  Placeholder: typeof ControlPlaceholder;
+  Value: typeof ControlValue;
+  Loader: typeof ControlLoader;
+} = {
   Field: ControlField,
   Trigger: ControlTrigger,
   Icon: ControlIcon,

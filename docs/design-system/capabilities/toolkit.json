@@ -4080,11 +4080,11 @@
       "kind": "value",
       "source": {
         "file": "packages/input/src/components/input.tsx",
-        "line": 16
+        "line": 23
       },
       "signatures": [
         {
-          "text": "(props: InputProps): import(\"react\").ReactNode",
+          "text": "(props: InputProps & RefAttributes<import(\"node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow\")._TextInputInstance>): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]

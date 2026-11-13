@@ -247,6 +247,7 @@
       "chooseWhen": "Enter single-line or multiline text.",
       "features": [
         "Input uses native value/onChangeText/defaultValue; password and keyboard props.",
+        "Input forwards object/callback refs to the native TextInput; connect React Hook Form Controller field.ref for invalid-field focus and setFocus.",
         "Textarea supports character count and bounded auto-grow; shared labels/errors/addons."
       ],
       "constraints": [

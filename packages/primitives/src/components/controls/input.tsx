@@ -1,4 +1,10 @@
-import { memo, useMemo } from "react";
+import type {
+  ComponentRef,
+  NamedExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from "react";
+import { forwardRef, memo, useMemo } from "react";
 import { StyleSheet, TextInput } from "react-native";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
@@ -8,45 +14,51 @@ import type { ControlInputProps } from "../../types";
 import type { ControlFieldThemeProps } from "../../types/control-theme.types";
 import { useControlContext } from "../../hooks/use-control-context.hook";
 
-export const ControlInput = memo(function ControlInput(
-  props: ControlInputProps,
-) {
-  const { onPress: _onPress, editable, style, ...rest } = props;
+export const ControlInput: NamedExoticComponent<
+  PropsWithoutRef<ControlInputProps> &
+    RefAttributes<ComponentRef<typeof TextInput>>
+> = memo(
+  forwardRef<ComponentRef<typeof TextInput>, ControlInputProps>(
+    function ControlInput(props, ref) {
+      const { onPress: _onPress, editable, style, ...rest } = props;
 
-  const {
-    size,
-    variant,
-    tone = "neutral",
-    disabled,
-    error,
-  } = useControlContext();
+      const {
+        size,
+        variant,
+        tone = "neutral",
+        disabled,
+        error,
+      } = useControlContext();
 
-  const styles = useThemedStyles(
-    themedStyles,
-    {
-      size,
-      variant,
-      tone,
-      disabled,
-      error,
+      const styles = useThemedStyles(
+        themedStyles,
+        {
+          size,
+          variant,
+          tone,
+          disabled,
+          error,
+        },
+        [size, variant, tone, disabled, error],
+      );
+
+      const inputStyles = useMemo(
+        () => [styles.input, style],
+        [styles.input, style],
+      );
+
+      return (
+        <TextInput
+          {...rest}
+          ref={ref}
+          style={inputStyles}
+          placeholderTextColor={styles.placeholder.color}
+          editable={!disabled && editable !== false}
+        />
+      );
     },
-    [size, variant, tone, disabled, error],
-  );
-
-  const inputStyles = useMemo(
-    () => [styles.input, style],
-    [styles.input, style],
-  );
-
-  return (
-    <TextInput
-      {...rest}
-      style={inputStyles}
-      placeholderTextColor={styles.placeholder.color}
-      editable={!disabled && editable !== false}
-    />
-  );
-});
+  ),
+);
 
 function themedStyles(
   theme: AppTheme,

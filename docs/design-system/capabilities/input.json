@@ -7,6 +7,7 @@
     "chooseWhen": "Enter single-line or multiline text.",
     "features": [
       "Input uses native value/onChangeText/defaultValue; password and keyboard props.",
+      "Input forwards object/callback refs to the native TextInput; connect React Hook Form Controller field.ref for invalid-field focus and setFocus.",
       "Textarea supports character count and bounded auto-grow; shared labels/errors/addons."
     ],
     "constraints": [
@@ -22,7 +23,7 @@
       "name": "Input",
       "source": {
         "file": "packages/input/src/components/input.tsx",
-        "line": 16
+        "line": 27
       },
       "props": [
         {
@@ -235,6 +236,16 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<_TextInputInstance> | undefined",
+          "source": {
+            "file": "node_modules/@types/react/index.d.ts",
+            "line": 301,
+            "external": true
+          }
+        },
+        {
           "name": "secureTextEntry",
           "required": false,
           "type": "boolean | undefined",
@@ -370,14 +381,14 @@
         "width",
         "zIndex"
       ],
-      "inheritedNativePropCount": 164,
+      "inheritedNativePropCount": 165,
       "defaults": {
         "size": {
           "expression": "\"medium\"",
           "value": "medium",
           "source": {
             "file": "packages/input/src/components/input.tsx",
-            "line": 18
+            "line": 29
           }
         },
         "variant": {
@@ -385,7 +396,7 @@
           "value": "outlined",
           "source": {
             "file": "packages/input/src/components/input.tsx",
-            "line": 19
+            "line": 30
           }
         },
         "tone": {
@@ -393,7 +404,7 @@
           "value": "neutral",
           "source": {
             "file": "packages/input/src/components/input.tsx",
-            "line": 20
+            "line": 31
           }
         }
       },
@@ -806,11 +817,11 @@
       "kind": "value",
       "source": {
         "file": "packages/input/src/components/input.tsx",
-        "line": 16
+        "line": 23
       },
       "signatures": [
         {
-          "text": "(props: InputProps): import(\"react\").ReactNode",
+          "text": "(props: InputProps & RefAttributes<import(\"node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow\")._TextInputInstance>): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]

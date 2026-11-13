@@ -36,6 +36,46 @@ import { Input } from "@impulse-ui-native/input";
 
 Use `Prefix`, `Suffix`, `PrefixIcon`, and `SuffixIcon` for control addons, and `onPressPrefix` or `onPressSuffix` when an addon is interactive.
 
+## Native refs and React Hook Form
+
+`Input` forwards object and callback refs to its native `TextInput`, exposing
+native methods such as `focus()`, `blur()`, and `clear()`. For imperative focus,
+pass a ref created with `useRef<ComponentRef<typeof TextInput>>(null)` (`ComponentRef`
+and `useRef` come from React; `TextInput` comes from React Native).
+Custom fields built with `Control.Input` support the same native ref contract.
+
+With React Hook Form, pass `Controller`'s `field.ref` to `Input` and map its
+string change callback to `onChangeText`:
+
+```tsx
+import { Controller, useForm } from "react-hook-form";
+
+import { Input } from "@impulse-ui-native/input";
+
+const { control } = useForm({ defaultValues: { email: "" } });
+
+<Controller
+  control={control}
+  name="email"
+  rules={{ required: "Enter your email address." }}
+  render={({ field, fieldState }) => (
+    <Input
+      ref={field.ref}
+      label="Email"
+      value={field.value}
+      onChangeText={field.onChange}
+      onBlur={field.onBlur}
+      error={fieldState.error?.message}
+    />
+  )}
+/>;
+```
+
+Keep `useForm` inside your form component or custom hook. Remove
+`shouldFocusError: false` to restore the default invalid-field focus after
+submission through `handleSubmit`. `setFocus("email")` also uses this ref.
+React Hook Form remains an optional consumer dependency.
+
 ## Textarea
 
 ```tsx

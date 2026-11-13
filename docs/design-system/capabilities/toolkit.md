@@ -550,7 +550,7 @@ This package has no directly owned visual components in its public root; use its
 - `InfiniteQueryEndpointRequest` (type)
 - `InfiniteRangeItem` (type)
 - `Input` (value)
-  - `(props: InputProps): import("react").ReactNode`
+  - `(props: InputProps & RefAttributes<import("node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow")._TextInputInstance>): import("react").ReactNode`
 - `InputProps` (type)
 - `isAfterDay` (value)
   - `(left: Date, right: Date): boolean`
