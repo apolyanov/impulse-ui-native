@@ -3,13 +3,10 @@ import type { View as NativeView, StyleProp, ViewStyle } from "react-native";
 import { forwardRef, memo, useMemo } from "react";
 import Animated, { AnimatedStyle } from "react-native-reanimated";
 
-import type {
-  FlyoutKeyboardAwareViewComponent,
-  FlyoutKeyboardAwareViewProps,
-} from "../types";
+import type { FlyoutKeyboardAwareViewProps } from "../types";
 import { useFlyoutKeyboardBody, useFlyoutKeyboardBodyStyle } from "../hooks";
 
-export const FlyoutKeyboardAwareView: FlyoutKeyboardAwareViewComponent = memo(
+export const FlyoutKeyboardAwareView = memo<FlyoutKeyboardAwareViewProps>(
   forwardRef<ComponentRef<typeof NativeView>, FlyoutKeyboardAwareViewProps>(
     function FlyoutKeyboardAwareView(
       {

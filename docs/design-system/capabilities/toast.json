@@ -259,7 +259,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 19
+            "line": 25
           }
         },
         {
@@ -268,7 +268,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -307,7 +307,7 @@
           "type": "ViewStyle | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 20
+            "line": 26
           }
         },
         {
@@ -327,7 +327,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 18
+            "line": 24
           }
         }
       ],
@@ -402,7 +402,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 19
+            "line": 25
           }
         },
         {
@@ -411,7 +411,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -450,7 +450,7 @@
           "type": "ViewStyle | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 20
+            "line": 26
           }
         },
         {
@@ -470,7 +470,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 18
+            "line": 24
           }
         }
       ],
@@ -539,6 +539,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -815,6 +824,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {

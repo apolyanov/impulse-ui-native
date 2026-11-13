@@ -38,7 +38,7 @@ Optional refers to the package manifest; individual features may still require t
 
 ### Input
 
-Source: `packages/input/src/components/input.tsx:27`. Direct defaults: `size="medium"`, `variant="outlined"`, `tone="neutral"`.
+Source: `packages/input/src/components/input.tsx:20`. Direct defaults: `size="medium"`, `variant="outlined"`, `tone="neutral"`.
 
 - **valueContract**: Input/Textarea use native value/onChangeText; Control.Field supplies composition context, not a value model.
 
@@ -75,7 +75,7 @@ Source: `packages/input/src/components/input.tsx:27`. Direct defaults: `size="me
 | `value`           | No       | `string \| undefined`                                                                                                                                                                                            |
 | `variant`         | No       | `filled / outlined / soft`                                                                                                                                                                                       |
 
-Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`, `columnGap`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `textAlign`, `textAlignVertical`, `top`, `width`, `zIndex`. Additional inherited native props: 165. See exact API types for these inherited contracts.
+Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`, `columnGap`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `textAlign`, `textAlignVertical`, `top`, `width`, `zIndex`. Additional inherited native props: 164. See exact API types for these inherited contracts.
 
 ### Textarea
 
@@ -115,7 +115,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `bottom`,
 ## Public exports
 
 - `Input` (value)
-  - `(props: InputProps & RefAttributes<import("node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow")._TextInputInstance>): import("react").ReactNode`
+  - `(props: InputProps): import("react").ReactNode`
 - `InputProps` (type)
 - `Textarea` (value)
   - `(props: TextareaProps): import("react").ReactNode`

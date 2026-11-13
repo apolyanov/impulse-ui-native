@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { basename, dirname, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { runInNewContext } from "node:vm";
@@ -125,10 +125,7 @@ function createHarness(mounted = true) {
         jsx: ts.JsxEmit.ReactJSX,
       },
     }).outputText;
-    const name = path
-      .split("/")
-      .at(-1)
-      .replace(/\.tsx?$/, "");
+    const name = basename(path).replace(/\.tsx?$/, "");
     const react = trackedNames.has(name)
       ? {
           ...React,

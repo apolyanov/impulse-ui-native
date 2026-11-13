@@ -45,6 +45,7 @@ Source: `packages/card/src/components/card.tsx:6`. Direct defaults: not statical
 | `header`   | No       | `ReactNode`                                            |
 | `media`    | No       | `ReactNode`                                            |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -60,6 +61,7 @@ Source: `packages/card/src/components/content.tsx:10`. Direct defaults: not stat
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -75,6 +77,7 @@ Source: `packages/card/src/components/footer.tsx:10`. Direct defaults: not stati
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -90,6 +93,7 @@ Source: `packages/card/src/components/header.tsx:10`. Direct defaults: not stati
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -105,6 +109,7 @@ Source: `packages/card/src/components/media.tsx:10`. Direct defaults: not static
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -138,6 +143,7 @@ Source: `packages/card/src/components/root.tsx:10`. Direct defaults: not statica
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 

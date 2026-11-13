@@ -41,6 +41,7 @@ Source: `packages/list/src/components/list.tsx:7`. Direct defaults: not statical
 | `children` | No       | `React.ReactNode`                                      |
 | `items`    | No       | `readonly ListEntryProps[] \| undefined`               |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -56,6 +57,7 @@ Source: `packages/list/src/components/content.tsx:10`. Direct defaults: not stat
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -71,6 +73,7 @@ Source: `packages/list/src/components/item.tsx:10`. Direct defaults: not statica
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -86,6 +89,7 @@ Source: `packages/list/src/components/leading.tsx:10`. Direct defaults: not stat
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -105,6 +109,7 @@ Source: `packages/list/src/components/pressable.tsx:15`. Direct defaults: not st
 | `onLongPress`  | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `onPress`      | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `pressedStyle` | No       | `StyleProp<ViewStyle> \| undefined`                                                                 |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                                                              |
 | `style`        | No       | `____ViewStyleProp_Internal \| ((state: PressableStateCallbackType) => ViewStyleProp) \| undefined` |
 | `testID`       | No       | `string \| undefined`                                                                               |
 
@@ -120,6 +125,7 @@ Source: `packages/list/src/components/root.tsx:10`. Direct defaults: not statica
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -135,6 +141,7 @@ Source: `packages/list/src/components/trailing.tsx:10`. Direct defaults: not sta
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 

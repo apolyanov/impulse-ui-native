@@ -48,6 +48,7 @@ Source: `packages/primitives/src/components/atoms/avatar.tsx:11`. Direct default
 | `imageProps`  | No       | `AvatarImageProps \| undefined`                        |
 | `initials`    | No       | `string \| undefined`                                  |
 | `onLayout`    | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`         | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `size`        | No       | `large / medium / small`                               |
 | `source`      | No       | `ImageSource \| undefined`                             |
 | `status`      | No       | `away / busy / offline / online`                       |
@@ -71,6 +72,7 @@ Source: `packages/primitives/src/components/atoms/badge/root.tsx:15`. Direct def
 | `onPressSuffix` | No       | `((event: GestureResponderEvent) => unknown) \| undefined`         |
 | `Prefix`        | No       | `ComponentType \| undefined`                                       |
 | `PrefixIcon`    | No       | `ComponentType<SvgProps> \| undefined`                             |
+| `ref`           | No       | `Ref<ReactNativeElement> \| undefined`                             |
 | `size`          | No       | `large / medium / small`                                           |
 | `style`         | No       | `____ViewStyleProp_Internal \| undefined`                          |
 | `Suffix`        | No       | `ComponentType \| undefined`                                       |
@@ -199,7 +201,7 @@ Style props: `color`, `fontFamily`, `fontSize`, `fontStyle`, `fontVariant`, `fon
 
 ### Control.Input
 
-Source: `packages/primitives/src/components/controls/input.tsx:22`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/primitives/src/components/controls/input.tsx:14`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 - **requiresParent**: Control.Provider (normally supplied by Control.Field)
 - **contentContract**: Composition primitive; use Input/Select for assembled default icons and labels.
@@ -224,7 +226,7 @@ Source: `packages/primitives/src/components/controls/input.tsx:22`. Direct defau
 | `testID`          | No       | `string \| undefined`                                                                                                                                                                                            |
 | `value`           | No       | `string \| undefined`                                                                                                                                                                                            |
 
-Style props: `textAlign`, `textAlignVertical`. Additional inherited native props: 165. See exact API types for these inherited contracts.
+Style props: `textAlign`, `textAlignVertical`. Additional inherited native props: 164. See exact API types for these inherited contracts.
 
 ### Control.Label
 
@@ -306,6 +308,7 @@ Source: `packages/primitives/src/components/controls/root.tsx:6`. Direct default
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -327,6 +330,7 @@ Source: `packages/primitives/src/components/controls/trigger.tsx:15`. Direct def
 | `onLongPress`  | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `onPress`      | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `pressedStyle` | No       | `StyleProp<ViewStyle> \| undefined`                                                                 |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                                                              |
 | `size`         | No       | `large / medium / small`                                                                            |
 | `style`        | No       | `____ViewStyleProp_Internal \| ((state: PressableStateCallbackType) => ViewStyleProp) \| undefined` |
 | `testID`       | No       | `string \| undefined`                                                                               |
@@ -364,6 +368,7 @@ Source: `packages/primitives/src/components/atoms/divider.tsx:14`. Direct defaul
 | `inset`       | No       | `both / end / none / start`                                           |
 | `onLayout`    | No       | `((event: LayoutChangeEvent) => unknown) \| undefined`                |
 | `orientation` | No       | `horizontal / vertical`                                               |
+| `ref`         | No       | `Ref<ReactNativeElement> \| undefined`                                |
 | `style`       | No       | `____ViewStyleProp_Internal \| undefined`                             |
 | `testID`      | No       | `string \| undefined`                                                 |
 | `tone`        | No       | `default / inverse / neutral / primary / secondary / strong / subtle` |
@@ -393,7 +398,7 @@ Style props: `aspectRatio`, `elevation`, `height`, `margin`, `marginBottom`, `ma
 
 ### Pressable
 
-Source: `packages/primitives/src/components/atoms/pressable.tsx:30`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/primitives/src/components/atoms/pressable.tsx:22`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop           | Required | Type / choices                                                                                      |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------- |
@@ -410,7 +415,7 @@ Source: `packages/primitives/src/components/atoms/pressable.tsx:30`. Direct defa
 | `testID`       | No       | `string \| undefined`                                                                               |
 | `variant`      | No       | `filled / ghost / outlined / soft`                                                                  |
 
-Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 124. See exact API types for these inherited contracts.
+Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 123. See exact API types for these inherited contracts.
 
 ### SafeAreaView
 
@@ -834,7 +839,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `backgroundColor`, `bott
 
 ### View
 
-Source: `packages/primitives/src/components/atoms/view.tsx:21`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
+Source: `packages/primitives/src/components/atoms/view.tsx:14`. Direct defaults: not statically resolved here; consult the owning implementation or inherited defaults.
 
 | Prop       | Required | Type / choices                                         |
 | ---------- | -------- | ------------------------------------------------------ |
@@ -844,7 +849,7 @@ Source: `packages/primitives/src/components/atoms/view.tsx:21`. Direct defaults:
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
-Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 111. See exact API types for these inherited contracts.
+Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 110. See exact API types for these inherited contracts.
 
 ## Public exports
 
@@ -890,7 +895,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 - `IconButtonProps` (type)
 - `IconButtonThemeProps` (type)
 - `Pressable` (value)
-  - `(props: PressableCoreProps & RefAttributes<import("node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement").default>): import("react").ReactNode`
+  - `(props: PressableCoreProps): import("react").ReactNode`
 - `PressableCoreProps` (type)
 - `SafeAreaView` (value)
   - `(props: import("react-native-safe-area-context").NativeSafeAreaViewProps): import("react").ReactNode`
@@ -908,6 +913,6 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 - `useControlContext` (hook)
   - `(): ControlContextData`
 - `View` (value)
-  - `(props: import("react-native").ViewProps & import("@impulse-ui-native/theme").SpacingProps & import("@impulse-ui-native/theme").ColorProps & import("@impulse-ui-native/theme").ShadowProps & import("@impulse-ui-native/theme").BorderProps & import("@impulse-ui-native/theme").FlexProps & import("@impulse-ui-native/theme").DimensionProps & RefAttributes<import("node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement").default>): import("react").ReactNode`
+  - `(props: ViewProps): import("react").ReactNode`
 - `ViewProps` (type)
 - `ViewStyleProps` (type)

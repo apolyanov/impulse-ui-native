@@ -364,6 +364,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "style",
           "required": false,
           "type": "____ViewStyleProp_Internal | undefined",
@@ -492,6 +501,15 @@
           "source": {
             "file": "packages/charts/src/types/distribution-bar.types.ts",
             "line": 13
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {

@@ -1,4 +1,10 @@
-import { PressableProps, StyleProp, ViewStyle } from "react-native";
+import type { ComponentRef, Ref } from "react";
+import {
+  PressableProps,
+  Pressable as RNPressable,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 
 import {
   ActionVariant,
@@ -31,6 +37,7 @@ export interface ButtonThemeProps {
 
 export interface PressableCoreProps
   extends PressableProps, Omit<ButtonProps, "style" | "tone">, ViewStyleProps {
+  ref?: Ref<ComponentRef<typeof RNPressable>>;
   disabled?: boolean;
   pressedStyle?: StyleProp<ViewStyle>;
 }

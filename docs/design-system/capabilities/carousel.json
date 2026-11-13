@@ -99,6 +99,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "showNavigation",
           "required": false,
           "type": "boolean | undefined",

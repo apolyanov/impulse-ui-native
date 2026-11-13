@@ -53,6 +53,7 @@ Source: `packages/data-state/src/components/data-view.tsx:11`. Direct defaults: 
 | `loading`               | Yes      | `boolean`                                              |
 | `LoadingComponent`      | Yes      | `ComponentType<{ tone?: ComponentTone; }>`             |
 | `onLayout`              | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`                   | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                | No       | `string \| undefined`                                  |
 | `tone`                  | No       | `neutral / primary / secondary`                        |
@@ -68,6 +69,7 @@ Source: `packages/data-state/src/components/empty-view.tsx:6`. Direct defaults: 
 | `children`              | No       | `React.ReactNode`                                      |
 | `contentContainerStyle` | No       | `ViewStyle \| undefined`                               |
 | `onLayout`              | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`                   | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                | No       | `string \| undefined`                                  |
 
@@ -82,6 +84,7 @@ Source: `packages/data-state/src/components/error-view.tsx:6`. Direct defaults: 
 | `children`              | No       | `React.ReactNode`                                      |
 | `contentContainerStyle` | No       | `ViewStyle \| undefined`                               |
 | `onLayout`              | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`                   | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                | No       | `string \| undefined`                                  |
 
@@ -98,6 +101,7 @@ Source: `packages/data-state/src/components/loading-view.tsx:16`. Direct default
 | `loading`               | Yes      | `boolean`                                              |
 | `LoadingComponent`      | Yes      | `ComponentType<{ tone?: ComponentTone; }>`             |
 | `onLayout`              | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`                   | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                | No       | `string \| undefined`                                  |
 | `tone`                  | No       | `neutral / primary / secondary`                        |

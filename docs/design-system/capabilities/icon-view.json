@@ -52,6 +52,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "size",
           "required": false,
           "type": "ComponentSize | undefined",

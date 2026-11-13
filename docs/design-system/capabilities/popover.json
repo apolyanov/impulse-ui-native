@@ -193,7 +193,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 34
+            "line": 41
           }
         },
         {
@@ -202,7 +202,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -243,7 +243,16 @@
           "openChoices": true,
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 35
+            "line": 42
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 40
           }
         },
         {
@@ -253,7 +262,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 16
+            "line": 22
           }
         },
         {
@@ -285,7 +294,7 @@
           "choices": ["filled", "ghost", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 17
+            "line": 23
           }
         }
       ],
@@ -391,6 +400,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -666,6 +684,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "style",
           "required": false,
           "type": "____ViewStyleProp_Internal | undefined",
@@ -786,6 +813,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -1155,7 +1191,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 34
+            "line": 41
           }
         },
         {
@@ -1164,7 +1200,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -1205,7 +1241,16 @@
           "openChoices": true,
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 35
+            "line": 42
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 40
           }
         },
         {
@@ -1215,7 +1260,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 16
+            "line": 22
           }
         },
         {
@@ -1257,7 +1302,7 @@
           "choices": ["filled", "ghost", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 17
+            "line": 23
           }
         }
       ],

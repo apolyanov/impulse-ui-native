@@ -550,7 +550,7 @@ This package has no directly owned visual components in its public root; use its
 - `InfiniteQueryEndpointRequest` (type)
 - `InfiniteRangeItem` (type)
 - `Input` (value)
-  - `(props: InputProps & RefAttributes<import("node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow")._TextInputInstance>): import("react").ReactNode`
+  - `(props: InputProps): import("react").ReactNode`
 - `InputProps` (type)
 - `isAfterDay` (value)
   - `(left: Date, right: Date): boolean`
@@ -771,7 +771,7 @@ This package has no directly owned visual components in its public root; use its
 - `PortalsHostProps` (type)
 - `PortalStore` (class)
 - `Pressable` (value)
-  - `(props: PressableCoreProps & RefAttributes<import("node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement").default>): import("react").ReactNode`
+  - `(props: PressableCoreProps): import("react").ReactNode`
 - `PressableCoreProps` (type)
 - `PressableTokens` (type)
 - `PrimitiveThemeTokens` (type)
@@ -916,7 +916,7 @@ This package has no directly owned visual components in its public root; use its
 - `Step` (type)
 - `StepComponentProps` (type)
 - `Stepper` (value)
-  - `(props: StepperProps & import("react").RefAttributes<StepperRef>): import("react").ReactNode`
+  - `(props: StepperProps): import("react").ReactNode`
 - `StepperNavigationProps` (type)
 - `StepperNavigationTokens` (type)
 - `StepperProps` (type)
@@ -926,7 +926,7 @@ This package has no directly owned visual components in its public root; use its
 - `StepperProviderProps` (type)
 - `StepperRef` (type)
 - `StepperTabsNavigation` (value)
-  - `(props: StepperNavigationProps & import("react").RefAttributes<StepperRef>): import("react").ReactNode`
+  - `(props: StepperNavigationProps): import("react").ReactNode`
 - `StepperTokens` (type)
 - `StylePropKey` (type)
 - `StyleProps` (type)
@@ -1108,7 +1108,7 @@ This package has no directly owned visual components in its public root; use its
 - `uuid` (value)
   - `(): string`
 - `View` (value)
-  - `(props: import("react-native").ViewProps & import("@impulse-ui-native/theme").SpacingProps & import("@impulse-ui-native/theme").ColorProps & import("@impulse-ui-native/theme").ShadowProps & import("@impulse-ui-native/theme").BorderProps & import("@impulse-ui-native/theme").FlexProps & import("@impulse-ui-native/theme").DimensionProps & RefAttributes<import("node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement").default>): import("react").ReactNode`
+  - `(props: ViewProps): import("react").ReactNode`
 - `ViewProps` (type)
 - `ViewStyleProps` (type)
 - `VisualStateTokens` (type)

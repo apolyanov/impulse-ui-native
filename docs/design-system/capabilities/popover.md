@@ -76,6 +76,7 @@ Source: `packages/popover/src/components/popover-close.tsx:11`. Direct defaults:
 | `onLongPress`  | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `onPress`      | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `pressedStyle` | No       | `StyleProp<ViewStyle> \| undefined`                                                                 |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                                                              |
 | `size`         | No       | `large / medium / small`                                                                            |
 | `style`        | No       | `____ViewStyleProp_Internal \| ((state: PressableStateCallbackType) => ViewStyleProp) \| undefined` |
 | `testID`       | No       | `string \| undefined`                                                                               |
@@ -94,6 +95,7 @@ Source: `packages/popover/src/components/popover-content.tsx:16`. Direct default
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -124,6 +126,7 @@ Source: `packages/popover/src/components/popover-footer.tsx:10`. Direct defaults
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -137,6 +140,7 @@ Source: `packages/popover/src/components/popover-header.tsx:10`. Direct defaults
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -191,6 +195,7 @@ Source: `packages/popover/src/components/popover-trigger.tsx:10`. Direct default
 | `onLongPress`  | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `onPress`      | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `pressedStyle` | No       | `StyleProp<ViewStyle> \| undefined`                                                                 |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                                                              |
 | `size`         | No       | `large / medium / small`                                                                            |
 | `style`        | No       | `____ViewStyleProp_Internal \| ((state: PressableStateCallbackType) => ViewStyleProp) \| undefined` |
 | `testID`       | No       | `string \| undefined`                                                                               |

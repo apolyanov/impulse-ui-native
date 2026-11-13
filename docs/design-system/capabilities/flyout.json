@@ -33,7 +33,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 23
+            "line": 19
           }
         },
         {
@@ -51,7 +51,7 @@
           "type": "ReactNode",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 29
+            "line": 25
           }
         },
         {
@@ -133,7 +133,7 @@
           "choices": ["bottom", "top"],
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 21
+            "line": 17
           }
         },
         {
@@ -144,7 +144,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 24
+            "line": 20
           }
         },
         {
@@ -153,7 +153,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 28
+            "line": 24
           }
         },
         {
@@ -162,7 +162,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 22
+            "line": 18
           }
         }
       ],
@@ -205,6 +205,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -373,9 +382,8 @@
           "required": false,
           "type": "Ref<FlatList<Item>> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 39
           }
         },
         {
@@ -412,7 +420,7 @@
         }
       ],
       "styleProps": [],
-      "inheritedNativePropCount": 207,
+      "inheritedNativePropCount": 206,
       "defaults": {
         "scrollEventThrottle": {
           "expression": "16",
@@ -450,6 +458,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -576,6 +593,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "style",
           "required": false,
           "type": "____ViewStyleProp_Internal | undefined",
@@ -675,7 +701,7 @@
       "name": "Flyout.KeyboardAwareView",
       "source": {
         "file": "packages/flyout/src/components/keyboard-aware-view.tsx",
-        "line": 14
+        "line": 11
       },
       "props": [
         {
@@ -694,7 +720,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 48
+            "line": 49
           }
         },
         {
@@ -703,7 +729,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 50
+            "line": 51
           }
         },
         {
@@ -721,9 +747,8 @@
           "required": false,
           "type": "Ref<ReactNativeElement> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 47
           }
         },
         {
@@ -818,14 +843,14 @@
         "width",
         "zIndex"
       ],
-      "inheritedNativePropCount": 111,
+      "inheritedNativePropCount": 110,
       "defaults": {
         "enabled": {
           "expression": "true",
           "value": true,
           "source": {
             "file": "packages/flyout/src/components/keyboard-aware-view.tsx",
-            "line": 16
+            "line": 13
           }
         }
       },
@@ -844,7 +869,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 23
+            "line": 19
           }
         },
         {
@@ -935,7 +960,7 @@
           "choices": ["bottom", "top"],
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 21
+            "line": 17
           }
         },
         {
@@ -946,7 +971,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 24
+            "line": 20
           }
         },
         {
@@ -955,7 +980,7 @@
           "type": "number | undefined",
           "source": {
             "file": "packages/flyout/src/types/flyout.types.ts",
-            "line": 22
+            "line": 18
           }
         }
       ],
@@ -1051,9 +1076,8 @@
           "required": false,
           "type": "Ref<ScrollViewInstance> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/flyout/src/types/flyout.types.ts",
+            "line": 35
           }
         },
         {
@@ -1080,7 +1104,7 @@
         }
       ],
       "styleProps": [],
-      "inheritedNativePropCount": 173,
+      "inheritedNativePropCount": 172,
       "defaults": {
         "scrollEventThrottle": {
           "expression": "16",
@@ -1259,7 +1283,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 33
+        "line": 29
       }
     },
     {
@@ -1267,7 +1291,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 40
+        "line": 42
       }
     },
     {
@@ -1275,7 +1299,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 39
+        "line": 38
       }
     },
     {
@@ -1283,7 +1307,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 36
+        "line": 32
       }
     },
     {
@@ -1291,7 +1315,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 32
+        "line": 28
       }
     },
     {
@@ -1299,7 +1323,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 53
+        "line": 54
       }
     },
     {
@@ -1315,7 +1339,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 27
+        "line": 23
       }
     },
     {
@@ -1323,7 +1347,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 20
+        "line": 16
       }
     },
     {
@@ -1331,7 +1355,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 38
+        "line": 34
       }
     },
     {
@@ -1339,7 +1363,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 34
+        "line": 30
       }
     }
   ],

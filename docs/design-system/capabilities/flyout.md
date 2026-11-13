@@ -71,6 +71,7 @@ Source: `packages/flyout/src/components/content.tsx:8`. Direct defaults: not sta
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -94,7 +95,7 @@ Generic parameters: `Item extends unknown`.
 | `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                | No       | `string \| undefined`                                  |
 
-Style props: none detected. Additional inherited native props: 207. See exact API types for these inherited contracts.
+Style props: none detected. Additional inherited native props: 206. See exact API types for these inherited contracts.
 
 ### Flyout.Handle
 
@@ -104,6 +105,7 @@ Source: `packages/flyout/src/components/handle.tsx:10`. Direct defaults: not sta
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -117,6 +119,7 @@ Source: `packages/flyout/src/components/header.tsx:8`. Direct defaults: not stat
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -124,7 +127,7 @@ Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgrou
 
 ### Flyout.KeyboardAwareView
 
-Source: `packages/flyout/src/components/keyboard-aware-view.tsx:14`. Direct defaults: `enabled=true`.
+Source: `packages/flyout/src/components/keyboard-aware-view.tsx:11`. Direct defaults: `enabled=true`.
 
 | Prop             | Required | Type / choices                                         |
 | ---------------- | -------- | ------------------------------------------------------ |
@@ -136,7 +139,7 @@ Source: `packages/flyout/src/components/keyboard-aware-view.tsx:14`. Direct defa
 | `style`          | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`         | No       | `string \| undefined`                                  |
 
-Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 111. See exact API types for these inherited contracts.
+Style props: `alignContent`, `alignItems`, `alignSelf`, `aspectRatio`, `backgroundColor`, `borderBottomColor`, `borderBottomLeftRadius`, `borderBottomRightRadius`, `borderBottomWidth`, `borderColor`, `borderLeftColor`, `borderLeftWidth`, `borderRadius`, `borderRightColor`, `borderRightWidth`, `borderStyle`, `borderTopColor`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderTopWidth`, `borderWidth`, `bottom`, `color`, `columnGap`, `elevation`, `flex`, `flexBasis`, `flexDirection`, `flexGrow`, `flexShrink`, `flexWrap`, `gap`, `height`, `justifyContent`, `left`, `margin`, `marginBottom`, `marginHorizontal`, `marginLeft`, `marginRight`, `marginTop`, `marginVertical`, `maxHeight`, `maxWidth`, `minHeight`, `minWidth`, `opacity`, `overflow`, `padding`, `paddingBottom`, `paddingHorizontal`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingVertical`, `position`, `right`, `rowGap`, `shadow`, `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowPosition`, `shadowRadius`, `top`, `width`, `zIndex`. Additional inherited native props: 110. See exact API types for these inherited contracts.
 
 ### Flyout.Root
 
@@ -174,7 +177,7 @@ Source: `packages/flyout/src/components/scroll-view.tsx:15`. Direct defaults: `s
 | `style`                 | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                | No       | `string \| undefined`                                  |
 
-Style props: none detected. Additional inherited native props: 173. See exact API types for these inherited contracts.
+Style props: none detected. Additional inherited native props: 172. See exact API types for these inherited contracts.
 
 ### Flyout.Title
 

@@ -44,6 +44,7 @@ Source: `packages/form-field/src/components/form-field.tsx:13`. Direct defaults:
 | `error`       | No       | `string \| undefined`                                  |
 | `label`       | Yes      | `string`                                               |
 | `onLayout`    | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`         | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `required`    | No       | `boolean \| undefined`                                 |
 | `style`       | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`      | No       | `string \| undefined`                                  |

@@ -77,7 +77,7 @@ import { useComponentsTokens } from "@impulse-ui-native/theme";
 import { StepperContext } from "../contexts/stepper.context";
 import { StepperNavigationProps, StepperRef } from "../types";
 
-export const StepperTabsNavigation = memo(
+export const StepperTabsNavigation = memo<StepperNavigationProps>(
   forwardRef<StepperRef, StepperNavigationProps>(
     function StepperTabsNavigation(props, _ref) {
       const context = useContext(StepperContext);
@@ -118,7 +118,7 @@ import { forwardRef, memo, useImperativeHandle, useMemo } from "react";
 import { StepperProvider } from "../providers";
 import { StepperProps, StepperProviderData, StepperRef } from "../types";
 
-export const Stepper = memo(
+export const Stepper = memo<StepperProps>(
   forwardRef<StepperRef, StepperProps>(function Stepper(props, ref) {
     const { current, items, onChange, tone = "primary" } = props;
     const lastStepIndex = items.length - 1;
@@ -240,6 +240,7 @@ export interface Step extends StepComponentProps {
 }
 
 export interface StepperProps {
+  ref?: Ref<StepperRef>;
   tone?: ComponentTone;
   items: Step[];
   current: number;
@@ -247,6 +248,7 @@ export interface StepperProps {
 }
 
 export interface StepperNavigationProps {
+  ref?: Ref<StepperRef>;
   tone?: ComponentTone;
   current: number;
   items: Step[];

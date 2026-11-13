@@ -3,7 +3,7 @@ import { forwardRef, memo, useImperativeHandle, useMemo } from "react";
 import { StepperProvider } from "../providers";
 import { StepperProps, StepperProviderData, StepperRef } from "../types";
 
-export const Stepper = memo(
+export const Stepper = memo<StepperProps>(
   forwardRef<StepperRef, StepperProps>(function Stepper(props, ref) {
     const { current, items, onChange, tone = "primary" } = props;
     const lastStepIndex = items.length - 1;

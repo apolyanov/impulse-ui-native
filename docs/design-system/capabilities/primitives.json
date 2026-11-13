@@ -63,6 +63,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "size",
           "required": false,
           "type": "ComponentSize | undefined",
@@ -281,7 +290,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 24
+            "line": 29
           }
         },
         {
@@ -290,7 +299,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 27
+            "line": 32
           }
         },
         {
@@ -299,7 +308,7 @@
           "type": "ComponentType | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 23
+            "line": 28
           }
         },
         {
@@ -308,6 +317,15 @@
           "type": "ComponentType<SvgProps> | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 27
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
             "line": 22
           }
         },
@@ -339,7 +357,7 @@
           "type": "ComponentType | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 26
+            "line": 31
           }
         },
         {
@@ -348,7 +366,7 @@
           "type": "ComponentType<SvgProps> | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 25
+            "line": 30
           }
         },
         {
@@ -519,7 +537,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 19
+            "line": 25
           }
         },
         {
@@ -528,7 +546,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -568,7 +586,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 16
+            "line": 22
           }
         },
         {
@@ -577,7 +595,7 @@
           "type": "ViewStyle | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 20
+            "line": 26
           }
         },
         {
@@ -597,7 +615,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 18
+            "line": 24
           }
         },
         {
@@ -607,7 +625,7 @@
           "choices": ["filled", "ghost", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 17
+            "line": 23
           }
         }
       ],
@@ -710,7 +728,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 64
+            "line": 69
           }
         },
         {
@@ -719,7 +737,7 @@
           "type": "RectOrSize | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 65
+            "line": 70
           }
         },
         {
@@ -738,7 +756,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 66
+            "line": 71
           }
         },
         {
@@ -939,7 +957,7 @@
           "type": "ReactNode",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 50
+            "line": 55
           }
         },
         {
@@ -948,7 +966,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 35
+            "line": 40
           }
         },
         {
@@ -957,7 +975,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 34
+            "line": 39
           }
         },
         {
@@ -966,7 +984,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 51
+            "line": 56
           }
         },
         {
@@ -975,7 +993,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 52
+            "line": 57
           }
         },
         {
@@ -984,7 +1002,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 55
+            "line": 60
           }
         },
         {
@@ -993,7 +1011,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 56
+            "line": 61
           }
         },
         {
@@ -1002,7 +1020,7 @@
           "type": "ReactNode",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 53
+            "line": 58
           }
         },
         {
@@ -1012,7 +1030,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 31
+            "line": 36
           }
         },
         {
@@ -1021,7 +1039,7 @@
           "type": "ReactNode",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 54
+            "line": 59
           }
         },
         {
@@ -1031,7 +1049,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 33
+            "line": 38
           }
         },
         {
@@ -1041,7 +1059,7 @@
           "choices": ["filled", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 32
+            "line": 37
           }
         }
       ],
@@ -1250,7 +1268,7 @@
       "name": "Control.Input",
       "source": {
         "file": "packages/primitives/src/components/controls/input.tsx",
-        "line": 22
+        "line": 14
       },
       "props": [
         {
@@ -1394,9 +1412,8 @@
           "required": false,
           "type": "Ref<_TextInputInstance> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/primitives/src/types/control-components.types.ts",
+            "line": 75
           }
         },
         {
@@ -1443,7 +1460,7 @@
         }
       ],
       "styleProps": ["textAlign", "textAlignVertical"],
-      "inheritedNativePropCount": 165,
+      "inheritedNativePropCount": 164,
       "defaults": {},
       "defaultResolution": "direct-source-only",
       "guidance": {
@@ -1732,7 +1749,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 35
+            "line": 40
           }
         },
         {
@@ -1741,7 +1758,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 34
+            "line": 39
           }
         },
         {
@@ -1751,7 +1768,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 31
+            "line": 36
           }
         },
         {
@@ -1761,7 +1778,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 33
+            "line": 38
           }
         },
         {
@@ -1771,7 +1788,7 @@
           "choices": ["filled", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 32
+            "line": 37
           }
         }
       ],
@@ -1830,6 +1847,15 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 46,
             "external": true
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -1951,7 +1977,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 34
+            "line": 41
           }
         },
         {
@@ -1960,7 +1986,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -2001,7 +2027,16 @@
           "openChoices": true,
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 35
+            "line": 42
+          }
+        },
+        {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 40
           }
         },
         {
@@ -2011,7 +2046,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 16
+            "line": 22
           }
         },
         {
@@ -2043,7 +2078,7 @@
           "choices": ["filled", "ghost", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 17
+            "line": 23
           }
         }
       ],
@@ -2251,6 +2286,15 @@
           }
         },
         {
+          "name": "ref",
+          "required": false,
+          "type": "Ref<ReactNativeElement> | undefined",
+          "source": {
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
+          }
+        },
+        {
           "name": "style",
           "required": false,
           "type": "____ViewStyleProp_Internal | undefined",
@@ -2419,7 +2463,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 19
+            "line": 25
           }
         },
         {
@@ -2437,7 +2481,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -2477,7 +2521,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 16
+            "line": 22
           }
         },
         {
@@ -2486,7 +2530,7 @@
           "type": "ViewStyle | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 20
+            "line": 26
           }
         },
         {
@@ -2506,7 +2550,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 18
+            "line": 24
           }
         },
         {
@@ -2516,7 +2560,7 @@
           "choices": ["filled", "ghost", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 17
+            "line": 23
           }
         }
       ],
@@ -2600,7 +2644,7 @@
       "name": "Pressable",
       "source": {
         "file": "packages/primitives/src/components/atoms/pressable.tsx",
-        "line": 30
+        "line": 22
       },
       "props": [
         {
@@ -2619,7 +2663,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 34
+            "line": 41
           }
         },
         {
@@ -2628,7 +2672,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 21
+            "line": 27
           }
         },
         {
@@ -2669,7 +2713,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 35
+            "line": 42
           }
         },
         {
@@ -2677,9 +2721,8 @@
           "required": false,
           "type": "Ref<ReactNativeElement> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/primitives/src/types/button.types.ts",
+            "line": 40
           }
         },
         {
@@ -2689,7 +2732,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 16
+            "line": 22
           }
         },
         {
@@ -2721,7 +2764,7 @@
           "choices": ["filled", "ghost", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/button.types.ts",
-            "line": 17
+            "line": 23
           }
         }
       ],
@@ -2794,7 +2837,7 @@
         "width",
         "zIndex"
       ],
-      "inheritedNativePropCount": 124,
+      "inheritedNativePropCount": 123,
       "defaults": {},
       "defaultResolution": "direct-source-only"
     },
@@ -6294,7 +6337,7 @@
       "name": "View",
       "source": {
         "file": "packages/primitives/src/components/atoms/view.tsx",
-        "line": 21
+        "line": 14
       },
       "props": [
         {
@@ -6322,9 +6365,8 @@
           "required": false,
           "type": "Ref<ReactNativeElement> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/primitives/src/types/view.types.ts",
+            "line": 22
           }
         },
         {
@@ -6419,7 +6461,7 @@
         "width",
         "zIndex"
       ],
-      "inheritedNativePropCount": 111,
+      "inheritedNativePropCount": 110,
       "defaults": {},
       "defaultResolution": "direct-source-only"
     }
@@ -6504,7 +6546,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/button.types.ts",
-        "line": 14
+        "line": 20
       }
     },
     {
@@ -6512,7 +6554,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/button.types.ts",
-        "line": 24
+        "line": 30
       }
     },
     {
@@ -6528,7 +6570,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 63
+        "line": 68
       }
     },
     {
@@ -6536,7 +6578,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 19
+        "line": 24
       }
     },
     {
@@ -6544,7 +6586,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 30
+        "line": 35
       }
     },
     {
@@ -6552,7 +6594,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 42
+        "line": 47
       }
     },
     {
@@ -6560,7 +6602,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 38
+        "line": 43
       }
     },
     {
@@ -6568,7 +6610,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 61
+        "line": 66
       }
     },
     {
@@ -6576,7 +6618,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 48
+        "line": 53
       }
     },
     {
@@ -6584,7 +6626,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 46
+        "line": 51
       }
     },
     {
@@ -6592,7 +6634,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 69
+        "line": 74
       }
     },
     {
@@ -6600,7 +6642,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 59
+        "line": 64
       }
     },
     {
@@ -6608,7 +6650,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 17
+        "line": 22
       }
     },
     {
@@ -6616,7 +6658,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 75
+        "line": 82
       }
     },
     {
@@ -6624,7 +6666,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 71
+        "line": 78
       }
     },
     {
@@ -6632,7 +6674,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 44
+        "line": 49
       }
     },
     {
@@ -6640,7 +6682,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 73
+        "line": 80
       }
     },
     {
@@ -6746,11 +6788,11 @@
       "kind": "value",
       "source": {
         "file": "packages/primitives/src/components/atoms/pressable.tsx",
-        "line": 25
+        "line": 20
       },
       "signatures": [
         {
-          "text": "(props: PressableCoreProps & RefAttributes<import(\"node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement\").default>): import(\"react\").ReactNode",
+          "text": "(props: PressableCoreProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -6760,7 +6802,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/button.types.ts",
-        "line": 32
+        "line": 38
       }
     },
     {
@@ -6880,11 +6922,11 @@
       "kind": "value",
       "source": {
         "file": "packages/primitives/src/components/atoms/view.tsx",
-        "line": 18
+        "line": 13
       },
       "signatures": [
         {
-          "text": "(props: import(\"react-native\").ViewProps & import(\"@impulse-ui-native/theme\").SpacingProps & import(\"@impulse-ui-native/theme\").ColorProps & import(\"@impulse-ui-native/theme\").ShadowProps & import(\"@impulse-ui-native/theme\").BorderProps & import(\"@impulse-ui-native/theme\").FlexProps & import(\"@impulse-ui-native/theme\").DimensionProps & RefAttributes<import(\"node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement\").default>): import(\"react\").ReactNode",
+          "text": "(props: ViewProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -6894,7 +6936,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/view.types.ts",
-        "line": 19
+        "line": 20
       }
     },
     {
@@ -6902,7 +6944,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/view.types.ts",
-        "line": 12
+        "line": 13
       }
     }
   ],

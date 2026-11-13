@@ -45,7 +45,7 @@ Source: `packages/stepper/src/components/stepper.tsx:7`. Direct defaults: `tone=
 | `ref`      | No       | `Ref<StepperRef> \| undefined`  |
 | `tone`     | No       | `neutral / primary / secondary` |
 
-Style props: none detected. Additional inherited native props: 1. See exact API types for these inherited contracts.
+Style props: none detected. Additional inherited native props: 0. See exact API types for these inherited contracts.
 
 ### StepperProvider
 
@@ -73,14 +73,14 @@ Source: `packages/stepper/src/components/stepper-tabs-navigation.tsx:11`. Direct
 | `ref`     | No       | `Ref<StepperRef> \| undefined`  |
 | `tone`    | No       | `neutral / primary / secondary` |
 
-Style props: none detected. Additional inherited native props: 1. See exact API types for these inherited contracts.
+Style props: none detected. Additional inherited native props: 0. See exact API types for these inherited contracts.
 
 ## Public exports
 
 - `Step` (type)
 - `StepComponentProps` (type)
 - `Stepper` (value)
-  - `(props: StepperProps & import("react").RefAttributes<StepperRef>): import("react").ReactNode`
+  - `(props: StepperProps): import("react").ReactNode`
 - `StepperNavigationProps` (type)
 - `StepperProps` (type)
 - `StepperProvider` (value)
@@ -89,6 +89,6 @@ Style props: none detected. Additional inherited native props: 1. See exact API 
 - `StepperProviderProps` (type)
 - `StepperRef` (type)
 - `StepperTabsNavigation` (value)
-  - `(props: StepperNavigationProps & import("react").RefAttributes<StepperRef>): import("react").ReactNode`
+  - `(props: StepperNavigationProps): import("react").ReactNode`
 - `useStepperContext` (hook)
   - `(): StepperProviderData`

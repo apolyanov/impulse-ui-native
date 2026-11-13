@@ -55,6 +55,7 @@ Source: `packages/color-picker/src/components/color-picker.tsx:21`. Direct defau
 | `onLayout`     | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
 | `presets`      | No       | `readonly ColorPickerPreset[] \| undefined`            |
 | `presetsLabel` | No       | `string \| undefined`                                  |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `showAlpha`    | No       | `boolean \| undefined`                                 |
 | `showPresets`  | No       | `boolean \| undefined`                                 |
 | `size`         | No       | `large / medium / small`                               |
@@ -180,6 +181,7 @@ Source: `packages/color-picker/src/components/hex-input.tsx:11`. Direct defaults
 | `placeholder`     | No       | `string \| undefined`                                                                                                                                                                                            |
 | `Prefix`          | No       | `ComponentType \| undefined`                                                                                                                                                                                     |
 | `PrefixIcon`      | No       | `ComponentType<SvgProps> \| undefined`                                                                                                                                                                           |
+| `ref`             | No       | `Ref<_TextInputInstance> \| undefined`                                                                                                                                                                           |
 | `secureTextEntry` | No       | `boolean \| undefined`                                                                                                                                                                                           |
 | `size`            | No       | `large / medium / small`                                                                                                                                                                                         |
 | `style`           | No       | `____TextStyleProp_Internal \| undefined`                                                                                                                                                                        |
@@ -214,6 +216,7 @@ Source: `packages/color-picker/src/components/preview.tsx:13`. Direct defaults: 
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -233,6 +236,7 @@ Source: `packages/color-picker/src/components/root.tsx:12`. Direct defaults: not
 | `disabled`     | No       | `boolean \| undefined`                                 |
 | `onChange`     | No       | `((value: string) => void) \| undefined`               |
 | `onLayout`     | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `size`         | No       | `large / medium / small`                               |
 | `style`        | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`       | No       | `string \| undefined`                                  |
@@ -268,6 +272,7 @@ Source: `packages/color-picker/src/components/swatch.tsx:21`. Direct defaults: n
 | `onLongPress`  | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `onPress`      | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `pressedStyle` | No       | `StyleProp<ViewStyle> \| undefined`                                                                 |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                                                              |
 | `size`         | No       | `large / medium / small`                                                                            |
 | `style`        | No       | `____ViewStyleProp_Internal \| ((state: PressableStateCallbackType) => ViewStyleProp) \| undefined` |
 | `testID`       | No       | `string \| undefined`                                                                               |

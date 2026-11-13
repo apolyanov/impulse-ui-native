@@ -578,7 +578,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/button.types.ts",
-        "line": 14
+        "line": 20
       }
     },
     {
@@ -594,7 +594,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/button.types.ts",
-        "line": 24
+        "line": 30
       }
     },
     {
@@ -1366,7 +1366,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 63
+        "line": 68
       }
     },
     {
@@ -1390,7 +1390,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 19
+        "line": 24
       }
     },
     {
@@ -1398,7 +1398,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 30
+        "line": 35
       }
     },
     {
@@ -1414,7 +1414,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 42
+        "line": 47
       }
     },
     {
@@ -1446,7 +1446,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 38
+        "line": 43
       }
     },
     {
@@ -1454,7 +1454,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 61
+        "line": 66
       }
     },
     {
@@ -1470,7 +1470,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 48
+        "line": 53
       }
     },
     {
@@ -1478,7 +1478,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 46
+        "line": 51
       }
     },
     {
@@ -1494,7 +1494,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 69
+        "line": 74
       }
     },
     {
@@ -1534,7 +1534,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 59
+        "line": 64
       }
     },
     {
@@ -1550,7 +1550,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 17
+        "line": 22
       }
     },
     {
@@ -1558,7 +1558,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 75
+        "line": 82
       }
     },
     {
@@ -1566,7 +1566,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 71
+        "line": 78
       }
     },
     {
@@ -1582,7 +1582,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 44
+        "line": 49
       }
     },
     {
@@ -1590,7 +1590,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/control-components.types.ts",
-        "line": 73
+        "line": 80
       }
     },
     {
@@ -3196,7 +3196,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 33
+        "line": 29
       }
     },
     {
@@ -3204,7 +3204,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 40
+        "line": 42
       }
     },
     {
@@ -3212,7 +3212,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 39
+        "line": 38
       }
     },
     {
@@ -3220,7 +3220,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 36
+        "line": 32
       }
     },
     {
@@ -3236,7 +3236,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 32
+        "line": 28
       }
     },
     {
@@ -3244,7 +3244,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 53
+        "line": 54
       }
     },
     {
@@ -3276,7 +3276,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 27
+        "line": 23
       }
     },
     {
@@ -3284,7 +3284,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 20
+        "line": 16
       }
     },
     {
@@ -3292,7 +3292,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 38
+        "line": 34
       }
     },
     {
@@ -3308,7 +3308,7 @@
       "kind": "type",
       "source": {
         "file": "packages/flyout/src/types/flyout.types.ts",
-        "line": 34
+        "line": 30
       }
     },
     {
@@ -4080,11 +4080,11 @@
       "kind": "value",
       "source": {
         "file": "packages/input/src/components/input.tsx",
-        "line": 23
+        "line": 18
       },
       "signatures": [
         {
-          "text": "(props: InputProps & RefAttributes<import(\"node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow\")._TextInputInstance>): import(\"react\").ReactNode",
+          "text": "(props: InputProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -4094,7 +4094,7 @@
       "kind": "type",
       "source": {
         "file": "packages/input/src/types/input.types.ts",
-        "line": 9
+        "line": 10
       }
     },
     {
@@ -5958,11 +5958,11 @@
       "kind": "value",
       "source": {
         "file": "packages/primitives/src/components/atoms/pressable.tsx",
-        "line": 25
+        "line": 20
       },
       "signatures": [
         {
-          "text": "(props: PressableCoreProps & RefAttributes<import(\"node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement\").default>): import(\"react\").ReactNode",
+          "text": "(props: PressableCoreProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -5972,7 +5972,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/button.types.ts",
-        "line": 32
+        "line": 38
       }
     },
     {
@@ -7098,7 +7098,7 @@
       },
       "signatures": [
         {
-          "text": "(props: StepperProps & import(\"react\").RefAttributes<StepperRef>): import(\"react\").ReactNode",
+          "text": "(props: StepperProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -7108,7 +7108,7 @@
       "kind": "type",
       "source": {
         "file": "packages/stepper/src/types/stepper.types.ts",
-        "line": 27
+        "line": 28
       }
     },
     {
@@ -7146,7 +7146,7 @@
       "kind": "type",
       "source": {
         "file": "packages/stepper/src/types/stepper.types.ts",
-        "line": 33
+        "line": 35
       }
     },
     {
@@ -7154,7 +7154,7 @@
       "kind": "type",
       "source": {
         "file": "packages/stepper/src/types/stepper.types.ts",
-        "line": 38
+        "line": 40
       }
     },
     {
@@ -7174,7 +7174,7 @@
       },
       "signatures": [
         {
-          "text": "(props: StepperNavigationProps & import(\"react\").RefAttributes<StepperRef>): import(\"react\").ReactNode",
+          "text": "(props: StepperNavigationProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -8512,11 +8512,11 @@
       "kind": "value",
       "source": {
         "file": "packages/primitives/src/components/atoms/view.tsx",
-        "line": 18
+        "line": 13
       },
       "signatures": [
         {
-          "text": "(props: import(\"react-native\").ViewProps & import(\"@impulse-ui-native/theme\").SpacingProps & import(\"@impulse-ui-native/theme\").ColorProps & import(\"@impulse-ui-native/theme\").ShadowProps & import(\"@impulse-ui-native/theme\").BorderProps & import(\"@impulse-ui-native/theme\").FlexProps & import(\"@impulse-ui-native/theme\").DimensionProps & RefAttributes<import(\"node_modules/react-native/types_generated/src/private/webapis/dom/nodes/ReactNativeElement\").default>): import(\"react\").ReactNode",
+          "text": "(props: ViewProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -8526,7 +8526,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/view.types.ts",
-        "line": 19
+        "line": 20
       }
     },
     {
@@ -8534,7 +8534,7 @@
       "kind": "type",
       "source": {
         "file": "packages/primitives/src/types/view.types.ts",
-        "line": 12
+        "line": 13
       }
     },
     {

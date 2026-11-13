@@ -1,4 +1,5 @@
-import { TextInputProps } from "react-native";
+import type { ComponentRef, Ref } from "react";
+import type { TextInput, TextInputProps } from "react-native";
 
 import {
   ControlComponentCommonProps,
@@ -11,5 +12,6 @@ export interface InputProps
     Omit<TextInputProps, "placeholder">,
     Partial<ControlComponentProps>,
     ControlComponentCommonProps {
+  ref?: Ref<ComponentRef<typeof TextInput>>;
   containerStyle?: ViewProps["style"];
 }

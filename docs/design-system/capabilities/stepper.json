@@ -30,7 +30,7 @@
           "type": "number",
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 23
+            "line": 24
           }
         },
         {
@@ -39,7 +39,7 @@
           "type": "Step[]",
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 22
+            "line": 23
           }
         },
         {
@@ -48,7 +48,7 @@
           "type": "(value: number) => void",
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 24
+            "line": 25
           }
         },
         {
@@ -56,9 +56,8 @@
           "required": false,
           "type": "Ref<StepperRef> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 21
           }
         },
         {
@@ -68,12 +67,12 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 21
+            "line": 22
           }
         }
       ],
       "styleProps": [],
-      "inheritedNativePropCount": 1,
+      "inheritedNativePropCount": 0,
       "defaults": {
         "tone": {
           "expression": "\"primary\"",
@@ -109,7 +108,7 @@
           "type": "number",
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 34
+            "line": 36
           }
         },
         {
@@ -146,7 +145,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 39
+            "line": 41
           }
         }
       ],
@@ -168,7 +167,7 @@
           "type": "number",
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 29
+            "line": 31
           }
         },
         {
@@ -177,7 +176,7 @@
           "type": "Step[]",
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 30
+            "line": 32
           }
         },
         {
@@ -185,9 +184,8 @@
           "required": false,
           "type": "Ref<StepperRef> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/stepper/src/types/stepper.types.ts",
+            "line": 29
           }
         },
         {
@@ -197,12 +195,12 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/stepper/src/types/stepper.types.ts",
-            "line": 28
+            "line": 30
           }
         }
       ],
       "styleProps": [],
-      "inheritedNativePropCount": 1,
+      "inheritedNativePropCount": 0,
       "defaults": {},
       "defaultResolution": "direct-source-only"
     }
@@ -233,7 +231,7 @@
       },
       "signatures": [
         {
-          "text": "(props: StepperProps & import(\"react\").RefAttributes<StepperRef>): import(\"react\").ReactNode",
+          "text": "(props: StepperProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -243,7 +241,7 @@
       "kind": "type",
       "source": {
         "file": "packages/stepper/src/types/stepper.types.ts",
-        "line": 27
+        "line": 28
       }
     },
     {
@@ -273,7 +271,7 @@
       "kind": "type",
       "source": {
         "file": "packages/stepper/src/types/stepper.types.ts",
-        "line": 33
+        "line": 35
       }
     },
     {
@@ -281,7 +279,7 @@
       "kind": "type",
       "source": {
         "file": "packages/stepper/src/types/stepper.types.ts",
-        "line": 38
+        "line": 40
       }
     },
     {
@@ -301,7 +299,7 @@
       },
       "signatures": [
         {
-          "text": "(props: StepperNavigationProps & import(\"react\").RefAttributes<StepperRef>): import(\"react\").ReactNode",
+          "text": "(props: StepperNavigationProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]

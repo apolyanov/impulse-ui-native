@@ -1,9 +1,4 @@
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import { forwardRef, memo, useMemo } from "react";
 import { StyleSheet, TextInput } from "react-native";
 
@@ -14,10 +9,7 @@ import type { ControlInputProps } from "../../types";
 import type { ControlFieldThemeProps } from "../../types/control-theme.types";
 import { useControlContext } from "../../hooks/use-control-context.hook";
 
-export const ControlInput: NamedExoticComponent<
-  PropsWithoutRef<ControlInputProps> &
-    RefAttributes<ComponentRef<typeof TextInput>>
-> = memo(
+export const ControlInput = memo<ControlInputProps>(
   forwardRef<ComponentRef<typeof TextInput>, ControlInputProps>(
     function ControlInput(props, ref) {
       const { onPress: _onPress, editable, style, ...rest } = props;

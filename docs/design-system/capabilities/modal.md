@@ -56,6 +56,7 @@ Source: `packages/modal/src/components/modal.tsx:16`. Direct defaults: `hideClos
 | `onOpenFinished`  | No       | `OverlayLifecycleCallback \| undefined`                |
 | `onStatusChange`  | No       | `OverlayStatusCallback \| undefined`                   |
 | `open`            | No       | `boolean \| undefined`                                 |
+| `ref`             | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `size`            | No       | `large / medium / small`                               |
 | `style`           | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`          | No       | `string \| undefined`                                  |
@@ -79,6 +80,7 @@ Source: `packages/modal/src/components/close.tsx:14`. Direct defaults: not stati
 | `onLongPress`  | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `onPress`      | No       | `((event: GestureResponderEvent) => unknown) \| undefined`                                          |
 | `pressedStyle` | No       | `StyleProp<ViewStyle> \| undefined`                                                                 |
+| `ref`          | No       | `Ref<ReactNativeElement> \| undefined`                                                              |
 | `size`         | No       | `large / medium / small`                                                                            |
 | `style`        | No       | `____ViewStyleProp_Internal \| ((state: PressableStateCallbackType) => ViewStyleProp) \| undefined` |
 | `testID`       | No       | `string \| undefined`                                                                               |
@@ -94,6 +96,7 @@ Source: `packages/modal/src/components/content.tsx:10`. Direct defaults: not sta
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -124,6 +127,7 @@ Source: `packages/modal/src/components/footer.tsx:10`. Direct defaults: not stat
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -137,6 +141,7 @@ Source: `packages/modal/src/components/header.tsx:10`. Direct defaults: not stat
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -170,6 +175,7 @@ Source: `packages/modal/src/components/root.tsx:14`. Direct defaults: not static
 | ---------- | -------- | ------------------------------------------------------ |
 | `children` | No       | `React.ReactNode`                                      |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `size`     | No       | `large / medium / small`                               |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |

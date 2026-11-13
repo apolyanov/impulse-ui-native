@@ -48,6 +48,7 @@ Source: `packages/carousel/src/components/carousel.tsx:15`. Direct defaults: `de
 | `onLayout`         | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
 | `pagination`       | No       | `counter / dots / none / segments`                     |
 | `peek`             | No       | `number \| undefined`                                  |
+| `ref`              | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `showNavigation`   | No       | `boolean \| undefined`                                 |
 | `slideAspectRatio` | No       | `number \| undefined`                                  |
 | `style`            | No       | `____ViewStyleProp_Internal \| undefined`              |

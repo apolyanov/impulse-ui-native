@@ -10,7 +10,7 @@ import { useThemedStyles } from "@impulse-ui-native/theme";
 import type { FlyoutScrollViewProps } from "../types";
 import { useFlyoutScrollGesture } from "../hooks";
 
-export const FlyoutScrollView = memo(
+export const FlyoutScrollView = memo<FlyoutScrollViewProps>(
   forwardRef<ComponentRef<typeof ScrollView>, FlyoutScrollViewProps>(
     function FlyoutScrollView(
       {

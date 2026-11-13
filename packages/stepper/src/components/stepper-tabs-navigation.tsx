@@ -6,7 +6,7 @@ import { useComponentsTokens } from "@impulse-ui-native/theme";
 import { StepperContext } from "../contexts/stepper.context";
 import { StepperNavigationProps, StepperRef } from "../types";
 
-export const StepperTabsNavigation = memo(
+export const StepperTabsNavigation = memo<StepperNavigationProps>(
   forwardRef<StepperRef, StepperNavigationProps>(
     function StepperTabsNavigation(props, _ref) {
       const context = useContext(StepperContext);

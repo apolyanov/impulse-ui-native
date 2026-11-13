@@ -863,12 +863,7 @@ export { Tag } from "./tag";
 ### packages/primitives/src/components/atoms/pressable.tsx
 
 ```tsx
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import { forwardRef, memo, useCallback } from "react";
 import {
   PressableStateCallbackType,
@@ -887,10 +882,7 @@ import {
 
 import { PressableCoreProps } from "../../types";
 
-export const Pressable: NamedExoticComponent<
-  PropsWithoutRef<PressableCoreProps> &
-    RefAttributes<ComponentRef<typeof RNPressable>>
-> = memo(
+export const Pressable = memo<PressableCoreProps>(
   forwardRef<ComponentRef<typeof RNPressable>, PressableCoreProps>(
     function PressableCore(
       { children, disabled, pressedStyle, style, ...props },
@@ -1515,12 +1507,7 @@ export type TypographyComponent = (typeof Typography)[keyof typeof Typography];
 ### packages/primitives/src/components/atoms/view.tsx
 
 ```tsx
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import { forwardRef, memo, useMemo } from "react";
 import { View as NativeView, StyleSheet } from "react-native";
 
@@ -1532,9 +1519,7 @@ import {
 
 import { ViewProps } from "../../types";
 
-export const View: NamedExoticComponent<
-  PropsWithoutRef<ViewProps> & RefAttributes<ComponentRef<typeof NativeView>>
-> = memo(
+export const View = memo<ViewProps>(
   forwardRef<ComponentRef<typeof NativeView>, ViewProps>(function View(
     props: ViewProps,
     ref,
@@ -1575,21 +1560,7 @@ import { ControlRoot } from "./root";
 import { ControlTrigger } from "./trigger";
 import { ControlValue } from "./value";
 
-export const Control: {
-  Field: typeof ControlField;
-  Trigger: typeof ControlTrigger;
-  Icon: typeof ControlIcon;
-  Container: typeof ControlContainer;
-  Provider: typeof ControlProvider;
-  Root: typeof ControlRoot;
-  Label: typeof ControlLabel;
-  Error: typeof ControlError;
-  Addon: typeof ControlAddon;
-  Input: typeof ControlInput;
-  Placeholder: typeof ControlPlaceholder;
-  Value: typeof ControlValue;
-  Loader: typeof ControlLoader;
-} = {
+export const Control = {
   Field: ControlField,
   Trigger: ControlTrigger,
   Icon: ControlIcon,
@@ -1845,7 +1816,13 @@ export interface BadgeThemeProps {
 ### packages/primitives/src/types/button.types.ts
 
 ```tsx
-import { PressableProps, StyleProp, ViewStyle } from "react-native";
+import type { ComponentRef, Ref } from "react";
+import {
+  PressableProps,
+  Pressable as RNPressable,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 
 import {
   ActionVariant,
@@ -1878,6 +1855,7 @@ export interface ButtonThemeProps {
 
 export interface PressableCoreProps
   extends PressableProps, Omit<ButtonProps, "style" | "tone">, ViewStyleProps {
+  ref?: Ref<ComponentRef<typeof RNPressable>>;
   disabled?: boolean;
   pressedStyle?: StyleProp<ViewStyle>;
 }
@@ -1886,8 +1864,13 @@ export interface PressableCoreProps
 ### packages/primitives/src/types/control-components.types.ts
 
 ```tsx
-import type { ComponentType, ReactNode } from "react";
-import type { TextInputProps, TextProps, ViewProps } from "react-native";
+import type { ComponentRef, ComponentType, ReactNode, Ref } from "react";
+import type {
+  TextInput,
+  TextInputProps,
+  TextProps,
+  ViewProps,
+} from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
 import type {
@@ -1954,7 +1937,9 @@ export interface ControlAddonProps extends ViewProps {
   onPress?: PressableCoreProps["onPress"];
 }
 
-export type ControlInputProps = TextInputProps;
+export interface ControlInputProps extends TextInputProps {
+  ref?: Ref<ComponentRef<typeof TextInput>>;
+}
 
 export type ControlPlaceholderProps = TextProps;
 
@@ -2100,7 +2085,8 @@ export interface TextProps
 ### packages/primitives/src/types/view.types.ts
 
 ```tsx
-import { ViewProps as NativeViewProps } from "react-native";
+import type { ComponentRef, Ref } from "react";
+import { View as NativeView, ViewProps as NativeViewProps } from "react-native";
 
 import {
   BorderProps,
@@ -2118,5 +2104,8 @@ export type ViewStyleProps = SpacingProps &
   FlexProps &
   DimensionProps;
 
-export type ViewProps = NativeViewProps & ViewStyleProps;
+export type ViewProps = NativeViewProps &
+  ViewStyleProps & {
+    ref?: Ref<ComponentRef<typeof NativeView>>;
+  };
 ```

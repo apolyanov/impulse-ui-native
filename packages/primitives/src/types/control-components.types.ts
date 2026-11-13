@@ -1,5 +1,10 @@
-import type { ComponentType, ReactNode } from "react";
-import type { TextInputProps, TextProps, ViewProps } from "react-native";
+import type { ComponentRef, ComponentType, ReactNode, Ref } from "react";
+import type {
+  TextInput,
+  TextInputProps,
+  TextProps,
+  ViewProps,
+} from "react-native";
 
 import type { IconProps } from "@impulse-ui-native/icon/types";
 import type {
@@ -66,7 +71,9 @@ export interface ControlAddonProps extends ViewProps {
   onPress?: PressableCoreProps["onPress"];
 }
 
-export type ControlInputProps = TextInputProps;
+export interface ControlInputProps extends TextInputProps {
+  ref?: Ref<ComponentRef<typeof TextInput>>;
+}
 
 export type ControlPlaceholderProps = TextProps;
 

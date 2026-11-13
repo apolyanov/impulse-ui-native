@@ -163,14 +163,6 @@ export function exportCapabilities({
     if (ts.isVariableDeclaration(node) || ts.isPropertyAssignment(node))
       return implementation(node.initializer, visited);
     if (
-      ts.isPropertySignature(node) &&
-      node.type &&
-      ts.isTypeQueryNode(node.type)
-    ) {
-      return implementation(node.type.exprName, visited);
-    }
-
-    if (
       ts.isAsExpression(node) ||
       ts.isParenthesizedExpression(node) ||
       ts.isSatisfiesExpression(node)

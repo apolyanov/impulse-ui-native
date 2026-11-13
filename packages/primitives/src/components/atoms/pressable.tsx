@@ -1,9 +1,4 @@
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import { forwardRef, memo, useCallback } from "react";
 import {
   PressableStateCallbackType,
@@ -22,10 +17,7 @@ import {
 
 import { PressableCoreProps } from "../../types";
 
-export const Pressable: NamedExoticComponent<
-  PropsWithoutRef<PressableCoreProps> &
-    RefAttributes<ComponentRef<typeof RNPressable>>
-> = memo(
+export const Pressable = memo<PressableCoreProps>(
   forwardRef<ComponentRef<typeof RNPressable>, PressableCoreProps>(
     function PressableCore(
       { children, disabled, pressedStyle, style, ...props },

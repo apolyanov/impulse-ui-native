@@ -43,6 +43,7 @@ Source: `packages/icon-view/src/components/icon-view.tsx:11`. Direct defaults: `
 | `icon`      | Yes      | `React.ComponentType<SvgProps>`                                    |
 | `iconProps` | No       | `Omit<IconProps, "color" \| "icon" \| "size"> \| undefined`        |
 | `onLayout`  | No       | `((event: LayoutChangeEvent) => unknown) \| undefined`             |
+| `ref`       | No       | `Ref<ReactNativeElement> \| undefined`                             |
 | `size`      | No       | `large / medium / small`                                           |
 | `style`     | No       | `____ViewStyleProp_Internal \| undefined`                          |
 | `testID`    | No       | `string \| undefined`                                              |

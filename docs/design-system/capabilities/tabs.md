@@ -53,6 +53,7 @@ Discriminated/value alternatives (do not mix incompatible modes):
 | `onLayout`                | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
 | `onValueChange`           | No       | `((value: string) => void) \| undefined`               |
 | `panelStyle`              | No       | `StyleProp<ViewStyle> \| undefined`                    |
+| `ref`                     | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `size`                    | No       | `large / medium / small`                               |
 | `style`                   | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`                  | No       | `string \| undefined`                                  |

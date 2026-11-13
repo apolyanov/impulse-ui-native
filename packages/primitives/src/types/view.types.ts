@@ -1,4 +1,5 @@
-import { ViewProps as NativeViewProps } from "react-native";
+import type { ComponentRef, Ref } from "react";
+import { View as NativeView, ViewProps as NativeViewProps } from "react-native";
 
 import {
   BorderProps,
@@ -16,4 +17,7 @@ export type ViewStyleProps = SpacingProps &
   FlexProps &
   DimensionProps;
 
-export type ViewProps = NativeViewProps & ViewStyleProps;
+export type ViewProps = NativeViewProps &
+  ViewStyleProps & {
+    ref?: Ref<ComponentRef<typeof NativeView>>;
+  };

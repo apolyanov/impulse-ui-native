@@ -103,6 +103,7 @@ Source: `packages/charts/src/components/chart-tooltip.tsx:14`. Direct defaults: 
 | ---------- | -------- | ------------------------------------------------------ |
 | `details`  | Yes      | `readonly ChartSelectionDetails[]`                     |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 
@@ -117,6 +118,7 @@ Source: `packages/charts/src/components/distribution-bar.tsx:13`. Direct default
 | `data`     | Yes      | `readonly DistributionBarItem[]`                       |
 | `onLayout` | No       | `((event: LayoutChangeEvent) => unknown) \| undefined` |
 | `radius`   | No       | `number \| undefined`                                  |
+| `ref`      | No       | `Ref<ReactNativeElement> \| undefined`                 |
 | `style`    | No       | `____ViewStyleProp_Internal \| undefined`              |
 | `testID`   | No       | `string \| undefined`                                  |
 

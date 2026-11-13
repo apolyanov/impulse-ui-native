@@ -9,7 +9,7 @@ import { useThemedStyles } from "@impulse-ui-native/theme";
 import type { FlyoutFlatListComponent, FlyoutFlatListProps } from "../types";
 import { useFlyoutScrollGesture } from "../hooks";
 
-export const FlyoutFlatList = memo(
+export const FlyoutFlatList = memo<FlyoutFlatListProps<unknown>>(
   forwardRef(function FlyoutFlatList<Item>(
     {
       style,

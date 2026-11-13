@@ -23,7 +23,7 @@
       "name": "Input",
       "source": {
         "file": "packages/input/src/components/input.tsx",
-        "line": 27
+        "line": 20
       },
       "props": [
         {
@@ -44,7 +44,7 @@
           "openChoices": true,
           "source": {
             "file": "packages/input/src/types/input.types.ts",
-            "line": 14
+            "line": 16
           }
         },
         {
@@ -63,7 +63,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 35
+            "line": 40
           }
         },
         {
@@ -82,7 +82,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 34
+            "line": 39
           }
         },
         {
@@ -117,7 +117,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 21
+            "line": 26
           }
         },
         {
@@ -196,7 +196,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 24
+            "line": 29
           }
         },
         {
@@ -205,7 +205,7 @@
           "type": "((event: GestureResponderEvent) => unknown) | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 27
+            "line": 32
           }
         },
         {
@@ -214,7 +214,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 20
+            "line": 25
           }
         },
         {
@@ -223,7 +223,7 @@
           "type": "ComponentType | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 23
+            "line": 28
           }
         },
         {
@@ -232,7 +232,7 @@
           "type": "ComponentType<SvgProps> | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 22
+            "line": 27
           }
         },
         {
@@ -240,9 +240,8 @@
           "required": false,
           "type": "Ref<_TextInputInstance> | undefined",
           "source": {
-            "file": "node_modules/@types/react/index.d.ts",
-            "line": 301,
-            "external": true
+            "file": "packages/input/src/types/input.types.ts",
+            "line": 15
           }
         },
         {
@@ -262,7 +261,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 31
+            "line": 36
           }
         },
         {
@@ -283,7 +282,7 @@
           "type": "ComponentType | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 26
+            "line": 31
           }
         },
         {
@@ -292,7 +291,7 @@
           "type": "ComponentType<SvgProps> | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 25
+            "line": 30
           }
         },
         {
@@ -312,7 +311,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 33
+            "line": 38
           }
         },
         {
@@ -332,7 +331,7 @@
           "choices": ["filled", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 32
+            "line": 37
           }
         }
       ],
@@ -381,14 +380,14 @@
         "width",
         "zIndex"
       ],
-      "inheritedNativePropCount": 165,
+      "inheritedNativePropCount": 164,
       "defaults": {
         "size": {
           "expression": "\"medium\"",
           "value": "medium",
           "source": {
             "file": "packages/input/src/components/input.tsx",
-            "line": 29
+            "line": 22
           }
         },
         "variant": {
@@ -396,7 +395,7 @@
           "value": "outlined",
           "source": {
             "file": "packages/input/src/components/input.tsx",
-            "line": 30
+            "line": 23
           }
         },
         "tone": {
@@ -404,7 +403,7 @@
           "value": "neutral",
           "source": {
             "file": "packages/input/src/components/input.tsx",
-            "line": 31
+            "line": 24
           }
         }
       },
@@ -472,7 +471,7 @@
           "type": "boolean | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 35
+            "line": 40
           }
         },
         {
@@ -491,7 +490,7 @@
           "type": "string | undefined",
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 34
+            "line": 39
           }
         },
         {
@@ -623,7 +622,7 @@
           "choices": ["large", "medium", "small"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 31
+            "line": 36
           }
         },
         {
@@ -655,7 +654,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 33
+            "line": 38
           }
         },
         {
@@ -675,7 +674,7 @@
           "choices": ["filled", "outlined", "soft"],
           "source": {
             "file": "packages/primitives/src/types/control-components.types.ts",
-            "line": 32
+            "line": 37
           }
         }
       ],
@@ -817,11 +816,11 @@
       "kind": "value",
       "source": {
         "file": "packages/input/src/components/input.tsx",
-        "line": 23
+        "line": 18
       },
       "signatures": [
         {
-          "text": "(props: InputProps & RefAttributes<import(\"node_modules/react-native/types_generated/Libraries/Components/TextInput/TextInput.flow\")._TextInputInstance>): import(\"react\").ReactNode",
+          "text": "(props: InputProps): import(\"react\").ReactNode",
           "abbreviated": false
         }
       ]
@@ -831,7 +830,7 @@
       "kind": "type",
       "source": {
         "file": "packages/input/src/types/input.types.ts",
-        "line": 9
+        "line": 10
       }
     },
     {

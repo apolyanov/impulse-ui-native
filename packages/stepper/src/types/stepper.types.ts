@@ -18,6 +18,7 @@ export interface Step extends StepComponentProps {
 }
 
 export interface StepperProps {
+  ref?: Ref<StepperRef>;
   tone?: ComponentTone;
   items: Step[];
   current: number;
@@ -25,6 +26,7 @@ export interface StepperProps {
 }
 
 export interface StepperNavigationProps {
+  ref?: Ref<StepperRef>;
   tone?: ComponentTone;
   current: number;
   items: Step[];

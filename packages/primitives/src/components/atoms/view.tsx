@@ -1,9 +1,4 @@
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import { forwardRef, memo, useMemo } from "react";
 import { View as NativeView, StyleSheet } from "react-native";
 
@@ -15,9 +10,7 @@ import {
 
 import { ViewProps } from "../../types";
 
-export const View: NamedExoticComponent<
-  PropsWithoutRef<ViewProps> & RefAttributes<ComponentRef<typeof NativeView>>
-> = memo(
+export const View = memo<ViewProps>(
   forwardRef<ComponentRef<typeof NativeView>, ViewProps>(function View(
     props: ViewProps,
     ref,

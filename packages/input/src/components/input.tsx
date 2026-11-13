@@ -1,9 +1,4 @@
-import type {
-  ComponentRef,
-  NamedExoticComponent,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+import type { ComponentRef } from "react";
 import type { TextInput } from "react-native";
 import { forwardRef, memo, useState } from "react";
 
@@ -20,9 +15,7 @@ import {
 
 import type { InputProps } from "../types";
 
-export const Input: NamedExoticComponent<
-  PropsWithoutRef<InputProps> & RefAttributes<ComponentRef<typeof TextInput>>
-> = memo(
+export const Input = memo<InputProps>(
   forwardRef<ComponentRef<typeof TextInput>, InputProps>(
     function Input(props, ref) {
       const {
