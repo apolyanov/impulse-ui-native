@@ -1,5 +1,11 @@
 # @impulse-ui-native/overlay
 
+## 17.4.0
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.4.0
+
 ## 17.3.0
 
 ### Patch Changes

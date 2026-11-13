@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/card",
   "slug": "card",
-  "version": "17.3.0",
+  "version": "17.4.0",
   "guidance": {
     "kind": "presentation",
     "chooseWhen": "Group related media, copy and actions on a surface.",

@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/charts",
   "slug": "charts",
-  "version": "17.3.0",
+  "version": "17.4.0",
   "guidance": {
     "kind": "visualization",
     "chooseWhen": "Show numeric series with interactive native charts.",

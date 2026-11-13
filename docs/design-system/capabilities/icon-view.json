@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/icon-view",
   "slug": "icon-view",
-  "version": "17.3.0",
+  "version": "17.4.0",
   "guidance": {
     "kind": "presentation",
     "chooseWhen": "Show an icon on a noninteractive themed surface.",

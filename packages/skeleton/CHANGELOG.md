@@ -1,5 +1,14 @@
 # @impulse-ui-native/skeleton
 
+## 17.4.0
+
+### Patch Changes
+
+- Updated dependencies [a1f2a63]
+- Updated dependencies [569a02b]
+  - @impulse-ui-native/primitives@17.4.0
+  - @impulse-ui-native/theme@17.4.0
+
 ## 17.3.0
 
 ### Patch Changes

@@ -1,5 +1,24 @@
 # @impulse-ui-native/input
 
+## 17.4.0
+
+### Minor Changes
+
+- a1f2a63: Forward Input and Control.Input refs to the native TextInput so consumers can
+  focus fields imperatively and connect React Hook Form's field.ref for automatic
+  invalid-field focus.
+
+### Patch Changes
+
+- 569a02b: Declare forwarded refs in public props and use explicit memo props to simplify
+  portable component declarations and restore inferred compound exports.
+- Updated dependencies [a1f2a63]
+- Updated dependencies [569a02b]
+  - @impulse-ui-native/primitives@17.4.0
+  - @impulse-ui-native/core@17.4.0
+  - @impulse-ui-native/icon@17.4.0
+  - @impulse-ui-native/theme@17.4.0
+
 ## 17.3.0
 
 ### Patch Changes
