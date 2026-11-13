@@ -1,6 +1,6 @@
 {
   "reviewedOn": "2026-10-26",
-  "gitCommit": "569a02b185e79c87a09f12bed3dab7b2f073d531",
+  "gitCommit": "a381790dc13e74030ef44eaab575554bc092b46a",
   "note": "Source hashes identify the actual local working-tree inputs. The review date belongs to the authored design guide; review that guide when regenerating on a later date.",
   "toolkitVersion": "17.4.0",
   "packages": 38,
@@ -492,7 +492,7 @@
     "packages/input/package.json": "b6da53fe9c4d0985cfae2f0ec2048fe17b22d1affda4aa1d01525525ceff8be7",
     "packages/input/README.md": "5dd32c9bf535ce2cbd8363f8cffb632df420537f5301a5b4d8647b9c26c3765d",
     "packages/input/src/components/index.ts": "61b746a8ff28f4272e3c9d9cbb29f875682d0fcdbaf69c86d5d46968fe34b32e",
-    "packages/input/src/components/input.tsx": "fef451c097d685443dd7ed74fe9588806a4881b39cca9680825d2e62f9f66e3b",
+    "packages/input/src/components/input.tsx": "f8871f694d3ef68c07be39d79da01a3e06e2e57e2327df72c27d689de57c9b91",
     "packages/input/src/components/textarea.styles.ts": "122218c0bce5154d905e6a1acd0ddedaf67e8ebb5ac4f3d6945e06365e413132",
     "packages/input/src/components/textarea.tsx": "f55f45ff5dc01c941444e2b69f4270d9b9dc0270f68d3cf6c27954a4a45f7fdd",
     "packages/input/src/hooks/index.ts": "d7e1877fc160dbc8ac902596a62dcd18e08aa483adc1dd191b68f63f2587e933",

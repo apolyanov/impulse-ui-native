@@ -12,8 +12,11 @@ import { createRenderer } from "./helpers/react-renderer.mjs";
 // Verifies ref plumbing and cleanup; keyboard behavior requires a native device.
 function createHarness() {
   let focusCount = 0;
+  let nativeProps;
+  let addonProps;
   const nativeInput = { focus: () => focusCount++ };
-  const NativeInput = React.forwardRef(function NativeInput(_props, ref) {
+  const NativeInput = React.forwardRef(function NativeInput(props, ref) {
+    nativeProps = props;
     React.useImperativeHandle(ref, () => nativeInput, []);
 
     return null;
@@ -83,12 +86,59 @@ function createHarness() {
       Label: wrapper,
       Container: wrapper,
       Error: wrapper,
+      Addon: (props) => {
+        addonProps = props;
+
+        return props.children;
+      },
       Input: ControlInput,
     },
   };
   const { Input } = load("packages/input/src/components/input.tsx");
 
-  return { Input, ControlInput, nativeInput, getFocusCount: () => focusCount };
+  return {
+    Input,
+    ControlInput,
+    nativeInput,
+    getFocusCount: () => focusCount,
+    getNativeProps: () => nativeProps,
+    getAddonProps: () => addonProps,
+  };
+}
+
+for (const valueProp of ["value", "defaultValue"]) {
+  test(`password toggle reveals and masks the native input with ${valueProp}`, () => {
+    const harness = createHarness();
+    const render = createRenderer();
+    const ref = React.createRef();
+    const changes = [];
+    const element = React.createElement(harness.Input, {
+      ref,
+      secureTextEntry: true,
+      [valueProp]: "secret-password",
+      onChangeText: (value) => {
+        changes.push(value);
+      },
+    });
+
+    render(element);
+    assert.equal(harness.getNativeProps().secureTextEntry, true);
+
+    harness.getAddonProps().onPress();
+    render(element);
+    assert.equal(harness.getNativeProps().secureTextEntry, false);
+    assert.equal(harness.getNativeProps()[valueProp], "secret-password");
+    assert.equal(ref.current, harness.nativeInput);
+
+    harness.getAddonProps().onPress();
+    render(element);
+    assert.equal(harness.getNativeProps().secureTextEntry, true);
+    assert.equal(harness.getNativeProps()[valueProp], "secret-password");
+    assert.equal(ref.current, harness.nativeInput);
+    assert.deepEqual(changes, []);
+
+    render(null);
+  });
 }
 
 for (const componentName of ["Input", "ControlInput"]) {

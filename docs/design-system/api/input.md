@@ -178,6 +178,7 @@ export const Input = memo<InputProps>(
         Suffix,
         onPressPrefix,
         onPressSuffix,
+        secureTextEntry: secureTextEntryProp,
         ...rest
       } = props;
 
@@ -198,19 +199,19 @@ export const Input = memo<InputProps>(
         setShowPassword((prevState) => !prevState);
       });
 
-      const SuffixInternalIcon = props.secureTextEntry
+      const SuffixInternalIcon = secureTextEntryProp
         ? showPassword
           ? EyeIcon
           : EyeSlashIcon
         : SuffixIcon;
 
-      const internalOnSuffixPress = props.secureTextEntry
+      const internalOnSuffixPress = secureTextEntryProp
         ? togglePasswordVisibility
         : onPressSuffix;
 
       const hasPrefix = Prefix || PrefixIcon;
       const showPrefixIcon = !Prefix && PrefixIcon;
-      const secureTextEntry = props.secureTextEntry && !showPassword;
+      const secureTextEntry = secureTextEntryProp && !showPassword;
       const hasSuffix = Suffix || SuffixInternalIcon;
       const showSuffixIcon = !Suffix && SuffixInternalIcon;
 
