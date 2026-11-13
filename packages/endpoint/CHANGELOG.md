@@ -1,5 +1,7 @@
 # @impulse-ui-native/endpoint
 
+## 17.4.1
+
 ## 17.4.0
 
 ## 17.3.0

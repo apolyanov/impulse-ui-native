@@ -1,5 +1,16 @@
 # @impulse-ui-native/input
 
+## 17.4.1
+
+### Patch Changes
+
+- 94a09c9: Fix the password visibility toggle so the supplied secureTextEntry prop no longer
+  overrides the visibility state passed to the native input.
+  - @impulse-ui-native/core@17.4.1
+  - @impulse-ui-native/icon@17.4.1
+  - @impulse-ui-native/primitives@17.4.1
+  - @impulse-ui-native/theme@17.4.1
+
 ## 17.4.0
 
 ### Minor Changes

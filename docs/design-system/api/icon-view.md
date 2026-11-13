@@ -1,6 +1,6 @@
 # @impulse-ui-native/icon-view
 
-Local package version: 17.4.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 17.4.1. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 

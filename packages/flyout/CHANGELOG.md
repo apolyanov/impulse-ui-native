@@ -1,5 +1,14 @@
 # @impulse-ui-native/flyout
 
+## 17.4.1
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.4.1
+- @impulse-ui-native/overlay@17.4.1
+- @impulse-ui-native/primitives@17.4.1
+- @impulse-ui-native/theme@17.4.1
+
 ## 17.4.0
 
 ### Patch Changes

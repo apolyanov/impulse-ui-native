@@ -1,5 +1,19 @@
 # @impulse-ui-native/select
 
+## 17.4.1
+
+### Patch Changes
+
+- Updated dependencies [94a09c9]
+  - @impulse-ui-native/input@17.4.1
+  - @impulse-ui-native/core@17.4.1
+  - @impulse-ui-native/flyout@17.4.1
+  - @impulse-ui-native/icon@17.4.1
+  - @impulse-ui-native/portal@17.4.1
+  - @impulse-ui-native/primitives@17.4.1
+  - @impulse-ui-native/theme@17.4.1
+  - @impulse-ui-native/flat-list@17.4.1
+
 ## 17.4.0
 
 ### Patch Changes

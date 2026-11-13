@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/slider",
   "slug": "slider",
-  "version": "17.4.0",
+  "version": "17.4.1",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Adjust one numeric value or a numeric range.",

@@ -1,5 +1,12 @@
 # @impulse-ui-native/form-field
 
+## 17.4.1
+
+### Patch Changes
+
+- @impulse-ui-native/primitives@17.4.1
+- @impulse-ui-native/theme@17.4.1
+
 ## 17.4.0
 
 ### Patch Changes
