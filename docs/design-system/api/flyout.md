@@ -1,6 +1,6 @@
 # @impulse-ui-native/flyout
 
-Local package version: 17.4.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 17.4.2. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
@@ -45,7 +45,7 @@ import { Flyout } from "@impulse-ui-native/flyout";
 </Flyout>;
 ```
 
-The overlay closes the sheet when pressed. Dragging the handle past half the measured sheet height, or swiping it sufficiently fast toward the edge, closes it as well. Flyout.ScrollView uses the same dismissal thresholds and spring-back behavior for downward swipes begun at the top of a bottom sheet. Flyout.FlatList shares this coordination. Plain native ScrollViews, FlatLists, and custom scroll containers retain their own gestures and do not opt into this coordination.
+The overlay closes the sheet when pressed. Dragging the handle or Content past half the measured sheet height, or swiping it sufficiently fast toward the edge, closes it as well. Flyout.ScrollView uses the same dismissal thresholds and spring-back behavior for downward swipes begun at the top of a bottom sheet. Flyout.FlatList shares this coordination. Plain native ScrollViews, FlatLists, and custom scroll containers retain their own gestures and do not opt into this coordination.
 
 ### Virtualized body
 
@@ -89,7 +89,7 @@ Keep the external Portal mounted; Root handles mounting its visible content thro
 the existing lifecycle. For top placement, set `placement="top"` on Root; Handle inherits it. Root provides shared drag configuration and placement internally; no separate provider is required.
 Include Handle to enable drag dismissal from the indicator. Flyout.ScrollView and Flyout.FlatList also enable drag dismissal from the top of bottom-sheet content, independently of Handle. Top sheets retain handle-only drag dismissal. Backdrop and programmatic dismissal remain available.
 The handle is inside the sheet surface and native touch bounds.
-Root caps the entire sheet, including the header, handle, and safe-area padding, at 70% of the window by default, further limited by the opposite safe area and the placement offset. Content is a shrinkable regular View with horizontal padding; it does not scroll. Use ScrollView for overflowing content, or FlatList for a virtualized body. Root remeasures after body resizing without restarting entry.
+Root caps the entire sheet, including the header, handle, and safe-area padding, at 70% of the window by default, further limited by the opposite safe area and the placement offset. Content is a shrinkable View with horizontal padding and sheet drag dismissal for both placements; it does not scroll. Use it for static content, and place Flyout.ScrollView or Flyout.FlatList directly in the body for coordinated scrolling. Use ScrollView for overflowing content, or FlatList for a virtualized body. Root remeasures after body resizing without restarting entry.
 Root accepts native `style`; the presentation parts accept primitive style props.
 Root renders only two native elements: an animated pressable backdrop and an animated sheet. Safe-area padding, sizing, measurement, and translation all live on that sheet; supplied body containers are its direct children.
 Use Content itself for body layout (for example, `gap`), and ScrollView's `contentContainerStyle` for scrollable layout, rather than adding a View just for spacing.

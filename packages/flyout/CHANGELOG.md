@@ -1,5 +1,15 @@
 # @impulse-ui-native/flyout
 
+## 17.4.2
+
+### Patch Changes
+
+- cf58cfd: Enable sheet drag dismissal from Flyout.Content in both placements, using the existing handle gesture and dismissal behavior.
+  - @impulse-ui-native/core@17.4.2
+  - @impulse-ui-native/overlay@17.4.2
+  - @impulse-ui-native/primitives@17.4.2
+  - @impulse-ui-native/theme@17.4.2
+
 ## 17.4.1
 
 ### Patch Changes

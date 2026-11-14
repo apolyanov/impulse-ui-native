@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toast",
   "slug": "toast",
-  "version": "17.4.1",
+  "version": "17.4.2",
   "guidance": {
     "kind": "compound",
     "chooseWhen": "Show a transient status message with optional action.",

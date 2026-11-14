@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/scroll-view",
-  "version": "17.4.1",
+  "version": "17.4.2",
   "description": "Native ScrollView and a small hook to reveal an initially selected child.",
   "keywords": [
     "react-native",

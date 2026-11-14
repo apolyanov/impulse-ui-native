@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/flat-list",
   "slug": "flat-list",
-  "version": "17.4.1",
+  "version": "17.4.2",
   "guidance": {
     "kind": "native-wrapper",
     "chooseWhen": "Render long virtualized lists with known item layouts.",

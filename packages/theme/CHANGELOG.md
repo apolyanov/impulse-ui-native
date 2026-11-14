@@ -1,5 +1,11 @@
 # @impulse-ui-native/theme
 
+## 17.4.2
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.4.2
+
 ## 17.4.1
 
 ### Patch Changes
