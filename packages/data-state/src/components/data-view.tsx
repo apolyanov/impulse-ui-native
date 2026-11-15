@@ -1,14 +1,17 @@
-import { memo, PropsWithChildren, useMemo } from "react";
+import { Attributes, PropsWithChildren, useMemo } from "react";
 
+import { memo } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
-import { DataViewProps } from "../types";
+import { DataViewProps, LoadingViewProps } from "../types";
 import { EmptyDetails } from "./empty-details";
 import { ErrorDetails } from "./error-details";
 import { LoadingView } from "./loading-view";
 
-export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
+export const DataView = memo(function DataView<Props extends object>(
+  props: PropsWithChildren<DataViewProps<Props>>,
+) {
   const tokens = useComponentsTokens();
 
   const dataStateTokens = tokens.dataState;
@@ -53,15 +56,15 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
   ]);
 
   const showContent = !error && !isEmpty;
+  const loadingViewProps = {
+    ...rest,
+    LoadingComponent,
+    contentContainerStyle,
+    loading,
+  } as LoadingViewProps<Props> & Attributes;
 
   return (
-    <LoadingView
-      tone={tone}
-      {...rest}
-      LoadingComponent={LoadingComponent}
-      contentContainerStyle={contentContainerStyle}
-      loading={loading}
-    >
+    <LoadingView<Props> {...loadingViewProps}>
       {showContent ? children : null}
       {content}
     </LoadingView>

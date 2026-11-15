@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { LayoutChangeEvent, StyleProp, ViewStyle } from "react-native";
 import Animated, {
   Easing,
@@ -8,17 +8,20 @@ import Animated, {
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
+import { memo } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { LoadingViewProps } from "../types";
 
-export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
+export const LoadingView = memo(function LoadingView<Props extends object>(
+  props: LoadingViewProps<Props>,
+) {
   const {
     loading,
-    tone = "primary",
     children,
     LoadingComponent,
+    loadingComponentProps,
     contentContainerStyle,
     style,
     ...rest
@@ -110,6 +113,8 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     loadingTokens.transitionDuration,
   ]);
 
+  const loaderProps = loadingComponentProps as Props;
+
   return (
     <View {...rest} style={containerStyle}>
       <Animated.View style={childrenContainerStyles}>{children}</Animated.View>
@@ -117,7 +122,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
       {shouldMountLoader ? (
         <Animated.View style={loaderStyles} pointerEvents="auto">
           <View onLayout={onLoaderLayout}>
-            <LoadingComponent tone={tone} />
+            <LoadingComponent {...loaderProps} />
           </View>
         </Animated.View>
       ) : null}

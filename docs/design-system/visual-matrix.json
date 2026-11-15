@@ -16331,126 +16331,36 @@
           "captureStatus": "not-captured"
         },
         {
-          "id": "data-state/LoadingView/light/neutral/default",
+          "id": "data-state/LoadingView/light/default",
           "component": "LoadingView",
           "scheme": "light",
-          "props": {
-            "tone": "neutral"
-          },
+          "props": {},
           "state": "default",
           "captureStatus": "not-captured"
         },
         {
-          "id": "data-state/LoadingView/light/neutral/loading",
+          "id": "data-state/LoadingView/light/loading",
           "component": "LoadingView",
           "scheme": "light",
           "props": {
-            "tone": "neutral",
             "loading": true
           },
           "state": "loading",
           "captureStatus": "not-captured"
         },
         {
-          "id": "data-state/LoadingView/light/primary/default",
+          "id": "data-state/LoadingView/dark/default",
           "component": "LoadingView",
-          "scheme": "light",
-          "props": {
-            "tone": "primary"
-          },
+          "scheme": "dark",
+          "props": {},
           "state": "default",
           "captureStatus": "not-captured"
         },
         {
-          "id": "data-state/LoadingView/light/primary/loading",
-          "component": "LoadingView",
-          "scheme": "light",
-          "props": {
-            "tone": "primary",
-            "loading": true
-          },
-          "state": "loading",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/light/secondary/default",
-          "component": "LoadingView",
-          "scheme": "light",
-          "props": {
-            "tone": "secondary"
-          },
-          "state": "default",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/light/secondary/loading",
-          "component": "LoadingView",
-          "scheme": "light",
-          "props": {
-            "tone": "secondary",
-            "loading": true
-          },
-          "state": "loading",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/dark/neutral/default",
+          "id": "data-state/LoadingView/dark/loading",
           "component": "LoadingView",
           "scheme": "dark",
           "props": {
-            "tone": "neutral"
-          },
-          "state": "default",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/dark/neutral/loading",
-          "component": "LoadingView",
-          "scheme": "dark",
-          "props": {
-            "tone": "neutral",
-            "loading": true
-          },
-          "state": "loading",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/dark/primary/default",
-          "component": "LoadingView",
-          "scheme": "dark",
-          "props": {
-            "tone": "primary"
-          },
-          "state": "default",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/dark/primary/loading",
-          "component": "LoadingView",
-          "scheme": "dark",
-          "props": {
-            "tone": "primary",
-            "loading": true
-          },
-          "state": "loading",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/dark/secondary/default",
-          "component": "LoadingView",
-          "scheme": "dark",
-          "props": {
-            "tone": "secondary"
-          },
-          "state": "default",
-          "captureStatus": "not-captured"
-        },
-        {
-          "id": "data-state/LoadingView/dark/secondary/loading",
-          "component": "LoadingView",
-          "scheme": "dark",
-          "props": {
-            "tone": "secondary",
             "loading": true
           },
           "state": "loading",

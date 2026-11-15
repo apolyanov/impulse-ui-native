@@ -350,7 +350,7 @@ This package has no directly owned visual components in its public root; use its
 - `DataStateLoadingTokens` (type)
 - `DataStateTokens` (type)
 - `DataView` (value)
-  - `(props: DataViewProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
+  - `<Props extends object>(props: PropsWithChildren<DataViewProps<Props>>): import("react").JSX.Element`
 - `DataViewProps` (type)
 - `DatePicker` (value)
   - `(props: DatetimePickerProps): import("react").ReactNode`
@@ -625,7 +625,7 @@ This package has no directly owned visual components in its public root; use its
 - `ListTokens` (type)
 - `ListTrailingProps` (type)
 - `LoadingView` (value)
-  - `(props: LoadingViewProps): import("react").ReactNode`
+  - `<Props extends object>(props: LoadingViewProps<Props>): import("react").JSX.Element`
 - `LoadingViewProps` (type)
 - `memo` (value)
   - `<T extends ComponentType<any>>(component: T): T`

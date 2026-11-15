@@ -27,20 +27,23 @@ export type EmptyViewProps = StateContainerProps;
 
 export type ErrorViewProps = StateContainerProps;
 
-export interface LoadingViewProps extends ViewProps {
-  tone?: ComponentTone;
-  loading: boolean;
-  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
-  contentContainerStyle?: ViewStyle;
-}
+type LoadingComponentOptions<Props extends object> = {
+  LoadingComponent: ComponentType<Props>;
+} & ({} extends Props
+  ? { loadingComponentProps?: NoInfer<Props> }
+  : { loadingComponentProps: NoInfer<Props> });
 
-export interface DataViewProps extends ViewProps {
+export type LoadingViewProps<Props extends object = object> = ViewProps & {
+  loading: boolean;
+  contentContainerStyle?: ViewStyle;
+} & LoadingComponentOptions<Props>;
+
+export type DataViewProps<Props extends object = object> = ViewProps & {
   tone?: ComponentTone;
   error: Error | null;
   isEmpty: boolean;
-  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
-  loading: LoadingViewProps["loading"];
+  loading: boolean;
   contentContainerStyle?: ViewStyle;
   errorViewProps: StateViewProps;
   emptyViewProps: StateViewProps;
-}
+} & LoadingComponentOptions<Props>;

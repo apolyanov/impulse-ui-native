@@ -2350,11 +2350,11 @@
       "kind": "value",
       "source": {
         "file": "packages/data-state/src/components/data-view.tsx",
-        "line": 11
+        "line": 12
       },
       "signatures": [
         {
-          "text": "(props: DataViewProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "text": "<Props extends object>(props: PropsWithChildren<DataViewProps<Props>>): import(\"react\").JSX.Element",
           "abbreviated": false
         }
       ]
@@ -2364,7 +2364,7 @@
       "kind": "type",
       "source": {
         "file": "packages/data-state/src/types/state-view.types.ts",
-        "line": 37
+        "line": 41
       }
     },
     {
@@ -4646,11 +4646,11 @@
       "kind": "value",
       "source": {
         "file": "packages/data-state/src/components/loading-view.tsx",
-        "line": 16
+        "line": 17
       },
       "signatures": [
         {
-          "text": "(props: LoadingViewProps): import(\"react\").ReactNode",
+          "text": "<Props extends object>(props: LoadingViewProps<Props>): import(\"react\").JSX.Element",
           "abbreviated": false
         }
       ]
@@ -4660,7 +4660,7 @@
       "kind": "type",
       "source": {
         "file": "packages/data-state/src/types/state-view.types.ts",
-        "line": 30
+        "line": 36
       }
     },
     {

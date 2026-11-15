@@ -11,7 +11,7 @@
     ],
     "constraints": [
       "Supply the state detail props required by DataView; flags are application data.",
-      "Custom loading/content components own their layout and may ignore tone."
+      "Custom loading/content components own their layout. Loader props are inferred from LoadingComponent and supplied through loadingComponentProps; no tone is injected."
     ],
     "setup": ["ThemeProvider; configure Reanimated and Worklets."],
     "recipes": ["data-list"]
@@ -19,9 +19,15 @@
   "components": [
     {
       "name": "DataView",
+      "typeParameters": [
+        {
+          "name": "Props",
+          "constraint": "object"
+        }
+      ],
       "source": {
         "file": "packages/data-state/src/components/data-view.tsx",
-        "line": 11
+        "line": 12
       },
       "props": [
         {
@@ -40,7 +46,7 @@
           "type": "ViewStyle | undefined",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 43
+            "line": 46
           }
         },
         {
@@ -49,7 +55,7 @@
           "type": "StateViewProps",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 45
+            "line": 48
           }
         },
         {
@@ -58,7 +64,7 @@
           "type": "Error | null",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 39
+            "line": 43
           }
         },
         {
@@ -67,7 +73,7 @@
           "type": "StateViewProps",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 44
+            "line": 47
           }
         },
         {
@@ -76,7 +82,7 @@
           "type": "boolean",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 40
+            "line": 44
           }
         },
         {
@@ -85,16 +91,25 @@
           "type": "boolean",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 42
+            "line": 45
           }
         },
         {
           "name": "LoadingComponent",
           "required": true,
-          "type": "ComponentType<{ tone?: ComponentTone; }>",
+          "type": "ComponentType<Props>",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 41
+            "line": 31
+          }
+        },
+        {
+          "name": "loadingComponentProps",
+          "required": false,
+          "type": "NoInfer<Props> | undefined",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 33
           }
         },
         {
@@ -145,7 +160,7 @@
           "choices": ["neutral", "primary", "secondary"],
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 38
+            "line": 42
           }
         }
       ],
@@ -225,7 +240,7 @@
           "value": "primary",
           "source": {
             "file": "packages/data-state/src/components/data-view.tsx",
-            "line": 17
+            "line": 20
           }
         }
       },
@@ -527,9 +542,15 @@
     },
     {
       "name": "LoadingView",
+      "typeParameters": [
+        {
+          "name": "Props",
+          "constraint": "object"
+        }
+      ],
       "source": {
         "file": "packages/data-state/src/components/loading-view.tsx",
-        "line": 16
+        "line": 17
       },
       "props": [
         {
@@ -548,7 +569,7 @@
           "type": "ViewStyle | undefined",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 34
+            "line": 38
           }
         },
         {
@@ -557,13 +578,22 @@
           "type": "boolean",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 32
+            "line": 37
           }
         },
         {
           "name": "LoadingComponent",
           "required": true,
-          "type": "ComponentType<{ tone?: ComponentTone; }>",
+          "type": "ComponentType<Props>",
+          "source": {
+            "file": "packages/data-state/src/types/state-view.types.ts",
+            "line": 31
+          }
+        },
+        {
+          "name": "loadingComponentProps",
+          "required": false,
+          "type": "NoInfer<Props> | undefined",
           "source": {
             "file": "packages/data-state/src/types/state-view.types.ts",
             "line": 33
@@ -608,16 +638,6 @@
             "file": "node_modules/react-native/types_generated/Libraries/Components/View/ViewPropTypes.d.ts",
             "line": 426,
             "external": true
-          }
-        },
-        {
-          "name": "tone",
-          "required": false,
-          "type": "ComponentTone | undefined",
-          "choices": ["neutral", "primary", "secondary"],
-          "source": {
-            "file": "packages/data-state/src/types/state-view.types.ts",
-            "line": 31
           }
         }
       ],
@@ -691,16 +711,7 @@
         "zIndex"
       ],
       "inheritedNativePropCount": 110,
-      "defaults": {
-        "tone": {
-          "expression": "\"primary\"",
-          "value": "primary",
-          "source": {
-            "file": "packages/data-state/src/components/loading-view.tsx",
-            "line": 19
-          }
-        }
-      },
+      "defaults": {},
       "defaultResolution": "direct-source-only"
     }
   ],
@@ -710,11 +721,11 @@
       "kind": "value",
       "source": {
         "file": "packages/data-state/src/components/data-view.tsx",
-        "line": 11
+        "line": 12
       },
       "signatures": [
         {
-          "text": "(props: DataViewProps & { children?: import(\"react\").ReactNode | undefined; }): import(\"react\").ReactNode",
+          "text": "<Props extends object>(props: PropsWithChildren<DataViewProps<Props>>): import(\"react\").JSX.Element",
           "abbreviated": false
         }
       ]
@@ -724,7 +735,7 @@
       "kind": "type",
       "source": {
         "file": "packages/data-state/src/types/state-view.types.ts",
-        "line": 37
+        "line": 41
       }
     },
     {
@@ -776,11 +787,11 @@
       "kind": "value",
       "source": {
         "file": "packages/data-state/src/components/loading-view.tsx",
-        "line": 16
+        "line": 17
       },
       "signatures": [
         {
-          "text": "(props: LoadingViewProps): import(\"react\").ReactNode",
+          "text": "<Props extends object>(props: LoadingViewProps<Props>): import(\"react\").JSX.Element",
           "abbreviated": false
         }
       ]
@@ -790,7 +801,7 @@
       "kind": "type",
       "source": {
         "file": "packages/data-state/src/types/state-view.types.ts",
-        "line": 30
+        "line": 36
       }
     },
     {

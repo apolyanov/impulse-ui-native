@@ -116,7 +116,7 @@
       ],
       "constraints": [
         "Supply the state detail props required by DataView; flags are application data.",
-        "Custom loading/content components own their layout and may ignore tone."
+        "Custom loading/content components own their layout. Loader props are inferred from LoadingComponent and supplied through loadingComponentProps; no tone is injected."
       ],
       "setup": ["ThemeProvider; configure Reanimated and Worklets."],
       "recipes": ["data-list"]

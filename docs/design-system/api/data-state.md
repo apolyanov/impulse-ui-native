@@ -62,12 +62,29 @@ height to prevent the surrounding layout from shifting when loading finishes.
 
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
 
+Both `LoadingView` and `DataView` infer `loadingComponentProps` from
+`LoadingComponent`. Supply it when the loader has required props:
+
+```tsx
+<LoadingView
+  loading={isLoading}
+  LoadingComponent={CustomLoader}
+  loadingComponentProps={{ label: "Loading projects", size: 24 }}
+/>
+```
+
+Here `CustomLoader` declares `label: string` and `size?: number`. Incorrect or
+unknown props are rejected. Loaders with only optional props can omit
+`loadingComponentProps`. Loader props come only from the supplied component;
+no props are injected. Pass `tone` through `loadingComponentProps` if your loader
+declares it.
+
 ## Repository palette consistency
 
 DataView and its internal state details/actions accept tone (default primary).
 The icon accent and default action buttons use the same tone, with per-state tone
-overrides allowed in errorViewProps/emptyViewProps. LoadingView passes the optional
-tone prop to custom LoadingComponent; custom loaders decide how to consume it.
+overrides allowed in errorViewProps/emptyViewProps. Custom loaders receive only
+their explicitly supplied loadingComponentProps.
 Details icon tokens move to dataState.details.colors[tone]. Skeletons remain neutral.
 
 ## Agent and design reference
@@ -81,17 +98,20 @@ The following modules are reachable through relative re-exports from this packag
 ### packages/data-state/src/components/data-view.tsx
 
 ```tsx
-import { memo, PropsWithChildren, useMemo } from "react";
+import { Attributes, PropsWithChildren, useMemo } from "react";
 
+import { memo } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
-import { DataViewProps } from "../types";
+import { DataViewProps, LoadingViewProps } from "../types";
 import { EmptyDetails } from "./empty-details";
 import { ErrorDetails } from "./error-details";
 import { LoadingView } from "./loading-view";
 
-export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
+export const DataView = memo(function DataView<Props extends object>(
+  props: PropsWithChildren<DataViewProps<Props>>,
+) {
   const tokens = useComponentsTokens();
 
   const dataStateTokens = tokens.dataState;
@@ -136,15 +156,15 @@ export const DataView = memo((props: PropsWithChildren<DataViewProps>) => {
   ]);
 
   const showContent = !error && !isEmpty;
+  const loadingViewProps = {
+    ...rest,
+    LoadingComponent,
+    contentContainerStyle,
+    loading,
+  } as LoadingViewProps<Props> & Attributes;
 
   return (
-    <LoadingView
-      tone={tone}
-      {...rest}
-      LoadingComponent={LoadingComponent}
-      contentContainerStyle={contentContainerStyle}
-      loading={loading}
-    >
+    <LoadingView<Props> {...loadingViewProps}>
       {showContent ? children : null}
       {content}
     </LoadingView>
@@ -190,7 +210,7 @@ export { DataView } from "./data-view";
 ### packages/data-state/src/components/loading-view.tsx
 
 ```tsx
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { LayoutChangeEvent, StyleProp, ViewStyle } from "react-native";
 import Animated, {
   Easing,
@@ -200,17 +220,20 @@ import Animated, {
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
 
+import { memo } from "@impulse-ui-native/core";
 import { View } from "@impulse-ui-native/primitives";
 import { useComponentsTokens } from "@impulse-ui-native/theme";
 
 import { LoadingViewProps } from "../types";
 
-export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
+export const LoadingView = memo(function LoadingView<Props extends object>(
+  props: LoadingViewProps<Props>,
+) {
   const {
     loading,
-    tone = "primary",
     children,
     LoadingComponent,
+    loadingComponentProps,
     contentContainerStyle,
     style,
     ...rest
@@ -302,6 +325,8 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
     loadingTokens.transitionDuration,
   ]);
 
+  const loaderProps = loadingComponentProps as Props;
+
   return (
     <View {...rest} style={containerStyle}>
       <Animated.View style={childrenContainerStyles}>{children}</Animated.View>
@@ -309,7 +334,7 @@ export const LoadingView = memo(function LoadingView(props: LoadingViewProps) {
       {shouldMountLoader ? (
         <Animated.View style={loaderStyles} pointerEvents="auto">
           <View onLayout={onLoaderLayout}>
-            <LoadingComponent tone={tone} />
+            <LoadingComponent {...loaderProps} />
           </View>
         </Animated.View>
       ) : null}
@@ -363,21 +388,24 @@ export type EmptyViewProps = StateContainerProps;
 
 export type ErrorViewProps = StateContainerProps;
 
-export interface LoadingViewProps extends ViewProps {
-  tone?: ComponentTone;
-  loading: boolean;
-  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
-  contentContainerStyle?: ViewStyle;
-}
+type LoadingComponentOptions<Props extends object> = {
+  LoadingComponent: ComponentType<Props>;
+} & ({} extends Props
+  ? { loadingComponentProps?: NoInfer<Props> }
+  : { loadingComponentProps: NoInfer<Props> });
 
-export interface DataViewProps extends ViewProps {
+export type LoadingViewProps<Props extends object = object> = ViewProps & {
+  loading: boolean;
+  contentContainerStyle?: ViewStyle;
+} & LoadingComponentOptions<Props>;
+
+export type DataViewProps<Props extends object = object> = ViewProps & {
   tone?: ComponentTone;
   error: Error | null;
   isEmpty: boolean;
-  LoadingComponent: ComponentType<{ tone?: ComponentTone }>;
-  loading: LoadingViewProps["loading"];
+  loading: boolean;
   contentContainerStyle?: ViewStyle;
   errorViewProps: StateViewProps;
   emptyViewProps: StateViewProps;
-}
+} & LoadingComponentOptions<Props>;
 ```

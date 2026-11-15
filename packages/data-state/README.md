@@ -56,12 +56,29 @@ height to prevent the surrounding layout from shifting when loading finishes.
 
 The views use component tokens from `ThemeProvider` for their layout, layering, and presentation.
 
+Both `LoadingView` and `DataView` infer `loadingComponentProps` from
+`LoadingComponent`. Supply it when the loader has required props:
+
+```tsx
+<LoadingView
+  loading={isLoading}
+  LoadingComponent={CustomLoader}
+  loadingComponentProps={{ label: "Loading projects", size: 24 }}
+/>
+```
+
+Here `CustomLoader` declares `label: string` and `size?: number`. Incorrect or
+unknown props are rejected. Loaders with only optional props can omit
+`loadingComponentProps`. Loader props come only from the supplied component;
+no props are injected. Pass `tone` through `loadingComponentProps` if your loader
+declares it.
+
 ## Repository palette consistency
 
 DataView and its internal state details/actions accept tone (default primary).
 The icon accent and default action buttons use the same tone, with per-state tone
-overrides allowed in errorViewProps/emptyViewProps. LoadingView passes the optional
-tone prop to custom LoadingComponent; custom loaders decide how to consume it.
+overrides allowed in errorViewProps/emptyViewProps. Custom loaders receive only
+their explicitly supplied loadingComponentProps.
 Details icon tokens move to dataState.details.colors[tone]. Skeletons remain neutral.
 
 ## Agent and design reference
