@@ -1,5 +1,12 @@
 # @impulse-ui-native/stepper
 
+## 17.5.0
+
+### Patch Changes
+
+- @impulse-ui-native/primitives@17.5.0
+- @impulse-ui-native/theme@17.5.0
+
 ## 17.4.2
 
 ### Patch Changes

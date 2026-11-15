@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/switch",
   "slug": "switch",
-  "version": "17.4.2",
+  "version": "17.5.0",
   "guidance": {
     "kind": "control",
     "chooseWhen": "Toggle a persistent boolean setting.",

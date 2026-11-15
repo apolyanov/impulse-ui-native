@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toolkit",
   "slug": "toolkit",
-  "version": "17.4.2",
+  "version": "17.5.0",
   "guidance": {
     "kind": "aggregate",
     "chooseWhen": "Consume most library packages through one application import.",

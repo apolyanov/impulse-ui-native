@@ -1,5 +1,19 @@
 # @impulse-ui-native/data-state
 
+## 17.5.0
+
+### Minor Changes
+
+- 44e40e0: Infer loadingComponentProps from LoadingComponent in LoadingView and DataView, require required loader props, and forward them to the loader without injecting tone.
+
+### Patch Changes
+
+- @impulse-ui-native/core@17.5.0
+- @impulse-ui-native/icon@17.5.0
+- @impulse-ui-native/primitives@17.5.0
+- @impulse-ui-native/skeleton@17.5.0
+- @impulse-ui-native/theme@17.5.0
+
 ## 17.4.2
 
 ### Patch Changes
