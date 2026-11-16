@@ -3,7 +3,7 @@ import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 import { resolverStateSetter } from "../utils";
 
-interface UseControllableStateProps<Value> {
+export interface UseControllableStateProps<Value> {
   prop?: Value;
   defaultProp?: Value;
   onChange?: (value: Value) => void;

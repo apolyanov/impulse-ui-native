@@ -4,3 +4,4 @@ export { useControllableState } from "./use-controllable-state.hook";
 export { useIsOpen } from "./use-is-open.hook";
 export { useTimer } from "./use-timer.hook";
 export { useBackHandler } from "./use-back-handler.hook";
+export { useAsyncControllableState } from "./use-async-controllable-state.hook";
