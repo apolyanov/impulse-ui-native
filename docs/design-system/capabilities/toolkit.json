@@ -7772,6 +7772,28 @@
       }
     },
     {
+      "name": "useAsyncControllableState",
+      "kind": "hook",
+      "source": {
+        "file": "packages/core/src/hooks/use-async-controllable-state.hook.ts",
+        "line": 14
+      },
+      "signatures": [
+        {
+          "text": "<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
+          "abbreviated": false
+        },
+        {
+          "text": "<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
+          "abbreviated": false
+        },
+        {
+          "text": "<Value>(props: UseControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value | undefined>",
+          "abbreviated": false
+        }
+      ]
+    },
+    {
       "name": "useBackHandler",
       "kind": "hook",
       "source": {

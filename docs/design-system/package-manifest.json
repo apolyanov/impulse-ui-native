@@ -147,7 +147,7 @@
         "import": "./dist/index.js"
       }
     },
-    "publicSourceModules": 16,
+    "publicSourceModules": 17,
     "reference": "api/core.md"
   },
   {

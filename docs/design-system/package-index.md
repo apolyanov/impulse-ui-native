@@ -10,7 +10,7 @@ Every public library package is included, including Storybook authoring helpers,
 | `@impulse-ui-native/charts`            | 17.5.0  | Yes               | 87             | [charts](api/charts.md)                       |
 | `@impulse-ui-native/checkbox`          | 17.5.0  | Yes               | 5              | [checkbox](api/checkbox.md)                   |
 | `@impulse-ui-native/color-picker`      | 17.5.0  | Yes               | 7              | [color-picker](api/color-picker.md)           |
-| `@impulse-ui-native/core`              | 17.5.0  | Yes               | 16             | [core](api/core.md)                           |
+| `@impulse-ui-native/core`              | 17.5.0  | Yes               | 17             | [core](api/core.md)                           |
 | `@impulse-ui-native/data-state`        | 17.5.0  | Yes               | 8              | [data-state](api/data-state.md)               |
 | `@impulse-ui-native/datetime`          | 17.5.0  | Yes               | 15             | [datetime](api/datetime.md)                   |
 | `@impulse-ui-native/echo`              | 17.5.0  | Yes               | 8              | [echo](api/echo.md)                           |

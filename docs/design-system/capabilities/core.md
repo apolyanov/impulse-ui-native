@@ -46,6 +46,10 @@ This package has no directly owned visual components in its public root; use its
   - `<Target>(target: Target, source?: DeepPartial<Target>): Target`
 - `resolverStateSetter` (value)
   - `<Value>(nextValue: SetStateAction<Value>): (value: Value) => Value`
+- `useAsyncControllableState` (hook)
+  - `<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
+  - `<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
+  - `<Value>(props: UseControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value \| undefined>`
 - `useBackHandler` (hook)
   - `(callback: () => boolean, enabled?: boolean): void`
 - `useControllableState` (hook)

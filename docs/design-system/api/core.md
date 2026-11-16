@@ -90,6 +90,80 @@ export { useControllableState } from "./use-controllable-state.hook";
 export { useIsOpen } from "./use-is-open.hook";
 export { useTimer } from "./use-timer.hook";
 export { useBackHandler } from "./use-back-handler.hook";
+export { useAsyncControllableState } from "./use-async-controllable-state.hook";
+```
+
+### packages/core/src/hooks/use-async-controllable-state.hook.ts
+
+```tsx
+import { SetStateAction, useCallback, useLayoutEffect, useRef } from "react";
+
+import {
+  useControllableState,
+  UseControllableStateProps,
+} from "./use-controllable-state.hook";
+
+interface UseAsyncControllableStateValue<Value, State = Value> {
+  state: State;
+  setState: (nextValue: SetStateAction<Value>) => void;
+  onInitialLoad: (value: Value) => void;
+}
+
+export function useAsyncControllableState<Value>(props: {
+  prop: Value;
+  defaultProp?: Value;
+  onChange?: (value: Value) => void;
+}): UseAsyncControllableStateValue<Value>;
+
+export function useAsyncControllableState<Value>(props: {
+  prop?: Value;
+  defaultProp: Value;
+  onChange?: (value: Value) => void;
+}): UseAsyncControllableStateValue<Value>;
+
+export function useAsyncControllableState<Value>(
+  props: UseControllableStateProps<Value>,
+): UseAsyncControllableStateValue<Value, Value | undefined>;
+
+export function useAsyncControllableState<Value>({
+  prop,
+  defaultProp,
+  onChange,
+}: UseControllableStateProps<Value>): UseAsyncControllableStateValue<
+  Value,
+  Value | undefined
+> {
+  const isInitializedRef = useRef<boolean>(defaultProp !== undefined);
+  const isTouchedRef = useRef<boolean>(prop !== undefined);
+
+  const [state, setInternalState] = useControllableState({
+    prop,
+    defaultProp,
+    onChange,
+  });
+
+  const onInitialLoad = useCallback((value: Value) => {
+    if (isInitializedRef.current || isTouchedRef.current) {
+      return;
+    }
+
+    isInitializedRef.current = true;
+    setInternalState(value);
+  }, []);
+
+  const setState = useCallback((nextValue: SetStateAction<Value>) => {
+    isTouchedRef.current = true;
+    setInternalState(nextValue);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (prop !== undefined) {
+      isTouchedRef.current = true;
+    }
+  }, [prop]);
+
+  return { state, setState, onInitialLoad };
+}
 ```
 
 ### packages/core/src/hooks/use-back-handler.hook.ts
@@ -126,7 +200,7 @@ import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 import { resolverStateSetter } from "../utils";
 
-interface UseControllableStateProps<Value> {
+export interface UseControllableStateProps<Value> {
   prop?: Value;
   defaultProp?: Value;
   onChange?: (value: Value) => void;
