@@ -1,5 +1,13 @@
 # @impulse-ui-native/theme
 
+## 17.5.1
+
+### Patch Changes
+
+- Adding useAsyncControllableState hook to help with managing async selects
+- Updated dependencies
+  - @impulse-ui-native/core@17.5.1
+
 ## 17.5.0
 
 ### Patch Changes
