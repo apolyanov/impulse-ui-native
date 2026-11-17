@@ -95,7 +95,7 @@
       "kind": "infrastructure",
       "chooseWhen": "Reuse state, timing and callback behavior in React.",
       "features": [
-        "Controlled/uncontrolled state, open state, stable event callbacks and timers.",
+        "Controlled/uncontrolled state, one-time async state initialization through initialProp or onInitialLoad, open state, stable event callbacks and timers.",
         "Hardware Back subscriptions, deep merging and small utility helpers."
       ],
       "constraints": [

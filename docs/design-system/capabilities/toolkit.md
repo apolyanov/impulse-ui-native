@@ -1016,9 +1016,10 @@ This package has no directly owned visual components in its public root; use its
 - `TypographyPresetKey` (type)
 - `TypographyProps` (type)
 - `useAsyncControllableState` (hook)
-  - `<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
-  - `<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
-  - `<Value>(props: UseControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value \| undefined>`
+  - `<Value>(props: { prop: Value; defaultProp?: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
+  - `<Value>(props: { prop?: Value; defaultProp: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
+  - `<Value>(props: UseAsyncControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value \| undefined>`
+- `UseAsyncControllableStateProps` (type)
 - `useBackHandler` (hook)
   - `(callback: () => boolean, enabled?: boolean): void`
 - `useBarChart` (hook)

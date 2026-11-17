@@ -17,6 +17,7 @@ pnpm add @impulse-ui-native/core
 ## Main exports
 
 - `useControllableState` supports controlled and uncontrolled component state.
+- `useAsyncControllableState` supports one-time async initialization through `initialProp` or `onInitialLoad`.
 - `useEventCallback` returns a stable callback that uses the latest handler.
 - `useTimer` runs the latest callback once after a duration, with cancellation and optional native background pausing.
 - `useBackHandler` subscribes to Android hardware Back with the latest callback and automatic cleanup.
@@ -44,6 +45,27 @@ function Disclosure({ open, onOpenChange }) {
 ```
 
 This is a low-level package. Install `@impulse-ui-native/toolkit` when you want the complete UI system from one entry point.
+
+## Async state initialization
+
+```tsx
+const { state, setState } = useAsyncControllableState<string>({
+  initialProp: userQuery.data?.id,
+  onChange: handleChange,
+});
+```
+
+`initialProp` is applied in an effect the first time it is not `undefined`,
+including `false`, `0`, empty strings, and `null` when allowed by the value type.
+Later changes and refetches do not replace the initialized value. An existing
+`defaultProp`, any supplied controlled `prop`, or an explicit `setState` call
+prevents async initialization, including after clearing the value. Initialization
+uses the normal setter and invokes `onChange` when the value changes.
+
+`onInitialLoad(value)` remains available for manual initialization and shares the
+same once-only guard with `initialProp`. With only `initialProp`, `state` remains
+typed as `Value | undefined` because initialization happens after the render.
+Required `prop` or `defaultProp` retains the existing non-optional overload.
 
 ## Hardware Back
 
@@ -96,12 +118,16 @@ export { useAsyncControllableState } from "./use-async-controllable-state.hook";
 ### packages/core/src/hooks/use-async-controllable-state.hook.ts
 
 ```tsx
-import { SetStateAction, useCallback, useLayoutEffect, useRef } from "react";
-
 import {
-  useControllableState,
-  UseControllableStateProps,
-} from "./use-controllable-state.hook";
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
+
+import type { UseAsyncControllableStateProps } from "../types/use-async-controllable-state.types";
+import { useControllableState } from "./use-controllable-state.hook";
 
 interface UseAsyncControllableStateValue<Value, State = Value> {
   state: State;
@@ -112,24 +138,27 @@ interface UseAsyncControllableStateValue<Value, State = Value> {
 export function useAsyncControllableState<Value>(props: {
   prop: Value;
   defaultProp?: Value;
+  initialProp?: Value;
   onChange?: (value: Value) => void;
 }): UseAsyncControllableStateValue<Value>;
 
 export function useAsyncControllableState<Value>(props: {
   prop?: Value;
   defaultProp: Value;
+  initialProp?: Value;
   onChange?: (value: Value) => void;
 }): UseAsyncControllableStateValue<Value>;
 
 export function useAsyncControllableState<Value>(
-  props: UseControllableStateProps<Value>,
+  props: UseAsyncControllableStateProps<Value>,
 ): UseAsyncControllableStateValue<Value, Value | undefined>;
 
 export function useAsyncControllableState<Value>({
   prop,
   defaultProp,
+  initialProp,
   onChange,
-}: UseControllableStateProps<Value>): UseAsyncControllableStateValue<
+}: UseAsyncControllableStateProps<Value>): UseAsyncControllableStateValue<
   Value,
   Value | undefined
 > {
@@ -155,6 +184,12 @@ export function useAsyncControllableState<Value>({
     isTouchedRef.current = true;
     setInternalState(nextValue);
   }, []);
+
+  useEffect(() => {
+    if (initialProp !== undefined) {
+      onInitialLoad(initialProp);
+    }
+  }, [initialProp, onInitialLoad]);
 
   useLayoutEffect(() => {
     if (prop !== undefined) {
@@ -467,6 +502,19 @@ export * from "./types";
 ```tsx
 export * from "./utils.types";
 export * from "./use-timer.types";
+export * from "./use-async-controllable-state.types";
+```
+
+### packages/core/src/types/use-async-controllable-state.types.ts
+
+```tsx
+import type { UseControllableStateProps } from "../hooks/use-controllable-state.hook";
+
+export interface UseAsyncControllableStateProps<
+  Value,
+> extends UseControllableStateProps<Value> {
+  initialProp?: Value;
+}
 ```
 
 ### packages/core/src/types/use-timer.types.ts

@@ -11,6 +11,7 @@ pnpm add @impulse-ui-native/core
 ## Main exports
 
 - `useControllableState` supports controlled and uncontrolled component state.
+- `useAsyncControllableState` supports one-time async initialization through `initialProp` or `onInitialLoad`.
 - `useEventCallback` returns a stable callback that uses the latest handler.
 - `useTimer` runs the latest callback once after a duration, with cancellation and optional native background pausing.
 - `useBackHandler` subscribes to Android hardware Back with the latest callback and automatic cleanup.
@@ -38,6 +39,27 @@ function Disclosure({ open, onOpenChange }) {
 ```
 
 This is a low-level package. Install `@impulse-ui-native/toolkit` when you want the complete UI system from one entry point.
+
+## Async state initialization
+
+```tsx
+const { state, setState } = useAsyncControllableState<string>({
+  initialProp: userQuery.data?.id,
+  onChange: handleChange,
+});
+```
+
+`initialProp` is applied in an effect the first time it is not `undefined`,
+including `false`, `0`, empty strings, and `null` when allowed by the value type.
+Later changes and refetches do not replace the initialized value. An existing
+`defaultProp`, any supplied controlled `prop`, or an explicit `setState` call
+prevents async initialization, including after clearing the value. Initialization
+uses the normal setter and invokes `onChange` when the value changes.
+
+`onInitialLoad(value)` remains available for manual initialization and shares the
+same once-only guard with `initialProp`. With only `initialProp`, `state` remains
+typed as `Value | undefined` because initialization happens after the render.
+Required `prop` or `defaultProp` retains the existing non-optional overload.
 
 ## Hardware Back
 

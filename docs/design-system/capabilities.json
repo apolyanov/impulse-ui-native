@@ -8207,7 +8207,7 @@
         "kind": "infrastructure",
         "chooseWhen": "Reuse state, timing and callback behavior in React.",
         "features": [
-          "Controlled/uncontrolled state, open state, stable event callbacks and timers.",
+          "Controlled/uncontrolled state, one-time async state initialization through initialProp or onInitialLoad, open state, stable event callbacks and timers.",
           "Hardware Back subscriptions, deep merging and small utility helpers."
         ],
         "constraints": [
@@ -8290,22 +8290,30 @@
           "kind": "hook",
           "source": {
             "file": "packages/core/src/hooks/use-async-controllable-state.hook.ts",
-            "line": 14
+            "line": 18
           },
           "signatures": [
             {
-              "text": "<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
+              "text": "<Value>(props: { prop: Value; defaultProp?: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
               "abbreviated": false
             },
             {
-              "text": "<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
+              "text": "<Value>(props: { prop?: Value; defaultProp: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
               "abbreviated": false
             },
             {
-              "text": "<Value>(props: UseControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value | undefined>",
+              "text": "<Value>(props: UseAsyncControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value | undefined>",
               "abbreviated": false
             }
           ]
+        },
+        {
+          "name": "UseAsyncControllableStateProps",
+          "kind": "type",
+          "source": {
+            "file": "packages/core/src/types/use-async-controllable-state.types.ts",
+            "line": 3
+          }
         },
         {
           "name": "useBackHandler",
@@ -45636,22 +45644,30 @@
           "kind": "hook",
           "source": {
             "file": "packages/core/src/hooks/use-async-controllable-state.hook.ts",
-            "line": 14
+            "line": 18
           },
           "signatures": [
             {
-              "text": "<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
+              "text": "<Value>(props: { prop: Value; defaultProp?: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
               "abbreviated": false
             },
             {
-              "text": "<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
+              "text": "<Value>(props: { prop?: Value; defaultProp: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>",
               "abbreviated": false
             },
             {
-              "text": "<Value>(props: UseControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value | undefined>",
+              "text": "<Value>(props: UseAsyncControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value | undefined>",
               "abbreviated": false
             }
           ]
+        },
+        {
+          "name": "UseAsyncControllableStateProps",
+          "kind": "type",
+          "source": {
+            "file": "packages/core/src/types/use-async-controllable-state.types.ts",
+            "line": 3
+          }
         },
         {
           "name": "useBackHandler",

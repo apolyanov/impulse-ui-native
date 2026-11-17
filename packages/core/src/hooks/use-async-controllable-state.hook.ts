@@ -1,9 +1,13 @@
-import { SetStateAction, useCallback, useLayoutEffect, useRef } from "react";
-
 import {
-  useControllableState,
-  UseControllableStateProps,
-} from "./use-controllable-state.hook";
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
+
+import type { UseAsyncControllableStateProps } from "../types/use-async-controllable-state.types";
+import { useControllableState } from "./use-controllable-state.hook";
 
 interface UseAsyncControllableStateValue<Value, State = Value> {
   state: State;
@@ -14,24 +18,27 @@ interface UseAsyncControllableStateValue<Value, State = Value> {
 export function useAsyncControllableState<Value>(props: {
   prop: Value;
   defaultProp?: Value;
+  initialProp?: Value;
   onChange?: (value: Value) => void;
 }): UseAsyncControllableStateValue<Value>;
 
 export function useAsyncControllableState<Value>(props: {
   prop?: Value;
   defaultProp: Value;
+  initialProp?: Value;
   onChange?: (value: Value) => void;
 }): UseAsyncControllableStateValue<Value>;
 
 export function useAsyncControllableState<Value>(
-  props: UseControllableStateProps<Value>,
+  props: UseAsyncControllableStateProps<Value>,
 ): UseAsyncControllableStateValue<Value, Value | undefined>;
 
 export function useAsyncControllableState<Value>({
   prop,
   defaultProp,
+  initialProp,
   onChange,
-}: UseControllableStateProps<Value>): UseAsyncControllableStateValue<
+}: UseAsyncControllableStateProps<Value>): UseAsyncControllableStateValue<
   Value,
   Value | undefined
 > {
@@ -57,6 +64,12 @@ export function useAsyncControllableState<Value>({
     isTouchedRef.current = true;
     setInternalState(nextValue);
   }, []);
+
+  useEffect(() => {
+    if (initialProp !== undefined) {
+      onInitialLoad(initialProp);
+    }
+  }, [initialProp, onInitialLoad]);
 
   useLayoutEffect(() => {
     if (prop !== undefined) {

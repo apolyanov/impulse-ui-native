@@ -8,7 +8,7 @@ Reuse state, timing and callback behavior in React.
 
 ## Capabilities
 
-- Controlled/uncontrolled state, open state, stable event callbacks and timers.
+- Controlled/uncontrolled state, one-time async state initialization through initialProp or onInitialLoad, open state, stable event callbacks and timers.
 - Hardware Back subscriptions, deep merging and small utility helpers.
 
 ## Boundaries and composition
@@ -47,9 +47,10 @@ This package has no directly owned visual components in its public root; use its
 - `resolverStateSetter` (value)
   - `<Value>(nextValue: SetStateAction<Value>): (value: Value) => Value`
 - `useAsyncControllableState` (hook)
-  - `<Value>(props: { prop: Value; defaultProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
-  - `<Value>(props: { prop?: Value; defaultProp: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
-  - `<Value>(props: UseControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value \| undefined>`
+  - `<Value>(props: { prop: Value; defaultProp?: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
+  - `<Value>(props: { prop?: Value; defaultProp: Value; initialProp?: Value; onChange?: (value: Value) => void; }): UseAsyncControllableStateValue<Value>`
+  - `<Value>(props: UseAsyncControllableStateProps<Value>): UseAsyncControllableStateValue<Value, Value \| undefined>`
+- `UseAsyncControllableStateProps` (type)
 - `useBackHandler` (hook)
   - `(callback: () => boolean, enabled?: boolean): void`
 - `useControllableState` (hook)
