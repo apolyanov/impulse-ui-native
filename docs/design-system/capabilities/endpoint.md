@@ -20,7 +20,7 @@ Connect a transport-independent HttpClient to TanStack Query.
 - The application owns authentication, query keys, request types and error UX.
 - Standard query and mutation functions expose .execute; infinite-query factories return hooks only, without an imperative execute API.
 - Hook callbacks run for request attempts, not cached reads; deduplicated fetches use one query function's callbacks. Infinite-query success callbacks receive the fetched page. Imperative execute runs only endpoint callbacks.
-- Endpoint factories accept HttpClient and unwrap response data. Supply a concrete transport implementation that owns encoding, decoding, errors, cancellation, and CONNECT tunnels.
+- Endpoint factories accept HttpClient and unwrap response data. Override protected params/pathParams methods to customize URL serialization; send receives the completed URL without raw parameter objects. Transports own body encoding, decoding, errors, cancellation, and CONNECT tunnels.
 
 Exact contracts: [API reference](../api/endpoint.md). Machine facts: [package JSON](endpoint.json) or [full catalog](../capabilities.json).
 
@@ -73,7 +73,6 @@ This package has no directly owned visual components in its public root; use its
 - `InfiniteQueryEndpointRequest` (type)
 - `MutationFunction` (type)
 - `PaginationParams` (type)
-- `ParamsSerializer` (value)
 - `QueryEndpointRequest` (type)
 - `QueryFunction` (type)
 - `QueryParams` (type)

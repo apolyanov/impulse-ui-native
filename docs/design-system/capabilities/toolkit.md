@@ -730,7 +730,6 @@ This package has no directly owned visual components in its public root; use its
 - `PaginationThemeProps` (type)
 - `PaginationTokens` (type)
 - `PaginationVisualState` (type)
-- `ParamsSerializer` (value)
 - `PickerColumnType` (type)
 - `PickerFlyoutActions` (type)
 - `Pie` (value)

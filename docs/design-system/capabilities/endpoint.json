@@ -17,7 +17,7 @@
       "The application owns authentication, query keys, request types and error UX.",
       "Standard query and mutation functions expose .execute; infinite-query factories return hooks only, without an imperative execute API.",
       "Hook callbacks run for request attempts, not cached reads; deduplicated fetches use one query function's callbacks. Infinite-query success callbacks receive the fetched page. Imperative execute runs only endpoint callbacks.",
-      "Endpoint factories accept HttpClient and unwrap response data. Supply a concrete transport implementation that owns encoding, decoding, errors, cancellation, and CONNECT tunnels."
+      "Endpoint factories accept HttpClient and unwrap response data. Override protected params/pathParams methods to customize URL serialization; send receives the completed URL without raw parameter objects. Transports own body encoding, decoding, errors, cancellation, and CONNECT tunnels."
     ],
     "setup": [
       "HttpClient implementation and TanStack Query QueryClientProvider; install @tanstack/react-query and the chosen transport when needed."
@@ -181,14 +181,14 @@
       "kind": "class",
       "source": {
         "file": "packages/endpoint/src/http/http-client.ts",
-        "line": 9
+        "line": 11
       },
       "members": [
         {
           "name": "request",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 14
+            "line": 16
           },
           "signatures": [
             {
@@ -201,7 +201,7 @@
           "name": "get",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 34
+            "line": 67
           },
           "signatures": [
             {
@@ -214,7 +214,7 @@
           "name": "query",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 38
+            "line": 71
           },
           "signatures": [
             {
@@ -227,7 +227,7 @@
           "name": "head",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 45
+            "line": 78
           },
           "signatures": [
             {
@@ -240,7 +240,7 @@
           "name": "post",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 49
+            "line": 82
           },
           "signatures": [
             {
@@ -253,7 +253,7 @@
           "name": "put",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 56
+            "line": 89
           },
           "signatures": [
             {
@@ -266,7 +266,7 @@
           "name": "delete",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 63
+            "line": 96
           },
           "signatures": [
             {
@@ -279,7 +279,7 @@
           "name": "connect",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 70
+            "line": 103
           },
           "signatures": [
             {
@@ -292,7 +292,7 @@
           "name": "options",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 74
+            "line": 107
           },
           "signatures": [
             {
@@ -305,7 +305,7 @@
           "name": "trace",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 78
+            "line": 111
           },
           "signatures": [
             {
@@ -318,7 +318,7 @@
           "name": "patch",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 82
+            "line": 115
           },
           "signatures": [
             {
@@ -391,14 +391,6 @@
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
         "line": 13
-      }
-    },
-    {
-      "name": "ParamsSerializer",
-      "kind": "value",
-      "source": {
-        "file": "packages/endpoint/src/utils/params.utils.ts",
-        "line": 3
       }
     },
     {

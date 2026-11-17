@@ -230,7 +230,7 @@
         "import": "./dist/index.js"
       }
     },
-    "publicSourceModules": 19,
+    "publicSourceModules": 18,
     "reference": "api/endpoint.md"
   },
   {

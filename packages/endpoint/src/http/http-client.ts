@@ -1,11 +1,13 @@
 import type {
   HttpBodyRequestOptions,
+  HttpPathParams,
   HttpRequest,
   HttpRequestOptions,
   HttpResponse,
 } from "../types/http.types";
+import type { QueryParams } from "../types/request.types";
 
-/** Transport implementations own serialization, decoding, errors, and cancellation. */
+/** Transports own body encoding, response decoding, errors, and cancellation. */
 export abstract class HttpClient {
   protected abstract send<Data = unknown, Body = unknown>(
     request: HttpRequest<Body>,
@@ -14,11 +16,44 @@ export abstract class HttpClient {
   async request<Data = unknown, Body = unknown>(
     request: HttpRequest<Body>,
   ): Promise<HttpResponse<Data>> {
-    const { pathParams, ...transportRequest } = request;
-    const url = request.url.replace(
+    const { pathParams, params, ...transportRequest } = request;
+    const path = this.pathParams(request.url, pathParams ?? {});
+    const url = this.params(path, params ?? {});
+
+    return this.send<Data, Body>({ ...transportRequest, url });
+  }
+
+  protected params(path: string, params: QueryParams): string {
+    const searchParams = new URLSearchParams();
+
+    for (const key in params) {
+      const value = params[key];
+
+      if (value === null || value === undefined) {
+        continue;
+      }
+
+      if (Array.isArray(value) && value.length > 0) {
+        searchParams.set(key, value.map(String).join(","));
+      } else {
+        searchParams.set(key, String(value));
+      }
+    }
+
+    const query = searchParams.toString();
+
+    if (!query) {
+      return path;
+    }
+
+    return `${path}?${query}`;
+  }
+
+  protected pathParams(path: string, params: HttpPathParams): string {
+    return path.replace(
       /:([A-Za-z_][A-Za-z0-9_]*)/g,
       (_, key: string): string => {
-        const value = pathParams?.[key];
+        const value = params[key];
 
         if (value === undefined) {
           throw new Error(`Missing path parameter: ${key}`);
@@ -27,8 +62,6 @@ export abstract class HttpClient {
         return encodeURIComponent(String(value));
       },
     );
-
-    return this.send<Data, Body>({ ...transportRequest, url });
   }
 
   get<Data = unknown>(url: string, options?: HttpRequestOptions) {

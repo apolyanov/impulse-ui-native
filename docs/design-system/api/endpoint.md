@@ -24,7 +24,6 @@ and supply a concrete `HttpClient` implementation for its chosen transport.
 - `createInfiniteQueryFactory` creates infinite-query hooks with pagination variables.
 - `createMutationFactory` creates mutation hooks with an attached `execute` request function.
 - `createRequest` builds the shared request function, defaults to GET, and unwraps response data.
-- `ParamsSerializer` is an optional query-parameter serializer for transport implementations.
 - `HttpClient` is a transport-independent abstract client with helpers for GET, QUERY, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, and PATCH.
 - Public types cover variables, pagination, request configuration, query functions, and mutation functions.
 
@@ -126,9 +125,24 @@ sequence; success callback errors enter the shared error flow.
 Extend `HttpClient` and implement its protected generic `send<Data, Body>` method to
 connect your transport. The request contains `method`, `url`, optional `headers`,
 query `params`, an abort `signal`, and optional `data` for body-capable methods.
-The base `request` method resolves `pathParams` before calling `send`.
+The base `request` method resolves `pathParams` and serializes query `params`
+into the URL before calling `send`. Supply query parameters through `params`
+with a plain path. Override either protected method to customize serialization:
+
+```ts
+protected params(path: string, params: QueryParams): string;
+protected pathParams(path: string, params: HttpPathParams): string;
+```
+
+`params` returns the path with its serialized query parameters appended. Its
+default implementation appends `?` and the serialized parameters, uses
+comma-separated arrays, and omits null/undefined values.
+`pathParams` returns the resolved path and defaults to encoded `:name` replacement.
+Subclasses can call `super.params(...)` or `super.pathParams(...)` to extend
+the defaults. Only `send` is abstract.
+
 Return `Promise<HttpResponse<Data>>` with decoded `data`, numeric `status`, and
-response `headers`. Implementations own URL/query serialization, body encoding,
+response `headers`. Implementations own body encoding,
 response decoding, HTTP error handling, and cancellation.
 
 ```ts
@@ -163,7 +177,9 @@ and are encoded as individual URL segments. Missing values reject the request
 before it reaches the transport. Repeated placeholders are supported; unused
 values are ignored. Replacement scans the supplied template directly; pass query
 parameters through `params`.
-`pathParams` is removed from the request passed to `send`. Direct `request` calls
+Both `params` and `pathParams` are removed from the request passed to `send`;
+transport adapters should use the completed URL without serializing them again.
+Direct `request` calls
 and every verb helper use this same resolution.
 
 All endpoint factories accept this abstraction. To migrate from Axios, wrap it
@@ -205,12 +221,14 @@ export { createEndpointFactory } from "./create-endpoint.factory";
 ```tsx
 import type {
   HttpBodyRequestOptions,
+  HttpPathParams,
   HttpRequest,
   HttpRequestOptions,
   HttpResponse,
 } from "../types/http.types";
+import type { QueryParams } from "../types/request.types";
 
-/** Transport implementations own serialization, decoding, errors, and cancellation. */
+/** Transports own body encoding, response decoding, errors, and cancellation. */
 export abstract class HttpClient {
   protected abstract send<Data = unknown, Body = unknown>(
     request: HttpRequest<Body>,
@@ -219,11 +237,44 @@ export abstract class HttpClient {
   async request<Data = unknown, Body = unknown>(
     request: HttpRequest<Body>,
   ): Promise<HttpResponse<Data>> {
-    const { pathParams, ...transportRequest } = request;
-    const url = request.url.replace(
+    const { pathParams, params, ...transportRequest } = request;
+    const path = this.pathParams(request.url, pathParams ?? {});
+    const url = this.params(path, params ?? {});
+
+    return this.send<Data, Body>({ ...transportRequest, url });
+  }
+
+  protected params(path: string, params: QueryParams): string {
+    const searchParams = new URLSearchParams();
+
+    for (const key in params) {
+      const value = params[key];
+
+      if (value === null || value === undefined) {
+        continue;
+      }
+
+      if (Array.isArray(value) && value.length > 0) {
+        searchParams.set(key, value.map(String).join(","));
+      } else {
+        searchParams.set(key, String(value));
+      }
+    }
+
+    const query = searchParams.toString();
+
+    if (!query) {
+      return path;
+    }
+
+    return `${path}?${query}`;
+  }
+
+  protected pathParams(path: string, params: HttpPathParams): string {
+    return path.replace(
       /:([A-Za-z_][A-Za-z0-9_]*)/g,
       (_, key: string): string => {
-        const value = pathParams?.[key];
+        const value = params[key];
 
         if (value === undefined) {
           throw new Error(`Missing path parameter: ${key}`);
@@ -232,8 +283,6 @@ export abstract class HttpClient {
         return encodeURIComponent(String(value));
       },
     );
-
-    return this.send<Data, Body>({ ...transportRequest, url });
   }
 
   get<Data = unknown>(url: string, options?: HttpRequestOptions) {
@@ -750,36 +799,7 @@ export interface EndpointRequest<
 ### packages/endpoint/src/utils/index.ts
 
 ```tsx
-export * from "./params.utils";
 export * from "./request.utils";
-```
-
-### packages/endpoint/src/utils/params.utils.ts
-
-```tsx
-import type { QueryParams } from "../types";
-
-export const ParamsSerializer = {
-  serialize: (params: QueryParams) => {
-    const searchParams = new URLSearchParams();
-
-    for (const key in params) {
-      const value = params[key];
-
-      if (value === null || value === undefined) {
-        continue;
-      }
-
-      if (Array.isArray(value) && value.length > 0) {
-        searchParams.set(key, value.map(String).join(","));
-      } else {
-        searchParams.set(key, String(value));
-      }
-    }
-
-    return searchParams.toString();
-  },
-};
 ```
 
 ### packages/endpoint/src/utils/request.utils.ts

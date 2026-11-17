@@ -79,6 +79,60 @@ class RecordingClient extends HttpClient {
   }
 }
 
+test("subclasses can override both parameter serializers", async () => {
+  class CustomClient extends RecordingClient {
+    params(path, values) {
+      assert.equal(path, "/custom-projects/123");
+      assert.deepEqual(values, { names: ["Alex", "Sam"] });
+      return `${path}?names=Alex&names=Sam`;
+    }
+
+    pathParams(path, values) {
+      assert.equal(path, "/projects/{id}");
+      assert.deepEqual(values, { id: 123 });
+      return "/custom-projects/123";
+    }
+  }
+  const client = new CustomClient();
+  await client.get("/projects/{id}", {
+    pathParams: { id: 123 },
+    params: { names: ["Alex", "Sam"] },
+  });
+  assert.equal(
+    client.requests[0].url,
+    "/custom-projects/123?names=Alex&names=Sam",
+  );
+  assert.equal(Object.hasOwn(client.requests[0], "params"), false);
+  assert.equal(Object.hasOwn(client.requests[0], "pathParams"), false);
+});
+
+test("default query serialization handles arrays, empty values, booleans, and encoding", async () => {
+  const client = new RecordingClient();
+  await client.get("/projects", {
+    params: {
+      names: ["Alex", "Sam"],
+      active: false,
+      offset: 0,
+      empty: "",
+      skipped: null,
+      absent: undefined,
+      name: "Alex & Sam",
+    },
+  });
+  assert.equal(
+    client.requests[0].url,
+    "/projects?names=Alex%2CSam&active=false&offset=0&empty=&name=Alex+%26+Sam",
+  );
+});
+
+test("empty query parameters leave the path unchanged", async () => {
+  const client = new RecordingClient();
+  for (const params of [undefined, {}, { skip: null }]) {
+    await client.get("/projects", { params });
+    assert.equal(client.requests.at(-1).url, "/projects");
+  }
+});
+
 test("all HTTP helpers dispatch their method and retain request metadata", async () => {
   const client = new RecordingClient();
   const controller = new AbortController();
@@ -104,9 +158,10 @@ test("all HTTP helpers dispatch their method and retain request metadata", async
     const response = await client[method]("/projects", options);
     assert.equal(response, client.response);
     assert.deepEqual(client.requests.at(-1), {
-      ...options,
+      headers: options.headers,
+      signal: options.signal,
       method: method.toUpperCase(),
-      url: "/projects",
+      url: "/projects?limit=10",
     });
   }
   assert.equal(Object.hasOwn(options, "method"), false);
@@ -117,7 +172,8 @@ test("QUERY forwards query content separately from URL parameters", async () => 
   const data = { filters: [{ name: "Impulse" }] };
   await client.query("/projects", { data, params: { limit: 5 } });
   assert.equal(client.requests[0].data, data);
-  assert.deepEqual(client.requests[0].params, { limit: 5 });
+  assert.equal(client.requests[0].url, "/projects?limit=5");
+  assert.equal(Object.hasOwn(client.requests[0], "params"), false);
 });
 
 test("helpers propagate transport rejection and cancellation", async () => {
@@ -139,9 +195,9 @@ test("path values are encoded and query parameters remain separate", async () =>
   });
   assert.equal(
     client.requests[0].url,
-    `/projects/0/items/${encodeURIComponent("a/b ?#%雪")}`,
+    `/projects/0/items/${encodeURIComponent("a/b ?#%雪")}?include=owner`,
   );
-  assert.deepEqual(client.requests[0].params, { include: "owner" });
+  assert.equal(Object.hasOwn(client.requests[0], "params"), false);
   assert.equal(Object.hasOwn(client.requests[0], "pathParams"), false);
 });
 
@@ -199,8 +255,7 @@ test("query execute unwraps payloads and forwards path parameters and headers", 
   });
   assert.equal(result, data);
   assert.equal(successes[0], data);
-  assert.equal(client.requests[0].url, "/projects/123");
-  assert.deepEqual(client.requests[0].params, { include: "owner" });
+  assert.equal(client.requests[0].url, "/projects/123?include=owner");
   assert.deepEqual(client.requests[0].headers, {
     Authorization: "override",
     Accept: "application/json",
@@ -244,8 +299,7 @@ test("infinite queries forward page variables and abort signals and unwrap page 
     pageParam: { offset: 20, limit: 10 },
   });
   assert.equal(page, data);
-  assert.equal(client.requests[0].url, "/users/7/projects");
-  assert.deepEqual(client.requests[0].params, { offset: 20, limit: 10 });
+  assert.equal(client.requests[0].url, "/users/7/projects?offset=20&limit=10");
   assert.equal(client.requests[0].signal, signal);
 });
 
@@ -272,10 +326,10 @@ test("mutations unwrap payloads and forward method, data, metadata, and signals"
     assert.equal(await useMutation.execute(variables), data);
     const request = client.requests.at(-1);
     assert.equal(request.method, (method ?? "post").toUpperCase());
-    assert.equal(request.url, "/projects/123");
+    assert.equal(request.url, "/projects/123?notify=true");
     assert.equal(request.data, variables.data);
     assert.equal(request.signal, signal);
-    assert.equal(request.params, variables.params);
+    assert.equal(Object.hasOwn(request, "params"), false);
     assert.deepEqual(request.headers, {
       Accept: "application/json",
       Authorization: "token",
@@ -596,7 +650,14 @@ test("real infinite pagination advances page parameters and separates resources"
   client.send = async (request) => {
     client.requests.push(request);
     return {
-      data: { url: request.url, offset: request.params.offset },
+      data: {
+        url: request.url,
+        offset: Number(
+          new URL(request.url, "https://example.com").searchParams.get(
+            "offset",
+          ),
+        ),
+      },
       status: 200,
       headers: {},
     };
@@ -632,10 +693,10 @@ test("real infinite pagination advances page parameters and separates resources"
       [0, 10],
     );
     assert.deepEqual(
-      client.requests.slice(0, 2).map((request) => request.params),
+      client.requests.slice(0, 2).map((request) => request.url),
       [
-        { limit: 10, offset: 0, name: "Alex" },
-        { limit: 10, offset: 10, name: "Alex" },
+        "/users/1/projects?limit=10&offset=0&name=Alex",
+        "/users/1/projects?limit=10&offset=10&name=Alex",
       ],
     );
 
@@ -647,7 +708,10 @@ test("real infinite pagination advances page parameters and separates resources"
       pagination,
     );
     const second = await cache.fetchInfiniteQuery(secondOptions);
-    assert.equal(second.pages[0].url, "/users/2/projects");
+    assert.equal(
+      second.pages[0].url,
+      "/users/2/projects?limit=10&offset=0&name=Alex",
+    );
     assert.equal(client.requests.length, 3);
     assert.equal(secondOptions.queryKey[0], "projects");
     assert.equal(secondOptions.queryKey[1], "list");
@@ -683,5 +747,5 @@ test("custom pagination mapping remains authoritative", async () => {
     signal: new AbortController().signal,
     pageParam: { offset: 20 },
   });
-  assert.deepEqual(client.requests[0].params, { cursor: 20 });
+  assert.equal(client.requests[0].url, "/projects?cursor=20");
 });

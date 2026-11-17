@@ -4006,14 +4006,14 @@
       "kind": "class",
       "source": {
         "file": "packages/endpoint/src/http/http-client.ts",
-        "line": 9
+        "line": 11
       },
       "members": [
         {
           "name": "request",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 14
+            "line": 16
           },
           "signatures": [
             {
@@ -4026,7 +4026,7 @@
           "name": "get",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 34
+            "line": 67
           },
           "signatures": [
             {
@@ -4039,7 +4039,7 @@
           "name": "query",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 38
+            "line": 71
           },
           "signatures": [
             {
@@ -4052,7 +4052,7 @@
           "name": "head",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 45
+            "line": 78
           },
           "signatures": [
             {
@@ -4065,7 +4065,7 @@
           "name": "post",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 49
+            "line": 82
           },
           "signatures": [
             {
@@ -4078,7 +4078,7 @@
           "name": "put",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 56
+            "line": 89
           },
           "signatures": [
             {
@@ -4091,7 +4091,7 @@
           "name": "delete",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 63
+            "line": 96
           },
           "signatures": [
             {
@@ -4104,7 +4104,7 @@
           "name": "connect",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 70
+            "line": 103
           },
           "signatures": [
             {
@@ -4117,7 +4117,7 @@
           "name": "options",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 74
+            "line": 107
           },
           "signatures": [
             {
@@ -4130,7 +4130,7 @@
           "name": "trace",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 78
+            "line": 111
           },
           "signatures": [
             {
@@ -4143,7 +4143,7 @@
           "name": "patch",
           "source": {
             "file": "packages/endpoint/src/http/http-client.ts",
-            "line": 82
+            "line": 115
           },
           "signatures": [
             {
@@ -5697,14 +5697,6 @@
       "source": {
         "file": "packages/theme/src/types/pagination-tokens.types.ts",
         "line": 7
-      }
-    },
-    {
-      "name": "ParamsSerializer",
-      "kind": "value",
-      "source": {
-        "file": "packages/endpoint/src/utils/params.utils.ts",
-        "line": 3
       }
     },
     {
