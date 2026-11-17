@@ -1,5 +1,7 @@
 # @impulse-ui-native/flat-list
 
+## 19.0.0
+
 ## 18.0.0
 
 ## 17.5.1

@@ -1,5 +1,46 @@
 # @impulse-ui-native/toolkit
 
+## 19.0.0
+
+### Patch Changes
+
+- Updated dependencies [c71a6b3]
+  - @impulse-ui-native/endpoint@19.0.0
+  - @impulse-ui-native/accordion@19.0.0
+  - @impulse-ui-native/charts@19.0.0
+  - @impulse-ui-native/checkbox@19.0.0
+  - @impulse-ui-native/core@19.0.0
+  - @impulse-ui-native/data-state@19.0.0
+  - @impulse-ui-native/datetime@19.0.0
+  - @impulse-ui-native/echo@19.0.0
+  - @impulse-ui-native/flyout@19.0.0
+  - @impulse-ui-native/form-field@19.0.0
+  - @impulse-ui-native/input@19.0.0
+  - @impulse-ui-native/overlay@19.0.0
+  - @impulse-ui-native/pagination@19.0.0
+  - @impulse-ui-native/portal@19.0.0
+  - @impulse-ui-native/primitives@19.0.0
+  - @impulse-ui-native/radio@19.0.0
+  - @impulse-ui-native/segmented-control@19.0.0
+  - @impulse-ui-native/select@19.0.0
+  - @impulse-ui-native/skeleton@19.0.0
+  - @impulse-ui-native/stepper@19.0.0
+  - @impulse-ui-native/switch@19.0.0
+  - @impulse-ui-native/slider@19.0.0
+  - @impulse-ui-native/theme@19.0.0
+  - @impulse-ui-native/carousel@19.0.0
+  - @impulse-ui-native/toast@19.0.0
+  - @impulse-ui-native/card@19.0.0
+  - @impulse-ui-native/list@19.0.0
+  - @impulse-ui-native/progress@19.0.0
+  - @impulse-ui-native/popover@19.0.0
+  - @impulse-ui-native/modal@19.0.0
+  - @impulse-ui-native/tabs@19.0.0
+  - @impulse-ui-native/flat-list@19.0.0
+  - @impulse-ui-native/scroll-view@19.0.0
+  - @impulse-ui-native/color-picker@19.0.0
+  - @impulse-ui-native/icon-view@19.0.0
+
 ## 18.0.0
 
 ### Patch Changes

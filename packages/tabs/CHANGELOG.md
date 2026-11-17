@@ -1,5 +1,14 @@
 # @impulse-ui-native/tabs
 
+## 19.0.0
+
+### Patch Changes
+
+- @impulse-ui-native/core@19.0.0
+- @impulse-ui-native/primitives@19.0.0
+- @impulse-ui-native/theme@19.0.0
+- @impulse-ui-native/scroll-view@19.0.0
+
 ## 18.0.0
 
 ### Patch Changes

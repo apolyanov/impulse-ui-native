@@ -1,6 +1,6 @@
 # @impulse-ui-native/carousel
 
-Local package version: 18.0.0. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 19.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
