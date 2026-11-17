@@ -1,5 +1,12 @@
 # @impulse-ui-native/card
 
+## 19.1.0
+
+### Patch Changes
+
+- @impulse-ui-native/primitives@19.1.0
+- @impulse-ui-native/theme@19.1.0
+
 ## 19.0.0
 
 ### Patch Changes

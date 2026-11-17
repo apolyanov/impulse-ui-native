@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/endpoint",
   "slug": "endpoint",
-  "version": "19.0.0",
+  "version": "19.1.0",
   "guidance": {
     "kind": "infrastructure",
     "chooseWhen": "Connect a transport-independent HttpClient to TanStack Query.",

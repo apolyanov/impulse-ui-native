@@ -1,5 +1,12 @@
 # @impulse-ui-native/theme
 
+## 19.1.0
+
+### Patch Changes
+
+- Updated dependencies [eb7accb]
+  - @impulse-ui-native/core@19.1.0
+
 ## 19.0.0
 
 ### Patch Changes

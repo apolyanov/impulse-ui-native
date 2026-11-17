@@ -1,5 +1,11 @@
 # @impulse-ui-native/core
 
+## 19.1.0
+
+### Minor Changes
+
+- eb7accb: Add initialProp to useAsyncControllableState for one-time initialization when async data becomes available. Preserve supplied defaults, controlled values, and explicit state changes, and share the initialization guard with onInitialLoad.
+
 ## 19.0.0
 
 ## 18.0.0

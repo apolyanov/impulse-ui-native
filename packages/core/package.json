@@ -1,6 +1,6 @@
 {
   "name": "@impulse-ui-native/core",
-  "version": "19.0.0",
+  "version": "19.1.0",
   "description": "Core hooks and utilities for the ImpulseUI Native component library.",
   "keywords": [
     "react-native",

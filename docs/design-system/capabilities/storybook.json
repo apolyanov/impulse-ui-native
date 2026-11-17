@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/storybook",
   "slug": "storybook",
-  "version": "19.0.0",
+  "version": "19.1.0",
   "guidance": {
     "kind": "authoring",
     "chooseWhen": "Author native component examples and discover supported options.",

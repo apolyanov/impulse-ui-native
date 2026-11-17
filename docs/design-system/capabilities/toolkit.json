@@ -1,7 +1,7 @@
 {
   "name": "@impulse-ui-native/toolkit",
   "slug": "toolkit",
-  "version": "19.0.0",
+  "version": "19.1.0",
   "guidance": {
     "kind": "aggregate",
     "chooseWhen": "Consume most library packages through one application import.",
