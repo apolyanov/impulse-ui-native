@@ -865,7 +865,7 @@ export function FieldAppearancesRecipe({
 
 Source: [recipes/data-service.ts](recipes/data-service.ts).
 
-- Supply an Axios client and render generated hooks under QueryClientProvider.
+- Supply an HttpClient implementation and render generated hooks under QueryClientProvider.
 - Augment EchoEvents before emitting application-specific events; this recipe makes no request by itself.
 
 Verification: typechecked; setup or behavior example; no standalone visual capture.
@@ -873,8 +873,7 @@ Verification: typechecked; setup or behavior example; no standalone visual captu
 Native screenshot: not captured. Do not treat this recipe's typecheck or story registration as visual approval.
 
 ```tsx
-import type { Axios } from "axios";
-
+import type { HttpClient } from "@impulse-ui-native/endpoint";
 import { EchoInstance } from "@impulse-ui-native/echo";
 import { createEndpointFactory } from "@impulse-ui-native/endpoint";
 
@@ -885,7 +884,7 @@ declare module "@impulse-ui-native/echo" {
 }
 
 // Call once with the application's configured client; render query hooks inside QueryClientProvider.
-export function createProjectService(client: Axios) {
+export function createProjectService(client: HttpClient) {
   const endpoint = createEndpointFactory(client);
   const useProjects = endpoint.createQuery<{ id: string; title: string }[]>({
     key: ["recipe-projects"],

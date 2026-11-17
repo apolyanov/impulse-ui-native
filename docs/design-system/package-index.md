@@ -14,7 +14,7 @@ Every public library package is included, including Storybook authoring helpers,
 | `@impulse-ui-native/data-state`        | 17.5.1  | Yes               | 8              | [data-state](api/data-state.md)               |
 | `@impulse-ui-native/datetime`          | 17.5.1  | Yes               | 15             | [datetime](api/datetime.md)                   |
 | `@impulse-ui-native/echo`              | 17.5.1  | Yes               | 8              | [echo](api/echo.md)                           |
-| `@impulse-ui-native/endpoint`          | 17.5.1  | Yes               | 15             | [endpoint](api/endpoint.md)                   |
+| `@impulse-ui-native/endpoint`          | 17.5.1  | Yes               | 19             | [endpoint](api/endpoint.md)                   |
 | `@impulse-ui-native/flat-list`         | 17.5.1  | Yes               | 6              | [flat-list](api/flat-list.md)                 |
 | `@impulse-ui-native/flyout`            | 17.5.1  | Yes               | 4              | [flyout](api/flyout.md)                       |
 | `@impulse-ui-native/form-field`        | 17.5.1  | Yes               | 5              | [form-field](api/form-field.md)               |

@@ -1,8 +1,6 @@
-import type { AxiosRequestConfig } from "axios";
-
 import type { QueryParams } from "../types";
 
-export const ParamsSerializer: AxiosRequestConfig["paramsSerializer"] = {
+export const ParamsSerializer = {
   serialize: (params: QueryParams) => {
     const searchParams = new URLSearchParams();
 

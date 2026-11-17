@@ -1294,7 +1294,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
-        "line": 24
+        "line": 23
       }
     },
     {
@@ -1796,11 +1796,11 @@
       "kind": "value",
       "source": {
         "file": "packages/endpoint/src/factories/create-endpoint.factory.ts",
-        "line": 6
+        "line": 5
       },
       "signatures": [
         {
-          "text": "(client: Axios): { createMutation: <TData, TError = import(\"axios\").AxiosError<unknown, any>, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>>(config: import(\"@impulse-ui-native/toolkit\").EndpointRequest<TData, TError>) => import(\"@impulse-ui-native/toolkit\").MutationFunction<TData, TError, TVariables>; createQuery: <TData, TError = import(\"axios\").AxiosError<unknown, any>, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>>(config: import(\"@impulse-ui-native/toolkit\").QueryEndpointRequest<TData, TError, TVariables>) => import(\"@impulse-ui-native/toolkit\").QueryFunction<TData, TError, TVariables>; createInfiniteQuery: <TPage, TError = import(\"axios\").AxiosError<unknown, any>, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>, TPageParam extends import(\"@impulse-ui-native/toolkit\").PaginationParams = import(\"@impulse-ui-native/toolkit\").PaginationParams, TQueryKey extends import(\"@tanstack/query-core\").QueryKey = readonly unknown[]>(config: import(\"@impulse-ui-native/toolkit\").InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<import(\"@tanstack/react-query\").UseInfiniteQueryOptions<TPage, TError, import(\"@tanstack/query-core\").InfiniteData<TPage>, TQueryKey, TPageParam>, \"queryKey\">) => import(\"@tanstack/react-query\").UseInfiniteQueryResult<import(\"@tanstack/query-core\").InfiniteData<TPage, unknown>, TError>; }",
+          "text": "(client: HttpClient): { createMutation: <TData, TError = unknown, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>>(config: import(\"@impulse-ui-native/toolkit\").EndpointRequest<TData, TError>) => import(\"@impulse-ui-native/toolkit\").MutationFunction<TData, TError, TVariables>; createQuery: <TData, TError = unknown, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>>(config: import(\"@impulse-ui-native/toolkit\").QueryEndpointRequest<TData, TError, TVariables>) => import(\"@impulse-ui-native/toolkit\").QueryFunction<TData, TError, TVariables>; createInfiniteQuery: <TPage, TError = unknown, TVariables extends import(\"@impulse-ui-native/toolkit\").BaseVariables = import(\"@impulse-ui-native/toolkit\").BaseVariables<any>, TPageParam extends import(\"@impulse-ui-native/toolkit\").PaginationParams = import(\"@impulse-ui-native/toolkit\").PaginationParams, TQueryKey extends import(\"@tanstack/query-core\").QueryKey = readonly unknown[]>(config: import(\"@impulse-ui-native/toolkit\").InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: import(\"@impulse-ui-native/toolkit\").EndpointInfiniteQueryOptions<TPage, TError, TQueryKey, TPageParam>) => import(\"@tanstack/react-query\").UseInfiniteQueryResult<import(\"@tanstack/query-core\").InfiniteData<TPage, unknown>, TError>; }",
           "abbreviated": false
         }
       ]
@@ -1824,11 +1824,11 @@
       "kind": "value",
       "source": {
         "file": "packages/endpoint/src/query/create-infinite-query.ts",
-        "line": 16
+        "line": 18
       },
       "signatures": [
         {
-          "text": "(client: Axios): <TPage, TError = AxiosError, TVariables extends BaseVariables = BaseVariables, TPageParam extends PaginationParams = PaginationParams, TQueryKey extends QueryKey = QueryKey>(config: InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<UseInfiniteQueryOptions<TPage, TError, InfiniteData<TPage>, TQueryKey, TPageParam>, \"queryKey\">) => import(\"@tanstack/react-query\").UseInfiniteQueryResult<InfiniteData<TPage, unknown>, TError>",
+          "text": "(client: HttpClient): <TPage, TError = unknown, TVariables extends BaseVariables = BaseVariables, TPageParam extends PaginationParams = PaginationParams, TQueryKey extends QueryKey = QueryKey>(config: InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: EndpointInfiniteQueryOptions<TPage, TError, TQueryKey, TPageParam>) => import(\"@tanstack/react-query\").UseInfiniteQueryResult<InfiniteData<TPage, unknown>, TError>",
           "abbreviated": false
         }
       ]
@@ -1978,11 +1978,11 @@
       "kind": "value",
       "source": {
         "file": "packages/endpoint/src/mutation/create-mutation.ts",
-        "line": 7
+        "line": 12
       },
       "signatures": [
         {
-          "text": "(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: EndpointRequest<TData, TError>) => MutationFunction<TData, TError, TVariables>",
+          "text": "(client: HttpClient): <TData, TError = unknown, TVariables extends BaseVariables = BaseVariables>(config: EndpointRequest<TData, TError>) => MutationFunction<TData, TError, TVariables>",
           "abbreviated": false
         }
       ]
@@ -2118,11 +2118,11 @@
       "kind": "value",
       "source": {
         "file": "packages/endpoint/src/query/create-query.ts",
-        "line": 11
+        "line": 13
       },
       "signatures": [
         {
-          "text": "(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: QueryEndpointRequest<TData, TError, TVariables>) => QueryFunction<TData, TError, TVariables>",
+          "text": "(client: HttpClient): <TData, TError = unknown, TVariables extends BaseVariables = BaseVariables>(config: QueryEndpointRequest<TData, TError, TVariables>) => QueryFunction<TData, TError, TVariables>",
           "abbreviated": false
         }
       ]
@@ -2132,11 +2132,11 @@
       "kind": "value",
       "source": {
         "file": "packages/endpoint/src/utils/request.utils.ts",
-        "line": 6
+        "line": 5
       },
       "signatures": [
         {
-          "text": "<TData, TError, TVariables extends BaseVariables>(client: Axios, config: CommonEndpointRequestProps<TData, TError>): (variables: TVariables) => Promise<TData>",
+          "text": "<TData, TError, TVariables extends BaseVariables>(client: HttpClient, config: EndpointRequest<TData, TError>, callbacks?: EndpointCallbacks<TData, TError>): (variables: TVariables) => Promise<TData>",
           "abbreviated": false
         }
       ]
@@ -2826,11 +2826,51 @@
       ]
     },
     {
+      "name": "EndpointCallbacks",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/callback.types.ts",
+        "line": 1
+      }
+    },
+    {
+      "name": "EndpointInfiniteQueryOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/query.types.ts",
+        "line": 21
+      }
+    },
+    {
+      "name": "EndpointMutationOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/mutation.types.ts",
+        "line": 9
+      }
+    },
+    {
+      "name": "EndpointQueryKey",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/query.types.ts",
+        "line": 11
+      }
+    },
+    {
+      "name": "EndpointQueryOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/query.types.ts",
+        "line": 16
+      }
+    },
+    {
       "name": "EndpointRequest",
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
-        "line": 60
+        "line": 58
       }
     },
     {
@@ -3946,6 +3986,215 @@
       }
     },
     {
+      "name": "HttpBodyMethod",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 15
+      }
+    },
+    {
+      "name": "HttpBodyRequestOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 26
+      }
+    },
+    {
+      "name": "HttpClient",
+      "kind": "class",
+      "source": {
+        "file": "packages/endpoint/src/http/http-client.ts",
+        "line": 9
+      },
+      "members": [
+        {
+          "name": "request",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 14
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown, Body = unknown>(request: HttpRequest<Body>): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "get",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 34
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "query",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 38
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> | undefined): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 45
+          },
+          "signatures": [
+            {
+              "text": "(url: string, options?: HttpRequestOptions): Promise<HttpResponse<void>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "post",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 49
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> | undefined): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "put",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 56
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> | undefined): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 63
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> | undefined): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "connect",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 70
+          },
+          "signatures": [
+            {
+              "text": "(url: string, options?: HttpRequestOptions): Promise<HttpResponse<void>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "options",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 74
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "trace",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 78
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        },
+        {
+          "name": "patch",
+          "source": {
+            "file": "packages/endpoint/src/http/http-client.ts",
+            "line": 82
+          },
+          "signatures": [
+            {
+              "text": "<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> | undefined): Promise<HttpResponse<Data>>",
+              "abbreviated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HttpMethod",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 3
+      }
+    },
+    {
+      "name": "HttpPathParams",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 17
+      }
+    },
+    {
+      "name": "HttpRequest",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 32
+      }
+    },
+    {
+      "name": "HttpRequestOptions",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 19
+      }
+    },
+    {
+      "name": "HttpResponse",
+      "kind": "type",
+      "source": {
+        "file": "packages/endpoint/src/types/http.types.ts",
+        "line": 39
+      }
+    },
+    {
       "name": "IconButton",
       "kind": "value",
       "source": {
@@ -4064,7 +4313,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
-        "line": 47
+        "line": 45
       }
     },
     {
@@ -4974,7 +5223,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/mutation.types.ts",
-        "line": 5
+        "line": 15
       }
     },
     {
@@ -5399,7 +5648,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
-        "line": 14
+        "line": 13
       }
     },
     {
@@ -5455,7 +5704,7 @@
       "kind": "value",
       "source": {
         "file": "packages/endpoint/src/utils/params.utils.ts",
-        "line": 5
+        "line": 3
       }
     },
     {
@@ -6066,7 +6315,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
-        "line": 35
+        "line": 33
       }
     },
     {
@@ -6074,7 +6323,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/query.types.ts",
-        "line": 3
+        "line": 37
       }
     },
     {
@@ -6082,7 +6331,7 @@
       "kind": "type",
       "source": {
         "file": "packages/endpoint/src/types/request.types.ts",
-        "line": 20
+        "line": 19
       }
     },
     {

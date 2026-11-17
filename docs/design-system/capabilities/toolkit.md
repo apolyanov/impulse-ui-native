@@ -272,11 +272,11 @@ This package has no directly owned visual components in its public root; use its
 - `createDrawableMultiLineChartSeries` (value)
   - `<X extends ChartXValue>(series: MultiLineChartSeriesModel<X>, _index: number, _plot: ChartRect, tokens?: ChartsTokens): MultiLineChartSeriesModel<X>`
 - `createEndpointFactory` (value)
-  - `(client: Axios): { createMutation: <TData, TError = import("axios").AxiosError<unknown, any>, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>>(config: import("@impulse-ui-native/toolkit").EndpointRequest<TData, TError>) => import("@impulse-ui-native/toolkit").MutationFunction<TData, TError, TVariables>; createQuery: <TData, TError = import("axios").AxiosError<unknown, any>, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>>(config: import("@impulse-ui-native/toolkit").QueryEndpointRequest<TData, TError, TVariables>) => import("@impulse-ui-native/toolkit").QueryFunction<TData, TError, TVariables>; createInfiniteQuery: <TPage, TError = import("axios").AxiosError<unknown, any>, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>, TPageParam extends import("@impulse-ui-native/toolkit").PaginationParams = import("@impulse-ui-native/toolkit").PaginationParams, TQueryKey extends import("@tanstack/query-core").QueryKey = readonly unknown[]>(config: import("@impulse-ui-native/toolkit").InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<import("@tanstack/react-query").UseInfiniteQueryOptions<TPage, TError, import("@tanstack/query-core").InfiniteData<TPage>, TQueryKey, TPageParam>, "queryKey">) => import("@tanstack/react-query").UseInfiniteQueryResult<import("@tanstack/query-core").InfiniteData<TPage, unknown>, TError>; }`
+  - `(client: HttpClient): { createMutation: <TData, TError = unknown, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>>(config: import("@impulse-ui-native/toolkit").EndpointRequest<TData, TError>) => import("@impulse-ui-native/toolkit").MutationFunction<TData, TError, TVariables>; createQuery: <TData, TError = unknown, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>>(config: import("@impulse-ui-native/toolkit").QueryEndpointRequest<TData, TError, TVariables>) => import("@impulse-ui-native/toolkit").QueryFunction<TData, TError, TVariables>; createInfiniteQuery: <TPage, TError = unknown, TVariables extends import("@impulse-ui-native/toolkit").BaseVariables = import("@impulse-ui-native/toolkit").BaseVariables<any>, TPageParam extends import("@impulse-ui-native/toolkit").PaginationParams = import("@impulse-ui-native/toolkit").PaginationParams, TQueryKey extends import("@tanstack/query-core").QueryKey = readonly unknown[]>(config: import("@impulse-ui-native/toolkit").InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: import("@impulse-ui-native/toolkit").EndpointInfiniteQueryOptions<TPage, TError, TQueryKey, TPageParam>) => import("@tanstack/react-query").UseInfiniteQueryResult<import("@tanstack/query-core").InfiniteData<TPage, unknown>, TError>; }`
 - `createHorizontalGridPath` (value)
   - `<Value>(values: readonly Value[], scale: LineChartScale<Value>, plot: ChartRect): SkPath \| null`
 - `createInfiniteQueryFactory` (value)
-  - `(client: Axios): <TPage, TError = AxiosError, TVariables extends BaseVariables = BaseVariables, TPageParam extends PaginationParams = PaginationParams, TQueryKey extends QueryKey = QueryKey>(config: InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: Omit<UseInfiniteQueryOptions<TPage, TError, InfiniteData<TPage>, TQueryKey, TPageParam>, "queryKey">) => import("@tanstack/react-query").UseInfiniteQueryResult<InfiniteData<TPage, unknown>, TError>`
+  - `(client: HttpClient): <TPage, TError = unknown, TVariables extends BaseVariables = BaseVariables, TPageParam extends PaginationParams = PaginationParams, TQueryKey extends QueryKey = QueryKey>(config: InfiniteQueryEndpointRequest<TPage, TError, TVariables, TPageParam, TQueryKey>) => (variables: TVariables, options: EndpointInfiniteQueryOptions<TPage, TError, TQueryKey, TPageParam>) => import("@tanstack/react-query").UseInfiniteQueryResult<InfiniteData<TPage, unknown>, TError>`
 - `createInfiniteRange` (value)
   - `(max: number, repeats: number): any[]`
 - `createInsetRect` (value)
@@ -298,7 +298,7 @@ This package has no directly owned visual components in its public root; use its
 - `createMultiPieChartModel` (value)
   - `(props: UseMultiPieChartProps, tokens?: ChartsTokens): UseMultiPieChartResult`
 - `createMutationFactory` (value)
-  - `(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: EndpointRequest<TData, TError>) => MutationFunction<TData, TError, TVariables>`
+  - `(client: HttpClient): <TData, TError = unknown, TVariables extends BaseVariables = BaseVariables>(config: EndpointRequest<TData, TError>) => MutationFunction<TData, TError, TVariables>`
 - `createPaginationTokens` (value)
   - `(tokens: PrimitiveThemeTokens): PaginationTokens`
 - `createParagraphBuilder` (value)
@@ -318,9 +318,9 @@ This package has no directly owned visual components in its public root; use its
 - `createPreset` (value)
   - `(config: (theme: AppTheme) => TypographyProps & Pick<TextProps, "color">, key: TypographyPresetKey): import("react").MemoExoticComponent<{ (props: TextProps): import("react").JSX.Element; displayName: string; }>`
 - `createQueryFactory` (value)
-  - `(client: Axios): <TData, TError = AxiosError, TVariables extends BaseVariables = BaseVariables>(config: QueryEndpointRequest<TData, TError, TVariables>) => QueryFunction<TData, TError, TVariables>`
+  - `(client: HttpClient): <TData, TError = unknown, TVariables extends BaseVariables = BaseVariables>(config: QueryEndpointRequest<TData, TError, TVariables>) => QueryFunction<TData, TError, TVariables>`
 - `createRequest` (value)
-  - `<TData, TError, TVariables extends BaseVariables>(client: Axios, config: CommonEndpointRequestProps<TData, TError>): (variables: TVariables) => Promise<TData>`
+  - `<TData, TError, TVariables extends BaseVariables>(client: HttpClient, config: EndpointRequest<TData, TError>, callbacks?: EndpointCallbacks<TData, TError>): (variables: TVariables) => Promise<TData>`
 - `createSegmentedControlTokens` (value)
   - `(tokens: PrimitiveThemeTokens): SegmentedControlTokens`
 - `createSliderTokens` (value)
@@ -408,6 +408,11 @@ This package has no directly owned visual components in its public root; use its
   - `(date: Date): Date`
 - `endOfWeek` (value)
   - `(date: Date): Date`
+- `EndpointCallbacks` (type)
+- `EndpointInfiniteQueryOptions` (type)
+- `EndpointMutationOptions` (type)
+- `EndpointQueryKey` (type)
+- `EndpointQueryOptions` (type)
 - `EndpointRequest` (type)
 - `ErrorView` (value)
   - `(props: import("@impulse-ui-native/toolkit").StateContainerProps): import("react").ReactNode`
@@ -532,6 +537,14 @@ This package has no directly owned visual components in its public root; use its
 - `GridDefaultYVisible` (value)
 - `GridProps` (type)
 - `HostName` (type)
+- `HttpBodyMethod` (type)
+- `HttpBodyRequestOptions` (type)
+- `HttpClient` (class)
+- `HttpMethod` (type)
+- `HttpPathParams` (type)
+- `HttpRequest` (type)
+- `HttpRequestOptions` (type)
+- `HttpResponse` (type)
 - `IconButton` (value)
   - `(props: IconButtonProps & { children?: import("react").ReactNode \| undefined; }): import("react").ReactNode`
 - `IconButtonProps` (type)
@@ -1160,6 +1173,31 @@ This package has no directly owned visual components in its public root; use its
   - `<K extends never>(state: {} \| ((prevState: Readonly<{}>, props: Readonly<import("react-native").FlatListProps<ItemT>>) => {} \| Pick<{}, K> \| null) \| Pick<{}, K> \| null, callback?: (() => void) \| undefined): void`
 - `forceUpdate`
   - `(callback?: (() => void) \| undefined): void`
+
+### HttpClient methods
+
+- `request`
+  - `<Data = unknown, Body = unknown>(request: HttpRequest<Body>): Promise<HttpResponse<Data>>`
+- `get`
+  - `<Data = unknown>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<Data>>`
+- `query`
+  - `<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> \| undefined): Promise<HttpResponse<Data>>`
+- `head`
+  - `(url: string, options?: HttpRequestOptions): Promise<HttpResponse<void>>`
+- `post`
+  - `<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> \| undefined): Promise<HttpResponse<Data>>`
+- `put`
+  - `<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> \| undefined): Promise<HttpResponse<Data>>`
+- `delete`
+  - `<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> \| undefined): Promise<HttpResponse<Data>>`
+- `connect`
+  - `(url: string, options?: HttpRequestOptions): Promise<HttpResponse<void>>`
+- `options`
+  - `<Data = unknown>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<Data>>`
+- `trace`
+  - `<Data = unknown>(url: string, options?: HttpRequestOptions): Promise<HttpResponse<Data>>`
+- `patch`
+  - `<Data = unknown, Body = unknown>(url: string, options?: HttpBodyRequestOptions<Body> \| undefined): Promise<HttpResponse<Data>>`
 
 ### OverlayStore methods
 

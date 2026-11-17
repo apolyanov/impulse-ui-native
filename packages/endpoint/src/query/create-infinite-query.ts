@@ -2,21 +2,23 @@ import {
   InfiniteData,
   QueryKey,
   useInfiniteQuery,
-  UseInfiniteQueryOptions,
 } from "@tanstack/react-query";
-import { Axios, AxiosError } from "axios";
 
+import type { HttpClient } from "../http";
 import {
   BaseVariables,
+  EndpointInfiniteQueryOptions,
+  EndpointQueryKey,
   InfiniteQueryEndpointRequest,
   PaginationParams,
 } from "../types";
 import { createRequest } from "../utils";
+import { createEndpointQueryKey } from "../utils/query-key.utils";
 
-export const createInfiniteQueryFactory = (client: Axios) => {
+export const createInfiniteQueryFactory = (client: HttpClient) => {
   return <
     TPage,
-    TError = AxiosError,
+    TError = unknown,
     TVariables extends BaseVariables = BaseVariables,
     TPageParam extends PaginationParams = PaginationParams,
     TQueryKey extends QueryKey = QueryKey,
@@ -29,36 +31,51 @@ export const createInfiniteQueryFactory = (client: Axios) => {
       TQueryKey
     >,
   ) => {
-    const request = createRequest(client, config);
-
     const use = (
       variables: TVariables,
-      options: Omit<
-        UseInfiniteQueryOptions<
-          TPage,
-          TError,
-          InfiniteData<TPage>,
-          TQueryKey,
-          TPageParam
-        >,
-        "queryKey"
+      options: EndpointInfiniteQueryOptions<
+        TPage,
+        TError,
+        TQueryKey,
+        TPageParam
       >,
     ) => {
+      const { onSuccess, onError, ...queryOptions } = options;
+      const request = createRequest<TPage, TError, TVariables>(client, config, {
+        onSuccess,
+        onError,
+      });
+
       return useInfiniteQuery<
         TPage,
         TError,
         InfiniteData<TPage>,
-        TQueryKey,
+        EndpointQueryKey<TQueryKey>,
         TPageParam
       >({
-        ...options,
-        queryKey: config.key,
-        queryFn: (context) =>
-          request(
-            config.variablesFn
-              ? config.variablesFn(context, variables)
-              : variables,
-          ),
+        ...queryOptions,
+        queryKey: createEndpointQueryKey(
+          config.key,
+          variables,
+          queryOptions.queryKey,
+        ),
+        queryFn: (context) => {
+          let requestVariables = variables;
+
+          if (config.variablesFn) {
+            requestVariables = config.variablesFn(context, variables);
+          } else if (
+            typeof context.pageParam === "object" &&
+            context.pageParam !== null
+          ) {
+            requestVariables = {
+              ...variables,
+              params: { ...variables.params, ...context.pageParam },
+            };
+          }
+
+          return request({ ...requestVariables, signal: context.signal });
+        },
       });
     };
 

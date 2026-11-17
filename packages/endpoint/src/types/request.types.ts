@@ -1,12 +1,11 @@
-import type {
-  Query,
-  QueryFunctionContext,
-  QueryKey,
-} from "@tanstack/react-query";
+import type { QueryFunctionContext, QueryKey } from "@tanstack/react-query";
 
-export interface BaseVariables<Data = any> {
+import type { EndpointCallbacks } from "./callback.types";
+import type { HttpRequestOptions } from "./http.types";
+import type { EndpointQueryKey } from "./query.types";
+
+export interface BaseVariables<Data = any> extends HttpRequestOptions {
   data?: Data;
-  params?: QueryParams;
 }
 
 type Primitive = string | number | boolean;
@@ -25,11 +24,10 @@ export interface CommonEndpointRequestProps<
   TData,
   TError,
   TQueryKey extends QueryKey = QueryKey,
-> {
+> extends EndpointCallbacks<TData, TError> {
   path: string;
   key: TQueryKey;
-  onSuccess?: (data: TData) => Promise<void> | void;
-  onError?: (error: TError) => Promise<void> | void;
+  headers?: Readonly<Record<string, string>>;
 }
 
 export interface QueryEndpointRequest<
@@ -37,9 +35,9 @@ export interface QueryEndpointRequest<
   TError,
   TVariables,
   TQueryKey extends QueryKey = QueryKey,
-> extends CommonEndpointRequestProps<TData, TError> {
+> extends CommonEndpointRequestProps<TData, TError, TQueryKey> {
   variablesFn?: (
-    context: QueryFunctionContext<TQueryKey>,
+    context: QueryFunctionContext<EndpointQueryKey<TQueryKey>>,
     variables: TVariables,
   ) => TVariables;
 }
@@ -52,7 +50,7 @@ export interface InfiniteQueryEndpointRequest<
   TQueryKey extends QueryKey = QueryKey,
 > extends CommonEndpointRequestProps<TData, TError, TQueryKey> {
   variablesFn?: (
-    context: QueryFunctionContext<TQueryKey, TPageParam>,
+    context: QueryFunctionContext<EndpointQueryKey<TQueryKey>, TPageParam>,
     variables: TVariables,
   ) => TVariables;
 }
@@ -62,5 +60,4 @@ export interface EndpointRequest<
   TError,
 > extends CommonEndpointRequestProps<TData, TError> {
   method?: "post" | "patch" | "put" | "delete";
-  headers?: Record<string, string>;
 }

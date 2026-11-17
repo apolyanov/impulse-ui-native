@@ -210,7 +210,7 @@ The toolkit aggregates the following component families. Each package reference 
 | Chart composition     | `Bar`, `Grid`, `Label`, `Line`, `Pie`, `XAxis`, `YAxis`; selection, legends and tooltips vary by family | [charts](api/charts.md)                                                     |
 | Global presentation   | `Portal`, `PortalHost`, `PortalsHost`, providers/stores; overlay registration and `OverlayHost`         | [portal](api/portal.md), [overlay](api/overlay.md)                          |
 
-Supporting APIs include state/event/timer and Android Back helpers in [core](api/core.md), typed event channels in [echo](api/echo.md), and Axios/TanStack Query factories in [endpoint](api/endpoint.md). The [theme](api/theme.md) supplies tokens, token factories, styling hooks, state resolvers, and public style types. [toolkit](api/toolkit.md) is an aggregation layer.
+Supporting APIs include state/event/timer and Android Back helpers in [core](api/core.md), typed event channels in [echo](api/echo.md), and HttpClient/TanStack Query factories in [endpoint](api/endpoint.md). The [theme](api/theme.md) supplies tokens, token factories, styling hooks, state resolvers, and public style types. [toolkit](api/toolkit.md) is an aggregation layer.
 
 **Icons are separate from the toolkit.** Import the shared renderer from `@impulse-ui-native/icon` and named wrappers from per-icon paths, such as `@impulse-ui-native/icon/icons/heart`. Weights are `bold`, `duotone`, `fill`, `light`, `regular`, and `thin`. The shared renderer uses themed primary text by default; directly rendered named wrappers need an explicit color. Consult [icon API](api/icon.md) and [icon catalog](icon-catalog.md).
 
@@ -334,7 +334,7 @@ Install `@impulse-ui-native/toolkit`, or individual packages for a narrower depe
 | react-native-svg               | >=13.9.0       |
 | react-native-worklets          | >=0.5          |
 
-These are declared package ranges, not a tested compatibility matrix or a promise that every combination works together. For Expo, resolve native packages against the chosen SDK. Endpoint has additional Axios/TanStack Query peers; per-package requirements are preserved in `package-manifest.json`.
+These are declared package ranges, not a tested compatibility matrix or a promise that every combination works together. For Expo, resolve native packages against the chosen SDK. Endpoint has an additional TanStack Query peer; per-package requirements are preserved in `package-manifest.json`.
 
 The local development catalog currently records React **19.3.0**, React Native **0.88.0**, Expo **58**, Reanimated **4.7.1**, and TypeScript **6.0.3**. These are the repository's development versions, not requirements for the future application's SDK choice.
 

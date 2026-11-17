@@ -1,5 +1,4 @@
-import type { Axios } from "axios";
-
+import type { HttpClient } from "@impulse-ui-native/endpoint";
 import { EchoInstance } from "@impulse-ui-native/echo";
 import { createEndpointFactory } from "@impulse-ui-native/endpoint";
 
@@ -10,7 +9,7 @@ declare module "@impulse-ui-native/echo" {
 }
 
 // Call once with the application's configured client; render query hooks inside QueryClientProvider.
-export function createProjectService(client: Axios) {
+export function createProjectService(client: HttpClient) {
   const endpoint = createEndpointFactory(client);
   const useProjects = endpoint.createQuery<{ id: string; title: string }[]>({
     key: ["recipe-projects"],

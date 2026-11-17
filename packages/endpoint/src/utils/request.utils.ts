@@ -1,24 +1,39 @@
-import { Axios } from "axios";
-
-import { BaseVariables, CommonEndpointRequestProps } from "../types";
-import { ParamsSerializer } from "./params.utils";
+import type { HttpClient } from "../http";
+import type { EndpointCallbacks, HttpResponse } from "../types";
+import { BaseVariables, EndpointRequest } from "../types";
 
 export function createRequest<TData, TError, TVariables extends BaseVariables>(
-  client: Axios,
-  config: CommonEndpointRequestProps<TData, TError>,
+  client: HttpClient,
+  config: EndpointRequest<TData, TError>,
+  callbacks?: EndpointCallbacks<TData, TError>,
 ) {
-  return async function (variables: TVariables) {
+  return async function (variables: TVariables): Promise<TData> {
     try {
-      const response = await client.get<TData, TData, TError>(config.path, {
+      const method = config.method ?? "get";
+      const options = {
         params: variables.params,
-        paramsSerializer: ParamsSerializer,
-      });
+        pathParams: variables.pathParams,
+        headers: { ...config.headers, ...variables.headers },
+        signal: variables.signal,
+      };
+      let response: HttpResponse<TData>;
 
-      config.onSuccess?.(response);
+      if (method === "get") {
+        response = await client.get<TData>(config.path, options);
+      } else {
+        response = await client[method]<TData>(config.path, {
+          ...options,
+          data: variables.data,
+        });
+      }
 
-      return response;
+      await config.onSuccess?.(response.data);
+      await callbacks?.onSuccess?.(response.data);
+
+      return response.data;
     } catch (error) {
-      config.onError?.(error as TError);
+      await config.onError?.(error as TError);
+      await callbacks?.onError?.(error as TError);
 
       throw error;
     }

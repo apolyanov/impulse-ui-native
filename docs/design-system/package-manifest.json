@@ -220,8 +220,7 @@
     "peerDependencies": {
       "react": ">=18",
       "react-native": ">=0.73",
-      "@tanstack/react-query": ">=5.0.0",
-      "axios": ">=1.6.0"
+      "@tanstack/react-query": ">=5.0.0"
     },
     "peerDependenciesMeta": {},
     "exports": {
@@ -231,7 +230,7 @@
         "import": "./dist/index.js"
       }
     },
-    "publicSourceModules": 15,
+    "publicSourceModules": 19,
     "reference": "api/endpoint.md"
   },
   {

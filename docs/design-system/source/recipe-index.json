@@ -825,7 +825,7 @@
     "kind": "infrastructure",
     "story": null,
     "steps": [
-      "Supply an Axios client and render generated hooks under QueryClientProvider.",
+      "Supply an HttpClient implementation and render generated hooks under QueryClientProvider.",
       "Augment EchoEvents before emitting application-specific events; this recipe makes no request by itself."
     ],
     "screenshot": null,

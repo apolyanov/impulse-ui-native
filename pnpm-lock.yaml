@@ -1154,9 +1154,6 @@ importers:
       '@types/react':
         specifier: catalog:react19
         version: 19.3.0
-      axios:
-        specifier: 'catalog:'
-        version: 1.13.2(debug@4.4.3(supports-color@8.1.1))
       eslint:
         specifier: 'catalog:'
         version: 9.39.5(jiti@2.7.0)(supports-color@8.1.1)

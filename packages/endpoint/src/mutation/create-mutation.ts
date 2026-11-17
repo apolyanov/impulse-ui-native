@@ -1,30 +1,48 @@
 import { useMutation } from "@tanstack/react-query";
-import { type Axios, type AxiosError } from "axios";
 
-import { BaseVariables, EndpointRequest, MutationFunction } from "../types";
-import { ParamsSerializer } from "../utils";
+import type { HttpClient } from "../http";
+import {
+  BaseVariables,
+  EndpointMutationOptions,
+  EndpointRequest,
+  MutationFunction,
+} from "../types";
+import { createRequest } from "../utils";
 
-export function createMutationFactory(client: Axios) {
-  return function createQuery<
+export function createMutationFactory(client: HttpClient) {
+  return function createMutation<
     TData,
-    TError = AxiosError,
+    TError = unknown,
     TVariables extends BaseVariables = BaseVariables,
   >(
     config: EndpointRequest<TData, TError>,
   ): MutationFunction<TData, TError, TVariables> {
-    const request = async (variables: TVariables) =>
-      client.request<TData, TData>({
-        url: config.path,
-        method: config.method,
-        data: variables.data,
-        params: variables.params,
-        paramsSerializer: ParamsSerializer,
-      });
+    const requestConfig: EndpointRequest<TData, TError> = {
+      ...config,
+      method: config.method ?? "post",
+    };
+    const request = createRequest<TData, TError, TVariables>(
+      client,
+      requestConfig,
+    );
 
-    const use: MutationFunction<TData, TError, TVariables> = function () {
+    const use: MutationFunction<TData, TError, TVariables> = function (
+      options?: EndpointMutationOptions<TData, TError, TVariables>,
+    ) {
+      const { onSuccess, onError, ...mutationOptions } = options ?? {};
+      const hookRequest = createRequest<TData, TError, TVariables>(
+        client,
+        requestConfig,
+        {
+          onSuccess,
+          onError,
+        },
+      );
+
       return useMutation<TData, TError, TVariables>({
+        ...mutationOptions,
         mutationKey: config.key,
-        mutationFn: request,
+        mutationFn: hookRequest,
       });
     };
 
