@@ -1,5 +1,16 @@
 # @impulse-ui-native/popover
 
+## 18.0.0
+
+### Patch Changes
+
+- @impulse-ui-native/core@18.0.0
+- @impulse-ui-native/icon@18.0.0
+- @impulse-ui-native/overlay@18.0.0
+- @impulse-ui-native/portal@18.0.0
+- @impulse-ui-native/primitives@18.0.0
+- @impulse-ui-native/theme@18.0.0
+
 ## 17.5.1
 
 ### Patch Changes

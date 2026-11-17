@@ -1,5 +1,7 @@
 # @impulse-ui-native/flat-list
 
+## 18.0.0
+
 ## 17.5.1
 
 ### Patch Changes

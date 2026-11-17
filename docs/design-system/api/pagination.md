@@ -1,6 +1,6 @@
 # @impulse-ui-native/pagination
 
-Local package version: 17.5.1. This is a repository snapshot, not a claim about the latest published package.
+Local package version: 18.0.0. This is a repository snapshot, not a claim about the latest published package.
 
 ## Package guide
 
