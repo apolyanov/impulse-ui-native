@@ -1,5 +1,52 @@
 # @impulse-ui-native/toolkit
 
+## 21.0.0
+
+### Major Changes
+
+- d61ee34: Replace the Shopify-scoped Skia peer with react-native-skia ^3.11.0 and migrate canvas sizing to the Skia 3 layout API. Custom useChartCanvas consumers must attach onLayout to Canvas as well as the ref.
+
+  Skia 3 uses Graphite and requires iOS 15.1+ and Android API 26+ with Vulkan 1.1. Expo applications must use a newly built native development client instead of Expo Go. Remove the former Skia package before installing the replacement because they expose the same native module.
+
+### Patch Changes
+
+- Updated dependencies [d61ee34]
+  - @impulse-ui-native/charts@21.0.0
+  - @impulse-ui-native/accordion@21.0.0
+  - @impulse-ui-native/checkbox@21.0.0
+  - @impulse-ui-native/core@21.0.0
+  - @impulse-ui-native/data-state@21.0.0
+  - @impulse-ui-native/datetime@21.0.0
+  - @impulse-ui-native/echo@21.0.0
+  - @impulse-ui-native/endpoint@21.0.0
+  - @impulse-ui-native/flyout@21.0.0
+  - @impulse-ui-native/form-field@21.0.0
+  - @impulse-ui-native/input@21.0.0
+  - @impulse-ui-native/overlay@21.0.0
+  - @impulse-ui-native/pagination@21.0.0
+  - @impulse-ui-native/portal@21.0.0
+  - @impulse-ui-native/primitives@21.0.0
+  - @impulse-ui-native/radio@21.0.0
+  - @impulse-ui-native/segmented-control@21.0.0
+  - @impulse-ui-native/select@21.0.0
+  - @impulse-ui-native/skeleton@21.0.0
+  - @impulse-ui-native/stepper@21.0.0
+  - @impulse-ui-native/switch@21.0.0
+  - @impulse-ui-native/slider@21.0.0
+  - @impulse-ui-native/theme@21.0.0
+  - @impulse-ui-native/carousel@21.0.0
+  - @impulse-ui-native/toast@21.0.0
+  - @impulse-ui-native/card@21.0.0
+  - @impulse-ui-native/list@21.0.0
+  - @impulse-ui-native/progress@21.0.0
+  - @impulse-ui-native/popover@21.0.0
+  - @impulse-ui-native/modal@21.0.0
+  - @impulse-ui-native/tabs@21.0.0
+  - @impulse-ui-native/flat-list@21.0.0
+  - @impulse-ui-native/scroll-view@21.0.0
+  - @impulse-ui-native/color-picker@21.0.0
+  - @impulse-ui-native/icon-view@21.0.0
+
 ## 20.0.0
 
 ### Major Changes
