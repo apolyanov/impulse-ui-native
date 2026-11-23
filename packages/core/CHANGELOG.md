@@ -1,5 +1,7 @@
 # @impulse-ui-native/core
 
+## 20.0.0
+
 ## 19.1.0
 
 ### Minor Changes

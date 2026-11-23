@@ -1,5 +1,13 @@
 # @impulse-ui-native/radio
 
+## 20.0.0
+
+### Patch Changes
+
+- @impulse-ui-native/core@20.0.0
+- @impulse-ui-native/primitives@20.0.0
+- @impulse-ui-native/theme@20.0.0
+
 ## 19.1.0
 
 ### Patch Changes

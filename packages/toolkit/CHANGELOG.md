@@ -1,5 +1,53 @@
 # @impulse-ui-native/toolkit
 
+## 20.0.0
+
+### Major Changes
+
+- 4cb6b03: Correct native peer minimums: require Reanimated 4.1 with Worklets, propagate React Native floors through runtime dependencies, and require React 19 and Worklets 0.7 for Skia charts. Declare Storybook's direct animation tooling dependencies.
+
+  These constraints remove unsupported version combinations; native version pairing still requires platform build verification.
+
+### Patch Changes
+
+- 4cb6b03: Correct installation and root setup instructions for Keyboard Controller, clarify native compatibility verification, and document the transport-independent endpoint API.
+- Updated dependencies [4cb6b03]
+  - @impulse-ui-native/accordion@20.0.0
+  - @impulse-ui-native/charts@20.0.0
+  - @impulse-ui-native/color-picker@20.0.0
+  - @impulse-ui-native/data-state@20.0.0
+  - @impulse-ui-native/flyout@20.0.0
+  - @impulse-ui-native/modal@20.0.0
+  - @impulse-ui-native/overlay@20.0.0
+  - @impulse-ui-native/popover@20.0.0
+  - @impulse-ui-native/progress@20.0.0
+  - @impulse-ui-native/skeleton@20.0.0
+  - @impulse-ui-native/slider@20.0.0
+  - @impulse-ui-native/switch@20.0.0
+  - @impulse-ui-native/toast@20.0.0
+  - @impulse-ui-native/datetime@20.0.0
+  - @impulse-ui-native/select@20.0.0
+  - @impulse-ui-native/checkbox@20.0.0
+  - @impulse-ui-native/core@20.0.0
+  - @impulse-ui-native/echo@20.0.0
+  - @impulse-ui-native/endpoint@20.0.0
+  - @impulse-ui-native/form-field@20.0.0
+  - @impulse-ui-native/input@20.0.0
+  - @impulse-ui-native/pagination@20.0.0
+  - @impulse-ui-native/portal@20.0.0
+  - @impulse-ui-native/primitives@20.0.0
+  - @impulse-ui-native/radio@20.0.0
+  - @impulse-ui-native/segmented-control@20.0.0
+  - @impulse-ui-native/stepper@20.0.0
+  - @impulse-ui-native/theme@20.0.0
+  - @impulse-ui-native/carousel@20.0.0
+  - @impulse-ui-native/card@20.0.0
+  - @impulse-ui-native/list@20.0.0
+  - @impulse-ui-native/tabs@20.0.0
+  - @impulse-ui-native/flat-list@20.0.0
+  - @impulse-ui-native/scroll-view@20.0.0
+  - @impulse-ui-native/icon-view@20.0.0
+
 ## 19.1.0
 
 ### Patch Changes
