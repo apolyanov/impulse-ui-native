@@ -6,6 +6,11 @@ are documented in their owning packages.
 
 Last reviewed: 2026-10-12
 
+Skia migration (2026-11-23): chart rendering now targets `react-native-skia`
+^3.11.0 and Graphite. The chart families require fresh iOS/Android development
+builds, with Android API 26+ and Vulkan 1.1. Native visual and gesture validation
+after this migration remains pending; Expo Go's Skia 2 is not supported.
+
 ## Current platform scope
 
 Component development targets native iOS and Android. The website and React

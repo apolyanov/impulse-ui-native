@@ -1,4 +1,4 @@
-import { SkTextFontFeatures } from "@shopify/react-native-skia";
+import { SkTextFontFeatures } from "react-native-skia";
 
 import { LabelHorizontalAlignment, LabelVerticalAlignment } from "../types";
 

@@ -1,4 +1,4 @@
-import { Skia, SkPath } from "@shopify/react-native-skia";
+import { Skia, SkPath } from "react-native-skia";
 
 import { GridDefaultOpacity, GridDefaultWidth } from "../constants";
 import {

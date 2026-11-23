@@ -44,7 +44,7 @@ function loadSource(relativePath) {
       return { Platform: platform };
     }
 
-    if (specifier === "@shopify/react-native-skia") {
+    if (specifier === "react-native-skia") {
       return {};
     }
 

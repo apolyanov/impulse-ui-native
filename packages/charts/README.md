@@ -5,7 +5,7 @@ Skia-rendered chart components and primitives for Impulse UI Native.
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/charts @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-worklets
+pnpm add @impulse-ui-native/charts react-native-skia react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
 Complete Skia, Gesture Handler, Reanimated, and Worklets native setup before rendering a chart. Wrap the application in `GestureHandlerRootView` and `ThemeProvider`. Charts require React >=19, React Native >=0.79 with the New Architecture, Gesture Handler >=2, Reanimated >=4.1, and Worklets >=0.7. Select mutually compatible native library versions; these minimums alone do not establish compatibility. See the [native dependency compatibility notes](../../docs/native-dependencies.md).
@@ -141,7 +141,9 @@ import { MultiPieChart } from "@impulse-ui-native/charts";
 
 ## Native prerequisite
 
-Chart APIs require `@shopify/react-native-skia` version 2 or newer.
+Chart APIs require `react-native-skia` ^3.11.0. This replaces the former Shopify-scoped package; remove that package before installing the new one because both provide the same native module.
+
+Skia 3 uses Graphite and requires iOS 15.1+ and Android API 26+ with Vulkan 1.1. Expo applications need a development build; Expo Go contains Skia 2. Configure Android `minSdkVersion: 26` through `expo-build-properties` when using Expo prebuild, then rebuild both platforms. Devices without Vulkan cannot render the charts. See the [Skia migration guide](https://wcandillon.github.io/react-native-skia/docs/getting-started/migration/).
 
 ## Theme customization
 
@@ -298,9 +300,9 @@ provider, as do the visual primitives.
 | `ChartLegend` / `ChartTooltip`              | Native presentation for explicit legend items/toggle callbacks or selection details.                   |
 
 For a custom canvas, `useChartCanvas` returns `ref`, `size`, and `onLayout`.
-Attach `onLayout` to the native view containing the canvas so layout changes
-update the model; the initial Skia measurement remains available for existing
-ref-only consumers.
+Attach both `ref` and `onLayout` to the Skia `Canvas` so initial layout and
+subsequent size changes update the model. The size starts at zero until the
+first layout event; attaching only the ref no longer measures the canvas.
 
 ## Architecture and consistency
 

@@ -5,7 +5,7 @@ Consume most library packages through one application import.
 ## Setup
 
 - Install toolkit and its native peers, including react-native-keyboard-controller. Mount KeyboardProvider above the application and Portal/Overlay hosts for Select and keyboard-aware Flyout bodies.
-- Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds.
+- Skia charts require react-native-skia ^3.11.0, iOS 15.1+, Android API 26+ with Vulkan 1.1, and an Expo development build. Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds.
 
 ## Capabilities
 
@@ -30,7 +30,7 @@ Optional refers to the package manifest; individual features may still require t
 
 | Peer                               | Range      | Optional |
 | ---------------------------------- | ---------- | -------- |
-| `@shopify/react-native-skia`       | `>=2`      | No       |
+| `react-native-skia`                | `^3.11.0`  | No       |
 | `react`                            | `>=19`     | No       |
 | `react-native`                     | `>=0.82`   | No       |
 | `react-native-gesture-handler`     | `>=3.0.0`  | No       |
@@ -303,7 +303,7 @@ This package has no directly owned visual components in its public root; use its
 - `createPaginationTokens` (value)
   - `(tokens: PrimitiveThemeTokens): PaginationTokens`
 - `createParagraphBuilder` (value)
-  - `(props: CreateParagraphBuilderProps): import("@shopify/react-native-skia").SkParagraphBuilder`
+  - `(props: CreateParagraphBuilderProps): import("react-native-skia").SkParagraphBuilder`
 - `createPieChartHitTargets` (value)
   - `(coordinates: readonly PieChartCoordinate[], colors: readonly string[], seriesId?: string, label?: string): ChartHitTarget[]`
 - `createPieChartLegend` (value)
@@ -1030,7 +1030,7 @@ This package has no directly owned visual components in its public root; use its
 - `useBorder` (hook)
   - `(): BorderSize`
 - `useChartCanvas` (hook)
-  - `(): { ref: import("react").RefObject<import("@shopify/react-native-skia").CanvasRef \| null>; size: ChartSize; onLayout: (event: Readonly<{ bubbles: boolean \| undefined; cancelable: boolean \| undefined; currentTarget: number \| import("react-native").HostInstance; defaultPrevented: boolean \| undefined; dispatchConfig: Readonly<{ registrationName: string; }>; eventPhase: number \| undefined; preventDefault: () => void; isDefaultPrevented: () => boolean; stopPropagation: () => void; isPropagationStopped: () => boolean; isTrusted: boolean \| undefined; nativeEvent: Readonly<{ layout: Readonly<{ x: number; y: number; width: number; height: number; }>; }>; persist: () => void; target: (number \| undefined) \| import("react-native").HostInstance; timeStamp: number; type: string \| undefined; }>) => void; }`
+  - `(): { ref: import("react").RefObject<import("react-native-skia").CanvasRef \| null>; size: import("react-native-skia").SkSize; onLayout: (event: import("react-native").LayoutChangeEvent) => void; }`
 - `useChartLayout` (hook)
   - `(size: ChartSize, insets?: Partial<ChartInsets>, defaultInsets?: Partial<ChartInsets>): ChartLayout`
 - `useChartPresentation` (hook)

@@ -71,7 +71,7 @@
     "@impulse-ui-native/icon-view": "workspace:*"
   },
   "devDependencies": {
-    "@shopify/react-native-skia": "catalog:",
+    "react-native-skia": "catalog:",
     "@impulse-ui-native/eslint-config": "workspace:*",
     "@impulse-ui-native/prettier-config": "workspace:*",
     "@impulse-ui-native/tsconfig": "workspace:*",
@@ -89,7 +89,7 @@
     "react-native-keyboard-controller": "catalog:"
   },
   "peerDependencies": {
-    "@shopify/react-native-skia": ">=2",
+    "react-native-skia": "^3.11.0",
     "react": ">=19",
     "react-native": ">=0.82",
     "react-native-gesture-handler": ">=3.0.0",

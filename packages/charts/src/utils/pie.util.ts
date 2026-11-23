@@ -1,4 +1,4 @@
-import { Skia, SkPath } from "@shopify/react-native-skia";
+import { Skia, SkPath } from "react-native-skia";
 import { arc } from "d3-shape";
 
 import { PieChartCoordinate } from "../types";

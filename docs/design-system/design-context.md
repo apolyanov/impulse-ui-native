@@ -323,18 +323,24 @@ Flyout retains its keyboard-expanded height and body padding throughout dismissa
 
 Install `@impulse-ui-native/toolkit`, or individual packages for a narrower dependency surface. Install the separate icon package when using named icons. The toolkit's current manifest declares these peers:
 
-| Peer                           | Declared range |
-| ------------------------------ | -------------- |
-| react                          | >=18           |
-| react-native                   | >=0.73         |
-| @shopify/react-native-skia     | >=2            |
-| react-native-gesture-handler   | >=2.0.0        |
-| react-native-reanimated        | >=4            |
-| react-native-safe-area-context | >=5.0.0        |
-| react-native-svg               | >=13.9.0       |
-| react-native-worklets          | >=0.5          |
+| Peer                             | Declared range |
+| -------------------------------- | -------------- |
+| react                            | >=19           |
+| react-native                     | >=0.82         |
+| react-native-skia                | ^3.11.0        |
+| react-native-gesture-handler     | >=3.0.0        |
+| react-native-reanimated          | >=4.1.0        |
+| react-native-safe-area-context   | >=5.0.0        |
+| react-native-svg                 | >=13.9.0       |
+| react-native-worklets            | >=0.7          |
+| react-native-keyboard-controller | >=1.22.0       |
 
 These are declared package ranges, not a tested compatibility matrix or a promise that every combination works together. For Expo, resolve native packages against the chosen SDK. Endpoint has an additional TanStack Query peer; per-package requirements are preserved in `package-manifest.json`.
+
+Skia 3 uses Graphite and requires iOS 15.1+ and Android API 26+ with Vulkan 1.1.
+Use a native development build for Expo; Expo Go's bundled Skia 2 cannot run
+the current charts. Remove the previous Shopify-scoped package before installing
+`react-native-skia`, since both supply the same native module.
 
 The local development catalog currently records React **19.3.0**, React Native **0.88.0**, Expo **58**, Reanimated **4.7.1**, and TypeScript **6.0.3**. These are the repository's development versions, not requirements for the future application's SDK choice.
 

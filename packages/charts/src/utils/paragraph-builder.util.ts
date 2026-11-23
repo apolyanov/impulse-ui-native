@@ -2,7 +2,7 @@ import {
   Skia,
   SkParagraphStyle,
   SkTypefaceFontProvider,
-} from "@shopify/react-native-skia";
+} from "react-native-skia";
 
 interface CreateParagraphBuilderProps {
   paragraphStyle?: SkParagraphStyle;

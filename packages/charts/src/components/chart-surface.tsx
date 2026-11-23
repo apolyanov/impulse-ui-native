@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { StyleSheet } from "react-native";
 import { GestureDetector } from "react-native-gesture-handler";
-import { Canvas, Circle, Group } from "@shopify/react-native-skia";
+import { Canvas, Circle, Group } from "react-native-skia";
 
 import type { AppTheme } from "@impulse-ui-native/theme";
 import { memo } from "@impulse-ui-native/core";
@@ -70,10 +70,14 @@ export const ChartSurface = memo(function ChartSurface({
 
   return (
     <View style={styles.container}>
-      <View style={styles.canvasContainer} onLayout={canvas.onLayout}>
+      <View style={styles.canvasContainer}>
         <GestureDetector gesture={gesture}>
           <View style={styles.canvas} collapsable={false}>
-            <Canvas ref={canvas.ref} style={styles.canvas}>
+            <Canvas
+              ref={canvas.ref}
+              onLayout={canvas.onLayout}
+              style={styles.canvas}
+            >
               {hasPlot ? children : null}
               {showSelection ? (
                 <Group clip={selectionClip}>

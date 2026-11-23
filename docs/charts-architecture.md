@@ -133,8 +133,11 @@ galleries are the visual acceptance surface for iOS and Android.
 
 ## Runtime setup and public API
 
-Install `@impulse-ui-native/charts` and its host peers: React `>=18`, React Native `>=0.73`,
-Skia `>=2`, Gesture Handler `>=2`, Reanimated `>=4`, and Worklets `>=0.5`.
+Install `@impulse-ui-native/charts` and its host peers: React `>=19`, React Native `>=0.79`,
+`react-native-skia` `^3.11.0`, Gesture Handler `>=2`, Reanimated `>=4.1`, and Worklets `>=0.7`.
+Skia 3 uses Graphite: iOS 15.1+, Android API 26+ with Vulkan 1.1, and an Expo
+development build are required. Remove the previous Shopify-scoped package;
+the old and new packages must not be installed together.
 The package directly depends on `core`, `theme`, and `primitives`, plus
 D3 array, scale, and shape packages. Complete native gesture/runtime setup;
 D3 interpolation and time helpers arrive through transitive dependencies.
@@ -197,8 +200,9 @@ than mutating them in place: memoization depends on immutable input references.
 7. Layout or data changes recompute affected models. Selection changes reuse
    model geometry and update markers and the tooltip.
 
-`useChartCanvas` combines Skia's initial canvas measurement with native
-`onLayout` updates. Repeated dimensions retain the previous state object.
+`useChartCanvas` combines Skia 3's canvas ref with its layout-driven size hook.
+Attach `onLayout` to `Canvas` as well as the ref. Size begins at zero, and both
+initial layout and resize events update it. Repeated dimensions retain the previous state object.
 `createChartLayout` normalizes dimensions and insets to nonnegative finite
 values and proportionally shrinks excessive horizontal or vertical insets.
 The result includes `size`, resolved `insets`, `plot`, `xAxis`, and `yAxis`.
@@ -219,7 +223,7 @@ Native ChartText, ChartTooltip, and legend components remain in the application
 React tree and can use theme hooks normally.
 
 ```tsx
-import { Canvas } from "@shopify/react-native-skia";
+import { Canvas } from "react-native-skia";
 
 import { Line, useLineChart } from "@impulse-ui-native/charts";
 import { useTheme } from "@impulse-ui-native/theme";

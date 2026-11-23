@@ -14,7 +14,7 @@
     ],
     "setup": [
       "Install toolkit and its native peers, including react-native-keyboard-controller. Mount KeyboardProvider above the application and Portal/Overlay hosts for Select and keyboard-aware Flyout bodies.",
-      "Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds."
+      "Skia charts require react-native-skia ^3.11.0, iOS 15.1+, Android API 26+ with Vulkan 1.1, and an Expo development build. Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds."
     ],
     "recipes": ["app-shell"]
   },
@@ -2011,7 +2011,7 @@
       },
       "signatures": [
         {
-          "text": "(props: CreateParagraphBuilderProps): import(\"@shopify/react-native-skia\").SkParagraphBuilder",
+          "text": "(props: CreateParagraphBuilderProps): import(\"react-native-skia\").SkParagraphBuilder",
           "abbreviated": false
         }
       ]
@@ -4614,7 +4614,7 @@
       "kind": "value",
       "source": {
         "file": "packages/charts/src/components/primitives/line.tsx",
-        "line": 21
+        "line": 16
       },
       "signatures": [
         {
@@ -8106,11 +8106,11 @@
       "kind": "hook",
       "source": {
         "file": "packages/charts/src/hooks/use-chart-canvas.hook.ts",
-        "line": 9
+        "line": 4
       },
       "signatures": [
         {
-          "text": "(): { ref: import(\"react\").RefObject<import(\"@shopify/react-native-skia\").CanvasRef | null>; size: ChartSize; onLayout: (event: Readonly<{ bubbles: boolean | undefined; cancelable: boolean | undefined; currentTarget: number | import(\"react-native\").HostInstance; defaultPrevented: boolean | undefined; dispatchConfig: Readonly<{ registrationName: string; }>; eventPhase: number | undefined; preventDefault: () => void; isDefaultPrevented: () => boolean; stopPropagation: () => void; isPropagationStopped: () => boolean; isTrusted: boolean | undefined; nativeEvent: Readonly<{ layout: Readonly<{ x: number; y: number; width: number; height: number; }>; }>; persist: () => void; target: (number | undefined) | import(\"react-native\").HostInstance; timeStamp: number; type: string | undefined; }>) => void; }",
+          "text": "(): { ref: import(\"react\").RefObject<import(\"react-native-skia\").CanvasRef | null>; size: import(\"react-native-skia\").SkSize; onLayout: (event: import(\"react-native\").LayoutChangeEvent) => void; }",
           "abbreviated": false
         }
       ]
@@ -8900,7 +8900,7 @@
     "@impulse-ui-native/icon-view": "workspace:*"
   },
   "peerDependencies": {
-    "@shopify/react-native-skia": ">=2",
+    "react-native-skia": "^3.11.0",
     "react": ">=19",
     "react-native": ">=0.82",
     "react-native-gesture-handler": ">=3.0.0",

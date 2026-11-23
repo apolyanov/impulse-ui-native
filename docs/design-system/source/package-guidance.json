@@ -55,7 +55,7 @@
       ],
       "setup": [
         "ThemeProvider and GestureHandlerRootView.",
-        "Install/configure Skia, Gesture Handler, Reanimated and Worklets peers."
+        "Install/configure react-native-skia ^3.11.0, Gesture Handler, Reanimated and Worklets peers. Skia 3 requires iOS 15.1+, Android API 26+ with Vulkan 1.1, and an Expo development build; Expo Go is not supported."
       ],
       "recipes": ["metrics"]
     },
@@ -569,7 +569,7 @@
       ],
       "setup": [
         "Install toolkit and its native peers, including react-native-keyboard-controller. Mount KeyboardProvider above the application and Portal/Overlay hosts for Select and keyboard-aware Flyout bodies.",
-        "Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds."
+        "Skia charts require react-native-skia ^3.11.0, iOS 15.1+, Android API 26+ with Vulkan 1.1, and an Expo development build. Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds."
       ],
       "recipes": ["app-shell"]
     }

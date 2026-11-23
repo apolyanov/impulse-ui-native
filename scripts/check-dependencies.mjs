@@ -116,7 +116,7 @@ function checkPackage(pkg, ancestors = new Set()) {
     requireMinimum(pkg, "react-native", ">=0.82");
   }
 
-  if (peers["@shopify/react-native-skia"]) {
+  if (peers["react-native-skia"]) {
     requireMinimum(pkg, "react", ">=19");
     requireMinimum(pkg, "react-native", ">=0.79");
     requireMinimum(pkg, "react-native-worklets", ">=0.7");

@@ -1,4 +1,4 @@
-import { FontWeight } from "@shopify/react-native-skia";
+import { FontWeight } from "react-native-skia";
 
 export type ChartStrokeCap = "butt" | "round" | "square";
 

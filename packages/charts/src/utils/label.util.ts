@@ -1,4 +1,4 @@
-import { TextAlign } from "@shopify/react-native-skia";
+import { TextAlign } from "react-native-skia";
 
 import {
   ChartRect,

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { DashPathEffect, Group, Path } from "@shopify/react-native-skia";
+import { DashPathEffect, Group, Path } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 

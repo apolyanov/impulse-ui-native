@@ -5,7 +5,7 @@ import {
   Skia,
   SkTextFontFeatures,
   SkTextStyle,
-} from "@shopify/react-native-skia";
+} from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 

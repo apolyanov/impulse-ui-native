@@ -1,5 +1,5 @@
 import { Fragment, useMemo } from "react";
-import { Group } from "@shopify/react-native-skia";
+import { Group } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 

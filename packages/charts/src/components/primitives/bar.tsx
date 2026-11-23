@@ -1,4 +1,4 @@
-import { Group, RoundedRect } from "@shopify/react-native-skia";
+import { Group, RoundedRect } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 

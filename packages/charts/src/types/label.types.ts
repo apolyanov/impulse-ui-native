@@ -1,4 +1,4 @@
-import { FontWeight, SkTypefaceFontProvider } from "@shopify/react-native-skia";
+import { FontWeight, SkTypefaceFontProvider } from "react-native-skia";
 
 import { AppTheme } from "@impulse-ui-native/theme";
 

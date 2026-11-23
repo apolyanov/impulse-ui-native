@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Group, Path } from "@shopify/react-native-skia";
+import { Group, Path } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 

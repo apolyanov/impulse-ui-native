@@ -1,4 +1,4 @@
-import { Skia, SkPath } from "@shopify/react-native-skia";
+import { Skia, SkPath } from "react-native-skia";
 import { line as createD3Line, curveLinear, curveMonotoneX } from "d3-shape";
 
 import {

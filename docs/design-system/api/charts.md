@@ -11,7 +11,7 @@ Skia-rendered chart components and primitives for Impulse UI Native.
 ## Installation
 
 ```sh
-pnpm add @impulse-ui-native/charts @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-worklets
+pnpm add @impulse-ui-native/charts react-native-skia react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
 Complete Skia, Gesture Handler, Reanimated, and Worklets native setup before rendering a chart. Wrap the application in `GestureHandlerRootView` and `ThemeProvider`. Charts require React >=19, React Native >=0.79 with the New Architecture, Gesture Handler >=2, Reanimated >=4.1, and Worklets >=0.7. Select mutually compatible native library versions; these minimums alone do not establish compatibility. See the [native dependency compatibility notes](https://github.com/apolyanov/impulse-ui-native/blob/main/docs/native-dependencies.md).
@@ -147,7 +147,9 @@ import { MultiPieChart } from "@impulse-ui-native/charts";
 
 ## Native prerequisite
 
-Chart APIs require `@shopify/react-native-skia` version 2 or newer.
+Chart APIs require `react-native-skia` ^3.11.0. This replaces the former Shopify-scoped package; remove that package before installing the new one because both provide the same native module.
+
+Skia 3 uses Graphite and requires iOS 15.1+ and Android API 26+ with Vulkan 1.1. Expo applications need a development build; Expo Go contains Skia 2. Configure Android `minSdkVersion: 26` through `expo-build-properties` when using Expo prebuild, then rebuild both platforms. Devices without Vulkan cannot render the charts. See the [Skia migration guide](https://wcandillon.github.io/react-native-skia/docs/getting-started/migration/).
 
 ## Theme customization
 
@@ -304,9 +306,9 @@ provider, as do the visual primitives.
 | `ChartLegend` / `ChartTooltip`              | Native presentation for explicit legend items/toggle callbacks or selection details.                   |
 
 For a custom canvas, `useChartCanvas` returns `ref`, `size`, and `onLayout`.
-Attach `onLayout` to the native view containing the canvas so layout changes
-update the model; the initial Skia measurement remains available for existing
-ref-only consumers.
+Attach both `ref` and `onLayout` to the Skia `Canvas` so initial layout and
+subsequent size changes update the model. The size starts at zero until the
+first layout event; attaching only the ref no longer measures the canvas.
 
 ## Architecture and consistency
 
@@ -378,7 +380,7 @@ The following modules are reachable through relative re-exports from this packag
 
 ```tsx
 import { useMemo } from "react";
-import { Group } from "@shopify/react-native-skia";
+import { Group } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -650,7 +652,7 @@ export { LineChart } from "./line-chart";
 
 ```tsx
 import { useMemo } from "react";
-import { Group } from "@shopify/react-native-skia";
+import { Group } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -719,7 +721,7 @@ export { MultiBarChart } from "./multi-bar-chart";
 
 ```tsx
 import { useMemo } from "react";
-import { Group } from "@shopify/react-native-skia";
+import { Group } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -816,7 +818,7 @@ export { MultiLineChart } from "./multi-line-chart";
 
 ```tsx
 import { useMemo } from "react";
-import { Group } from "@shopify/react-native-skia";
+import { Group } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -1044,7 +1046,7 @@ export const PieChart = memo(function PieChart(props: PieChartProps) {
 ### packages/charts/src/components/primitives/bar.tsx
 
 ```tsx
-import { Group, RoundedRect } from "@shopify/react-native-skia";
+import { Group, RoundedRect } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -1099,7 +1101,7 @@ export const Bar = memo(function Bar<X extends ChartXValue = string>(
 
 ```tsx
 import { useMemo } from "react";
-import { DashPathEffect, Group, Path } from "@shopify/react-native-skia";
+import { DashPathEffect, Group, Path } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -1218,7 +1220,7 @@ import {
   Skia,
   SkTextFontFeatures,
   SkTextStyle,
-} from "@shopify/react-native-skia";
+} from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -1337,12 +1339,7 @@ export const Label = memo(function Label(props: LabelProps) {
 
 ```tsx
 import { useMemo } from "react";
-import {
-  Circle,
-  DashPathEffect,
-  Group,
-  Path,
-} from "@shopify/react-native-skia";
+import { Circle, DashPathEffect, Group, Path } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -1421,7 +1418,7 @@ export const Line = memo(function Line<X extends ChartXValue = number>(
 
 ```tsx
 import { useMemo } from "react";
-import { Group, Path } from "@shopify/react-native-skia";
+import { Group, Path } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 
@@ -1607,7 +1604,7 @@ export * from "./pie.constants";
 ### packages/charts/src/constants/label.constants.ts
 
 ```tsx
-import { SkTextFontFeatures } from "@shopify/react-native-skia";
+import { SkTextFontFeatures } from "react-native-skia";
 
 import { LabelHorizontalAlignment, LabelVerticalAlignment } from "../types";
 
@@ -1726,29 +1723,12 @@ export function useBarChart<X extends ChartXValue = string>(
 ### packages/charts/src/hooks/use-chart-canvas.hook.ts
 
 ```tsx
-import type { LayoutChangeEvent } from "react-native";
-import { useMemo, useState } from "react";
-import { useCanvasRef, useCanvasSize } from "@shopify/react-native-skia";
-
-import { useEventCallback } from "@impulse-ui-native/core";
-
-import type { ChartSize } from "../types";
+import { useMemo } from "react";
+import { useCanvasRef, useCanvasSize } from "react-native-skia";
 
 export function useChartCanvas() {
-  const [layoutSize, setLayoutSize] = useState<ChartSize | null>(null);
   const ref = useCanvasRef();
-  const { size: initialSize } = useCanvasSize(ref);
-  const size = layoutSize ?? initialSize;
-
-  const onLayout = useEventCallback((event: LayoutChangeEvent) => {
-    const { width, height } = event.nativeEvent.layout;
-
-    setLayoutSize((previous) =>
-      previous?.width === width && previous.height === height
-        ? previous
-        : { width, height },
-    );
-  });
+  const { size, onLayout } = useCanvasSize();
 
   return useMemo(() => ({ ref, size, onLayout }), [ref, size, onLayout]);
 }
@@ -2097,7 +2077,7 @@ export * from "./utils";
 ### packages/charts/src/types/axis.types.ts
 
 ```tsx
-import { SkTypefaceFontProvider } from "@shopify/react-native-skia";
+import { SkTypefaceFontProvider } from "react-native-skia";
 
 import { AppTheme } from "@impulse-ui-native/theme";
 
@@ -2313,7 +2293,7 @@ export interface BarChartScaleModel<
 ### packages/charts/src/types/common.types.ts
 
 ```tsx
-import type { SkTypefaceFontProvider } from "@shopify/react-native-skia";
+import type { SkTypefaceFontProvider } from "react-native-skia";
 
 import type { ChartPresentationProps } from "./chart-interaction.types";
 import type { ChartGridOptions } from "./grid.types";
@@ -2486,7 +2466,7 @@ export * from "./distribution-bar.types";
 ### packages/charts/src/types/label.types.ts
 
 ```tsx
-import { FontWeight, SkTypefaceFontProvider } from "@shopify/react-native-skia";
+import { FontWeight, SkTypefaceFontProvider } from "react-native-skia";
 
 import { AppTheme } from "@impulse-ui-native/theme";
 
@@ -2751,7 +2731,7 @@ export interface PieProps extends PieChartSliceOptions {
 ### packages/charts/src/types/style.types.ts
 
 ```tsx
-import { FontWeight } from "@shopify/react-native-skia";
+import { FontWeight } from "react-native-skia";
 
 export type ChartStrokeCap = "butt" | "round" | "square";
 
@@ -3654,7 +3634,7 @@ export function createChartStrokeClip(
 ### packages/charts/src/utils/grid.util.ts
 
 ```tsx
-import { Skia, SkPath } from "@shopify/react-native-skia";
+import { Skia, SkPath } from "react-native-skia";
 
 import { GridDefaultOpacity, GridDefaultWidth } from "../constants";
 import {
@@ -3799,7 +3779,7 @@ export { createPieSlicePath } from "./pie.util";
 ### packages/charts/src/utils/label.util.ts
 
 ```tsx
-import { TextAlign } from "@shopify/react-native-skia";
+import { TextAlign } from "react-native-skia";
 
 import {
   ChartRect,
@@ -4044,7 +4024,7 @@ function getNumericDomain(values: readonly number[]): ChartNumericDomain {
 ### packages/charts/src/utils/line.util.ts
 
 ```tsx
-import { Skia, SkPath } from "@shopify/react-native-skia";
+import { Skia, SkPath } from "react-native-skia";
 import { line as createD3Line, curveLinear, curveMonotoneX } from "d3-shape";
 
 import {
@@ -4343,7 +4323,7 @@ import {
   Skia,
   SkParagraphStyle,
   SkTypefaceFontProvider,
-} from "@shopify/react-native-skia";
+} from "react-native-skia";
 
 interface CreateParagraphBuilderProps {
   paragraphStyle?: SkParagraphStyle;
@@ -4487,7 +4467,7 @@ function isValidPieChartPoint(datum: PieChartPoint): boolean {
 ### packages/charts/src/utils/pie.util.ts
 
 ```tsx
-import { Skia, SkPath } from "@shopify/react-native-skia";
+import { Skia, SkPath } from "react-native-skia";
 import { arc } from "d3-shape";
 
 import { PieChartCoordinate } from "../types";

@@ -41,6 +41,7 @@ try {
       "--test",
       join(output, "models.mjs"),
       join(root, "scripts/charts-gesture-tests.mjs"),
+      join(root, "scripts/charts-canvas-tests.mjs"),
     ],
     { stdio: "inherit" },
   );

@@ -36,7 +36,15 @@
         "backgroundColor": "#ffffff"
       }
     ],
-    "./plugins/with-compatible-scene-delegate.cjs"
+    "./plugins/with-compatible-scene-delegate.cjs",
+    [
+      "expo-build-properties",
+      {
+        "android": {
+          "minSdkVersion": 26
+        }
+      }
+    ]
   ],
   "experiments": {
     "reactCompiler": true,

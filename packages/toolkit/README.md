@@ -43,17 +43,19 @@ pnpm add @impulse-ui-native/toolkit
 Install its native peers:
 
 ```sh
-pnpm add @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets react-native-keyboard-controller
+pnpm add react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets react-native-keyboard-controller
 ```
 
 In an Expo application, use:
 
 ```sh
-npx expo install @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets react-native-keyboard-controller
+npx expo install react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets react-native-keyboard-controller
 npm install @impulse-ui-native/toolkit
 ```
 
 Complete the platform setup required by Gesture Handler, Reanimated, Worklets, Skia, Safe Area Context, and Keyboard Controller for the versions used by your project. Native applications must be rebuilt after adding native dependencies.
+
+The toolkit requires `react-native-skia` ^3.11.0, which uses Graphite. Remove the former Shopify-scoped Skia package before installing it. Applications need iOS 15.1+ and Android API 26+ with Vulkan 1.1. Expo Go's bundled Skia 2 cannot run these charts; use a fresh native development build. For Expo prebuild, install `expo-build-properties` and add `["expo-build-properties", { "android": { "minSdkVersion": 26 } }]` to the app's plugins. React Native's iOS minimum already meets Skia's deployment requirement.
 
 The endpoint factories use TanStack Query and require an application-level `QueryClientProvider`. Supply a concrete `HttpClient` implementation for your chosen transport; Axios is not required by the library:
 

@@ -30,8 +30,7 @@
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/datetimepicker": "catalog:",
     "@react-native-community/slider": "catalog:",
-    "@shopify/flash-list": "catalog:",
-    "@shopify/react-native-skia": "catalog:",
+    "react-native-skia": "catalog:",
     "@impulse-ui-native/overlay": "workspace:*",
     "@impulse-ui-native/toolkit": "workspace:*",
     "expo": "catalog:",
@@ -52,7 +51,8 @@
     "react-native-worklets": "catalog:",
     "expo-font": "catalog:",
     "@expo-google-fonts/montserrat": "catalog:",
-    "react-native-keyboard-controller": "catalog:"
+    "react-native-keyboard-controller": "catalog:",
+    "expo-build-properties": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

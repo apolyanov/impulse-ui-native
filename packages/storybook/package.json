@@ -68,7 +68,7 @@
     "@impulse-ui-native/switch": "workspace:*",
     "@impulse-ui-native/slider": "workspace:*",
     "@impulse-ui-native/tsconfig": "workspace:*",
-    "@shopify/react-native-skia": "catalog:",
+    "react-native-skia": "catalog:",
     "@storybook/react": "^10.0.0",
     "@types/react": "catalog:react19",
     "eslint": "catalog:",

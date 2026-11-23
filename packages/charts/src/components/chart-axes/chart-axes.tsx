@@ -1,4 +1,4 @@
-import { SkTypefaceFontProvider } from "@shopify/react-native-skia";
+import { SkTypefaceFontProvider } from "react-native-skia";
 
 import { memo } from "@impulse-ui-native/core";
 import { AppTheme } from "@impulse-ui-native/theme";
