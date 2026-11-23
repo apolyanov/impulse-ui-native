@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { test } from "node:test";
+import { fileURLToPath } from "node:url";
 import { runInThisContext } from "node:vm";
 import ts from "typescript";
 
@@ -533,10 +534,12 @@ for (const kind of ["query", "infinite query", "mutation"]) {
 }
 
 test("hook callback options infer payload and error types across all factories", () => {
-  const file = new URL(
-    "../packages/endpoint/src/hook-callback.contract-check.ts",
-    import.meta.url,
-  ).pathname;
+  const file = fileURLToPath(
+    new URL(
+      "../packages/endpoint/src/hook-callback.contract-check.ts",
+      import.meta.url,
+    ),
+  ).replaceAll("\\", "/");
   const source = `
     import { createEndpointFactory } from './factories/create-endpoint.factory';
     import type { HttpClient } from './http';

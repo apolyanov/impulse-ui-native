@@ -31,8 +31,8 @@ Optional refers to the package manifest; individual features may still require t
 | Peer                      | Range     | Optional |
 | ------------------------- | --------- | -------- |
 | `react`                   | `>=18`    | No       |
-| `react-native`            | `>=0.73`  | No       |
-| `react-native-reanimated` | `>=3.6.0` | No       |
+| `react-native`            | `>=0.78`  | No       |
+| `react-native-reanimated` | `>=4.1.0` | No       |
 | `react-native-worklets`   | `>=0.5`   | No       |
 
 ### Switch

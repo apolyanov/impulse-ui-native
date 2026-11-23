@@ -12,7 +12,13 @@
       "dependsOn": ["^lint"]
     },
     "check-types": {
-      "dependsOn": ["^check-types"]
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "cache": false
     },
     "dev": {
       "cache": false,

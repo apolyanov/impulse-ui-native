@@ -8,7 +8,7 @@ Skia-rendered chart components and primitives for Impulse UI Native.
 pnpm add @impulse-ui-native/charts @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-worklets
 ```
 
-Complete Skia, Gesture Handler, Reanimated, and Worklets native setup before rendering a chart. Wrap the application in `GestureHandlerRootView` and `ThemeProvider`. Charts require Gesture Handler >=2, Reanimated >=4, and Worklets >=0.5 for native gesture ownership.
+Complete Skia, Gesture Handler, Reanimated, and Worklets native setup before rendering a chart. Wrap the application in `GestureHandlerRootView` and `ThemeProvider`. Charts require React >=19, React Native >=0.79 with the New Architecture, Gesture Handler >=2, Reanimated >=4.1, and Worklets >=0.7. Select mutually compatible native library versions; these minimums alone do not establish compatibility. See the [native dependency compatibility notes](../../docs/native-dependencies.md).
 
 ## Components
 

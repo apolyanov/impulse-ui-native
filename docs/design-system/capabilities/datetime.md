@@ -32,7 +32,7 @@ Optional refers to the package manifest; individual features may still require t
 | Peer           | Range    | Optional |
 | -------------- | -------- | -------- |
 | `react`        | `>=18`   | No       |
-| `react-native` | `>=0.73` | No       |
+| `react-native` | `>=0.82` | No       |
 
 ### DatePicker
 

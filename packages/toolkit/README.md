@@ -24,11 +24,13 @@ The complete Impulse UI Native component library in one package.
 
 ## Requirements
 
-- React 18 or newer.
-- React Native 0.73 or newer.
+- React 19 or newer.
+- React Native 0.82 or newer, using the New Architecture.
 - The native peer dependencies listed below.
 
-The toolkit supports the React Native versions expressed by its peer dependencies. When using Expo, install native packages with `expo install` so Expo selects versions compatible with the SDK in your application.
+These are declared peer minimums, not a compatibility matrix for every combination of React Native and native libraries. The workspace currently uses Expo SDK 58, React Native 0.88, and React 19.3. Check each native peer's requirements, including architecture requirements, for your application. When using Expo, install native packages with `expo install`, confirm that the selected versions also satisfy the toolkit's peer ranges, and verify an iOS and Android development build.
+
+Reanimated must be 4.1 or newer and paired with a compatible Worklets release; the toolkit requires Worklets 0.7 or newer because it includes Skia charts. See the [native dependency compatibility notes](../../docs/native-dependencies.md) for the workspace tuple and verification limits.
 
 ## Installation
 
@@ -41,22 +43,22 @@ pnpm add @impulse-ui-native/toolkit
 Install its native peers:
 
 ```sh
-pnpm add @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
+pnpm add @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets react-native-keyboard-controller
 ```
 
 In an Expo application, use:
 
 ```sh
-npx expo install @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets
+npx expo install @shopify/react-native-skia react-native-gesture-handler react-native-reanimated react-native-safe-area-context react-native-svg react-native-worklets react-native-keyboard-controller
 npm install @impulse-ui-native/toolkit
 ```
 
-Complete the platform setup required by Gesture Handler, Reanimated, Worklets, Skia, and Safe Area Context for the versions used by your project. Native applications must be rebuilt after adding native dependencies.
+Complete the platform setup required by Gesture Handler, Reanimated, Worklets, Skia, Safe Area Context, and Keyboard Controller for the versions used by your project. Native applications must be rebuilt after adding native dependencies.
 
-The endpoint factories are included in the toolkit but have two additional peers. Install them only when using the endpoint API:
+The endpoint factories use TanStack Query and require an application-level `QueryClientProvider`. Supply a concrete `HttpClient` implementation for your chosen transport; Axios is not required by the library:
 
 ```sh
-pnpm add axios @tanstack/react-query
+pnpm add @tanstack/react-query
 ```
 
 Icons are intentionally distributed separately so the toolkit does not expose thousands of icon modules from its root. Install the icon package when needed:
@@ -71,6 +73,7 @@ Mount the providers and global renderers once at the application root. This is t
 
 ```tsx
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 
@@ -91,15 +94,17 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <ThemeProvider>
-          <OverlayProvider store={overlayStore}>
-            <PortalProvider store={portalStore}>
-              <Stack />
-              <OverlayHost />
-              <PortalsHost />
-            </PortalProvider>
-          </OverlayProvider>
-        </ThemeProvider>
+        <KeyboardProvider>
+          <ThemeProvider>
+            <OverlayProvider store={overlayStore}>
+              <PortalProvider store={portalStore}>
+                <Stack />
+                <OverlayHost />
+                <PortalsHost />
+              </PortalProvider>
+            </OverlayProvider>
+          </ThemeProvider>
+        </KeyboardProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
@@ -108,15 +113,16 @@ export default function RootLayout() {
 
 Keep `overlayStore` and `portalStore` outside the component so the same stores survive every render. In an application that does not use Expo Router, replace `<Stack />` with your navigator or root application content and keep the surrounding hierarchy unchanged.
 
-| Root element             | Purpose                                                                  |
-| ------------------------ | ------------------------------------------------------------------------ |
-| `GestureHandlerRootView` | Enables native gesture handling for flyouts and gesture-driven controls. |
-| `SafeAreaProvider`       | Supplies safe-area measurements to primitives and overlays.              |
-| `ThemeProvider`          | Supplies primitive, semantic, and component design tokens.               |
-| `OverlayProvider`        | Connects imperative overlays to the stable `OverlayStore`.               |
-| `PortalProvider`         | Connects the tree to the stable `PortalStore`.                           |
-| `OverlayHost`            | Renders components registered through the app-wide overlay store.        |
-| `PortalsHost`            | Renders content sent to the default portal host.                         |
+| Root element             | Purpose                                                                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `GestureHandlerRootView` | Enables native gesture handling for flyouts and gesture-driven controls.                                     |
+| `SafeAreaProvider`       | Supplies safe-area measurements to primitives and overlays.                                                  |
+| `KeyboardProvider`       | Supplies keyboard state to Select and keyboard-aware Flyout bodies, including content rendered by the hosts. |
+| `ThemeProvider`          | Supplies primitive, semantic, and component design tokens.                                                   |
+| `OverlayProvider`        | Connects imperative overlays to the stable `OverlayStore`.                                                   |
+| `PortalProvider`         | Connects the tree to the stable `PortalStore`.                                                               |
+| `OverlayHost`            | Renders components registered through the app-wide overlay store.                                            |
+| `PortalsHost`            | Renders content sent to the default portal host.                                                             |
 
 `OverlayHost` and `PortalsHost` should be siblings of the navigator and children of their matching providers. Mount only one of each at the root.
 

@@ -205,10 +205,24 @@ Run the repository checks before opening a pull request:
 
 ```sh
 pnpm check-types
-pnpm -r typecheck
+pnpm test
+pnpm deps:check
 pnpm lint
 pnpm build
 ```
+
+`pnpm check-types` runs the libraries' and tooling's `typecheck` tasks and the
+site's `check-types` task. Turbo builds workspace dependencies first so their
+declarations are available on a fresh checkout. For a single library, use
+`pnpm exec turbo run typecheck --filter=@impulse-ui-native/input`.
+
+`pnpm test` runs all package test commands, including the async state, HTTP
+client, Input ref, chart model/gesture, Flyout, overlay, and Popover suites.
+These automated checks do not replace native device testing.
+
+`pnpm deps:check` checks source imports against package declarations, dependency
+cycles, and the native peer minimums. See [native dependency compatibility](docs/native-dependencies.md)
+for version pairing requirements and known verification gaps.
 
 Format TypeScript, TSX, and Markdown files with:
 

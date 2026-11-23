@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import type { ColorScheme } from "@impulse-ui-native/theme";
@@ -21,13 +22,15 @@ export function AppShellRecipe({
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <ThemeProvider scheme={scheme}>
-          <PortalProvider store={portals}>
-            <OverlayProvider store={overlays}>
-              <RecipeSurface>{children}</RecipeSurface>
-            </OverlayProvider>
-          </PortalProvider>
-        </ThemeProvider>
+        <KeyboardProvider>
+          <ThemeProvider scheme={scheme}>
+            <PortalProvider store={portals}>
+              <OverlayProvider store={overlays}>
+                <RecipeSurface>{children}</RecipeSurface>
+              </OverlayProvider>
+            </PortalProvider>
+          </ThemeProvider>
+        </KeyboardProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

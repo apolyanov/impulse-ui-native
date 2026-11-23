@@ -4,7 +4,8 @@ Consume most library packages through one application import.
 
 ## Setup
 
-- Install toolkit and required peers for the features used; providers are still explicit.
+- Install toolkit and its native peers, including react-native-keyboard-controller. Mount KeyboardProvider above the application and Portal/Overlay hosts for Select and keyboard-aware Flyout bodies.
+- Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds.
 
 ## Capabilities
 
@@ -30,13 +31,13 @@ Optional refers to the package manifest; individual features may still require t
 | Peer                               | Range      | Optional |
 | ---------------------------------- | ---------- | -------- |
 | `@shopify/react-native-skia`       | `>=2`      | No       |
-| `react`                            | `>=18`     | No       |
-| `react-native`                     | `>=0.73`   | No       |
+| `react`                            | `>=19`     | No       |
+| `react-native`                     | `>=0.82`   | No       |
 | `react-native-gesture-handler`     | `>=3.0.0`  | No       |
-| `react-native-reanimated`          | `>=4`      | No       |
+| `react-native-reanimated`          | `>=4.1.0`  | No       |
 | `react-native-safe-area-context`   | `>=5.0.0`  | No       |
 | `react-native-svg`                 | `>=13.9.0` | No       |
-| `react-native-worklets`            | `>=0.5`    | No       |
+| `react-native-worklets`            | `>=0.7`    | No       |
 | `react-native-keyboard-controller` | `>=1.22.0` | No       |
 
 This package has no directly owned visual components in its public root; use its exports below. Toolkit re-exports the owning packages.

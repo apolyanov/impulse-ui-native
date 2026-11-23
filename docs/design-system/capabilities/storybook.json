@@ -131,7 +131,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.73"
+    "react-native": ">=0.78"
   },
   "peerDependenciesMeta": {},
   "reference": "api/storybook.md",

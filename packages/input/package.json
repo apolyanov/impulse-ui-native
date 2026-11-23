@@ -30,6 +30,7 @@
   "scripts": {
     "build": "tsup --config tsup.config.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test ../../scripts/input-ref-tests.mjs",
     "lint": "pnpm exec eslint . --fix",
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path ../../.prettierignore"
   },

@@ -568,7 +568,8 @@
         "Capability records are owned by individual packages; do not assume all exports share size/variant/tone."
       ],
       "setup": [
-        "Install toolkit and required peers for the features used; providers are still explicit."
+        "Install toolkit and its native peers, including react-native-keyboard-controller. Mount KeyboardProvider above the application and Portal/Overlay hosts for Select and keyboard-aware Flyout bodies.",
+        "Peer minimums do not establish compatibility for every native dependency combination; verify the selected versions in iOS and Android builds."
       ],
       "recipes": ["app-shell"]
     }

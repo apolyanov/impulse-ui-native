@@ -766,7 +766,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.73"
+    "react-native": ">=0.82"
   },
   "peerDependenciesMeta": {},
   "reference": "api/select.md",

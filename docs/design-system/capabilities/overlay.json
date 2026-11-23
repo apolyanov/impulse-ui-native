@@ -571,8 +571,8 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.73",
-    "react-native-reanimated": ">=4",
+    "react-native": ">=0.78",
+    "react-native-reanimated": ">=4.1.0",
     "react-native-worklets": ">=0.5"
   },
   "peerDependenciesMeta": {},

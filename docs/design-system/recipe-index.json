@@ -9,6 +9,7 @@
     "story": null,
     "steps": [
       "Load configured fonts before rendering themed text.",
+      "Install native peers and mount KeyboardProvider above the application and Portal/Overlay hosts.",
       "Switch scheme explicitly; keep the portal and overlay stores stable."
     ],
     "screenshot": null,

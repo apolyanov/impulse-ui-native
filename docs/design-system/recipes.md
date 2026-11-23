@@ -28,6 +28,7 @@ Every library package is covered. The TS/TSX sources below are typechecked again
 Source: [recipes/app-shell.tsx](recipes/app-shell.tsx).
 
 - Load configured fonts before rendering themed text.
+- Install native peers and mount KeyboardProvider above the application and Portal/Overlay hosts.
 - Switch scheme explicitly; keep the portal and overlay stores stable.
 
 Verification: typechecked; setup or behavior example; no standalone visual capture.
@@ -38,6 +39,7 @@ Native screenshot: not captured. Do not treat this recipe's typecheck or story r
 import type { PropsWithChildren } from "react";
 import { useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import type { ColorScheme } from "@impulse-ui-native/theme";
@@ -58,13 +60,15 @@ export function AppShellRecipe({
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-        <ThemeProvider scheme={scheme}>
-          <PortalProvider store={portals}>
-            <OverlayProvider store={overlays}>
-              <RecipeSurface>{children}</RecipeSurface>
-            </OverlayProvider>
-          </PortalProvider>
-        </ThemeProvider>
+        <KeyboardProvider>
+          <ThemeProvider scheme={scheme}>
+            <PortalProvider store={portals}>
+              <OverlayProvider store={overlays}>
+                <RecipeSurface>{children}</RecipeSurface>
+              </OverlayProvider>
+            </PortalProvider>
+          </ThemeProvider>
+        </KeyboardProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

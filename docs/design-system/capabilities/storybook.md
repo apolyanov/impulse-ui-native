@@ -30,7 +30,7 @@ Optional refers to the package manifest; individual features may still require t
 | Peer           | Range    | Optional |
 | -------------- | -------- | -------- |
 | `react`        | `>=18`   | No       |
-| `react-native` | `>=0.73` | No       |
+| `react-native` | `>=0.78` | No       |
 
 This package has no directly owned visual components in its public root; use its exports below. Toolkit re-exports the owning packages.
 

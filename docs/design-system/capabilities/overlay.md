@@ -29,12 +29,12 @@ Exact contracts: [API reference](../api/overlay.md). Machine facts: [package JSO
 
 Optional refers to the package manifest; individual features may still require that peer at runtime.
 
-| Peer                      | Range    | Optional |
-| ------------------------- | -------- | -------- |
-| `react`                   | `>=18`   | No       |
-| `react-native`            | `>=0.73` | No       |
-| `react-native-reanimated` | `>=4`    | No       |
-| `react-native-worklets`   | `>=0.5`  | No       |
+| Peer                      | Range     | Optional |
+| ------------------------- | --------- | -------- |
+| `react`                   | `>=18`    | No       |
+| `react-native`            | `>=0.78`  | No       |
+| `react-native-reanimated` | `>=4.1.0` | No       |
+| `react-native-worklets`   | `>=0.5`   | No       |
 
 ### OverlayContext
 
